@@ -1,1 +1,1 @@
-# Material-Discord-Assets
+# BetterDiscord
