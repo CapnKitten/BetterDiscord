@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.2.4.2
+* Changed the scrollbars
+* Codeblocks are now monospace
+* Updated various elements that Discord changed
+* Better positioning of the user popout
+
 #### v1.2.4
 * Updated the styling for Spotify
 * Change the Discord logo to Material Discord
