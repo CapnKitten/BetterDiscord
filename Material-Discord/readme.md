@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.2.5
+* Added status tooltips
+* Streaming status fix
+* New button to open images in browser
+* Public servers updated
+* Updated cards in most of user and BetterDiscord settings
+
 #### v1.2.4.6
 * Fixed channels scrollbar issue
 * Temporarily fixed DM reactions
