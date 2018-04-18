@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v.1.2.5.1
+* Fixed a bug when mentioning offline users
+* Styled server invite
+
 #### v1.2.5
 * Added status tooltips
 * Streaming status fixed
