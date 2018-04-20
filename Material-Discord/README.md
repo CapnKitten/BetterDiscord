@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.2.5.3
+* Updated elements that Discord changed
+
 #### v1.2.5.1
 * Fixed a bug when mentioning offline users
 * Styled server invite
