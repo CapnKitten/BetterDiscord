@@ -4,6 +4,7 @@
 	--card-color: #1e2024;
 	--alert-color: #f04747;
 	--main-color: #16171a;
+	--chat-color: #202225;
 	--popout-color: #202225;
 	--popout-alt: #2c2f33;
 	--server-bg: #232327;
@@ -140,13 +141,12 @@
 	background-color: var(--accent-rgb) !important;
 }
 
-/* */
+/* POPOUT BACKGROUND[IMPORTANT] */
 
 .create-guild-container.deprecated .action,
 .chat,
 .chat>.content,
 .friends-table,
-.messages-wrapper,
 .search-results-wrap .search-result .hit,
 .search-results-wrap .search-result.expanded .search-result-message.hit,
 .regionSelectModal-QBpi1R .regionSelectModalOption-3giLPN,
@@ -175,6 +175,10 @@
 .group-3SxASV,
 .inviteModal-1di4Hk .scroller {
 	background: var(--popout-color) !important;
+}
+
+.messages-wrapper {
+	background: var(--chat-color) !important;
 }
 
 /* APP DEFAULT BACKGROUND [IMPORTANT] */
@@ -219,7 +223,7 @@ body,
 .diversitySelector-O3ea2c .popout-2lja3I,
 .menu-3BZuDT,
 .small-popout-box,
-.search-popout,
+.searchPopout-38pRYh,
 .gameSelector-24sFfz,
 .quickswitcher-2NdiGJ,
 .themed-popout .header,
@@ -242,7 +246,7 @@ body,
 .footer-2J5zqP,
 .popout-2RRwAO section,
 .themed-popout,
-.messages-popout-wrap,
+.messagesPopoutWrap-1VBR-j,
 .themed-popout .header {
 	background-color: var(--popout-alt) !important;
 }
@@ -336,10 +340,16 @@ body,
 #autocomplete-popout .row:hover,
 .menu-3BZuDT .item-rK1j5B:hover,
 .option-popout .btn-item:hover,
-.search-popout .option.selected,
-.search-popout .search-option.selected .filter,
+.searchPopout-38pRYh .option.selected,
+.searchPopout-38pRYh .search-option.selected .filter,
 .attachPopoutRow-elxASe:hover {
 	background: var(--hover-color) !important;
+}
+
+/* REMOVE SHADOW */
+
+.menu-3BZuDT {
+	box-shadow: none !important;
 }
 
 /* SHADOW_1 */
@@ -403,7 +413,6 @@ body,
 .guilds-wrapper .guilds .guild.unread:before,
 .diversitySelector-O3ea2c .popout-2lja3I,
 .chat .jump-to-present-bar,
-.small-popout-box,
 #autocomplete-popout .autocomplete-arrow,
 .theme-dark #autocomplete-popout .autocomplete-shadow,
 .unreadBar-3lDSDn,
@@ -420,8 +429,7 @@ body,
 .userPopout-11hFKo,
 .menu-3BZuDT,
 .theme-dark .themed-popout,
-.messages-popout-wrap,
-.search-popout,
+.messagesPopoutWrap-1VBR-j,
 .root-2sNHUF,
 .regionSelectModal-QBpi1R,
 .uploadModal-2KN6Mm,
@@ -433,11 +441,14 @@ body,
 .theme-dark .elevationHigh-3XXATs,
 .theme-dark .modal-3HOjGZ,
 .inner-1_1f7b .imageWrapper-38T7d9,
+.small-popout-box,
 .inviteModal-1di4Hk {
 	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 
-.gamePreview-4pQzIA {
+.gamePreview-4pQzIA,
+.messagesPopoutWrap-1VBR-j,
+.searchPopout-38pRYh {
 	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -456,7 +467,7 @@ body,
 .chat .new-messages-bar button,
 .chat form,
 .emojiPicker-3g68GS .search-bar.search-bar-light input,
-.messages-popout .message-group .action-buttons,
+.messagesPopout-MzE43I .message-group .action-buttons,
 .search-results-wrap .search-result .hit,
 .buttonLinkLink-PqcWoA,
 .buttonPrimaryLinkDefault-1PQflF,
@@ -484,9 +495,9 @@ body,
 .userPopout-11hFKo,
 .menu-3BZuDT,
 .small-popout-box,
-.messages-popout-wrap .messages-popout .message-group .comment,
-.search-popout,
-.search-popout .search-option .filter,
+.messagesPopoutWrap-1VBR-j .messagesPopout-MzE43I .message-group .comment,
+.searchPopout-38pRYh,
+.searchPopout-38pRYh .search-option .filter,
 .tooltip,
 .root-2sNHUF,
 .regionSelectModal-QBpi1R,
@@ -525,7 +536,10 @@ body,
 .container-2oeFrl,
 .group-3SxASV,
 .theme-dark .modal-3HOjGZ,
-.inviteModal-1di4Hk {
+.inviteModal-1di4Hk,
+.userPopout-4pfA0d,
+.userPopout-11hFKo,
+.themedPopout-1uUNjn {
 	border-radius: 2px !important;
 }
 
@@ -3087,7 +3101,6 @@ body .Select-option:hover {
 	position: relative !important;
 	width: 300px !important;
 	max-height: 90% !important;
-	border-radius: 2px !important;
 }
 
 /*.popout-2RRwAO.popoutLeft-3EZ_zL {
@@ -3822,13 +3835,13 @@ body .Select-option:hover {
 
 .popout-2RRwAO.popoutBottom-U6AdMj[style*="overflow: hidden; visibility: visible;"],
 .private-channel-recipients-invite,
-.messages-popout-wrap,
-.search-popout {
+.messagesPopoutWrap-1VBR-j,
+.searchPopout-38pRYh {
 	animation: top-pop-out 400ms cubic-bezier(0.35,0.35,0,1) !important;
 }
 
 body:active .private-channel-recipients-invite:not(:active),
-body:active .messages-popout-wrap:not(:active),
+body:active .messagesPopoutWrap-1VBR-j:not(:active),
 body:active .attachPopout-gjwHsr:not(:active),
 body:active #autocomplete-popout:not(:active),
 body:active .emojiPicker-3g68GS:not(:active),
@@ -3972,13 +3985,13 @@ body:active .menu-3BZuDT:not(:active) {
 }
 
 .small-popout-box {
-	width: 96px;
+	width: 128px;
 	padding: 8px 0;
 	border: none;
 }
 
 .option-popout .btn-item {
-	padding: 8px 12px;
+	padding: 12px 12px;
 	text-align: left;
 	color: #aaa;
 	font-size: 0.8em;
@@ -4003,20 +4016,32 @@ body:active .menu-3BZuDT:not(:active) {
 	border-color: transparent !important;
 }
 
-.messages-popout-wrap .messages-popout .message-group {
+.messagesPopoutWrap-1VBR-j {
+	border: none !important;
+}
+
+/* PINNED MESSAGES -> HEADER */
+
+.messagesPopoutWrap-1VBR-j .header-y_zptc {
+	box-shadow: none !important;
+}
+
+/* PINNED MESSAGES -> MESSAGES */
+
+.messagesPopoutWrap-1VBR-j .messagesPopout-MzE43I .message-group {
 	padding: 14px 0 !important;
 	background: transparent !important;
 	border: none !important;
 }
 
-.messages-popout-wrap .messages-popout .message-group .comment {
+.messagesPopoutWrap-1VBR-j .messagesPopout-MzE43I .message-group .comment {
 	position: relative !important;
 	padding: 12px !important;
 	background: #1c1e21 !important;
 	border-top-left-radius: 0 !important;
 }
 
-.messages-popout-wrap .messages-popout .message-group .comment:before {
+.messagesPopoutWrap-1VBR-j .messagesPopout-MzE43I .message-group .comment:before {
 	content: " ";
 	position: absolute;
 	width: 0;
@@ -4031,23 +4056,29 @@ body:active .menu-3BZuDT:not(:active) {
 	transform: rotate(135deg);
 }
 
-.messages-popout-wrap .messages-popout .message-group .message:before {
+.messagesPopoutWrap-1VBR-j .messagesPopout-MzE43I .message-group .message:before {
 	display: none !important;
 	opacity: 0 !important;
 }
 
-.messages-popout .message-group .action-buttons {
-	margin: 12px -4px 0 0;
+.messagesPopout-MzE43I .message-group .actionButtons-LKmOj2 {
+	margin: 12px 12px 0 0;
 	background: transparent !important;
+	box-shadow: none !important;
 }
 
-.theme-dark .messages-popout-wrap .messages-popout .message-group .action-buttons .jump-button {
-	background: #2f3438;
+.messagesPopoutWrap-1VBR-j .messagesPopout-MzE43I .message-group .actionButtons-LKmOj2 .jumpButton-1CVJpO {
+	background: rgba(255,255,255,0.1) !important;
 	color: #999 !important;
 }
 
-.theme-dark .themed-popout .header .subtitle,
-.theme-dark .themed-popout .text {
+.messagesPopoutWrap-1VBR-j .messagesPopout-MzE43I .message-group .actionButtons-LKmOj2 .jumpButton-1CVJpO:hover {
+	background: rgba(255,255,255,0.15) !important;
+	color: #aaa !important;
+}
+
+.themedPopout-1uUNjn .header .subtitle,
+.themedPopout-1uUNjn .text {
 	color: #ccc !important;
 }
 
@@ -4064,33 +4095,38 @@ body:active .menu-3BZuDT:not(:active) {
 	border-radius: 0 !important;
 }
 
-.search-popout .option::after {
+.searchPopout-38pRYh {
+	border: none !important;
+}
+
+.searchPopout-38pRYh .option-1MvVr1::after {
 	background: transparent !important;
 }
 
-.search-popout .option:active {
+.searchPopout-38pRYh .option-1MvVr1:hover,
+.searchPopout-38pRYh .option-1MvVr1:active {
 	background: var(--hover-color) !important;
 }
 
-.search-popout .option.selected::after {
+.searchPopout-38pRYh .option-1MvVr1.selected-_bTXUG::after {
 	background: transparent !important;
 }
 
-.search-popout .search-option .filter {
+.searchPopout-38pRYh .searchOption-vKNX73 .filter-3kZ3tT {
 	margin: -4px 2px -4px -4px;
 	padding: 4px;
 }
 
-.search-popout .search-option .filter,
-.search-popout .search-option.selected .filter {
+.searchPopout-38pRYh .searchOption-vKNX73 .filter-3kZ3tT,
+.searchPopout-38pRYh .searchOption-vKNX73.selected-_bTXUG .filter-3kZ3tT {
 	color: #fff;
 }
 
-.search-popout .results-group::before {
+.searchPopout-38pRYh ..resultsGroup-2qzvNj::before {
 	display: none !important;
 }
 
-.search-popout .search-query {
+.searchPopout-38pRYh .search-query {
 	border: none;
 }
 
