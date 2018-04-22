@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.2.6
+* Reactions menu animation fixed
+* More card updates
+* Connection integrations styled
+* Settings side bar changed
+
 #### v1.2.5.5
 * Updated elements that Discord changed
 
