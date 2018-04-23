@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.2.6.1
+* Emoji menu updated
+* Typing status positioning fixed
+* Create/join server icon centered
+
 #### v1.2.6
 * Reactions menu animation fixed
 * More card updates
