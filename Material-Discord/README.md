@@ -2,7 +2,7 @@
 
 ## Changelog
 
-#### v1.2.7.2
+#### v1.2.7.3
 * Updated elements that Discord changed (If I missed any, please let me know)
 
 #### v1.2.6.1
