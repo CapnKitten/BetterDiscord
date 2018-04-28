@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.2.7
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v1.2.6.1
 * Emoji menu updated
 * Typing status positioning fixed
