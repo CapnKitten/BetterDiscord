@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.2.8
+* Load more messages button changed
+* Mentions updated
+* DMs separator added
+* Slider bar grabber tooltip fixed
+* Fix for [DevilBro's](https://github.com/mwittrien) theme and plugin repos
+
 #### v1.2.7.7
 * Updated elements that Discord changed (If I missed any, please let me know)
 
