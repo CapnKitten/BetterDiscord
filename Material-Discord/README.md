@@ -2,7 +2,7 @@
 
 ## Changelog
 
-#### v1.2.8
+#### v1.2.8.1
 * Load more messages button changed
 * Mentions updated
 * DMs separator added
