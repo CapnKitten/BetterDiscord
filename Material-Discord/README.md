@@ -3,6 +3,7 @@
 ## Changelog
 
 #### v1.2.8.2
+* Changed the emote switch buttons
 * Updated elements that Discord changed
 
 #### v1.2.8.1
