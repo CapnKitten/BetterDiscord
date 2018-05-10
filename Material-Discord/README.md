@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.2.8.2
+* Updated elements that Discord changed
+
 #### v1.2.8.1
 * Load more messages button changed
 * Mentions updated
