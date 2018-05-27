@@ -2,6 +2,14 @@
 
 ## Changelog
 
+#### v1.2.9
+* Emoji panel border radius with the emote menu enabled fixed
+* Pinned messages and mentions popouts height limited to 85vh
+* Added shadow animation to colored buttons
+* Create a server interface updated
+* File upload progress styled
+* Some Material Design 2 elements added
+
 #### v1.2.8.3
 * Changed the emote switch buttons
 * Updated elements that Discord changed
