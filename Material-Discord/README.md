@@ -2,6 +2,15 @@
 
 ## Changelog
 
+#### v1.3.0
+* Spotify invite updated
+* NSFW alert updated
+* Members list padding changed
+* Server invites and ban list updated
+* Games list animated
+* Audit log icons updated
+* Attachment and emoji buttons fixed
+
 #### v1.2.9
 * Emoji panel border radius with the emote menu enabled fixed
 * Pinned messages and mentions popouts height limited to 85vh
