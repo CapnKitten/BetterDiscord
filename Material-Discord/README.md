@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.3.1
+* Game center styled
+* Status picker fixed after update
+* Toasts styled
+* Now playing games buttons in user settings fixed
+* Open original image button updated
+
 #### v1.3.0
 * Spotify invite updated
 * NSFW alert updated
