@@ -2,6 +2,14 @@
 
 ## Changelog
 
+#### v1.3.1.2
+* Game center carousel pagination for smaller screens styled
+* Game center game popout carousel styled
+* Game preview modal updated to remove whitespace
+* Updated small popout menu for messages
+* Imbeded video play button updated
+* Status changer with colorblind mode on updated
+
 #### v1.3.1
 * Game center styled
 * Status picker fixed after update
