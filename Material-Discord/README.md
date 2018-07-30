@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.3.3.2
+* Various message fixes
+* Invited modal updated
+* Add friends to DM updated
+* Mention notifications updated
+* Search users DM modal updated
+
 #### v1.3.3
 * Updated elements that Discord changed (If I missed any, please let me know)
 * Compact messages updated
