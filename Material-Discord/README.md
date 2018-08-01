@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.3.3.4
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Connection issue interface updated
+
 #### v1.3.3.2
 * Various message fixes
 * Invited modal updated
