@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.3.4.2
+* Game center title bar added
+* Game center small carousel pagination buttons fixed
+* Add friend searching updated
+* Jump to present updated
+* Status picker animation fixed
+
 #### v1.3.4
 * Updated elements that Discord changed (If I missed any, please let me know)
 * Various popout menu animations updated
