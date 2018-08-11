@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.3.4.5
+* Billing styled
+* Overlay settings styled
+
 #### v1.3.4.2
 * Game center title bar added
 * Game center small carousel pagination buttons fixed
