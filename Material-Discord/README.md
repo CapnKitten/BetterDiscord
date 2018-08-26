@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.3.4.8
+* Quick switcher updated
+* Guilds error fixed
+* Server down icon updated
+* Game center carousel arrow buttons fixed
+
 #### v1.3.4.6
 * Billing styled
 * Overlay settings styled
