@@ -6,7 +6,7 @@ class MaterialDiscordRipple {
 	getVersion() {return "1.0";}
 	getAuthor() {return "CapnKitten";}
 	getLink() {
-		return 'https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Material-Discord-Ripple/MaterialDiscordRipple.plugin.js'
+		return 'https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Material-Discord-Ripple/MaterialDiscordRipple.plugin.js?v=1.0'
     }
 
 	constructor() {
