@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.0.4
+* Fixed mention menu from NSFW warning update
+* Public server cards updated
+* Adding roles popout fixed
+
 #### v1.0.2
 * User settings connections updated
 * Server search updated
