@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.3.4.10
+* Button sizes updated
+* Search results header bar updated
+* Spotify song link fixed
+* AFK channel popout menu fixed
+
 #### v1.3.4.8
 * Quick switcher updated
 * Guilds error fixed
