@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.3.5
+* Handful of animations updated
+* ImageGallary plugin by DevilBro updated
+* Voice call buttons updated
+* Server settings add/remove user roles tooltip fixed
+
 #### v1.3.4.10
 * Button sizes updated
 * Search results header bar updated
