@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.3.5.1
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v1.3.5
 * Handful of animations updated
 * ImageGallary plugin by DevilBro updated
