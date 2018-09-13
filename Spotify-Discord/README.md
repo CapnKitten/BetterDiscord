@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.0.4.1
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Clicked buttons updated
+
 #### v1.0.4
 * Fixed mention menu from NSFW warning update
 * Public server cards updated
