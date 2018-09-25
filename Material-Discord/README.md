@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.3.5.2
+* NSFW warning update
+* Imbeded YouTube video play button fixed
+* Nitro notification updated
+
 #### v1.3.5.1
 * Updated elements that Discord changed (If I missed any, please let me know)
 
