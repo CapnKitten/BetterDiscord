@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.1.0
+* Discord game store styled
+* New game library tab upadted
+* Slowmode notification updated
+
 #### v1.0.4.1
 * Updated elements that Discord changed (If I missed any, please let me know)
 * Clicked buttons updated
