@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.4.0
+* Discord game store styled
+* New game library tab upadted
+* Slowmode notification updated
+
 #### v1.3.5.2
 * NSFW warning update
 * Imbeded YouTube video play button fixed
