@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.1.1
+* Colors updated to match Spotify's recent update
+* Buttons updated
+
 #### v1.1.0
 * Discord game store styled
 * New game library tab upadted
