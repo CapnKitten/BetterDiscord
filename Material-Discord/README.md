@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.4.1
+* Discord game store home and game listing pages made more fluid for larger displays
+* Various search bars updated to Material Design 2
+* New messages banner updated
+
 #### v1.4.0
 * Discord game store styled
 * New game library tab upadted
