@@ -18,6 +18,7 @@
 
 	--popout-color: var(--bar-color);
 	--menu-hover-color: rgba(255,255,255,0.105);
+	--menu-hover-color-alt: #252525;
 	--menu-border-color: #424242;
 	--menu-text-color: #b2b2b2;
 
@@ -643,30 +644,6 @@ a,
 	border-bottom-color: var(--popout-color) !important;
 }
 
-.divider-3gKybi {
-	margin: 0 20px;
-}
-
-.divider-3gKybi span {
-	background: #444 !important;
-}
-
-.divider-3gKybi.dividerRed-MKoLlr span,
-.divider-3gKybi.dividerRed-MKoLlr > div {
-	background: var(--accent-color) !important;
-}
-
-.divider-3gKybi:not(.red-1YQ4s7) span,
-.divider-3gKybi.dividerRed-MKoLlr > span {
-	color: #fff !important;
-}
-
-.divider-3gKybi > span {
-	height: 28px;
-	line-height: 28px;
-	border-radius: 14px;
-}
-
 .isLocalBot-38G0P0 {
 	margin: 0 6px 0 20px;
 	background: rgba(255,255,255,0.05) !important;
@@ -687,6 +664,61 @@ a,
 
 .embedPill-1Zntps {
 	border-radius: 0;
+}
+
+/* MAIN CHAT/MESSAGES AREA -> MESSAGES -> NEW MESSAGES/DATE DIVIDER */
+
+.divider-3gKybi {
+	position: relative;
+	width: calc(100% - 46px);
+	margin: 0 20px;
+	padding: 0;
+	background: transparent;
+}
+
+.divider-3gKybi > span {
+	height: 28px;
+	line-height: 28px;
+	border-radius: 14px;
+	background: var(--menu-hover-color-alt) !important;
+	color: #fff !important;
+}
+
+.divider-3gKybi.dividerRed-MKoLlr > span {
+	background: var(--accent-color) !important;
+}
+
+.divider-3gKybi.dividerRed-MKoLlr > span,
+.divider-3gKybi:not(.red-1YQ4s7) span {
+	display: inline-block;
+	width: auto;
+	padding: 0 12px !important;
+	line-height: 28px;
+}
+
+.dividerContent-2L12VI:before,
+.dividerContent-2L12VI:after {
+	content: " ";
+	position: absolute;
+	width: calc(50% - 60px);
+	height: 1px;
+	top: 50%;
+	background: var(--menu-hover-color-alt) !important;
+	border: none;
+}
+
+.divider-3gKybi.dividerRed-MKoLlr .dividerContent-2L12VI:before,
+.divider-3gKybi.dividerRed-MKoLlr .dividerContent-2L12VI:after {
+	background: var(--accent-color) !important;
+}
+
+.dividerContent-2L12VI:before {
+	left: 0;
+}
+
+.dividerContent-2L12VI:after {
+	left: auto;
+	right: 0;
 }
 
 /* MAIN CHAT/MESSAGES AREA -> MESSAGES -> MARKUP */
@@ -781,6 +813,14 @@ a,
 	box-shadow: none !important;
 }
 
+/* MAIN CHAT/MESSAGES AREA -> SPOTIFY INVITE */
+
+.wrapper-35wsBm {
+	background: var(--menu-hover-color) !important;
+	border-radius: 0;
+	border: none;
+}
+
 /* MAIN CHAT/MESSAGES AREA -> NSFW WARNING */
 
 /*.chat-3bRxxu .content-yTz4x3 .horizontal-1ae9ci>.flex-1xMQg5:last-child {
@@ -848,7 +888,6 @@ a,
 	z-index: 9999999 !important;
 }
 
-
 .emojiPicker-3m1S-j,
 #bda-qem-twitch-container,
 #bda-qem-favourite-container {
@@ -856,9 +895,15 @@ a,
 	height: 326px !important;
 }
 
-.emojiPicker-3m1S-j {
+.emojiPicker-3m1S-j,
+.bda-dark #bda-qem-favourite-container,
+.bda-dark #bda-qem-twitch-container {
 	background: var(--popout-color) !important;
 	border: none;
+}
+
+.bda-dark #bda-qem {
+
 }
 
 .emojiPicker-3m1S-j .dimmer-3iH-5D {
@@ -893,6 +938,10 @@ a,
 	border-radius: 16px;
 }
 
+.emojiPicker-3m1S-j .search-bar .search-bar-inner {
+	background: transparent !important;
+}
+
 .emojiPicker-3m1S-j .search-bar input {
 	padding: 0 8px;
 }
@@ -913,7 +962,7 @@ a,
 .emoji-picker .category,
 .emojiPicker-3m1S-j .category-2U57w6,
 .emojiPicker-3m1S-j .stickyHeader-1SS0JU {
-	background-color: #353535 !important;
+	background-color: var(--popout-color) !important;
 	opacity: 1 !important;
 }
 
@@ -921,6 +970,8 @@ a,
 	width: calc(100% - 16px);
 	left: 0;
 }
+
+/* EMOJI PANEL -> CATEGORIES */
 
 .emojiPicker-3m1S-j .categories-1feg4n {
 	margin: 0;
@@ -982,6 +1033,8 @@ a,
 	border: none;
 	box-shadow: var(--default-shadow);
 }
+
+/* EMOJI PANEL -> BETTERDISCORD EMOTES */
 
 #bda-qem,
 #bda-qem-twitch,
@@ -3015,6 +3068,11 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 	border-radius: 0;
 }
 
+.notice-2FJMB4 .button-1MICoQ {
+	background: transparent !important;
+	border-color: #fff !important;
+}
+
 
 /*
  *
@@ -3360,7 +3418,7 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 	content: " ";
 	width: 50px;
 	height: 100%;
-	background: -webkit-linear-gradient(left, rgba(44,44,44,0) 0%,rgba(44,44,44,1) 80%,rgba(44,44,44,1) 100%);
+	background: -webkit-linear-gradient(left, rgba(29,29,29,0) 0%,rgba(29,29,29,1) 80%,rgba(29,29,29,1) 100%);
 	pointer-events: none;
 }
 
@@ -3369,7 +3427,7 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 }
 
 .option-96V44q.selected-rZcOL-:after {
-	background: -webkit-linear-gradient(left, rgba(66,66,66,0) 0%,rgba(66,66,66,1) 80%,rgba(66,66,66,1) 100%);
+	background: -webkit-linear-gradient(left, rgba(52,52,52,0) 0%,rgba(52,52,52,1) 80%,rgba(52,52,52,1) 100%);
 }
 
 .option-96V44q.selected-rZcOL-:before {
