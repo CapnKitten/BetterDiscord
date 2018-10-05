@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.1.2
+* Emoji panel updated
+* New messages banner updated
+
 #### v1.1.1
 * Colors updated to match Spotify's recent update
 * Buttons updated
