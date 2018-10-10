@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.1.2.1
+* Discord game store cards updated
+* Discord game store game info popouts updated
+
 #### v1.1.2
 * Emoji panel updated
 * New messages banner updated
