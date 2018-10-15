@@ -6,7 +6,7 @@
 * Search popout menu updated
 * Unread messages notification made darker
 * Incoming call popup updated
-* Majority of the icons updated to fit within Material Design 2
+* Majority of the icons updated to Material Design 2
 
 #### v1.4.1.1
 * Discord game store cards updated
