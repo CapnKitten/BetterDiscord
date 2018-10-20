@@ -2,6 +2,14 @@
 
 ## Changelog
 
+#### v1.4.3
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Discord store game page cards and icons updated
+* Create group DM menu updated
+* Add friend input updated
+* Icons that I missed are updated to Material Design 2 icons
+* Button shadows updated
+
 #### v1.4.2
 * Search popout menu updated
 * Unread messages notification made darker
