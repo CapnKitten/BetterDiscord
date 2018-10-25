@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.1.3
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Incoming call popup updated
+
 #### v1.1.2.1
 * Discord game store cards updated
 * Discord game store game info popouts updated
