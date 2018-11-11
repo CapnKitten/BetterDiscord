@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.4.4
+* Various formatting updates
+* Imbeded video/gif playback fixed
+* Server settings changed settings notice bar updated
+* Discord game cards in chat updated
+* Reaction buttons updated
+
 #### v1.4.3.1
 * BetterDiscord settings updated
 * Mention and emoji match popup menu updated
