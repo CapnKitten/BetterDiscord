@@ -2,6 +2,45 @@
 
 ## Changelog
 
+#### v1.4.4
+* Various formatting updates
+* Imbeded video/gif playback fixed
+* Server settings changed settings notice bar updated
+* Discord game cards in chat updated
+* Reaction buttons updated
+
+#### v1.4.3.1
+* BetterDiscord settings updated
+* Mention and emoji match popup menu updated
+
+#### v1.4.3
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Discord store game page cards and icons updated
+* Create group DM menu updated
+* Add friend input updated
+* Icons that I missed are updated to Material Design 2 icons
+* Button shadows updated
+
+#### v1.4.2
+* Search popout menu updated
+* Unread messages notification made darker
+* Incoming call popup updated
+* Majority of the icons updated to Material Design 2
+
+#### v1.4.1.1
+* Discord game store cards updated
+* Discord game store game info popouts updated
+
+#### v1.4.1
+* Discord game store home and game listing pages made more fluid for larger displays
+* Various search bars updated to Material Design 2
+* New messages banner updated
+
+#### v1.4.0
+* Discord game store styled
+* New game library tab upadted
+* Slowmode notification updated
+
 #### v1.3.5.2
 * NSFW warning update
 * Imbeded YouTube video play button fixed

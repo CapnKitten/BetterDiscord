@@ -2,6 +2,27 @@
 
 ## Changelog
 
+#### v1.1.3
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Incoming call popup updated
+
+#### v1.1.2.1
+* Discord game store cards updated
+* Discord game store game info popouts updated
+
+#### v1.1.2
+* Emoji panel updated
+* New messages banner updated
+
+#### v1.1.1
+* Colors updated to match Spotify's recent update
+* Buttons updated
+
+#### v1.1.0
+* Discord game store styled
+* New game library tab upadted
+* Slowmode notification updated
+
 #### v1.0.4.1
 * Updated elements that Discord changed (If I missed any, please let me know)
 * Clicked buttons updated
