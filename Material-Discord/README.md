@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.4.5
+* Font updated to Product Sans
+
 #### v1.4.4
 * Various formatting updates
 * Imbeded video/gif playback fixed
