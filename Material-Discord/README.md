@@ -2,8 +2,13 @@
 
 ## Changelog
 
-#### v1.4.5
+#### v1.5.0
 * Font updated to Product Sans
+* Material Discord logo updated to Product Sans
+* Home activity carousel updated
+* Dicord store cards updated
+* Library cards updated
+* Library nitro tab styled
 
 #### v1.4.4
 * Various formatting updates
