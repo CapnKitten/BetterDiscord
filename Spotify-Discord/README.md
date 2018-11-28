@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.1.4
+* Library nitro games tab updated
+* Activity page updated
+* Create/join popout menu updated
+
 #### v1.1.3
 * Updated elements that Discord changed (If I missed any, please let me know)
 * Incoming call popup updated
