@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.5.2
+* Sidebar for user and server settings updated
+* Server emoji, webhooks, invites, and bans lists updated
+* Role colored text fixed
+* Create/join popout menu updated
+
 #### v1.5.0
 * Font updated to Product Sans
 * Material Discord logo updated to Product Sans
