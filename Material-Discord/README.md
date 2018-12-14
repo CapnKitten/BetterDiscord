@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.5.4
+* Modal headers padding updated
+* Emoji button positions fixed
+* Gift inventory styled
+* Server Folders plugin mentions fixed
+* Discord store game page sidebar updated
+
 #### v1.5.2
 * Sidebar for user and server settings updated
 * Server emoji, webhooks, invites, and bans lists updated
