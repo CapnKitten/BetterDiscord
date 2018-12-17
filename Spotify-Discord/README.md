@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.1.5
+* Create/join server popout menus updated
+* Gift inventory styled
+* Mic test styled
+* Discord store game page side bar updated
+
 #### v1.1.4
 * Library nitro games tab updated
 * Activity page updated
