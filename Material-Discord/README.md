@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.5.5
+* Mic test styled
+* Blocked messages updated
+* Discord store game page latest news styled
+* Gif button and popout menu styled
+
 #### v1.5.4
 * Modal headers padding updated
 * Emoji button positions fixed
