@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.1.6
+* Gift Nitro modal styled
+* Gift Nitro button updated
+
 #### v1.1.5
 * Create/join server popout menus updated
 * Gift inventory styled
