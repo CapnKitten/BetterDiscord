@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.5.6
+* Gift Nitro modal styled
+* Authorize app modal styled
+* Gift inventory cards updated
+
 #### v1.5.5
 * Mic test styled
 * Blocked messages updated
