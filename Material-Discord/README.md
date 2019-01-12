@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.6.0
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v1.5.6
 * Gift Nitro modal styled
 * Authorize app modal styled
