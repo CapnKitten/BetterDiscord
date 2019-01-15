@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.6.1
+* Emoji panel search bar fixed
+* Voice and video chat region select updated
+* Edit messages buttons fixed
+* Upload modal textarea fixed
+
 #### v1.6.0
 * Updated elements that Discord changed (If I missed any, please let me know)
 
