@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.6.2
+* Status picker fixed
+* Server search results updated
+* Add friends to DM updated
+* DevilBro's theme and plugin repo modals updated
+
 #### v1.6.1
 * Emoji panel search bar fixed
 * Voice and video chat region select updated
