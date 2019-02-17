@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.7.0
+* Server discovery features styled
+* Spotify buttons in user popouts and profiles fixed
+
 #### v1.6.2
 * Status picker fixed
 * Server search results updated
