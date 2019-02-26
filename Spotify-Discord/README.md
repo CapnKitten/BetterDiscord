@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.2.0
+* Server discovery features styled
+* Server/DM search results updated
+
 #### v1.1.6
 * Gift Nitro modal styled
 * Gift Nitro button updated
