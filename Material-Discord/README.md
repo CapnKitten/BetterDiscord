@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.7.1
+* New activity tab styled
+* Various updates for user profiles playing Xbox games
+
 #### v1.7.0
 * Server discovery features styled
 * Spotify buttons in user popouts and profiles fixed
