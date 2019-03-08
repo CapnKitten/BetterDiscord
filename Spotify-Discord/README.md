@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.2.1
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v1.2.0
 * Server discovery features styled
 * Server/DM search results updated
