@@ -2,9 +2,10 @@
 
 ## Changelog
 
-#### v1.7.1.2
+#### v1.7.1.3
 * Server discovery and create/join buttons swapped
 * New link cards styled
+* Updated elements that Discord changed (If I missed any, please let me know)
 
 #### v1.7.1
 * New activity tab styled
