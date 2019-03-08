@@ -512,7 +512,6 @@ body,
 .verifiedIcon-2TCIsJ,
 .mediaBarGrabber-1FqnbN,
 .mediaBarInteraction-37i2O4:hover .mediaBarGrabber-1FqnbN,
-.guild-1EfMGQ.unread-qLkInr:before,
 .defaultIndicator-G3c16x,
 .membershipDialog-rVL-t_,
 .rowWrapper-2fB6P0,
@@ -3215,6 +3214,10 @@ button[disabled],
 	font-weight: 500;	
 }
 
+.voiceGuildIcon-3nEw0H {
+	mask: none;
+}
+
 /* ACTIVITY -> CARDS -> HEADER */
 
 .wrapper-Qvfyci {
@@ -3253,6 +3256,8 @@ button[disabled],
 /* ACTIVITY -> CARDS -> FOOTER */
 
 .wrapper-9ppXpy {
+	padding: 8px 16px;
+	box-shadow: none !important;
 	border-top: 1px solid var(--card-games-border-color);
 }
 
@@ -6554,7 +6559,7 @@ h1.title-3KTIjF {
 
 .guilds-1q_RqH {
 	margin: 0 0 68px 0;
-	padding: 0;
+	border-radius: 0;
 }
 
 .guildsError-3cFMtY {
@@ -6562,6 +6567,48 @@ h1.title-3KTIjF {
 	top: 5px;
 	margin: 0 auto;
 	background: var(--alert-color) !important;
+}
+
+.guilds-1q_RqH {
+	padding: 0;
+}
+
+.unreadMentionsIndicatorBottom-BXS58x,
+.unreadMentionsIndicatorTop-gA6RCh {
+	padding: 0;
+}
+
+.unreadMentionsIndicatorBottom-BXS58x {
+	bottom: 68px;
+}
+
+.unreadMentionsIndicatorTop-gA6RCh .bar-30k2ka {
+	box-shadow: var(--shadow-1dp);
+}
+
+.unreadMentionsIndicatorBottom-BXS58x .bar-30k2ka {
+	box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px -2px rgba(0, 0, 0, 0.2), 0 -1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.bar-30k2ka {
+	background: var(--alert-color);
+	border-radius: 0;
+	font-weight: 500;
+	transition: 250ms ease all;
+}
+
+/* SERVER LIST -> HOME */
+
+.guild-1EfMGQ {
+
+}
+
+.wrapper-2lTRaf {
+	border-radius: 50% !important;
+}
+
+.guild-1EfMGQ .guildInner-3DSoA4[style*="rgb(114, 137, 218)"] {
+	background-color: var(--accent-color) !important;
 }
 
 .homeIcon-1FoKUJ {
@@ -6579,7 +6626,7 @@ h1.title-3KTIjF {
 .friendsOnline-_wi_fM {
 	width: 70px !important;
 	height: 24px !important;
-	margin: 8px 0 0 0 !important;
+	margin: 0 !important;
 	line-height: 24px !important;
 }
 
@@ -6588,7 +6635,7 @@ h1.title-3KTIjF {
 }
 
 .dms-rcsEnV:not(:empty) {
-	margin: 0 0 8px 0 !important;
+	margin: 0 !important;
 }
 
 .dms-rcsEnV:empty + .guildSeparator-1X4GQ1 {
@@ -6613,28 +6660,76 @@ h1.title-3KTIjF {
 	background: #333;
 }
 
+/* SERVER LIST -> SERVERS */
+
 .guild-1EfMGQ {
-	position: relative;
-	width: 70px !important;
-	height: 60px !important;
-	margin: 0 0 -8px 0;
-	padding: 0 !important;
-	overflow: visible !important;
+	width: 70px;
+	height: 60px;
+	margin: 0;
+	border-radius: 0;
 	transition: 250ms ease all !important;
+}
+
+.guild-1EfMGQ + .guild-1EfMGQ {
+	margin: 0;
 }
 
 .guild-1EfMGQ:hover {
-	background: rgba(255,255,255,0.05);
-	transition: 250ms ease all !important;
-}
-
-.guilds-wrapper .guilds .guild:hover .guild-inner {
-	background-color: var(--accent-color) !important;
+	background-color: rgba(255,255,255,0.05);
 }
 
 .guild-1EfMGQ.selected-ML3OIq {
-	background: rgba(255,255,255,0.1);
+	background-color: rgba(255,255,255,0.1);
+}
+
+.guild-1EfMGQ div[draggable="true"] {
+	width: 100%;
+	height: 100%;
+}
+
+.guild-1EfMGQ .guildInner-3DSoA4 {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	top: 5px;
+	left: 10px;
+	border-radius: 50% !important;
+}
+
+.guildPlaceholder-1ioaid {
+	width: 50px !important;
+	height: 50px !important;
+	margin: 5px 10px !important;
+	background: #2e2e34 !important;
+	border-radius: 50%;
+	border: none !important;
 	transition: 250ms ease all !important;
+}
+
+.guild-1EfMGQ .guildIcon-CT-ZDq {
+	border-radius: 50%;
+}
+
+.guild-1EfMGQ.unread-qLkInr:before {
+	width: 12px;
+	height: 12px;
+	top: 6px;
+	left: calc(100% - 22px);
+	margin: 0;
+	background: #aaa !important;
+	border-radius: 9px;
+	box-shadow: var(--shadow-1dp);
+	z-index: 2;
+	transition: none;
+}
+
+.badge-1GsMF2 {
+	top: auto;
+	bottom: -2px;
+	padding: 3px 6px !important;
+	background: var(--alert-color) !important;
+	box-shadow: var(--shadow-1dp) !important;
+	transform: translate(-12px, -6px) !important;
 }
 
 .guild-1EfMGQ.audio-3vVhBi .guildInner-3DSoA4,
@@ -6652,261 +6747,53 @@ h1.title-3KTIjF {
 	animation: audio-flash 1.2s linear infinite;
 }
 
-.guild-1EfMGQ .avatar-small {
-	border-radius: 50%;
-}
+/* SERVER LIST -> JOIN/CREATE SERVER & SERVER DISCOVERY */
 
 .guildsAdd-21_IdK {
-	/*position: fixed !important;
-	width: 50px !important;
-	height: 50px !important;
-	left: 10px !important;
-	bottom: 17px !important;
-	background: var(--accent-color) !important;
-	box-shadow: none !important;
-	border-radius: 50% !important;*/
-	border: 0;
+	margin: 0 0 8px 0 !important;
+	background-color: transparent !important;
+	border: none;
 }
 
-.guildsAdd-21_IdK:not(.guildsDiscover-oiBX_l) {
-	position: fixed;
-	width: 70px;
-	height: 68px !important;
-	left: 0;
-	bottom: 8px;
-	background: transparent;
-	border-radius: 0;
-	box-shadow: 0 -4px 10px -2px rgba(0,0,0,0.35) !important;
-	z-index: 2;
+.guildsAdd-21_IdK:hover {
+	background-color: rgba(255,255,255,0.05) !important;
 }
 
-.guildsAddInner-1KMFy- {
-	position: absolute;
+.guildsAdd-21_IdK.selected-ML3OIq {
+	background-color: rgba(255,255,255,0.1) !important;
+}
+
+.guildsAddInner-1KMFy-,
+.guildsDiscover-oiBX_l:after {
 	display: block;
 	width: 50px;
 	height: 50px;
 	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
+	left: 10px;
 	background: var(--accent-color);
 	border-radius: 50%;
-	font-size: 0;
-}
-
-.guildsAddInner-1KMFy-:after {
-	position: absolute;
-	content: " ";
-	display: block;
-	width: 50px;
-	height: 50px;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgICA8cGF0aCBkPSJNMTkgMTNoLTZ2NmgtMnYtNkg1di0yaDZWNWgydjZoNnYyeiIvPg0KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4NCjwvc3ZnPg==);
-	background-repeat: no-repeat;
-	background-position: 8px 7px;
-	background-size: 70%;
-	border-radius: 50%;
-	font-size: 0;
-	transition: 300ms ease all;
+	color: #fff;
+	line-height: 43px;
 }
 
 .guildsDiscover-oiBX_l {
-	position: relative;
-	width: 70px;
-	height: 60px;
-	top: 0;
+	position: fixed;
+	height: 68px;
 	left: 0;
-	margin: 24px 0 8px 0 !important;
-	background: transparent !important;
-	border-radius: 0;
-	transition: 250ms ease all;
-}
-
-.guildsDiscover-oiBX_l:hover {
-	background: rgba(255,255,255,0.05) !important;
-	transition: 250ms ease all;
-}
-
-.guildsDiscover-oiBX_l.selected-ML3OIq {
-	background: rgba(255,255,255,0.1) !important;
-	transition: 250ms ease all;
-}
-
-.guildsDiscover-oiBX_l:before,
-.guildsDiscover-oiBX_l.selected-ML3OIq:before {
-	position: absolute;
-	content: " ";
-	width: 100%;
-	height: 1px;
-	top: -8px;
-	left: 0;
-	margin: 0;
-	background: #2f3136 !important;
+	bottom: 0;
+	margin: 0 !important;
+	box-shadow: 0 -4px 10px -2px rgba(0,0,0,0.35) !important;
 }
 
 .guildsDiscover-oiBX_l:after {
 	position: absolute;
 	content: " ";
-	width: 24px;
-	height: 24px;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDBWMHoiLz48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTUuNSAxNGgtLjc5bC0uMjgtLjI3QzE1LjQxIDEyLjU5IDE2IDExLjExIDE2IDkuNSAxNiA1LjkxIDEzLjA5IDMgOS41IDNTMyA1LjkxIDMgOS41IDUuOTEgMTYgOS41IDE2YzEuNjEgMCAzLjA5LS41OSA0LjIzLTEuNTdsLjI3LjI4di43OWw1IDQuOTlMMjAuNDkgMTlsLTQuOTktNXptLTYgMEM3LjAxIDE0IDUgMTEuOTkgNSA5LjVTNy4wMSA1IDkuNSA1IDE0IDcuMDEgMTQgOS41IDExLjk5IDE0IDkuNSAxNHoiLz48L3N2Zz4=) no-repeat;
-	border-radius: 50%;
+	top: 9px;
 }
 
 .guildsDiscoverInner-wC7iEN {
-	width: 50px;
-	height: 50px;
-	top: 5px;
-	background: var(--accent-color);
-	border-radius: 50%;
-}
-
-.guildsDiscoverInner-wC7iEN path {
-	display: none;
-}
-
-.guild-1EfMGQ .guildIcon-CT-ZDq {
-	border-radius: 50%;
-}
-
-.guild-1EfMGQ .guildIcon-CT-ZDq:not([style^="background-image:"]) {
-	background-color: var(--accent-color) !important;
-}
-
-.guildPlaceholder-1ioaid {
-	width: 50px !important;
-	height: 50px !important;
-	margin: 10px 10px 0 10px !important;
-	background: #2e2e34 !important;
-	border: none !important;
-}
-
-.guilds-wrapper .guilds .guild .guilds-error {
-	position: absolute !important;
-	top: 6px !important;
-	margin: 0 10px !important;
-	background: var(--alert-color) !important;
-	border: none !important;
-}
-
-.badge-1GsMF2,
-.containerDefault-1ZnADq .wrapper-232cHJ {
-	padding: 3px 6px !important;
-	background: var(--alert-color) !important;
-	transform: translate(-12px, -6px) !important;
-}
-
-.containerDefault-1ZnADq .wrapper-232cHJ {
-	transform: translate(6px, 0) !important;
-}
-
-.badge-1GsMF2.folder {
-	top: calc(100% - 16px) !important;
-	left: calc(100% - 16px) !important;
-}
-
-.guildsWrapper-5TJh6A {
-	transition: 500ms ease all !important;
-	transform: translateZ(0) !important;
-}
-
-.guildsWrapper-5TJh6A.foldercontent {
-	transition: 300ms ease all !important;
-}
-
-.guild-1EfMGQ.unread-qLkInr:before,
-.guild-1EfMGQ.selected-ML3OIq.unread-qLkInr:before {
-	width: 12px;
-	height: 12px;
 	top: 12px;
-	left: calc(100% - 22px);
-	background: #aaa !important;
-	border-radius: 9px;
 	z-index: 2;
-	transition: none;
-}
-
-.guild-1EfMGQ.selected-ML3OIq.unread-qLkInr:before {
-	top: 26px;
-}
-
-.guild-1EfMGQ .guildInner-3DSoA4 {
-	position: absolute;
-	width: 50px !important;
-	height: 50px !important;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	background-color: #2f3136 !important;
-	border-radius: 50% !important;
-	transition: 200ms ease-in-out;
-}
-
-.guild-1EfMGQ .guildInner-3DSoA4 a {
-	width: 50px !important;
-	height: 50px !important;
-	border-radius: 50% !important;
-}
-
-.guild-1EfMGQ#bd-pub-li {
-	height: 30px !important;
-}
-
-.guild-1EfMGQ#bd-pub-li .guildInner-3DSoA4 {
-	height: 20px !important;
-	border-radius: 0 !important;
-	background: transparent !important;
-}
-
-.guild-1EfMGQ#bd-pub-li .guildInner-3DSoA4 #bd-pub-button {
-	font-size: 10px !important;
-	font-weight: 500 !important;
-	color: hsla(0,0%,100%,0.3) !important;
-	text-transform: uppercase !important;
-}
-
-.guild-1EfMGQ#bd-pub-li:hover .guildInner-3DSoA4 {
-	background: transparent !important;
-}
-
-.guild-1EfMGQ#bd-pub-li .guild-inner a {
-	color: #888;
-}
-
-.unreadMentionsIndicatorTop-gA6RCh {
-	padding: 0 0 8px 0;
-}
-
-.unreadMentionsIndicatorBottom-BXS58x {
-	bottom: 68px;
-	padding: 8px 0 0 0;
-}
-
-.bar-30k2ka {
-	background: var(--alert-color);
-	border-radius: 0;
-	font-weight: 500;
-	transition: 250ms ease all;
-}
-
-.unreadMentionsIndicatorTop-gA6RCh .bar-30k2ka {
-	box-shadow: var(--shadow-1dp);
-}
-
-.unreadMentionsIndicatorBottom-BXS58x .bar-30k2ka {
-	box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 -3px 1px -2px rgba(0, 0, 0, 0.2), 0 -1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 /* SERVER LIST -> DISCOVERY */
@@ -7172,6 +7059,12 @@ h1.title-3KTIjF {
 
 .wrapper-232cHJ {
 	border-radius: 9px;	
+}
+
+.containerDefault-1ZnADq .wrapper-232cHJ {
+	padding: 3px 6px !important;
+	background: var(--alert-color) !important;
+	transform: translate(6px, 0) !important;
 }
 
 .unreadTop-2mkLbX {
@@ -7771,6 +7664,23 @@ body .Select-option:hover {
 	margin: 8px 0 0 0;
 }
 
+/* MAIN CHAT AREA AND MESSAGES -> COZY -> LINK CARDS */
+
+.containerCozy-jafyvG .card-3EIh8J.interactive-IxbS32 {
+	margin: 4px 0 0 0;
+	background: var(--card-color) !important;
+	border-radius: var(--border-radius);
+	box-shadow: none !important;
+}
+
+.containerCozy-jafyvG .card-3EIh8J.interactive-IxbS32:hover {
+	transform: translate(0);
+}
+
+.embedContentInner-FBnk7v {
+	margin: 0 16px 0 0;
+}
+
 /* MAIN CHAT AREA AND MESSAGES -> COZY -> GAME/APPLICATION CARD */
 
 .applicationTile-1Goy1W {
@@ -8004,7 +7914,7 @@ body .Select-option:hover {
 }
 
 .embed-IeVjo6 {
-	margin: 0;
+	margin: 4px 0 0 0;
 }
 
 .embed-IeVjo6 + .embed-IeVjo6 {
@@ -9467,6 +9377,12 @@ body .Select-option:hover {
 	opacity: 1;
 }
 
+.topSectionSpotify-1lI0-P .activity-1ythUs .lookOutlined-3sRXeN.colorWhite-rEQuAQ:disabled {
+	background: #fff !important;
+	color: var(--spotify-color) !important;
+	opacity: 0.5;
+}
+
 .headerSpotify-zpWxgT .activity-11LB_k {
 	position: relative;
 	padding: 0 !important;
@@ -9571,7 +9487,7 @@ body .Select-option:hover {
 .lookOutlined-3sRXeN.colorWhite-rEQuAQ:disabled,
 .lookOutlined-3sRXeN.colorWhite-rEQuAQ:disabled:hover {
 	background: #fff !important;
-	box-shadow: var(--shadow-button) !important;
+	box-shadow: none !important;
 }
 
 .headerSpotify-zpWxgT .activity-11LB_k button,
