@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.7.1.2
+* Server discovery and create/join buttons swapped
+* New link cards styled
+
 #### v1.7.1
 * New activity tab styled
 * Various updates for user profiles playing Xbox games
