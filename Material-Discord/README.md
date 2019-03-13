@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.7.1.6
+* Verified server banners fixed
+* Screen sharing top bar fixed
+* Video call PiP icons updated
+
 #### v1.7.1.3
 * Server discovery and create/join buttons swapped
 * New link cards styled
