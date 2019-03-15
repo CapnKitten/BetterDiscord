@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.7.2
+* New Nitro tab styled
+* Server folders mention notification fixed
+
 #### v1.7.1.6
 * Verified server banners fixed
 * Screen sharing top bar fixed
