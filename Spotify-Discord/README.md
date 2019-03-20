@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.2.2
+* Nitro store styled
+* Server discovery updated
+
 #### v1.2.1
 * Updated elements that Discord changed (If I missed any, please let me know)
 
