@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.8.0
+* User settings activity feed styled
+* Create/Join server button updated
+* Activity carousel fixed
+* Authorize app modal updated
+* Home Activity page updated
+
 #### v1.7.2
 * New Nitro tab styled
 * Server folders mention notification fixed
