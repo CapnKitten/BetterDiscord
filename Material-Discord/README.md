@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v1.8.1
+* Cyrillic font support added
+* Activity quick launcher and recently played cards updated
+* Activity now playing Twitch player updated
+* Home tab notification updated
+
 #### v1.8.0
 * User settings activity feed styled
 * Create/Join server button updated
