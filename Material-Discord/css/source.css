@@ -636,7 +636,6 @@ body,
 
 /* BORDER RADIUS -> DEFAULT RADIUS */
 
-.contextMenu-HLZMGh,
 .create-guild-container.deprecated .action,
 .create-guild-container.deprecated .action .btn,
 .message-group .comment,
@@ -2182,6 +2181,7 @@ body,
 	background: var(--alert-color) !important;
 	border: none;
 	color: #fff !important;
+	cursor: pointer;
 }
 
 .actionRed-gYn8D3:hover,
@@ -2648,8 +2648,9 @@ button[disabled],
 .contextMenu-HLZMGh {
 	padding: 8px 0 !important;
 	border: none !important;
-	z-index: 9999999 !important;
+	border-radius: var(--border-radius) !important;
 	box-shadow: var(--shadow-3dp) !important;
+	z-index: 9999999 !important;
 	animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation) !important;
 	transform-origin: top !important;
 }
@@ -3151,6 +3152,8 @@ button[disabled],
 .container-35JN_A {
 	display: inline-block;
 	margin: 0 8px 0 0;
+	background: var(--popout-color) !important;
+	border-radius: var(--border-radius);
 	transition: 300ms var(--default-animation);
 }
 
@@ -3165,6 +3168,7 @@ button[disabled],
 .icon-2hm0JA {
 	width: 100%;
 	height: 100%;
+	border-radius: var(--border-radius);
 }
 
 @media(min-width: 1288px) {
@@ -3188,10 +3192,12 @@ button[disabled],
 		box-shadow: var(--shadow-1dp);
 	}
 
-	.wrappedCard-30FR_0 .h5-18_1nd,
+	.wrappedCard-30FR_0 .wrapper-1sSZUt,
+	.formTitleInCard-2qtI0x,
 	.formTitleInCard-210tWt {
 		margin: 0;
-		padding: 16px 16px 0;
+		padding: 16px;
+		border-bottom: 1px solid var(--card-games-border-color);
 	}
 
 	.container-35JN_A {
@@ -3279,11 +3285,20 @@ button[disabled],
 .card-7JP0BX,
 /*.card-GqTca8*/
 .outer-2IVh5n,
+.wrapper-3UweLa,
 .recentlyPlayedContainer-2F3MqS {
 	background: var(--card-games) !important;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius) !important;
 	border: none !important;
 	box-shadow: var(--shadow-1dp) !important;
+}
+
+.outer-2IVh5n {
+	background: var(--card-games) !important;
+}
+
+.outer-2IVh5n .card-GqTca8 {
+	box-shadow: none !important;
 }
 
 .card-GqTca8:hover,
@@ -3358,7 +3373,8 @@ button[disabled],
 	border-radius: 50%;
 }
 
-.whiteButton-1lwF-y {
+.whiteButton-1lwF-y,
+.padded-2uAgVW .ctaButtons-3Aw3iT .lookFilled-1Gx00P.colorWhite-rEQuAQ .contents-18-Yxp {
 	color: #fff !important;
 }
 
@@ -3368,14 +3384,42 @@ button[disabled],
 	background: var(--card-games) !important;
 }
 
-.section-3TvauS {
-	background: var(--hover-color) !important;
+.popoutContainer-3WC9HR:hover {
+	background: var(--hover-color) !important
+}
+
+.body-1BpgWG {
 	border-radius: var(--border-radius);
+	background: transparent !important;
+}
+
+.section-2VKIPC {
+	background: var(--hover-color) !important;
+}
+
+.section-2VKIPC:first-child {
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.section-2VKIPC:last-child {
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.section-2VKIPC:only-child {
+	border-radius: var(--border-radius);
+}
+
+.body-1BpgWG .separator-2c4hi3 {
+	background: #555 !important;
 }
 
 .popoutContainer-3WC9HR .status-oxiHuE {
 	width: 10px;
 	height: 10px;
+}
+
+.popoutContainer-3WC9HR .size16-1P40sf {
+	color: #ddd !important;
 }
 
 .voiceSectionGuildImage-2r1uIp,
@@ -3390,6 +3434,66 @@ button[disabled],
 	box-shadow: var(--shadow-1dp);
 }
 
+/* ACITIVITY -> CARDS -> NOW PLAYING -> TWITCH PLAYER */
+
+.twitchSectionPreviewWrapper-_xA9Ez {
+	position: relative;
+}
+
+.twitchSectionPlayButton-2RamGG,
+.twitchSectionPreviewWrapper-_xA9Ez:before,
+.twitchSectionPreviewWrapper-_xA9Ez:after {
+	position: absolute;
+	content: " ";
+	top: 0;
+	left: 0;
+	transition: 250ms var(--default-animation);
+}
+
+.twitchSectionPreviewWrapper-_xA9Ez:before {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.35;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.twitchSectionPreviewWrapper-_xA9Ez:after {
+	width: 18%;
+	height: 36%;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDBWMHoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptLTIgMTQuNXYtOWw2IDQuNS02IDQuNXoiLz48L3N2Zz4=);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 100%;
+	border-radius: 50%;
+	opacity: 0.65;
+	z-index: 2;
+}
+
+.twitchSectionPreviewWrapper-_xA9Ez:hover:after {
+	opacity: 0.95;
+	transform: scale(1.25);
+}
+
+.twitchSectionPreviewWrapper-_xA9Ez:hover:before {
+	opacity: 0.6;
+}
+
+.twitchSectionPlayButton-2RamGG {
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	opacity: 0 !important;
+	visibility: hidden;
+}
+
 /* ACTIVITY -> CARDS -> RECENTLY PLAYED */
 
 .recentlyPlayedContainer-2F3MqS {
@@ -3398,6 +3502,12 @@ button[disabled],
 
 .itemContainer-302Zx6 {
 	border-radius: 0 !important;
+}
+
+.separator-wZOebz,
+.itemSeparator-3a4Cz5 {
+	margin: 0;
+	background: #444 !important;
 }
 
 .itemContainer-302Zx6:first-child {
@@ -3434,10 +3544,13 @@ button[disabled],
 	box-shadow: var(--shadow-3dp) !important;
 }
 
-.memberListHeader-3bta_4 {
+.memberListHeader-3bta_4,
+.memberListHeader-Qq9531,
+.memberListHeader-a84-7M {
 	padding: 0 12px;
 }
 
+.separator-2c4hi3,
 .separator-1N1EBC {
 	background: #444 !important;
 }
@@ -3446,7 +3559,7 @@ button[disabled],
 	margin: 8px 0 0 0;
 }
 
-.memberListItem-vHCzSI,
+.memberListItem-2ZX2pl,
 .wrapper-3rh-14,
 .memberListHeader-3sM67K {
 	margin: 0;
@@ -3467,12 +3580,12 @@ button[disabled],
 	padding: 8px 12px;
 }
 
-.memberListItem-vHCzSI:hover,
+.memberListItem-2ZX2pl:hover,
 .wrapper-3rh-14:hover {
 	background: var(--hover-color) !important;
 }
 
-.memberListItem-vHCzSI:last-child {
+.memberListItem-2ZX2pl:last-child {
 	margin: 0;
 }
 
@@ -4038,6 +4151,11 @@ button[disabled],
  *
  */
 
+.browse-3H33-E,
+.filters--5q7-h {
+
+}
+
 /* NITRO -> CAROUSEL */
 
 .arrowContainer-10m4Cy {
@@ -4149,6 +4267,10 @@ button[disabled],
 	bottom: 0;
 }
 
+.genres-3s_2iT {
+	max-height: 64px;
+}
+
 .genreTag-3QLRUJ {
 	padding: 0 12px;
 	line-height: 24px;
@@ -4224,9 +4346,14 @@ button[disabled],
 }
 
 .wrapper-232cHJ {
-	padding: 4px 8px;
-	background: var(--accent-color) !important;
-	box-shadow: none;
+	padding: 3px 6px;
+	background: var(--alert-color) !important;
+	box-shadow: var(--shadow-1dp);
+}
+
+.container-1ETFDs .wrapper-232cHJ {
+	right: 8px;
+	bottom: 4px;
 }
 
 /* STORE -> TOP BAR SEARCH */
@@ -4481,7 +4608,7 @@ button[disabled],
 
 .clearIcon-2N9YIn path,
 .searchIcon-1a1-yA path {
-	fill: #555;
+	fill: #666;
 }
 
 /* STORE -> GAME PAGE */
@@ -4554,6 +4681,13 @@ button[disabled],
 	bottom: 10px !important;
 }
 
+.video-38qD3Y,
+.item-3V15ea[style="opacity: 0.3; filter: grayscale(1);"] {
+	background: #a0a0a0 !important;
+	opacity: 0.2 !important;
+	transition: 300ms var(--default-animation) !important;
+}
+
 /* STORE -> GAME PAGE -> LATEST NEWS */
 
 .item-2yFVoY {
@@ -4586,9 +4720,17 @@ h1.title-3KTIjF{
 .systemRequirements-1L5nPd,
 .contentRating-W0e7H-,
 .legalInfo-lVTrbD,
-.guildInvite-3fvAbr,
 .news-27xNIP {
 	margin: 0 0 16px 0;
+}
+
+.guildInvite-3fvAbr {
+	margin: 0;
+	border-radius: 0 !important;
+}
+
+.guildInvite-3fvAbr .actionButton-2Pkgbp {
+	width: 100% !important;
 }
 
 .purchaseUnit-2lxci3,
@@ -4627,9 +4769,13 @@ h1.title-3KTIjF {
 .systemRequirements-1L5nPd,
 .contentRating-W0e7H-,
 .legalInfo-lVTrbD,
-.guildInvite-3fvAbr,
-.news-27xNIP {
-	border-radius: var(--border-radius);
+.news-27xNIP,
+.card-NB61oR {
+	border-radius: var(--border-radius) !important;
+}
+
+.premiumHeaderPrice-1F1CMD {
+	border-radius: 12px !important;
 }
 
 .staffNotes-2PhKAq {
@@ -4750,6 +4896,9 @@ h1.title-3KTIjF {
  *
  */
 
+
+/* HOME TAB -> FRIENDS */
+
 .friendsTable-133bsv {
 	margin: 0 !important;
 }
@@ -4765,6 +4914,11 @@ h1.title-3KTIjF {
 
 .friendsTable-133bsv .friendsTableHeader-32yE7d .friendsColumnSeparator-3MqtMA {
 	opacity: 0;
+}
+
+.friendsTable-133bsv .friendTableAddWrapper-nHHZtK .friendTableAddHeader-m9bzFr .friendsTableAdd-1w2_qZ,
+.friendsTable-133bsv .friendTableAddWrapper-nHHZtK .friendTableSuggestionsHeader-2zSnpD {
+	padding: 16px;
 }
 
 .friendsTable-133bsv .friendsRow-2yicud {
@@ -4877,7 +5031,7 @@ h1.title-3KTIjF {
 	display: none;
 }
 
-/* HOME TAB -> FRIENDS LIST */
+/* HOME TAB -> FRIENDS -> FRIENDS LIST */
 
 .container-3gCOGc {
 	background: var(--chat-color) !important;
@@ -5377,7 +5531,7 @@ h1.title-3KTIjF {
  */
 
 .side-8zPYf6 .item-PXvHYJ {
-	border-radius: var(--border-radius);
+	/*border-radius: var(--border-radius);*/
 	/*border-radius: 0 16px 16px 0;*/
 }
 
@@ -6188,6 +6342,12 @@ h1.title-3KTIjF {
 	background-color: transparent !important;
 }
 
+.ghostPill-2-KUPM {
+	padding: 0 16px;
+	border-radius: 18px;
+	line-height: 36px;
+}
+
 /* USER SETTINGS -> LANGUAGE */
 
 .labelText-2kBs7x {
@@ -6791,7 +6951,7 @@ h1.title-3KTIjF {
 /* SERVER SETTINGS -> INVITES */
 
 .customHeader-PhBRGa .divider-3573oO + .flex-1xMQg5 {
-	margin: 16px 0 0 0;
+	margin: 16px auto 0 auto;
 }
 
 .card-11ynQk:before {
@@ -8084,7 +8244,8 @@ body .Select-option:hover {
 
 /* MAIN CHAT AREA AND MESSAGES -> COZY -> LINK CARDS */
 
-.containerCozy-jafyvG .card-3EIh8J.interactive-IxbS32 {
+.containerCozy-jafyvG .card-3EIh8J.interactive-IxbS32,
+.newsCard-MOcsRn {
 	margin: 4px 0 0 0;
 	background: var(--card-color) !important;
 	border-radius: var(--border-radius);
@@ -8299,12 +8460,12 @@ body .Select-option:hover {
 .dividerContent-2L12VI:after {
 	content: " ";
 	position: absolute;
-	width: calc(50% - 60px);
+	width: calc(50% - 40px);
 	height: 1px;
 	top: 50%;
 	background: #2b2f33 !important;
 	border: none;
-	z-index: 1;
+	z-index: -1;
 }
 
 .divider-3gKybi.dividerRed-MKoLlr .dividerContent-2L12VI:before,
@@ -8496,8 +8657,12 @@ body .Select-option:hover {
 	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTE0LDNWNUgxNy41OUw3Ljc2LDE0LjgzTDkuMTcsMTYuMjRMMTksNi40MVYxMEgyMVYzTTE5LDE5SDVWNUgxMlYzSDVDMy44OSwzIDMsMy45IDMsNVYxOUEyLDIgMCAwLDAgNSwyMUgxOUEyLDIgMCAwLDAgMjEsMTlWMTJIMTlWMTlaIiAvPjwvc3ZnPg==) !important;
 }
 
-.imageWrapper-2p5ogY {
-	/*margin: 4px 0;*/
+.container-1e22Ot .imageWrapper-2p5ogY {
+	margin: 4px 0;
+}
+
+.container-1e22Ot .wrapper-Qvfyci .imageWrapper-2p5ogY {
+	margin: 0;
 }
 
 .gifTag-31zFY8 {
@@ -8782,11 +8947,16 @@ body .Select-option:hover {
 .searchBox-3Y2Vi7 .searchBoxInput-uJtBcv,
 .searchBox-3Y2Vi7 .searchBoxInput-uJtBcv:focus {
 	border: none !important;
-	color: #333 !important;
+	color: #555 !important;
+	font-weight: 400 !important;
 }
 
 .searchBox-3Y2Vi7 .searchBoxInput-uJtBcv::-webkit-input-placeholder {
-	color: #333 !important;
+	color: #555 !important;
+}
+
+.searchBox-3Y2Vi7 .searchIcon-1a1-yA {
+	transform: scale(1);
 }
 
 .emptySearchResults-1ba__I {
@@ -9272,6 +9442,10 @@ body .Select-option:hover {
 	padding: 0;
 }
 
+.channelTextArea-rNsIhG .buttons-205you {
+	padding: 0 8px 0 0;
+}
+
 .buttons-205you,
 .pickerButtons-v-PPYK {
 	width: auto;
@@ -9334,8 +9508,10 @@ body .Select-option:hover {
 	box-shadow: none !important;
 }
 
+.focused-1En8bG:after,
+.result-3w1ZcL:hover:after,
 .result-3w1ZcL:hover:after {
-	box-shadow: inset 0 0 0 2px var(--accent-color), inset 0 0 0 3px #2f3136;
+	box-shadow: inset 0 0 0 2px var(--accent-color), inset 0 0 0 3px #2f3136 !important;
 }
 
 /* EMOJI PICKER -> CATEGORIES */
@@ -12551,6 +12727,58 @@ body:active .alt-3btY0e.menu-Sp6bN1 .item-1GzJrl:not(:active) {
  *	FONTS
  *
  */
+
+/* FONTS -> PRODUCT SANS -> Cyrillic */
+
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Product Sans Regular'), local('ProductSans-Regular'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Regular.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Product Sans Medium'), local('ProductSans-Medium'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Medium.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Product Sans Bold'), local('ProductSans-Bold'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Bold.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Product Sans Italic'), local('ProductSans-Italic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Regular.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Product Sans Medium Italic'), local('ProductSans-MediumItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-MediumItalic.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Product Sans Bold Italic'), local('ProductSans-BoldItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-BoldItalic.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* FONTS -> PRODUCT SANS -> Latin */
 
 @font-face {
 	font-family: 'Product Sans';
