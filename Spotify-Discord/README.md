@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.2.4
+* Discord activity page updated
+* Join/create server button updated
+* Activity quick launcher and recently played cards updated
+
 #### v1.2.2
 * Nitro store styled
 * Server discovery updated
