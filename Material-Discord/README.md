@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.8.2
+* Game popout modal updated
+* Tooltips updated
+* Updated elements that Discord changed (If I missed any, please let me know) - Server list is a WIP but I wanted to at least an update out to fix most of the changes
+
 #### v1.8.1
 * Cyrillic font support added
 * Activity quick launcher and recently played cards updated
