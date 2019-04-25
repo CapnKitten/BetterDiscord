@@ -2,10 +2,13 @@
 
 ## Changelog
 
-#### v1.8.2
+#### v1.8.2.1
 * Game popout modal updated
 * Tooltips updated
 * Updated elements that Discord changed (If I missed any, please let me know) - Server list is a WIP but I wanted to at least an update out to fix most of the changes
+* Emoji menu updated
+* Add friends to DM popout updated
+* Various search bars updated
 
 #### v1.8.1
 * Cyrillic font support added
