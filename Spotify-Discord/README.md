@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.2.5
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v1.2.4
 * Discord activity page updated
 * Join/create server button updated
