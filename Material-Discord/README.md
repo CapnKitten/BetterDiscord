@@ -2,6 +2,16 @@
 
 ## Changelog
 
+#### v1.9.0
+* ServerFolders plugin support updated
+* OldTitleBar plugin support updated
+* Material Design ripple added back to the top bar buttons
+* Message jump buttons fixed
+* Spoiler tag updated and tooltip added
+* Material Design input bar animation added
+* Voice call updated
+* Title bar while in voice/video call updated
+
 #### v1.8.2.1
 * Game popout modal updated
 * Tooltips updated
