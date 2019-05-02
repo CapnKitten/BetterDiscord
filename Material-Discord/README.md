@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.9.0.2
+* Detect account interface styled
+* Various macOS related fixes/updates
+
 #### v1.9.0
 * ServerFolders plugin support updated
 * OldTitleBar plugin support updated
