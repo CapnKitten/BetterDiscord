@@ -2,7 +2,7 @@
 
 ## Changelog
 
-#### v1.9.1
+#### v1.9.1.0
 * Nitro store search modal updated
 * Citator plugin by Nirewen styled
 * PersonalPins plugin by DevilBro updated
