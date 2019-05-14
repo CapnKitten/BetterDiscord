@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.9.1
+* Nitro store search modal updated
+* Citator plugin by Nirewen styled
+* PersonalPins plugin by DevilBro updated
+* OldTitleBar by DevilBro fixed
+* Create/join server modal updated
+
 #### v1.9.0.2
 * Detect account interface styled
 * Various macOS related fixes/updates
