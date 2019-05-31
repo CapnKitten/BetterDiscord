@@ -2,7 +2,13 @@
 
 ## Changelog
 
-#### v1.9.1.0
+#### v1.9.2
+* Partnered and verified server icons updated
+* Spotify listen along invite textarea fixed
+* Various list borders removed
+* Library games updated
+
+#### v1.9.1
 * Nitro store search modal updated
 * Citator plugin by Nirewen styled
 * PersonalPins plugin by DevilBro updated
