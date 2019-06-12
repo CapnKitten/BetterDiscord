@@ -2,6 +2,15 @@
 
 ## Changelog
 
+#### v2.0
+* Nitro server boost modal styled
+* Server discovery cards and pagination updated
+* Game Activity and Activity Feed lists updated
+* Select a language list updated
+* Server settings audit log updated
+* Various text headers updated to not be uppercase
+* Discord Nitro game page updated
+
 #### v1.9.2
 * Partnered and verified server icons updated
 * Spotify listen along invite textarea fixed
