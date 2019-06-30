@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.0.2
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Fixed the unread notifications glitchy animations
+* MemberCount plugin by Arashiryuu support added
+
 #### v2.0
 * Nitro server boost modal styled
 * Server discovery cards and pagination updated
