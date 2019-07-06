@@ -4,6 +4,8 @@
 	--accent-color-active: #5262bc;
 	--accent-rgb: rgba(39,147,230,0.3);
 
+	--notification-color: #bbb;
+
 	--card-color: #1e2024;
 	--card-games: #2a2c30;
 	--card-shadow-border: 0 1px 0 0 #333;
@@ -654,7 +656,6 @@ body,
 .Select .Select-control,
 .containerUserOver-1U5YnL:after,
 .isMentioned-N-h9aa,
-.markup-2BOw-j .mention,
 .wrapper-3WhCwL,
 .message-group .mentioned .message-text,
 .chat-3bRxxu .messages-3amgkR .textArea-2Spzkt,
@@ -8335,7 +8336,7 @@ h4.title-3KTIjF {
 	top: 6px;
 	right: 10px;
 	margin: 0;
-	background: #bbb;
+	background: var(--notification-color);
 	opacity: 1 !important;
 	border-radius: 50%;
 	box-shadow: var(--shadow-1dp);
@@ -9329,12 +9330,14 @@ input:checked+.slider-3Z3pGX,
 .isMentioned-N-h9aa .mention,
 .wrapper-3WhCwL {
 	padding: 0 2px !important;
-	background: rgba(39,147,230,0.3) !important;
+	background: var(--accent-rgb) !important;
 	color: #fff !important;
 }
 
 .markup-2BOw-j .mention {
 	padding: 0 2px;
+	background: var(--accent-rgb) !important;
+	border-radius: var(--border-radius);
 	font-weight: 700;
 }
 
@@ -9813,7 +9816,8 @@ input:checked+.slider-3Z3pGX,
 
 .icon-1kp3fr[src="/assets/73d212e3701483c36a4660b28ac15b62.svg"],
 .icon-1kp3fr[src="/assets/985ea67d2edab4424c62009886f12e44.svg"],
-.icon-1kp3fr[src="/assets/a11e895b46cde503a094dd31641060a6.svg"] {
+.icon-1kp3fr[src="/assets/a11e895b46cde503a094dd31641060a6.svg"],
+.icon-1kp3fr[src="/assets/f167b4196f02faf2dc2e7eb266a24275.svg"] {
 	content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiICB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCwySDZBMiwyIDAgMCwwIDQsNFYyMEEyLDIgMCAwLDAgNiwyMkgxOEEyLDIgMCAwLDAgMjAsMjBWOEwxNCwyTTE4LDIwSDZWNEgxM1Y5SDE4VjIwWiIgLz4KPC9zdmc+) !important;
 }
 
@@ -9961,37 +9965,47 @@ input:checked+.slider-3Z3pGX,
 	padding: 16px 12px;
 }
 
-/*.inner-1JeGVc {
-	position: relative;
-}*/
-
 .inner-2VEzy9 div:not([class]):first-child {
 	position: relative;
 }
 
+.downloadLink-1ywL9o:not(.anchor-3Z-8Bb) {
+	display: none;
+}
+
 .downloadLink-1ywL9o {
-	display: block;
-	width: 0;
-	height: 0;
-	pointer-events: none;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	right: -30px;
 	font-size: 0;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.downloadLink-1ywL9o:nth-of-type(1) {
+	top: 0;
+	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCwzVjVIMTcuNTlMNy43NiwxNC44M0w5LjE3LDE2LjI0TDE5LDYuNDFWMTBIMjFWM00xOSwxOUg1VjVIMTJWM0g1QzMuODksMyAzLDMuOSAzLDVWMTlBMiwyIDAgMCwwIDUsMjFIMTlBMiwyIDAgMCwwIDIxLDE5VjEySDE5VjE5WiIgLz4NCjwvc3ZnPg==);
+}
+
+.downloadLink-1ywL9o:nth-of-type(2) {
+	top: 30px;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDBWMHoiLz48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTksMjFIOFY3SDE5TTE5LDVIOEEyLDIgMCAwLDAgNiw3VjIxQTIsMiAwIDAsMCA4LDIzSDE5QTIsMiAwIDAsMCAyMSwyMVY3QTIsMiAwIDAsMCAxOSw1TTE2LDFINEEyLDIgMCAwLDAgMiwzVjE3SDRWM0gxNlYxWiIvPjwvc3ZnPg==);
 }
 
 .downloadLink-1ywL9o:before {
-	content: "Open externally";
-	top: -4px;
-	right: -122px;
+	top: -2px;
 }
 
-.downloadLink-1ywL9o:after {
-	position: absolute;
-	content: " ";
-	width: 25px;
-	height: 25px;
-	top: 0;
-	right: -30px;
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4NCiAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCwzVjVIMTcuNTlMNy43NiwxNC44M0w5LjE3LDE2LjI0TDE5LDYuNDFWMTBIMjFWM00xOSwxOUg1VjVIMTJWM0g1QzMuODksMyAzLDMuOSAzLDVWMTlBMiwyIDAgMCwwIDUsMjFIMTlBMiwyIDAgMCwwIDIxLDE5VjEySDE5VjE5WiIgLz4NCjwvc3ZnPg==) no-repeat;
-	pointer-events: auto;
+.downloadLink-1ywL9o:nth-of-type(1):before {
+	content: "Open externally";
+	width: 74px;
+	right: -95px;
+}
+
+.downloadLink-1ywL9o:nth-of-type(2):before {
+	content: "Copy link";
+	right: -64px;
 }
 
 .markup-2BOw-j pre {
@@ -14341,6 +14355,39 @@ body:active .alt-3btY0e.menu-Sp6bN1 .item-1GzJrl:not(:active) {
 
 .editor-wrapper {
 	margin: 20px 0 0 0;
+	box-shadow: var(--shadow-1dp);
+}
+
+.ace_editor {
+	position: relative;
+	margin: 230px 0 0 0;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	overflow: visible;
+}
+
+.ace_editor:before {
+	position: absolute;
+	content: "To change the colors such as the accent, copy the code below into\A the custom CSS. More variables can be found on the theme's GitHub\A repo page. bit.ly/MaterialDiscord\A \A :root {\A\9--accent-color: #3f51b5 !important;\A\9 --accent-color-hover: #4558c4 !important;\A\9 --accent-color-active: #5262bc !important;\A\9 --accent-rgb: rgba(39,147,230,0.3) !important;\A}";
+	display: block;
+	width: calc(100% - 32px);
+	top: -238px;
+	left: 0;
+	padding: 16px;
+	background: var(--card-color);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-1dp);
+	white-space: pre;
+	font-size: 16px;
+	color: #eee;
+	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif !important;
+}
+
+.ace_gutter {
+	border-radius: var(--border-radius) 0 0 0;
+}
+
+.ace_scroller {
+	border-radius: 0 var(--border-radius) 0 0;
 }
 
 .ace_editor * {
@@ -14360,7 +14407,10 @@ body:active .alt-3btY0e.menu-Sp6bN1 .item-1GzJrl:not(:active) {
 
 .contentRegion-3nDuYy #bd-customcss-attach-controls {
 	height: auto;
-	padding: 8px;
+	margin: 0 0 48px 0;
+	padding: 16px;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	box-shadow: var(--shadow-1dp);
 }
 
 .ace-monokai .ace_gutter-active-line {
@@ -14379,6 +14429,7 @@ body:active .alt-3btY0e.menu-Sp6bN1 .item-1GzJrl:not(:active) {
 #bd-customcss-detach-container #bd-customcss-attach-controls {
 	border: none !important;
 }
+
 
 .ui-standard-sidebar-view #bd-customcss-attach-controls button,
 .bd-detached-css-editor #bd-customcss-attach-controls button,
