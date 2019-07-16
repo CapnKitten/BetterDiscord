@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v2.0.4
+* Updated elements that Discord changed (If I missed any, please let me know)
+* Set custom status styled
+* Voice connected info updated
+* Animations for a couple popout menus updated
+
 #### v2.0.2
 * Updated elements that Discord changed (If I missed any, please let me know)
 * Fixed the unread notifications glitchy animations
