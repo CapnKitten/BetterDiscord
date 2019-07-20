@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.0.4.1
+* Login and register modals updated
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v2.0.4
 * Updated elements that Discord changed (If I missed any, please let me know)
 * Set custom status styled
