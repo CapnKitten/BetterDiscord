@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.0.5.1
+* Native server folders updated
+* MemberCount plugin by Arashiryuu updated
+
 #### v2.0.5
 * Native server folders styled
 
