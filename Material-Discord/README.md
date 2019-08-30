@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.0.6
+* Some server folder fixes
+* User popout menus updated to fix the blurry issue
+* Go live features styled
+
 #### v2.0.5.1
 * Native server folders updated
 * MemberCount plugin by Arashiryuu updated
