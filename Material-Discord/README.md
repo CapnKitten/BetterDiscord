@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.0.6.1
+* Missed go live features styled
+
 #### v2.0.6
 * Some server folder fixes
 * User popout menus updated to fix the blurry issue
