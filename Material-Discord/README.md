@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.0.7
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v2.0.6.1
 * Missed go live features styled
 
