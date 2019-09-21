@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.0.7.2
+* Compact messages and editing updated
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v2.0.7.1
 * Create a group/LFG styled
 * Updated elements that Discord changed (If I missed any, please let me know)
