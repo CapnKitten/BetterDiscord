@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.0.7.4
+* Bug fixes
+
 #### v2.0.7.2
 * Compact messages and editing updated
 * Updated elements that Discord changed (If I missed any, please let me know)
