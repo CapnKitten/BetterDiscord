@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.0.8
+* Custom status styled and fixed
+
 #### v2.0.7.4
 * Bug fixes
 
