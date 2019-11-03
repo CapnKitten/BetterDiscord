@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.0.9
+* Server boost features styled
+* Color picker updated
+
 #### v2.0.8
 * Custom status styled and fixed
 
