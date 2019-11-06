@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.0.9.1
+* z-index for some drop down menus fixed
+* OldTitleBar by [DevilBro](https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/OldTitleBar) fixed
+
 #### v2.0.9
 * Server boost features styled
 * Color picker updated
