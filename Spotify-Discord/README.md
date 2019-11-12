@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.2.9
+* Custom style styled
+* Various popout menus fixed
+* Button backgrounds updated
+
 #### v1.2.8.5
 * Updated elements that Discord changed (If I missed any, please let me know)
 
