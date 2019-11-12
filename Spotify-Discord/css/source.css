@@ -9,7 +9,8 @@
 	--side-color: #191919;
 	--bar-color: #2c2c2c;
 
-	--button-background: #1a1a1a;
+	/*--button-background: #1a1a1a;*/
+	--button-background: rgba(0,0,0,0.15);
 	--button-border: 1px solid #b2b2b2;
 	--button-border-hover: 1px solid #fff;
 	--card-border: var(--bar-color);
@@ -18,6 +19,8 @@
 	--slider-background: var(--menu-border-color);
 
 	--popout-color: var(--bar-color);
+	--popout-radius: 7px;
+
 	--menu-hover-color: #424242;
 	--menu-hover-color-alt: #252525;
 	--menu-select-color: #4d4d4d;
@@ -1155,7 +1158,8 @@ a,
 
 .emoji-picker,
 .emojiPicker-3m1S-j {
-	border-radius: 0;
+	border-radius: var(--popout-radius);
+	box-shadow: var(--default-shadow);
 }
 
 .button-8BIq2d {
@@ -2796,7 +2800,8 @@ a,
 }
 
 .wrapper-39oAo3 {
-	margin: 14px 0;
+	height: 72px;
+	margin: 0;
 	padding: 0;
 	background: transparent;
 	border-radius: 0;
@@ -4218,6 +4223,7 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 .modal-1UGdnR,
 .modal-yWgWj-,
 .root-SR8cQa,
+.root-1gCeng,
 .authBox-hW6HRx,
 .uploadModal-2ifh8j,
 .uploadModalIn-1z07Bv .uploadDropModal-2kTwbc .bgScale-1otPtc,
@@ -4235,6 +4241,7 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 .modal-3HD5ck,
 .modal-yWgWj-,
 .root-SR8cQa,
+.root-1gCeng,
 .authBox-hW6HRx,
 .body-3ND3kc,
 .uploadModal-2ifh8j,
@@ -4253,7 +4260,7 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 .dc-overlay-centerfield,
 .smalltalk .page {
 	background: var(--popout-color) !important;
-	border-radius: 0 !important;
+	border-radius: var(--popout-radius) !important;
 }
 
 .sizeSmall-Sf4iOi {
@@ -4269,12 +4276,14 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 .header-1R_AjF,
 .header-2tA9Os,
 .header-ykumBX {
-	margin: 0 0 12px 0;
-	padding: 9px 12px;
+	position: relative;
+	margin: 0 0 0 0;
+	padding: 29px 21px;
 	background: transparent !important;
 	line-height: 38px;
-	border-bottom: 1px solid var(--menu-border-color);
+	border-bottom: none;
 	box-shadow: none !important;
+	text-align: center;
 }
 
 .header-1R_AjF .h4-AQvcAz {
@@ -4296,6 +4305,21 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 	height: 38px;
 	top: 0;
 	line-height: 44px;
+}
+
+.close-1kwMUs {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	top: 21px;
+	right: 21px;
+	padding: 0;
+}
+
+.close-1kwMUs svg path {
+	width: 22px !important;
+	height: 22px !important;
+	transform: scale(1.524) translate(-2px, -2px);
 }
 
 /* MODAL -> BODIES/CONTENT */
@@ -4333,8 +4357,8 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 .footer-1eyGBa {
 	padding: 12px;
 	background: var(--popout-color) !important;
-	border-radius: 0;
-	border-top: 1px solid var(--menu-border-color);
+	border-radius: 0 0 var(--popout-radius) var(--popout-radius);
+	border-top: none;
 	box-shadow: none !important;
 }
 
@@ -4523,8 +4547,8 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 .messagesPopoutWrap-1MQ1bW,
 .userPopout-3XzG_A  {
 	background: var(--popout-color) !important;
-	box-shadow: none !important;
-	border-radius: 0 !important;
+	box-shadow: var(--default-shadow) !important;
+	border-radius: var(--popout-radius) !important;
 	border: none !important;
 }
 
@@ -4614,11 +4638,17 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 	background: var(--menu-hover-color);
 }
 
+.itemBase-1Qj4z6 .checkbox-1wLOv4 {
+	position: absolute;
+	left: 10px;
+}
+
 .statusIconText-3b4TkH {
 	min-height: 32px;
 }
 
-.status-3Kz6VS {
+.status-3Kz6VS,
+.customStatusEmoji-2NpCsS {
 	width: 16px !important;
 	height: 16px !important;
 	margin: 0 7px 0 12px;
@@ -4637,14 +4667,36 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 	margin-bottom: 0;
 }
 
+/* POPOUT MENUS -> USER STATUS -> CUSTOM STATUS */
+
+.header-3C6qT5 {
+	padding-top: 0;
+}
+
+.art-347BZj {
+	display: none;
+}
+
+.emojiButtonContainer-3d6DFV {
+	z-index: 2;
+}
+
+.emojiButtonContainer-3d6DFV + .inputWrapper-31_8H8 .input-cIJ7To {
+	padding: 0 12px 0 40px !important;
+}
+
 /* POPOUT MENUS -> PINNED MESSAGES */
 
 .messagesPopoutWrap-1MQ1bW {
 	max-height: 85vh !important;
 }
 
-.themedPopout-25DgLi .header-SsaQ8X {
-	background: var(--popout-color);
+.messagesPopout-24nkyi,
+.themedPopout-1TrfdI .footer-1K57q_ {
+	background-color: transparent !important;
+}
+
+.themedPopout-1TrfdI .header-2Kf7Yu {
 	box-shadow: none;
 	border-bottom: 1px solid var(--menu-border-color);
 	border-radius: 0;
@@ -4811,6 +4863,7 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 }
 
 .body-3iLsc4,
+.bodyInner-245q0L,
 .footer-1fjuF6 {
 	background: transparent !important;
 }
@@ -4829,12 +4882,17 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
 	padding: 0 !important;
 }
 
+.listeningActionsProfile-1fYwru .buttonSize-2Pmk-w:not(:first-child) .lookOutlined-3sRXeN.colorWhite-rEQuAQ,
+.listeningActionsProfile-1fYwru .buttonSize-2Pmk-w:not(:first-child).lookOutlined-3sRXeN.colorWhite-rEQuAQ {
+	padding: 0 !important;
+}
+
 .activity-11LB_k .lookOutlined-3sRXeN.colorWhite-rEQuAQ:disabled {
 	margin: 0 !important;
 }
 
 .activity-11LB_k .lookOutlined-3sRXeN.colorWhite-rEQuAQ {
-	background: #1cb050 !important;
+	background: var(--button-background) !important;
 	border: 1px solid #fff !important;
 }
 
@@ -5185,6 +5243,24 @@ textarea.input-cIJ7To::-webkit-input-placeholder {
  *	SUPPORTED PLUGINS
  *
  */
+
+/* SUPPORTED PLUGINS -> ThemeRepo & PluginRepo */
+
+#bd-settingspane-container .bd-pfbtn + .horizontal-1ae9ci .container-cMG81i .iconLayout-3OgqU3 {
+	height: 34px;
+	margin: 0 8px 0 0;
+}
+
+#bd-settingspane-container .bd-pfbtn + .horizontal-1ae9ci .button-38aScr {
+	padding: 0 !important;
+	background: transparent !important;
+	border: none !important;
+	text-transform: none !important;
+}
+
+#bd-settingspane-container .bd-pfbtn + .horizontal-1ae9ci .button-38aScr:hover {
+	transform: scale(1) !important;
+}
 
 /* SUPPORTED PLUGINS -> DiscordCrypt */
 
