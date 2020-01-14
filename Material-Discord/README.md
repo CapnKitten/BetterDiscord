@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v2.1.3
+* Editing, uploading file, and spotify invite textareas fixed
+* Attachment button realigned correctly
+* Autocomplete modal for mentions in the upload and spotify invite modals styled correctly
+* ServerFolders by DevilBro server notification somewhat fixed
+* Scrollbars made a few pixels wider
+
 #### v2.1
 * Search button on the home tab fixed
 * Radio buttons fixed
