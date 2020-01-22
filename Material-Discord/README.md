@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v2.1.4
+* New messages bar colored correctly
+* Library games list fixed
+* Library settings fixed
+* [CharCounter](https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/CharCounter) plugin by [DevilBro](https://github.com/mwittrien) styled correctly for the theme
+
 #### v2.1.3
 * Editing, uploading file, and spotify invite textareas fixed
 * Attachment button realigned correctly
