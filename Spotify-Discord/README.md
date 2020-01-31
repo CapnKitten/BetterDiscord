@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.3.0
+* New friends list/activity styled
+
 #### v1.2.9
 * Custom style styled
 * Various popout menus fixed
