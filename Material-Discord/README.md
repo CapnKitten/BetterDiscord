@@ -2,12 +2,13 @@
 
 ## Changelog
 
-#### v2.1.5
+#### v2.1.5.1
 * Nitro subsriptions, gift invetory, and server boost pages styled
 * Billing add credit card modal fixed
 * Discord tag input fixed
 * Language selector fixed
 * New friends list/activity styled
+* Removed deprecated code regarding things Discord removed
 
 #### v2.1.4
 * New messages bar colored correctly
