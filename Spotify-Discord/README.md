@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v1.3.1
+* Messages updated
+* Unread/new messages notification bar updated
+* Popup format toolbar styled
+
 #### v1.3.0
 * New friends list/activity styled
 
