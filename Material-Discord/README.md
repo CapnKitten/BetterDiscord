@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v2.1.6
+* Messages updated
+* New message actions styled and animated
+* Unread/new messages notification bar updated (WIP)
+* Popup format toolbar styled
+
 #### v2.1.5.1
 * Nitro subsriptions, gift invetory, and server boost pages styled
 * Billing add credit card modal fixed
