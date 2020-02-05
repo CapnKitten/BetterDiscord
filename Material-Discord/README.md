@@ -2,6 +2,15 @@
 
 ## Changelog
 
+#### v2.1.7
+* Messages updated yet again, thanks Discord
+* Messages container scrollbar gap at the bottom fixed
+* Compact messages updated
+* Delete message modal updated
+* Upload file message fixed
+* Audio player fixed
+* Pinned messages styled
+
 #### v2.1.6
 * Messages updated
 * New message actions styled and animated
