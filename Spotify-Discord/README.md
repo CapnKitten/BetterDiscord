@@ -2,6 +2,13 @@
 
 ## Changelog
 
+#### v1.3.2
+* Various icons updated
+* Mentioned messages updated
+* Messages container scrollbar gap at the bottom fixed
+* Create/join server modal updated
+* Removed deprecated code regarding things Discord removed
+
 #### v1.3.1
 * Messages updated
 * Unread/new messages notification bar updated
