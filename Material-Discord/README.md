@@ -3,6 +3,7 @@
 ## Changelog
 
 #### v2.1.8
+* Server/DM search results updated
 * Added Product Sans font support for Greek and Latin Extended characters
 
 #### v2.1.7
