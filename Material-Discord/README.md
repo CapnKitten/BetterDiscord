@@ -3,7 +3,7 @@
 ## Changelog
 
 #### v2.1.8
-* Added Product Sans font support for non-english languages
+* Added Product Sans font support for Greek and Latin Extended characters
 
 #### v2.1.7
 * Messages updated yet again, thanks Discord
