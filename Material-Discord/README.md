@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.1.8
+* Added Product Sans font support for non-english languages
+
 #### v2.1.7
 * Messages updated yet again, thanks Discord
 * Messages container scrollbar gap at the bottom fixed
