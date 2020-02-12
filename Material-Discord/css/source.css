@@ -4428,7 +4428,8 @@ button[disabled],
 }
 
 .peopleListItem-2nzedh,
-.peopleListItem-2nzedh:hover {
+.peopleListItem-2nzedh:hover,
+.peopleListItem-2nzedh.active-rhSpJJ {
 	margin: 0;
 	padding: 16px;
 	border-radius: 0;
@@ -4440,6 +4441,9 @@ button[disabled],
 
 .peopleListItem-2nzedh,
 .peopleListItem-2nzedh:hover,
+.peopleListItem-2nzedh:hover + .peopleListItem-2nzedh,
+.peopleListItem-2nzedh.active-rhSpJJ,
+.peopleListItem-2nzedh.active-rhSpJJ + .peopleListItem-2nzedh,
 .peopleListItem-2nzedh:hover + .peopleListItem-2nzedh {
 	border-color: var(--select-color)
 }
@@ -4480,7 +4484,11 @@ button[disabled],
 }
 
 .itemCard-v9viV7:hover {
-	background-color: #292b2f;
+	background-color: #292b2f !important;
+}
+
+.itemCard-v9viV7.active-1xchHY {
+	background-color: #35373a !important
 }
 
 .itemCard-v9viV7:first-of-type {
@@ -4500,6 +4508,7 @@ button[disabled],
 	background-color: var(--hover-color) !important;
 }
 
+.popout-38lTFE,
 .popout-13LQ_3 {
 	left: -184px;
 	padding: 8px 0;
@@ -4510,17 +4519,18 @@ button[disabled],
 .wrapper-3Rixsz,
 .memberListItem-2ZX2pl {
 	margin: 0;
-	padding: 8px 12px;
+	padding: 9px 12px;
 	border-radius: 0;
 	transition: 250ms ease all;
 }
 
 .memberListItem-2ZX2pl {
-	padding: 5px 12px;
+	padding: 6px 12px;
 }
 
 .memberListItem-31QoHj {
 	margin: 8px 0;
+	padding: 6px 8px;
 	border-radius: 0;
 }
 
@@ -8574,7 +8584,7 @@ input:checked+.slider-3Z3pGX,
 	overflow: visible !important;
 }
 
-.message-2qnXI6:not(.groupStart-23k01U):before {
+.message-2qnXI6:not(.groupStart-23k01U):after {
 	position: absolute;
 	content: " ";
 	width: 100%;
@@ -8590,6 +8600,12 @@ input:checked+.slider-3Z3pGX,
 	background-color: var(--accent-color);
 	border-radius: 0 0 0 var(--border-radius);
 }
+
+.mentioned-xhSam7:before {
+	display: none;
+}
+
+.searchResult-3pzFAB .cozy-3raOZG:not(.message-2qnXI6) .container-3FojY8:before,
 
 .message-2qnXI6.groupStart-23k01U .container-3FojY8:before,
 .messageGroupWrapper-o-Zw7G .messageGroupCozy-2iY6cT .container-3FojY8:before,
@@ -8608,9 +8624,11 @@ input:checked+.slider-3Z3pGX,
 	transform: rotate(135deg);
 }
 
-.message-2qnXI6.groupStart-23k01U.mentioned-xhSam7 .container-3FojY8:before {
+/*.message-2qnXI6.groupStart-23k01U.mentioned-xhSam7 .container-3FojY8:before {
 	border-right-color: var(--accent-color);
-}
+}*/
+
+.searchResult-3pzFAB .cozy-3raOZG:not(.message-2qnXI6) .container-3FojY8:after,
 
 .message-2qnXI6.groupStart-23k01U .container-3FojY8:after,
 .messageGroupWrapper-o-Zw7G .messageGroupCozy-2iY6cT .container-3FojY8:after,
@@ -8625,9 +8643,9 @@ input:checked+.slider-3Z3pGX,
 	pointer-events: none;
 }
 
-.message-2qnXI6.groupStart-23k01U.mentioned-xhSam7 .container-3FojY8:after {
+/*.message-2qnXI6.groupStart-23k01U.mentioned-xhSam7 .container-3FojY8:after {
 	background-color: var(--accent-color);
-}
+}*/
 
 .message-2qnXI6.groupStart-23k01U.systemMessage-1I9LCe .container-3FojY8:before,
 .message-2qnXI6.groupStart-23k01U.systemMessage-1I9LCe .container-3FojY8:after,
@@ -9714,6 +9732,7 @@ input:checked+.slider-3Z3pGX,
 	border-radius: 50%;
 	left: auto;
 	bottom: 20px;
+	padding: 0;
 	background: var(--accent-color) !important;
 }
 
@@ -13480,6 +13499,8 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 	background: var(--main-color) !important;
 }
 
+/* SEARCH -> RESULTS -> HEADER */
+
 .searchHeader-1l-wpR {
 	position: relative;
 	box-shadow: none !important;
@@ -13515,13 +13536,18 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 	color: #fff !important;
 }
 
+/* SEARCH -> RESULTS -> MESSAGES */
+
 .searchResult-3pzFAB {
 	margin: 0 0 12px 0;
 }
 
-.searchResult-3pzFAB:before,
+.searchResult-3pzFAB:before {
+	background-image: linear-gradient(0deg,transparent,var(--main-color));
+}
+
 .searchResult-3pzFAB:after {
-	background: transparent !important;
+	background-image: linear-gradient(180deg,transparent,var(--main-color));
 }
 
 .searchResult-3pzFAB.expanded-v2Szsz .searchResultMessage-2VxO12 {
@@ -13548,7 +13574,33 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 	border: none !important;
 }
 
-.search-results-wrap .search-result .search-result-message {
+.searchResult-3pzFAB.expanded-v2Szsz {
+	background-color: transparent;
+}
+
+.searchResult-3pzFAB .cozy-3raOZG:not(.message-2qnXI6) {
+	margin: 16px 16px 0 64px;
+}
+
+.searchResult-3pzFAB .hit-NLlWXA .cozy-3raOZG:not(.message-2qnXI6) .container-3FojY8:before,
+.searchResult-3pzFAB .hit-NLlWXA .cozy-3raOZG:not(.message-2qnXI6) .container-3FojY8:after {
+	top: -12px;
+}
+
+.searchResult-3pzFAB .cozy-3raOZG .header-23xsNx .avatar-1BDn8e {
+	top: -8px;
+	left: -12px;
+}
+
+.searchResult-3pzFAB .hit-NLlWXA .cozy-3raOZG .header-23xsNx .avatar-1BDn8e {
+	top: -12px;
+}
+
+.searchResult-3pzFAB .container-1ov-mD {
+	overflow: hidden;
+}
+
+/*.search-results-wrap .search-result .search-result-message {
 	border-radius: 3px !important;
 	background: transparent !important;
 	border: none !important;
@@ -13556,7 +13608,7 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 
 .search-results-wrap .search-result .search-result-message .message-group {
 	margin: 0 !important;
-}
+}*/
 
 .searchResultMessage-2VxO12.hit-NLlWXA .actionButtons-14P9IC {
 	top: 14px;
@@ -15178,41 +15230,7 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 
 /* FONTS -> PRODUCT SANS */
 
-/* cyrillic */
-@font-face {
-	font-family: 'Product Sans';
-	font-style: italic;
-	font-weight: 500;
-	src: local('Product Sans Medium Italic'), local('ProductSans-MediumItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-MediumItalic-cyrillic.woff2) format('woff2');
-	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-
-/* latin */
-@font-face {
-	font-family: 'Product Sans';
-	font-style: italic;
-	font-weight: 500;
-	src: local('Product Sans Medium Italic'), local('ProductSans-MediumItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-MediumItalic-latin.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* cyrillic */
-@font-face {
-	font-family: 'Product Sans';
-	font-style: italic;
-	font-weight: 700;
-	src: local('Product Sans Bold Italic'), local('ProductSans-BoldItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-BoldItalic-cyrillic.woff2) format('woff2');
-	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-
-/* latin */
-@font-face {
-	font-family: 'Product Sans';
-	font-style: italic;
-	font-weight: 700;
-	src: local('Product Sans Bold Italic'), local('ProductSans-BoldItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-BoldItalic-latin.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* FONTS -> PRODUCT SANS -> 400 */
 
 /* cyrillic */
 @font-face {
@@ -15232,6 +15250,26 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* greek */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Product Sans Regular'), local('ProductSans-Regular'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Regular-greek.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Product Sans Regular'), local('ProductSans-Regular'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Regular-latinext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* FONTS -> PRODUCT SANS -> 500 */
+
 /* cyrillic */
 @font-face {
 	font-family: 'Product Sans';
@@ -15250,6 +15288,26 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* greek */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Product Sans Medium'), local('ProductSans-Medium'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Medium-greek.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Product Sans Medium'), local('ProductSans-Medium'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Medium-latinext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* FONTS -> PRODUCT SANS -> 700 */
+
 /* cyrillic */
 @font-face {
 	font-family: 'Product Sans';
@@ -15266,4 +15324,138 @@ body:active .animatorTop-2Y7x2r .menu-Sp6bN1:not(:active) {
 	font-weight: 700;
 	src: local('Product Sans Bold'), local('ProductSans-Bold'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Bold-latin.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* greek */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Product Sans Bold'), local('ProductSans-Bold'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Bold-greek.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Product Sans Bold'), local('ProductSans-Bold'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-Bold-latinext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* FONTS -> PRODUCT SANS -> ITALIC */
+
+/* FONTS -> PRODUCT SANS -> ITALIC -> 400 */
+
+/* cyrillic */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Product Sans Italic'), local('ProductSans-Italic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-RegularItalic-cyrillic.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Product Sans Italic'), local('ProductSans-Italic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-RegularItalic-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* greek */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Product Sans Italic'), local('ProductSans-Italic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-RegularItalic-greek.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Product Sans Italic'), local('ProductSans-Italic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-RegularItalic-latinext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* FONTS -> PRODUCT SANS -> ITALIC -> 500 */
+
+/* cyrillic */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Product Sans Medium Italic'), local('ProductSans-MediumItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-MediumItalic-cyrillic.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Product Sans Medium Italic'), local('ProductSans-MediumItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-MediumItalic-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* greek */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Product Sans Medium Italic'), local('ProductSans-MediumItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-MediumItalic-greek.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 500;
+	src: local('Product Sans Medium Italic'), local('ProductSans-MediumItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-MediumItalic-latinext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* FONTS -> PRODUCT SANS -> ITALIC -> 700 */
+
+/* cyrillic */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Product Sans Bold Italic'), local('ProductSans-BoldItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-BoldItalic-cyrillic.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Product Sans Bold Italic'), local('ProductSans-BoldItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-BoldItalic-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* greek */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Product Sans Bold Italic'), local('ProductSans-BoldItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-BoldItalic-greek.woff2) format('woff2');
+	unicode-range: U+0370-03FF;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Product Sans';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Product Sans Bold Italic'), local('ProductSans-BoldItalic'), url(https://capnkitten.github.io/BetterDiscord/Material-Discord/files/fonts/ProductSans-BoldItalic-latinext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
