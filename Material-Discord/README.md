@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.1.9
+* Updated icons that were changed
+* Fixed DM call icons in messages
+
 #### v2.1.8
 * Server/DM search results updated
 * Added Product Sans font support for Greek and Latin Extended characters
