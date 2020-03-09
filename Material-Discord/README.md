@@ -2,7 +2,7 @@
 
 ## Changelog
 
-#### v2.1.9
+#### v2.1.9 (08/03/2020)
 * Updated icons that were changed
 * Fixed DM call icons in messages
 
