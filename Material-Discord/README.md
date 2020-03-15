@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.1.9.3 (15/03/2020)
+* Fixed video and audio buttons
+
 #### v2.1.9 (08/03/2020)
 * Updated icons that were changed
 * Fixed DM call icons in messages
