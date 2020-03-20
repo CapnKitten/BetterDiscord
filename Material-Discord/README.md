@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.1.9.4 (19/03/2020)
+* Create/join server modals fixed
+* Messages hover color updated
+* Various missed icons updated
+
 #### v2.1.9.3 (15/03/2020)
 * Fixed video and audio buttons
 
