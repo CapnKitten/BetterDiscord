@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.2 (28/03/2020)
+* Bandaged BetterDiscord elements updated
+
 #### v2.1.9.4 (19/03/2020)
 * Create/join server modals fixed
 * Messages hover color updated
