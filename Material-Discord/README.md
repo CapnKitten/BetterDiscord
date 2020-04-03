@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.2.3 (03/04/2020)
+* Server icons updated
+* Various updated icons fixed
+* Date dividers between messages fixed
+
 #### v2.2 (28/03/2020)
 * Bandaged BetterDiscord elements updated
 
