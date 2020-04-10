@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.2.3.2 (10/04/2020)
+* Video player buttons fixed
+* Unread messages notification for ServerFolders by DevilBro mostly fixed
+
 #### v2.2.3 (03/04/2020)
 * Server icons updated
 * Various updated icons fixed
