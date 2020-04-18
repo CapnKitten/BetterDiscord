@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.2.4 (18/04/2020)
+* New Go Live interfaces updated
+* Noise suppression popout updated
+* Chat font scaling issue with pinned messages fixed
+
 #### v2.2.3.2 (10/04/2020)
 * Video player buttons fixed
 * Unread messages notification for ServerFolders by DevilBro mostly fixed
