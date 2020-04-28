@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.2.6 (27/04/2020)
+* Edit messages form fixed
+* New emoji popout styled
+* Changed how button backgrounds change on hover and active states
+
 #### v2.2.5 (18/04/2020)
 * New Go Live interfaces updated
 * Noise suppression popout updated
