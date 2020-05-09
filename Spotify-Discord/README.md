@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v1.3.4 (09/05/2020)
+* New emoji and gif picker styled
+* New mentions and unread messages popout styled
+
 #### v1.3.2
 * Various icons updated
 * Mentioned messages updated
