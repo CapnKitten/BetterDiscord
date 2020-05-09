@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.2.7 (09/05/2020)
+* Improved DM screenshare interface
+* Most uploaded files icons updated
+* Various fixes
+
 #### v2.2.6 (27/04/2020)
 * Edit messages form fixed
 * New emoji popout styled
