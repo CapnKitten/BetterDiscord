@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.2.8 (14/05/2020)
+* New Discover categories styled
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v2.2.7 (09/05/2020)
 * Improved DM screenshare interface
 * Most uploaded files icons updated
