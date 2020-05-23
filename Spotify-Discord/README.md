@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.3.5.1 (23/05/2020)
+* Search results updated
+
 #### v1.3.5 (15/05/2020)
 * New Discover categories styled
 * Updated elements that Discord changed (If I missed any, please let me know)
