@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.2.8.1 (13/06/2020)
+* Search results updated
+* Tooltip text size slightly increased for readability
+* Compact messages padding adjusted
+
 #### v2.2.8 (14/05/2020)
 * New Discover categories styled
 * Updated elements that Discord changed (If I missed any, please let me know)
