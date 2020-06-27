@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v1.3.5.2 (27/06/2020)
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v1.3.5.1 (23/05/2020)
 * Search results updated
 
