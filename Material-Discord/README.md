@@ -2,6 +2,9 @@
 
 ## Changelog
 
+#### v2.3.2 (30/06/2020)
+* Updated elements that Discord changed (If I missed any, please let me know)
+
 #### v2.3 (21/06/2020)
 * New messages bubbles based on Material Design 2
 * Message bubbles spacing is now affected by `Space between message groups` in the appearance settings
