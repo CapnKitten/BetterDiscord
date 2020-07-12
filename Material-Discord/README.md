@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v2.3.3 (11/07/2020)
+* Icons updated for languages other than English
+* Search results updated
+* Pinned messages message for the compact appearance fixed
+
 #### v2.3.2 (30/06/2020)
 * Updated elements that Discord changed (If I missed any, please let me know)
 
