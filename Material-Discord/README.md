@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v2.3.3.1 (17/07/2020)
+* Spacing issue with compact messages and chat font scaling fixed
+* Spacing issue with disabled video and screensharing buttons when in a voice call fixed
+
 #### v2.3.3 (11/07/2020)
 * Icons updated for languages other than English
 * Search results updated
