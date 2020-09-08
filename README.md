@@ -2,9 +2,9 @@
 
 ### Themes
 
-* [Material Discord](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord)
-* [Spotify Discord](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord)
-* [Translucence](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Translucence)
+* [Material Discord](https://github.com/CapnKitten/BetterDiscord/tree/master/Material-Discord)
+* [Spotify Discord](https://github.com/CapnKitten/BetterDiscord/tree/master/Spotify-Discord)
+* [Translucence](https://github.com/CapnKitten/BetterDiscord/tree/master/Translucence)
 
 ### Plugins
 
