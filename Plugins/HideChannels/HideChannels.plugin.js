@@ -3,7 +3,7 @@
  * @displayName HideChannels
  * @authorId 405126960902176768
  * @website https://github.com/CapnKitten
- * @source https://raw.githubusercontent.com/CapnKitten/BetterDiscord/tree/master/Plugins/HideChannels/HideChannels.plugin.js
+ * @source https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js
  * @donate https://paypal.me/capnkitten
  */
 
@@ -92,7 +92,7 @@ var HideChannels = (_ => {
 			if (!global.ZeresPluginLibrary)
 				return window.BdApi.alert("Library Missing",`The library plugin needed for ${this.getName()} is missing.<br /><br /> <a href="https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js" target="_blank">Click here to download the library!</a>`);
 
-			ZLibrary.PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/tree/master/Plugins/HideChannels/HideChannels.plugin.js");
+			ZLibrary.PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js");
 
 			let libraryScript=document.getElementById('ZLibraryScript');
 
