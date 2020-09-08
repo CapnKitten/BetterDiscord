@@ -70,8 +70,6 @@ Assets located at: https://github.com/CapnKitten/BetterDiscord/blob/master/Trans
 #### v1.0 (03/09/2020)
 * Initial release
 
-[View previous changelogs](https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Translucence/changelog.md)
-
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
 
