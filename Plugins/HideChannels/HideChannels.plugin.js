@@ -8,11 +8,16 @@
  */
 
 var HideChannels = (_ => {
-	var buttonName = 'toggleChannels', buttonHideName = 'channelsVisible', buttonShowName = 'channelsHidden', hideElementsName = 'hideElement';
-	var targetElement = '.children-19S4PO';
-	var settingsVersion = '1.0.1';
+	const buttonName = 'toggleChannels',
+		buttonHideName = 'channelsVisible',
+		buttonShowName = 'channelsHidden',
+		hideElementsName = 'hideElement',
+		targetElement = '.children-19S4PO',
+		sidebarName = '.sidebar-2K8pFh';
 
-	var pluginCSS = `
+	const settingsVersion = '1.0.2';
+
+	const pluginCSS = `
 		#toggleChannels {
 			position: absolute;
 			width: 24px;
@@ -78,7 +83,7 @@ var HideChannels = (_ => {
 
 	return class HideChannels {
 		getName() {return "HideChannels";}
-		getVersion() {return "1.0.1";}
+		getVersion() {return "1.0.2";}
 		getAuthor() {return "CapnKitten";}
 		getDescription() {return "Allows you to hide the channels list in servers and DMs";}
 
@@ -114,8 +119,65 @@ var HideChannels = (_ => {
 		}
 
 		stop() {
-			this.initialized = false;
 			this.removeSettings();
+			this.initialized = false;
+		}
+
+		addToggleButton() {
+			const target = document.querySelector(targetElement),
+				button = document.createElement('div'),
+				settings = this.loadSettings();
+
+			button.setAttribute('id', buttonName);
+
+			if (settings.channels_hidden == 'true')
+				button.classList.add(buttonShowName);
+			else if (settings.channels_hidden == 'false')
+				button.classList.add(buttonHideName);
+			else
+				button.classList.add(buttonHideName);
+
+			target.parentNode.insertBefore(button, target.nextSibling);
+
+			let buttonAction = document.getElementById(buttonName);
+			buttonAction.addEventListener('click', ()=> this.toggleChannels());
+		}
+
+		addExtras() {
+			let style = document.createElement('style');
+			style.id = this.getName() + 'CSS';
+			style.innerHTML = pluginCSS;
+
+			document.head.appendChild(style);
+
+			const settings = this.loadSettings(),
+				sidebar = document.querySelector(sidebarName);
+			if (settings.channels_hidden == 'true') {
+				setTimeout(function() {
+					sidebar.classList.add(hideElementsName);
+				}, 2500);
+			}
+		}
+
+		toggleChannels() {
+			var button = document.querySelector('#' + buttonName),
+				sidebar = document.querySelector(sidebarName);
+
+			if (button.classList.contains(buttonHideName)) {
+				button.classList.add(buttonShowName);
+				button.classList.remove(buttonHideName);
+
+				sidebar.classList.add(hideElementsName);
+
+				this.saveSettings('true');
+			} else if (button.classList.contains(buttonShowName)) {
+				button.classList.add(buttonHideName);
+				button.classList.remove(buttonShowName);
+
+				sidebar.classList.remove(hideElementsName);
+
+				this.saveSettings('false');
+			}
 		}
 
 		loadSettings() {
@@ -131,10 +193,9 @@ var HideChannels = (_ => {
 		}
 
 		saveSettings(status) {
-			var settings = this.loadSettings();
+			const settings = this.loadSettings();
 
 			settings.channels_hidden = status;
-
 			BdApi.saveData(this.getName(), 'config', JSON.stringify(settings));
 		}
 
@@ -145,74 +206,16 @@ var HideChannels = (_ => {
 			};
 		}
 
-		addToggleButton() {
-			const target = document.querySelector(targetElement);
-			const elem = document.createElement('div');
-
-			elem.setAttribute('id', buttonName);
-
-			var settings = this.loadSettings();
-			if (settings.channels_hidden == 'true')
-				elem.classList.add(buttonShowName);
-			else if (settings.channels_hidden == 'false')
-				elem.classList.add(buttonHideName);
-			else
-				elem.classList.add(buttonHideName);
-
-			target.parentNode.insertBefore(elem, target.nextSibling);
-
-			let buttonAction = document.getElementById(buttonName);
-			buttonAction.addEventListener('click', ()=> this.toggleChannels());
-		}
-
-		addExtras() {
-			let style = document.createElement('style');
-			style.id = 'HideChannelsCSS';
-			style.innerHTML = pluginCSS;
-
-			document.head.appendChild(style);
-
-			var settings = this.loadSettings(),
-				sidebar = document.querySelector('.sidebar-2K8pFh');
-			if (settings.channels_hidden == 'true') {
-				setTimeout(function() {
-					sidebar.classList.add(hideElementsName);
-				}, 2500);
-			}
-		}
-
-		toggleChannels() {
-			var element = document.querySelector('#'+buttonName),
-				sidebar = document.querySelector('.sidebar-2K8pFh'),
-				panels = document.querySelector('.panels-j1Uci_'); 
-
-			if (element.classList.contains(buttonHideName)) {
-				element.classList.add(buttonShowName);
-				element.classList.remove(buttonHideName);
-
-				sidebar.classList.add(hideElementsName);
-
-				this.saveSettings('true');
-			} else if (element.classList.contains(buttonShowName)) {
-				element.classList.add(buttonHideName);
-				element.classList.remove(buttonShowName);
-
-				sidebar.classList.remove(hideElementsName);
-
-				this.saveSettings('false');
-			}
-		}
-
 		removeSettings() {
 			document.getElementById(buttonName).remove();
 
-			var sidebar = document.querySelector(targetElement);
+			const sidebar = document.querySelector(targetElement);
 
 			if (sidebar.classList.contains(hideElementsName))
 				sidebar.classList.remove(hideElementsName);
 
-			if (document.getElementById('HideChannelsCSS'))
-				document.head.removeChild(document.getElementById('HideChannelsCSS'));
+			if (document.getElementById(this.getName() + 'CSS'))
+				document.head.removeChild(document.getElementById(this.getName() + 'CSS'));
 		}
 	}
 
