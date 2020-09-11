@@ -55,7 +55,7 @@ Assets located at: https://github.com/CapnKitten/BetterDiscord/tree/master/Spoti
 * Certain inputs fixed
 
 
-[View previous changelogs](https://github.com/CapnKitten/BetterDiscord/blob/master/Spotify-Discord/README.md)
+[View previous changelogs](https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Spotify-Discord/changelog.md)
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
