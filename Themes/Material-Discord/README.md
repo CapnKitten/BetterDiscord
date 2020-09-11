@@ -4,8 +4,6 @@
 
 Current version: v2.3.3.6 (11/09/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Material-Discord/master/Material-Discord.theme.css)** | Old messages add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Material-Discord/css/Material-Discord_addon-messages.theme.css)**
 
-&nbsp;
-
 ## Previews
 
 (Previews are subject to be out of date / Animations in the GIFs are sped up)
