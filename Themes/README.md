@@ -1,8 +1,10 @@
-# BetterDiscord Plugins - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url]
+# BetterDiscord Themes - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url]
 
-### Plugins
+### Themes
 
-* [Hide Channels](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/HideChannels)
+* [Material Discord](https://github.com/CapnKitten/Material-Discord)
+* [Spotify Discord](https://github.com/CapnKitten/Spotify-Discord)
+* [Translucence](https://github.com/CapnKitten/Translucence)
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
