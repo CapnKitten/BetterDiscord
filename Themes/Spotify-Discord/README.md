@@ -4,8 +4,6 @@
 
 Current version: v1.3.6.2 (15/08/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Spotify-Discord/master/Spotify-Discord.theme.css)**
 
-Assets located at: https://github.com/CapnKitten/BetterDiscord/tree/master/Spotify-Discord
-
 ## Previews
 
 (Previews are subject to be out of date)
