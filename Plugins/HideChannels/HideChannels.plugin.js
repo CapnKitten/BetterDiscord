@@ -15,75 +15,34 @@ var HideChannels = (_ => {
 		targetElement = '.children-19S4PO',
 		sidebarName = '.sidebar-2K8pFh';
 
-	const settingsVersion = '1.0.2';
+	const settingsVersion = '1.0.3';
 
 	const pluginCSS = `
-		#toggleChannels {
-			position: absolute;
-			width: 24px;
-			height: 24px;
-			top: 0;
-			left: 8px;
-			bottom: 0;
-			margin: auto 0;
-			background-position: center;
-			background-size: 100%;
-			opacity: 0.8;
-			z-index: 2;
-			cursor: pointer;
-		}
+		#toggleChannels { position: absolute; width: 24px; height: 24px; top: 0; left: 8px; bottom: 0; margin: auto 0; background-position: center; background-size: 100%; opacity: 0.8; z-index: 2; cursor: pointer; }
 
-		#toggleChannels.channelsVisible {
-			background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTE4LjQxIDE2LjU5TDEzLjgyIDEybDQuNTktNC41OUwxNyA2bC02IDYgNiA2ek02IDZoMnYxMkg2eiIvPjxwYXRoIGQ9Ik0yNCAyNEgwVjBoMjR2MjR6IiBmaWxsPSJub25lIi8+PC9zdmc+);
-		}
+		#toggleChannels.channelsVisible { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTE4LjQxIDE2LjU5TDEzLjgyIDEybDQuNTktNC41OUwxNyA2bC02IDYgNiA2ek02IDZoMnYxMkg2eiIvPjxwYXRoIGQ9Ik0yNCAyNEgwVjBoMjR2MjR6IiBmaWxsPSJub25lIi8+PC9zdmc+); }
 
-		#toggleChannels.channelsHidden {
-			background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTUuNTkgNy40MUwxMC4xOCAxMmwtNC41OSA0LjU5TDcgMThsNi02LTYtNnpNMTYgNmgydjEyaC0yeiIvPjwvc3ZnPg==);
-		}
+		#toggleChannels.channelsHidden { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTUuNTkgNy40MUwxMC4xOCAxMmwtNC41OSA0LjU5TDcgMThsNi02LTYtNnpNMTYgNmgydjEyaC0yeiIvPjwvc3ZnPg==); }
 
-		.hideElement {
-			width: 0 !important;
-		}
+		.hideElement { width: 0 !important; }
 
-		.sidebar-2K8pFh .container-3baos1 {
-			transition: 400ms ease all;
-		}
+		.sidebar-2K8pFh .container-3baos1 { transition: 400ms ease all; }
 
-		.sidebar-2K8pFh.hideElement .container-3baos1 {
-			position: absolute;
-			width: 240px;
-			height: 68px;
-			bottom: 0;
-			margin-bottom: 0;
-			z-index: 2;
-		}
+		.sidebar-2K8pFh.hideElement .container-3baos1 { position: absolute; width: 240px; height: 68px; bottom: 0; margin-bottom: 0; z-index: 2; }
 
-		.sidebar-2K8pFh.hideElement .container-3baos1,
-		.form-2fGMdU {
-			background-color: var(--background-primary);
-		}
+		.sidebar-2K8pFh.hideElement .container-3baos1 { background-color: var(--background-primary); }
 
-		.sidebar-2K8pFh + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU {
-			margin-left: 0;
-			transition: 400ms ease margin-left;
-		}
+		.sidebar-2K8pFh + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU { margin-left: 0; transition: 400ms ease margin-left; }
 
-		.sidebar-2K8pFh.hideElement + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU {
-			margin-left: 240px;
-		}
+		.sidebar-2K8pFh.hideElement + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU { margin-left: 240px; }
 
-		.sidebar-2K8pFh,
-		.hideElement {
-			transition: width 400ms ease;
-		}
+		.sidebar-2K8pFh, .hideElement { transition: width 400ms ease; }
 
-		.children-19S4PO {
-			padding-left: 24px;
-		}`;
+		.children-19S4PO { padding-left: 24px; }`;
 
 	return class HideChannels {
 		getName() {return "HideChannels";}
-		getVersion() {return "1.0.2";}
+		getVersion() {return "1.0.3";}
 		getAuthor() {return "CapnKitten";}
 		getDescription() {return "Allows you to hide the channels list in servers and DMs";}
 
