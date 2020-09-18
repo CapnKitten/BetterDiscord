@@ -30,34 +30,33 @@ Current version: v1.0.2 (12/09/2020) - **[Download](https://betterdiscord.net/gh
 
 ## Variables
 
- - `--app-bg` - The background image for the entire Discord app
- - `--app-blur` - The strength of the blur for every element that has one
- - `--app-margin` - The margin surrounding the content area
- - `--app-radius` - The border radius of the app and every element that has a border radius
- - `--app-accent` - The app accent color
- - `--app-accent-rgb` - The rgb values of the app accent color
- - `--app-accent-text` - The text color for buttons and other various elements with the accent background color
- - `--sidebar-color` - The background color of the sidebars
- - `--main-content-color` - The background color of the main content areas
- - `--textarea-color` - The background color for any textareas and inputs
- - `--textarea-color-focus` - The background color when focusing on any textareas and inputs
- - `--textarea-text-color` - The text color for textareas and inputs
- - `--textarea-radius` - The border radius for textareas (not inputs)
- - `--input-height` - The height for inputs
- - `--input-radius` - The border radius for inputs (not textareas)
- - `--card-color` - The background color for cards
- - `--card-color-hover` - The background color for hovering over cards (if there is a hover animation)
- - `--card-radius` - The border radius for cards
- - `--button-color` - The background color for most buttons
- - `--button-action-color` - The background color for hovering and clicking on buttons (has a lowered opacity)
- - `--button-text-color` - The text color for any buttons that use `--button-color`
- - `--button-radius` - The border radius for buttons
- - `--popout-color` - The background color for modals/popouts
- - `--popout-blur` - The blur strength for modals/popouts
- - `--popout-header-opacity` - The header opacity for modals/popouts
- - `--popout-header-shadow`- The shadow for headers in modals/popouts
- - `--popout-radius` - The border radius for modals/popouts
- - `--popout-shadow` - The shadow for modals/popouts
+ - `--app-bg` - The background image for the entire Discord app. Example: `url(https://i.imgur.com/U8bSjj5.jpg)`
+ - `--app-blur` - The strength of the blur for every element that has one. Example: `6px`
+ - `--app-margin` - The margin surrounding the content area. Example: `24px`
+ - `--app-radius` - The border radius of the app and every element that has a border radius. Example: `8px`
+ - `--app-accent` - The app accent color. Example: `#d73d3d`
+ - `--app-accent-rgb` - The rgb values of the app accent color. Example: `215,61,61`
+ - `--app-accent-text` - The text color for buttons and other various elements with the accent background color. Example: `#000`
+ - `--sidebar-color` - The background color of the sidebars. Example: `rgba(0,0,0, 0.4)`
+ - `--main-content-color` - The background color of the main content areas. Example: `rgba(0,0,0, 0.2)`
+ - `--textarea-color` - The background color for any textareas and inputs. Example: `0,0,0`
+ - `--textarea-text-color` - The text color for textareas and inputs. Example: `#fff`
+ - `--textarea-radius` - The border radius for textareas (not inputs). Example: `22px`
+ - `--input-height` - The height for inputs. Example: `36px`
+ - `--input-radius` - The border radius for inputs (not textareas). Example: `18px`
+ - `--card-color` - The background color for cards. Example: `rgba(0,0,0, 0.4)`
+ - `--card-color-hover` - The background color for hovering over cards (if there is a hover animation). Example: `rgba(0,0,0, 0.5)`
+ - `--card-radius` - The border radius for cards. Example: `8px`
+ - `--button-color` - The background color for most buttons. Example: `#d73d3d`
+ - `--button-action-color` - The background color for hovering and clicking on buttons (has a lowered opacity). Example: `#000`
+ - `--button-text-color` - The text color for any buttons that use `--button-color`. Example: `#000`
+ - `--button-radius` - The border radius for buttons. Example: `8px`
+ - `--popout-color` - The background color for modals/popouts. Example: `rgba(0,0,0, 0.55)`
+ - `--popout-blur` - The blur strength for modals/popouts. Example: `5px`
+ - `--popout-header-opacity` - The header opacity for modals/popouts. Example: `0.3`
+ - `--popout-header-shadow`- The shadow for headers in modals/popouts. Example: `0px 3px 9px 0px rgba(0,0,0, 0.25)`
+ - `--popout-radius` - The border radius for modals/popouts. Example: `8px`
+ - `--popout-shadow` - The shadow for modals/popouts. Example: `0 8px 10px 1px rgba(0,0,0, 0.14)`
  
 &nbsp;
 
