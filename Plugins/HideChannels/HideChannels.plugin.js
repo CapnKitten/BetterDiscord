@@ -80,8 +80,7 @@ module.exports = (() => {
 		stop() { }
 	} : (([Plugin, Api]) => {
 		const plugin = (Plugin, Api) => {
-			const { WebpackModules, PluginUtilities, DiscordModules, Patcher } = Api;
-			const { React } = DiscordModules;
+			const { PluginUtilities, Patcher } = Api;
 
 			const buttonName = 'toggleChannels',
 				buttonHideName = 'channelsVisible',
@@ -108,7 +107,6 @@ module.exports = (() => {
 						.children-19S4PO { padding-left: 24px; }`
 					);
 
-					this.loadSettings();
 					this.renderButton();
 					this.addExtras();
 				}
