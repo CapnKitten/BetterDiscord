@@ -2,7 +2,7 @@
 #### A translucent/frosted glass Discord theme
 <hr>
 
-Current version: v1.0.4.1 (26/09/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Translucence/master/Translucence.theme.css)**
+Current version: v1.0.4.2 (10/10/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Translucence/master/Translucence.theme.css)**
 
 ## Previews
 
