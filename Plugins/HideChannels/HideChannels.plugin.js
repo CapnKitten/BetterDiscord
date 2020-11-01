@@ -41,20 +41,11 @@ module.exports = (() => {
 					github_username: "CapnKitten"
 				}
 			],
-			version: "1.0.5",
+			version: "1.0.5.1",
 			description: "Allows you to hide the channels list in servers and DMs.",
 			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/HideChannels/HideChannels.plugin.js",
 			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js"
-		},
-		changelog: [
-			{
-				title: "Plugin rewrite",
-				type: "added",
-				items: [
-					"The plugin got rewritten."
-				]
-			}
-		]
+		}
 	};
 
 	return !global.ZeresPluginLibrary ? class {
@@ -80,7 +71,8 @@ module.exports = (() => {
 		stop() { }
 	} : (([Plugin, Api]) => {
 		const plugin = (Plugin, Api) => {
-			const { PluginUtilities, Patcher } = Api;
+			const { Settings, PluginUtilities, Patcher } = Api;
+			const { SettingPanel, SettingGroup, SettingField, Textbox, Switch } = Settings;
 
 			const buttonName = 'toggleChannels',
 				buttonHideName = 'channelsVisible',
@@ -176,7 +168,10 @@ module.exports = (() => {
 
 				removeExtras() {
 					const button = document.querySelector('#' + buttonName);
-					if (button) button.remove();
+					//if (button) button.remove();
+
+					//quick fix
+					if (button) document.querySelectorAll('.' + buttonHideName + ', .' + buttonShowName).forEach(e => e.remove());
 
 					const sidebar = document.querySelector(sidebarName);
 					if (sidebar.classList.contains(hideElementsName))
@@ -198,7 +193,7 @@ module.exports = (() => {
 					return settings;
 				}
 
-				saveSettings(status) {
+				saveSettings(status, hideStatus = false) {
 					const settings = this.loadSettings();
 
 					settings.HideChannels.channelsHidden = status;
