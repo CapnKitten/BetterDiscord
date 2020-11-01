@@ -2,7 +2,7 @@
 #### Allows you to hide the channels list in servers and DMs
 <hr>
 
-Current version: v1.0.5 (24/09/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js)**
+Current version: v1.0.5.1 (1/11/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js)**
 
 ## Previews
 
