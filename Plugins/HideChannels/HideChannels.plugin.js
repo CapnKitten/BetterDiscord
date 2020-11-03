@@ -201,7 +201,7 @@ module.exports = (() => {
 					return settings;
 				}
 
-				saveSettings(status, hideStatus = false) {
+				saveSettings(status) {
 					const settings = this.loadSettings();
 
 					settings.HideChannels.channelsHidden = status;
