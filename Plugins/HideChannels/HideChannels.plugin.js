@@ -41,11 +41,20 @@ module.exports = (() => {
 					github_username: "CapnKitten"
 				}
 			],
-			version: "1.0.5.1",
+			version: "1.0.6",
 			description: "Allows you to hide the channels list in servers and DMs.",
 			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/HideChannels/HideChannels.plugin.js",
 			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js"
-		}
+		},
+		changelog: [
+			{
+				title: "Bug Fix",
+				type: "added",
+				items: [
+					"Fixed a bug where the toggle button would stop working"
+				]
+			}
+		]
 	};
 
 	return !global.ZeresPluginLibrary ? class {
@@ -113,7 +122,9 @@ module.exports = (() => {
 				}
 
 				onSwitch() {
-					this.renderButton();
+					const checkButton = document.getElementById(buttonName);
+
+					if (!checkButton) this.renderButton();
 				}
 
 				renderButton() {
@@ -139,7 +150,7 @@ module.exports = (() => {
 				}
 
 				toggleChannels() {
-					const button = document.querySelector('#' + buttonName),
+					const button = document.getElementById(buttonName),
 						sidebar = document.querySelector(sidebarName);
 
 					if (button.classList.contains(buttonHideName)) {
@@ -167,11 +178,8 @@ module.exports = (() => {
 				}
 
 				removeExtras() {
-					const button = document.querySelector('#' + buttonName);
-					//if (button) button.remove();
-
-					//quick fix
-					if (button) document.querySelectorAll('.' + buttonHideName + ', .' + buttonShowName).forEach(e => e.remove());
+					const button = document.getElementById(buttonName);
+					if (button) button.remove();
 
 					const sidebar = document.querySelector(sidebarName);
 					if (sidebar.classList.contains(hideElementsName))
