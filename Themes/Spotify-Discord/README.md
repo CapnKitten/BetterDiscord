@@ -2,7 +2,7 @@
 #### Combine Discord and Spotify into one
 <hr>
 
-Current version: v1.3.7 (18/11/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Spotify-Discord/master/Spotify-Discord.theme.css)**
+Current version: v1.4.0 (03/01/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Spotify-Discord/master/Spotify-Discord.theme.css)**
 
 ## Previews
 
@@ -48,9 +48,12 @@ Current version: v1.3.7 (18/11/2020) - **[Download](https://betterdiscord.net/gh
 
 ## Changelog
 
-#### v1.3.6.1 (23/07/2020)
-* Select menus updated
-* Certain inputs fixed
+#### v1.4.0 (03/01/2021)
+* UI colors slightly update to match Spotify's colors
+* User avatar and status in the bottom bar moved to the left to take up dead space
+* Chat box buttons fixed
+* New radio buttons styled
+* Other various elements fixed
 
 
 [View previous changelogs](https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Spotify-Discord/changelog.md)
