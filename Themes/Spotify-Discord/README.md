@@ -49,7 +49,7 @@ Current version: v1.4.0 (03/01/2021) - **[Download](https://betterdiscord.net/gh
 ## Changelog
 
 #### v1.4.0 (03/01/2021)
-* UI colors slightly update to match Spotify's colors
+* UI colors slightly updated to match Spotify's colors
 * User avatar and status in the bottom bar moved to the left to take up dead space
 * Chat box buttons fixed
 * New radio buttons styled
