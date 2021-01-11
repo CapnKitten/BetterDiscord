@@ -5,6 +5,7 @@
  * @website https://github.com/CapnKitten
  * @source https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js
  * @donate https://paypal.me/capnkitten
+ * @invite jzJkA6Z
  */
 
 /*@cc_on
@@ -41,7 +42,7 @@ module.exports = (() => {
 					github_username: "CapnKitten"
 				}
 			],
-			version: "1.0.6",
+			version: "1.0.6.1",
 			description: "Allows you to hide the channels list in servers and DMs.",
 			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/HideChannels/HideChannels.plugin.js",
 			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js"
