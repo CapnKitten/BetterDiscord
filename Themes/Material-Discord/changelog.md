@@ -2,6 +2,12 @@
 
 ## Changelog
 
+#### v2.3.5 (11/01/2021)
+* Icons added to the sidebars of both the user and server options
+* Voice channel icons updated
+* Various server community pages styled
+* Search results updated
+
 #### v2.3.3.2 (10/08/2020)
 * Various fixes
 
