@@ -2,7 +2,7 @@
 #### A translucent/frosted glass Discord theme
 <hr>
 
-Current version: v1.0.6.1 (29/11/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Translucence/master/Translucence.theme.css)**
+Current version: v1.0.6.2 (11/01/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Translucence/master/Translucence.theme.css)**
 
 ## Previews
 
@@ -45,6 +45,7 @@ Current version: v1.0.6.1 (29/11/2020) - **[Download](https://betterdiscord.net/
  - `--messages-color` - The background color for messages. Default: `rgba(0,0,0, 0.4)`
  - `--messages-radius` - The border radius for messages. Default: `8px`
  - `--mention-color` - The border and glow color for mentioned messages. Default: `#d73d3d`
+ - `--mention-rgb` - The rgb values of the mention color. Default: `215,61,61`
  - `--mention-alt` - The border and glow color for highlighted messages that aren't mentions. Default: `#5274e9`
 
 #### Textareas and inputs
