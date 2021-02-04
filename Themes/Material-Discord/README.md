@@ -115,7 +115,7 @@ Current version: v3.0.0 (04/02/2021) - **[Download](https://betterdiscord.net/gh
  - `--emoji-category-header` - The background color for the headers in the emoji panel. Default: `rgba(44,47,51,0.95)` - `rgba(255,255,255,0.9)`**
  - `--scrollbar-color` - The background color for scrollbars. Default: `255,255,255` - `0,0,0`**
 
-** Indicates that it has two values for both the dark and light themes of Discord. Instead of using `:root`, use `.theme-dark` or `.theme-light`.
+** **Indicates that it has two values for both the dark and light themes of Discord. Instead of using `:root`, use `.theme-dark` or `.theme-light`.**
 
 &nbsp;
 
