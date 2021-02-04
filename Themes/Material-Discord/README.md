@@ -2,7 +2,7 @@
 #### A theme based on Google's Material Design
 <hr>
 
-Current version: v2.3.5 (11/01/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Material-Discord/master/Material-Discord.theme.css)** | Old messages add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-messages.theme.css)**
+Current version: v3.0.0 (04/02/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Material-Discord/master/Material-Discord.theme.css)** | Old messages add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-messages.theme.css)**
 
 ## Previews
 
@@ -86,11 +86,10 @@ Current version: v2.3.5 (11/01/2021) - **[Download](https://betterdiscord.net/gh
 
 ## Changelog
 
-#### v2.3.5 (11/01/2021)
-* Icons added to the sidebars of both the user and server options
-* Voice channel icons updated
-* Various server community pages styled
-* Search results updated
+#### v3.0.0 (04/02/2021)
+* Rewritten theme - reduced file size, removed deprecated code, cleaner structure (as a result, some variable names and values may need to be updated for them to work properly)
+* Light theme support
+* Cards updated
 
 
 [View previous changelogs](https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Material-Discord/changelog.md)
