@@ -2,6 +2,11 @@
 
 ## Changelog
 
+#### v3.0.0 (04/02/2021)
+* Rewritten theme - reduced file size, removed deprecated code, cleaner structure (as a result, some variable names and values may need to be updated for them to work properly)
+* Light theme support
+* Cards updated
+
 #### v2.3.5 (11/01/2021)
 * Icons added to the sidebars of both the user and server options
 * Voice channel icons updated
