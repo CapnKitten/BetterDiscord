@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v3.0.2 (04/02/2021)
+* Light theme fixes
+* The left margin on the message bubbles lowered
+
 #### v3.0.0 (04/02/2021)
 * Rewritten theme - reduced file size, removed deprecated code, cleaner structure (as a result, some variable names and values may need to be updated for them to work properly)
 * Light theme support
