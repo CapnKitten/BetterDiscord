@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### v3.0.3 (24/02/2021)
+* Font changed to Google Sans
+* Delete message modal updated
+
 #### v3.0.2 (04/02/2021)
 * Light theme fixes
 * The left margin on the message bubbles lowered
