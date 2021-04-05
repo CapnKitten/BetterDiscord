@@ -27,7 +27,10 @@
   --shadow-2dp: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
   --shadow-3dp: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
   --default-animation: cubic-bezier(0.4,0,0.2,1);
-  --default-time: 250ms; }
+  --default-time: 250ms;
+  --window-button-min: #ffbd44;
+  --window-button-max: #00ca4e;
+  --window-button-close: #ff605c; }
 
 .theme-dark {
   --main-color: #16171a;
@@ -68,8 +71,6 @@
   --emoji-category-header: rgba(44,47,51,0.95);
   --scrollbar-color: 255,255,255;
   --window-button: rgba(255,255,255,0.1);
-  --window-button-hover: rgba(255,255,255,0.3);
-  --window-button-close: #f04747;
   --window-button-inactive: rgba(255,255,255,0.05); }
 
 .theme-light {
@@ -111,8 +112,6 @@
   --emoji-category-header: rgba(255,255,255,0.9);
   --scrollbar-color: 0,0,0;
   --window-button: rgba(0,0,0,0.2);
-  --window-button-hover: rgba(0,0,0,0.45);
-  --window-button-close: rgba(205,52,52,1);
   --window-button-inactive: rgba(0,0,0,0.1); }
 
 /*
@@ -157,30 +156,76 @@ body,
   .wordmark-2iDDfm.wordmarkWindows-1v0lYD svg {
     display: none; }
 
-.typeWindows-1za-n7 .winButton-iRh8-Z {
-  width: 24px; }
-  .typeWindows-1za-n7 .winButton-iRh8-Z:after {
-    position: absolute;
-    content: " ";
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: var(--window-button);
-    transition: var(--default-time) var(--default-animation); }
-  .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ2gm:hover {
-    background-color: transparent; }
-    .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ2gm:hover:after {
-      background-color: var(--window-button-hover); }
-  .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonClose-1HsbF- {
-    margin-right: 4px; }
-    .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonClose-1HsbF-:hover {
-      background-color: transparent; }
-      .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonClose-1HsbF-:hover:after {
-        background-color: var(--window-button-close); }
-  .typeWindows-1za-n7 .winButton-iRh8-Z svg {
-    display: none; }
+@keyframes window-button-fadein {
+  from {
+    opacty: 0; }
+  to {
+    opacity: 1; } }
+@keyframes window-button-fadeout {
+  from {
+    opacty: 1; }
+  to {
+    opacity: 0; } }
+.typeWindows-1za-n7 .winButton-iRh8-Z:before {
+  position: absolute;
+  content: " ";
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  filter: brightness(40%);
+  z-index: 2;
+  opacity: 0;
+  transition: var(--default-time) var(--default-animation) opacity;
+  pointer-events: none; }
+.typeWindows-1za-n7 .winButton-iRh8-Z:hover:before {
+  opacity: 1; }
+.typeWindows-1za-n7 .winButton-iRh8-Z:after {
+  position: absolute;
+  content: " ";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--window-button);
+  transition: var(--default-time) var(--default-animation);
+  pointer-events: none; }
+.typeWindows-1za-n7 .winButton-iRh8-Z:active:after {
+  opacity: 0.65; }
+.typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ2gm:nth-last-of-type(2):hover:after {
+  background-color: var(--window-button-max); }
+.typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ2gm:nth-last-of-type(2):before {
+  background-color: var(--window-button-max);
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/window_maximize.svg);
+  mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/window_maximize.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat; }
+.typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ2gm:nth-last-of-type(1):hover:after {
+  background-color: var(--window-button-min); }
+.typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ2gm:nth-last-of-type(1):before {
+  background-color: var(--window-button-min);
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/window_minimize.svg);
+  mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/window_minimize.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat; }
+.typeWindows-1za-n7 .winButton-iRh8-Z.winButtonClose-1HsbF- {
+  margin-right: 4px; }
+  .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonClose-1HsbF-:hover:after {
+    background-color: var(--window-button-close); }
+  .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonClose-1HsbF-:before {
+    background-color: var(--window-button-close);
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/window_close.svg);
+    mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/window_close.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat; }
+.typeWindows-1za-n7 .winButton-iRh8-Z:hover, .typeWindows-1za-n7 .winButton-iRh8-Z:active {
+  background-color: transparent; }
+.typeWindows-1za-n7 .winButton-iRh8-Z svg {
+  display: none; }
 
 html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z:after {
+  background-color: var(--window-button-inactive); }
+html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ2gm:after {
   background-color: var(--window-button-inactive); }
 
 /*
