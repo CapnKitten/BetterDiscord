@@ -2,7 +2,7 @@
 #### A theme based on Google's Material Design
 <hr>
 
-Current version: v3.0.3 (24/02/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Material-Discord/master/Material-Discord.theme.css)** | Old messages add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-messages.theme.css)** | Status picker add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-status-picker.theme.css)**
+Current version: v3.0.3 (24/02/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Material-Discord/master/Material-Discord.theme.css)** | Old messages add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-messages.theme.css)** | Solid icons add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-icons.theme.css)** | Status picker add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-status-picker.theme.css)**
 
 ## Previews
 
