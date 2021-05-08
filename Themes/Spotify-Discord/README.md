@@ -1,8 +1,10 @@
-# Spotify Discord Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url]
+# Spotify Discord Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url] 
 #### Combine Discord and Spotify into one
 <hr>
 
-Current version: v1.4.2 (26/02/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Spotify-Discord/master/Spotify-Discord.theme.css)**
+Current version: v1.4.2 (26/02/2021)
+
+Assets located at: https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord/
 
 ## Previews
 
@@ -10,31 +12,25 @@ Current version: v1.4.2 (26/02/2021) - **[Download](https://betterdiscord.net/gh
 
 #### Main chat area
 
-![discord-001](https://user-images.githubusercontent.com/4013216/44601841-ce77bd00-a7ab-11e8-9b2c-7ccd443e96fd.png)
+![discord_001](https://user-images.githubusercontent.com/4013216/117520405-03d19280-af76-11eb-9302-5c1af8d74177.png)
 
 #### User server info
 
-![discord-002](https://user-images.githubusercontent.com/4013216/44601843-cfa8ea00-a7ab-11e8-972f-8194d688e28a.png)
+![discord_002](https://user-images.githubusercontent.com/4013216/117520414-1055eb00-af76-11eb-9fa6-e08bb79b7f35.png)
 
 #### User info popout
 
-![discord-003](https://user-images.githubusercontent.com/4013216/44601847-d0da1700-a7ab-11e8-9e9a-6503af0fca18.png)
+![discord_003](https://user-images.githubusercontent.com/4013216/117520420-177cf900-af76-11eb-953a-c096e87c354b.png)
 
 #### User settings
 
-![discord-004](https://user-images.githubusercontent.com/4013216/44601850-d20b4400-a7ab-11e8-94cc-5bf9beaf084c.png)
+![discord_004](https://user-images.githubusercontent.com/4013216/117520429-1fd53400-af76-11eb-94d8-b734bb26ec14.png)
 
-![discord-005](https://user-images.githubusercontent.com/4013216/44601855-d3d50780-a7ab-11e8-9d70-6d65580f2c35.png)
+![discord_005](https://user-images.githubusercontent.com/4013216/117520446-33809a80-af76-11eb-9780-c79d3fdc6468.png)
 
-#### DMs
+#### Friends list
 
-![discord-006](https://user-images.githubusercontent.com/4013216/44601859-d5063480-a7ab-11e8-8c3e-c3a390782cfc.png)
-
-#### Game center
-
-![discord-007](https://user-images.githubusercontent.com/4013216/44601861-d59ecb00-a7ab-11e8-82ae-9cd93564fec0.png)
-
-![discord-008](https://user-images.githubusercontent.com/4013216/44601870-d899bb80-a7ab-11e8-8e34-737120c40fc6.png)
+![discord_006](https://user-images.githubusercontent.com/4013216/117520455-4004f300-af76-11eb-893e-8577a57695e7.png)
 
 &nbsp;
 
@@ -63,3 +59,6 @@ Current version: v1.4.2 (26/02/2021) - **[Download](https://betterdiscord.net/gh
 
 [github-logo]: https://img.shields.io/static/v1?label=GitHub&message=Sponsor&style=flat&logo=github&color=black
 [github-url]: https://github.com/sponsors/CapnKitten
+
+[download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
+[download-url]: https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Spotify-Discord/master/Spotify-Discord.theme.css
