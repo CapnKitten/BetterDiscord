@@ -4,8 +4,6 @@
 
 Current version: v1.4.2 (26/02/2021)
 
-Assets located at: https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord/
-
 ## Previews
 
 (Previews are subject to be out of date)
