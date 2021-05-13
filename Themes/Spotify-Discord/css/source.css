@@ -65,7 +65,7 @@
  */
 body,
 .appMount-3lHmkl {
-  background: #fff; }
+  background: var(--chat-color); }
 
 .sidebar-2K8pFh {
   border-radius: 0 !important;
@@ -457,6 +457,8 @@ a,
   .item-1tOPte.focused-3afm-j {
     background: transparent;
     color: var(--menu-text-color); }
+  .item-1tOPte .grabber-3mFHz2 {
+    top: 11px; }
 
 .memberItem-3VdCg9 {
   padding: 0; }
@@ -655,6 +657,9 @@ a,
 .avatar-2daVqv,
 .blob-2w7iIK {
   background-color: #fff; }
+
+.messagesWrapper-1sRNjr {
+  margin-bottom: 39px; }
 
 /* CHAT AREA -> NEW MESSAGES BAR */
 .newMessagesBar-265mhP {
@@ -1817,16 +1822,16 @@ a,
     display: none; }
 
 .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU {
-  min-height: var(--bar-size);
+  min-height: 44px;
+  bottom: 23px;
   margin: 0;
   padding: 0 16px;
   background-color: transparent;
-  border: none;
-  z-index: 2; }
+  border: none; }
 
 .channelTextArea-rNsIhG,
 .channelTextArea-1LDbYG {
-  margin: 23px 0;
+  margin: 0;
   background: transparent; }
 
 .channelTextArea-rNsIhG .sansAttachButton-td2irx {
@@ -1868,9 +1873,14 @@ a,
   max-height: 45vh;
   background-color: var(--input-bg);
   border-radius: var(--textarea-radius); }
-
-.scrollableContainer-2NUZem::-webkit-scrollbar {
-  width: 8px !important; }
+  .scrollableContainer-2NUZem::-webkit-scrollbar {
+    width: 8px !important; }
+    .scrollableContainer-2NUZem::-webkit-scrollbar-thumb {
+      background-color: #444 !important; }
+      .scrollableContainer-2NUZem::-webkit-scrollbar-thumb:hover {
+        background-color: #555 !important; }
+      .scrollableContainer-2NUZem::-webkit-scrollbar-thumb:active {
+        background-color: #666 !important; }
 
 .container-2fRDfG {
   background-color: var(--input-bg);
@@ -2077,9 +2087,9 @@ a,
  */
 .membersWrap-2h-GB4 {
   position: relative;
-  margin: 0 0 72px 0; }
+  margin: 0 0 var(--bar-size) 0; }
   .membersWrap-2h-GB4:after {
-    bottom: -72px; }
+    bottom: calc(var(--bar-size) * -1); }
 
 .members-1998pB, .members-1998pB > div {
   /*background-color: #161616 !important;*/
@@ -2463,6 +2473,10 @@ a,
 
 .mark-1xjQqt {
   height: 34px; }
+
+/* USER SETTINGS -> VOICE & VIDEO */
+.micTestButton-2Vwk4_ {
+  width: auto; }
 
 /* USER SETTINGS -> OVERLAY */
 .container-CpszHS .input-1UhAnY {
@@ -3690,15 +3704,15 @@ div[role="radiogroup"] {
 .listeningActionsProfile-1fYwru .buttonSize-2Pmk-w:not(:first-child).lookOutlined-3sRXeN.colorWhite-rEQuAQ {
   padding: 0 !important; }
 
-.activity-11LB_k .lookOutlined-3sRXeN.colorWhite-rEQuAQ:disabled {
-  margin: 0 !important; }
-
 .activity-11LB_k .lookOutlined-3sRXeN.colorWhite-rEQuAQ {
   background: var(--button-background) !important;
   border: 1px solid #fff !important; }
-
-.activity-11LB_k .lookOutlined-3sRXeN.colorWhite-rEQuAQ:disabled {
-  background: transparent !important; }
+  .activity-11LB_k .lookOutlined-3sRXeN.colorWhite-rEQuAQ:disabled {
+    margin: 0 !important;
+    background: transparent !important; }
+.activity-11LB_k .listenAlongIcon-2TkOLH {
+  position: relative;
+  top: 3px; }
 
 .iconButtonSize-U9SCYe {
   margin: 0 0 0 12px !important; }
@@ -3716,6 +3730,11 @@ div[role="radiogroup"] {
     border: var(--button-border-hover); }
     .root-SR8cQa .topSectionPlaying-1J5E4n .button-38aScr.lookInverted-2D7oAl.colorBrand-3pXr91:hover {
       border: var(--button-border-hover); }
+  .root-SR8cQa .topSectionSpotify-1lI0-P .button-38aScr.lookOutlined-3sRXeN.colorWhite-rEQuAQ {
+    padding: 0 !important; }
+    .root-SR8cQa .topSectionSpotify-1lI0-P .button-38aScr.lookOutlined-3sRXeN.colorWhite-rEQuAQ .listenAlongIcon-2TkOLH {
+      position: relative;
+      top: 3px; }
   .root-SR8cQa .body-3ND3kc {
     height: auto;
     background-color: transparent; }
@@ -4007,8 +4026,10 @@ div[role="radiogroup"] {
 
 /* SUPPORTED PLUGINS -> HideChannels */
 .sidebar-2K8pFh.hideElement .container-3baos1 {
-  height: 72px;
-  padding: 0 4px 0 8px; }
+  height: var(--bar-size) !important;
+  margin-bottom: 0 !important;
+  padding: 0 4px 0 8px;
+  border-top: none !important; }
 
 .sidebar-2K8pFh + .chat-3bRxxu .typing-2GQL18 {
   width: calc(100% - 20px);
@@ -4276,3 +4297,15 @@ div[role="radiogroup"] {
 @media (min-width: 2560px) {
   .peopleList-3c4jOR .peopleListItem-2nzedh {
     width: calc(14.2% - 32px); } }
+/* MEMBERS LIST */
+.membersWrap-2h-GB4,
+.members-1998pB {
+  --memberlist-minimize: 80px;
+  transition: 400ms ease width; }
+
+@media (max-width: 1100px) {
+  .membersWrap-2h-GB4 {
+    min-width: var(--memberlist-minimize); }
+
+  .members-1998pB {
+    width: var(--memberlist-minimize); } }
