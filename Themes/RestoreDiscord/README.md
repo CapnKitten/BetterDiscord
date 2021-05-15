@@ -9,7 +9,7 @@ Current version: v1.0 (15/05/2021) - **[Download](https://betterdiscord.net/ghdl
  - `--default-color` - Default: `#7289da`
  - `--default-hover` - Default: `#5c6fb1`
  - `--default-active` - Default: `#4e5d94`
- - `--default-alpha` - Default: `rgba(114,137,218,0.3)`
+ - `--default-rgb` - Default: `114,137,218`
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
