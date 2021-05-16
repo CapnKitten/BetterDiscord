@@ -1,8 +1,8 @@
-# Restore Discord - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url]
-#### Restores the Discord logo, colors, and fonts to the older, better ones.
+# Revert Discord - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url]
+#### Reverts the Discord logo, colors, and fonts to the older, better ones.
 <hr>
 
-Current version: v1.0 (15/05/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/RestoreDiscord/RestoreDiscord.theme.css)**
+Current version: v1.0 (15/05/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/RevertDiscord/RevertDiscord.theme.css)**
 
 ### Variables
 
