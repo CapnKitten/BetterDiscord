@@ -5,6 +5,7 @@
 * [Material Discord](https://github.com/CapnKitten/Material-Discord)
 * [Spotify Discord](https://github.com/CapnKitten/Spotify-Discord)
 * [Translucence](https://github.com/CapnKitten/Translucence)
+* [RevertDiscord](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/RevertDiscord)
 
 ### Plugins
 
