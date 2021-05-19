@@ -1,8 +1,8 @@
-# Hide Channels plugin - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url]
+# Hide Channels plugin - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url]
 #### Allows you to hide the channels list in servers and DMs
 <hr>
 
-Current version: v1.0.6.1 (03/11/2020) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js)**
+Current version: v1.0.6.1 (03/11/2020)
 
 ## Previews
 
@@ -20,3 +20,6 @@ Current version: v1.0.6.1 (03/11/2020) - **[Download](https://betterdiscord.net/
 
 [github-logo]: https://img.shields.io/static/v1?label=GitHub&message=Sponsor&style=flat&logo=github&color=black
 [github-url]: https://github.com/sponsors/CapnKitten
+
+[download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
+[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?plugin=HideChannels
