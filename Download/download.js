@@ -1,19 +1,24 @@
 window.onload = function () {
 	if (!window.location.search)
-		document.write('No parameters');
+		document.write('No parameters selected');
 	else {
 		const urlParams = new URLSearchParams(window.location.search);
-		const theme = urlParams.get('theme');
-		const addon = urlParams.get('addon');
+		const theme = urlParams.get('theme'),
+			plugin = urlParams.get('plugin'),
+			addon = urlParams.get('addon');
 		var url;
 
-		if (!theme) {
-			document.write('No theme selected');
+		if (!urlParams) {
+			document.write('No file selected');
 		} else {
-			if (addon)
-				url = `https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/${theme}/css/addons/${addon}.theme.css`;
-			else
-				url = `https://raw.githubusercontent.com/CapnKitten/${theme}/master/${theme}.theme.css`;
+			if (theme) {
+				if (addon)
+					url = `https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/${theme}/css/addons/${addon}.theme.css`;
+				else
+					url = `https://raw.githubusercontent.com/CapnKitten/${theme}/master/${theme}.theme.css`;
+
+			} else if (plugin)
+				url = `https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/${plugin}/${plugin}.plugin.js`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onload = function() {
