@@ -1,6 +1,6 @@
 window.onload = function () {
 	if (!window.location.search)
-		error('No parameters');
+		document.write('No parameters');
 	else {
 		const urlParams = new URLSearchParams(window.location.search);
 		const theme = urlParams.get('theme');
