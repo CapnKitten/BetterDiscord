@@ -1,8 +1,8 @@
-# Material Discord Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url]
+# Material Discord Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url]
 #### A theme based on Google's Material Design
 <hr>
 
-Current version: v3.0.3 (24/02/2021) - **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/Material-Discord/master/Material-Discord.theme.css)** | Old messages add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-messages.theme.css)** | Solid icons add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-icons.theme.css)** | Status picker add-on: **[Download](https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/Material-Discord/css/Material-Discord_addon-status-picker.theme.css)**
+Current version: v3.0.3 (24/02/2021) - Old messages add-on: **[Download](https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=Material-Discord_addon-messages)** | Solid icons add-on: **[Download](https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=Material-Discord_addon-icons)** | Status picker add-on: **[Download](https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=Material-Discord_addon-status-picker)**
 
 ## Previews
 
@@ -133,3 +133,6 @@ Current version: v3.0.3 (24/02/2021) - **[Download](https://betterdiscord.net/gh
 
 [github-logo]: https://img.shields.io/static/v1?label=GitHub&message=Sponsor&style=flat&logo=github&color=black
 [github-url]: https://github.com/sponsors/CapnKitten
+
+[download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
+[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord
