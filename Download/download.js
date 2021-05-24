@@ -13,7 +13,7 @@ window.onload = function () {
 		} else {
 			if (theme) {
 				if (addon)
-					url = `https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/${theme}/css/addons/${theme}_addon-${addon}.theme.css`;
+					url = `https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Themes/${theme}/css/addons/${addon}/${theme}_addon-${addon}.theme.css`;
 				else
 					url = `https://raw.githubusercontent.com/CapnKitten/${theme}/master/${theme}.theme.css`;
 
