@@ -2,7 +2,11 @@
 #### Combine Discord and Spotify into one
 <hr>
 
-Current version: v1.4.2 (26/02/2021) - Spotify redesign add-on: [Download](https://capnkitten.github.io/BetterDiscord/Download/?theme=Spotify-Discord&addon=redesign)
+Current version: v1.4.2 (26/02/2021)
+
+[View add-on themes](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord/css/addons)
+
+<hr>
 
 This theme works best with the plugin called [SpotifyControls](https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/SpotifyControls) by DevilBro. To get it up and working, make sure your Spotify account is linked to your Discord account then download the plugin [here](https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/SpotifyControls) or from the plugin repo.
 
