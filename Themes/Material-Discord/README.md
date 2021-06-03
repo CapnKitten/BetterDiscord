@@ -4,7 +4,7 @@
 
 Current version: v3.0.3 (24/02/2021)
 
-[View add-on themes](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord/css/addons)
+[View add-on themes](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons)
 
 <hr>
 
