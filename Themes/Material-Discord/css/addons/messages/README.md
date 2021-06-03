@@ -1,5 +1,5 @@
 # [Add-on] Material Discord Old Message Bubbles - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url] 
-#### An add-on theme to revert the new messages for Material Discord
+#### An add-on theme to revert the new message bubbles for Material Discord
 
 <hr>
 
