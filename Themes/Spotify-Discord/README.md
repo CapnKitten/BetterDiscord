@@ -4,7 +4,7 @@
 
 Current version: v1.4.2 (26/02/2021) - Spotify redesign add-on: [Download](https://capnkitten.github.io/BetterDiscord/Download/?theme=Spotify-Discord&addon=redesign)
 
-To get the Spotify media controls, you'll have to download the [SpotifyControls](https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/SpotifyControls) plugin.
+This theme works best with the plugin called [SpotifyControls](https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/SpotifyControls) by DevilBro. To get it up and working, make sure your Spotify account is linked to your Discord account then download the plugin [here](https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/SpotifyControls) or from the plugin repo.
 
 ## Previews
 
