@@ -12,25 +12,25 @@ This theme works best with the plugin called [SpotifyControls](https://github.co
 
 #### Main chat area
 
-![discord_001](https://user-images.githubusercontent.com/4013216/117520405-03d19280-af76-11eb-9302-5c1af8d74177.png)
+![discord_101](https://user-images.githubusercontent.com/4013216/120567756-77818680-c3e0-11eb-91d4-20709163ee69.png)
 
 #### User server info
 
-![discord_002](https://user-images.githubusercontent.com/4013216/117520414-1055eb00-af76-11eb-9fa6-e08bb79b7f35.png)
+![discord_102](https://user-images.githubusercontent.com/4013216/120567773-7f412b00-c3e0-11eb-8cb6-6dad10b145c5.png)
 
 #### User info popout
 
-![discord_003](https://user-images.githubusercontent.com/4013216/117520420-177cf900-af76-11eb-953a-c096e87c354b.png)
+![discord_103](https://user-images.githubusercontent.com/4013216/120567785-85cfa280-c3e0-11eb-85f7-0bdf5cad90b1.png)
 
 #### User settings
 
-![discord_004](https://user-images.githubusercontent.com/4013216/117520429-1fd53400-af76-11eb-94d8-b734bb26ec14.png)
+![discord_104](https://user-images.githubusercontent.com/4013216/120567799-89fbc000-c3e0-11eb-9c17-126747382c7f.png)
 
-![discord_005](https://user-images.githubusercontent.com/4013216/117520446-33809a80-af76-11eb-9780-c79d3fdc6468.png)
+![discord_105](https://user-images.githubusercontent.com/4013216/120567808-8f590a80-c3e0-11eb-8053-dc9f63e8471c.png)
 
 #### Friends list
 
-![discord_006](https://user-images.githubusercontent.com/4013216/117520455-4004f300-af76-11eb-893e-8577a57695e7.png)
+![discord_106](https://user-images.githubusercontent.com/4013216/120567817-954eeb80-c3e0-11eb-8965-a4ee9fa83537.png)
 
 &nbsp;
 
