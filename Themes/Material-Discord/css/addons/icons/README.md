@@ -1,5 +1,5 @@
 # [Add-on] Material Discord Solid Icons - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url] 
-#### An add-on theme that futher turns Spotify Discord into Spotify by mimicking the title bar and similar Spotify controls
+#### An add-on theme to revert to solid icons for Material Discord
 
 <hr>
 
