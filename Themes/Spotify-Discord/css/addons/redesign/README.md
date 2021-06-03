@@ -1,7 +1,13 @@
 # [Add-on] Spotify Discord Redesign - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url] 
 #### An add-on theme that futher turns Spotify Discord into Spotify by mimicking the title bar and similar Spotify controls
 
+<hr>
 
+Download with the button above or use as import with the code below.
+
+```css
+@import url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/css/addons/redesign/source.css);
+```
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
