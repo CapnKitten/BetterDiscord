@@ -43,6 +43,7 @@
   --sidebar-panel-color: #111114;
   --chat-color: #202225;
   --message-color: #292d30;
+  --message-color-hover: #303438;
   --message-color-alt: #1c1e21;
   --attachment-color: rgb(0,0,0,0.325);
   --main-textarea-color: #303338;
@@ -84,6 +85,7 @@
   --sidebar-panel-color: #d4d6d6;
   --chat-color: #fff;
   --message-color: #edeff0;
+  --message-color-hover: #e1e2e3;
   --message-color-alt: #e8e8e8;
   --attachment-color: rgba(0,0,0,0.1);
   --main-textarea-color: #fff;
@@ -1668,7 +1670,14 @@ html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ
   top: -4px; }
 
 .wrapper-2a6GCs {
-  background-color: var(--message-color) !important; }
+  background-color: var(--message-color) !important;
+  transition: var(--default-time) var(--default-animation) background-color; }
+  .wrapper-2a6GCs:hover {
+    background-color: var(--message-color-hover) !important; }
+    .wrapper-2a6GCs:hover + .wrapper-2a6GCs:not(.groupStart-23k01U):before {
+      border-left-color: var(--message-color-hover); }
+    .wrapper-2a6GCs:hover + .wrapper-2a6GCs:not(.groupStart-23k01U):after {
+      border-bottom-color: var(--message-color-hover); }
   .wrapper-2a6GCs.groupStart-23k01U {
     position: relative;
     border-radius: var(--message-radius); }
@@ -1689,7 +1698,7 @@ html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ
       position: absolute;
       width: 0;
       height: 0;
-      top: 3px;
+      top: 2px;
       background-color: transparent;
       border: 16px solid transparent;
       border-color: transparent;
@@ -1697,10 +1706,12 @@ html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ
       transform: rotate(360deg); }
     .wrapper-2a6GCs:not(.groupStart-23k01U):before {
       left: 0;
-      border-left-color: var(--message-color); }
+      border-left-color: var(--message-color);
+      transition: var(--default-time) var(--default-animation) border-left-color; }
     .wrapper-2a6GCs:not(.groupStart-23k01U):after {
       right: 0;
-      border-bottom-color: var(--message-color); }
+      border-bottom-color: var(--message-color);
+      transition: var(--default-time) var(--default-animation) border-bottom-color; }
   .wrapper-2a6GCs.cozy-3raOZG {
     padding: var(--message-padding) !important; }
     .wrapper-2a6GCs.cozy-3raOZG.groupStart-23k01U {
@@ -3150,12 +3161,15 @@ body:active .menu-3sdvDG#status-picker:not(:active) {
     margin-right: 8px; }
 
 /* USER SETTINGS -> GAME ACTIVITY -> GAME LIST */
-.nowPlayingAdd-1Kdmh_ + .container-2_Tvc_ {
-  margin-bottom: 0; }
-  .nowPlayingAdd-1Kdmh_ + .container-2_Tvc_ + .marginTop40-i-78cZ {
+.nowPlayingAdd-1Kdmh_ {
+  margin: 16px 0; }
+  .nowPlayingAdd-1Kdmh_ + .container-2_Tvc_ {
+    margin-bottom: 0; }
+  .nowPlayingAdd-1Kdmh_ + .marginTop40-i-78cZ {
+    margin-top: 0;
     border-radius: var(--card-radius-big);
     border: 1px solid var(--card-border-color); }
-    .nowPlayingAdd-1Kdmh_ + .container-2_Tvc_ + .marginTop40-i-78cZ .h5-18_1nd {
+    .nowPlayingAdd-1Kdmh_ + .marginTop40-i-78cZ .h5-18_1nd {
       margin-bottom: 0;
       padding: 16px;
       border-bottom: 1px solid var(--card-border-color);
@@ -3502,8 +3516,8 @@ body:active .menu-3sdvDG#status-picker:not(:active) {
   .side-8zPYf6 .item-PXvHYJ[aria-controls="Profile Customization-tab"]:before,
   #bd-settings-sidebar .ui-tab-bar-item[aria-controls="Profile Customization-tab"]:before {
     background-color: var(--text-normal);
-    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/person.svg);
-    mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/person.svg);
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/edit.svg);
+    mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/edit.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat; }
   .side-8zPYf6 .item-PXvHYJ[aria-controls="Privacy & Safety-tab"]:before,
