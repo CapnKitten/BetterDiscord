@@ -8,23 +8,23 @@ Current version: v1.0.6.3 (26/02/2021) - **[Download](https://betterdiscord.net/
 
 #### Main chat area
 
-![discord-001](https://user-images.githubusercontent.com/4013216/92188719-5a0c9580-ee2b-11ea-9585-8d1092d6b9b1.png)
+![discord-101](https://user-images.githubusercontent.com/4013216/125158359-b07aec80-e13e-11eb-8a85-01e49d772192.png)
 
 #### User server info
 
-![discord-002](https://user-images.githubusercontent.com/4013216/92188729-5ed14980-ee2b-11ea-8ede-5bb4eca3a953.png)
+![discord-102](https://user-images.githubusercontent.com/4013216/125158363-b7a1fa80-e13e-11eb-91c0-b95c32b5bf8e.png)
 
 #### User info popout
 
-![discord-003](https://user-images.githubusercontent.com/4013216/92188768-71e41980-ee2b-11ea-9da2-b88c5cde553f.png)
+![discord-103](https://user-images.githubusercontent.com/4013216/125158368-bc66ae80-e13e-11eb-912b-7d19a84f42a0.png)
 
 #### User settings
 
-![discord-004](https://user-images.githubusercontent.com/4013216/92188789-7ad4eb00-ee2b-11ea-8264-3bad57d6c761.png)
+![discord-104](https://user-images.githubusercontent.com/4013216/125158372-c25c8f80-e13e-11eb-9165-e24880bc47f7.png)
 
 #### DMs
 
-![discord-005](https://user-images.githubusercontent.com/4013216/92188807-87594380-ee2b-11ea-8066-c764be590911.png)
+![discord-105](https://user-images.githubusercontent.com/4013216/125158378-c8527080-e13e-11eb-9ad5-a7f2e229ac2b.png)
 
 &nbsp;
 
