@@ -17,7 +17,9 @@
   --mention-rgb: var(--app-accent-rgb);
   --mention-alt: #5274e9;
   --notification-color: #fff;
-  --textarea-color: 0,0,0;
+  --textarea-color: 255,255,255;
+  --textarea-alpha: 0.1;
+  --textarea-alpha-focus: 0.15;
   --textarea-text-color: #fff;
   --textarea-radius: 22px;
   --input-height: 36px;
@@ -57,7 +59,9 @@
   --scrollbar-color-alt: 0,0,0;
   --scrollbar-opacity: 0.2;
   --scrollbar-opacity-hover: 0.3;
-  --scrollbar-width: 10px; }
+  --scrollbar-width: 10px;
+  --font-primary: Whitney,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  --font-display: Whitney,"Helvetica Neue",Helvetica,Arial,sans-serif !important; }
 
 /*
  *
@@ -692,7 +696,7 @@ body {
     margin-top: 28px; }
 
 .channelTextAreaUpload-3t7EIx {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 22px; }
 
 /* MODALS -> UPLOAD -> DRAG AND DROP */
@@ -1116,7 +1120,7 @@ body {
 /* TITLEBARS -> SEARCH BARS */
 .searchBar-3dMhjb,
 .searchBar-6Kv8R2 .searchBarComponent-32dTOx {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 12px; }
 
 .searchBar-3dMhjb {
@@ -1132,13 +1136,13 @@ body {
  */
 input,
 textarea {
-  background-color: rgba(var(--textarea-color), 0.5) !important;
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha)) !important;
   border: none !important;
   color: var(--textarea-text-color) !important;
   transition: var(--transition-time) var(--transition-type) !important; }
   input:focus,
   textarea:focus {
-    background-color: rgba(var(--textarea-color), 0.65) !important; }
+    background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus)) !important; }
 
 input::-webkit-input-placeholder {
   color: var(--textarea-text-color) !important;
@@ -1160,13 +1164,13 @@ input::-webkit-input-placeholder {
 .copyInput-1T2hfb,
 .copyInput-2rOSt7 {
   height: var(--input-height);
-  background-color: rgba(var(--textarea-color), 0.5) !important;
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha)) !important;
   border-radius: var(--input-radius);
   border: none;
   transition: var(--transition-time) var(--transition-type); }
   .copyInput-1T2hfb:focus-within,
   .copyInput-2rOSt7:focus-within {
-    background-color: rgba(var(--textarea-color), 0.65) !important; }
+    background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus)) !important; }
   .copyInput-1T2hfb + .copyButton-1I8hd3,
   .copyInput-2rOSt7 + .copyButton-1I8hd3 {
     margin-left: 12px; }
@@ -1196,16 +1200,24 @@ input::-webkit-input-placeholder {
 .css-17e1tep-control,
 .css-118dehu-control {
   min-height: var(--input-height);
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 20px;
   border: none;
   transition: var(--transition-time) var(--transition-type); }
 
 .css-118dehu-control {
-  background-color: rgba(var(--textarea-color), 0.3); }
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
+  opacity: 0.5; }
+
+.css-hsd1lu-singleValue,
+.css-1fb6fll-indicatorContainer {
+  opacity: 1; }
+
+.css-eo20y5 {
+  opacity: 0; }
 
 .css-2yldzf-control {
-  background-color: rgba(var(--textarea-color), 0.65); }
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus)); }
 
 .popout-2sKjHu,
 .css-n57xjs-menu,
@@ -1214,7 +1226,8 @@ input::-webkit-input-placeholder {
   background-color: transparent;
   border-radius: var(--popout-radius);
   border: none;
-  box-shadow: var(--popout-shadow); }
+  box-shadow: var(--popout-shadow);
+  overflow: hidden; }
 
 .optionActive-KkAdqq,
 .optionFocused-8MflSE,
@@ -2182,7 +2195,7 @@ input::-webkit-input-placeholder {
 
 /* CHAT AREA -> MESSAGES -> EDIT MESSAGE */
 .channelTextArea-3bF57p {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: var(--textarea-radius); }
 
 /* CHAT AREA -> MESSAGES -> REACTIONS */
@@ -2229,9 +2242,11 @@ input::-webkit-input-placeholder {
 
 .channelTextArea-rNsIhG,
 .wrapper-39oAo3 {
+  --textarea-color: 0,0,0;
+  --textarea-alpha: 0.5;
   min-height: 44px;
   margin: 12px 0 12px 0;
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: var(--textarea-radius); }
 
 .container-9gOVw0 {
@@ -2400,7 +2415,7 @@ input::-webkit-input-placeholder {
 
 .container-2XeR5Z,
 .container-cMG81i {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 17px; }
   .container-2XeR5Z input,
   .container-cMG81i input {
@@ -2623,7 +2638,7 @@ input::-webkit-input-placeholder {
 
 .phoneField-38N1bJ {
   padding: 2px 8px;
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 22px;
   border: none; }
   .phoneField-38N1bJ .countryButton-3xq3Ts {
@@ -2725,7 +2740,7 @@ input::-webkit-input-placeholder {
 
 .lookFilled-22uAsw.select-2fjwPw {
   min-height: var(--input-height);
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 23px;
   border: none;
   transition: var(--transition-time) var(--transition-type); }
@@ -2770,6 +2785,11 @@ input::-webkit-input-placeholder {
 
 [class*="theme-"] .gemIndicatorContainer-2jdECl {
   background-color: var(--card-color); }
+
+/* USER SETTINGS -> ACCESSIBILITY */
+.previewMessage-1ZN7YG .wrapper-2a6GCs {
+  margin-left: 42px;
+  margin-right: 0; }
 
 /* USER SETTINGS -> OVERLAY */
 .wrapper-3jrx9n {
@@ -2863,7 +2883,7 @@ input::-webkit-input-placeholder {
   border-radius: 20px; }
 
 [class*="theme-"] .container-1nZlH6 {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border: none; }
 
 .layout-RmPevB {
@@ -3123,7 +3143,7 @@ input::-webkit-input-placeholder {
 
 /* SERVER DISCOVERY -> MAIN CONTENT */
 .search-1iTphC .searchBox-2_mAlO {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 17px;
   border: none; }
   .search-1iTphC .searchBox-2_mAlO .searchBoxInput-K6mkng {
@@ -3232,12 +3252,12 @@ input::-webkit-input-placeholder {
 
 /* HOME TAB -> FRIENDS -> ADD FRIEND */
 .wrapper-1cBijl {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 26px;
   border: none;
   transition: var(--transition-time) var(--transition-type); }
   .wrapper-1cBijl:focus-within {
-    background-color: rgba(var(--textarea-color), 0.65); }
+    background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus)); }
 
 .addFriendInput-4bcerK, .addFriendInput-4bcerK:focus {
   background-color: transparent !important; }
@@ -3294,7 +3314,7 @@ input::-webkit-input-placeholder {
   box-shadow: none; }
 
 .outer-o9SjPm:hover .input-2A_zIr {
-  background-color: rgba(var(--textarea-color), 0.25); }
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha)); }
 
 /* DIRECT MESSAGES -> VOICE CALL */
 .wrapper-2qzCYF.minimum-28Z35l {
@@ -3328,7 +3348,7 @@ input::-webkit-input-placeholder {
   box-shadow: inset 0 0 0 2px var(--app-accent); }
 
 .card-2Mz_4z {
-  background-color: rgba(var(--textarea-color), 0.5);
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
   border-radius: 20px;
   border: none; }
 
@@ -3341,7 +3361,7 @@ input::-webkit-input-placeholder {
   border-radius: 0 15px 15px 0; }
 
 .selectorButton-EEUWed {
-  background-color: rgba(var(--textarea-color), 0.5); }
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha)); }
 
 .selectorButtonSelected-t5V9On,
 .selectorButton-EEUWed:not(.selectorButtonPremiumRequired-mKMbIu):hover {
