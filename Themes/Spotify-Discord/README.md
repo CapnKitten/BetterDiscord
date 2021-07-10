@@ -1,4 +1,4 @@
-# Spotify Discord Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url] 
+# Spotify Discord Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Discord][discord-logo]][discord-url] [![Download][download-logo]][download-url] 
 #### Combine Discord and Spotify into one
 <hr>
 
@@ -74,3 +74,6 @@ To change the title bar color for specific servers, place the code below in the 
 
 [download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
 [download-url]: https://capnkitten.github.io/BetterDiscord/Download/?theme=Spotify-Discord
+
+[discord-logo]: https://img.shields.io/static/v1?label=Discord&message=Server&style=flat&logo=discord&color=blue
+[discord-url]: https://discord.gg/jzJkA6Z
