@@ -39,7 +39,7 @@ This theme works best with the plugin called [SpotifyControls](https://github.co
 &nbsp;
 
 ## Custom server title bar colors
-To change the title bar color for specific servers, place the code below in the theme file or your custom CSS and change the server name and hex color code to your liking.
+To change the title bar color for specific servers, you must download the redesign add-on theme file [here](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord/css/addons/redesign), and place the code below in the add-on theme file or your custom CSS and change the server name and hex color code to your liking.
 ```css
 .container-3w7J-x[aria-label*="SERVER_NAME"]:before {
   --title-custom: #3b77c4;
@@ -48,7 +48,7 @@ To change the title bar color for specific servers, place the code below in the 
 
 ## Variables
 
- - `--input-bg` - The background color for the input and textarea elements
+ - `--input-color` - The background color for the input and textarea elements
  - `--input-text-color` - The text color for the input and textarea elements
  - `--input-placeholder-color` - The placeholder text color for the input and textarea elements
 
