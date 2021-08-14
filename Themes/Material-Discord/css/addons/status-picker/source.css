@@ -1,6 +1,10 @@
 :root {
   --default-animation: cubic-bezier(0.4,0,0.2,1);
-  --default-time: 250ms; }
+  --default-time: 250ms;
+  --status-online: 67,181,129;
+  --status-idle: 250,166,26;
+  --status-dnd: 240,71,71;
+  --status-invisibile: 116,127,141; }
 
 .layer-v9HyYc[style*="left: 80px; "] {
   top: initial !important;
@@ -16,43 +20,46 @@
   box-shadow: none;
   animation: show-status var(--default-time) var(--default-animation); }
   .menu-3sdvDG#status-picker .scroller-3BxosC {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     padding: 0; }
     .menu-3sdvDG#status-picker .scroller-3BxosC::-webkit-scrollbar {
       width: 0 !important; }
   .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status) {
     position: relative;
-    display: inline-block;
-    width: 60px;
+    width: unset;
     height: 68px;
     margin: 0;
     border-radius: 0;
     font-size: 0;
     overflow: hidden;
     animation: status 300ms var(--default-animation) backwards; }
+    .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status):active {
+      background-color: transparent !important; }
     .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-online {
       animation-delay: 100ms; }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-online .statusItem-33LqPf {
-        background-color: #43b581; }
+        background-color: rgb(var(--status-online)); }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-online .status-1fhblQ {
-        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/check_dark.svg); }
+        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_dark.svg); }
     .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-idle {
       animation-delay: 140ms; }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-idle .statusItem-33LqPf {
-        background-color: #faa61a; }
+        background-color: rgb(var(--status-idle)); }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-idle .status-1fhblQ {
-        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/alarm_dark.svg); }
+        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/alarm_dark.svg); }
     .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-dnd {
       animation-delay: 180ms; }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-dnd .statusItem-33LqPf {
-        background-color: #f04747; }
+        background-color: rgb(var(--status-dnd)); }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-dnd .status-1fhblQ {
-        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/remove_dark.svg); }
+        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/remove_dark.svg); }
     .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-invisible {
       animation-delay: 220ms; }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-invisible .statusItem-33LqPf {
-        background-color: #747f8d; }
+        background-color: rgb(var(--status-invisibile)); }
       .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status)#status-picker-invisible .status-1fhblQ {
-        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/visibility_off_dark.svg); }
+        background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/visibility_off_dark.svg); }
     .menu-3sdvDG#status-picker .item-1tOPte:not(#status-picker-custom-status) .statusItem-33LqPf {
       position: absolute;
       display: block;
@@ -93,7 +100,8 @@
       transition: var(--default-time) var(--default-animation);
       font-size: 0; }
   .menu-3sdvDG#status-picker .item-1tOPte#status-picker-custom-status {
-    margin-top: -3px;
+    grid-column: 1/6;
+    margin-top: 0;
     margin-bottom: 0;
     background-color: transparent;
     border-radius: 0;
@@ -112,6 +120,8 @@
         margin-left: 0; }
   .menu-3sdvDG#status-picker .separator-2I32lJ {
     display: none; }
+  .menu-3sdvDG#status-picker .layer-v9HyYc[style*="left: 316px"] {
+    left: 312px !important; }
 
 body:active .menu-3sdvDG#status-picker:not(:active) {
   opacity: 0;
@@ -125,3 +135,5 @@ body:active .menu-3sdvDG#status-picker:not(:active) {
   from {
     transform: scale(0);
     opacity: 0; } }
+
+/*# sourceMappingURL=Material-Discord_addon-status-picker.theme.css.map */
