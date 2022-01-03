@@ -44,7 +44,8 @@
   --window-title-bar: 22px;
   --window-button-min: #ffbd44;
   --window-button-max: #00ca4e;
-  --window-button-close: #ff605c; }
+  --window-button-close: #ff605c;
+  --code-font: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace; }
 
 .theme-dark {
   --main-color: #16171a;
@@ -2619,7 +2620,7 @@ html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ
   .markup-2BOw-j .wrapper-3WhCwL:hover {
     background-color: hsla(var(--accent-hsl), 0.3); }
 .markup-2BOw-j pre, .markup-2BOw-j pre *, .markup-2BOw-j pre code, .markup-2BOw-j pre code *, .markup-2BOw-j code.inline, .markup-2BOw-j .codeBlockText-9TnoxQ, .markup-2BOw-j .codeBlockText-9TnoxQ *, .markup-2BOw-j .codeLine-14BKbG, .markup-2BOw-j .codeLine-14BKbG *, .markup-2BOw-j .codeBlockLang-O_f4hr, .markup-2BOw-j .codeBlockLang-O_f4hr *, .markup-2BOw-j .codeBlockSyntax-2i-tMA, .markup-2BOw-j .codeBlockSyntax-2i-tMA *, .markup-2BOw-j .syntaxAfter-hcA4AH, .markup-2BOw-j .syntaxAfter-hcA4AH *, .markup-2BOw-j .syntaxBefore-1YQ9lW, .markup-2BOw-j .syntaxBefore-1YQ9lW {
-  font-family: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace !important; }
+  font-family: var(--code-font) !important; }
 .markup-2BOw-j pre,
 .markup-2BOw-j pre code,
 .markup-2BOw-j code.inline {
@@ -2633,6 +2634,9 @@ html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ
 .markup-2BOw-j pre,
 .markup-2BOw-j code.inline {
   margin: 4px 0; }
+
+.codeView-1JPDeA {
+  font-family: var(--code-font) !important; }
 
 /* CHAT AREA -> MESSAGES -> SPOILERS */
 .spoilerText-3p6IlD, .spoilerText-3p6IlD.hidden-HHr2R9 {
@@ -3249,10 +3253,20 @@ html:not(.app-focused) .typeWindows-1za-n7 .winButton-iRh8-Z.winButtonMinMax-PBQ
       position: unset;
       min-height: 28px;
       padding: 4px 12px;
-      grid-template-rows: 28px 1fr;
-      grid-template-columns: 28px 1fr; }
+      grid-template-rows: 28px 1fr; }
       .menu-3sdvDG#status-picker .item-1tOPte#status-picker-custom-status .statusItem-33LqPf .customEmoji-2_2FwB, .menu-3sdvDG#status-picker .item-1tOPte#status-picker-switch-account .statusItem-33LqPf .customEmoji-2_2FwB {
         margin-left: 0; }
+  .menu-3sdvDG#status-picker .item-1tOPte#status-picker-custom-status .statusItem-33LqPf {
+    grid-template-columns: 28px 1fr; }
+    .menu-3sdvDG#status-picker .item-1tOPte#status-picker-custom-status .statusItem-33LqPf.customStatusItem-1TTIxM {
+      grid-template-columns: 1fr 32px; }
+  .menu-3sdvDG#status-picker .item-1tOPte#status-picker-custom-status .clearStatusButton-1Mxs1q {
+    width: 32px !important;
+    height: 32px !important; }
+  .menu-3sdvDG#status-picker .item-1tOPte#status-picker-custom-status .clearStatusIcon-3-MDNF {
+    margin-left: 0; }
+  .menu-3sdvDG#status-picker .item-1tOPte#status-picker-switch-account .statusItem-33LqPf {
+    grid-template-columns: 28px 1fr; }
   .menu-3sdvDG#status-picker .submenuContainer-2gbm7M {
     width: auto;
     height: auto;
@@ -3715,6 +3729,9 @@ body:active .menu-3sdvDG#status-picker:not(:active) {
     background-color: transparent;
     border: none;
     box-shadow: var(--shadow-3dp); }
+    .profileBannerPreview-gaX5MP .avatarUploaderInner-mAGe3e:focus-within .avatarUploaderHint-3SN212, .profileBannerPreview-gaX5MP .avatarUploaderInner-mAGe3e:hover .avatarUploaderHint-3SN212 {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%; }
   .profileBannerPreview-gaX5MP .headerTop-3vNv-a {
     padding: 64px 12px 12px;
     border-bottom: 1px solid var(--card-border-color); }
@@ -4327,7 +4344,7 @@ body:active .menu-3sdvDG#status-picker:not(:active) {
 .monaco-editor *,
 .ace_editor *,
 .line-numbers * {
-  font-family: Consolas, monospace !important; }
+  font-family: var(--code-font) !important; }
 .monaco-editor .codicon[class*=codicon-],
 .ace_editor .codicon[class*=codicon-],
 .line-numbers .codicon[class*=codicon-] {
@@ -6386,11 +6403,11 @@ body:active .userPopout-3XzG_A:not(:active) {
  *	USER PROFILE
  *
  */
-.swatch-3mFIiP {
+.swatch-2XEFyZ {
   min-height: 50px !important;
   height: 50px !important;
   border-radius: var(--button-radius); }
-  .swatch-3mFIiP:after {
+  .swatch-2XEFyZ:after {
     display: none; }
 
 .root-3QyAh1 {
