@@ -23,9 +23,9 @@
   --popout-color: #282828;
   --popout-radius: 7px;
   --popout-radius-small: 3px;
-  --menu-hover-color: #3e3e3e;
-  --menu-select-color: #4d4d4d;
-  --menu-border-color: #3e3e3e;
+  --menu-hover-color: rgba(255,255,255,0.1);
+  --menu-select-color: rgba(255,255,255,0.3);
+  --menu-border-color: rgba(255,255,255,0.1);
   --menu-text-color: #b2b2b2;
   --input-color: #e0e0e0;
   --input-text-color: #333;
@@ -357,17 +357,26 @@ body,
   background-color: var(--sidebar-panel); }
   .panels-3wFtMD .container-YkUktl {
     height: var(--bar-size);
+    margin-top: 1px;
     margin-bottom: 0;
     background-color: var(--bar-color);
     box-shadow: 0 -1px 0 0 var(--bar-border-color); }
-  .panels-3wFtMD .container-6sXIoE {
-    margin-bottom: 0; }
-    .panels-3wFtMD .container-6sXIoE .interpret-F93iqP {
-      color: var(--text-normal); }
+  .panels-3wFtMD .container-6sXIoE,
   .panels-3wFtMD .container-1zzFcN {
+    margin-bottom: 0;
+    background-color: var(--sidebar-color);
+    border-top: 1px solid var(--menu-border-color);
     border-bottom: none; }
-    .panels-3wFtMD .container-1zzFcN .actionButtons-2vEOUh .button-f2h6uQ {
-      padding: 0; }
+    .panels-3wFtMD .container-6sXIoE .interpret-F93iqP,
+    .panels-3wFtMD .container-1zzFcN .interpret-F93iqP {
+      color: var(--text-normal); }
+  .panels-3wFtMD .container-1zzFcN .actionButtons-2vEOUh .button-f2h6uQ {
+    padding: 0; }
+
+.container-1ILvLB {
+  background: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--default-shadow); }
 
 /* CHANNELS LIST -> PANELS -> PLAYING GAME */
 .resultWrapper-3ra6t7.resultWrapperSelected-3trExS {
@@ -986,6 +995,19 @@ body,
           color: var(--input-text-color);
           font-weight: 500; }
 
+/* THREADS -> POPOUT */
+.browser-mnQ1T7 {
+  background: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--default-shadow); }
+
+.header-3_zmOb {
+  background-color: transparent; }
+
+.container-2rzKKA {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius); }
+
 /*
  *
  *	EMOJI PANEL
@@ -1179,6 +1201,15 @@ body,
   .contentRegion-3HkfJJ .contentRegionScroller-2_GT_N {
     background-color: transparent; }
 
+/* USER SETTINGS -> USER PROFILE */
+.notice-1Qe0b_ {
+  padding: 8px;
+  background-color: var(--card-color);
+  border-radius: var(--card-radius); }
+
+.profileColorSection-2BQBEp .buttonsContainer-3rygH4 {
+  background-color: transparent; }
+
 .accountProfileCard-lbN7n- {
   background-color: var(--card-color);
   border-radius: var(--card-radius); }
@@ -1190,17 +1221,19 @@ body,
     .accountProfileCard-lbN7n- .background-3d_SjE .constrainedRow-3y91Xf .button-f2h6uQ {
       margin-left: 8px; }
 
-.profileBannerPreview-3_l0Wd {
+.profileBannerPreview-3mLIdO {
   background: var(--popout-color);
   border-radius: var(--popout-radius);
   box-shadow: var(--default-shadow); }
-  .profileBannerPreview-3_l0Wd .avatarUploaderInner-Oiob_P {
+  .profileBannerPreview-3mLIdO .avatarUploaderInner-p38nm2 {
     background-color: #202020;
     border-color: #202020; }
-  .profileBannerPreview-3_l0Wd .headerTop-3GPUSF {
+  .profileBannerPreview-3mLIdO .headerTop-3GPUSF {
     background-color: rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid var(--card-border); }
-  .profileBannerPreview-3_l0Wd .divider-1wtgZ3 {
+  .profileBannerPreview-3mLIdO .popoutInfo-16MuYF {
+    padding: 16px; }
+  .profileBannerPreview-3mLIdO .divider-1wtgZ3 {
     display: none; }
 
 .previewProfile-_oCk35 {
@@ -1297,6 +1330,12 @@ body,
     border-bottom: 1px solid var(--card-border); }
     .guildSubscriptionSlots-JPXXvN .guildSubscriptionSlot-1XGRPI:last-child {
       border-bottom: none; }
+
+/* USER SETTINGS -> SUBSCRIPTIONS */
+.noItemsCard-2V85P5,
+.noItemsCard-5EOcCl {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius); }
 
 /* USER SETTINGS -> BILLING */
 .paymentSourceRow-1z8x7Z {
@@ -1906,11 +1945,11 @@ body,
     border-left: none; }
 
 .wrapper-2RrXDg {
-  background-color: var(--card-color);
+  background-color: var(--menu-hover-color);
   border-radius: var(--card-radius);
   border: none; }
   .wrapper-2RrXDg:hover, .wrapper-2RrXDg.active-1W_Gl9 {
-    background-color: var(--card-color-hover) !important; }
+    background-color: var(--menu-select-color) !important; }
   .wrapper-2RrXDg .inset-SbsSFp {
     background-color: var(--menu-hover-color);
     border-radius: var(--card-radius); }
@@ -1952,9 +1991,17 @@ body,
 .peopleColumn-1wMU14 {
   margin-bottom: var(--bar-size); }
 
+.searchBar-2aylmZ {
+  margin: 16px; }
+
 .peopleList-2VBrVI {
-  margin-top: 0;
-  padding-top: 8px; }
+  margin-top: 0; }
+  .peopleList-2VBrVI .peopleListItem-u6dGxF {
+    border-radius: var(--card-radius); }
+    .peopleList-2VBrVI .peopleListItem-u6dGxF:hover {
+      background-color: var(--menu-hover-color); }
+    .peopleList-2VBrVI .peopleListItem-u6dGxF.active-2UF8Zh {
+      background-color: var(--menu-select-color); }
 
 /*.peopleList-2VBrVI {
 	margin-top: 0;
