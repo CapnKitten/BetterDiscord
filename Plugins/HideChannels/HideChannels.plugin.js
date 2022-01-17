@@ -10,7 +10,7 @@
 
 /*@cc_on
 @if (@_jscript)
-	
+
 	// Offer to self-install for clueless users that try to run this directly.
 	var shell = WScript.CreateObject("WScript.Shell");
 	var fs = new ActiveXObject("Scripting.FileSystemObject");
@@ -42,17 +42,17 @@ module.exports = (() => {
 					github_username: "CapnKitten"
 				}
 			],
-			version: "1.0.6.1",
+			version: "1.0.7",
 			description: "Allows you to hide the channels list in servers and DMs.",
 			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/HideChannels/HideChannels.plugin.js",
 			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js"
 		},
 		changelog: [
 			{
-				title: "Bug Fix",
+				title: "Discord Fixes",
 				type: "added",
 				items: [
-					"Fixed a bug where the toggle button would stop working"
+					"Fixed the stuff Discord broke"
 				]
 			}
 		]
@@ -88,8 +88,8 @@ module.exports = (() => {
 				buttonHideName = 'channelsVisible',
 				buttonShowName = 'channelsHidden',
 				hideElementsName = 'hideElement',
-				targetElement = '.container-1r6BKw',
-				sidebarName = '.sidebar-2K8pFh';
+				targetElement = '.container-ZMc96U',
+				sidebarName = '.sidebar-1tnWFu';
 
 			return class HideChannels extends Plugin {
 
@@ -102,13 +102,14 @@ module.exports = (() => {
 						.theme-light #toggleChannels.channelsVisible { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRmNTY2MCIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTE4LjQxIDE2LjU5TDEzLjgyIDEybDQuNTktNC41OUwxNyA2bC02IDYgNiA2ek02IDZoMnYxMkg2eiIvPjxwYXRoIGQ9Ik0yNCAyNEgwVjBoMjR2MjR6IiBmaWxsPSJub25lIi8+PC9zdmc+); }
 						.theme-light #toggleChannels.channelsHidden { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRmNTY2MCIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTUuNTkgNy40MUwxMC4xOCAxMmwtNC41OSA0LjU5TDcgMThsNi02LTYtNnpNMTYgNmgydjEyaC0yeiIvPjwvc3ZnPg==); }
 						.hideElement { width: 0 !important; }
-						.sidebar-2K8pFh .container-3baos1 { transition: 400ms ease all; }
-						.sidebar-2K8pFh.hideElement .container-3baos1 { position: absolute; box-sizing: border-box; width: 240px; height: 68px; bottom: 0; margin-bottom: 0; padding: 0 8px; z-index: 2; }
-						.sidebar-2K8pFh.hideElement .container-3baos1 { background-color: var(--background-primary); }
-						.sidebar-2K8pFh + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU { margin-left: 0; transition: 400ms ease margin-left; }
-						.sidebar-2K8pFh.hideElement + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU { margin-left: 240px; }
-						.sidebar-2K8pFh, .hideElement { transition: width 400ms ease; }
-						.children-19S4PO { padding-left: 24px; }`
+						.sidebar-1tnWFu .container-3baos1 { transition: 400ms ease all; }
+						.sidebar-1tnWFu.hideElement .container-3baos1 { position: absolute; box-sizing: border-box; width: 240px; height: 44px; bottom: 0; margin-bottom: 24px; padding: 0 8px; z-index: 2; }
+						.sidebar-1tnWFu.hideElement .container-3baos1 { background-color: var(--background-primary); }
+						.sidebar-1tnWFu + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU { margin-left: 0; transition: 400ms ease margin-left; }
+						.sidebar-1tnWFu.hideElement + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU { margin-left: 240px; }
+						.sidebar-1tnWFu, .hideElement { transition: width 400ms ease; }
+						.children-3xh0VB { padding-left: 24px; }
+						.form-2fGMdU:before { background: var(--background-primary) !important; }`
 					);
 
 					this.renderButton();
@@ -124,7 +125,6 @@ module.exports = (() => {
 
 				onSwitch() {
 					const checkButton = document.getElementById(buttonName);
-
 					if (!checkButton) this.renderButton();
 				}
 
