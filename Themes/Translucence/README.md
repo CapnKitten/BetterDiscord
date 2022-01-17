@@ -35,7 +35,6 @@ Current version: v1.0.6.3 (26/02/2021) - **[Download](https://betterdiscord.net/
  - `--app-blur` - The strength of the blur for every element that has one. Default: `6px`
  - `--app-margin` - The margin surrounding the content area. Default: `24px`
  - `--app-radius` - The border radius of the app and every element that has a border radius. Default: `8px`
- - `--app-accent` - The app accent color. Default: `#d73d3d`
  - `--app-accent-rgb` - The rgb values of the app accent color. Default: `215,61,61`
  - `--app-accent-text` - The text color for buttons and other various elements with the accent background color. Default: `#000`
  - `--sidebar-color` - The background color of the sidebars. Default: `rgba(0,0,0, 0.4)`
