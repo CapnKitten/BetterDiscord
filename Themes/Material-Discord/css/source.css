@@ -56,7 +56,7 @@
 .theme-dark {
   --main-color: #16171a;
   --main-alt: #0f1012;
-  --server-color: #232327;
+  --server-color: var(--main-alt);
   --status-picker-color: #2c2d31;
   --sidebar-panel-color: #212226;
   --chat-color: #202225;
@@ -100,9 +100,9 @@
   --window-button-inactive: rgba(255,255,255,0.05); }
 
 .theme-light {
-  --main-color: #e8eaeb;
-  --main-alt: #ddd;
-  --server-color: #eee;
+  --main-color: #f9f9f9;
+  --main-alt: #eee;
+  --server-color: var(--main-alt);
   --status-picker-color: #d2d4d5;
   --sidebar-panel-color: #dbddde;
   --chat-color: #fff;
@@ -605,7 +605,17 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  *
  */
 .wrapper-1_HaEi {
-  background-color: var(--server-color); }
+  background-color: var(--server-color);
+  overflow: visible; }
+  .wrapper-1_HaEi:after {
+    position: absolute;
+    content: " ";
+    width: var(--card-radius-big);
+    height: var(--card-radius-big);
+    top: 0;
+    right: calc(var(--card-radius-big) * -1);
+    background-color: inherit;
+    pointer-events: none; }
   .wrapper-1_HaEi .scroller-3X7KbA {
     background-color: transparent; }
   .wrapper-1_HaEi .tree-3agP2X:focus {
@@ -1527,7 +1537,7 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  *
  */
 .sidebar-1tnWFu {
-  border-radius: 0 !important; }
+  border-radius: var(--card-radius-big) 0 0 !important; }
   .sidebar-1tnWFu,
   .sidebar-1tnWFu .container-1NXEtd {
     background-color: var(--main-color); }
@@ -2450,16 +2460,19 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   .jumpToPresentBar-1cEnH0:after {
     content: " ";
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 24px;
+    height: 24px;
     bottom: 0;
     right: 0;
-    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTcuNDEsOC41OEwxMiwxMy4xN0wxNi41OSw4LjU4TDE4LDEwTDEyLDE2TDYsMTBMNy40MSw4LjU4WiIgLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 75%;
-    background-color: transparent;
-    background-position: 7px 7px;
-    border-radius: 50%; }
+    background-color: var(--accent-text-color);
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/solid/expand.svg);
+    mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/solid/expand.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-origin: content-box;
+    transform: scale(2) translate(-6px, -6px); }
   .jumpToPresentBar-1cEnH0 .barButtonBase-Sk2mdB {
     width: inherit;
     height: inherit;
