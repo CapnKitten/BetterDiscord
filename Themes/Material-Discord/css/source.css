@@ -605,17 +605,7 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  *
  */
 .wrapper-1_HaEi {
-  background-color: var(--server-color);
-  overflow: visible; }
-  .wrapper-1_HaEi:after {
-    position: absolute;
-    content: " ";
-    width: var(--card-radius-big);
-    height: var(--card-radius-big);
-    top: 0;
-    right: calc(var(--card-radius-big) * -1);
-    background-color: inherit;
-    pointer-events: none; }
+  background-color: var(--server-color); }
   .wrapper-1_HaEi .scroller-3X7KbA {
     background-color: transparent; }
   .wrapper-1_HaEi .tree-3agP2X:focus {
@@ -2152,6 +2142,7 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   margin-right: 26px; }
 
 .wrapper-30-Nkg {
+  position: relative;
   background-color: var(--message-color) !important;
   transition: var(--default-time) var(--default-animation) background-color; }
   .wrapper-30-Nkg:hover {
@@ -7756,47 +7747,50 @@ div[role="radiogroup"] {
 .lookInverted-2mDUMi {
   --button-background: hsl(var(--accent-hsl));
   --button-text-color: var(--accent-text-color);
+  --button-shadow: var(--shadow-1dp);
   --button-outline: none;
   background-color: var(--button-background) !important;
   border: var(--button-outline) !important;
-  color: var(--button-text-color) !important; }
-  .lookFilled-yCfaCM:not([disabled]),
-  .lookOutlined-3yKVGo:not([disabled]),
-  .lookLink-15mFoz:not([disabled]),
-  .lookInverted-2mDUMi:not([disabled]) {
-    --button-shadow: var(--shadow-1dp);
-    box-shadow: var(--button-shadow);
-    transition: var(--default-time) var(--default-animation) box-shadow;
-    overflow: hidden; }
-    .lookFilled-yCfaCM:not([disabled]):hover,
-    .lookOutlined-3yKVGo:not([disabled]):hover,
-    .lookLink-15mFoz:not([disabled]):hover,
-    .lookInverted-2mDUMi:not([disabled]):hover {
-      --button-shadow: var(--shadow-2dp); }
-    .lookFilled-yCfaCM:not([disabled]):active,
-    .lookOutlined-3yKVGo:not([disabled]):active,
-    .lookLink-15mFoz:not([disabled]):active,
-    .lookInverted-2mDUMi:not([disabled]):active {
-      --button-shadow: var(--shadow-3dp); }
-    .lookFilled-yCfaCM:not([disabled]):after,
-    .lookOutlined-3yKVGo:not([disabled]):after,
-    .lookLink-15mFoz:not([disabled]):after,
-    .lookInverted-2mDUMi:not([disabled]):after {
-      position: absolute;
-      content: " ";
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      pointer-events: none;
-      transition: var(--default-time) var(--default-animation) opacity; }
+  box-shadow: var(--button-shadow);
+  color: var(--button-text-color) !important;
+  transition: var(--default-time) var(--default-animation) box-shadow;
+  overflow: hidden; }
+  .lookFilled-yCfaCM:hover,
+  .lookOutlined-3yKVGo:hover,
+  .lookLink-15mFoz:hover,
+  .lookInverted-2mDUMi:hover {
+    --button-shadow: var(--shadow-2dp); }
+  .lookFilled-yCfaCM:active,
+  .lookOutlined-3yKVGo:active,
+  .lookLink-15mFoz:active,
+  .lookInverted-2mDUMi:active {
+    --button-shadow: var(--shadow-3dp); }
+  .lookFilled-yCfaCM:after,
+  .lookOutlined-3yKVGo:after,
+  .lookLink-15mFoz:after,
+  .lookInverted-2mDUMi:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity; }
   .lookFilled-yCfaCM:disabled,
   .lookOutlined-3yKVGo:disabled,
   .lookLink-15mFoz:disabled,
   .lookInverted-2mDUMi:disabled {
     --button-background: rgba(var(--button-link-color),0.15);
-    --button-text-color: var(--button-link-text-color); }
+    --button-text-color: var(--button-link-text-color);
+    --button-shadow: none;
+    --button-outline: none; }
+    .lookFilled-yCfaCM:disabled:after,
+    .lookOutlined-3yKVGo:disabled:after,
+    .lookLink-15mFoz:disabled:after,
+    .lookInverted-2mDUMi:disabled:after {
+      display: none; }
   .lookFilled-yCfaCM:after,
   .lookOutlined-3yKVGo:after,
   .lookLink-15mFoz:after,
@@ -7882,7 +7876,7 @@ div[role="radiogroup"] {
   --button-padding: 0; }
 
 .disabledButtonWrapper-2Oz3aY {
-  --buttong-padding: 0; }
+  --button-padding: 0; }
 
 .colorable-3rVGna {
   --button-background: var(--menu-item-hover);
