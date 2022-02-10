@@ -94,6 +94,8 @@
   --slider-color: #4f545c;
   --switch-knob-color: 0,0%,47%;
   --switch-slider-color: 240,1%,20%;
+  --switch-color-modifier: 1.2;
+  --switch-color-checked: hsla(var(--accent-hsl),0.3);
   --md-ripple-color: 0,100%,100%;
   --emoji-category-header: rgba(44,47,51,0.95);
   --scrollbar-color: 255,255,255;
@@ -139,6 +141,8 @@
   --slider-color: #999;
   --switch-knob-color: 0,0%,100%;
   --switch-slider-color: 210,1%,73%;
+  --switch-color-modifier: 1.95;
+  --switch-color-checked: hsla(var(--accent-hsl),0.8);
   --md-ripple-color: 0,0%,0%;
   --emoji-category-header: rgba(255,255,255,0.9);
   --scrollbar-color: 0,0,0;
@@ -272,8 +276,7 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  *
  */
 .notice-2HEN-u {
-  border-radius: 0;
-  z-index: 1 !important; }
+  border-radius: 0; }
   .notice-2HEN-u.notice-12Koq-, .notice-2HEN-u.notice-1x8lm- {
     background-color: hsl(var(--accent-hsl)); }
     .notice-2HEN-u.notice-12Koq- .button-f2h6uQ, .notice-2HEN-u.notice-1x8lm- .button-f2h6uQ {
@@ -291,6 +294,54 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
     .notice-2HEN-u .button-1iHNQ2:hover {
       background-color: rgba(var(--button-link-color), 0.35);
       color: var(--button-text-color); }
+
+.notice-2HEN-u.outdatedNotice-9Q9gJv, .notice-2HEN-u.newEntriesNotice-qvvpPx, .notice-2HEN-u#pluginNotice {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 8px;
+  right: 8px;
+  padding: 12px 16px;
+  border-radius: var(--popout-radius-big) !important;
+  box-shadow: var(--shadow-3dp);
+  line-height: 24px;
+  z-index: 102; }
+  .notice-2HEN-u.outdatedNotice-9Q9gJv.colorInfo-1kEg3T, .notice-2HEN-u.newEntriesNotice-qvvpPx.colorInfo-1kEg3T, .notice-2HEN-u#pluginNotice.colorInfo-1kEg3T {
+    background-color: var(--popout-color);
+    color: var(--text-normal); }
+  .notice-2HEN-u.outdatedNotice-9Q9gJv .closeButton-30b1gR, .notice-2HEN-u.newEntriesNotice-qvvpPx .closeButton-30b1gR, .notice-2HEN-u#pluginNotice .closeButton-30b1gR {
+    width: 24px;
+    height: 24px;
+    top: 11px;
+    right: 12px;
+    background: none;
+    background-color: var(--text-normal);
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/solid/close.svg);
+    mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/solid/close.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat; }
+  .notice-2HEN-u.outdatedNotice-9Q9gJv .notice-message, .notice-2HEN-u.newEntriesNotice-qvvpPx .notice-message, .notice-2HEN-u#pluginNotice .notice-message {
+    margin-right: 24px; }
+  .notice-2HEN-u.outdatedNotice-9Q9gJv #outdatedPlugins, .notice-2HEN-u.newEntriesNotice-qvvpPx #outdatedPlugins, .notice-2HEN-u#pluginNotice #outdatedPlugins {
+    display: block;
+    margin-top: 4px;
+    text-align: left; }
+    .notice-2HEN-u.outdatedNotice-9Q9gJv #outdatedPlugins span, .notice-2HEN-u.newEntriesNotice-qvvpPx #outdatedPlugins span, .notice-2HEN-u#pluginNotice #outdatedPlugins span {
+      line-height: 20px;
+      color: var(--text-normal); }
+.notice-2HEN-u.outdatedNotice-9Q9gJv, .notice-2HEN-u.newEntriesNotice-qvvpPx {
+  height: auto !important; }
+  .notice-2HEN-u.outdatedNotice-9Q9gJv .button-1iHNQ2, .notice-2HEN-u.newEntriesNotice-qvvpPx .button-1iHNQ2 {
+    margin-left: 8px;
+    margin-right: 28px; }
+  .notice-2HEN-u.outdatedNotice-9Q9gJv .platformIcon-OrI7z3, .notice-2HEN-u.newEntriesNotice-qvvpPx .platformIcon-OrI7z3 {
+    margin-left: 0;
+    margin-right: 8px; }
+  .notice-2HEN-u.outdatedNotice-9Q9gJv .closeButton-30b1gR, .notice-2HEN-u.newEntriesNotice-qvvpPx .closeButton-30b1gR {
+    top: 14px;
+    background-color: #fff; }
+.notice-2HEN-u.colorStreamerMode-8uoRWd {
+  border-top-left-radius: var(--card-radius-big); }
 
 /*
  *
@@ -679,6 +730,9 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   padding: 0 6px;
   border-radius: 12px;
   text-transform: capitalize; }
+
+.dragInner-1CUBf_ {
+  border-radius: var(--avatar-radius); }
 
 .folder-241Joy,
 .folderIconWrapper-1oRIZr {
@@ -1543,6 +1597,8 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  */
 .sidebar-1tnWFu {
   border-radius: var(--card-radius-big) 0 0 !important; }
+  .sidebar-1tnWFu.hasNotice-1s68so {
+    border-radius: 0 !important; }
   .sidebar-1tnWFu,
   .sidebar-1tnWFu .container-1NXEtd {
     background-color: var(--main-color); }
@@ -2122,10 +2178,6 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 .messagesWrapper-RpOMA3[class*="group-spacing"] .divider-2rZFJK:not(.beforeGroup-1BvJAt) {
   top: -4px; }
 
-.quotedChatMessage-PxNsZi {
-  margin-left: 68px;
-  margin-right: 26px; }
-
 .wrapper-30-Nkg {
   position: relative;
   background-color: var(--message-color) !important;
@@ -2360,31 +2412,41 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> ADD REACTION */
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> START THREAD */
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> REPLY */
+      /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> ADD SPOILER */
+      /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> REMOVE SPOILER */
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> EDIT MESSAGE */
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> DELETE MESSAGE */
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> MARK READ */
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> COPY LINK */
       /* CHAT AREA -> MESSAGES -> ACTIONS -> ICONS -> COPY ID */ }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M12.2512 2.00309C12.1677 2.00104 12.084 2 12 2C6.477 2 2 6.477 2 12C2 17.522 6.477 22 12 22C17.523 22 22 17.522 22 12C22 11.916 21.999 11.8323 21.9969 11.7488C21.3586 11.9128 20.6895 12 20 12C15.5817 12 12 8.41828 12 4C12 3.31052 12.0872 2.6414 12.2512 2.00309ZM10 8C10 6.896 9.104 6 8 6C6.896 6 6 6.896 6 8C6 9.105 6.896 10 8 10C9.104 10 10 9.105 10 8ZM12 19C15.14 19 18 16.617 18 14V13H6V14C6 16.617 8.86 19 12 19Z"] {
-        d: path("M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z") !important; }
+        d: path("M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"); }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M12.2512 2.00309C12.1677 2.00104 12.084 2 12 2C6.477 2 2 6.477 2 12C2 17.522 6.477 22 12 22C17.523 22 22 17.522 22 12C22 11.916 21.999 11.8323 21.9969 11.7488C21.3586 11.9128 20.6895 12 20 12C15.5817 12 12 8.41828 12 4C12 3.31052 12.0872 2.6414 12.2512 2.00309ZM10 8C10 6.896 9.104 6 8 6C6.896 6 6 6.896 6 8C6 9.105 6.896 10 8 10C9.104 10 10 9.105 10 8ZM12 19C15.14 19 18 16.617 18 14V13H6V14C6 16.617 8.86 19 12 19Z"] ~ path {
         display: none; }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M4.79805 3C3.80445 3 2.99805 3.8055 2.99805 4.8V15.6C2.99805 16.5936 3.80445 17.4 4.79805 17.4H7.49805V21L11.098 17.4H19.198C20.1925 17.4 20.998 16.5936 20.998 15.6V4.8C20.998 3.8055 20.1925 3 19.198 3H4.79805Z"] {
-        d: path("M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z") !important; }
+        d: path("M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"); }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M10 8.26667V4L3 11.4667L10 18.9333V14.56C15 14.56 18.5 16.2667 21 20C20 14.6667 17 9.33333 10 8.26667Z"] {
-        d: path("M8,9.8V10.7L9.7,11C12.3,11.4 14.2,12.4 15.6,13.7C13.9,13.2 12.1,12.9 10,12.9H8V14.2L5.8,12L8,9.8M10,5L3,12L10,19V14.9C15,14.9 18.5,16.5 21,20C20,15 17,10 10,9") !important; }
+        d: path("M8,9.8V10.7L9.7,11C12.3,11.4 14.2,12.4 15.6,13.7C13.9,13.2 12.1,12.9 10,12.9H8V14.2L5.8,12L8,9.8M10,5L3,12L10,19V14.9C15,14.9 18.5,16.5 21,20C20,15 17,10 10,9"); }
+      .wrapper-2vIMkT .button-3bklZh svg path[d="M12 5C5.648 5 1 12 1 12C1 12 5.648 19 12 19C18.352 19 23 12 23 12C23 12 18.352 5 12 5ZM12 16C9.791 16 8 14.21 8 12C8 9.79 9.791 8 12 8C14.209 8 16 9.79 16 12C16 14.21 14.209 16 12 16Z"] {
+        d: path("M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"); }
+        .wrapper-2vIMkT .button-3bklZh svg path[d="M12 5C5.648 5 1 12 1 12C1 12 5.648 19 12 19C18.352 19 23 12 23 12C23 12 18.352 5 12 5ZM12 16C9.791 16 8 14.21 8 12C8 9.79 9.791 8 12 8C14.209 8 16 9.79 16 12C16 14.21 14.209 16 12 16Z"] ~ path {
+          display: none; }
+      .wrapper-2vIMkT .button-3bklZh svg rect[transform="rotate(-45 2 21.2154)"] {
+        display: none; }
+      .wrapper-2vIMkT .button-3bklZh svg path[d="M10.1843 18.8115C10.7713 18.9328 11.3775 19 12 19C18.352 19 23 12 23 12C23 12 21.9643 10.4402 20.2026 8.79322L15.8265 13.1693C15.4393 14.4384 14.4382 15.4393 13.1694 15.8264L10.1843 18.8115ZM12.4818 8.02871C12.3238 8.00975 12.1631 8 12 8C9.791 8 8 9.79 8 12C8 12.1631 8.00975 12.3239 8.0287 12.4818L4.59645 15.914C2.35293 14.0375 1 12 1 12C1 12 5.648 5 12 5C13.0508 5 14.055 5.19157 14.9992 5.51132L12.4818 8.02871Z"] {
+        d: path("M12 6c3.79 0 7.17 2.13 8.82 5.5-.59 1.22-1.42 2.27-2.41 3.12l1.41 1.41c1.39-1.23 2.49-2.77 3.18-4.53C21.27 7.11 17 4 12 4c-1.27 0-2.49.2-3.64.57l1.65 1.65C10.66 6.09 11.32 6 12 6zm-1.07 1.14L13 9.21c.57.25 1.03.71 1.28 1.28l2.07 2.07c.08-.34.14-.7.14-1.07C16.5 9.01 14.48 7 12 7c-.37 0-.72.05-1.07.14zM2.01 3.87l2.68 2.68C3.06 7.83 1.77 9.53 1 11.5 2.73 15.89 7 19 12 19c1.52 0 2.98-.29 4.32-.82l3.42 3.42 1.41-1.41L3.42 2.45 2.01 3.87zm7.5 7.5l2.61 2.61c-.04.01-.08.02-.12.02-1.38 0-2.5-1.12-2.5-2.5 0-.05.01-.08.01-.13zm-3.4-3.4l1.75 1.75c-.23.55-.36 1.15-.36 1.78 0 2.48 2.02 4.5 4.5 4.5.63 0 1.23-.13 1.77-.36l.98.98c-.88.24-1.8.38-2.75.38-3.79 0-7.17-2.13-8.82-5.5.7-1.43 1.72-2.61 2.93-3.53z"); }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M19.2929 9.8299L19.9409 9.18278C21.353 7.77064 21.353 5.47197 19.9409 4.05892C18.5287 2.64678 16.2292 2.64678 14.817 4.05892L14.1699 4.70694L19.2929 9.8299ZM12.8962 5.97688L5.18469 13.6906L10.3085 18.813L18.0201 11.0992L12.8962 5.97688ZM4.11851 20.9704L8.75906 19.8112L4.18692 15.239L3.02678 19.8796C2.95028 20.1856 3.04028 20.5105 3.26349 20.7337C3.48669 20.9569 3.8116 21.046 4.11851 20.9704Z"] {
-        d: path("M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM5.92 19H5v-.92l9.06-9.06.92.92L5.92 19zM20.71 5.63l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41z") !important; }
+        d: path("M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM5.92 19H5v-.92l9.06-9.06.92.92L5.92 19zM20.71 5.63l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41z"); }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M15 3.999V2H9V3.999H3V5.999H21V3.999H15Z"] {
         d: path("M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"); }
         .wrapper-2vIMkT .button-3bklZh svg path[d="M15 3.999V2H9V3.999H3V5.999H21V3.999H15Z"] ~ path {
           display: none; }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M14 3H20C21 3 22.0001 4 22.0001 5V19.0003C22.0001 20 21 21 20 21H14C13 21 6 13 6 13H2V11H6C6 11 13 3 14 3Z"] {
-        d: path("M22,6.98V16c0,1.1-0.9,2-2,2H6l-4,4V4c0-1.1,0.9-2,2-2h10.1C14.04,2.32,14,2.66,14,3s0.04,0.68,0.1,1H4v12h16V7.9 C20.74,7.75,21.42,7.42,22,6.98z M16,3c0,1.66,1.34,3,3,3s3-1.34,3-3s-1.34-3-3-3S16,1.34,16,3z") !important; }
+        d: path("M22,6.98V16c0,1.1-0.9,2-2,2H6l-4,4V4c0-1.1,0.9-2,2-2h10.1C14.04,2.32,14,2.66,14,3s0.04,0.68,0.1,1H4v12h16V7.9 C20.74,7.75,21.42,7.42,22,6.98z M16,3c0,1.66,1.34,3,3,3s3-1.34,3-3s-1.34-3-3-3S16,1.34,16,3z"); }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24zm2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"] {
-        d: path("M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z") !important; }
+        d: path("M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z"); }
       .wrapper-2vIMkT .button-3bklZh svg path[d="M5 2C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H19C20.6569 22 22 20.6569 22 19V5C22 3.34315 20.6569 2 19 2H5ZM8.79741 7.72V16H6.74541V7.72H8.79741ZM13.2097 7.72C16.0897 7.72 17.5897 9.388 17.5897 11.848C17.5897 14.308 16.0537 16 13.2577 16H10.3537V7.72H13.2097ZM13.1497 14.404C14.6137 14.404 15.5257 13.636 15.5257 11.86C15.5257 10.12 14.5537 9.316 13.1497 9.316H12.4057V14.404H13.1497Z"] {
-        d: path("M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z") !important; }
+        d: path("M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"); }
 
 /* CHAT AREA -> MESSAGES -> ACTIONS -> DELETE MESSAGE */
 .message-G6O-Wv {
@@ -3071,6 +3133,10 @@ body:active .container-18GwIk:not(:active) {
     color: var(--text-normal); }
   .panels-3wFtMD .icon-10cLkJ {
     border-radius: var(--avatar-radius); }
+  .panels-3wFtMD .nameTag-sc-gpq {
+    margin-right: 2px; }
+  .panels-3wFtMD .subtext-2HDqJ7 {
+    line-height: 14px; }
   .panels-3wFtMD .container-YkUktl {
     height: 52px;
     background-color: var(--status-picker-color);
@@ -6500,12 +6566,14 @@ body:active .userPopout-3XzG_A:not(:active) {
  *	EMOJI PICKER
  *
  */
+.contentWrapper-3vHNP2 {
+  animation: bottom-pop-out 400ms var(--default-animation); }
+
 .contentWrapper-3vHNP2,
 .emojiPicker-6YCk8a {
   background-color: var(--popout-color) ;
   border-radius: var(--popout-radius-big) ;
   box-shadow: var(--shadow-3dp) ;
-  animation: bottom-pop-out 400ms var(--default-animation);
   /* EMOJI PICKER -> HEADER */
   /* EMOJI PICKER -> HEADER -> SEARCH BAR */
   /* EMOJI PICKER -> HEADER -> DIVERSITY PICKER */
@@ -6730,16 +6798,19 @@ body:active .contentWrapper-3vHNP2:not(:active) {
       margin-right: 8px; }
 
 /* UPLOAD -> IMAGE INSERT */
-.upload-3GTSF9 {
+.upload-vLbqu- {
   background-color: var(--card-color) ;
   border-radius: var(--card-radius-big) ;
   border: 1px solid var(--card-border-color) ; }
-  .upload-3GTSF9 .image-2dAEjD {
+  .upload-vLbqu- .image-1091CL {
     border-radius: var(--card-radius-big); }
-  .upload-3GTSF9 .wrapper-2vIMkT:hover {
+  .upload-vLbqu- .wrapper-2vIMkT:hover {
     box-shadow: var(--shadow-3dp); }
-  .upload-3GTSF9 .altTag-2Bi3uP {
+  .upload-vLbqu- .altTag-3DeQpq {
     border-radius: 10px; }
+
+.spoiler-_2cX4d {
+  filter: blur(22px); }
 
 /*
  *
@@ -6884,6 +6955,23 @@ body:active .contentWrapper-3vHNP2:not(:active) {
         display: none; }
       .modal-2TOYtq .formFieldWrapper-2LV3S6 .termsRow-dZXIM3 .termsRowContent-2Qx-E5 {
         padding-left: 16px; }
+
+/*
+ *
+ *	LEAVE SERVER
+ *
+ */
+.problemInfo-1QppuA {
+  margin-bottom: 0; }
+
+.root-cw9rWQ {
+  background-color: var(--card-color) ;
+  border-radius: var(--card-radius-big) ;
+  border: 1px solid var(--card-border-color) ; }
+  .root-cw9rWQ .option-1O-Hwt {
+    border-bottom-color: var(--card-border-color); }
+    .root-cw9rWQ .option-1O-Hwt:hover {
+      background-color: var(--menu-item-hover); }
 
 /*
  *
@@ -7630,14 +7718,6 @@ div[role="radiogroup"] {
  *	SWITCHES
  *
  */
-.theme-dark {
-  --switch-color-checked: hsla(var(--accent-hsl),0.3);
-  --switch-knob-color-checked: hsl(var(--accent-hue),calc(var(--accent-saturation) * var(--saturation-factor)),calc(var(--accent-lightness) * 1.1)); }
-
-.theme-light {
-  --switch-color-checked: hsla(var(--accent-hsl),0.8);
-  --switch-knob-color-checked: hsl(var(--accent-hue),calc(var(--accent-saturation) * var(--saturation-factor)),calc(var(--accent-lightness) * 1.55)); }
-
 .container-2nx-BQ {
   width: 32px;
   height: 24px;
@@ -7656,7 +7736,7 @@ div[role="radiogroup"] {
   .container-2nx-BQ[style*="43.9%"]:before {
     background-color: var(--switch-color-checked); }
   .container-2nx-BQ[style*="43.9%"] .slider-32CRPX {
-    background-color: var(--switch-knob-color-checked); }
+    background-color: hsl(var(--accent-hue), calc(var(--accent-saturation) * var(--saturation-factor)), calc(var(--accent-lightness) * var(--switch-color-modifier))); }
   .container-2nx-BQ .slider-32CRPX {
     width: 16px;
     height: 16px;
@@ -7696,7 +7776,7 @@ div[role="radiogroup"] {
     .bd-switch input:checked + .bd-switch-body .bd-switch-slider {
       left: 19px; }
       .bd-switch input:checked + .bd-switch-body .bd-switch-slider .bd-switch-handle {
-        fill: var(--switch-knob-color-checked); }
+        fill: hsl(var(--accent-hue), calc(var(--accent-saturation) * var(--saturation-factor)), calc(var(--accent-lightness) * var(--switch-color-modifier))); }
   .bd-switch input:checked:active + .bd-switch-body {
     --switch-color: var(--switch-color-checked); }
 
@@ -7900,6 +7980,11 @@ div[role="radiogroup"] {
   .lookLink-15mFoz:active:after,
   .lookInverted-2mDUMi:active:after {
     opacity: var(--accent-button-action-active); }
+  .lookFilled-yCfaCM .contents-3ca1mk,
+  .lookOutlined-3yKVGo .contents-3ca1mk,
+  .lookLink-15mFoz .contents-3ca1mk,
+  .lookInverted-2mDUMi .contents-3ca1mk {
+    line-height: var(--button-height); }
 
 .lookFilled-yCfaCM.colorRed-rQXKgM {
   --button-background: hsl(var(--alert-color));
