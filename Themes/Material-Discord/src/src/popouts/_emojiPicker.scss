@@ -1,0 +1,190 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	EMOJI PICKER
+ *
+ */
+
+%emojiWrapper {
+	animation: bottom-pop-out 400ms var(--default-animation);
+}
+
+%emojiWrapper,
+%emojiPicker {
+	@include popout-format;
+
+	/* EMOJI PICKER -> HEADER */
+	%emojiPickerNavButton {
+		border-radius: 12px;
+		color: var(--menu-item-text-color) !important;
+
+		&:hover {
+			background-color: var(--menu-item-hover) !important;
+		}
+
+		&%emojiPickerNavButtonActive {
+			background-color: var(--menu-item-select) !important;
+		}
+	}
+
+	%emojiPickerNavEmoji,
+	%emojiPickerNavSticker,
+	%emojiPickerNavGif {
+		border-bottom: 1px solid var(--card-border-color);
+		box-shadow: none;
+	}
+
+	%emojiPickerDiversitySelectorPopout {
+		background-color: var(--popout-color);
+		border-radius: 16px;
+		border: none;
+		box-shadow: var(--shadow-3dp);
+		overflow: hidden;
+
+		%emojiPickerDiversityItem {
+			border-radius: 0;
+			transition: var(--default-time) var(--default-animation) background-color;
+
+			&:hover {
+				background-color: var(--menu-item-hover);
+			}
+		}
+	}
+
+	/* EMOJI PICKER -> HEADER -> SEARCH BAR */
+	%emojiPickerSearchBar {
+		background-color: var(--input-color);
+		border-radius: 16px;
+
+		%emojiPickerSearchInner {
+			padding: 0;
+		}
+
+		%emojiPickerSearchInput {
+			height: 32px;
+			margin: 0;
+			padding: 0 12px;
+		}
+	}
+
+	/* EMOJI PICKER -> EMOJIS */
+	%emojiPickerCategoryHeaderWrapper {
+		background-color: var(--emoji-category-header);
+
+		%emojiPickerCategoryHeaderLabel {
+			@include remove-caps(14px);
+		}
+	}
+
+	%emojiPickerUpsell {
+		height: auto;
+		margin-bottom: 2px;
+		@include card-format(false, 8px);
+	}
+
+	%emojiPickerInspector {
+		background-color: var(--popout-color);
+		border-top: 1px solid var(--card-border-color);
+
+		%emojiCategoryGuildIcon {
+			border-radius: 50%;
+		}
+	}
+}
+
+/* EMOJI PICKER -> CATEGORIES */
+%emojiCategoryList {
+	border-radius: 0 0 0 var(--popout-radius-big);
+
+	%emojiCategoryScroller {
+		&::-webkit-scrollbar {
+			width: 0px !important;
+		}
+	}
+
+	%emojiCategoryUnicodeShortcut {
+        height: 47px;
+        background-color: var(--popout-color);
+        border-top: 1px solid var(--card-border-color);
+	}
+}
+
+%emojiCategoryWrapper {
+	margin-top: -1px;
+	background-color: var(--attachment-color);
+
+	%emojiCategoryItem,
+	%stickerCategoryItem {
+		border-radius: 50%;
+
+		&:hover {
+			background-color: var(--menu-item-hover);
+		}
+
+		&%emojiCategoryItemRecent path,
+		&%stickerCategoryGeneric path {
+			d: path('M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z');
+		}
+	}
+}
+
+%emojiPicker {
+	 + %emojiCategoryList {
+		 %emojiCategoryScroller {
+			 &::-webkit-scrollbar {
+				 width: 0px !important;
+			 }
+		 }
+	 }
+}
+
+%emojiPickerSearchInput {
+	&::-webkit-input-placeholder {
+		font-family: var(--app-font);
+	}
+}
+
+body:active %emojiWrapper:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}
+
+/* EMOJI PICKER -> GIFS */
+
+%gifPickerResult {
+	border-radius: var(--media-radius);
+
+	&:after,
+	%gifPickerGif,
+	%gifPickerCategoryFade,
+	%gifPickerCategoryFadeBlurple {
+		border-radius: inherit;
+	}
+
+	%gifPickerCategoryFadeBlurple {
+		background-color: hsla(var(--accent-hsl),0.8) !important;
+	}
+
+	&:hover {
+		box-shadow: var(--shadow-2dp) !important;
+
+		&:after {
+			box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 1px 3px #2f3136 !important;
+		}
+	}
+}
+
+/* EMOJI PICKER -> STICKERS */
+
+%stickerCategoryList {
+	%emojiCategoryScroller {
+		&::-webkit-scrollbar {
+			width: 0px !important;
+		}
+	}
+}
+
+%stickerPickerRow {
+	column-gap: 6px !important;
+}

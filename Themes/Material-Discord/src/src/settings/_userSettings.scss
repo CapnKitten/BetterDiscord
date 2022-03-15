@@ -1,0 +1,96 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS
+ *
+ */
+
+%layer,
+%standardSidebarView {
+    background-color: var(--main-alt);
+}
+
+%settingsContentRegion {
+    background-color: var(--main-color);
+	border-top-left-radius: var(--card-radius-big);
+
+    %settingsContentScroller {
+        background-color: transparent;
+    }
+}
+
+%settingsCloseButton {
+	@include md-ripple(hover, after, 1.2);
+	border: none;
+
+	&:hover {
+		background-color: transparent !important;
+	}
+
+	&:active {
+		transform: translateX(0px);
+	}
+}
+
+%settingsNoticeContainer {
+    background-color: var(--popout-color) !important;
+	border-radius: 29px;
+	box-shadow: var(--shadow-3dp) !important;
+}
+
+.keybind-13vtq8 {
+	color: var(--text-muted) !important;
+}
+
+%settingsMixTestButton {
+    width: auto;
+}
+
+/* USER SETTINGS -> ANIMATION */
+
+%layer.animating {
+	pointer-events: initial !important;
+	will-change: transform, opacity;
+}
+
+%themeDark %standardSidebarView,
+%themeLight %standardSidebarView {
+	backface-visibility: hidden;
+}
+
+%layer {
+	transform: none !important;
+	transition: 300ms var(--default-animation) all;
+	backface-visibility: hidden;
+}
+
+%layer%layerAnimating {
+	transform: none !important;
+}
+
+%layer.stop-animations:first-of-type {
+	transform: scale(0.95) !important;
+	opacity: 0 !important;
+}
+
+%layer + %layer {
+	transform: scale(1.1) !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+	transition: 300ms var(--default-animation) all, 150ms ease opacity;
+}
+
+%layer.stop-animations ~ %layer {
+	pointer-events: initial !important;
+	transform: none !important;
+	opacity: 1 !important;
+	animation: opensettings 300ms var(--default-animation);
+}
+
+@keyframes opensettings {
+	0% {
+		transform: scale(1.1);
+		opacity: 0;
+	}
+}

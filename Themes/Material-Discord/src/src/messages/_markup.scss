@@ -1,0 +1,74 @@
+/*
+ *
+ *	MARKUP
+ *
+ */
+
+%markup {
+	a {
+		color: hsl(var(--accent-hsl));
+	}
+
+	%mentionWrapper {
+		position: relative;
+		background-color: hsla(var(--accent-hsl),0.1);
+		border-radius: var(--card-radius);
+		color: hsl(var(--accent-hsl));
+
+
+		&:hover {
+			background-color: hsla(var(--accent-hsl),0.3);
+		}
+	}
+
+	pre, pre *, pre code, pre code *, code.inline, %codeBlockText, %codeBlockText *, %codeLine, %codeLine *, %codeBlockLang, %codeBlockLang *, %codeBlockSyntax, %codeBlockSyntax *,  %syntaxAfter, %syntaxAfter *, %syntaxBefore, %syntaxBefore * {
+		--app-font: var(--code-font);
+	}
+
+	pre,
+	pre code,
+	code.inline {
+		background-color: var(--attachment-color);
+		border-radius: var(--card-radius);
+		border: none;
+
+		code {
+			background-color: transparent;
+		}
+	}
+
+	pre,
+	code.inline {
+		margin: 4px 0;
+	}
+}
+
+%textContainer,
+%textContainerFooter {
+	background-color: var(--attachment-color);
+	border: none;
+}
+
+%textContainer {
+	border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+
+%textContainerFooter {
+	border-radius: 0 0 var(--card-radius) var(--card-radius);
+	border-top: 1px solid var(--separator-color);
+}
+
+%codeView {
+	&,
+	& * {
+		--app-font: var(--code-font);
+	}
+}
+
+%embed {
+	border-radius: var(--media-radius);
+
+	&%embedFull {
+		background-color: var(--attachment-color);
+	}
+}

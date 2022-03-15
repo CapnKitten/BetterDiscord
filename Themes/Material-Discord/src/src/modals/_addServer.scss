@@ -1,0 +1,67 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	CREATE/JOIN SERVER
+ *
+ */
+
+%addServerTemplatesList,
+%addServerOptionsList {
+	margin-top: 0;
+}
+
+%addServerCard {
+	position: relative;
+	margin-top: 8px;
+	margin-bottom: 0;
+	@include card-format;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--card-color-hover);
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: 24px;
+		height: 24px;
+		top: 0;
+		right: 16px;
+		bottom: 0;
+		margin: auto 0;
+		@include add-icon(var(--text-muted), chevron_right);
+		-webkit-mask-size: 100%;
+		mask-size: 100%;
+	}
+
+	%addServerCardTitle {
+		color: var(--text-normal);
+	}
+
+	%addServerCardArrow {
+		display: none;
+	}
+}
+
+%addServerRowContainer {
+	@include card-format(false, 16px);
+
+	&:hover {
+		background-color: var(--card-color-hover);
+	}
+}
+
+%addServerOptionHeader {
+	@include remove-caps(14px);
+}
+
+%addServerSkip {
+	margin-top: 16px;
+	margin-bottom: 0;
+}

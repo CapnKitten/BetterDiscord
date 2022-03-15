@@ -1,0 +1,133 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	RADIO BUTTONS
+ *
+ */
+
+div[role="radiogroup"] {
+	@include card-format;
+
+	%radioItem {
+		margin: 0;
+		padding: 4px 16px;
+		background-color: transparent;
+		border-radius: 0;
+		@include card-format--list(48px);
+
+		&:hover,
+		&[aria-checked=true] {
+			background-color: transparent;
+		}
+
+		&[aria-checked=true] {
+			%radioBar {
+				@include md-ripple(hover, after, 1.15, null, true);
+
+				&:after {
+					width: 32px;
+					height: 32px;
+					top: -4px;
+					left: -4px;
+				}
+
+				path {
+					fill: hsl(var(--accent-hsl)) !important;
+				}
+			}
+
+			%radioIconChecked {
+				color: hsl(var(--accent-hsl));
+			}
+		}
+
+		%radioBar {
+			margin-bottom: 0;
+			padding: 8px 0 8px 0 !important;
+			border-left: none;
+
+			@include md-ripple(hover, after, 1.15);
+
+			&:after {
+				width: 32px;
+				height: 32px;
+				top: -3px;
+				left: -4px;
+				bottom: 0;
+				margin: auto 0;
+			}
+		}
+
+		&%radioItemDisabled {
+			opacity: 1;
+
+			%radioBar {
+				opacity: 0.3;
+
+                &:after {
+                    display: none;
+                }
+			}
+		}
+	}
+
+	%radioItemDisabledTooltip {
+		margin: 0;
+		@include card-format--list(48px);
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.group-LWHoGI {
+	overflow: hidden;
+}
+
+/* RADIO BUTTONS -> PILL */
+
+%radioPillItem {
+	height: 26px;
+	background-color: transparent;
+	cursor: pointer;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+
+	&%radioPillItemSelected {
+		background-color: var(--menu-item-select);
+		color: var(--menu-item-text-color);
+	}
+
+	&%radioPillItemDeny {
+		&%radioPillItemSelected {
+			background-color: hsl(var(--alert-color));
+			color: var(--alert-text-color);
+		}
+	}
+
+	&%radioPillItemPassthrough {
+		&%radioPillItemSelected {
+			background-color: var(--menu-item-select);
+		}
+	}
+
+	&%radioPillItemAllow {
+		&%radioPillItemSelected {
+			background-color: var(--success-color);
+			color: #fff;
+		}
+	}
+}
+
+/* RADIO BUTTONS -> CONTEXT MENU */
+
+%menuPopoutIcon {
+    %menuPopoutRadio {
+        color: hsl(var(--accent-hsl)) !important;
+    }
+}

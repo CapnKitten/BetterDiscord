@@ -1,0 +1,127 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  THREADS POPOUT
+ *
+ */
+
+%threadsPopoutContainer {
+	min-height: 200px;
+	max-height: 80vh;
+	@include popout-format;
+	animation: top-pop-out 400ms var(--default-animation);
+
+	%threadsPopoutHeader {
+		padding: 0 16px;
+		background-color: transparent;
+		border-bottom: 1px solid var(--popout-header-border);
+
+		%threadsPopoutTabBar {
+			height: 100%;
+		}
+
+		%threadsPopoutCreateButton {
+			--button-padding: 0 12px;
+		}
+	}
+
+    %threadsPopoutControls {
+        height: 52px;
+    }
+
+    %threadModalTabBar {
+    	height: 100%;
+
+    	%tabBarItem {
+            height: 24px;
+    		border-radius: 12px;
+
+            &:after {
+                display: none;
+            }
+
+    		&:hover {
+    			background-color: var(--menu-item-hover) !important;
+    		}
+
+    		&%tabBarItemSelected {
+    			background-color: var(--menu-item-select) !important;
+    		}
+    	}
+    }
+
+	%threadsPopoutInnerContainer {
+		min-height: 200px;
+		padding: 16px;
+	}
+
+	.activeThreadsList-c8qlqZ {
+		padding-bottom: 16px;
+	}
+
+	.content-28mbXd {
+		height: auto !important;
+	}
+
+	%threadPreview {
+		@include card-format(false, 16px);
+
+		&:hover {
+			background-color: var(--card-color-hover);
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+body:active %threadsPopoutContainer:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}
+
+/*
+ *
+ *	THREADS CHANNEL POPOUT
+ *
+ */
+
+ %channelThreadPopout {
+ 	padding: 0;
+ 	@include popout-format;
+
+ 	%channelThreadPopoutTitle {
+		margin: 0 0 8px 0;
+ 		padding: 12px;
+ 		@include remove-caps(14px);
+		border-bottom: 1px solid var(--popout-header-border);
+ 	}
+
+ 	%channelThreadPopoutRow {
+ 		margin: 0;
+ 		border-radius: 0;
+ 		color: var(--menu-item-text-color);
+ 		transition: var(--default-time) var(--default-animation);
+
+ 		&:hover {
+ 			background-color: var(--menu-item-hover);
+ 			color: var(--menu-item-text-color);
+ 		}
+
+		%channelThreadPopoutTimestamp {
+			color: var(--text-muted) !important;
+		}
+ 	}
+
+ 	%channelThreadPopoutMore {
+		padding: 8px 12px;
+		border-top-color: var(--popout-header-border);
+ 		color: hsl(var(--accent-hsl));
+
+ 		%size14 {
+ 			margin-left: auto;
+ 		}
+ 	}
+ }

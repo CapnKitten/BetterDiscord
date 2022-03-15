@@ -1,0 +1,52 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	QUICK SWITCHER
+ *
+ */
+
+%quickswitcher {
+	padding: 0;
+	@include popout-format;
+
+	%quickswitcherInput {
+		height: 42px;
+		line-height: 42px;
+		margin: 16px;
+		padding: 0 16px;
+		background-color: var(--input-color);
+		border-radius: 21px;
+		box-shadow: none;
+		font-size: 18px;
+	}
+
+	%quickswitcherScroller {
+		margin-top: 0;
+		margin-right: 0;
+		background-color: transparent;
+		border-top: 1px solid var(--card-border-color);
+	}
+
+	%quickswitcherHeader {
+		@include remove-caps(14px);
+	}
+
+	%quickswitcherResult {
+		border-radius: 0;
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&%quickswitcherResultFocused {
+			background-color: var(--menu-item-hover);
+		}
+
+		%quickswitcherResultNote {
+			@include remove-caps(11px);
+		}
+	}
+
+	%quickswitcherProtip {
+		padding: 8px;
+		border-top-color: var(--card-border-color);
+	}
+}

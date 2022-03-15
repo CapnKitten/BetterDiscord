@@ -1,0 +1,272 @@
+/*
+ *
+ *	BUTTONS
+ *
+ */
+
+%button {
+	font-size: 1em;
+}
+
+%buttonFilled,
+%buttonOutlined,
+%buttonLink,
+%buttonInverted {
+	--button-background: hsl(var(--accent-hsl));
+	--button-text-color: var(--accent-text-color);
+	--button-shadow: var(--shadow-1dp);
+	--button-outline: none;
+
+	background-color: var(--button-background) !important;
+	border: var(--button-outline) !important;
+	box-shadow: var(--button-shadow);
+	color: var(--button-text-color) !important;
+	transition: var(--default-time) var(--default-animation) box-shadow;
+	overflow: hidden;
+
+	&:hover {
+		--button-shadow: var(--shadow-2dp);
+	}
+
+	&:active {
+		--button-shadow: var(--shadow-3dp);
+	}
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		pointer-events: none;
+		transition: var(--default-time) var(--default-animation) opacity;
+	}
+
+	&:disabled {
+		--button-background: rgba(var(--button-link-color),0.15);
+		--button-text-color: var(--button-link-text-color);
+		--button-shadow: none;
+		--button-outline: none;
+
+		&:after {
+			display: none;
+		}
+	}
+
+	&:after {
+		background-color: var(--accent-button-action);
+	}
+
+	&:hover {
+		&:after {
+			opacity: var(--accent-button-action-hover);
+		}
+	}
+
+	&:active {
+		&:after {
+			opacity: var(--accent-button-action-active);
+		}
+	}
+
+	%buttonContents {
+		height: var(--button-height);
+		padding: 0;
+		line-height: var(--button-height);
+
+		svg {
+			height: var(--button-height);
+		}
+	}
+
+	%buttonContentsInner,
+	%size16,
+	%size14 {
+		height: var(--button-height);
+		line-height: var(--button-height);
+		font-weight: 500;
+	}
+}
+
+%buttonFilled {
+	&%buttonRed {
+		--button-background: hsl(var(--alert-color));
+		--button-text-color: var(--alert-text-color);
+	}
+
+	&%buttonWhite {
+		--button-background: rgba(255,255,255,0.15);
+		--button-text-color: #fff;
+		box-shadow: none !important;
+
+		.upsellButton-36YQ7c {
+			color: var(--button-text-color);
+		}
+	}
+}
+
+%buttonOutlined {
+	--button-background: transparent;
+	--button-text-color: hsl(var(--accent-hsl));
+	--button-shadow: none !important;
+	--button-outline: 1px solid hsl(var(--accent-hsl));
+
+	&:after {
+		background-color: hsl(var(--accent-hsl));
+	}
+
+	&%buttonRed {
+		--button-text-color: hsl(var(--alert-color));
+		--button-outline: 1px solid hsl(var(--alert-color));
+
+		&:after {
+			background-color: hsl(var(--alert-color));
+		}
+
+		&:hover {
+			&:after {
+				opacity: var(--alert-button-action-hover);
+			}
+		}
+
+		&:active {
+			&:after {
+				opacity: var(--alert-button-action-active);
+			}
+		}
+	}
+
+	&%buttonWhite {
+		--button-background: rgba(255,255,255,0.15);
+		--button-text-color: #fff;
+		box-shadow: none !important;
+
+		&:after {
+			background-color: #fff;
+		}
+	}
+}
+
+%buttonLink {
+	--button-background: transparent;
+	--button-text-color: var(--button-link-text-color);
+	--button-shadow: none !important;
+
+	&:after {
+		background-color: rgb(var(--button-link-color));
+	}
+
+	&:hover {
+		text-decoration: none;
+
+		%buttonContents {
+			background-image: none !important;
+		}
+	}
+}
+
+%buttonInverted {
+	&%buttonBrand {
+		--button-background: rgba(255,255,255,0.15);
+		--button-text-color: #fff;
+		--button-shadow: none !important;
+	}
+}
+
+%buttonFilled,
+%buttonOutlined,
+%buttonLink {
+	border-radius: var(--button-radius);
+	border: var(--button-outline);
+}
+
+%buttonSizeMin,
+%buttonSizeSmall,
+%buttonSizeMedium,
+%buttonSizeLarge,
+%buttonSizeXlarge,
+%buttonSize,
+%buttongSizeAlt,
+%noticeButton {
+	min-width: var(--button-height);
+	height: var(--button-height);
+	min-height: var(--button-height);
+	padding: var(--button-padding);
+	line-height: var(--button-height);
+	border-radius: var(--button-radius);
+}
+
+%inviteButton%buttongSizeAlt {
+	height: var(--button-height);
+}
+
+%iconButton {
+	--button-padding: 0;
+}
+
+%disabledButtonWrapper {
+	--button-padding: 0;
+
+	%buttonFilled {
+		--button-padding: 0 20px;
+	}
+}
+
+%callButtonColorable {
+	--button-background: var(--menu-item-hover);
+	--button-text-color: #fff;
+
+	background-color: var(--button-background) !important;
+	color: var(--button-text-color) !important;
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: var(--alert-button-action);
+		border-radius: 50%;
+		opacity: 0;
+		pointer-events: none;
+		transition: var(--default-time) var(--default-animation) opacity;
+	}
+
+	&:hover {
+		&:after {
+			opacity: var(--accent-button-action-hover);
+		}
+	}
+
+	&:active {
+		&:after {
+			opacity: var(--accent-button-action-active);
+		}
+	}
+
+	&%callButtonRed {
+		--button-background: hsl(var(--alert-color));
+		--button-text-color: var(--alert-text-color);
+	}
+
+	&%callButtonWhite {
+		--button-background: #fff;
+		--button-text-color: #060607;
+	}
+
+	&%callButtonLight {
+		--button-text-color: #060607;
+	}
+
+	&%callButtonLightActive {
+		--button-background: var(--menu-item-select);
+		--button-text-color: #060607;
+	}
+
+	%callCenterIcon {
+		color: var(--button-text-color) !important;
+	}
+}

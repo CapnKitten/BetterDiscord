@@ -1,0 +1,76 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	LOGIN SCREEN
+ *
+ */
+
+%authBox {
+	padding: 16px;
+	@include popout-format(true);
+
+	/*padding: 16px;
+	background-color: var(--popout-color) !important;
+	border-radius: var(--popout-radius-big);
+	box-shadow: var(--shadow-3dp);*/
+
+	%mainLoginContainer {
+		margin-right: 24px;
+		padding-right: 24px;
+		border-right: 1px solid var(--card-border-color);
+	}
+
+	%verticalSeparator {
+		display: none;
+	}
+
+	%qrLogin {
+		height: 320px;
+	}
+
+	%needAccount {
+		line-height: 24px;
+	}
+
+	%buttonLink {
+		%size14 {
+			line-height: var(--button-height);
+		}
+	}
+
+	&:not(%chooseAccountAuthBox) {
+		%buttonLink {
+			--button-height: 17px;
+			--button-padding: 0;
+			--button-radius: 0;
+
+			font-size: 14px !important;
+			font-weight: 400 !important;
+
+			&:after {
+				display: none;
+			}
+
+			&:hover {
+				text-decoration: underline !important;
+			}
+		}
+	}
+
+	%needAccount + %buttonLink {
+		position: relative;
+		top: -3px;
+	}
+}
+
+.navRow-dG-XX8 {
+	height: auto;
+	padding: 8px;
+	background-color: transparent;
+	border-top: 1px solid var(--card-border-color);
+
+	.button-1cRKG6 {
+		margin: 0;
+	}
+}

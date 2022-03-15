@@ -1,0 +1,40 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  SERVER STICKERS
+ *
+ */
+
+%stickersUpsellContainer {
+    border-radius: var(--card-radius-big);
+}
+
+%stickersTierHeader {
+	border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+
+	&%stickersTierHeaderUnlocked,
+	&%stickersTierHeaderLocked {
+		background-color: var(--card-color) !important;
+		border: 1px solid var(--card-border-color);
+	}
+
+	&%stickersTierHeaderWithoutCardBody {
+		border-radius: var(--card-radius-big);
+	}
+}
+
+%stickersTeirBody {
+	background-color: var(--card-color) !important;
+	border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+	border: 1px solid var(--card-border-color);
+	border-top: none;
+}
+
+%stickersTierLock {
+	color: var(--interactive-normal);
+}
+
+%stickersUploadCard {
+	@include card-format;
+}

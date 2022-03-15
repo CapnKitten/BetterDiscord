@@ -1,0 +1,117 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	NOTICES
+ *
+ */
+
+%notice {
+	border-top-left-radius: var(--card-radius-big);
+
+	&.notice-12Koq-,
+	&.notice-1x8lm-,
+	&.notice-2olXi7 {
+		background-color: hsl(var(--accent-hsl));
+
+		%noticeHeader {
+			color: var(--accent-text-color);
+		}
+	}
+
+	%button {
+		--button-outline: none;
+
+		height: 32px;
+		padding: 0 12px;
+	}
+
+	%noticeButton,
+	%noticeRepoButton {
+		padding: var(--button-padding);
+		background-color: rgba(var(--button-link-color),0.2);
+		border-radius: var(--button-radius);
+		border: none;
+		line-height: 24px;
+		color: var(--button-text-color);
+
+		&:hover {
+			background-color: rgba(var(--button-link-color),0.35);
+			color: var(--button-text-color);
+		}
+	}
+}
+
+%notice {
+	&%noticeThemeRepo,
+	&%noticePluginRepo,
+	&#pluginNotice {
+		position: absolute;
+		width: auto;
+		height: auto;
+		top: 8px;
+		right: 8px;
+		padding: 12px 16px;
+		border-radius: var(--popout-radius-big) !important;
+		box-shadow: var(--shadow-3dp);
+		line-height: 24px;
+		z-index: 102;
+
+		&.colorInfo-1kEg3T {
+			background-color: var(--popout-color);
+			color: var(--text-normal);
+		}
+
+		%noticeClose {
+			width: 24px;
+			height: 24px;
+			top: 11px;
+			right: 12px;
+			background: none;
+			@include add-icon(var(--text-normal), close, solid);
+		}
+
+		.notice-message {
+			margin-right: 24px;
+		}
+
+		#outdatedPlugins {
+			display: block;
+			max-width: 250px;
+			margin-top: 4px;
+			text-align: left;
+
+			span {
+				line-height: 20px;
+				color: var(--text-normal);
+			}
+		}
+	}
+
+	&%noticeRepo,
+	&%noticePluginRepo,
+	&%noticeOutdated,
+	&%noticeNewEntries {
+		height: auto !important;
+
+		%noticeButton,
+		%noticeRepoButton {
+			margin-left: 8px;
+			margin-right: 28px;
+		}
+
+		%noticePlatformIcon {
+			margin-left: 0;
+			margin-right: 8px;
+		}
+
+		%noticeClose {
+			top: 14px;
+			background-color: #fff;
+		}
+	}
+
+	&%noticeStreamerMode {
+		border-top-left-radius: var(--card-radius-big);
+	}
+}

@@ -1,0 +1,188 @@
+/*
+ *
+ *	SERVER LIST
+ *
+ */
+
+%guildsWrapper {
+	background-color: var(--server-color);
+
+	%guilds {
+		background-color: transparent;
+	}
+
+	%guildsTree {
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+%guildLink {
+	%guildChildWrapper {
+		background-color: hsl(var(--accent-hsl));
+		border-radius: var(--avatar-radius);
+		color: var(--accent-text-color);
+	}
+
+	&%guildLinkSelected {
+		%guildChildWrapper {
+			background-color: hsl(var(--accent-hsl));
+			color: var(--accent-text-color);
+		}
+	}
+
+	&:hover %guildChildWrapper {
+		background-color: hsl(var(--accent-hsl));
+		color: var(--accent-text-color);
+	}
+}
+
+%circleIconButtonMask,
+%circleIconButton {
+	border-radius: var(--avatar-radius) !important;
+	background-color: hsl(var(--accent-hsl));
+	color: var(--accent-text-color);
+
+	&%circleIconButtonSelected {
+		background-color: hsl(var(--accent-hsl));
+		color: var(--accent-text-color);
+	}
+}
+
+%guildChildWrapper {
+	rect {
+		rx: var(--avatar-radius);
+	}
+}
+
+%circleIconButtonMask {
+	background-color: var(--menu-item-select) !important;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	path {
+		transition: var(--default-time) var(--default-animation) fill;
+	}
+
+	&:hover {
+		background-color: hsl(var(--accent-hsl)) !important;
+
+		path {
+			fill: var(--accent-text-color);
+		}
+	}
+}
+
+/* SERVER LIST -> SERVER */
+
+%guild {
+	%guildWrapper {
+		border-radius: var(--avatar-radius);
+
+		%guildIcon {
+			border-radius: var(--avatar-radius);
+		}
+
+		%guildBadgeLower {
+			width: auto;
+			height: auto;
+
+			%numberBadge {
+				background-color: hsl(var(--alert-color)) !important;
+				box-shadow: var(--shadow-1dp);
+				color: var(--alert-text-color);
+			}
+
+			&.unread-badge {
+				right: unset;
+				left: -2px;
+
+				%numberBadge {
+					background-color: hsl(var(--accent-hsl)) !important;
+					color: var(--accent-text-color) !important;
+				}
+			}
+		}
+
+		%guildBadgeUpper {
+			%guildBadge {
+				background-color: hsl(var(--accent-hsl));
+				color: var(--accent-text-color);
+				border-radius: 50%;
+				animation: audio-flash 2.5s linear infinite;
+
+				&%guildBadgeParticipating {
+					background-color: hsl(var(--accent-hsl));
+					color: var(--accent-text-color);
+				}
+			}
+		}
+	}
+
+	&.frame-oXWS21 {
+		%guildChildWrapper {
+			padding: 0 6px;
+			border-radius: 12px;
+			text-transform: capitalize;
+		}
+	}
+}
+
+%guildDragInner {
+	border-radius: var(--avatar-radius);
+}
+
+%guildFolder,
+%guildFolderIconWrapper {
+	border-radius: var(--avatar-radius);
+}
+
+.centerTarget-S6BLFQ {
+	&.dragOver-1OKbo2 {
+		&:before {
+			background-color: hsl(var(--accent-hsl));
+			box-shadow: var(--shadow-1dp);
+		}
+	}
+}
+
+.target-1eRTCg {
+	&.dragOver-1OKbo2 {
+		&:before {
+			background-color: hsl(var(--accent-hsl));
+		}
+	}
+}
+
+/* SERVER LIST -> SERVER -> FOLDER */
+
+.folder-1hbNCn,
+.folderIconWrapper-1_bOZe {
+	border-radius: var(--avatar-radius);
+}
+
+.iconInactive-26M06U {
+	border-radius: var(--avatar-radius);
+}
+
+%guildExpandedFolderBackground%guildFolderCollapsed {
+	+ %guild {
+		%guildFolder {
+			background-color: transparent;
+		}
+	}
+}
+
+%themeDark {
+	%guildFolder,
+	%guildExpandedFolderBackground {
+		--background-secondary: #212224;
+	}
+}
+
+%themeLight {
+	%guildFolder,
+	%guildExpandedFolderBackground {
+		--background-secondary: #d6d6d6;
+	}
+}

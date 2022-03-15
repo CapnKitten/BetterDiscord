@@ -1,0 +1,97 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	FRIENDS LIST
+ *
+ */
+
+%friends {
+	background-color: var(--chat-color) !important;
+}
+
+%themeLight {
+	%friendsColumn {
+		%friendsSearchBar {
+			%friendsSearchBarInner {
+				--input-color: #fff;
+			}
+		}
+	}
+}
+
+%friendsColumn {
+	%friendsSearchBar {
+		@include new-input-format;
+		padding: 0;
+
+		%friendsSearchBarInner {
+			%friendsSearchBarInput {
+				height: var(--input-height);
+				margin: 0;
+				padding: 0 4px 0 12px;
+				line-height: var(--input-height);
+
+				&::-webkit-input-placeholder {
+					font-family: var(--app-font);
+				}
+			}
+
+			%friendsSearchIconLayout {
+				width: var(--input-height);
+				height: var(--input-height);
+			}
+		}
+	}
+
+	%scroller {
+		margin-top: 0;
+	}
+
+	%friendsOnlineTitle {
+		height: 40px;
+		margin: 0;
+		padding: 0 16px;
+		line-height: 40px;
+		@include remove-caps(14px);
+	}
+}
+
+%friendsItem {
+	margin: 0;
+	padding: 0 16px;
+	@include card-format--list(60px);
+	border-radius: 0;
+	border-top: none;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover,
+	&%friendsItemActive {
+		margin: inherit;
+		padding: 0 16px;
+		border-radius: 0;
+	}
+
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+
+	&%friendsItemActive {
+		background-color: var(--menu-item-select)
+	}
+
+	%friendActionButton {
+		background-color: transparent;
+		@include md-ripple(hover, after, 1.0);
+
+		%friendActionButtonIcon {
+			transform: scale(1.2);
+
+			path {
+				&[d="M4.79805 3C3.80445 3 2.99805 3.8055 2.99805 4.8V15.6C2.99805 16.5936 3.80445 17.4 4.79805 17.4H7.49805V21L11.098 17.4H19.198C20.1925 17.4 20.998 16.5936 20.998 15.6V4.8C20.998 3.8055 20.1925 3 19.198 3H4.79805Z"] {
+					d: path('M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z');
+				}
+			}
+		}
+	}
+}

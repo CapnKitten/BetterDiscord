@@ -1,0 +1,47 @@
+/*
+ *
+ *	CHECKBOXES
+ *
+ */
+
+%checkbox {
+	border-width: 2px;
+    border-radius: 4px;
+	transition: var(--default-time) var(--default-animation) border-color, var(--default-time) var(--default-animation) background-color;
+
+	&:not(%checkboxChecked) {
+		path {
+			transition: var(--default-time) var(--default-animation) fill;
+		}
+	}
+
+	&%checkboxChecked {
+		background-color: hsl(var(--accent-hsl)) !important;
+		border-color: hsl(var(--accent-hsl)) !important;
+
+		path {
+			fill: var(--accent-text-color);
+			transition: var(--default-time) var(--default-animation) fill;
+		}
+	}
+}
+
+%menuPopoutSelected {
+	%menuPopoutCheckbox {
+		color: hsl(var(--accent-hsl));
+	}
+
+	%menuPopoutCheck {
+		color: var(--accent-text-color);
+	}
+
+	&%menuPopoutItemHover {
+		%menuPopoutCheckbox {
+			color: hsl(var(--accent-hsl));
+		}
+
+		%menuPopoutCheck {
+			color: var(--accent-text-color);
+		}
+	}
+}

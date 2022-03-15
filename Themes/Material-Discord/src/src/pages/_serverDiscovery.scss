@@ -1,0 +1,112 @@
+/*
+ *
+ *	SERVER DISCOVERY
+ *
+ */
+
+%pageWrapper {
+	background-color: var(--chat-color) !important;
+}
+
+%headerImage {
+	border-radius: var(--card-radius-big);
+	box-shadow: var(--shadow-1dp);
+}
+
+%search {
+	%searchBox {
+		border-radius: 18px;
+		border: none;
+		box-shadow: none;
+		transition: var(--default-time) var(--default-animation) box-shadow;
+
+		&:focus-within {
+			box-shadow: var(--shadow-3dp);
+		}
+
+		%inputWrapper {
+			border-bottom: none !important;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+
+		%searchBoxInput {
+			padding: 8px 16px;
+		}
+	}
+}
+
+/* SERVER DISCOVERY -> SIDEBAR */
+
+%channelsSidebar {
+	%listItem {
+		margin: 0 8px 0 0;
+		border-radius: 0 21px 21px 0;
+
+		%listItemLayout {
+			border-radius: 0 21px 21px 0;
+		}
+
+		&:hover {
+			%listItemLayout {
+				background-color: var(--menu-item-hover);
+			}
+		}
+
+		&%listItemSelected {
+			color: var(--menu-item-text-color);
+
+			%listItemLayout {
+				background-color: var(--menu-item-select-accent);
+				color: var(--interactive-active);
+			}
+		}
+	}
+}
+
+/* SERVER DISCOVERY -> CARDS */
+
+%discoverGuildCard {
+	background-color: var(--card-color-alt) !important;
+	border-radius: var(--card-radius-big);
+	box-shadow: none !important;
+	transition: var(--default-time) var(--default-animation) transform, var(--default-time) var(--default-animation) box-shadow;
+
+	&:hover {
+		box-shadow: var(--shadow-3dp) !important;
+
+		%discoverGuildInfo {
+			border-color: transparent;
+		}
+	}
+
+	%discoverGuildCardHeader {
+		margin-bottom: 0;
+	}
+
+	%discoverGuildInfo {
+		padding-top: 32px;
+		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+		border: 1px solid var(--card-border-color);
+		border-top: none;
+		transition: var(--default-time) var(--default-animation) border-color;
+	}
+
+	%discoverGuildIcon {
+		foreignObject {
+			mask: none !important;
+		}
+
+		%discoverGuildCardIcon {
+			background-color: var(--card-color-alt) !important;
+			border-radius: 50%;
+
+			%discoverGuildAvatar {
+				border-radius: 50%;
+			}
+		}
+	}
+}

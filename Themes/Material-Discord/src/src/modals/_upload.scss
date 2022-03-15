@@ -1,0 +1,61 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  UPLOAD
+ *
+ */
+
+%uploadModalIn {
+    %uploadDropModal {
+    	%uploadDropModalBgScale {
+    		@include popout-format;
+    	}
+
+    	%uploadDropModalInner {
+    		border: none;
+    	}
+
+    	%uploadDropModalTitle {
+    		&,
+    		strong {
+    			color: var(--text-normal) !important;
+    		}
+    	}
+
+    	%uploadDropModalInstructions {
+    		color: var(--text-normal) !important;
+    	}
+
+    	&%uploadDropModalError {
+    		%uploadDropModalTitle {
+    			&,
+    			strong {
+    				color: #eee !important;
+    			}
+    		}
+
+    		%uploadDropModalInstructions {
+    			color: #eee !important;
+    		}
+    	}
+    }
+}
+
+%uploadModal {
+    %uploadModalFooter {
+        padding: 8px;
+		background-color: transparent !important;
+		border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+		border-top: 1px solid var(--popout-header-border);
+		box-shadow: none !important;
+
+        %button%buttonLink {
+			margin-right: 8px;
+		}
+    }
+}
+
+.colorDefault-CDqZdO .subtext-2GlkbE {
+	color: var(--text-muted) !important;
+}

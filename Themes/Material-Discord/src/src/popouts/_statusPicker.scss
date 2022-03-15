@@ -1,0 +1,336 @@
+
+/*
+ *
+ *  STATUS PICKER
+ *
+ */
+
+%popoutLayer {
+	&[style*="left: 88px; bottom: 6"] {
+		top: initial !important;
+		left: 80px !important;
+		bottom: 69px !important;
+	}
+}
+
+%menuPopout#status-picker {
+    width: 224px;
+	min-height: 68px;
+	background-color: var(--popout-color);
+	border-radius: var(--popout-radius-big);
+	box-shadow: var(--shadow-3dp);
+	animation: show-status var(--default-time) var(--default-animation);
+	overflow: visible;
+
+    &:before {
+		position: absolute;
+		content: " ";
+		width: calc(100% + 16px);
+		height: calc(100% + 8px);
+		top: 0;
+		left: -8px;
+		z-index: -1;
+	}
+
+    %statusPickerScroller {
+        display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		padding: 0;
+
+		&::-webkit-scrollbar {
+			width: 0 !important;
+		}
+    }
+
+    %menuPopoutItem {
+        &:not(#status-picker-custom-status) {
+			position: relative;
+			width: unset;
+			height: 68px;
+			margin: 0;
+			border-radius: 0;
+			font-size: 0;
+			overflow: hidden;
+			animation: status 300ms var(--default-animation) backwards;
+
+            &:active {
+				background-color: transparent !important;
+			}
+
+            &#status-picker-online {
+				animation-delay: 100ms;
+
+				%statusPickerItem {
+					background-color: rgb(67, 181, 129);
+				}
+
+				%statusPickerText {
+					background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_dark.svg);
+				}
+			}
+
+			&#status-picker-idle {
+				animation-delay: 140ms;
+
+				%statusPickerItem {
+					background-color: rgb(250, 166, 26);
+				}
+
+				%statusPickerText {
+					background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/alarm_dark.svg);
+				}
+			}
+
+			&#status-picker-dnd {
+				animation-delay: 180ms;
+
+				%statusPickerItem {
+					background-color: rgb(240, 71, 71);
+				}
+
+				%statusPickerText {
+					background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/remove_dark.svg);
+				}
+			}
+
+			&#status-picker-invisible {
+				animation-delay: 220ms;
+
+				%statusPickerItem {
+					background-color: rgb(116, 127, 141);
+				}
+
+				%statusPickerText {
+					background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/visibility_off_dark.svg);
+				}
+			}
+
+            %statusPickerItem {
+				position: absolute;
+				display: block;
+				width: 34px;
+				height: 34px;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				padding: 0;
+				border-radius: var(--avatar-radius);
+				transition: var(--default-time) var(--default-animation);
+
+				%statusPickerDescription {
+					display: none;
+				}
+			}
+
+            &:hover {
+				%statusPickerItem {
+					transform: scale(1.425);
+				}
+
+				%statusPickerText {
+					opacity: 0.65;
+				}
+			}
+
+			&%menuPopoutItemHover {
+				background-color: transparent;
+			}
+
+            %statusPickerIcon {
+				display: none;
+			}
+
+			%statusPickerText {
+				display: block;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background-size: 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+				opacity: 0;
+				transition: var(--default-time) var(--default-animation);
+				font-size: 0;
+			}
+        }
+
+        &#status-picker-custom-status,
+		&#status-picker-switch-account {
+			grid-column: 1/6;
+			margin-top: 0;
+			margin-bottom: 0;
+			background-color: transparent;
+			border-radius: 0;
+			border-top: 1px solid var(--popout-header-border);
+			transition: var(--default-time) var(--default-animation) background-color;
+
+			&%menuPopoutItemHover {
+				background-color: var(--menu-item-hover);
+				color: var(--interactive-normal);
+			}
+
+			%statusPickerItem {
+				display: grid;
+				position: unset;
+				min-height: 28px;
+				padding: 4px 12px;
+				grid-template-rows: 28px 1fr;
+			}
+		}
+
+        &#status-picker-custom-status {
+            padding: 0;
+
+			%statusPickerItem {
+				grid-template-columns: 28px 1fr;
+
+				&%customStatusItem {
+					grid-template-columns: 1fr 32px;
+				}
+
+				%customStatusEmoji {
+					margin-left: 0;
+				}
+			}
+
+			%customStatusClearButton {
+				width: 32px !important;
+				height: 32px !important;
+			}
+
+			%customStatusClearIcon {
+				margin-left: 0;
+			}
+		}
+
+        &#status-picker-switch-account {
+			%statusPickerItem {
+				grid-template-columns: 28px 1fr;
+			}
+		}
+    }
+
+    %submenuContainer {
+		width: auto;
+		height: auto;
+		grid-column: 1/6;
+
+		%popoutLayer {
+			transform: translateX(-4px);
+		}
+
+		%statusPickerScroller {
+			display: block;
+		}
+
+		#status-picker-switch-account {
+			height: 36px;
+			padding: 0;
+			border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+			font-size: 14px;
+			animation: none;
+
+			&:hover {
+				%statusPickerItem {
+					transform: none;
+				}
+			}
+
+			&%menuPopoutItemHover {
+				background-color: var(--menu-item-hover);
+
+				%statusPickerSwitchAccountsIcon path {
+					fill: currentColor !important;
+				}
+			}
+
+			%statusPickerItem {
+				width: auto;
+				height: auto;
+			}
+
+			%statusPickerText {
+				display: unset;
+				position: unset;
+				width: unset;
+				height: unset;
+				margin: unset;
+				font-size: inherit;
+				opacity: 1 !important;
+			}
+
+			%betaTag {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 24px;
+				margin: auto 0;
+				background-color: hsl(var(--accent-hsl)) !important;
+				color: var(--accent-text-color);
+			}
+
+			%menuPopoutIconContainer {
+				margin-right: 8px
+			}
+		}
+	}
+
+    %menuPopoutSeparator {
+        display: none;
+    }
+
+    %popoutLayer[style*="left: 308px"] {
+		left: 312px !important;
+	}
+
+    %contextMenuItemSubMenuAlt {
+		padding: 8px 0;
+		background-color: var(--popout-color);
+		overflow: hidden;
+		animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
+		transform-origin: top;
+	}
+
+	[aria-activedescendant*="status-picker-switch-account"] {
+		%menuPopoutItem {
+			height: auto !important;
+			padding: 9px 12px !important;
+			font-size: 14px !important;
+			line-height: 18px;
+			transition: var(--default-time) var(--default-animation) background-color;
+			animation: none !important;
+
+			&:hover {
+				background-color: var(--menu-item-hover) !important;
+			}
+
+			&#status-picker-switch-account--manage-accounts {
+				position: relative;
+				margin-top: 16px;
+				overflow: visible;
+
+				&:after {
+					position: absolute;
+					content: " ";
+					width: 100%;
+					height: 1px;
+					top: -8px;
+					left: 0;
+					background-color: var(--popout-header-border);
+				}
+			}
+		}
+	}
+}
+
+%accountSwitcherUserMenuText,
+%accountSwitcherUserMenuDiscriminator {
+	color: var(--menu-text-color) !important;
+}

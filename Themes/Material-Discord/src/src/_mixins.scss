@@ -1,0 +1,273 @@
+@function important($important) {
+	@return #{if($important, '!important', '')};
+}
+
+@mixin popout-format($important: false) {
+	background-color: var(--popout-color) important($important);
+	border-radius: var(--popout-radius-big) important($important);
+	box-shadow: var(--shadow-3dp) important($important);
+}
+
+@mixin card-format($important: false, $padding: 0) {
+	padding: $padding;
+	background-color: var(--card-color) important($important);
+	border-radius: var(--card-radius-big) important($important);
+	border: 1px solid var(--card-border-color) important($important);
+}
+
+@mixin card-format--header($important: false) {
+	margin-bottom: 0;
+	padding: 16px important($important);
+	background-color: transparent important($important);
+	border-bottom: 1px solid var(--card-border-color);
+	font-size: 1em;
+	color: var(--card-header-text-color);
+	font-weight: 500;
+}
+
+@mixin card-format--body {
+	padding: 16px;
+}
+
+@mixin card-format--footer($padding: 8px) {
+	padding: $padding;
+	background-color: transparent;
+	border-top: 1px solid var(--card-border-color);
+}
+
+@mixin card-format--list($width) {
+	position: relative;
+	border-bottom: none;
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: calc(100% - #{$width});
+		height: 1px;
+		right: 0;
+		bottom: 0;
+		background-color: var(--card-border-color);
+	}
+
+	&:last-of-type {
+		&:after {
+			display: none;
+		}
+	}
+}
+
+@mixin new-input-format($important: false, $height: var(--input-height), $max-height: var(--input-height)) {
+	height: $height important($important);
+	max-height: $max-height important($important);
+	padding: var(--input-padding) important($important);
+	background-color: var(--input-color) important($important);
+	border-radius: calc(#{$height} / 2) important($important);
+	border: none;
+}
+
+@mixin input-format($height: var(--input-height), $max-height: var(--input-height)) {
+	position: relative;
+	height: $height;
+	max-height: $max-height;
+	padding: 0;
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid var(--input-border-color) !important;
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: " ";
+		height: 2px;
+		width: 0;
+		bottom: -1px;
+		background: hsla(var(--accent-hsl));
+		transition: 300ms ease all;
+		z-index: 2;
+	}
+
+	&:before {
+		left: 50%;
+	}
+
+	&:after {
+		right: 50%;
+	}
+
+	&:focus-within {
+		&:before,
+		&:after {
+			width: 50%;
+		}
+	}
+}
+
+@mixin tab-border($width) {
+	position: relative;
+	background-color: transparent !important;
+	border: none;
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: #{$width};
+		height: 3px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0 auto;
+		background: var(--tab-border-color);
+		border-radius: 3px 3px 0 0;
+		transition: var(--default-time) ease all;
+	}
+}
+
+@mixin add-tooltip($text, $pseudo, $width, $height, $xy-position, $position: relative) {
+	position: #{$position};
+
+	&:#{$pseudo} {
+		position: absolute;
+		content: '#{$text}';
+		width: #{$width};
+		max-width: 200px;
+		height: #{$height};
+		top: 0;
+		left: 0;
+		line-height: 16px;
+		padding: var(--tooltip-padding);
+		background-color: var(--tooltip-color);
+		box-shadow: var(--tooltip-shadow);
+		border-radius: var(--card-radius);
+		transform: translate(#{$xy-position});
+		pointer-events: none;
+		color: var(--tooltip-text-color);
+		font-size: var(--tooltip-font-size);
+		font-weight: 500;
+		text-align: center;
+		transition: var(--default-time) var(--default-animation) all;
+		z-index: 3;
+		opacity: 0;
+	}
+
+	&:hover {
+		&:#{$pseudo} {
+			opacity: 1;
+		}
+	}
+}
+
+@mixin md-ripple($type, $pseudo, $scale, $bg: var(--md-ripple-color), $colored: false) {
+	@if $colored == true {
+		$bg: var(--accent-hsl);
+	}
+
+	position: relative;
+
+	&:#{$pseudo} {
+		content: " ";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: hsla(#{$bg},0.1);
+		border-radius: 50%;
+		opacity: 0;
+		pointer-events: none;
+		transform: scale(1.2);
+		transition: 300ms ease;
+		z-index: 4;
+	}
+
+	@if $type == hover {
+		&:hover {
+			&:#{$pseudo} {
+				opacity: 1;
+				transform: scale(#{$scale});
+				animation: scale 150ms var(--default-animation), opacity 150ms ease;
+			}
+		}
+
+		&:active {
+			&:#{$pseudo} {
+				background-color: hsla(#{$bg},0.2);
+			}
+		}
+	} @else if $type == click {
+		&:active {
+			&:#{$pseudo} {
+				opacity: 1;
+				transform: scale(#{$scale});
+				animation: scale 150ms var(--default-animation), opacity 150ms ease;
+			}
+		}
+	} @else if $type == hover_click {
+		&:hover,
+		&:active {
+			&:#{$pseudo} {
+				opacity: 1;
+				transform: scale(#{$scale});
+				animation: scale 150ms var(--default-animation), opacity 150ms ease;
+			}
+		}
+
+		&:active {
+			&:#{$pseudo} {
+				background-color: hsla(#{$bg},0.2);
+			}
+		}
+	}
+}
+
+@mixin md-ripple-option($pseudo) {
+	position: relative;
+	overflow: hidden;
+
+	&:#{$pseudo} {
+		position: absolute;
+		content: " ";
+		width: 85%;
+		height: 200%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		background: radial-gradient(circle, var(--md-ripple-option-inner) 0%, var(--md-ripple-option-outer) 100%);
+		border-radius: 50%;
+		opacity: 0;
+		pointer-events: none;
+		transition: calc(var(--default-time) * 1.5) var(--default-animation) transform,
+					var(--default-time) var(--default-animation) opacity;
+	}
+
+	&:hover {
+		&:#{$pseudo} {
+			transform: scale(1.5);
+			opacity: 1;
+		}
+	}
+}
+
+@mixin add-icon($color, $icon, $type: 'outline') {
+	background-color: #{$color};
+	-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/#{$type}/#{$icon}.svg);
+	mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/#{$type}/#{$icon}.svg);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+}
+
+@mixin add-profile-icon($width, $height, $color, $icon) {
+	position: relative;
+	content: " ";
+	width: #{$width};
+	height: #{$height};
+	margin-right: 2px;
+	@include add-icon($color, $icon, solid);
+}
+
+@mixin remove-caps($font-size) {
+	font-size: #{$font-size};
+	text-transform: none;
+}

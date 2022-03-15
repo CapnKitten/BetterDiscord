@@ -1,0 +1,87 @@
+/*
+ *
+ *  USER SETTINGS KEYBINDS
+ *
+ */
+
+%keybindWarningCard {
+	background-color: transparent;
+    border-radius: var(--card-radius-big);
+	border-color: hsl(var(--alert-color));
+
+	%keybindWarningCardIcon {
+		color: hsl(var(--alert-color));
+	}
+}
+
+%settingsHeaderChildren {
+	%marginBottom20 {
+		+ %settingsHeaderDivider {
+			display: none;
+		}
+	}
+}
+
+%keybindRow {
+	padding: 16px;
+	border: 1px solid var(--card-border-color);
+	border-bottom: none;
+	box-shadow: none !important;
+
+	&:first-child {
+		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+	}
+
+	&:last-child {
+		margin-bottom: 40px;
+		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+		border-bottom: 1px solid var(--card-border-color);
+	}
+
+	&:only-child {
+		border-radius: var(--card-radius-big);
+	}
+
+	%keybindGroup {
+		margin: 0;
+		padding: 0;
+        border-left: none;
+        border-right: none;
+
+        &:last-of-type {
+            border-radius: 0;
+            border-bottom: none;
+        }
+
+		&:before {
+			display: none;
+		}
+	}
+
+	%removeKeybind {
+		right: -12px
+	}
+
+    %keybindInput {
+        &:not(%copyInputHasValue) {
+            %button {
+                width: 158px;
+            }
+        }
+
+        &%copyInputHasValue {
+            %button {
+                transition: var(--default-time) var(--default-animation) width;
+            }
+
+            &:not(%copyInputDisabled) {
+                &:hover,
+                &:focus-within {
+                    %button {
+                        width: 148px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  SERVER MEMBERSHIP SCREENING
+ *
+ */
+
+%membershipEnableContainer {
+	@include card-format(false, 16px);
+}
+
+%membershipPreviewContainer {
+	%membershipEditableFieldsContainer {
+		width: auto;
+
+		%membershipSettingsFormItem {
+			@include card-format;
+
+			%membershipSettingsFormFieldWrapper {
+				&%membershipFlex {
+					margin: 16px;
+				}
+
+				&:not(%membershipFlex) {
+					padding: 8px 16px;
+					background-color: transparent;
+					border: none;
+				}
+			}
+
+			%membershipSettingsLink {
+                margin-top: 0;
+				@include card-format--footer;
+			}
+
+			%titleH5 {
+				@include card-format--header;
+			}
+
+			%membershipTermsRow {
+				padding: 16px;
+				@include card-format--list(44px);
+
+				%membershipTermsRowContent {
+					padding-left: 16px;
+				}
+			}
+
+			%checkboxWrapper {
+				margin-top: 0;
+				@include card-format--footer;
+
+				&%checkboxWrapperDisabled {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

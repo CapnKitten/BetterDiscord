@@ -1,0 +1,82 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  BETTERDISCORD ADDONS
+ *
+ */
+
+%bdAddonCardControlButton {
+	background-color: hsl(var(--accent-hsl));
+	border-radius: var(--button-radius);
+	color: var(--accent-text-color);
+
+	&:hover {
+		background-color: hsl(var(--accent-hsl));
+	}
+}
+
+%bdAddonSearchBar {
+	padding: 0 8px;
+	background-color: var(--input-color);
+	border-radius: 13px;
+
+	%bdAddonSearchInput {
+		padding: 0;
+		line-height: 26px;
+		color: var(--text-normal);
+
+		&::-webkit-input-placeholder {
+			font-family: var(--app-font);
+		}
+	}
+}
+
+%bdAddonViews {
+	%bdAddonViewsButton {
+		&.selected {
+			background-color: hsl(var(--accent-hsl));
+
+			svg {
+				fill: var(--accent-text-color);
+			}
+		}
+	}
+}
+
+%bdAddonCard {
+	margin-bottom: 16px;
+	@include card-format(true);
+
+	%bdAddonCardHeader {
+		@include card-format--header;
+
+		%bdAddonCardLink {
+			color: hsl(var(--accent-hsl));
+		}
+	}
+
+	%bdAddonCardFooter {
+		background-color: transparent;
+	}
+
+	%bdAddonCardControls {
+		border-radius: 14px;
+		border: 1px solid var(--card-border-color);
+		overflow: hidden;
+
+		%bdAddonCardControlButton {
+			padding: 3px 8px;
+			background-color: transparent;
+			color: var(--menu-item-text-color);
+
+			&:hover {
+				background-color: var(--menu-item-hover);
+			}
+
+			svg {
+				fill: var(--menu-item-text-color);
+			}
+		}
+	}
+}

@@ -1,0 +1,123 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  SIDEBAR ICONS
+ *
+ */
+
+%settingsSidebar,
+%bdSettingsSidebar {
+    %tabBarItem,
+    %bdSettingsSidebarItem {
+        &:before {
+    		position: absolute;
+    		content: " ";
+    		width: 20px;
+    		height: 20px;
+    		top: 0;
+    		left: 26px;
+    		bottom: 0;
+    		margin: auto 0;
+    		background-repeat: no-repeat;
+    		background-position: center;
+    		opacity: 0.8;
+    	}
+    }
+}
+
+%settingsSidebar {
+    %tabBarItem {
+        $icons: (
+            // USER SETTINGS
+
+            'my-account': 'person',
+            'profile-customization': 'edit',
+            'privacy-&-safety': 'security',
+            'authorized-apps': 'apps',
+            'connections': 'link',
+
+            'subscriptions': 'subscription',
+            'discord-nitro': 'nitro',
+            'nitro-server-boost': 'server_boost',
+            'library-inventory': 'gift',
+            'billing': 'payment',
+
+            'appearance': 'chat',
+            'accessibility': 'accessibility',
+            'voice-&-video': 'mic',
+            'text-&-images': 'keyboard',
+            'notifications': 'notifications',
+            'keybinds': 'space_bar',
+            'language': 'translate',
+            'windows': 'windows',
+            'linux': 'linux',
+            'streamer-mode': 'live_tv',
+            'advanced': 'integrations',
+
+            'game-activity': 'gamepad',
+            'overlay': 'picture_in_picture',
+
+            'settings': 'settings',
+            'emotes': 'emoji',
+            'customcss': 'code',
+            'plugins': 'plugins',
+            'themes': 'themes',
+            'pluginrepo': 'plugins',
+            'themerepo': 'themes',
+
+            'changelog': 'list',
+            'hypesquad-online': 'hypesquad',
+            'experiments': 'settings',
+            'developer-options': 'code',
+            'hotspot-options': 'settings',
+
+            'pc-general': 'settings',
+            'pc-modulemanager-plugins': 'plugins',
+            'pc-modulemanager-themes': 'themes',
+            'pc-updater': 'update',
+
+            // SERVER SETTINGS
+
+            'overview': 'dashboard',
+            'permissions': 'lock_open',
+            'roles': 'lock_open',
+            'emoji': 'emoji',
+            'stickers': 'sticker-emoji',
+            'moderation': 'security',
+            'audit_log': 'audit_log',
+            'integrations': 'integrations',
+            'widget': 'widgets',
+            'guild_templates': 'template',
+
+            'vanity_url': 'link',
+            'community': 'dashboard',
+            'analytics': 'analytics',
+            'partner': 'partner_program',
+            'discovery': 'discovery',
+            'member_verification': 'verified_user',
+            'community_welcome': 'partner_program',
+
+            'threads': 'chat',
+            'guild_premium': 'server_boost',
+
+            'members': 'people',
+            'instant_invites': 'person_add',
+            'bans': 'hammer'
+        );
+
+        @each $tab, $icon in $icons {
+			&[aria-controls="#{$tab}-tab"]:before {
+                @include add-icon(var(--text-normal), #{$icon});
+			}
+		}
+
+        &[aria-controls="logout-tab"]:before {
+            @include add-icon(hsl(var(--alert-color)), exit_to_app);
+        }
+
+        &[aria-controls="delete-tab"]:before {
+            @include add-icon(hsl(var(--alert-color)), delete);
+        }
+    }
+}

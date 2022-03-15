@@ -1,0 +1,97 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	ACCEPT RULES
+ *
+ */
+
+%rulesGuildSidebar {
+	padding: 0;
+	background-color: transparent;
+	border-right: 1px solid var(--card-border-color);
+
+	> div:not([class]) {
+		&:first-child {
+			padding: 16px;
+		}
+
+		&:last-child {
+			display: flex;
+			position: relative;
+			padding: 9px 8px;
+			border-top: 1px solid var(--popout-header-border);
+
+			&:after {
+				position: absolute;
+				content: " ";
+				width: 1px;
+				height: 52px;
+				top: 0;
+				right: -1px;
+				background-color: var(--popout-color);
+			}
+
+			%membershipFlex {
+				height: 36px;
+				margin-right: 8px;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.iconSizeLarge-_r2zCK {
+		border-radius: 50%;
+	}
+
+	%rulesDivider {
+		border-bottom-color: var(--card-border-color);
+	}
+
+    %rulesEmoji {
+        width: 24px;
+    }
+}
+
+%rulesModal {
+	background-color: transparent;
+
+	%rulesDivider {
+		border-bottom-color: var(--card-border-color);
+	}
+
+	%formFieldWrapper {
+		padding: 8px 6px 8px 12px;
+
+		&%membershipFlex {
+			background-color: var(--input-color);
+			border-radius: 24px;
+			border: none;
+
+			%button {
+				margin-top: -3px;
+			}
+		}
+
+		&:not(%membershipFlex) {
+			@include card-format(false, 8px);
+		}
+
+		%membershipTermsRow {
+			padding: 16px;
+			@include card-format--list(44px);
+
+			%termsRowContent {
+				padding-left: 16px;
+			}
+		}
+	}
+
+    %modalFooter {
+        %button {
+            %buttonContents {
+                width: 70px;
+            }
+        }
+    }
+}

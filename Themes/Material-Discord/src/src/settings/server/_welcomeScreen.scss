@@ -1,0 +1,53 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *	ACCEPT RULES
+ *
+ */
+
+%welcomeEnableContainer {
+	@include card-format--header;
+	border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+	border: 1px solid var(--card-border-color);
+}
+
+%welcomePreviewContainer {
+	@include card-format(false, 16px);
+	border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+	border-top: none;
+
+	%welcomeDescriptionWrapper {
+		%inputWrapper {
+			--input-height: 64px;
+		}
+	}
+
+	%welcomeDescriptionInput {
+		line-height: 32px;
+
+		&[placeholder] {
+			text-align: left;
+		}
+	}
+
+	%welcomeChannel {
+		@include card-format(false, 12px);
+	}
+}
+
+%welcomeIconActiveLarger {
+	border-radius: var(--avatar-radius);
+}
+
+%welcomeOptions {
+    margin-bottom: 8px;
+	@include card-format;
+
+	%welcomeOptionContainer {
+		margin-top: 0;
+		border-radius: 0;
+		background-color: transparent;
+		@include card-format--list(48px);
+	}
+}

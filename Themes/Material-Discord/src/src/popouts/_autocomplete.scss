@@ -1,0 +1,68 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  AUTOCOMPLETE
+ *
+ */
+
+%autocomplete {
+	@include popout-format(true);
+
+	%autocompleteRow {
+		padding: 0;
+
+		%autocompleteBase {
+			padding: 8px 12px;
+			border-radius: 0;
+			transition: var(--default-time) var(--default-animation) background-color;
+
+			&%autocompleteBaseSelected {
+				background-color: var(--menu-item-hover) !important;
+			}
+
+			&:not(%autocompleteBaseSelectable) {
+				border-bottom: 1px solid var(--card-border-color);
+			}
+		}
+	}
+
+    %autocompleteTitle {
+        @include remove-caps(14px);
+    }
+
+	%autocompleteDivider {
+		padding: 8px 0;
+		&:after {
+			background-color: var(--card-border-color);
+		}
+	}
+
+	%autocompleteListWrapper {
+		background-color: var(--attachment-color);
+
+		.wrapper-22rqw6 {
+			background-color: transparent;
+
+			%autocompleteListItems {
+				left: 12px !important;
+				right: 12px !important;
+			}
+
+			%autocompleteAvatarWrapper {
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.listItems-6eZzQ1 {
+		left: 0 !important;
+		right: 0 !important;
+	}
+
+	.categorySectionLast-C-_pSG {
+		.categoryHeader-OpJ1Ly {
+			background-color: var(--emoji-category-header);
+		}
+	}
+}

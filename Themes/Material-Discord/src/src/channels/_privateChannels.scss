@@ -1,0 +1,50 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	PRIVATE CHANNELS LIST
+ *
+ */
+
+%privateChannels {
+    background-color: var(--main-color);
+
+    %privateChannelsScroller {
+        background-color: transparent;
+    }
+
+    %listPopoutScrollerContainer {
+        margin-bottom: 20px;
+    }
+}
+
+%privateChannelsSearchBar {
+    %privateChannelsSearchBarComponent {
+        height: 32px;
+        padding: 0 10px;
+        background-color: var(--input-color);
+        border-radius: 16px;
+    }
+}
+
+%privateChannel {
+    margin-left: 0;
+    border-radius: 0 21px 21px 0;
+
+    %privateChannelInteractive {
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+        &:hover {
+            background-color: var(--menu-item-hover);
+        }
+
+        &%privateChannelSelected {
+            background-color: var(--menu-item-select-accent);
+        }
+    }
+}
+
+%privateChannelsHeader {
+    padding: 18px 8px 4px;
+    @include remove-caps(14px);
+}

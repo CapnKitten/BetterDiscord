@@ -1,0 +1,129 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	MAIN TEXTAREA
+ *
+ */
+
+%chatForm {
+	margin-top: 0;
+	background-color: var(--chat-color);
+
+	&:before {
+		display: none;
+	}
+
+	%channelTextArea {
+		margin: 12px 0;
+		background-color: transparent;
+		border-radius: var(--main-textarea-radius);
+
+		&%channelTextAreaDisabled {
+			opacity: 0.8;
+		}
+	}
+
+	%channelTextAreaScrollable {
+		background-color: var(--main-textarea-color);
+		border-radius: var(--main-textarea-radius);
+		border: 1px solid var(--main-textarea-border);
+		opacity: 1;
+
+		&%channelTextAreaReplyBarConnected {
+			border-radius: 0 0 var(--main-textarea-radius) var(--main-textarea-radius);
+		}
+	}
+
+	%channelTextAreaAttachedBar {
+		background-color: var(--main-textarea-color);
+		border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+		border: 1px solid var(--main-textarea-border);
+		border-bottom: none;
+
+		%replyBar {
+			background-color: transparent;
+			border-radius: 0;
+		}
+
+		%colorLink {
+			color: hsl(var(--accent-hsl));
+		}
+	}
+
+	%channelTextAreaAttachButtonPlus {
+		d: path('M7.5,18A5.5,5.5 0 0,1 2,12.5A5.5,5.5 0 0,1 7.5,7H18A4,4 0 0,1 22,11A4,4 0 0,1 18,15H9.5A2.5,2.5 0 0,1 7,12.5A2.5,2.5 0 0,1 9.5,10H17V11.5H9.5A1,1 0 0,0 8.5,12.5A1,1 0 0,0 9.5,13.5H18A2.5,2.5 0 0,0 20.5,11A2.5,2.5 0 0,0 18,8.5H7.5A4,4 0 0,0 3.5,12.5A4,4 0 0,0 7.5,16.5H17V18H7.5Z');
+	}
+
+	%channelTextAreaTyping {
+		width: 100%;
+		top: -16px;
+		left: 0;
+		background-color: var(--typing-color);
+		transition: 200ms ease-in-out;
+
+		%channelTextAreaSlowModeIcon {
+			margin-right: 8px;
+		}
+	}
+}
+
+%channelInfo {
+	height: 44px;
+	margin: 12px 0;
+	padding: 0;
+	background-color: var(--main-textarea-color);
+	border: 1px solid var(--main-textarea-border);
+	border-radius: var(--main-textarea-radius);
+
+	%channelInfoButtonContainer {
+		margin-right: 4px;
+	}
+}
+
+%fakeLink {
+	color: hsl(var(--accent-hsl));
+}
+
+%channelTextAreaUpload {
+	@include card-format(false, 8px);
+
+	%channelTextAreaUploadImage {
+		border-radius: var(--card-radius-big);
+	}
+
+	%messageButtonWrapper {
+		&:hover {
+			box-shadow: var(--shadow-3dp);
+		}
+	}
+
+	%channelTextAreaUploadAltTag {
+		border-radius: 10px;
+	}
+}
+
+%channelTextAreaUploadSpoiler {
+	filter: blur(22px);
+}
+
+/* MAIN TEXTAREA -> SPAM FILTER */
+
+%timeoutBar {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	margin: 12px 16px;
+	padding: 4px 8px;
+	background-color: var(--main-textarea-color);
+	border: 1px solid var(--main-textarea-border);
+	border-radius: 28px;
+
+	%timeoutBarTextContainer {
+		margin: 0 8px 0 0;
+	}
+
+	%timeoutBarActionButtons {
+		width: auto;
+		margin: 0;
+	}
+}

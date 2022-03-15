@@ -1,0 +1,70 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	MESSAGE ACTIONS
+ *
+ */
+
+%message {
+	%messageButtons {
+		max-width: 32px;
+		opacity: 0;
+		visibility: visible;
+		pointer-events: none;
+		transition: opacity var(--default-time) var(--default-animation), max-width var(--default-time) var(--default-animation) var(--default-time);
+	}
+
+	&.selected-2LX7Jy %messageButtons,
+	&:hover %messageButtons {
+		max-width: 380px;
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+%messageButtonWrapper {
+	background-color: var(--main-textarea-color);
+	border-radius: 16px;
+	box-shadow: var(--shadow-2dp);
+	border: none;
+	overflow: hidden;
+	z-index: 2;
+
+	&:hover {
+		box-shadow: var(--shadow-3dp);
+	}
+
+	%messageButton {
+		transition: var(--default-time) ease all;
+
+		&:hover {
+			background-color: var(--menu-item-hover);
+		}
+
+		&:active {
+			padding: 4px;
+		}
+
+		%messageButtonSelected {
+			background-color: var(--menu-item-select);
+		}
+	}
+}
+
+/* MESSAGES -> ACTIONS -> DELETE MESSAGE */
+
+%messageAlt {
+	padding: 0;
+	background-color: transparent !important;
+	box-shadow: none !important;
+
+	%messagesWrapper {
+		margin: 0 0 0 52px !important;
+		background-color: var(--message-color-alt) !important;
+
+		%avatarLarge {
+			left: -52px !important;
+		}
+	}
+}

@@ -1,0 +1,43 @@
+@use '../mixins' as *;
+
+%tooltip {
+    padding: var(--tooltip-padding);
+	background-color: var(--tooltip-color) !important;
+	border-radius: var(--popout-radius);
+	box-shadow: var(--tooltip-shadow) !important;
+	font-size: var(--tooltip-font-size);
+	font-weight: 500;
+    z-index: 99999999999999;
+    animation: opacity var(--default-time) ease;
+
+    %tooltipPointer {
+        display: none;
+    }
+
+    %tooltipContent,
+    %tooltipGuildNameText {
+        padding: 0;
+		font-size: var(--tooltip-font-size);
+		color: var(--tooltip-text-color);
+    }
+
+    %userPopoutBodyInnerWrapper {
+        background-color: transparent;
+    }
+}
+
+%subscribeTooltipWrapper {
+    @include popout-format;
+
+    &:after {
+		border-bottom-color: var(--popout-color);
+	}
+
+    %subscribeTooltipHeader {
+        color: var(--header-primary);
+    }
+
+    %subscribeTooltipText {
+        color: var(--header-secondary);
+    }
+}

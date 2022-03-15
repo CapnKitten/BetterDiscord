@@ -1,0 +1,90 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	LIBRARY
+ *
+ */
+
+%libraryScroller,
+%librarySettingsScroller {
+	background-color: var(--chat-color);
+}
+
+%libraryTable {
+	padding-bottom: 8px;
+
+	%libraryTableHeader {
+		height: 42px;
+		padding: 0 16px;
+		line-height: 42px;
+		background-color: var(--chat-color);
+		border-bottom: 1px solid var(--card-border-color);
+
+		&%libraryTableStickyHeader {
+			width: 100%;
+		}
+
+		%libraryTableHeaderCell {
+			border: none;
+			@include remove-caps(14px);
+
+			&%libraryTableHeaderCellSorted {
+				%libraryTableHeaderCellContent {
+					@include tab-border(100%);
+
+					&:after {
+						width: calc(100% - 22px);
+						left: 0;
+						right: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+%libraryTableRowWrapper {
+	margin: 0;
+	@include card-format--list(66px);
+	border-radius: 0;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&%libraryTableRowWrapperActive {
+		margin: 0;
+		padding: 0;
+		background-color: var(--menu-item-hover);
+	}
+
+	%libraryTableRow {
+		margin: 0;
+		padding: 0 16px;
+		border-top: none !important;
+	}
+
+	%libraryTableNameCell,
+	%libraryTableSettingIcon,
+	%libraryTableTextCell {
+		transition: var(--default-time) var(--default-animation) opacity;
+	}
+
+	%libraryTableNameCell {
+		padding-left: 0;
+	}
+}
+
+%librarySettingsBody {
+	min-width: 350px;
+	max-width: 1200px;
+	padding: 60px 40px 80px;
+}
+
+.wrapper-QQNZRu {
+	.foreground-2JnqVD {
+		stroke: var(--slider-color) !important;
+	}
+
+	.foreground-2JnqVD {
+		stroke: hsl(var(--accent-hsl)) !important;
+	}
+}

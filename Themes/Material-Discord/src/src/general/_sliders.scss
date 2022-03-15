@@ -1,0 +1,93 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	SLIDERS
+ *
+ */
+
+%slider {
+	.markAbove-21dc11 {
+		top: -8px;
+	}
+
+	%sliderBar {
+		height: 4px;
+		background-color: hsla(var(--accent-hsl),0.3) !important;
+		border-radius: 2px;
+
+		%sliderBarFill {
+			background-color: hsl(var(--accent-hsl)) !important;
+		}
+	}
+
+	%sliderTrack {
+		%sliderGrabber {
+			width: 16px;
+			height: 16px;
+			background-color: hsl(var(--accent-hsl));
+			border-radius: 50%;
+			border: none;
+			box-shadow: var(--shadow-1dp);
+			transform: translate(-3px, calc(50% - 5px));
+			transition: var(--default-time) var(--default-animation) box-shadow;
+
+			@include md-ripple(hover_click, after, 2.5, null, true);
+
+			&:hover {
+				box-shadow: var(--shadow-2dp);
+			}
+
+			&:active {
+				box-shadow: var(--shadow-3dp);
+			}
+		}
+	}
+
+	&.slider-BEB8u7 {
+		%sliderTrack {
+			%sliderGrabber {
+				top: calc(50% - 5px);
+			}
+		}
+	}
+}
+
+.markValue-2U_-UG {
+	color: var(--text-muted) !important;
+}
+
+%themedPopout {
+	.volumeSlider-sR5g00 {
+		margin: 8px;
+
+		%sliderTrack {
+			%sliderGrabber {
+				top: 1px;
+			}
+		}
+	}
+}
+
+%micTestWrapper {
+	height: 4px;
+	border-radius: 2px;
+	overflow: hidden;
+
+	%micTestContainer {
+		width: 100% !important;
+
+		&[style*='background: linear-gradient(to right, rgb(251, 184, 72), rgb(67, 181, 129));'] {
+			background: var(--success-color) !important;
+		}
+	}
+
+	%micTestProgress {
+		background-color: var(--slider-color);
+
+	}
+
+	%micTestNotches {
+		display: none;
+	}
+}

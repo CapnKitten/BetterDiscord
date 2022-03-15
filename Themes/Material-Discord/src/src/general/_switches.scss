@@ -1,0 +1,124 @@
+/*
+ *
+ *	SWITCHES
+ *
+ */
+
+%switchContainer {
+	width: 32px;
+	height: 24px;
+	background-color: transparent !important;
+	overflow: visible;
+
+	&:before {
+		position: absolute;
+		content: " ";
+		width: calc(100% + 7px);
+		height: 100%;
+		top: 0;
+		left: -7px;
+		background-color: hsl(var(--switch-slider-color));
+		border-radius: 14px;
+		transition: 250ms cubic-bezier(0,0.3,0.7,1) background-color;
+	}
+
+	&[style*="43.9%"] {
+		&:before {
+			background-color: var(--switch-color-checked);
+		}
+
+		%switchSlider {
+			background-color: hsl(var(--accent-hue),calc(var(--accent-saturation) * var(--saturation-factor)),calc(var(--accent-lightness) * var(--switch-color-modifier)));
+		}
+	}
+
+	%switchSlider {
+		width: 16px;
+		height: 16px;
+		top: 4px;
+		margin: 0;
+		background-color: hsl(var(--switch-knob-color));
+		border-radius: 50%;
+
+		rect,
+		svg {
+			display: none;
+		}
+	}
+}
+
+%modalRoot {
+	%switchContainer {
+		&:before {
+			background-color: hsl(var(--switch-slider-color-modal));
+		}
+
+		&[style*="43.9%"] {
+			&:before {
+				background-color: var(--switch-color-checked);
+			}
+		}
+	}
+}
+
+%bdSwitchContainer {
+	width: 43px;
+	height: 24px;
+	overflow: visible;
+
+	&%bdSwitchDisabled {
+		opacity: 0.35;
+	}
+
+	%bdSwitchBody {
+		--switch-color: hsl(var(--switch-slider-color));
+
+		width: 100%;
+		height: 100%;
+		overflow: visible;
+
+		%bdSwitchSlider {
+			height: 16px;
+			top: 4px;
+			left: 1px;
+			margin: 0;
+			overflow: visible;
+
+			%bdSwitchHandle {
+				fill: hsl(var(--switch-knob-color));
+			}
+
+			%bdSwitchSymbol {
+				display: none;
+			}
+		}
+	}
+
+	input {
+		&:active {
+			+ %bdSwitchBody {
+				--switch-color: hsl(var(--switch-slider-color));
+			}
+		}
+
+		&:checked {
+			+ %bdSwitchBody {
+				--switch-color: var(--switch-color-checked);
+
+				%bdSwitchSlider {
+					left: 19px;
+
+					%bdSwitchHandle {
+						fill: hsl(var(--accent-hue),calc(var(--accent-saturation) * var(--saturation-factor)),calc(var(--accent-lightness) * var(--switch-color-modifier)));
+					}
+				}
+			}
+
+			&:active {
+				+ %bdSwitchBody {
+					--switch-color: var(--switch-color-checked);
+				}
+			}
+		}
+	}
+}

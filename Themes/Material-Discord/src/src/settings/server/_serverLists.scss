@@ -1,0 +1,164 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  SERVER LISTS
+ *
+ */
+
+%settingsLongCard {
+    @include card-format--list(auto);
+    border-left: 1px solid var(--card-border-color);
+	border-right: 1px solid var(--card-border-color);
+    box-shadow: none !important;
+
+    &:before {
+		display: none;
+	}
+
+    &:last-of-type {
+		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+		border-bottom: 1px solid var(--card-border-color);
+	}
+}
+
+%settingsHeader,
+%settingsMemberHeader  {
+    + %settingsHeaderDivider {
+        display: none;
+    }
+}
+
+/* SERVER LISTS -> MEMBERS LIST */
+
+%settingsMemberCard {
+    padding: 16px;
+
+	&:after {
+		width: calc(100% - 66px);
+	}
+
+    &:nth-child(3) {
+		margin-top: 24px;
+		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+		border-top: 1px solid var(--card-border-color);
+
+		&:last-of-type {
+			border-radius: var(--card-radius-big);
+		}
+	}
+
+	&:last-of-type {
+		margin-bottom: 32px;
+	}
+
+	%roleWrapper {
+		overflow: visible;
+	}
+
+	%button {
+		height: 32px;
+		background-color: transparent !important;
+		@include md-ripple(hover, after, 1.1);
+	}
+}
+
+/* SERVER LISTS -> INVITE LIST */
+
+%settingsInviteHeaderSection {
+	padding-bottom: 0;
+
+    %settingsInviteHeaderDivider,
+	%settingsInviteDivider {
+		display: none;
+	}
+
+	%settingsInviteHeader {
+		padding: 16px;
+		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+		border: 1px solid var(--card-border-color);
+	}
+}
+
+%settingsInviteCard {
+    height: 68px;
+	padding: 16px;
+
+    &:after {
+		width: calc(100% - 64px);
+	}
+
+    %settingsInviteText {
+		%settingsInviteUser {
+			%avatarWrapper {
+				position: absolute;
+				width: 34px !important;
+				height: 34px !important;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+			}
+
+			%settingsInviteUsername {
+				margin-left: 48px;
+			}
+		}
+
+		%settingsInviteChannel {
+			margin-left: 48px;
+		}
+	}
+
+	%settingsInviteRevokeInvite {
+		right: -16px;
+	}
+}
+
+/* SERVER LISTS -> BAN LIST */
+
+%settingsBannedUser {
+	padding: 16px;
+
+	&:after {
+		width: calc(100% - 64px);
+	}
+
+	&:nth-child(3) {
+		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+		border-top: 1px solid var(--card-border-color);
+
+		&:last-of-type {
+			border-radius: var(--card-radius-big);
+		}
+	}
+
+	&:last-of-type {
+		margin-bottom: 32px;
+	}
+}
+
+%bannedUserModal {
+	%bannedUserModalContent {
+		padding: 0 !important;
+
+		&::-webkit-scrollbar {
+			width: 0px !important;
+		}
+
+		%settingsInviteHeader {
+			padding: 16px;
+			justify-content: left;
+			border-bottom: 1px solid var(--card-border-color);
+		}
+
+		%bannedUserModalReasonHeader {
+			margin-top: 0;
+			padding: 16px;
+			@include remove-caps(14px);
+
+			+ %size14 {
+				padding: 0 16px 16px;
+			}
+		}
+	}
+}

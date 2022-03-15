@@ -1,0 +1,166 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	ATTACHMENTS
+ *
+ */
+
+%attachment {
+	background-color: var(--attachment-color);
+	border-radius: var(--message-radius);
+	border: none;
+
+	%attachmentDownloadButton {
+		margin-left: 0;
+
+		path {
+			d: path('M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z') !important;
+		}
+	}
+}
+
+%fileProgress {
+	background-color: hsla(var(--accent-hsl),0.3) !important;
+
+	%fileProgressBar {
+		background-color: hsl(var(--accent-hsl)) !important;
+	}
+}
+
+%embed {
+	border-radius: var(--media-radius);
+
+	&%embedFull {
+		background-color: var(--attachment-color);
+	}
+}
+
+%inviteWrapper {
+	background-color: var(--attachment-color);
+	border-radius: var(--message-radius);
+
+	%inviteTitle {
+		@include remove-caps(14px);
+	}
+
+	%inviteGuildIcon {
+		border-radius: 50%;
+	}
+}
+
+%activityInvite {
+	background-color: var(--attachment-color) !important;
+	border-radius: var(--media-radius);
+	border: none !important;
+}
+
+/* ATTACHMENTS -> AUDIO FILE */
+
+%playerAudio {
+	padding: 0;
+	background-color: var(--attachment-color) !important;
+	border-radius: var(--media-radius);
+	border: none;
+
+	%playerAudioMetadata {
+		padding: 8px;
+
+		%anchor {
+			@include md-ripple(hover, after, 1.4);
+		}
+
+		%playerMetadataIcon {
+			path {
+				&[d="M16.293 9.293L17.707 10.707L12 16.414L6.29297 10.707L7.70697 9.293L11 12.586V2H13V12.586L16.293 9.293ZM18 20V18H20V20C20 21.102 19.104 22 18 22H6C4.896 22 4 21.102 4 20V18H6V20H18Z"] {
+					d: path('M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z');
+				}
+			}
+		}
+	}
+
+	%playerAudioControls {
+		margin-top: 0;
+		background-color: transparent;
+		border-radius: 0;
+		border-top: 1px solid var(--card-border-color);
+
+		%playerControlIcon {
+			padding: 8px;
+		}
+
+		%playerMediaBarGrabber,
+		%playerMediaBarProgress {
+			&,
+			&:before,
+			&:after {
+				background-color: hsl(var(--accent-hsl));
+			}
+		}
+
+		.fakeEdges-18N907 {
+			&:before,
+			&:after {
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+/* ATTACHMENTS -> EMOJI SELLUP */
+
+.popoutContainer-2wbmiM {
+	@include popout-format(true);
+
+	.emojiSection-3QtaWO,
+	.guildSection-2Zyzy8 {
+		background-color: transparent;
+	}
+
+	.guildSection-2Zyzy8 {
+		border-top: 1px solid var(--card-border-color);
+	}
+}
+
+.container-1ZA19X {
+	z-index: 2;
+
+	.stickerResults-cD_yeI {
+		padding: 16px 16px 8px;
+	}
+
+	.bottomInformationTextContainer-3xmddX {
+		padding: 8px 16px 8px;
+		border-top: 1px solid var(--card-border-color);
+
+		.textDivider-34kVsR {
+			display: none;
+		}
+	}
+
+	.containerBackground-Ang24O {
+		@include popout-format;
+		border: none;
+
+		&:after {
+			border-top-color: var(--popout-color);
+		}
+	}
+}
+
+/* ATTACHMENTS -> IMAGES */
+
+%imageWrapper {
+	&%attachmentEmbedWrapper {
+		border-radius: var(--media-radius);
+	}
+}
+
+.embedMedia-1mdWSP {
+	border-radius: var(--media-radius);
+}
+
+%spoilerContainer {
+	border-radius: var(--message-radius);
+	box-shadow: none !important;
+}

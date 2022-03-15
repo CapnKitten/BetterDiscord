@@ -1,0 +1,75 @@
+/*
+ *
+ *  CONTEXT MENU
+ *
+ */
+
+%menuPopout {
+    background-color: var(--popout-color);
+	border-radius: var(--popout-radius);
+    box-shadow: var(--shadow-3dp);
+    animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
+	transform-origin: top;
+
+    %scroller {
+        padding: 8px 0;
+
+        &::-webkit-scrollbar {
+            width: 0 !important;
+        }
+    }
+
+    %menuPopoutItem {
+        min-height: 32px;
+		margin: 0;
+		padding: 9px 12px;
+		line-height: 18px;
+		border-radius: 0;
+		color: var(--menu-item-text-color) !important;
+		transition: var(--default-time) var(--default-animation);
+
+        &%menuPopoutItemHover {
+            background-color: var(--menu-item-hover);
+        }
+
+        &%menuPopoutUserVolume {
+            %menuPopoutLabelContainer {
+                padding: 0 0 8px;
+            }
+
+            %menuPopoutSliderContainer {
+                padding: 0;
+            }
+        }
+
+        %menuPopoutLabelContainer {
+            min-height: unset;
+            padding: 0;
+        }
+    }
+
+	%submenuPaddingContainer {
+		margin-left: -4px;
+		margin-right: -4px;
+		animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
+		transform-origin: top;
+	}
+
+    %menuPopoutSeparator {
+        width: 100%;
+		margin: 8px 0;
+		border-color: var(--separator-color);
+    }
+}
+
+body:active %menuPopout:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}
+
+/* CONTEXT MENU -> SERVER OPTIONS */
+
+%menuPopout#guild-header-popout {
+	animation: top-pop-out 400ms var(--default-animation);
+	overflow: hidden;
+}

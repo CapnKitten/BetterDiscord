@@ -1,0 +1,102 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS CONNECTIONS
+ *
+ */
+
+%accountList {
+    @include card-format;
+
+    %settingsTitle {
+        @include card-format--header;
+    }
+
+    %formText {
+        padding: 8px 16px 0;
+    }
+
+    %connectedAccounts {
+        padding: 0 16px 16px;
+    }
+
+    %connectedAccountButton {
+        margin-bottom: 0;
+
+        %connectedAccountsButtonInner {
+            background-color: var(--menu-item-hover);
+            border-radius: 50%;
+            transition: var(--default-time) var(--default-animation) background-color;
+
+            &:hover {
+                background-color: var(--menu-item-select);
+            }
+        }
+    }
+}
+
+%connectionCard {
+    @include card-format;
+
+    %connectionCardHeader {
+        @include card-format--header;
+    }
+
+    %connectionCardWrapper {
+        padding: 16px;
+
+        %connectionCardSwitch {
+            padding-left: 0;
+            padding-right: 0;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    %settingsHeaderDivider {
+        margin: 0 16px;
+        border-top-color: var(--card-border-color);
+    }
+}
+
+%integrationWrapper {
+	padding: 0;
+
+	%titleH5 {
+		margin: 0;
+		padding: 16px 16px 8px;
+	}
+
+	%integrationCard {
+		position: relative;
+		margin-top: 0;
+		padding: 16px;
+		background-color: transparent;
+		border-radius: 0;
+
+		&:after {
+			position: absolute;
+			content: " ";
+			width: calc(100% - 56px);
+			height: 1px;
+			bottom: 0;
+			right: 0;
+			background-color: var(--card-border-color);
+		}
+
+		&:last-child,
+		&:only-child {
+			&:after {
+				display: none;
+			}
+		}
+
+		%button {
+			background-color: hsla(var(--accent-hsl),0.1);
+			color: hsl(var(--accent-hsl));
+		}
+	}
+}

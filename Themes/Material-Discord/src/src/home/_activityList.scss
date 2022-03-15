@@ -1,0 +1,88 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	ACTIVITY LIST
+ *
+ */
+
+%nowPlayingColumn {
+	background-color: var(--main-color);
+
+	%nowPlayingColumnContainer {
+		background-color: transparent;
+
+		%nowPlayingColumnScroller {
+			margin-left: 0;
+			border-left: none;
+		}
+	}
+}
+
+%nowPlayingColumnMemberItem {
+	padding: 0;
+}
+
+%emptyActiveNowCard {
+	@include card-format;
+
+	%emptyActiveNowHeader {
+		width: 100%;
+		@include card-format--header;
+		box-sizing: border-box;
+		text-align: left;
+	}
+
+	%emptyActiveNowText {
+		padding: 16px;
+		text-align: left;
+	}
+}
+
+%activeNowCardInteractive {
+	margin: 0;
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	border-left: 1px solid var(--card-border-color);
+	border-right: 1px solid var(--card-border-color);
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--card-color-hover) !important;
+
+		%activeNowCardInset {
+			background-color: var(--card-color-alt-hover);
+		}
+	}
+
+	&:not(:only-of-type) {
+		@include card-format--list(60px);
+
+		&:first-of-type {
+			border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+			border-top: 1px solid var(--card-border-color);
+		}
+
+		&:nth-last-child(2) {
+			border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+			border-bottom: 1px solid var(--card-border-color);
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	%activeNowCardInset {
+		margin-left: 44px;
+		background-color: var(--card-color-alt);
+		border-radius: var(--card-radius-big);
+		transition: var(--default-time) var(--default-animation) background-color;
+	}
+
+	%activeNowCardSection {
+		background-color: transparent;
+		border-radius: var(--card-radius-big);
+	}
+}

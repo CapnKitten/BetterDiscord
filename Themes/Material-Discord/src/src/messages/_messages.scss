@@ -1,0 +1,603 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	MESSAGES
+ *
+ */
+
+%messages {
+	&.group-spacing-0 {
+		%messageGroupStart {
+			--group-spacing: 0.125rem;
+		}
+
+		%newMessagesDivider {
+			&%newMessagesDividerBeforeGroup {
+				top: 1px;
+			}
+		}
+	}
+
+	&.group-spacing-4 {
+		%messageGroupStart {
+			--group-spacing: 0.3125rem;
+		}
+
+		%newMessagesDivider {
+			&%newMessagesDividerBeforeGroup {
+				top: 2px;
+			}
+		}
+	}
+
+	&.group-spacing-8 {
+		%messageGroupStart {
+			--group-spacing: 0.5625rem;
+		}
+
+		%newMessagesDivider {
+			&%newMessagesDividerBeforeGroup {
+				top: 4px;
+			}
+		}
+	}
+
+	&.group-spacing-16 {
+		%messageGroupStart {
+			--group-spacing: 1.0625rem;
+		}
+
+		%newMessagesDivider {
+			&%newMessagesDividerBeforeGroup {
+				top: 8px;
+			}
+		}
+	}
+
+	&.group-spacing-24 {
+		%messageGroupStart {
+			--group-spacing: 1.5625rem;
+		}
+
+		%newMessagesDivider {
+			&%newMessagesDividerBeforeGroup {
+				top: 12px;
+			}
+		}
+	}
+
+	&[class*="group-spacing"] {
+		%messageGroupStart {
+			margin-top: var(--group-spacing) !important;
+		}
+
+		%newMessagesDivider {
+			&:not(%newMessagesDividerBeforeGroup) {
+				top: -4px;
+			}
+		}
+	}
+}
+
+.messageListItem-ZZ7v6g,
+.quotedChatMessage-PxNsZi {
+	//margin-left: 68px;
+	//margin-right: 26px;
+}
+
+%messagesWrapper {
+	position: relative;
+	background-color: var(--message-color) !important;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--message-color-hover) !important;
+
+		+ %messagesWrapper:not(%messageGroupStart) {
+			&:before {
+				border-left-color: var(--message-color-hover);
+			}
+
+			&:after {
+				border-bottom-color: var(--message-color-hover);
+			}
+		}
+	}
+
+	&%messageHasThread {
+		&:after {
+			display: none;
+		}
+
+		%markup {
+			overflow: visible;
+		}
+
+		.container-x059i8 {
+			padding: 0;
+		}
+
+		.iconContainer-2rPbqG {
+			position: absolute;
+			width: 40px !important;
+			height: 40px;
+			top: -8px;
+			left: -62px;
+			margin-right: 0;
+			padding-top: 0;
+			background-color: var(--message-color-hover);
+			border-radius: var(--avatar-radius);
+		}
+
+		.container-3i3IzO {
+			width: 100%;
+			padding: 12px;
+			background-color: var(--attachment-color);
+			border-radius: var(--media-radius);
+			box-sizing: border-box;
+		}
+
+		.cta-1XhfrG {
+			color: hsl(var(--accent-hsl));
+		}
+	}
+
+	&%messageGroupStart {
+		position: relative;
+		border-radius: var(--message-radius);
+
+		%avatarLarge {
+			width: 40px;
+			height: 40px;
+			top: 0;
+			left: -50px;
+			margin-top: 0;
+			border-radius: var(--avatar-radius);
+		}
+	}
+
+	&.ephemeral-2nDdnn,
+	&%replyingToIndicator {
+		&:before {
+			display: none;
+		}
+
+		a {
+			color: hsl(var(--accent-hsl));
+		}
+	}
+
+	&:not(%messageGroupStart) {
+		border-radius: 0 0 var(--message-radius) var(--message-radius);
+
+		&:before,
+		&:after {
+			content: " ";
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 2px;
+			background-color: transparent;
+			border: 16px solid transparent;
+			border-color: transparent;
+			pointer-events: none;
+		}
+
+		&:before {
+			left: 0;
+			border-left-color: var(--message-color);
+			transition: var(--default-time) var(--default-animation) border-left-color;
+		}
+
+		&:after {
+			right: 0;
+			border-bottom-color: var(--message-color);
+			transition: var(--default-time) var(--default-animation) border-bottom-color;
+		}
+	}
+
+	&%messageCozy {
+		margin-left: 68px;
+		margin-right: 26px;
+		padding: var(--message-padding) !important;
+
+		&%messageGroupStart {
+			/*margin-left: 0;
+			margin-right: 0;*/
+			margin-bottom: 0;
+
+			&%mentioned {
+				&:before {
+					display: none;
+				}
+			}
+		}
+
+		&:not(%messageGroupStart) {
+			margin-top: -8px;
+			padding: var(--message-padding-alt) !important;
+
+			&:before,
+			&:after {
+				margin: -16px 0 0 0;
+			}
+
+			&:before {
+				border-width: 14px 0 0 6px;
+			}
+
+			&:after {
+				border-width: 0 0 14px 6px;
+			}
+
+			& + %newMessagesDivider {
+				&:not(%newMessagesDividerBeforeGroup) {
+					top: -4px;
+				}
+			}
+
+			&%mentioned {
+				&:before {
+					content: " ";
+					position: absolute;
+					width: 0;
+					height: 0;
+					top: 3px;
+					background-color: transparent;
+					border: 16px solid transparent;
+					border-color: transparent;
+					pointer-events: none;
+					transform: rotate(360deg);
+					left: 0;
+					border-left-color: var(--message-color);
+				}
+			}
+		}
+
+		%messageHeader {
+			margin-bottom: 4px;
+		}
+
+		%markup {
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		&:hover {
+			%messageTimestamp {
+				&%messageTimestampAlt {
+					opacity: 1;
+					transition: var(--default-time) ease opacity 750ms;
+				}
+			}
+		}
+
+		%messageTimestamp {
+			&%messageTimestampAlt {
+				opacity: 0;
+				left: -72px;
+				color: var(--text-muted);
+				font-weight: 600;
+				transition: var(--default-time) ease opacity 0ms;
+			}
+		}
+
+		%removeAttachmentButton {
+			right: -4px;
+		}
+
+		&:not(%message) {
+			margin: 16px 26px 0 68px;
+			padding: 8px 12px !important;
+			border-radius: var(--message-radius);
+
+			&:before,
+			&:after {
+				display: none;
+			}
+
+			%avatarLarge {
+				top: 0;
+				left: -63px;
+			}
+		}
+
+		%messageReplied {
+			&:before {
+				transform: translateX(42px);
+			}
+
+			.replyAvatar-sHd2sU,
+			.replyBadge-LMm_Ic,
+			.executedCommandAvatar-3oOnb1,
+			.userJoinSystemMessageIcon-3FQ_Mo {
+				margin-left: 42px;
+			}
+		}
+	}
+
+	&%messageCompact {
+		margin-left: 68px;
+		margin-right: 26px;
+		margin-bottom: 0;
+		padding-right: 8px !important;
+
+		&%messageGroupStart {
+			padding: 8px;
+
+			&%mentioned {
+				&:before {
+					display: none;
+				}
+			}
+
+			& + %newMessagesDivider {
+				margin-bottom: -1px;
+			}
+		}
+
+		&:not(%messageGroupStart) {
+			padding: 0 8px 8px 8px;
+
+			&:before,
+			&:after {
+				margin: -18px 0 0 0;
+			}
+
+			&:before {
+				border-width: 16px 0 0 14px;
+			}
+
+			&:after {
+				border-width: 0 0 16px 14px;
+			}
+		}
+
+		&%messageHasThread {
+			%messageContent:before {
+				display: none;
+			}
+
+			.content-vSHmMD {
+				margin-left: 44px;
+			}
+
+			.spine-2vt3pM {
+				display: none;
+			}
+		}
+
+		%messageHeader {
+			position: relative;
+			left: -8px;
+		}
+
+		%messageTimestamp {
+			width: 52px;
+			margin-right: 16px;
+			color: var(--text-muted);
+		}
+
+		& + %newMessagesDivider {
+			margin-left: 80px;
+
+			&:not(%newMessagesDividerBeforeGroup) {
+				top: -11px;
+			}
+		}
+
+		%messageReplied {
+			margin-left: calc(var(--timestamp-width) + 3.1rem + var(--text-indent));
+		}
+
+		& + &:not(%message) {
+			margin: 16px 20px 0 70px;
+		}
+
+		.iconContainer-2rPbqG {
+			margin-left: 4.5ch;
+		}
+	}
+
+	%slateTextArea {
+		padding-left: 12px !important;
+	}
+
+	&%mentioned {
+		%messageContentInner {
+			position: relative;
+			background-color: hsla(var(--accent-hsl),0.15);
+			border-radius: var(--card-radius);
+
+			a {
+				color: hsl(var(--accent-hsl));
+			}
+
+			%mentionWrapper {
+				&:before {
+					display: none;
+				}
+
+				&:hover {
+					color: var(--accent-text-color);
+				}
+			}
+		}
+	}
+
+	.iconContainer-2rPbqG {
+		position: relative;
+		width: auto !important;
+		right: auto;
+		margin-right: 12px;
+
+		%messageSystemIcon {
+			&[style*='/assets/c30220457097b064286a8759a9b6c4af.svg'] {
+				background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/phone_called.svg) !important;
+			}
+
+			&[style*='/assets/d80d1fdc43a3c42134a31a39581160ac.svg'] {
+				background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/phone_missed.svg) !important;
+			}
+		}
+	}
+
+	%channelTextArea {
+		%channelTextAreaScrollable {
+			background-color: var(--main-textarea-color-alt);
+			border-radius: var(--main-textarea-radius);
+		}
+	}
+}
+
+%operations {
+	> a {
+		color: hsl(var(--accent-hsl));
+	}
+}
+
+.scrollerSpacer-3AqkT9 {
+	height: 20px;
+}
+
+/* MESSAGES -> NEW MESSAGES BAR */
+
+%newMessagesBar {
+	left: 0;
+	right: 0;
+	background-color: hsl(var(--accent-hsl));
+	border-radius: 0;
+	box-shadow: var(--shadow-1dp);
+
+	%newMessagesBarText {
+		color: var(--accent-text-color);
+	}
+}
+
+%newMessagesDivider {
+	&%dividerUnread {
+		margin: 0 .875rem 0 80px;
+		border-color: hsl(var(--accent-hsl));
+
+		%unreadPill {
+			height: 28px;
+			top: -15px;
+			padding: 0 16px;
+			background-color: hsl(var(--accent-hsl));
+			border-radius: 14px;
+			box-shadow: var(--shadow-3dp);
+			font-size: 14px;
+			font-weight: 500;
+			text-transform: capitalize;
+			color: var(--accent-text-color);
+
+			%unreadPillCap {
+				display: none;
+			}
+		}
+
+		&%hasContent {
+			%dividerDate {
+				background-color: hsl(var(--accent-hsl));
+				color: var(--accent-text-color);
+			}
+		}
+	}
+
+	&%hasContent {
+		margin-left: 1rem;
+	}
+}
+
+/* MESSAGES -> JUMP TO BUTTON */
+
+%jumpToPresentBar {
+	width: 48px;
+	height: 48px;
+	border-radius: 30%;
+	left: auto;
+	right: 20px;
+	bottom: 20px;
+	padding: 0;
+	background: hsl(var(--accent-hsl)) !important;
+	box-shadow: var(--shadow-3dp);
+
+	&:active {
+		margin: 0 !important;
+	}
+
+	&:after {
+		content: " ";
+		position: absolute;
+		width: 24px;
+		height: 24px;
+		bottom: 0;
+		right: 0;
+		@include add-icon(var(--accent-text-color), expand, solid);
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-origin: content-box;
+		transform: scale(2) translate(-6px, -6px);
+	}
+
+	%jumpToPresentBarButtonBase {
+		width: inherit;
+		height: inherit;
+		padding: inherit;
+
+		&%jumpToPresentBarButtonMain {
+			opacity: 0;
+			z-index: 2;
+		}
+
+		&%jumpToPresentBarButtonAlt {
+			display: none;
+		}
+	}
+
+	%spinner {
+		position: absolute;
+		width: inherit;
+		height: inherit;
+		padding: inherit;
+		background-color: hsl(var(--accent-hsl));
+		border-radius: 50%;
+		z-index: 3;
+
+		%spinnerPulsingEllipsis {
+			vertical-align: middle;
+		}
+	}
+}
+
+%messagesErrorBar {
+	width: auto;
+	height: 36px;
+	left: auto;
+	right: 16px;
+	bottom: 12px;
+	padding: 0;
+	border-radius: 18px;
+	box-shadow: var(--shadow-2dp);
+	transition: var(--default-time) var(--default-animation) box-shadow;
+
+	&:hover {
+		box-shadow: var(--shadow-3dp);
+	}
+
+	%jumpToPresentBarButtonMain {
+		min-width: 36px;
+		padding: 0 18px 0 12px;
+		flex: 0 1 auto;
+
+		&:after {
+			position: absolute;
+			content: "|";
+			width: 4px;
+			height: 100%;
+			top: 0;
+			right: 0;
+		}
+	}
+}

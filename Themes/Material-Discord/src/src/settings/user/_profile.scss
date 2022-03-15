@@ -1,0 +1,100 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS PROFILE
+ *
+ */
+
+%settingsProfileNotice {
+	@include card-format(false, 8px);
+}
+
+%nitroUpsellButtonInner {
+	display: grid;
+	grid-template-columns: 30px 1fr;
+}
+
+%settingsProfileCard {
+	&:not(%settingsProfilePreview) {
+		margin-bottom: 16px;
+		@include card-format(false, 16px);
+
+		%settingsProfileHeader {
+			width: calc(100% + 32px);
+			margin-top: -16px;
+			margin-left: -16px;
+			margin-bottom: 16px !important;
+			@include card-format--header;
+		}
+	}
+
+	&%settingsProfilePreview {
+		%settingsProfileHeader {
+			display: none;
+		}
+	}
+
+	%settingsProfileButtonsContainer {
+		height: auto !important;
+		background-color: unset;
+		border-radius: 0 !important;
+		border: none;
+	}
+
+	%settingsProfileRemoveButton {
+		margin-left: 8px;
+	}
+}
+
+%settingsProfileBioTextArea {
+	--input-padding: 0 12px;
+
+	@include new-input-format(false, 136px, 136px);
+	border-radius: 19px;
+
+	%channelTextAreaWithoutAttachment {
+		padding: 12px 0;
+	}
+}
+
+%settingsProfileBannerPreview {
+	@include popout-format;
+
+	%avatarUploaderInner {
+		background-color: transparent;
+		border: none;
+		box-shadow: var(--shadow-3dp);
+
+		&:focus-within,
+		&:hover {
+			%avatarUploaderHint {
+				background-color: rgba(0,0,0,0.5);
+				border-radius: 50%;
+			}
+		}
+	}
+
+	%userPopoutHeaderTop {
+		padding: 64px 12px 12px;
+		border-bottom: 1px solid var(--card-border-color);
+	}
+
+	%userPopoutInfo {
+		padding: 12px;
+	}
+
+	%userPopoutDivider {
+		display: none;
+	}
+
+	%userPopoutAboutMeTitle,
+	%userPopoutAboutMeFakeTitle {
+		@include remove-caps(14px);
+	}
+
+	%userPopoutFakeActivityIcon {
+		background-color: hsl(var(--accent-hsl));
+		border-radius: 50%;
+	}
+}

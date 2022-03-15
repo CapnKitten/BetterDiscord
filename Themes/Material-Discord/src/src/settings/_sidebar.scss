@@ -1,0 +1,191 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  SIDEBAR
+ *
+ */
+
+%settingsSidebarScroller {
+	background-color: var(--main-alt);
+}
+
+%settingsSidebarRegion {
+	flex: 0;
+}
+
+%settingsSidebar {
+	width: 240px;
+	margin: 0 6px 0 0;
+	padding: 60px 6px 40px 0;
+}
+
+%settingsSidebar {
+    %tabBarItem {
+        width: 240px;
+    	height: 32px;
+    	margin: 0;
+    	padding: 0 12px 0 54px;
+    	line-height: 32px;
+    	border-radius: 0 16px 16px 0;
+    	transition: var(--default-time) ease background-color;
+
+        &%tabBarItemSelected {
+    		background-color: var(--menu-item-select-accent) !important;
+
+    		&:before {
+    			opacity: 1;
+    		}
+
+			%premiumLabel {
+				color: var(--interactive-active) !important;
+			}
+    	}
+
+        svg {
+    		display: none;
+    	}
+
+        %premiumSelectedBackground {
+    		display: none;
+    	}
+    }
+
+    %settingsSideHeader {
+        margin-top: 4px;
+		margin-bottom: 8px;
+		padding: 0 12px 0 26px;
+        @include remove-caps(0.8em);
+        color: var(--channels-default) !important;
+    }
+
+    %tabBarSeparator {
+		position: relative;
+		height: 1px;
+		margin: 8px 0;
+		background: transparent;
+
+		&:before {
+			position: absolute;
+			content: " ";
+			width: calc(100% + 12px);
+			height: 1px;
+			background: rgba(114,118,125,0.3);
+		}
+	}
+}
+
+%settingsContentRegion div[role="tabpanel"] {
+	width: 100%;
+	height: 100%;
+}
+
+%settingsContentColumnDefault,
+%settingsContentColumnMinimal,
+%settingsCustomColumn,
+%settingsCustomScroller > div {
+	flex: 1 1 auto;
+	min-width: 350px;
+	max-width: 1200px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+%settingsContentColumnDefault {
+	padding: 60px;
+}
+
+.customHeader-f9DEJ_ {
+	padding-top: 0;
+}
+
+%settingsCustomContainer {
+    width: auto;
+
+    .auto-2K3UW5 {
+		background-color: var(--main-color) !important;
+		border-top-left-radius: var(--card-radius-big);
+	}
+
+    %settingsCustomScroller {
+        padding-right: 0 !important;
+
+        .content-28mbXd div:not([class])[style="height: 60px;"] {
+			height: 0 !important;
+		}
+
+        > div {
+			position: relative;
+			min-width: 350px;
+			max-width: 1200px;
+			margin: 0 auto 60px;
+			padding: 60px 97px 60px 60px !important;
+
+            > div:not([class]):first-child {
+                //display: none;
+            }
+		}
+
+		> %settingsCustomHeader {
+			padding: 0;
+		}
+
+        %settingsCustomHeader {
+            padding-top: 0;
+        }
+    }
+}
+
+.card-2ART2V:before {
+	margin: 0 60px;
+}
+
+%settingsCustomColumn,
+%settingsContentRegion div[role="tabpanel"] {
+	+ %settingsToolsContainer {
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		right: 0;
+
+		%settingsTools {
+			position: absolute;
+			width: 36px;
+			right: -8px;
+		}
+	}
+}
+
+%settingsContentColumnMinimal {
+	padding: 60px 80px 80px;
+}
+
+%settingsContentSidebarScrollable .flexChild-3PzYmX[style*='padding: 60px 15px 80px 20px;'] {
+	padding: 60px 8px 40px 0 !important;
+}
+
+%settingsContentSidebarScrollable + .content-2ssVKB[style*='padding: 60px 0px 80px 20px;'] {
+	padding: 0 0 0 20px !important;
+}
+
+%settingsContentSidebarScrollable {
+    + .content-2ssVKB {
+        position: relative;
+    	width: calc(100% - 232px);
+    	left: 232px;
+    	right: 0;
+    	margin-left: 0;
+    	padding: 0 !important;
+    }
+
+    %settingsSide %settingsSideHeader:first-child {
+    	margin: 0 0 8px 0;
+    	padding: 0 0 0 10px !important;
+    }
+}
+
+%settingsSocialLinks,
+.info-1sUqUG {
+	padding: 8px 12px 8px 26px
+}

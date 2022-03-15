@@ -1,0 +1,48 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  HEADER BAR
+ *
+ */
+
+%headerBar {
+    box-shadow: var(--elevation-low);
+}
+
+/*.title-31SJ6t {
+	z-index: 1;
+}*/
+
+%headerBar {
+	box-shadow: var(--elevation-low);
+
+	&%headerBarTransparent {
+		box-shadow: none;
+	}
+
+	&%headerBarThemed {
+		background-color: var(--main-color);
+	}
+}
+
+%headerBarChildren {
+    overflow: visible;
+
+	&:after {
+		background: linear-gradient(90deg, transparent 0, var(--main-color)) !important;
+	}
+
+	%topPill {
+		height: 100%;
+
+		%topPillItem {
+			height: 48px;
+			line-height: 48px;
+		}
+	}
+}
+
+%headerBarTopic a {
+    color: hsl(var(--accent-hsl));
+}

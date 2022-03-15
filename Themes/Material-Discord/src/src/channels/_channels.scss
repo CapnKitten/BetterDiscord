@@ -1,0 +1,109 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	CHANNELS LIST
+ *
+ */
+
+%channelsSidebar {
+	border-radius: var(--card-radius-big) 0 0 !important;
+
+	&%channelSidebarHasNotice {
+		border-radius: 0 !important;
+	}
+
+	&,
+	%channelsContainer {
+		background-color: var(--main-color);
+	}
+
+	%channelsContainer {
+		.content-2a4AW9 {
+			margin-bottom: 11px;
+		}
+	}
+
+	%categoryName {
+		@include remove-caps(14px);
+	}
+
+	%channelsHeaderContainer {
+		&:not(%channelHasBanner) {
+			%channelsHeader {
+				&,
+				&:hover {
+					background-color: var(--main-color);
+				}
+			}
+		}
+	}
+}
+
+.channelNotice-K4UfZY {
+	margin: 0;
+	padding: 16px;
+}
+
+/* CHANNELS LIST -> CHANNEL */
+
+%channelContainerDefault {
+	&%channelContainerSelected {
+		background-color: var(--menu-item-select-accent);
+		border-radius: 0 24px 24px 0;
+	}
+
+	%channelWrapperSelected {
+		&,
+		&:hover {
+			%channelContent {
+				background-color: transparent;
+			}
+		}
+	}
+
+	%channelContent {
+		margin-left: 0;
+		border-radius: 0 24px 24px 0;
+	}
+
+	%channelThread {
+		%channelMain {
+			margin-left: 34px;
+		}
+	}
+}
+
+%channelWrapper {
+	%channelContent {
+		margin-left: 0;
+		border-radius: 0 24px 24px 0;
+	}
+}
+
+%categoryContainerDefault {
+	%categoryAddButton {
+		background-color: transparent !important;
+
+		@include md-ripple(hover, after, 1.5);
+	}
+}
+
+%channelContainerDragBefore:before,
+%channelContainerDragAfter:after {
+	left: 0;
+	background-color: hsl(var(--accent-hsl));
+}
+
+%channelContainerUserOver {
+	&:after {
+		right: 4px;
+		background-color: hsla(var(--accent-hsl),0.1);
+		border-radius: var(--card-radius-big);
+		border-color: hsla(var(--accent-hsl),0.5);
+	}
+}
+
+%streamPopoutPreview {
+	@include popout-format(true);
+}

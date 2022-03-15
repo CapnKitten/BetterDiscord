@@ -1,0 +1,52 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  EVENTS
+ *
+ */
+
+%eventCard {
+    @include card-format(false, 16px);
+
+    &:hover {
+        background-color: var(--card-color-hover);
+    }
+
+    %eventCardRsvpCount {
+        background-color: var(--menu-item-hover);
+    }
+
+    %eventCardDivider {
+        background-color: var(--card-border-color);
+    }
+
+    %eventCardFooter {
+        overflow: visible;
+    }
+}
+
+%eventModalHeader {
+    padding: 0 16px;
+    border-bottom-color: var(--popout-header-border);
+}
+
+%eventInfoHeader,
+%eventInfoBody {
+    padding: 16px 16px 0;
+}
+
+%eventInformationContent {
+    %modalContent {
+        width: auto !important;
+
+        > div:not([class]):first-child {
+            margin-top: -16px;
+            margin-left: -16px;
+        }
+    }
+}
+
+%eventErrorTitle {
+    padding: 32px 0;
+}

@@ -1,0 +1,102 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  SEARCH POPOUT
+ *
+ */
+
+%searchPopout {
+	max-height: 80vh;
+	@include popout-format(true);
+	overflow-y: auto;
+	transform: translate(0, -4px);
+	animation: top-pop-out 400ms var(--default-animation);
+
+	%searchPopoutResultsGroup {
+		&:before {
+			display: none;
+		}
+
+		%searchPopoutLearnMore a,
+		%searchPopoutClearHistory {
+			color: var(--text-normal);
+		}
+	}
+
+    %searchPopoutHeader {
+        color: var(--text-normal);
+        @include remove-caps(14px);
+    }
+
+    %searchPopoutOption {
+        margin: 0 !important;
+        padding: 0 20px !important;
+        border-radius: 0 !important;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        &:after {
+            background: transparent !important;
+        }
+
+        &:hover {
+            background: var(--menu-item-hover) !important;
+
+            &:after {
+                width: 70px;
+                background: linear-gradient(90deg,rgba(35,38,42,0),var(--menu-item-hover) 50%) !important;
+            }
+        }
+
+        &[aria-selected="true"] {
+            background: var(--menu-item-select) !important;
+
+            &:after {
+                width: 70px;
+                background: linear-gradient(90deg,rgba(35,38,42,0),var(--menu-item-hover) 50%) !important;
+            }
+        }
+
+        %searchPopoutFilter {
+            color: var(--text-normal);
+        }
+
+        %searchPopoutAnswer {
+            color: var(--text-muted);
+        }
+    }
+
+	%searchPopoutQueryContainer {
+		border-bottom-color: var(--popout-header-border) !important;
+
+		&%searchPopoutQueryContainerFocused {
+			background-color: transparent !important;
+		}
+
+        %searchPopoutQueryText {
+            @include remove-caps(14px);
+        }
+	}
+}
+
+%keybindShortcut {
+	height: 24px;
+
+	span {
+		&,
+		&:active {
+			height: 100%;
+			padding: 0 6px;
+			line-height: 24px;
+			border-radius: 12px;
+			box-shadow: none !important;
+			border: none !important;
+		}
+	}
+}
+
+body:active %searchPopout:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}

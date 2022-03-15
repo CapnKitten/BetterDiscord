@@ -1,0 +1,106 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	USER PROFILE
+ *
+ */
+
+.swatch-35F5kl {
+	min-height: 50px !important;
+	height: 50px !important;
+	border-radius: var(--button-radius);
+
+	&:after {
+		display: none;
+	}
+}
+
+%userModal {
+	@include popout-format;
+
+	%userModalTopSection {
+		background-color: transparent;
+
+		%userModalAvatar {
+			background-color: transparent;
+			border: none;
+		}
+
+		%userModalNameTagNoCustomStatus {
+			margin-bottom: 8px;
+		}
+	}
+
+	%userModalTabBarContainer {
+		padding-left: 16px;
+	}
+
+	%userModalTabBar {
+		%tabBarItem {
+			margin-right: 32px;
+		}
+	}
+
+	%userModalBody {
+		background-color: transparent;
+
+		%userModalInfoScroller {
+			padding: 0 16px;
+		}
+
+		%userModalInfoSection {
+			padding: 16px 0 8px;
+			border-top: none;
+
+			&:nth-child(2) {
+				padding: 8px 0 16px;
+			}
+		}
+
+		%userModalInfoSectionHeader {
+			@include remove-caps(14px);
+		}
+
+		%userModalNote {
+			margin: 0;
+			@include input-format(auto, auto);
+
+			textarea {
+				padding: 0;
+
+				&:focus {
+					background-color: transparent;
+				}
+			}
+		}
+
+		%userModalConnectedAccounts {
+			margin-top: -16px;
+
+			%userModalConnectedAccount {
+				margin-top: 16px;
+				background-color: transparent;
+				border-radius: var(--card-radius);
+				border-color: var(--card-border-color);
+				transition: var(--default-time) var(--default-animation) background-color;
+
+				&:hover {
+					background-color: var(--card-color-hover);
+				}
+			}
+		}
+
+		%iconButton {
+			--button-padding: 0;
+		}
+	}
+
+	%userPopoutGameIcon {
+		border-radius: var(--avatar-radius);
+	}
+
+	%userPopoutActivityGame {
+		border-radius: var(--card-radius-big);
+	}
+}

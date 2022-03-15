@@ -1,0 +1,89 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  MODALS
+ *
+ */
+
+%modalRoot {
+    @include popout-format(true);
+
+    &%modalRootNoBg,
+    &%modalRootTransparent {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    &%modalSmall {
+        min-height: 75px;
+    }
+
+    %modalHeader {
+        margin: 0;
+        padding: 16px;
+		background-color: transparent;
+		border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
+		border-bottom: 1px solid var(--popout-header-border);
+		box-shadow: none !important;
+
+        %modalTitle {
+            margin-bottom: 0;
+        }
+
+        %modalCloseButton {
+            --button-height: 32px;
+
+            width: var(--button-height);
+			height: var(--button-height);
+            top: 12px;
+			right: 12px;
+			margin: 0;
+			padding: 0;
+			background-color: transparent !important;
+			@include md-ripple(hover, after, 1.1);
+			position: absolute;
+
+            %buttonContents {
+                height: 24px;
+            }
+
+            svg {
+                height: 24px !important;
+				transform: scale(0.85);
+			}
+        }
+    }
+
+    %modalContent {
+        padding: 16px;
+		background-color: transparent;
+		border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+
+        %modalContentInner {
+            padding-bottom: 0;
+        }
+    }
+
+    %modalFooter {
+        padding: 8px;
+		background-color: transparent !important;
+		border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+		border-top: 1px solid var(--popout-header-border);
+		box-shadow: none !important;
+
+
+        %button%buttonLink {
+    		margin-right: 8px;
+        }
+
+        %buttonBlank {
+            background-color: transparent !important;
+        	color: var(--button-link-text-color) !important;
+        }
+
+        %modelFooterMinorContainer {
+            margin: 8px 0 0;
+        }
+    }
+}

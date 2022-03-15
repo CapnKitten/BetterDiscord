@@ -1,0 +1,50 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  LIST POPOUT
+ *
+ */
+
+%listPopoutContainer {
+	padding: 0;
+	background-color: var(--popout-color);
+	border-radius: var(--popout-radius);
+	border: none;
+	box-shadow: var(--shadow-3dp);
+	animation: top-pop-out 400ms var(--default-animation);
+
+	%listPopoutSearchBar {
+		margin: 12px 8px;
+	}
+
+	%listPopoutScroller {
+		margin-top: 0;
+		border-top: 1px solid var(--card-border-color);
+
+		%listPopoutScrollerContainer {
+			height: auto !important;
+		}
+
+		%listPopoutItem {
+			margin-bottom: 0;
+			border-radius: 0;
+			color: var(--menu-item-text-color);
+			transition: var(--default-time) var(--default-animation) background-color;
+
+			&:hover {
+				background-color: var(--menu-item-hover);
+			}
+
+			&%listPopoutItemSelected,
+			&%listPopoutItemSelectedBrand {
+				background-color: var(--menu-item-select);
+			}
+		}
+	}
+}
+
+body:active %listPopoutContainer:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}

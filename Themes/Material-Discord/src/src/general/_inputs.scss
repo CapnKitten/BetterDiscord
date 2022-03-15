@@ -1,0 +1,81 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  INPUTS
+ *
+ */
+
+%input {
+    height: var(--input-height);
+	padding: 0;
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+
+    &::-webkit-input-placeholder {
+        font-family: var(--app-font);
+    }
+}
+
+%inputWrapper {
+    @include input-format;
+
+    %inputPrefix {
+        + %input {
+            padding-left: 32px;
+        }
+    }
+}
+
+%inputEmojiContainer {
+    margin: 0 4px;
+    z-index: 2;
+
+    + %inputWrapper {
+        %input {
+            padding-left: 36px;
+        }
+    }
+}
+
+%copyInput,
+%keybindInput {
+    @include new-input-format(true);
+
+    %button {
+        --button-height: 32px;
+		margin: 3px;
+    }
+}
+
+%copyInput {
+    %copyInputInner {
+        padding: 8px 8px 8px 12px;
+    }
+
+    %button {
+        padding: var(--button-padding) !important;
+    }
+}
+
+%keybindInput {
+    %keybindInputInner {
+        padding: 8px 8px 8px 12px;
+
+        &::-webkit-input-placeholder {
+            font-family: var(--app-font);
+        }
+    }
+}
+
+/*%channelTextAreaScrollable {
+    --input-padding: 0 12px;
+
+	@include new-input-format(false, 136px, 136px);
+    border-radius: 19px;
+
+    %slateTextArea {
+		padding: 12px 0;
+	}
+}*/
