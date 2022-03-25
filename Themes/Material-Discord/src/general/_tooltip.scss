@@ -1,5 +1,11 @@
 @use '../mixins' as *;
 
+/*
+ *
+ *  TOOLTIP
+ *
+ */
+
 %tooltip {
     padding: var(--tooltip-padding);
 	background-color: var(--tooltip-color) !important;
@@ -26,18 +32,39 @@
     }
 }
 
-%subscribeTooltipWrapper {
+%subscribeTooltipWrapper,
+%upsellTooltipWrapper {
     @include popout-format;
 
     &:after {
 		border-bottom-color: var(--popout-color);
 	}
+}
 
+%subscribeTooltipWrapper {
     %subscribeTooltipHeader {
         color: var(--header-primary);
     }
 
     %subscribeTooltipText {
         color: var(--header-secondary);
+    }
+}
+
+%upsellTooltipWrapper {
+    %upsellTooltipHeader {
+        color: var(--header-primary);
+    }
+
+    %upsellTooltipText {
+        color: var(--header-secondary);
+    }
+
+    %buttonInverted {
+        --button-text-color: var(--button-link-text-color);
+
+        &:after {
+    		background-color: rgb(var(--button-link-color));
+    	}
     }
 }
