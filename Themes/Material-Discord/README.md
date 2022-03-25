@@ -62,6 +62,8 @@ Current version: v3.0.4 (24/01/2022)
  - `--message-color` - The background color for message bubbles. Default: `#292d30` - `#edeff0`**
  - `--message-color-alt` - An alternative background color for message bubbles. Default: `#1c1e21` - `#e8e8e8`**
  - `--message-radius` - The border radius for the message bubbles. Default: `19px`
+ - `--message-padding-top` - The top and bottom padding of message bubbles. Default: `8px`
+ - `--message-padding-side` - The side padding of message bubbles. Default: `12px`
  - `--media-radius` - The border radius for images, videos, and audio. Default: `19px`
  - `--attachment-color` - The background color for all attachments. Default: `rgb(0,0,0,0.325)` - `rgba(0,0,0,0.1)`**
  - `--main-textarea-color` - The background color for the main chat text box. Default: `#303338` - `#fff`**
