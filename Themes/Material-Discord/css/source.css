@@ -18,8 +18,6 @@
   --alert-button-action-active: 0.2;
   --alert-text-color: #fff;
   --success-color: #43b581;
-  --message-padding-top: 8px;
-  --message-padding-side: 12px;
   --message-radius: 19px;
   --message-padding-top: 8px;
   --message-padding-side: 12px;
@@ -61,6 +59,7 @@
   --main-color: #16171a;
   --main-alt: #0f1012;
   --server-color: transparent;
+  --server-folder-color: rgba(255,255,255,0.085);
   --status-picker-color: #2c2d31;
   --sidebar-panel-color: #212226;
   --chat-color: #202225;
@@ -74,8 +73,8 @@
   --typing-color: rgba(32,34,37,0.9);
   --popout-color: #2c2f33;
   --popout-color-alt: #202225;
-  --popout-header-border: #444;
-  --separator-color: #444;
+  --popout-header-border: rgba(255,255,255,0.125);
+  --separator-color: rgba(255,255,255,0.115);
   --input-color: rgba(255,255,255,0.075);
   --input-border-color: #444;
   --input-padding: 0 12px;
@@ -87,9 +86,9 @@
   --menu-item-text-color: #aaa;
   --card-color: transparent;
   --card-color-hover: rgba(255,255,255,0.04);
-  --card-color-alt: #2a2c30;
+  --card-color-alt: rgba(255,255,255,0.05);
   --card-color-alt-hover: #35383d;
-  --card-border-color: #444;
+  --card-border-color: rgba(255,255,255,0.175);
   --card-header-text-color: #dcddde;
   --button-link-color: 255,255,255;
   --button-link-text-color: #fff;
@@ -111,6 +110,7 @@
   --main-color: #f9f9f9;
   --main-alt: #eee;
   --server-color: transparent;
+  --server-folder-color: rgba(0,0,0,0.1);
   --status-picker-color: #dee0e0;
   --sidebar-panel-color: #ebeced;
   --chat-color: #fff;
@@ -138,7 +138,7 @@
   --card-color-hover: #eee;
   --card-color-alt: transparent;
   --card-color-alt-hover: #d4d4d4;
-  --card-border-color: #ccc;
+  --card-border-color: rgba(0,0,0,0.2);
   --card-header-text-color: #333;
   --button-link-color: 0,0,0;
   --button-link-text-color: #333;
@@ -953,6 +953,10 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 }
 .container-YkUktl .button-12Fmur .contents-3ca1mk path[d="M12 2.00305C6.486 2.00305 2 6.48805 2 12.0031V20.0031C2 21.1071 2.895 22.0031 4 22.0031H6C7.104 22.0031 8 21.1071 8 20.0031V17.0031C8 15.8991 7.104 15.0031 6 15.0031H4V12.0031C4 7.59105 7.589 4.00305 12 4.00305C16.411 4.00305 20 7.59105 20 12.0031V15.0031H18C16.896 15.0031 16 15.8991 16 17.0031V20.0031C16 21.1071 16.896 22.0031 18 22.0031H20C21.104 22.0031 22 21.1071 22 20.0031V12.0031C22 6.48805 17.514 2.00305 12 2.00305Z"] {
   d: path("M3 9v6h4l5 5V4L7 9H3zm7-.17v6.34L7.83 13H5v-2h2.83L10 8.83zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77 0-4.28-2.99-7.86-7-8.77z");
+}
+
+.unreadBottom-3Ojk6R {
+  bottom: 12px;
 }
 
 /*
@@ -3765,8 +3769,6 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
   padding: var(--message-padding-top) var(--message-padding-side) !important;
 }
 .wrapper-30-Nkg.cozy-VmLDNB.groupStart-3Mlgv1 {
-  /*margin-left: 0;
-  margin-right: 0;*/
   margin-bottom: 0;
 }
 .wrapper-30-Nkg.cozy-VmLDNB.groupStart-3Mlgv1.mentioned-Tre-dv:before {
@@ -3774,7 +3776,7 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
 }
 .wrapper-30-Nkg.cozy-VmLDNB:not(.groupStart-3Mlgv1) {
   margin-top: calc(var(--message-padding-top) * -1);
-  padding: calc(var(--message-padding-top) / 2) var(--message-padding-side) var(--message-padding-top) var(--message-padding-side);
+  padding: calc(var(--message-padding-top) / 2) var(--message-padding-side) var(--message-padding-top) var(--message-padding-side) !important;
 }
 .wrapper-30-Nkg.cozy-VmLDNB:not(.groupStart-3Mlgv1):before, .wrapper-30-Nkg.cozy-VmLDNB:not(.groupStart-3Mlgv1):after {
   margin: -16px 0 0 0;
@@ -3825,7 +3827,7 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
 }
 .wrapper-30-Nkg.cozy-VmLDNB:not(.message-2CShn3) {
   margin: 16px 26px 0 68px;
-  padding: 8px 12px !important;
+  padding: var(--message-padding-top) var(--message-padding-side) !important;
   border-radius: var(--message-radius);
 }
 .wrapper-30-Nkg.cozy-VmLDNB:not(.message-2CShn3):before, .wrapper-30-Nkg.cozy-VmLDNB:not(.message-2CShn3):after {
@@ -3907,9 +3909,14 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
 .wrapper-30-Nkg .slateTextArea-27tjG0 {
   padding-left: 12px !important;
 }
+.wrapper-30-Nkg.mentioned-Tre-dv {
+  --message-color: hsla(var(--accent-hsl),0.2);
+}
+.wrapper-30-Nkg.mentioned-Tre-dv:hover {
+  --message-color-hover: hsla(var(--accent-hsl),0.3);
+}
 .wrapper-30-Nkg.mentioned-Tre-dv .messageContent-2t3eCI {
   position: relative;
-  background-color: hsla(var(--accent-hsl), 0.15);
   border-radius: var(--card-radius);
 }
 .wrapper-30-Nkg.mentioned-Tre-dv .messageContent-2t3eCI a {
@@ -3983,6 +3990,10 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
 }
 .divider-IqmEqJ.hasContent-31hcsn {
   margin-left: 1rem;
+}
+
+.content-3spvdd {
+  background-color: var(--message-color);
 }
 
 /* MESSAGES -> JUMP TO BUTTON */
@@ -6781,6 +6792,22 @@ body:active .container-18GwIk:not(:active) {
 body:active .userPopout-2j1gM4:not(:active) {
   opacity: 0;
   transition: 150ms ease all;
+}
+
+/*
+ *
+ *  SERVER FOLDERS
+ *
+ */
+.expandedFolderBackground-1kSAf6 {
+  --background-secondary: var(--server-folder-color) !important;
+}
+
+.folder-241Joy {
+  --background-secondary: transparent !important;
+}
+.folder-241Joy.hover-3m7-WT {
+  --background-primary: var(--server-folder-color) !important;
 }
 
 /*
