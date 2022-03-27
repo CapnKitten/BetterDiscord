@@ -16,4 +16,4 @@ Download with the button above or use as import with the code below.
 [github-url]: https://github.com/sponsors/CapnKitten
 
 [download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
-[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=icons
+[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=material-you
