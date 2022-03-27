@@ -80,12 +80,6 @@
 	}
 }
 
-.messageListItem-ZZ7v6g,
-.quotedChatMessage-PxNsZi {
-	//margin-left: 68px;
-	//margin-right: 26px;
-}
-
 %messagesWrapper {
 	position: relative;
 	background-color: var(--message-color) !important;
@@ -203,8 +197,6 @@
 		padding: var(--message-padding-top) var(--message-padding-side) !important;
 
 		&%messageGroupStart {
-			/*margin-left: 0;
-			margin-right: 0;*/
 			margin-bottom: 0;
 
 			&%mentioned {
@@ -216,7 +208,7 @@
 
 		&:not(%messageGroupStart) {
 			margin-top: calc(var(--message-padding-top) * -1);
-			padding: calc(var(--message-padding-top) / 2) var(--message-padding-side) var(--message-padding-top) var(--message-padding-side);
+			padding: calc(var(--message-padding-top) / 2) var(--message-padding-side) var(--message-padding-top) var(--message-padding-side) !important;
 
 			&:before,
 			&:after {
@@ -289,7 +281,7 @@
 
 		&:not(%message) {
 			margin: 16px 26px 0 68px;
-			padding: 8px 12px !important;
+			padding: var(--message-padding-top) var(--message-padding-side) !important;
 			border-radius: var(--message-radius);
 
 			&:before,
@@ -405,9 +397,15 @@
 	}
 
 	&%mentioned {
+		--message-color: hsla(var(--accent-hsl),0.2);
+
+		&:hover {
+			--message-color-hover: hsla(var(--accent-hsl),0.3);
+		}
+
 		%messageContentInner {
 			position: relative;
-			background-color: hsla(var(--accent-hsl),0.15);
+			//background-color: hsla(var(--accent-hsl),0.15);
 			border-radius: var(--card-radius);
 
 			a {
@@ -508,6 +506,10 @@
 	&%hasContent {
 		margin-left: 1rem;
 	}
+}
+
+%dividerDate {
+	background-color: var(--message-color);
 }
 
 /* MESSAGES -> JUMP TO BUTTON */
