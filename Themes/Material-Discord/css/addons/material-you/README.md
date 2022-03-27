@@ -9,6 +9,24 @@ Download with the button above or use as import with the code below.
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css);
 ```
 
+<hr>
+
+### Customization
+
+You may want to play around with the values below to get your desired look.
+
+```css
+.theme-dark {
+    --saturation-modifier: 0.175;
+    --lightness-modifier: 0.2;
+}
+
+.theme-light {
+    --saturation-modifier: 0.175;
+    --lightness-modifier: 2.175;
+}
+```
+
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
 
