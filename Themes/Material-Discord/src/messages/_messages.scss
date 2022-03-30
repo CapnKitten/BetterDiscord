@@ -87,16 +87,6 @@
 
 	&:hover {
 		background-color: var(--message-color-hover) !important;
-
-		+ %messagesWrapper:not(%messageGroupStart) {
-			&:before {
-				border-left-color: var(--message-color-hover);
-			}
-
-			&:after {
-				border-bottom-color: var(--message-color-hover);
-			}
-		}
 	}
 
 	&%messageHasThread {
@@ -173,7 +163,7 @@
 			height: 0;
 			top: 2px;
 			background-color: transparent;
-			border: 16px solid transparent;
+			border: 8px solid transparent;
 			border-color: transparent;
 			pointer-events: none;
 		}
@@ -192,10 +182,6 @@
 	}
 
 	&%messageCozy {
-		margin-left: 68px;
-		margin-right: 26px;
-		padding: var(--message-padding-top) var(--message-padding-side) !important;
-
 		&%messageGroupStart {
 			margin-bottom: 0;
 
@@ -204,6 +190,10 @@
 					display: none;
 				}
 			}
+		}
+
+		&%messageGroupStart {
+			padding: var(--message-padding-top) var(--message-padding-side) !important;
 		}
 
 		&:not(%messageGroupStart) {
@@ -226,23 +216,6 @@
 			& + %newMessagesDivider {
 				&:not(%newMessagesDividerBeforeGroup) {
 					top: -4px;
-				}
-			}
-
-			&%mentioned {
-				&:before {
-					content: " ";
-					position: absolute;
-					width: 0;
-					height: 0;
-					top: 3px;
-					background-color: transparent;
-					border: 16px solid transparent;
-					border-color: transparent;
-					pointer-events: none;
-					transform: rotate(360deg);
-					left: 0;
-					border-left-color: var(--message-color);
 				}
 			}
 		}
@@ -310,8 +283,8 @@
 	}
 
 	&%messageCompact {
-		margin-left: 68px;
-		margin-right: 26px;
+		//margin-left: 68px;
+		//margin-right: 26px;
 		margin-bottom: 0;
 		padding-right: 8px !important;
 
@@ -397,15 +370,9 @@
 	}
 
 	&%mentioned {
-		--message-color: hsla(var(--accent-hsl),0.2);
-
-		&:hover {
-			--message-color-hover: hsla(var(--accent-hsl),0.3);
-		}
-
 		%messageContentInner {
 			position: relative;
-			//background-color: hsla(var(--accent-hsl),0.15);
+			background-color: hsla(var(--accent-hsl),0.2);
 			border-radius: var(--card-radius);
 
 			a {
@@ -413,6 +380,8 @@
 			}
 
 			%mentionWrapper {
+				background-color: transparent;
+
 				&:before {
 					display: none;
 				}
@@ -445,6 +414,27 @@
 		%channelTextAreaScrollable {
 			background-color: var(--main-textarea-color-alt);
 			border-radius: var(--main-textarea-radius);
+		}
+	}
+}
+
+%messageListItem {
+	margin-left: 68px;
+	margin-right: 26px;
+
+	&:hover {
+		+ %messageListItem {
+			%messagesWrapper {
+				&:not(%messageGroupStart) {
+					&:before {
+						border-left-color: var(--message-color-hover);
+					}
+
+					&:after {
+						border-bottom-color: var(--message-color-hover);
+					}
+				}
+			}
 		}
 	}
 }
