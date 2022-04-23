@@ -1,0 +1,32 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  INPUTS
+ *
+ */
+
+%input,
+%copyInput {
+    @include input-format;
+
+    &::-webkit-input-placeholder {
+        color: var(--textarea-placeholder-color);
+    }
+
+    &%multiInput {
+        background-color: transparent;
+    }
+}
+
+%multiInput {
+    %inputWrapper {
+        margin-right: 8px;
+    }
+}
+
+%multiInputLast {
+    &:before {
+        display: none;
+    }
+}

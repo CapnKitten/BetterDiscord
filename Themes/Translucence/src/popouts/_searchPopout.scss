@@ -1,0 +1,38 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	SEARCH POPOUT
+ *
+ */
+
+%searchPopout {
+    @include add-translucence(null, true, true, true);
+}
+
+%searchPopoutOption {
+	border-radius: var(--popout-radius);
+
+	&:after {
+		display: none;
+	}
+
+	&[aria-selected="true"] {
+		background-color: var(--background-modifier-hover);
+	}
+}
+
+%searchPopoutQueryContainerFocused {
+	background-color: transparent !important;
+}
+
+%searchPopoutQueryContainer {
+	border: none;
+	box-shadow: var(--popout-header-shadow);
+}
+
+%searchPopoutResultsGroup {
+    &:before {
+        display: none;
+    }
+}

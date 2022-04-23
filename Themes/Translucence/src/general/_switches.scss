@@ -1,0 +1,55 @@
+/*
+ *
+ *  SWITCHES
+ *
+ */
+
+%switchContainer {
+    background-color: var(--switch-slider-color) !important;
+
+    %switchSlider {
+        rect {
+            fill: var(--switch-knob-color) !important;
+        }
+
+        path {
+            fill: var(--switch-slider-color) !important;
+        }
+    }
+
+    &[style*="43.9%"] {
+        --switch-slider-color: hsla(var(--accent-hsl),var(--accent-opacity));
+
+        %switchSlider {
+            rect {
+                --switch-knob-color: var(--accent-text-color);
+            }
+        }
+    }
+
+    svg {
+        filter: none;
+    }
+}
+
+/* SWITCHES -> BD SWITCHES */
+
+%bdSwitchContainer {
+    %bdSwitchBody {
+        --switch-color: var(--switch-slider-color);
+
+        %bdSwitchHandle {
+            fill: var(--switch-knob-color);
+        }
+    }
+
+	input:checked {
+		+ %bdSwitchBody {
+			--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
+
+			%bdSwitchHandle {
+				fill: var(--accent-text-color);
+			}
+		}
+	}
+}

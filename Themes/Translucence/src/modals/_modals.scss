@@ -1,0 +1,78 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  MODALS
+ *
+ */
+
+%modalRoot {
+    @include add-translucence(null, false, true, true);
+
+    &%groupInvitePopout {
+		backdrop-filter: blur(var(--popout-blur));
+	}
+
+    &%modalSmall {
+        min-height: 75px;
+    }
+
+    %modalHeader {
+        background-color: transparent;
+        box-shadow: var(--popout-header-shadow);
+
+        %modalTitle {
+            margin-bottom: 0;
+        }
+
+        %modalCloseButton,
+        %modalHeaderButton {
+            --button-height: 32px;
+
+            position: absolute;
+            width: var(--button-height);
+			height: var(--button-height);
+            top: 12px;
+			right: 12px;
+			margin: 0;
+			padding: 0;
+        }
+
+        %modalCloseButton {
+            %buttonContents {
+                height: 24px;
+            }
+
+            svg {
+                height: 24px !important;
+				transform: scale(0.85);
+			}
+        }
+
+        %modalHeaderButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            %modalHeaderButtonIcon {
+                height: 24px;
+                transform: scale(0.85);
+            }
+        }
+    }
+
+    %modalContent {
+        padding: 16px;
+    }
+
+    %modalFooter {
+        background-color: transparent;
+		box-shadow: none;
+    }
+}
+
+%backdrop {
+    background-color: rgba(0,0,0,0.3) !important;
+	backdrop-filter: blur(calc(var(--popout-blur) * 1.4));
+	opacity: 1 !important;
+}

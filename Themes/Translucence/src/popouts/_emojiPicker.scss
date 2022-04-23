@@ -1,0 +1,115 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  EMOJI PICKER
+ *
+ */
+
+%emojiWrapper,
+%emojiPicker {
+	background-color: transparent;
+}
+
+%emojiWrapper,
+%popoutTranslate %emojiWrapperAlt {
+    @include add-translucence(before, true);
+}
+
+/* EMOJI PICKER -> HEADER */
+
+%emojiPickerNavButton {
+	&:hover {
+		background-color: var(--background-modifier-hover);
+	}
+
+	&%emojiPickerNavButtonActive {
+		background-color: var(--background-modifier-selected);
+	}
+}
+
+%emojiPickerNavGif,
+%emojiPickerNavSticker,
+%emojiPickerNavEmoji {
+    box-shadow: var(--popout-header-shadow) !important;
+}
+
+%emojiPickerDiversitySelectorPopout {
+    @include add-translucence(null, true);
+    border: none;
+    overflow: hidden;
+}
+
+/* EMOJI PICKER -> HEADER -> SEARCH BAR */
+
+%emojiPickerSearchBar,
+%emojiPickerGifSearchBar {
+    @include input-format;
+}
+
+/* EMOJI PICKER -> EMOJIS */
+
+%emojiPickerCategoryHeaderWrapper {
+	position: relative;
+	background-color: transparent;
+}
+
+%emojiPickerInspector {
+	background-color: transparent
+}
+
+%emojiCategoryWrapper {
+    background-color: var(--sidebar-color);
+
+    %emojiCategoryUnicodeShortcut {
+        @include add-translucence(null, true);
+        border-radius: 0;
+    }
+}
+
+%emojiPickerItem {
+    border-radius: var(--card-radius);
+
+    &%emojiPickerItemSelected {
+        background-color: var(--background-modifier-hover);
+    }
+}
+
+/* EMOJI PICKER -> GIFS */
+
+%gifPickerSearchBar {
+	@include input-format;
+}
+
+%gifPickerResult {
+    border-radius: var(--card-radius);
+
+    &:after {
+        border-radius: inherit;
+    }
+
+    &:hover {
+        &:after {
+            box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)),inset 0 0 0 3px #2f3136 !important;
+        }
+    }
+
+    %gifPickerGif {
+        border-radius: inherit;
+    }
+
+    %gifPickerCategoryFade,
+    %gifPickerCategoryFadeBlurple {
+        border-radius: inherit
+    }
+
+    %gifPickerCategoryFadeBlurple {
+        background-color: hsla(var(--accent-hsl),0.8) !important;
+    }
+}
+
+/* EMOJI PICKER -> CHAT */
+
+%popoutTranslate %emojiWrapperChat {
+	@include add-translucence(before, true, true, true);
+}

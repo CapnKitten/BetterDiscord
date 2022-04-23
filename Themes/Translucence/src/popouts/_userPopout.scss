@@ -1,0 +1,72 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  USER POPOUT
+ *
+ */
+
+%userPopout {
+	max-height: 90vh;
+	background-color: transparent;
+	@include add-translucence(before, true, true, true);
+
+    %userPopoutHeader {
+        border-radius: var(--popout-radius) var(--popout-radius) 0 0;
+        overflow: hidden;
+    }
+
+    %userPopoutAvatar {
+        background-color: transparent;
+    	border: none;
+    	box-shadow: var(--popout-shadow);
+
+    	svg {
+    		filter: none;
+    	}
+    }
+
+    %userPopoutAvatarHint {
+        top: 0;
+        left: 0;
+    }
+
+    %userPopoutHeaderTop {
+        background-color: rgba(0,0,0,var(--popout-header-opacity));
+    	border-bottom: 1px solid var(--background-modifier-accent);
+    }
+
+    %userPopoutDivider {
+        display: none;
+    }
+
+    %userPopoutBody {
+        padding: 16px;
+    }
+
+    %userPopoutBodyInnerWrapper {
+        background-color: transparent;
+
+        %role {
+        	background-color: var(--card-color);
+        	border-radius: 11px;
+        }
+    }
+
+    %userPopoutNote {
+        margin-left: 0;
+        margin-right: 0;
+
+        %input {
+			height: unset;
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+
+    %userPopoutFooter {
+		margin-top: 0;
+		padding: 16px;
+        background-color: transparent;
+    }
+}
