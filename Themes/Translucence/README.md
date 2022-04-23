@@ -35,19 +35,29 @@ Current version: v1.0.6.3 (26/02/2021) - **[Download](https://betterdiscord.net/
  - `--app-blur` - The strength of the blur for every element that has one. Default: `6px`
  - `--app-margin` - The margin surrounding the content area. Default: `24px`
  - `--app-radius` - The border radius of the app and every element that has a border radius. Default: `8px`
- - `--app-accent-rgb` - The rgb values of the app accent color. Default: `215,61,61`
- - `--app-accent-text` - The text color for buttons and other various elements with the accent background color. Default: `#000`
  - `--sidebar-color` - The background color of the sidebars. Default: `rgba(0,0,0, 0.4)`
  - `--main-content-color` - The background color of the main content areas. Default: `rgba(0,0,0, 0.2)`
+
+#### Accent color
+ - `--accent-hue` - The hue value for the accent color of the theme. Default: `156`
+ - `--accent-saturation` - The saturation value for the accent color of the theme. Default: `77.5%`
+ - `--accent-lightness` - The lightness value for the accent color of the theme. Default: `47.1%`
+ - `--accent-opacity` - The opacity of everything, excluding text, that uses the accent color. Default: `1`
+ - `--accent-text-color` - The text color for buttons and other various elements with the accent background color. Default: `#000`
 
 #### Messages
  - `--message-color` - The background color for messages. Default: `rgba(0,0,0, 0.4)`
  - `--message-radius` - The border radius for messages. Default: `8px`
  - `--message-padding-top` - The top and bottom padding for messages. Default: `8px`
  - `--message-padding-side` - The left and right padding for messages. Default: `8px`
- - `--mention-color` - The border and glow color for mentioned messages. Default: `#d73d3d`
- - `--mention-rgb` - The rgb values of the mention color. Default: `215,61,61`
- - `--mention-alt` - The border and glow color for highlighted messages that aren't mentions. Default: `#5274e9`
+ - `--mention-hue` - The hue value for the message mention color. Default: `156`
+ - `--mention-saturation` - The saturation value for the message mention color. Default: `77.5%`
+ - `--mention-lightness` - The lightness value for the message mention color. Default: `47.1%`
+ - `--mention-opacity` - The opacity of the message mention color. Default: `1`
+ - `--reply-hue` - The hue value for the reply message color. Default: `226`
+ - `--reply-saturation` - The saturation value for the reply message color. Default: `77.6%`
+ - `--reply-lightness` - The lightness value for the reply message color. Default: `61.8%`
+ - `--reply-opacity` - The opacity of the reply message color. Default: `1`
 
 #### Textareas and inputs
  - `--textarea-color` - The background color for any textareas and inputs. Default: `0,0,0`
