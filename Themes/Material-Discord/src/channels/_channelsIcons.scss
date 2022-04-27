@@ -6,6 +6,52 @@
  *
  */
 
+ %channelButton,
+ %channelVoiceInfo {
+ 	transition: var(--default-time) var(--default-animation) opacity;
+ }
+
+ %channelButton {
+ 	display: block;
+ 	opacity: 0;
+ }
+
+ %channelVoiceInfo {
+ 	position: absolute;
+ 	display: block !important;
+ 	right: 8px;
+ 	margin-left: 0;
+ 	opacity: 1;
+ }
+
+%channelIconVisibility {
+	&:hover,
+	&:focus,
+	&:focus-within {
+		%channelButton {
+			opacity: 1;
+		}
+
+		%channelVoiceInfo {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}
+
+%channelContainerDefault {
+	&%channelContainerSelected {
+		%channelButton {
+			opacity: 1;
+		}
+
+		%channelVoiceInfo {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}
+
 %channelButton {
 	position: relative;
 	margin: 0 0 0 10px;
@@ -115,6 +161,7 @@
 
 %voiceUserContent {
 	border-radius: 15px;
+    transition: var(--default-time) var(--default-animation) background-color;
 
 	%voiceUserIcons {
 		%voiceUserIcon {
