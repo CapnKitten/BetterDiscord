@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  MESSAGES
@@ -6,7 +8,7 @@
 
 %messagesWrapper {
 	margin-left: 68px;
-	margin-right: 26px;
+	margin-right: 16px;
 	background-color: var(--message-color) !important;
 	border-radius: var(--message-radius);
 
@@ -70,6 +72,12 @@
     }
 }
 
+%messageHasThread {
+	&:after {
+		display: none;
+	}
+}
+
 %avatarLarge {
 	width: 40px;
 	height: 40px;
@@ -94,8 +102,50 @@
 	}
 }
 
+%divider%hasContent {
+	border-top: none;
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: " ";
+		width: calc(50% - 60px);
+		height: 1px;
+		top: 0;
+		bottom: 0;
+		margin: auto 0;
+		background-color: var(--background-modifier-accent);
+	}
+
+	&:before {
+		left: 0;
+	}
+
+	&:after {
+		right: 0;
+	}
+}
+
 %dividerDate {
+	width: 120px;
+	padding: 2px 0;
 	background-color: var(--message-color);
+	text-align: center;
+}
+
+%dividerUnread {
+	border-color: hsla(var(--accent-hsl),var(--accent-opacity));
+
+	%unreadPill {
+		background-color: hsla(var(--accent-hsl),var(--accent-opacity));
+		color: var(--accent-text-color);
+		text-shadow: none;
+	}
+
+	%unreadPillCapStroke {
+		color: hsla(var(--accent-hsl),var(--accent-opacity));
+		fill: hsla(var(--accent-hsl),var(--accent-opacity));
+	}
 }
 
 %messageReplied {
@@ -107,4 +157,8 @@
     %messageRepliedBadge {
         margin-left: 42px;
     }
+}
+
+%messageEmojiPopout {
+    @include add-translucence(before, true);
 }
