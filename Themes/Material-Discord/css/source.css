@@ -75,11 +75,12 @@
   --popout-color-alt: #202225;
   --popout-header-border: rgba(255,255,255,0.125);
   --separator-color: rgba(255,255,255,0.115);
-  --input-color: rgba(255,255,255,0.075);
+  --input-color: rgba(255,255,255,0.065);
   --input-border-color: #444;
   --input-padding: 0 12px;
   --tab-border-color: #fff;
   --interactive-muted: #676767;
+  --text-disabled: #666;
   --menu-item-hover: rgba(255,255,255,0.075);
   --menu-item-select: rgba(255,255,255,0.1);
   --menu-item-select-accent: hsla(var(--accent-hsl),0.25);
@@ -126,10 +127,11 @@
   --popout-color-alt: #e5e5e5;
   --popout-header-border: #ccc;
   --separator-color: #ccc;
-  --input-color: #d2d4d4;
+  --input-color: rgba(0,0,0,0.085);
   --input-border-color: #aaa;
   --tab-border-color: #777;
   --interactive-muted: #999;
+  --text-disabled: #bebebe;
   --menu-item-hover: rgba(0,0,0,0.1);
   --menu-item-select: rgba(0,0,0,0.125);
   --menu-item-select-accent: hsla(var(--accent-hsl),0.25);
@@ -2932,7 +2934,8 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
 .search-2Mwzzq .searchBar-jGtisZ .DraftEditor-editorContainer .searchFilter-2UfsDk,
 .search-2Mwzzq .searchBar-jGtisZ .DraftEditor-editorContainer .searchFilter-2UfsDk + span[data-offset-key],
 .search-2Mwzzq .searchBar-jGtisZ .DraftEditor-editorContainer .searchAnswer-23w-CH span[data-offset-key] {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--menu-item-select);
+  color: var(--menu-item-text-color);
 }
 .search-2Mwzzq .searchBar-jGtisZ .DraftEditor-editorContainer .searchFilter-2UfsDk {
   margin-right: 2px;
@@ -2953,7 +2956,7 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
   margin: 0 2px 0 -2px;
   padding: 0px 8px 0px 0;
   border-radius: 0 11px 11px 0;
-  color: #fff;
+  color: var(--menu-item-text-color);
 }
 .search-2Mwzzq .searchBar-jGtisZ .icon-tZMHgY {
   width: 32px;
@@ -2981,6 +2984,30 @@ div[role=radiogroup] .tooltipWrapper-Z59cgW:last-child {
 
 .memberItem-2FOuJI {
   padding: 0;
+}
+
+.outer-2JOHae {
+  margin-bottom: 16px;
+  padding: 0;
+  background-color: var(--card-color);
+  border-radius: var(--card-radius-big);
+  border: 1px solid var(--card-border-color);
+}
+.outer-2JOHae .header-XnnHhZ {
+  margin-bottom: 0;
+  padding: 16px;
+  background-color: transparent;
+  border-bottom: 1px solid var(--card-border-color);
+  font-size: 1em;
+  color: var(--card-header-text-color);
+  font-weight: 500;
+  text-align: left;
+}
+.outer-2JOHae .size14-3fJ-ot {
+  padding: 16px 16px 0;
+}
+.outer-2JOHae .buttonContainer-2G3Me2 {
+  padding: 0 16px;
 }
 
 .emptyCard-KDifrB {
@@ -5481,6 +5508,101 @@ body:active .root-g14mjS .container-18GwIk:not(:active) {
 }
 .autocomplete-3NRXG8 .categorySectionLast-C-_pSG .categoryHeader-OpJ1Ly {
   background-color: var(--emoji-category-header);
+}
+
+/*
+ *
+ *  CALENDAR
+ *
+ */
+.calendarPicker-sDhzdi .react-datepicker,
+.calendarPicker-sDhzdi .react-datepicker__header {
+  background-color: transparent !important;
+}
+.calendarPicker-sDhzdi .react-datepicker__current-month {
+  border-bottom-color: var(--separator-color) !important;
+  font-size: 14px;
+  text-transform: none;
+}
+.calendarPicker-sDhzdi .react-datepicker__navigation.react-datepicker__navigation--next, .calendarPicker-sDhzdi .react-datepicker__navigation.react-datepicker__navigation--previous {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(var(--button-link-color), 0.1);
+  border-radius: 50%;
+  border: none;
+  color: var(--button-link-text-color);
+}
+.calendarPicker-sDhzdi .react-datepicker__navigation.react-datepicker__navigation--next:hover, .calendarPicker-sDhzdi .react-datepicker__navigation.react-datepicker__navigation--previous:hover {
+  background-color: rgba(var(--button-link-color), 0.2);
+}
+.calendarPicker-sDhzdi .react-datepicker__day-name {
+  color: var(--text-normal) !important;
+}
+.calendarPicker-sDhzdi .react-datepicker__week:first-of-type > .react-datepicker__day:first-of-type {
+  border-radius: var(--card-radius-big) 0 0;
+}
+.calendarPicker-sDhzdi .react-datepicker__week:first-of-type > .react-datepicker__day:last-of-type {
+  border-radius: 0 var(--card-radius-big) 0 0;
+}
+.calendarPicker-sDhzdi .react-datepicker__week:last-of-type > .react-datepicker__day:first-of-type {
+  border-radius: 0 0 0 var(--card-radius-big);
+}
+.calendarPicker-sDhzdi .react-datepicker__week:last-of-type > .react-datepicker__day:last-of-type {
+  border-radius: 0 0 var(--card-radius-big);
+}
+.calendarPicker-sDhzdi .react-datepicker__day--disabled,
+.calendarPicker-sDhzdi .react-datepicker__day--outside-month {
+  background-color: transparent !important;
+  color: var(--text-disabled) !important;
+}
+.calendarPicker-sDhzdi .react-datepicker__day {
+  background-color: transparent !important;
+  border-color: var(--separator-color) !important;
+  transition: var(--default-time) var(--default-animation) color;
+}
+.calendarPicker-sDhzdi .react-datepicker__day:before {
+  position: absolute;
+  content: " ";
+  width: 30px;
+  height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: hsl(var(--accent-hsl));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: var(--default-time) var(--default-animation) opacity;
+}
+.calendarPicker-sDhzdi .react-datepicker__day:hover {
+  background-color: transparent !important;
+  color: var(--accent-text-color);
+}
+.calendarPicker-sDhzdi .react-datepicker__day:hover:before {
+  opacity: 1;
+}
+.calendarPicker-sDhzdi .react-datepicker__day.react-datepicker__day--outside-month:before, .calendarPicker-sDhzdi .react-datepicker__day.react-datepicker__day--disabled:before {
+  display: none;
+}
+.calendarPicker-sDhzdi .react-datepicker__day.react-datepicker__day--selected:after {
+  background-color: hsl(var(--accent-hsl));
+  border-radius: 3px;
+}
+
+.datePicker-3iA7_k .datePickerHint-Ir4715 {
+  border-top-color: var(--separator-color);
+}
+.datePicker-3iA7_k .datePickerHint-Ir4715 .hint-xfbpCV {
+  color: var(--text-normal);
+}
+.datePicker-3iA7_k .datePickerHint-Ir4715 .hintValue-V9hd8l {
+  margin-left: 2px;
+  padding: 0 6px;
+  background-color: hsl(var(--accent-hsl));
+  color: var(--accent-text-color);
+  border-radius: 11px;
 }
 
 /*
