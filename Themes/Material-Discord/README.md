@@ -39,6 +39,7 @@ Current version: v3.0.4 (24/01/2022)
 ** **Indicates that it has two values for both the dark and light themes of Discord. Instead of using `:root`, use `.theme-dark` or `.theme-light`.**
 
 #### App elements
+ - `--app-font` - The font used throughout the entire theme. The font must either be installed or imported. Default: `"Google Sans"`
  - `--app-bg` - The background for the entire Discord app. Default: `var(--main-alt)`
  - `--main-color` - The background color for main content areas like in the settings menu. Default: `#16171a` - `#e8eaeb`**
  - `--main-alt` - An alternative background color for main content areas. Default: `#0f1012` - `#ddd`**
