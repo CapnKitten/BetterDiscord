@@ -58,33 +58,27 @@
 }
 
 %activeNowCardInteractive {
-	margin: 0;
-	background-color: transparent;
-	border-radius: 0;
+	margin: 0 0 2px;
+	background-color: var(--activity-card-color);
+	border-radius: 4px;
 	border: none;
-	border-left: 1px solid var(--card-border-color);
-	border-right: 1px solid var(--card-border-color);
 	transition: var(--default-time) var(--default-animation) background-color;
 
 	&:hover {
-		background-color: var(--card-color-hover) !important;
+		background-color: var(--activity-card-color--hover) !important;
+	}
 
-		%activeNowCardInset {
-			background-color: var(--card-color-alt-hover);
-		}
+	&%activeNowCardActive {
+		background-color: var(--activity-card-color--active) !important;
 	}
 
 	&:not(:only-of-type) {
-		@include card-format--list(60px);
-
 		&:first-of-type {
-			border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-			border-top: 1px solid var(--card-border-color);
+			border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
 		}
 
 		&:nth-last-child(2) {
-			border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-			border-bottom: 1px solid var(--card-border-color);
+			border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
 
 			&:after {
 				display: none;
@@ -94,13 +88,26 @@
 
 	%activeNowCardInset {
 		margin-left: 44px;
-		background-color: var(--card-color-alt);
+		background-color: var(--activity-card-color--inset);
 		border-radius: var(--card-radius-big);
-		transition: var(--default-time) var(--default-animation) background-color;
 	}
 
 	%activeNowCardSection {
 		background-color: transparent;
 		border-radius: var(--card-radius-big);
+	}
+
+	%activeNowCardHeaderIcon {
+		border-radius: 50%;
+	}
+}
+
+%nowPlayingColumn {
+	%nowPlayingColumnHeader {
+		+ %activeNowCardInteractive {
+			&:nth-last-child(2) {
+				border-radius: var(--card-radius-big);
+			}
+		}
 	}
 }

@@ -21,12 +21,49 @@
 %qwertToast {
 	margin-top: 30px !important;
 	padding: 16px !important;
-	@include popout-format(true);
+	border-radius: 4px;
 	color: var(--text-normal) !important;
 
-	+ %notificationToast,
+	&:first-child {
+		border-radius: var(--popout-radius-big) var(--popout-radius-big) 4px 4px;
+	}
+
+	&:last-child {
+		border-radius: 4px 4px var(--popout-radius-big) var(--popout-radius-big);
+	}
+
+	&:only-child {
+		border-radius: var(--popout-radius-big);
+	}
+}
+
+%notificationToast {
+	@include popout-format(true);
+
+	+ %notificationToast {
+		margin-top: 2px !important;
+	}
+}
+
+%qwertToast {
+	width: 25vw;
+	max-width: 25vw;
+	background-color: var(--popout-color) !important;
+	backdrop-filter: none;
+
 	+ %qwertToast {
-		margin-top: 12px !important;
+		margin-top: 2px !important;
+	}
+
+	%qwertToastIconContainer {
+		margin-top: 0;
+		margin-right: 8px;
+		padding: 0;
+	}
+
+	%qwertToastText {
+		width: calc(25vw - 60px);
+		max-width: calc(25vw - 60px);
 	}
 }
 
