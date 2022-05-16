@@ -1,0 +1,36 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  REACTIONS
+ *
+ */
+
+%reactors {
+    background-color: transparent !important;
+
+    %reactor {
+        box-shadow: none;
+
+        @include card-format--list(34px);
+    }
+}
+
+%reactionList {
+    background-color: var(--attachment-color) !important;
+
+    %reactionDefault,
+    %reactionSelected {
+        border-radius: 14px;
+    }
+
+    %reactionDefault {
+        &:hover {
+            background-color: var(--menu-item-hover);
+        }
+    }
+
+    %reactionSelected {
+        background-color: var(--menu-item-select);
+    }
+}
