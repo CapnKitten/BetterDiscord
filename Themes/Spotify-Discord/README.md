@@ -73,7 +73,7 @@ To change the title bar color for specific servers, you must download the redesi
 [github-url]: https://github.com/sponsors/CapnKitten
 
 [download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
-[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?theme=Spotify-Discord
+[download-url]: https://betterdiscord.app/theme/Spotify%20Discord
 
 [discord-logo]: https://img.shields.io/static/v1?label=Discord&message=Server&style=flat&logo=discord&color=blue
 [discord-url]: https://discord.gg/jzJkA6Z
