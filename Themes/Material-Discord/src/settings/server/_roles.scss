@@ -6,8 +6,25 @@
  *
  */
 
+%guildSettingsRolesTabBar {
+    border-bottom: 1px solid var(--card-border-color);
+
+    %guildSettingsRolesTabBarItem {
+        margin-bottom: 0;
+        border: none;
+
+        &%guildSettingsRolesTabBarItemSelected {
+            @include tab-border(100%);
+        }
+    }
+}
+
 %guildSettingsRoleDefaultPermissions {
     @include card-format(false, 16px);
+
+    &:hover {
+        background-color: var(--card-color-hover);
+    }
 }
 
 %guildSettingsRoleSearchBar {
@@ -127,10 +144,14 @@
 		}
 
 		%guildSettingsRoleSidebarTitleContainer {
-			margin-left: 0;
-			margin-right: 0;
+			margin: 0;
 			padding: 0 8px 16px;
 			background-color: var(--main-color);
+
+            &%guildSettingsRoleSidebarTitleElevated {
+                border-bottom: 1px solid var(--card-border-color);
+                box-shadow: none;
+            }
 
 			%guildSettingsRoleSidebarTitleText {
 				@include remove-caps(16px);
@@ -216,12 +237,17 @@
 		border-bottom: 1px solid var(--card-border-color);
 	}
 
+    %guildSettingsRoleIconPreviewContainer {
+        border-radius: var(--card-radius-big);
+    }
+
 	%guildSettingsRolePreviewContainer {
 		background-color: transparent;
 		border-radius: var(--card-radius-big);
 		border: none;
 
 		%guildSettingsRoleMessageContainer {
+            padding: 16px 16px 16px 66px;
 			background-color: var(--chat-color);
 		}
 	}
