@@ -30,6 +30,59 @@
             }
 		}
 
+        &[id*="user-context-"] {
+            &:after {
+                position: relative;
+                content: " ";
+                width: 18px;
+                height: 18px;
+                margin-right: 12px;
+            }
+        }
+
+        &[aria-haspopup="true"],
+        &#user-context-devmode-copy-id {
+            &:after {
+                display: none;
+            }
+        }
+
+        $icons: (
+            'user-profile':    'person',
+            'mention':         'mention',
+            'message-user':    'chat_bubble',
+            'call':            'call',
+            'note':            'edit',
+            'add-friend':      'person_add',
+            'remove-friend':   'person_remove',
+            'block':           'block',
+            'change-nickname': 'edit',
+            'timeout':         'timer',
+            'kick':            'remove_circle',
+            'ban':             'hammer',
+        );
+
+        @each $option, $icon in $icons {
+            &#user-context-#{$option} {
+                &:after {
+                    @include add-icon(currentColor, $icon);
+                }
+            }
+        }
+
+        $spotifyIcons: (
+            'spotify-play':    'spotify',
+            'spotify-sync':    'listen_along',
+        );
+
+        @each $option, $icon in $spotifyIcons {
+            &[id*="user-context-#{$option}"] {
+                &:after {
+                    @include add-icon(currentColor, $icon);
+                }
+            }
+        }
+
         &#textarea-context-paste {
             %menuPopoutHintContainer {
                 width: 18px;
