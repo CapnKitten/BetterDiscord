@@ -33,9 +33,10 @@
             }
 		}
 
-        /* CONTEXT MENU ICONS -> USER OPTIONS */
+        /* CONTEXT MENU ICONS -> ADD ICONS */
 
         &[id*="user-context-"][role="menuitem"],
+        &[id*="guild-context-"],
         &#textarea-context-add-to-dictionary,
         &#textarea-context-languages {
             &:after {
@@ -48,29 +49,43 @@
         }
 
         &[aria-haspopup="true"],
-        &#user-context-devmode-copy-id {
+        &#user-context-devmode-copy-id,
+        &#guild-context-hide-muted-channels,
+        &#guild-context-devmode-copy-id {
             &:after {
                 display: none;
             }
         }
 
         $icons: (
-            'user-profile':    'person',
-            'mention':         'mention',
-            'message-user':    'chat_bubble',
-            'call':            'call',
-            'note':            'edit',
-            'add-friend':      'person_add',
-            'remove-friend':   'person_remove',
-            'block':           'block',
-            'change-nickname': 'edit',
-            'timeout':         'timer',
-            'kick':            'remove_circle',
-            'ban':             'hammer',
+            'user-context-user-profile':            'person',
+            'user-context-mention':                 'mention',
+            'user-context-message-user':            'chat_bubble',
+            'user-context-call':                    'call',
+            'user-context-note':                    'edit',
+            'user-context-add-friend':              'person_add',
+            'user-context-remove-friend':           'person_remove',
+            'user-context-block':                   'block',
+            'user-context-change-nickname':         'edit',
+            'user-context-timeout':                 'timer',
+            'user-context-kick':                    'remove_circle',
+            'user-context-ban':                     'hammer',
+
+            'textarea-context-add-to-dictionary':   'library_add',
+            'textarea-context-languages':           'translate',
+
+            'guild-context-mark-guild-read':        'visibility',
+            'guild-context-invite-people':          'person_add',
+            'guild-context-privacy':                'security',
+            'guild-context-change-nickname':        'edit',
+            'guild-context-leave-guild':            'logout',
+            'guild-context-create-channel':         'add_circle',
+            'guild-context-create-category':        'list_add',
+            'guild-context-create-event':           'event',
         );
 
         @each $option, $icon in $icons {
-            &#user-context-#{$option} {
+            &##{$option} {
                 &:after {
                     @include add-icon(currentColor, $icon);
                 }
@@ -78,8 +93,8 @@
         }
 
         $spotifyIcons: (
-            'spotify-play':    'spotify',
-            'spotify-sync':    'listen_along',
+            'spotify-play': 'spotify',
+            'spotify-sync': 'listen_along',
         );
 
         @each $option, $icon in $spotifyIcons {
@@ -90,20 +105,7 @@
             }
         }
 
-        /* CONTEXT MENU ICONS -> TEXTAREA OPTIONS */
-
-        $icons: (
-            'add-to-dictionary':    'library_add',
-            'languages':            'translate',
-        );
-
-        @each $option, $icon in $icons {
-            &#textarea-context-#{$option} {
-                &:after {
-                    @include add-icon(currentColor, $icon);
-                }
-            }
-        }
+        /* CONTEXT MENU ICONS -> REPLACE HINTS WITH ICONS */
 
         &[id*="textarea-context-"] {
             %menuPopoutHintContainer {
