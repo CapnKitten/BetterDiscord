@@ -37,6 +37,8 @@
 
         &[id*="user-context-"][role="menuitem"],
         &[id*="guild-context-"],
+        &[id*="channel-context-"],
+        &#message-search-google,
         &#textarea-context-add-to-dictionary,
         &#textarea-context-languages {
             &:after {
@@ -49,9 +51,11 @@
         }
 
         &[aria-haspopup="true"],
+        &#user-context-user-volume,
         &#user-context-devmode-copy-id,
         &#guild-context-hide-muted-channels,
-        &#guild-context-devmode-copy-id {
+        &#guild-context-devmode-copy-id,
+        &#channel-context-devmode-copy-id {
             &:after {
                 display: none;
             }
@@ -65,11 +69,14 @@
             'user-context-note':                    'edit',
             'user-context-add-friend':              'person_add',
             'user-context-remove-friend':           'person_remove',
+            'user-context-manage-integration':      'settings',
             'user-context-block':                   'block',
             'user-context-change-nickname':         'edit',
             'user-context-timeout':                 'timer',
             'user-context-kick':                    'remove_circle',
             'user-context-ban':                     'hammer',
+
+            'message-search-google':                'search',
 
             'textarea-context-add-to-dictionary':   'library_add',
             'textarea-context-languages':           'translate',
@@ -82,6 +89,14 @@
             'guild-context-create-channel':         'add_circle',
             'guild-context-create-category':        'list_add',
             'guild-context-create-event':           'event',
+
+            'channel-context-mark-channel-read':    'visibility',
+            'channel-context-edit-channel':         'edit',
+            'channel-context-invite-people':        'person_add',
+            'channel-context-clone-channel':        'content_copy',
+            'channel-context-create-text-channel':  'add_circle',
+            'channel-context-channel-copy-link':    'content_copy',
+            'channel-context-delete-channel':       'delete'
         );
 
         @each $option, $icon in $icons {
@@ -107,6 +122,7 @@
 
         /* CONTEXT MENU ICONS -> REPLACE HINTS WITH ICONS */
 
+        &#message-copy,
         &[id*="textarea-context-"] {
             %menuPopoutHintContainer {
                 width: 18px;
@@ -118,13 +134,14 @@
         }
 
         $icons: (
-            'copy':     'content_copy',
-            'cut':      'content_cut',
-            'paste':    'paste'
+            'message-copy':             'content_copy',
+            'textarea-context-copy':    'content_copy',
+            'textarea-context-cut':     'content_cut',
+            'textarea-context-paste':   'paste'
         );
 
         @each $option, $icon in $icons {
-            &#textarea-context-#{$option} {
+            &##{$option} {
                 %menuPopoutHintContainer {
                     @include add-icon(currentColor, $icon);
                 }
