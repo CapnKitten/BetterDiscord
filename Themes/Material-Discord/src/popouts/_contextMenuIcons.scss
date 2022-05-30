@@ -8,6 +8,7 @@
 
 %menuPopout {
     %menuPopoutItem {
+        display: flex;
 
         /* CONTEXT MENU ICONS -> MESSAGE OPTIONS */
 
@@ -38,6 +39,9 @@
         &[id*="user-context-"][role="menuitem"],
         &[id*="guild-context-"],
         &[id*="channel-context-"],
+        &[id*="gdm-context-"],
+        &[id*="-image"],
+        &[id*="-native-link"],
         &#message-search-google,
         &#textarea-context-add-to-dictionary,
         &#textarea-context-languages {
@@ -52,17 +56,31 @@
 
         &[aria-haspopup="true"],
         &[role="menuitemcheckbox"],
+        &[id*="devmode-copy-id"],
         &#user-context-user-volume,
-        &#user-context-devmode-copy-id,
-        &#guild-context-hide-muted-channels,
-        &#guild-context-devmode-copy-id,
-        &#channel-context-devmode-copy-id {
+        &#guild-context-hide-muted-channels {
             &:after {
                 display: none;
             }
         }
 
+        &#gdm-context-change-icon {
+            %menuPopoutLabelContainer + div {
+                display: none;
+            }
+
+            %menuPopoutLabelContainer {
+                position: relative;
+            }
+
+            %menuPopoutLabelContainer,
+            &:after {
+                left: -51px;
+            }
+        }
+
         $icons: (
+            'user-context-mark-channel-read':       'visibility',
             'user-context-user-profile':            'person',
             'user-context-mention':                 'mention',
             'user-context-message-user':            'chat_bubble',
@@ -76,8 +94,17 @@
             'user-context-timeout':                 'timer',
             'user-context-kick':                    'remove_circle',
             'user-context-ban':                     'hammer',
+            'user-context-close-dm':                'cancel',
+
+            'gdm-context-mark-channel-read':        'visibility',
+            'gdm-context-change-icon':              'edit',
+            'gdm-context-leave-channel':            'logout',
 
             'message-search-google':                'search',
+            'message-copy-image':                   'content_copy',
+            'message-save-image':                   'save',
+            'message-copy-native-link':             'content_copy',
+            'message-open-native-link':             'open_in_new',
 
             'textarea-context-add-to-dictionary':   'library_add',
             'textarea-context-languages':           'translate',
