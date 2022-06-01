@@ -6,6 +6,18 @@
  *
  */
 
+%messageBackgroundFlash {
+	&:not([style="background-color: rgba(88, 101, 242, 0);"]) {
+		background-color: hsla(var(--accent-hsl),0.3) !important;
+		transition: 200ms ease-out background-color;
+	}
+
+	&[style="background-color: rgba(88, 101, 242, 0);"] {
+		background-color: hsla(var(--accent-hsl),0.0) !important;
+		transition: 400ms background-color;
+	}
+}
+
 %messagesWrapper {
 	margin-left: 68px;
 	margin-right: 16px;
@@ -154,7 +166,8 @@
     }
 
     %messageRepliedAvatar,
-    %messageRepliedBadge {
+    %messageRepliedBadge,
+	%executedCommandAvatar {
         margin-left: 42px;
     }
 }
