@@ -1,0 +1,157 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  POSTS
+ *
+ */
+
+%postsContainer {
+    background-color: var(--chat-color) !important;
+}
+
+%postMainCard {
+    @include card-format(false, 16px);
+}
+
+%newPostContainer {
+    padding: 0;
+
+    &%newPostContainerCollapsed {
+        height: auto;
+
+        %inputWrapper {
+            margin-right: 8px;
+        }
+    }
+
+    %newPostTextArea {
+        margin-top: 12px;
+    }
+
+    %newPostTextAreaInner {
+        padding: 4px 12px;
+        background-color: var(--input-color);
+        border-radius: 19px;
+        color: var(--input-text-color);
+
+        &::-webkit-input-placeholder {
+            color: var(--input-placeholder-color);
+        }
+    }
+
+    %newPostAttachmentArea {
+        margin: 0;
+        padding: 16px 0 0;
+    }
+
+    %newPostTagsDivider {
+        width: calc(100% + 32px);
+        left: -16px;
+    }
+}
+
+%postTag {
+    background-color: transparent;
+    border: 1px solid var(--card-border-color);
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    &%postTagSelected {
+        background-color: hsla(var(--accent-hsl),0.2);
+        border-color: hsl(var(--accent-hsl));
+
+        &:hover {
+            background-color: hsla(var(--accent-hsl),0.3) !important;
+        }
+
+        %postTagName {
+            color: var(--accent-text-color);
+        }
+    }
+}
+
+%newPostTagsButton {
+    padding: var(--button-padding);
+
+    %newPostTagsButtonInner {
+        color: var(--button-link-text-color) !important;
+    }
+}
+
+%postSortContainer {
+    svg {
+        height: var(--input-height);
+    }
+
+    %selectMenu {
+        @include remove-caps(14px);
+    }
+}
+
+%post {
+    &:hover {
+        background-color: var(--card-color-hover);
+        box-shadow: none;
+        transform: none;
+    }
+}
+
+%postsSidebarCard {
+    @include card-format;
+
+    %postsSidebarCardHeader {
+        @include card-format--header;
+    }
+}
+
+%postsSidebarGuidelines,
+%postsSidebarTags {
+    margin-top: 0;
+    padding: 16px;
+}
+
+%postsSidebarShowMore {
+    margin-top: 0;
+    padding: 0 16px 16px;
+
+    %postsSidebarShowMoreText {
+        color: hsl(var(--accent-hsl)) !important;
+    }
+}
+
+/* POSTS THREAD */
+
+%postThreadButtonContainer {
+    padding: 8px 16px;
+    background-color: var(--chat-color);
+    border-top: 1px solid var(--card-border-color);
+    border-bottom: 1px solid var(--card-border-color);
+
+    %button,
+    %postThreadAddReactButton {
+        height: var(--button-height);
+        padding: var(--button-padding);
+        background-color: rgba(var(--button-link-color),0.075);
+        border-radius: var(--button-radius);
+        border: none;
+
+        &:hover {
+            background-color: rgba(var(--button-link-color),0.125);
+        }
+    }
+
+    %button {
+        %buttonContents {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+%postThreadDivider {
+    display: none;
+}

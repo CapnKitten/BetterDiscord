@@ -8,8 +8,6 @@
 
 %menuPopout {
     %menuPopoutItem {
-        display: flex;
-
         /* CONTEXT MENU ICONS -> MESSAGE OPTIONS */
 
         $icons: (
@@ -42,9 +40,12 @@
         &[id*="gdm-context-"],
         &[id*="-image"],
         &[id*="-native-link"],
+        &[id*="thread-context-"],
         &#message-search-google,
         &#textarea-context-add-to-dictionary,
         &#textarea-context-languages {
+            display: flex;
+
             &:after {
                 position: relative;
                 content: " ";
@@ -58,7 +59,9 @@
         &[role="menuitemcheckbox"],
         &[id*="devmode-copy-id"],
         &#user-context-user-volume,
-        &#guild-context-hide-muted-channels {
+        &#guild-context-hide-muted-channels,
+        &#thread-context-search,
+        &#thread-context-pins {
             &:after {
                 display: none;
             }
@@ -109,6 +112,15 @@
             'message-save-image':                   'save',
             'message-copy-native-link':             'content_copy',
             'message-open-native-link':             'open_in_new',
+
+            'thread-context-mark-channel-read':     'visibility',
+            'thread-context-channel-copy-link':     'content_copy',
+            'thread-context-unarchive-thread':      'unarchive',
+            'thread-context-delete-channel':        'delete',
+            'thread-context-leave-thread':          'logout',
+            'thread-context-edit-thread':           'edit',
+            'thread-context-join-thread':           'favorite',
+            'thread-context-open':                  'open_in_new',
 
             'image-context-copy-image':             'content_copy',
             'image-context-save-image':             'save',
