@@ -1,0 +1,182 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  POSTS
+ *
+ */
+
+%postsContainer {
+    background-color: transparent !important;
+}
+
+%postMainCard {
+    @include card-format;
+}
+
+%post {
+    &:hover {
+        background-color: var(--card-color-hover);
+        box-shadow: none;
+        transform: none;
+    }
+}
+
+%postReaction {
+    background-color: var(--message-color);
+	border-radius: var(--message-radius);
+	border: none;
+
+    &:hover {
+        background-color: var(--message-color);
+    }
+
+    &%postReactionMe {
+        background-color: hsla(var(--accent-hsl),0.3);
+		border-color: transparent;
+
+        &:hover {
+			background-color: hsla(var(--accent-hsl),0.4);
+		}
+
+		%postReactionCount {
+			color: hsla(var(--accent-hsl),var(--accent-opacity));
+		}
+    }
+}
+
+%postsSidebarCard {
+    padding: 0;
+    @include card-format;
+    overflow: hidden;
+
+    %postsSidebarCardHeader {
+        padding: 16px;
+        @include card-format--header;
+    }
+}
+
+%postsSidebarGuidelines,
+%postsSidebarTags {
+    margin-top: 0;
+    padding: 16px;
+}
+
+%postsSidebarShowMore {
+    margin-top: 0;
+    padding: 0 16px 16px;
+
+    %postsSidebarShowMoreText {
+        color: hsl(var(--accent-hsl)) !important;
+    }
+}
+
+/* POSTS -> NEW POST */
+
+%newPostContainer {
+    &%newPostContainerCollapsed {
+        height: auto;
+
+        %inputWrapper {
+            margin-right: 8px;
+        }
+    }
+
+    %newPostTitleContainer {
+        min-height: 0;
+    }
+
+    %input {
+        margin: 0;
+        padding: 0 12px;
+        @include input-format;
+    }
+
+    %newPostTextArea {
+        background-color: transparent;
+    }
+
+    %newPostTextAreaInner {
+        --textarea-alpha: 0.1;
+
+        padding: 8px 16px;
+        background-color: rgba(var(--textarea-color),var(--textarea-alpha)) !important;
+    	border-radius: var(--textarea-radius);
+        color: var(--textarea-text-color);
+
+        &::-webkit-input-placeholder {
+            color: var(--textarea-placeholder-color);
+        }
+    }
+
+    %newPostAttachmentArea {
+        margin: 0;
+        padding: 16px 0 0;
+    }
+
+    %newPostMediaButton {
+        background-color: var(--button-color) !important;
+        border: none !important;
+    }
+}
+
+/* POSTS -> TAGS */
+
+%postTag {
+    background-color: var(--card-color);
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    &%postTagSelected {
+        border-color: hsl(var(--accent-hsl));
+    }
+}
+
+%postSortContainer {
+    svg {
+        height: var(--button-height);
+    }
+}
+
+/* POSTS -> POSTS THREAD */
+
+%postThread {
+    &:before {
+        display: none;
+    }
+}
+
+%postThreadIconWrapper {
+    background-color: var(--card-color);
+}
+
+%postThreadButtonContainer {
+    padding: 8px 16px;
+    @include add-translucence-bg(before);
+    border: none;
+
+    %button,
+    %postThreadAddReactButton {
+        height: 32px;
+        background-color: var(--card-color);
+        border: none;
+
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
+    }
+
+    %button {
+        %buttonContents {
+            padding: 0 8px;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+%postThreadDivider {
+    display: none;
+}
