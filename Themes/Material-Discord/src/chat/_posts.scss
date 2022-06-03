@@ -14,6 +14,63 @@
     @include card-format(false, 16px);
 }
 
+%post {
+    &:hover {
+        background-color: var(--card-color-hover);
+        box-shadow: none;
+        transform: none;
+    }
+
+    %postNewMessageCount {
+        color: hsl(var(--accent-hsl)) !important;
+    }
+}
+
+%postReaction {
+    background-color: transparent;
+    border-radius: 8px;
+    border-color: var(--separator-color);
+
+    &:hover {
+        background-color: var(--menu-item-hover);
+    }
+
+    &%postReactionMe {
+        background-color: hsla(var(--accent-hsl),0.3);
+        border-color: hsla(var(--accent-hsl),0.075);
+
+        %postReactionCount {
+            color: var(--accent-text-color);
+            font-weight: 400;
+        }
+    }
+}
+
+%postsSidebarCard {
+    @include card-format;
+
+    %postsSidebarCardHeader {
+        @include card-format--header;
+    }
+}
+
+%postsSidebarGuidelines,
+%postsSidebarTags {
+    margin-top: 0;
+    padding: 16px;
+}
+
+%postsSidebarShowMore {
+    margin-top: 0;
+    padding: 0 16px 16px;
+
+    %postsSidebarShowMoreText {
+        color: hsl(var(--accent-hsl)) !important;
+    }
+}
+
+/* POSTS -> NEW POST */
+
 %newPostContainer {
     padding: 0;
 
@@ -51,9 +108,16 @@
     }
 }
 
+/* POSTS -> TAGS */
+
 %postTag {
     background-color: transparent;
+    border-radius: 10px;
     border: 1px solid var(--card-border-color);
+
+    &%postTagSmall {
+        border-radius: 6px;
+    }
 
     &:hover {
         background-color: var(--card-color-hover) !important;
@@ -91,44 +155,24 @@
     }
 }
 
-%post {
-    &:hover {
-        background-color: var(--card-color-hover);
-        box-shadow: none;
-        transform: none;
+/* POSTS -> POSTS THREAD */
+
+%postThread {
+    &:before {
+        display: none;
     }
 }
 
-%postsSidebarCard {
-    @include card-format;
-
-    %postsSidebarCardHeader {
-        @include card-format--header;
-    }
+%postThreadIconWrapper {
+    background-color: var(--menu-item-hover);
 }
-
-%postsSidebarGuidelines,
-%postsSidebarTags {
-    margin-top: 0;
-    padding: 16px;
-}
-
-%postsSidebarShowMore {
-    margin-top: 0;
-    padding: 0 16px 16px;
-
-    %postsSidebarShowMoreText {
-        color: hsl(var(--accent-hsl)) !important;
-    }
-}
-
-/* POSTS THREAD */
 
 %postThreadButtonContainer {
     padding: 8px 16px;
     background-color: var(--chat-color);
     border-top: 1px solid var(--card-border-color);
     border-bottom: 1px solid var(--card-border-color);
+    box-shadow: none;
 
     %button,
     %postThreadAddReactButton {

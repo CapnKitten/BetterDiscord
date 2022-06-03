@@ -1,0 +1,60 @@
+@use '../../mixins' as *;
+
+%paymentPane {
+    @include card-format(true);
+
+    %paymentPaginator {
+        background-color: transparent !important;
+
+        %paymentDescriptionIcon {
+            border-radius: 50%;
+        }
+
+        %paymentExpandedInfo {
+            @include card-format(false, 16px);
+
+            %paymentHeader {
+                border-color: var(--card-border-color);
+            }
+        }
+    }
+
+    %paymentBottomDivider {
+        background-color: transparent !important;
+    }
+
+    %paymentPageActions {
+        padding: 16px 0;
+    }
+}
+
+%paymentPageButtonPrev,
+%paymentPageButtonNext {
+    width: var(--button-height);
+    height: var(--button-height);
+    padding: 0;
+    line-height: var(--button-height);
+    border-color: var(--card-border-color);
+    text-align: center;
+
+    &%paymentPageButtonDisabled {
+        border-color: var(--card-border-color);
+    }
+}
+
+%paymentPageButtonPrev {
+    border-radius: var(--button-radius) 0 0 var(--button-radius);
+}
+
+%paymentPageButtonNext {
+    border-radius: 0 var(--button-radius) var(--button-radius) 0;
+}
+
+%paymentPageIndicator {
+    height: var(--button-height);
+    border-color: var(--card-border-color);
+}
+
+%codeRedemptionRedirect {
+    @include card-format(true, 16px);
+}
