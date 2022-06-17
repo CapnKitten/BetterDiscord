@@ -1,0 +1,120 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  SERVER SETTINGS CONTENT MODERATION
+ *
+ */
+
+%contentModerationEditCard {
+    @include card-format(true);
+
+    &:before {
+        display: none;
+    }
+}
+
+%triggerMainContainer {
+    padding: 0;
+    border: none;
+
+    %triggerSettingsContainer {
+        margin: 8px 0;
+        @include card-format;
+
+        %textXSMedium%paddingTop,
+        %triggerSettingsExemptionHint {
+            margin-top: 0;
+            padding: 0px 16px 8px;
+        }
+    }
+}
+
+%triggerSettingsSearchContainer {
+    padding: 16px 16px 8px;
+
+    %triggerSettingsSearchBox {
+        @include new-input-format;
+
+        %triggerSettingsSearchBoxInner {
+            padding: 0;
+        }
+
+        %triggerSettingsSearchInput {
+            height: var(--input-height);
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    %popoutSearchRichTag {
+        margin: 6px 3px 6px;
+    }
+}
+
+%keywordsTextArea {
+    width: calc(100% - 32px);
+    margin: 16px 16px 8px;
+    background-color: var(--input-color);
+    border-radius: 19px;
+    border: none;
+}
+
+%keywordsCounter {
+    right: 24px;
+    bottom: 24px;
+}
+
+%keywordListContainer,
+%actionContainer {
+    padding: 12px 16px;
+    flex-direction: row-reverse;
+    background-color: transparent;
+    @include card-format--list(56px);
+
+    &:not(:last-child) {
+        margin-bottom: 0;
+    }
+
+    %triggerSettingsCheckboxWrapper {
+        margin-right: 16px;
+        padding: 0;
+    }
+}
+
+%actionContainer {
+    %actionContainer {
+        padding: 0;
+    }
+
+    %actionIconContainer {
+        margin-right: 0;
+    }
+
+    %actionEditChannel {
+        color: hsl(var(--accent-hsl));
+    }
+}
+
+%actionRuleContainer {
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid var(--card-border-color);
+}
+
+%dividerIcon {
+    color: var(--text-muted);
+}
+
+%resultsListParent {
+    %resultsList {
+        @include popout-format;
+        border: none;
+    }
+
+    %resultsChannelRowLabel {
+        background-color: transparent;
+        border-radius: 6px;
+        border: 1px solid var(--card-border-color);
+    }
+}
