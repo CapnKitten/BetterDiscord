@@ -101,6 +101,12 @@
 		background-color: var(--message-color-hover) !important;
 	}
 
+	&%automodMessage {
+		&:before {
+			display: none;
+		}
+	}
+
 	&%messageHasThread {
 		&:after {
 			display: none;
@@ -410,19 +416,59 @@
 		}
 	}
 
-	.iconContainer-2rPbqG {
-		position: relative;
-		width: auto !important;
-		right: auto;
-		margin-right: 12px;
+	%messageContentInner {
+		overflow: visible;
 
-		%messageSystemIcon {
-			&[style*='/assets/c30220457097b064286a8759a9b6c4af.svg'] {
-				background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/phone_called.svg) !important;
+		%messageIconContainer {
+			width: 40px;
+			top: -8px;
+			left: calc((50px + var(--message-padding-side)) * -1);
+		}
+	}
+
+	%messageButtonContainer {
+		margin-top: 8px;
+		margin-left: 0;
+
+		%button {
+			--button-height: 24px;
+			--button-padding: 0 6px;
+
+			%textXSNormal {
+				color: hsl(var(--accent-hsl)) !important;
 			}
+		}
 
-			&[style*='/assets/d80d1fdc43a3c42134a31a39581160ac.svg'] {
-				background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/phone_missed.svg) !important;
+		%messageButtonFooterAction {
+			height: var(--button-height);
+
+			%messageButtonFooterIcon {
+				color: hsl(var(--accent-hsl));
+
+				path {
+					fill: currentColor;
+				}
+			}
+		}
+	}
+
+	%messageButtonDot {
+		margin: 0 4px;
+	}
+
+	%embedCard {
+		background-color: var(--message-color-alt);
+		border-radius: var(--message-radius);
+
+		%messagesWrapper {
+			&%messageCozy {
+				&:not(%message) {
+					margin: 0 0 0 48px;
+
+					%avatarLarge {
+						left: -48px;
+					}
+				}
 			}
 		}
 	}
