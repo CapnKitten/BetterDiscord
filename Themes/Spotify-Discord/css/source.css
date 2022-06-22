@@ -594,21 +594,10 @@ body,
   background-color: var(--sidebar-color);
 }
 
-.membersWrap-3NUR2t {
-  position: relative;
-}
-.membersWrap-3NUR2t:after {
-  position: fixed;
-  content: " ";
-  width: 100%;
-  height: var(--bar-size);
-  left: 0;
-  bottom: 0;
-  background-color: var(--bar-color);
-  box-shadow: 0 -1px 0 0 var(--bar-border-color);
-  pointer-events: none;
-}
-
+/*.membersWrap-3NUR2t {
+	position: relative;
+	@include create-bottom-bar(after);
+}*/
 .members-3WRCEx {
   margin-bottom: var(--bar-size);
 }
@@ -856,11 +845,14 @@ body,
   background-color: var(--chat-color);
 }
 .chat-2ZfjoI .messagesWrapper-RpOMA3 {
-  margin-bottom: 0;
+  margin-bottom: 23px;
+}
+.chat-2ZfjoI .messagesWrapper-RpOMA3 + div:not([class]) {
+  z-index: 3;
 }
 
 .scroller-kQBbkU {
-  margin-bottom: 0;
+  margin-bottom: -8px;
   padding-bottom: 8px;
 }
 
@@ -1050,7 +1042,6 @@ body,
 /* CHAT AREA -> TEXTBOX */
 .form-3gdLxP {
   margin: 0;
-  padding-top: 23px;
   z-index: 2;
 }
 .form-3gdLxP:before {
@@ -1125,12 +1116,8 @@ body,
 }
 
 /* CHAT AREA -> SPAM FILTER */
-.chatContent-3KubbW {
-  z-index: 2;
-}
-
 .spamBanner-1auiob {
-  margin: 21px 16px 20px;
+  margin: 6px 16px 20px;
   padding: 8px 12px;
   background-color: var(--input-color);
   border-radius: 35px;
