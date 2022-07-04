@@ -42,6 +42,9 @@
         &[id*="-native-link"],
         &[id*="thread-context-"],
         &[id*="user-settings-cog-"],
+        &[id*="user-profile-actions-"],
+        &#message-favorite,
+        &#message-unfavorite,
         &#message-search-google,
         &#textarea-context-add-to-dictionary,
         &#textarea-context-languages {
@@ -115,6 +118,8 @@
             'gdm-context-change-icon':                          'edit',
             'gdm-context-leave-channel':                        'logout',
 
+            'message-favorite':                                 'favorite',
+            'message-unfavorite':                               'unfavorite',
             'message-search-google':                            'search',
             'message-copy-image':                               'content_copy',
             'message-save-image':                               'save',
@@ -151,11 +156,14 @@
             'guild-context-mark-folder-read':                   'visibility',
             'guild-context-folder-settings':                    'settings',
             'guild-context-folder-collapse':                    'cancel',
+            'guild-context-join':                               'person_add',
+            'guild-context-create':                             'add_circle',
 
             'channel-context-mark-channel-read':                'visibility',
             'channel-context-unmute-channel':                   'volume_off',
             'channel-context-open-chat':                        'open_in_new',
             'channel-context-edit-channel':                     'edit',
+            'channel-context-collapse-all-categories':          'collapse',
             'channel-context-invite-people':                    'person_add',
             'channel-context-clone-channel':                    'content_copy',
             'channel-context-create-text-channel':              'add_circle',
@@ -163,6 +171,10 @@
             'channel-context-channel-copy-link':                'content_copy',
             'channel-context-copy-channel-topic':               'content_copy',
             'channel-context-delete-channel':                   'delete',
+
+            'user-profile-actions-user-remove':                 'person_remove',
+            'user-profile-actions-user-block':                  'block',
+            'user-profile-actions-user-message':                'chat_bubble',
 
             'user-settings-cog-My_Account':                     'settings',
             'user-settings-cog-Profile_Customization':          'edit',
@@ -236,6 +248,68 @@
             &##{$option} {
                 %menuPopoutHintContainer {
                     @include add-icon(currentColor, $icon);
+                }
+            }
+        }
+    }
+
+    %submenuContainer {
+        %menuPopoutItem {
+            flex-direction: row;
+
+            &:before {
+                display: block;
+                position: relative;
+                content: " ";
+                width: 18px;
+                height: 18px;
+                margin-right: 12px;
+            }
+
+            $icons: (
+                'user-context-apps':                        'apps',
+                'user-context-invite-to-server':            'add_circle',
+                'user-context-roles':                       'person',
+                'user-context-mute-channel':                'volume_up',
+
+                'gdm-context-mute-channel':                 'volume_up',
+
+                'message-add-reaction':                     'emoji',
+                'message-apps':                             'apps',
+                'message-actions-apps':                     'apps',
+
+                'guild-context-mute-guild':                 'volume_up',
+                'guild-context-guild-notifications':        'notifications',
+                'guild-context-guild-settings':             'settings',
+
+                'channel-context-mute-channel':             'volume_up',
+                'channel-context-channel-notifications':    'notifications',
+
+                'user-settings-cog-Appearance':             'chat',
+                'user-settings-cog-Accessibility':          'accessibility',
+                'user-settings-cog-Voice___Video':          'mic',
+                'user-settings-cog-Streamer_Mode':          'live_tv',
+                'user-settings-cog-Experiments':            'settings'
+            );
+
+            @each $option, $icon in $icons {
+                &##{$option} {
+                    &:before {
+                        @include add-icon(currentColor, $icon);
+                    }
+                }
+            }
+
+            %menuPopoutIconContainer {
+                margin-right: 0;
+                margin-left: 8px;
+            }
+        }
+
+        %contextMenuItemSubMenuAlt {
+            %menuPopoutItem {
+                &:before {
+                    display: none;
                 }
             }
         }
