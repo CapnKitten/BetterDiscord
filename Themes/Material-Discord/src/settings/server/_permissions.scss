@@ -79,8 +79,38 @@
     background-color: transparent;
 }
 
-/*.easyModeLayoutStyle-11J5S7 {
-	.card-16VQ8C {
-		margin-bottom: 24px;
+%staticToolbar {
+	margin-bottom: 8px;
+	@include card-format;
+	overflow: hidden;
+
+	%button {
+		--button-height: 32px;
+		--button-background: transparent;
+		--button-radius: 0;
 	}
-}*/
+}
+
+%forumGuidelines {
+	--input-padding: 0 12px;
+
+	@include new-input-format(false, 200px, 250px);
+	border-radius: 19px;
+
+	%slateTextArea {
+		right: 0;
+		padding: 12px 0;
+	}
+}
+
+%forumGuidelinesAddTags {
+	background-color: hsl(var(--accent-hsl));
+
+	&:not(%forumGuidelinesAddTagsDisabled):hover {
+		background-color: hsl(var(--accent-hsl));
+	}
+
+	path {
+		fill: var(--accent-text-color);
+	}
+}

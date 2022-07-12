@@ -21,6 +21,52 @@
     }
 }
 
+/* POST -> GET STARTED */
+
+%postGetStartedCard {
+    @include card-format;
+
+    %postGetStartedWrapper {
+        padding: 0;
+    }
+
+    %postGetStartedHeaderRow {
+        @include card-format--header;
+    }
+
+    %postGetStartedChecklist {
+        margin: 16px;
+        @include card-format;
+
+        %postGetStartedChecklistStepContainer {
+            margin-top: 0;
+            padding: 16px;
+            background-color: transparent;
+            @include card-format--list(52px);
+        }
+    }
+}
+
+%optionPillButton {
+    --button-height: 32px;
+    --button-padding: 0 8px;
+
+    &%buttonFilled {
+        --button-background: transparent;
+        --button-outline: 1px solid var(--text-muted);
+    }
+
+    &:after {
+        display: none;
+    }
+
+    %optionPill {
+        background-color: transparent;
+    }
+}
+
+/* POSTS -> POST */
+
 %post {
     &:hover {
         background-color: var(--card-color-hover);
@@ -67,6 +113,8 @@
     }
 }
 
+/* POSTS -> SIDEBAR CARDS */
+
 %postsSidebarCard {
     @include card-format;
 
@@ -103,6 +151,50 @@
         }
     }
 
+    %newPostBodyContainer {
+        display: block;
+    }
+
+    %newPostTagsContainer {
+        gap: 20px;
+    }
+
+    %newPostAttachmentContainer {
+        margin: 16px 0 0 52px;
+
+        %newPostAttachmentUploadInput {
+            @include card-format;
+        }
+
+        %newPostAttachmentImageSmall {
+            border-radius: var(--card-radius-big);
+        }
+
+        %newPostAttachmentBadge {
+            background-color: hsl(var(--accent-hsl));
+            border-width: 4px;
+            border-color: var(--chat-color);
+            color: var(--accent-text-color);
+        }
+    }
+
+    %newPostAttachmentPopoutContainer {
+        top: -25px;
+        right: unset;
+        left: -25px;
+
+        %newPostAttachmentPopout {
+            display: flex;
+            flex-direction: row-reverse;
+            @include popout-format;
+            border: none;
+        }
+
+        %channelTextAreaUpload {
+            padding: 0;
+        }
+    }
+
     %newPostTextArea {
         margin-top: 12px;
     }
@@ -116,11 +208,6 @@
         &::-webkit-input-placeholder {
             color: var(--input-placeholder-color);
         }
-    }
-
-    %newPostAttachmentArea {
-        margin: 0;
-        padding: 16px 0 0;
     }
 
     %newPostTagsDivider {
@@ -189,6 +276,9 @@
 }
 
 %postThreadButtonContainer {
+    --button-height: 26px;
+    --button-padding: 0 10px;
+
     padding: 8px 16px;
     background-color: var(--chat-color);
     border-top: 1px solid var(--card-border-color);
