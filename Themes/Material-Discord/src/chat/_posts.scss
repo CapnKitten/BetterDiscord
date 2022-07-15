@@ -11,14 +11,28 @@
 }
 
 %postMainCard {
-    @include card-format(false, 16px);
+    @include card-format(false, 16px 16px 12px);
+    box-shadow: none;
 
     %postMainCardTitle {
         input,
         input::placeholder {
             font-family: var(--app-font);
         }
+
+        %input {
+            padding-left: 32px;
+        }
     }
+
+    %postMainCardSearchIcon,
+    %postMainCardCloseIcon {
+        top: 8px;
+    }
+}
+
+%postNoPosts {
+    @include card-format(false, 16px);
 }
 
 /* POST -> GET STARTED */
@@ -151,16 +165,20 @@
         }
     }
 
-    %newPostBodyContainer {
+    %newPostContentContainer {
+        padding-left: 0;
+        padding-right: 94px;
+    }
+
+    .formContainer-1zrOWf {
+        position: relative;
         display: block;
     }
 
-    %newPostTagsContainer {
-        gap: 20px;
-    }
-
     %newPostAttachmentContainer {
-        margin: 16px 0 0 52px;
+        position: absolute;
+        top: 55px;
+        right: 0;
 
         %newPostAttachmentUploadInput {
             @include card-format;
@@ -179,13 +197,7 @@
     }
 
     %newPostAttachmentPopoutContainer {
-        top: -25px;
-        right: unset;
-        left: -25px;
-
         %newPostAttachmentPopout {
-            display: flex;
-            flex-direction: row-reverse;
             @include popout-format;
             border: none;
         }
@@ -196,11 +208,13 @@
     }
 
     %newPostTextArea {
-        margin-top: 12px;
+        min-height: 70px;
+        margin-top: 16px;
     }
 
     %newPostTextAreaInner {
-        padding: 4px 12px;
+        min-height: 70px;
+        padding: 6px 12px;
         background-color: var(--input-color);
         border-radius: 19px;
         color: var(--input-text-color);
@@ -208,6 +222,10 @@
         &::-webkit-input-placeholder {
             color: var(--input-placeholder-color);
         }
+    }
+
+    %newPostTagsContainer {
+        margin-top: 12px;
     }
 
     %newPostTagsDivider {
@@ -232,11 +250,11 @@
     }
 
     &%postTagSelected {
-        background-color: hsla(var(--accent-hsl),0.2);
-        border-color: hsl(var(--accent-hsl));
+        background-color: hsla(var(--accent-hsl),0.3);
+        border-color: transparent;
 
         &:hover {
-            background-color: hsla(var(--accent-hsl),0.3) !important;
+            background-color: hsla(var(--accent-hsl),0.4) !important;
         }
 
         %postTagName {
