@@ -40,7 +40,9 @@
 	}
 }
 
-@mixin add-translucence-bg($pseudo) {
+@mixin add-translucence-bg($pseudo, $bg: false) {
+	$bg: #{if($bg, 'var(--popout-color)', 'transparent')};
+
 	overflow: hidden;
 
 	&:#{$pseudo} {
@@ -50,6 +52,7 @@
 		height: calc(100% + (var(--app-margin) * 2) + 24px);
 		top: calc((var(--app-margin) + 24px) * -1);
 		left: calc(var(--app-margin) * -1);
+		background-color: $bg;
 		background-image: var(--app-bg);
 		background-repeat: no-repeat;
 		background-position: center;

@@ -12,7 +12,25 @@
 
 %postMainCard {
     @include card-format;
+
+    &%postMainCardHeader {
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    %postMainCardTitle {
+        %input {
+            padding-left: 42px;
+        }
+    }
 }
+
+%postMainCardSearchIcon,
+%postMainCardCloseIcon {
+    margin-left: 8px;
+}
+
+/* POSTS -> POSTS */
 
 %post {
     &:hover {
@@ -86,6 +104,36 @@
         min-height: 0;
     }
 
+    %newPostContentContainer {
+        padding-left: 0;
+        padding-right: 94px;
+    }
+
+    %newPostFormContainer {
+        position: relative;
+        display: block;
+    }
+
+    %newPostAttachmentContainer {
+        position: absolute;
+        top: 52px;
+        right: 0;
+
+        %newPostAttachmentUploadInput {
+            @include card-format;
+        }
+
+        %newPostAttachmentImageSmall {
+            border-radius: var(--card-radius);
+        }
+
+        %newPostAttachmentBadge {
+            background-color: hsl(var(--accent-hsl));
+            border-width: 4px;
+            color: var(--accent-text-color);
+        }
+    }
+
     %input {
         margin: 0;
         padding: 0 12px;
@@ -94,6 +142,10 @@
 
     %newPostTextArea {
         background-color: transparent;
+    }
+
+    %newPostTextArea {
+        margin: 16px 0 0;
     }
 
     %newPostTextAreaInner {
@@ -124,13 +176,18 @@
 
 %postTag {
     background-color: var(--card-color);
+    border: none;
 
     &:hover {
         background-color: var(--card-color-hover) !important;
     }
 
     &%postTagSelected {
-        border-color: hsl(var(--accent-hsl));
+        background-color: hsla(var(--accent-hsl),0.3);
+
+        &:hover {
+            background-color: hsla(var(--accent-hsl),0.4) !important;
+        }
     }
 }
 
