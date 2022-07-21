@@ -1,0 +1,39 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  GUILD POPOUT
+ *
+ */
+
+%guildPopout {
+    @include popout-format(true);
+
+    %guildPopoutIconWithSplash {
+        foreignObject {
+            mask: none !important;
+        }
+    }
+
+    %guildPopoutIconMask {
+        background-color: var(--popout-color);
+    }
+
+    %guildPopoutIconMask,
+    %guildPopoutAvatar {
+        border-radius: var(--avatar-radius);
+    }
+}
+
+%guildPopoutFooter {
+    background-color: transparent;
+    border-top: 1px solid var(--popout-header-border);
+
+    %guildPopoutEmojiHeader {
+        @include remove-caps(14px);
+    }
+
+    %guildPopoutEmojiCounter {
+        background-color: var(--popout-color-alt);
+    }
+}
