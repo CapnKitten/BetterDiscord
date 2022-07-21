@@ -70,6 +70,7 @@
         &[role="menuitemcheckbox"],
         &[id*="devmode-copy-id"],
         &#user-context-user-volume,
+        &#user-context-report-event,
         &#guild-context-hide-muted-channels,
         &#thread-context-search,
         &#thread-context-pins {
@@ -214,6 +215,23 @@
             }
         }
 
+        /* CONTEXT MENU ICONS -> DISCORD IS DUMB */
+
+        $icons: (
+            'user-context-Start Event':         'play',
+            'user-context-Edit Event':          'edit',
+            'user-context-Cancel Event':        'remove_circle',
+            'user-context-Copy Event Link':     'content_copy'
+        );
+
+        @each $option, $icon in $icons {
+            &[id="#{$option}"] {
+                &:after {
+                    @include add-icon(currentColor, $icon);
+                }
+            }
+        }
+
         $spotifyIcons: (
             'spotify-play': 'spotify',
             'spotify-sync': 'listen_along',
@@ -310,6 +328,18 @@
 
             @each $option, $icon in $icons {
                 &##{$option} {
+                    &:before {
+                        @include add-icon(currentColor, $icon);
+                    }
+                }
+            }
+
+            $icons: (
+                'user-context-Add to Calendar':             'add_circle'
+            );
+
+            @each $option, $icon in $icons {
+                &[id="#{$option}"] {
                     &:before {
                         @include add-icon(currentColor, $icon);
                     }
