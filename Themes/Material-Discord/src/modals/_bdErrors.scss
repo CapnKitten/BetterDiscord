@@ -6,8 +6,69 @@
  *
  */
 
+%bdErrorsModalHeader {
+    margin: 0;
+    padding: 16px 16px 0;
+    border-bottom: 1px solid var(--card-border-color);
+
+    %size14 {
+        font-size: 20px;
+    }
+}
+
+%bdTabBar {
+    height: 40px;
+    margin-left: -8px;
+
+    %bdTabItem {
+        height: inherit;
+        margin-right: 8px;
+        padding: 0 8px;
+		border-radius: 0;
+        color: var(--interactive-normal);
+
+        &,
+		&:hover,
+		&%bdTabItemSelected {
+			background-color: transparent;
+		}
+
+        &:hover {
+			color: var(--interactive-hover);
+		}
+
+        &%bdTabItemSelected {
+            @include tab-border(75%);
+            color: var(--interactive-normal);
+        }
+
+        &:last-of-type {
+			margin-right: 0;
+		}
+    }
+}
+
+%bdErrorsModalContent {
+    padding-bottom: 0;
+}
+
+%bdErrorsContainer {
+    height: 100%;
+    margin-top: 0;
+    padding: 0 16px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        --scrollbar-width: var(--scrollbar-thin-width);
+    }
+}
+
 %bdErrorCard {
     @include card-format(true);
+
+    &:first-of-type {
+        margin-top: 16px;
+    }
 
     %bdErrorCardHeader {
         padding: 16px;
