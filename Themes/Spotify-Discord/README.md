@@ -32,10 +32,6 @@ This theme works best with the plugin called [SpotifyControls](https://github.co
 
 ![discord_105](https://user-images.githubusercontent.com/4013216/120567808-8f590a80-c3e0-11eb-8053-dc9f63e8471c.png)
 
-#### Friends list
-
-![discord_106](https://user-images.githubusercontent.com/4013216/120567817-954eeb80-c3e0-11eb-8965-a4ee9fa83537.png)
-
 &nbsp;
 
 ## Custom server title bar colors
