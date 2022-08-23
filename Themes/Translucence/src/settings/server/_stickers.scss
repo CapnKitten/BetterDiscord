@@ -1,14 +1,37 @@
 @use '../../mixins' as *;
 
+/*
+ *
+ *	SERVER SETTINGS STICKERS
+ *
+ */
+
 %stickersTier {
 	@include card-format;
+
+	%stickersGrid {
+		padding: 0 16px 16px;
+	}
 }
 
-%stickersTierHeaderLocked {
+%stickersTierHeaderLocked,
+%stickersTierHeaderUnlocked {
 	background-color: transparent !important;
 	box-shadow: var(--popout-header-shadow);
 }
 
 %stickersTeirBody {
 	background-color: transparent !important;
+}
+
+%stickersUploadCard {
+	@include card-format(false, true);
+}
+
+%stickersProgressBackground {
+	color: var(--card-color) !important;
+}
+
+%stickersTierInProgress {
+	background-color: var(--card-color) !important;
 }
