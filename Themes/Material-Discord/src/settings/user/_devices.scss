@@ -1,0 +1,45 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  USER SETTINGS DEVICES
+ *
+ */
+
+%deviceSessions {
+    > div:not([class]) {
+        @include card-format;
+    }
+}
+
+%deviceOtherSessions {
+    @include card-format;
+}
+
+%deviceSessions,
+%deviceOtherSessions {
+    %deviceSectionTitle {
+        @include card-format--header;
+    }
+}
+
+%deviceSession {
+    padding: 16px;
+    gap: 16px;
+    @include card-format--list(80px);
+
+    %deviceSessionIcon {
+        background-color: hsl(var(--accent-hsl));
+        color: var(--accent-text-color);
+    }
+
+    %deviceSessionInfoRow {
+        &:not(%deviceSessionInfoEyebrow) {
+            color: var(--text-muted);
+        }
+    }
+
+    %deviceSessionInfoEyebrow {
+        @include remove-caps(14px);
+    }
+}
