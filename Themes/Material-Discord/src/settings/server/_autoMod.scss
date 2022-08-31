@@ -6,7 +6,7 @@
  *
  */
 
-%contentModerationEditCard {
+%automodEditCard {
     @include card-format(true);
 
     &:before {
@@ -22,12 +22,30 @@
         margin: 8px 0;
         @include card-format;
 
-        %textXSMedium%paddingTop,
+        %paddingTop,
         %triggerSettingsExemptionHint {
             margin-top: 0;
             padding: 0px 16px 8px;
         }
     }
+}
+
+%triggerCollapseable {
+    background-color: transparent;
+    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+    border-top: 1px solid var(--card-border-color);
+
+    &:active {
+        background-color: transparent !important;
+    }
+
+    &:before {
+        display: none;
+    }
+}
+
+%mentionLimitContainer {
+    background-color: transparent;
 }
 
 %triggerSettingsSearchContainer {
@@ -68,7 +86,6 @@
 %keywordListContainer,
 %actionContainer {
     padding: 12px 16px;
-    flex-direction: row-reverse;
     background-color: transparent;
     @include card-format--list(56px);
 
@@ -77,7 +94,6 @@
     }
 
     %triggerSettingsCheckboxWrapper {
-        margin-right: 16px;
         padding: 0;
     }
 }
@@ -88,7 +104,7 @@
     }
 
     %actionIconContainer {
-        margin-right: 0;
+        margin-right: 16px;
     }
 
     %actionEditChannel {
@@ -115,5 +131,53 @@
         background-color: transparent;
         border-radius: 6px;
         border: 1px solid var(--card-border-color);
+    }
+}
+
+
+%stepperContainer {
+    padding: 0;
+    background-color: var(--card-color);
+    border-radius: calc(var(--input-height) / 2);
+    border: 1px solid var(--card-border-color);
+
+    --input-height: 36px;
+
+    %stepper {
+        border-radius: inherit;
+    }
+
+    %stepperIconWrapper {
+        background-color: transparent !important;
+        transition: var(--default-time) var(--default-animation) background-color;
+
+        &:first-of-type {
+            border-right: 1px solid var(--card-border-color);
+        }
+
+        &:last-of-type {
+            border-left: 1px solid var(--card-border-color);
+        }
+
+        &:hover {
+            background-color: var(--card-color-hover) !important;
+        }
+
+        %stepperIcon {
+            height: var(--input-height);
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+
+    %inputWrapper {
+        border-bottom: none !important;
+
+        &:before,
+        &:after {
+            bottom: 0;
+        }
     }
 }
