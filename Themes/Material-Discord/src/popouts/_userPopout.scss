@@ -6,15 +6,54 @@
  *
  */
 
+%userPopoutProfileColors {
+	--profile-gradient-primary-color: var(--popout-color);
+	--profile-gradient-secondary-color: var(--popout-color);
+	--profile-avatar-border-color: var(--popout-color);
+}
+
+%userPopoutInner {
+	border-radius: var(--popout-radius-big);
+
+	&:before {
+		border-radius: calc(var(--popout-radius-big) / 1.25);
+	}
+}
+
 %userPopout {
 	position: relative;
-	width: 280px;
-	max-height: 90vh;
 	@include popout-format(true);
+
+	&%userPopoutThemed {
+		%eyebrow + div:not([class]) {
+			&:before,
+			&:after {
+				background-color: var(--profile-gradient-primary-color);
+			}
+		}
+
+		%inputWrapper {
+			%input {
+				--input-color: var(--profile-body-background-color);
+			}
+		}
+	}
+
+	%userPopoutOverlayBackground {
+		border-radius: calc(var(--popout-radius-big) / 1.25);
+	}
+
+	%userPopoutUpsellWrapper {
+		border-radius: 15px;
+	}
 
 	%userPopoutHeader {
 		border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
 		overflow: hidden;
+	}
+
+	%userPopoutProfileBadges {
+		border-radius: 15px;
 	}
 
 	%userPopoutCustomStatus {
@@ -51,6 +90,11 @@
 		}
 	}
 
+	%eyebrow,
+	.PronounDB-style-header {
+		@include remove-caps(14px);
+	}
+
 	%userPopoutBody {
 		padding: 0 12px;
 
@@ -60,11 +104,6 @@
 
 		%userPopoutDivider {
 			display: none;
-		}
-
-		%eyebrow,
-		.PronounDB-style-header {
-			@include remove-caps(14px);
 		}
 
 		.PronounDB-style-container {
@@ -93,7 +132,8 @@
 	    min-height: var(--button-height);
 	}
 
-	%userPopoutNote {
+	%userPopoutNote,
+	%eyebrow + div:not([class]) {
 		margin: 0;
 		@include input-format(auto, auto);
 
@@ -111,27 +151,27 @@
 		padding: 8px;
 		background-color: transparent;
 		border-top: 1px solid var(--card-border-color);
+	}
 
-		%inputWrapper {
-			border-bottom: none !important;
+	%inputWrapper {
+		border-bottom: none !important;
 
-			&.quickMessage-3jDbBs {
-				margin-top: 0;
-			}
+		&.quickMessage-3jDbBs {
+			margin-top: 0;
+		}
 
-			&:before,
-			&:after {
-				display: none;
-			}
+		&:before,
+		&:after {
+			display: none;
+		}
 
-			%input {
-				padding: 0 12px;
-				background-color: var(--input-color);
-				border-radius: 19px;
+		%input {
+			padding: 0 12px;
+			background-color: var(--input-color);
+			border-radius: 19px;
 
-				&::-webkit-input-placeholder {
-					font-family: var(--app-font);
-				}
+			&::-webkit-input-placeholder {
+				font-family: var(--app-font);
 			}
 		}
 	}
@@ -169,6 +209,7 @@
 }
 
 %userPopoutNoteTextArea {
+
 	&::-webkit-input-placeholder {
 		font-family: var(--app-font);
 	}

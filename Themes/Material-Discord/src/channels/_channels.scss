@@ -48,50 +48,33 @@
 
 /* CHANNELS LIST -> CHANNEL */
 
-%channelContainerDefault {
-	margin: 0 2px 0 8px;
+%channelWrapper {
+	margin: 2px 2px 0 8px;
+	padding: 0;
+	border-radius: var(--channel-radius);
+	transition: var(--default-time) var(--default-animation) background-color;
 
-	%channelContent {
-		transition: var(--default-time) var(--default-animation) background-color;
+	&:hover {
+		background-color: var(--menu-item-hover);
 	}
 
-	&%channelContainerSelected {
+	&%channelWrapperSelected {
 		background-color: var(--menu-item-select-accent);
-		border-radius: var(--channel-radius);
-	}
-
-	&:not(%channelContainerSelected) {
-		%channelWrapper {
-			&:hover {
-				%channelContent {
-					background-color: var(--menu-item-hover);
-				}
-			}
-		}
-	}
-
-	%channelWrapperSelected {
-		&,
-		&:hover {
-			%channelContent {
-				background-color: transparent;
-			}
-		}
 	}
 
 	%channelContent {
 		margin-left: 0;
-		border-radius: var(--channel-radius);
+		background-color: transparent !important;
 	}
 
 	%channelSubtitle {
 		color: hsl(var(--accent-hsl)) !important;
 	}
+}
 
-	%channelThread {
-		%channelMain {
-			margin-left: 34px;
-		}
+%channelThread {
+	%channelMain {
+		margin-left: 28px;
 	}
 }
 
