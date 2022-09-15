@@ -6,10 +6,77 @@
  *
  */
 
+%userPopoutInner {
+	border-radius: var(--popout-radius);
+
+	&:before {
+		border-radius: calc(var(--popout-radius) / 1.25);
+	}
+}
+
 %userPopout {
-	max-height: 90vh;
-	background-color: transparent;
 	@include add-translucence(before, true, true, true);
+
+	&%userPopoutThemed {
+		--card-color: var(--background-secondary-alt);
+
+		* {
+			text-shadow: none;
+		}
+	}
+
+	&:not(%userPopoutThemed) {
+		%userPopoutInner {
+			background: none;
+		}
+
+		%userPopoutProfileBadges,
+		%userPopoutOverlayBackground {
+			background-color: var(--popout-color);
+		}
+
+		%role,
+		%spoilerText {
+			--card-color: var(--background-modifier-hover);
+		}
+	}
+
+	%userPopoutInner {
+		%inputWrapper {
+			background-color: var(--profile-body-background-color);
+			border-radius: 18px;
+			border: none;
+		}
+
+		%userPopoutNoteTextArea {
+			background-color: var(--profile-body-background-color);
+		}
+
+		%input,
+		%userPopoutNoteTextArea {
+			color: var(--text-normal);
+
+			&::-webkit-input-placeholder {
+				color: var(--text-muted);
+			}
+		}
+	}
+
+	%userPopoutUpsellWrapper {
+		border-radius: calc(var(--popout-radius) / 1.25);
+	}
+
+	%userPopoutBanner {
+		border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
+	}
+
+	%userPopoutProfileBadges {
+		border-radius: 15px;
+	}
+
+	%userPopoutOverlayBackground {
+		border-radius: calc(var(--popout-radius) / 1.25);
+	}
 
     %userPopoutHeader {
         border-radius: var(--popout-radius) var(--popout-radius) 0 0;
@@ -43,6 +110,12 @@
             line-height: 16px;
         }
     }
+
+	%userPopoutNoteTextArea {
+		padding: 4px 10px;
+		font-size: 14px;
+		line-height: 16px;
+	}
 
     %userPopoutFooter {
 		margin-top: 0;

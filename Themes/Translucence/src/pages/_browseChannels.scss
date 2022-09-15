@@ -1,0 +1,35 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  BROWSE CHANNELS
+ *
+ */
+
+%browseChannelsChooseContainer {
+    @include card-format;
+}
+
+/* BROWSE CHANNELS -> CHANNELS */
+
+%browseChannelsChannelRow {
+    --button-height: 34px;
+
+    background-color: var(--card-color);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &%browseChannelsFirstChannel {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+        border-top: 1px solid var(--card-border-color);
+    }
+    &%browseChannelsLastChannel {
+        border-radius: 0 0 var(--card-radius) var(--card-radius);
+        border-bottom: 1px solid var(--card-border-color);
+    }
+
+    &:not(%browseChannelsChannelDisabled) {
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
+    }
+}
