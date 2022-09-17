@@ -523,19 +523,7 @@
 	}
 }
 
-/* MESSAGES -> NEW MESSAGES BAR */
-
-%newMessagesBar {
-	left: 0;
-	right: 0;
-	background-color: hsl(var(--accent-hsl));
-	border-radius: 0;
-	box-shadow: var(--shadow-1dp);
-
-	%newMessagesBarText {
-		color: var(--accent-text-color);
-	}
-}
+/* MESSAGES -> NEW MESSAGES DIVIDER */
 
 %newMessagesDivider {
 	&%dividerUnread {
@@ -576,66 +564,7 @@
 	background-color: var(--message-color);
 }
 
-/* MESSAGES -> JUMP TO BUTTON */
-
-%jumpToPresentBar {
-	width: 48px;
-	height: 48px;
-	border-radius: 30%;
-	left: auto;
-	right: 20px;
-	bottom: 20px;
-	padding: 0;
-	background: hsl(var(--accent-hsl)) !important;
-	box-shadow: var(--shadow-3dp);
-
-	&:active {
-		margin: 0 !important;
-	}
-
-	&:after {
-		content: " ";
-		position: absolute;
-		width: 24px;
-		height: 24px;
-		bottom: 0;
-		right: 0;
-		@include add-icon(var(--accent-text-color), expand, solid);
-		-webkit-mask-position: center;
-		mask-position: center;
-		-webkit-mask-origin: content-box;
-		transform: scale(2) translate(-6px, -6px);
-	}
-
-	%jumpToPresentBarButtonBase {
-		width: inherit;
-		height: inherit;
-		padding: inherit;
-
-		&%jumpToPresentBarButtonMain {
-			opacity: 0;
-			z-index: 2;
-		}
-
-		&%jumpToPresentBarButtonAlt {
-			display: none;
-		}
-	}
-
-	%spinner {
-		position: absolute;
-		width: inherit;
-		height: inherit;
-		padding: inherit;
-		background-color: hsl(var(--accent-hsl));
-		border-radius: 50%;
-		z-index: 3;
-
-		%spinnerPulsingEllipsis {
-			vertical-align: middle;
-		}
-	}
-}
+/* MESSAGES -> ERROR BAR */
 
 %messagesErrorBar {
 	width: auto;
