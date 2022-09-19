@@ -29,6 +29,10 @@
             display: none;
         }
     }
+}
+
+%settingsTabBarItemContainer {
+    width: 100%;
 }*/
 
 %settingsSidebar {
@@ -36,18 +40,19 @@
         $icons: (
             // USER SETTINGS
 
-            'my-account':                       'person',
-            'profile-customization':            'edit',
+            'My Account':                       'person',
+            'Profiles':                         'edit',
             'privacy-&-safety':                 'security',
             'authorized-apps':                  'apps',
-            'connections':                      'link',
-            'passport':                         'link',
+            'Devices':                          'devices',
+            'Connections':                      'link',
+            'Passport':                         'link',
             'friend-requests':                  'person_add',
 
-            'subscriptions':                    'subscription',
-            'discord-nitro':                    'nitro',
+            'Nitro':                            'nitro',
             'nitro-server-boost':               'server_boost',
-            'library-inventory':                'gift',
+            'Subscriptions':                    'subscription',
+            'Gift Inventory':                   'gift',
             'billing':                          'payment',
 
             'appearance':                       'chat',
@@ -93,36 +98,38 @@
 
             'overview':                         'dashboard',
             'permissions':                      'lock_open',
-            'roles':                            'person',
+            'Manage Roles':                 'person',
             'emoji':                            'emoji',
-            'stickers':                         'sticker-emoji',
-            'moderation':                       'security',
-            'guild_automod':                    'moderation',
-            'audit_log':                        'audit_log',
-            'integrations':                     'integrations',
+            'Stickers':                     'sticker-emoji',
+            'Integrations':                 'integrations',
             'widget':                           'widgets',
-            'guild_templates':                  'template',
-
+            'Server Template':              'template',
             'vanity_url':                       'link',
-            'community':                        'dashboard',
-            'analytics':                        'analytics',
-            'text_in_voice':                    'chat_bubbles',
-            'partner':                          'partner_program',
-            'discovery':                        'discovery',
-            'member_verification':              'verified_user',
-            'community_welcome':                'partner_program',
 
-            'threads':                          'chat',
-            'guild_premium':                    'server_boost',
+            'moderation':                       'security',
+            'AutoMod':                      'moderation',
+            'audit_log':                        'audit_log',
+            'bans':                             'hammer',
+
+            'Overview':                     'dashboard',
+            'Server Insights':              'analytics',
+            'Partner Program':              'partner_program',
+            'Enable Discovery':             'discovery',
+            'member_verification':              'verified_user',
+            'Welcome Screen':               'partner_program',
+            'Default Channels':             'hub',
+            'Starter Questions':            'help',
+            'Premium Membership':           'monetization_on',
+
+            'Server Boost Status':          'server_boost',
 
             'members':                          'people',
             'instant_invites':                  'person_add',
-            'bans':                             'hammer',
-            'delete':                           'delete'
+            'Delete Server':                'delete'
         );
 
         @each $tab, $icon in $icons {
-			&[aria-controls="#{$tab}-tab"]:before {
+			&[aria-label="#{$tab}"]:before {
                 //@include add-icon(var(--text-normal), #{$icon});
 			}
 		}

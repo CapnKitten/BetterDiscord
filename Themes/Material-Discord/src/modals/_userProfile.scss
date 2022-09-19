@@ -19,90 +19,128 @@
 %userModal {
 	@include popout-format;
 
-	%userModalTopSection {
+	%iconButton {
+		--button-padding: 0;
+	}
+}
+
+%userModalTopSection {
+	background-color: transparent;
+}
+
+%userModalBadgeList {
+	&:not(:empty) {
+		height: var(--button-height);
+		margin-right: 12px;
+		padding: 0 12px;
+		background-color: var(--popout-color-alt);
+		border-radius: var(--button-radius);
+		align-items: center;
+	}
+
+	%userModalBadgeClickable {
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+%userModalAvatar {
+	background-color: var(--popout-color);
+	border-color: var(--popout-color);
+}
+
+%userModalNameTagNoCustomStatus {
+	margin-bottom: 8px;
+}
+
+%userModalTabBarContainer {
+	padding-left: 16px;
+}
+
+%userModalTabBar {
+	%tabBarItem {
+		margin-right: 32px;
+	}
+}
+
+%userModalBody {
+	background-color: transparent;
+}
+
+%userModalInfoScroller {
+	padding: 0 16px;
+}
+
+%userModalInfoSection {
+	padding: 16px 0 8px;
+	border-top: none !important;
+
+	&:nth-child(2) {
+		padding: 8px 0 16px;
+	}
+}
+
+%userModalInfoSectionHeader {
+	@include remove-caps(14px);
+}
+
+%userModalNote {
+	margin: 0;
+	@include input-format(auto, auto);
+
+	textarea {
+		padding: 0;
+
+		&:focus {
+			background-color: transparent;
+		}
+	}
+}
+
+%userPopoutGameIcon,
+%userPopoutActivityGame,
+%userPopoutActivitySpotify {
+	border-radius: var(--avatar-radius);
+}
+
+%userPopoutActivityTwitch {
+	border-radius: var(--card-radius-big);
+}
+
+%userModalConnectedAccounts {
+	margin-top: -16px;
+
+	%userModalConnectedAccount {
+		margin-top: 16px;
 		background-color: transparent;
+		border-radius: var(--card-radius);
+		border: 1px solid var(--card-border-color);
+		transition: var(--default-time) var(--default-animation) background-color;
 
-		%userModalAvatar {
-			background-color: var(--popout-color);
-			border-color: var(--popout-color);
-		}
-
-		%userModalNameTagNoCustomStatus {
-			margin-bottom: 8px;
+		&:hover {
+			background-color: var(--card-color-hover);
 		}
 	}
+}
 
-	%userModalTabBarContainer {
-		padding-left: 16px;
+%discordMemberCreatedAtIconContainer {
+	margin-right: 0;
+	padding: 0;
+	background-color: transparent;
+}
+
+%discordMemberCreatedAtText {
+	margin-left: 8px;
+
+	h3 {
+		line-height: 24px;
+		font-size: 16px;
+		font-weight: 600;
+		user-select: text;
 	}
 
-	%userModalTabBar {
-		%tabBarItem {
-			margin-right: 32px;
-		}
-	}
-
-	%userModalBody {
-		background-color: transparent;
-
-		%userModalInfoScroller {
-			padding: 0 16px;
-		}
-
-		%userModalInfoSection {
-			padding: 16px 0 8px;
-			border-top: none;
-
-			&:nth-child(2) {
-				padding: 8px 0 16px;
-			}
-		}
-
-		%userModalInfoSectionHeader {
-			@include remove-caps(14px);
-		}
-
-		%userModalNote {
-			margin: 0;
-			@include input-format(auto, auto);
-
-			textarea {
-				padding: 0;
-
-				&:focus {
-					background-color: transparent;
-				}
-			}
-		}
-
-		%userModalConnectedAccounts {
-			margin-top: -16px;
-
-			%userModalConnectedAccount {
-				margin-top: 16px;
-				background-color: transparent;
-				border-radius: var(--card-radius);
-				border: 1px solid var(--card-border-color);
-				transition: var(--default-time) var(--default-animation) background-color;
-
-				&:hover {
-					background-color: var(--card-color-hover);
-				}
-			}
-		}
-
-		%iconButton {
-			--button-padding: 0;
-		}
-	}
-
-	%userPopoutGameIcon,
-	%userPopoutActivityGame,
-	%userPopoutActivitySpotify {
-		border-radius: var(--avatar-radius);
-	}
-
-	%userPopoutActivityTwitch {
-		border-radius: var(--card-radius-big);
+	%textSMNormal {
+		display: none;
 	}
 }
