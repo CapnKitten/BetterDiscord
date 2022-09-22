@@ -22,7 +22,11 @@
 	box-shadow: var(--button-shadow);
 	color: var(--button-text-color) !important;
 	transition: var(--default-time) var(--default-animation) box-shadow;
-	overflow: hidden;
+
+	&:hover,
+	&:active {
+		opacity: 1;
+	}
 
 	&:hover {
 		--button-shadow: none;
@@ -39,6 +43,7 @@
 		height: 100%;
 		top: 0;
 		left: 0;
+		border-radius: var(--button-radius);
 		opacity: 0;
 		pointer-events: none;
 		transition: var(--default-time) var(--default-animation) opacity;
@@ -208,7 +213,7 @@
 %buttongSizeAlt,
 %noticeButton,
 %buttonSizeIcon {
-	min-width: var(--button-height);
+	//min-width: var(--button-height);
 	height: var(--button-height);
 	min-height: var(--button-height);
 	padding: var(--button-padding);
@@ -234,6 +239,11 @@
 	%iconButton {
 		--button-padding: 0;
 	}
+}
+
+%buttonIconSize {
+	min-width: var(--button-height);
+	max-width: var(--button-height);
 }
 
 %iconButton {
