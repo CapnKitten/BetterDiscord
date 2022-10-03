@@ -2,35 +2,44 @@
 
 /*
  *
- *  POSTS
+ *  FORUM
  *
  */
 
-%postsContainer {
+%forumContainer {
     background-color: transparent !important;
 }
 
-%postMainCard {
+%forumMainCard {
     @include card-format;
 
-    &%postMainCardHeader {
+    &%forumMainCardHeader {
         border: none !important;
         box-shadow: none !important;
     }
 
-    %postMainCardTitle {
+    &%forumMainCardHeaderWithMatchingPosts {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+    }
+
+    %forumMainCardTitle {
         %input {
             padding-left: 42px;
         }
     }
 }
 
-%postMainCardSearchIcon,
-%postMainCardCloseIcon {
+%forumMainCardSearchIcon,
+%forumMainCardCloseIcon {
     margin-left: 8px;
 }
 
-/* POSTS -> POSTS */
+%forumMainCardMatchingPostsRow {
+    background-color: var(--card-color);
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
+
+/* FORUM -> POSTS */
 
 %post {
     &:hover {
@@ -63,33 +72,33 @@
     }
 }
 
-%postsSidebarCard {
+%forumSidebarCard {
     padding: 0;
     @include card-format;
     overflow: hidden;
 
-    %postsSidebarCardHeader {
+    %forumSidebarCardHeader {
         padding: 16px;
         @include card-format--header;
     }
 }
 
-%postsSidebarGuidelines,
-%postsSidebarTags {
+%forumSidebarGuidelines,
+%forumSidebarTags {
     margin-top: 0;
     padding: 16px;
 }
 
-%postsSidebarShowMore {
+%forumSidebarShowMore {
     margin-top: 0;
     padding: 0 16px 16px;
 
-    %postsSidebarShowMoreText {
+    %forumSidebarShowMoreText {
         color: hsl(var(--accent-hsl)) !important;
     }
 }
 
-/* POSTS -> NEW POST */
+/* FORUM -> NEW POST */
 
 %newPostContainer {
     &%newPostContainerCollapsed {
@@ -138,6 +147,7 @@
         margin: 0;
         padding: 0 12px;
         @include input-format;
+        line-height: var(--input-height);
     }
 
     %newPostTextArea {
@@ -172,7 +182,7 @@
     }
 }
 
-/* POSTS -> TAGS */
+/* FORUM -> TAGS */
 
 %postTag {
     background-color: var(--card-color);
@@ -197,7 +207,7 @@
     }
 }
 
-/* POSTS -> POSTS THREAD */
+/* FORUM -> POSTS THREAD */
 
 %postThread {
     &:before {
