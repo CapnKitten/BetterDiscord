@@ -86,18 +86,9 @@
 			left: -12px;
 		}
 
-		%userPopoutAboutMeTitle {
-			@include remove-caps(14px);
-		}
-
 		%userPopoutAboutMeBody {
 			display: block;
 		}
-	}
-
-	%eyebrow,
-	.PronounDB-style-header {
-		@include remove-caps(14px);
 	}
 
 	%userPopoutBody {
@@ -137,8 +128,7 @@
 	    min-height: var(--button-height);
 	}
 
-	%userPopoutNote,
-	%eyebrow + div:not([class]) {
+	%userPopoutNote {
 		margin: 0;
 		@include input-format(auto, auto);
 
@@ -179,6 +169,20 @@
 				font-family: var(--app-font);
 			}
 		}
+	}
+}
+
+%eyebrow,
+%userPopoutAboutMeTitle,
+%userPopoutHeaderText,
+.PronounDB-style-header {
+	@include remove-caps(14px);
+	color: var(--header-secondary) !important;
+}
+
+%userPopoutInfoBody {
+	+ %userPopoutInfoTitle {
+		margin-top: 16px;
 	}
 }
 
