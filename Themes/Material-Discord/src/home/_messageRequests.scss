@@ -1,0 +1,60 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  MESSAGE REQUESTS
+ *
+ */
+
+%messageRequestContainer {
+    %messageRequestsContent {
+        height: auto !important;
+        margin-top: 24px;
+        @include card-format;
+        overflow: hidden;
+
+        > div[style="height: 24px;"] {
+            display: none;
+        }
+    }
+
+    %messageRequestsSectionTitle {
+        margin: 0;
+        @include card-format--header;
+        @include remove-caps(1em);
+    }
+}
+
+%messageRequestItem {
+    padding: 16px;
+    @include card-format--list(68px);
+
+    &:hover,
+    &%messageRequestItemSelected {
+        border-radius: 0;
+
+        %messageRequestItemActionButton {
+            background-color: var(--card-color-alt);
+        }
+    }
+
+    &:hover {
+        background-color: var(--card-color-hover);
+    }
+
+    &%messageRequestItemSelected {
+        background-color: var(--card-color-alt);
+    }
+
+    %messageRequestItemActionButton {
+        background-color: var(--card-color-hover);
+    }
+}
+
+/* MESSAGE REQUESTS -> PREVIEW */
+
+%dmChat {
+    &:before {
+        display: none;
+    }
+}
