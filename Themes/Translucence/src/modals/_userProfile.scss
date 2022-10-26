@@ -6,32 +6,34 @@
  *
  */
 
-%userModalAvatar {
-	background-color: transparent;
-	border: none;
-	box-shadow: var(--popout-shadow);
+%userProfileModalBadgeList {
+	height: var(--button-height);
+	padding: 0 4px;
+	border-radius: var(--button-radius);
+}
 
-	svg {
-		filter: none;
+%userProfileModalNote {
+	margin: 0;
+
+	%userProfileNoteTextArea {
+		border-radius: 11px;
+
+		&:focus {
+			background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus));
+		}
 	}
 }
 
-%userModalTopSection {
-	background-color: rgba(0,0,0,var(--popout-header-opacity));
-}
-
-%userModalBody {
-	background-color: transparent;
-}
-
-%userPopoutNote {
-	textarea {
-		padding: 7px 8px;
-		border-radius: var(--input-radius);
-		font-size: 14px;
-	}
-}
-
-%userModalConnectedAccount {
+%userProfileModalConnectedAccount {
 	@include card-format(false, true);
+}
+
+/* USER PROFILE -> LISTS */
+
+%listRow {
+	border-radius: var(--card-radius);
+
+	&:hover {
+		background-color: var(--card-color);
+	}
 }
