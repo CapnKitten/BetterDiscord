@@ -6,114 +6,41 @@
  *
  */
 
-.swatch-35F5kl {
-	min-height: 50px !important;
-	height: 50px !important;
+%userProfileModalBadgeList {
+	height: var(--button-height);
+	padding: 0 7px;
+	background-color: var(--profile-body-background-color);
 	border-radius: var(--button-radius);
-
-	&:after {
-		display: none;
-	}
 }
 
-%userModal {
-	@include popout-format;
+%userProfileModalTabBarContainer {
+	margin: 16px 0 0;
+	padding: 0 12px;
 
-	%iconButton {
-		--button-padding: 0;
-	}
-}
-
-%userModalTopSection {
-	background-color: transparent;
-}
-
-%userModalBadgeList {
-	&:not(:empty) {
-		height: var(--button-height);
-		margin-right: 12px;
-		padding: 0 12px;
-		background-color: var(--popout-color-alt);
-		border-radius: var(--button-radius);
-		align-items: center;
+	%userProfileModalTabBar {
+		gap: 24px;
 	}
 
-	%userModalBadgeClickable {
-		margin-bottom: 0;
+	%tabBarItem {
+		height: 36px;
+		border-bottom: none;
 
-		&:last-of-type {
-			margin-right: 0;
+		&%tabBarItemSelected {
+			@include tab-border(90%);
 		}
 	}
 }
 
-%userModalAvatar {
-	background-color: var(--popout-color);
-	border-color: var(--popout-color);
-}
-
-%userModalNameTagNoCustomStatus {
-	margin-bottom: 8px;
-}
-
-%userModalTabBarContainer {
-	padding-left: 16px;
-}
-
-%userModalTabBar {
-	%tabBarItem {
-		margin-right: 32px;
-	}
-}
-
-%userModalBody {
-	background-color: transparent;
-}
-
-%userModalInfoScroller {
-	padding: 0 16px;
-}
-
-%userModalInfoSection {
-	padding: 16px 0 8px;
-	border-top: none !important;
-
-	&:nth-child(2) {
-		padding: 8px 0 16px;
-	}
-}
-
-%userModalInfoSectionHeader {
+%eyebrow,
+%activityHeaderText {
 	@include remove-caps(14px);
 }
 
-%userModalNote {
-	margin: 0;
-	@include input-format(auto, auto);
-
-	textarea {
-		padding: 0;
-
-		&:focus {
-			background-color: transparent;
-		}
-	}
-}
-
-%userPopoutGameIcon,
-%userPopoutActivityGame,
-%userPopoutActivitySpotify {
-	border-radius: var(--avatar-radius);
-}
-
-%userPopoutActivityTwitch {
-	border-radius: var(--card-radius-big);
-}
-
-%userModalConnectedAccounts {
+%userProfileModalConnectedAccounts {
 	margin-top: -16px;
+	border-top: none !important;
 
-	%userModalConnectedAccount {
+	%userProfileModalConnectedAccount {
 		margin-top: 16px;
 		background-color: transparent;
 		border-radius: var(--card-radius);
@@ -124,4 +51,28 @@
 			background-color: var(--card-color-hover);
 		}
 	}
+}
+
+%userProfileModalNote {
+	margin: 0;
+	@include input-format(auto, auto);
+
+	textarea {
+		padding: 4px 0;
+	}
+}
+
+/* USER PROFILE -> LISTS */
+
+%listRow {
+	border-radius: var(--popout-radius);
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+}
+
+%listRowIconActiveMedium {
+	border-radius: 50%;
 }
