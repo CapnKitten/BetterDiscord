@@ -114,6 +114,34 @@
 	}
 }
 
+/* USER POPOUT -> STATUS AREA */
+
+%accountProfilePopoutWrapper {
+	animation: top-pop-out 400ms var(--default-animation);
+}
+
+body:active %accountProfilePopoutWrapper:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}
+
+%userProfileStatusMenu {
+	background-color: transparent;
+	box-shadow: none;
+	animation: none;
+
+	%menuPopoutItem {
+		&[id*="account-divider-"] {
+			min-height: unset;
+			padding: 0;
+
+			%menuPopoutDivider {
+				margin: 8px 12px;
+			}
+		}
+	}
+}
+
 /* USER POPOUT -> ROLES */
 
 %role {
@@ -172,9 +200,4 @@
 			height: 18px;
 		}
 	}
-}
-
-body:active %userPopout:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
 }
