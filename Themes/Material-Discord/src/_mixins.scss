@@ -8,11 +8,23 @@
 	box-shadow: var(--shadow-3dp) important($important);
 }
 
-@mixin card-format($important: false, $padding: 0) {
+@mixin card-format($important: false, $padding: 0, $filled: false, $hover: false) {
+	@if ($filled) {
+		background-color: var(--card-color-filled) important($important);
+		border: none important($important);
+	} @else {
+		background-color: var(--card-color-outlined) important($important);
+		border: 1px solid var(--card-border-color) important($important);
+	}
+
 	padding: $padding;
-	background-color: var(--card-color) important($important);
 	border-radius: var(--card-radius-big) important($important);
-	border: 1px solid var(--card-border-color) important($important);
+
+	@if ($hover) {
+		&:hover {
+			background-color: var(--card-color-hover);
+		}
+	}
 }
 
 @mixin card-format--header($important: false) {
@@ -35,17 +47,18 @@
 	border-top: 1px solid var(--card-border-color);
 }
 
-@mixin card-format--list($width) {
+@mixin card-format--list($margin: 16px) {
 	position: relative;
 	border-bottom: none;
 
 	&:after {
 		position: absolute;
 		content: " ";
-		width: calc(100% - #{$width});
+		width: calc(100% - calc(#{$margin} * 2));
 		height: 1px;
 		right: 0;
 		bottom: 0;
+		margin: 0 $margin;
 		background-color: var(--card-border-color);
 	}
 

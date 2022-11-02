@@ -19,7 +19,7 @@
  		&:last-child {
  			display: flex;
  			position: relative;
- 			padding: 9px 8px;
+ 			padding: 8px;
  			border-top: 1px solid var(--popout-header-border);
 
  			&:after {
@@ -57,21 +57,20 @@
 	}
 
 	%rulesRequirementContainer {
-		background-color: var(--input-color);
-		border-radius: 32px;
-		border: none;
+        @include card-format(false, 16px, filled);
 	}
 
 	%rulesFieldBackground {
-		padding: 0;
-		background-color: var(--input-color) !important;
-		border-radius: 32px !important;
-		border: none !important;
+        &,
+        &:hover:not(:focus) {
+            @extend %rulesRequirementContainer;
+            padding: 0;
+        }
 	}
 
 	%rulesTermsRow {
 		padding: 16px;
-		@include card-format--list(40px);
+		@include card-format--list;
 	}
 
     %modalFooter {

@@ -7,7 +7,7 @@
  */
 
 %settingsLongCard {
-    @include card-format--list(auto);
+    @include card-format--list;
     border-left: 1px solid var(--card-border-color);
 	border-right: 1px solid var(--card-border-color);
     box-shadow: none !important;
@@ -34,10 +34,6 @@
 %settingsMemberCard {
     padding: 16px;
 
-	&:after {
-		width: calc(100% - 66px);
-	}
-
     &:nth-child(3) {
 		margin-top: 24px;
 		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
@@ -56,10 +52,25 @@
 		overflow: visible;
 	}
 
+    %roleOverflowButton {
+        width: var(--button-height);
+    }
+
 	%button {
-		height: 32px;
+        --button-padding: 0;
+
+        min-width: var(--button-height);
 		background-color: transparent !important;
 		@include md-ripple(hover, after, 1.1);
+
+        %buttonContents {
+            width: var(--button-height);
+            height: var(--button-height);
+        }
+
+        svg {
+            margin-top: 6px;
+        }
 	}
 }
 
@@ -84,10 +95,6 @@
 %settingsInviteCard {
     height: 68px;
 	padding: 16px;
-
-    &:after {
-		width: calc(100% - 64px);
-	}
 
     %settingsInviteText {
 		%settingsInviteUser {
@@ -124,10 +131,6 @@
 
 %settingsBannedUser {
 	padding: 16px;
-
-	&:after {
-		width: calc(100% - 64px);
-	}
 
 	&:nth-child(3) {
 		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;

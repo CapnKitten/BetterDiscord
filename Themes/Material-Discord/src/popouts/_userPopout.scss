@@ -11,9 +11,14 @@
 	--profile-gradient-secondary-color: var(--popout-color);
 	--profile-avatar-border-color: var(--popout-color);
 	--profile-body-background-color: var(--popout-color-alt);
+	--profile-gradient-button-color: hsl(var(--accent-hsl));
+	--profile-gradient-button-text-color: var(--accent-text-color);
 }
 
 %userProfileOuterThemed {
+	--profile-gradient-button-color: hsl(var(--accent-hsl));
+	--profile-gradient-button-text-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
+
 	%userProfileNote {
 		&:before,
 		&:after {
@@ -114,10 +119,15 @@
 	}
 }
 
+%buttonColor {
+	--button-background: var(--profile-gradient-button-color);
+	--button-text-color: var(--profile-gradient-button-text-color);
+}
+
 /* USER POPOUT -> STATUS AREA */
 
 %accountProfilePopoutWrapper {
-	animation: top-pop-out 400ms var(--default-animation);
+	animation: bottom-pop-out 400ms var(--default-animation);
 }
 
 body:active %accountProfilePopoutWrapper:not(:active) {
@@ -140,6 +150,10 @@ body:active %accountProfilePopoutWrapper:not(:active) {
 			}
 		}
 	}
+}
+
+body:active %userProfileStatusMenu:not(:active) {
+	opacity: 1;
 }
 
 /* USER POPOUT -> ROLES */
