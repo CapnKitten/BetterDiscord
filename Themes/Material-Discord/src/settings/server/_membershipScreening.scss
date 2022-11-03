@@ -6,55 +6,32 @@
  *
  */
 
-%membershipEnableContainer {
-	@include card-format(false, 16px);
+%rulesScreeningBackgroundContainer {
+    @include card-format(false, 16px);
+
+	%rulesScreeningContainerPadding {
+		padding: 0;
+	}
 }
 
-%membershipPreviewContainer {
-	%membershipEditableFieldsContainer {
-		width: auto;
+%rulesScreeningContainerFooter {
+    background-color: transparent;
+}
 
-		%membershipSettingsFormItem {
-			@include card-format;
+%rulesScreeningFieldBackground {
+    @include card-format(false, 16px);
 
-			%membershipSettingsFormFieldWrapper {
-				&%membershipFlex {
-					margin: 16px;
-				}
+    &%rulesScreeningWithFooter {
+		border-bottom: none;
+    }
+}
 
-				&:not(%membershipFlex) {
-					padding: 8px 16px;
-					background-color: transparent;
-					border: none;
-				}
-			}
+%rulesScreeningFieldFooterContainer {
+    background-color: var(--card-color-outlined);
+    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+	border: 1px solid var(--card-border-color);
+}
 
-			%membershipSettingsLink {
-                margin-top: 0;
-				@include card-format--footer;
-			}
-
-			%titleH5 {
-				@include card-format--header;
-			}
-
-			%membershipTermsRow {
-				padding: 16px;
-				@include card-format--list(44px);
-
-				%membershipTermsRowContent {
-					padding-left: 16px;
-				}
-			}
-
-			%checkboxWrapper {
-				margin-top: 0;
-				@include card-format--footer;
-
-				&%checkboxWrapperDisabled {
-					opacity: 1;
-				}
-			}
-		}
-	}
+%rulesScreeningSidebarFixedContainer {
+    @include card-format(false, 16px);
 }

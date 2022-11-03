@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  TOOLTIP
@@ -29,5 +31,17 @@
 
     %userPopoutBodyInnerWrapper {
         background-color: transparent;
+    }
+}
+
+/* TOOLTIP -> UPSELLS */
+
+%upsellTooltipWrapper {
+    @include add-translucence(before, true);
+
+    &%upsellTooltipCaretTopCenter {
+        &:after {
+            border-bottom-color: var(--popout-color);
+        }
     }
 }

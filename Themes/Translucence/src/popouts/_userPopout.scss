@@ -6,153 +6,109 @@
  *
  */
 
-%userPopoutInner {
-	border-radius: var(--popout-radius);
+%userProfileColors {
+	--profile-gradient-primary-color: var(--popout-color);
+	--profile-gradient-secondary-color: var(--popout-color);
+	--profile-avatar-border-color: var(--popout-color);
+	--profile-body-background-color: var(--popout-color);
 
-	&:before {
-		border-radius: calc(var(--popout-radius) / 1.25);
+	* {
+		text-shadow: none;
+	}
+
+	svg {
+    	filter: none;
+    }
+
+	&%themeLight {
+		--textarea-color: 0,0,0;
+		--textarea-text-color: #333;
+		--textarea-placeholder-color: #666;
+		--background-modifier-selected: rgba(0,0,0,0.125);
 	}
 }
 
-%userPopout {
-	@include add-translucence(before, true, true, true);
+%userProfileOuter {
+	@include add-translucence(before, true, false);
+	border-radius: var(--popout-radius);
+}
 
-	&%userPopoutThemed {
-		--card-color: var(--background-secondary-alt);
+%userProfileInner {
+	border-radius: calc(var(--popout-radius) / 1.25);
 
-		* {
-			text-shadow: none;
+	&:before {
+		border-radius: inherit;
+	}
+
+	%avatarWrapper {
+		circle {
+			fill: var(--profile-avatar-border-color);
 		}
 	}
 
-	&:not(%userPopoutThemed) {
-		%userPopoutInner {
-			background: none;
-		}
-
-		%userPopoutProfileBadges,
-		%userPopoutOverlayBackground {
-			background-color: var(--popout-color);
-		}
-
-		%role,
-		%spoilerText {
-			--card-color: var(--background-modifier-hover);
-		}
+	%inputWrapper {
+		border-radius: 18px;
+		border: none;
 	}
 
-	%userPopoutInner {
-		%inputWrapper {
-			background-color: var(--profile-body-background-color);
-			border-radius: 18px;
-			border: none;
-		}
-
-		%userPopoutNoteTextArea {
-			background-color: var(--profile-body-background-color);
-		}
-
-		%input,
-		%userPopoutNoteTextArea {
-			color: var(--text-normal);
-
-			&::-webkit-input-placeholder {
-				color: var(--text-muted);
-			}
+	%input {
+		&::-webkit-input-placeholder {
+			color: var(--textarea-placeholder-color);
 		}
 	}
+}
 
-	%userPopoutUpsellWrapper {
-		border-radius: calc(var(--popout-radius) / 1.25);
-	}
+%userProfileNitroUpsellWrapper {
+	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
+}
 
-	%userPopoutBanner {
-		border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
-	}
+%userProfileBanner {
+	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
+}
 
-	%userPopoutProfileBadges {
-		border-radius: 15px;
-	}
+%userProfileBadges {
+	border-radius: 15px;
+}
 
-	%userPopoutOverlayBackground {
-		border-radius: calc(var(--popout-radius) / 1.25);
-	}
+%userProfileOverlayBackground {
+	border-radius: calc(var(--popout-radius) / 1.25);
+}
 
-    %userPopoutHeader {
-        border-radius: var(--popout-radius) var(--popout-radius) 0 0;
-        overflow: hidden;
-    }
+%role {
+	background-color: var(--background-modifier-selected);
+	border-radius: 11px;
+	border: none;
+}
 
-    %userPopoutHeaderTop {
-        background-color: rgba(0,0,0,var(--popout-header-opacity));
-    	border-bottom: 1px solid var(--background-modifier-accent);
-    }
+%userProfileNote {
+	margin-left: 0;
+	margin-right: 0;
 
-    %userPopoutDivider {
-        display: none;
-    }
-
-    %userPopoutBody {
-        padding: 16px;
-    }
-
-    %role {
-    	background-color: var(--card-color);
-    }
-
-    %userPopoutNote {
-        margin-left: 0;
-        margin-right: 0;
-
-        %input {
-			height: unset;
-            font-size: 14px;
-            line-height: 16px;
-        }
-    }
-
-	%userPopoutNoteTextArea {
-		padding: 4px 10px;
+	%input {
+		height: unset;
 		font-size: 14px;
 		line-height: 16px;
 	}
 
-    %userPopoutFooter {
-		margin-top: 0;
-		padding: 16px;
-        background-color: transparent;
-    }
-}
+	%userProfileNoteTextArea {
+		padding: 4px 10px;
+		font-size: 14px;
+		line-height: 16px;
 
-%role {
-	border-radius: 11px;
-}
+		&::-webkit-input-placeholder {
+			color: var(--textarea-placeholder-color);
+		}
 
-%userPopoutAvatar {
-	background-color: transparent;
-	border: none;
-	box-shadow: var(--popout-shadow);
-
-	svg {
-		filter: none;
+		&:focus {
+			background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus));
+		}
 	}
 }
 
-%userPopoutAvatarHint {
-	top: 0;
-	left: 0;
-}
+/* USER POPOUT -> STATUS AREA */
 
-%userPopoutBodyInnerWrapper {
-	background-color: transparent;
-}
-
-%eyebrow {
-	color: var(--header-secondary) !important;
-}
-
-%userPopoutInfoBody {
-	+ %userPopoutInfoTitle {
-		margin-top: 16px;
+%userProfileStatusMenu {
+	&:before {
+		display: none;
 	}
 }
