@@ -8,6 +8,7 @@
 
 %searchPopoutCalendarPicker {
     %datepicker {
+        padding: 16px;
         @include popout-format(true);
     }
 
@@ -40,32 +41,6 @@
         color: var(--text-normal) !important;
     }
 
-    %datepickerWeek {
-        &:first-of-type {
-            > %datepickerDay {
-                &:first-of-type {
-                    border-radius: var(--card-radius-big) 0 0;
-                }
-
-                &:last-of-type {
-                    border-radius: 0 var(--card-radius-big) 0 0;
-                }
-            }
-        }
-
-        &:last-of-type {
-            > %datepickerDay {
-                &:first-of-type {
-                    border-radius: 0 0 0 var(--card-radius-big);
-                }
-
-                &:last-of-type {
-                    border-radius: 0 0 var(--card-radius-big);
-                }
-            }
-        }
-    }
-
     %datepickerDayDisabled,
     %datepickerDayOutsideMonth {
         background-color: transparent !important;
@@ -74,52 +49,46 @@
 
     %datepickerDay {
         background-color: transparent !important;
-        border-color: var(--separator-color) !important;
-        transition: var(--default-time) var(--default-animation) color;
-
-        &:before {
-            position: absolute;
-            content: " ";
-            width: 30px;
-            height: 30px;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            background-color: hsl(var(--accent-hsl));
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0;
-            transition: var(--default-time) var(--default-animation) opacity;
-        }
+        border-radius: 50% !important;
+        border: 1px solid transparent !important;
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 
         &:hover {
-            background-color: transparent !important;
-            color: var(--accent-text-color);
-
-            &:before {
-                opacity: 1;
-            }
-        }
-
-        &%datepickerDayOutsideMonth,
-        &%datepickerDayDisabled {
-            &:before {
-                display: none;
+            &:not(%datepickerDayToday) {
+                background-color: var(--menu-item-hover) !important;
             }
         }
 
         &%datepickerDaySelected {
+            background-color: hsl(var(--accent-hsl)) !important;
+            color: var(--accent-text-color) !important;
+
             &:after {
-                background-color: hsl(var(--accent-hsl));
-                border-radius: 3px;
+                display: none;
             }
+
+            &:hover {
+                background-color: hsl(var(--accent-hsl)) !important;
+            }
+        }
+    }
+
+    %datepickerDayToday {
+        border-color: hsl(var(--accent-hsl)) !important;
+        color: hsl(var(--accent-hsl)) !important;
+
+        &:hover {
+            background-color: hsla(var(--accent-hsl),0.2) !important;
         }
     }
 }
 
 %searchPopoutDatePicker {
+    %datepicker {
+        padding-bottom: 8px;
+        box-shadow: none !important;
+    }
+
     %searchPopoutDatePickerHint {
         border-top-color: var(--separator-color);
 

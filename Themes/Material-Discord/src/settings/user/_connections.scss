@@ -26,12 +26,12 @@
         margin-bottom: 0;
 
         %connectionsAccountsButtonInner {
-            background-color: var(--menu-item-hover);
+            background-color: var(--card-color-filled);
             border-radius: 50%;
             transition: var(--default-time) var(--default-animation) background-color;
 
             &:hover {
-                background-color: var(--menu-item-select);
+                background-color: var(--card-color-hover);
             }
         }
     }
@@ -40,12 +40,12 @@
 /* CONNECTIONS -> ADD CONNECTION */
 
 %connectionsModalAccountButtonInner {
-    background-color: var(--menu-item-hover);
+    background-color: var(--card-color-filled);
     border-radius: 50%;
     transition: var(--default-time) var(--default-animation) background-color;
 
     &:hover {
-        background-color: var(--menu-item-select);
+        background-color: var(--card-color-hover);
     }
 }
 
@@ -86,7 +86,7 @@
     }
 
     %connectionCardMetadataContainer {
-        @include card-format(false, 12px, filled);
+        @include card-format(false, 12px, true);
     }
 
     %connectionCardUpsellContainer {
@@ -107,28 +107,23 @@
 	}
 
 	%integrationCard {
-		position: relative;
-		margin-top: 0;
-		padding: 16px;
-		background-color: transparent;
-		border-radius: 0;
+        margin: 0 16px 2px;
+        @include card-format(false, 16px, true);
 
-		&:after {
-			position: absolute;
-			content: " ";
-			width: calc(100% - 56px);
-			height: 1px;
-			bottom: 0;
-			right: 0;
-			background-color: var(--card-border-color);
-		}
+        &:first-of-type {
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
 
-		&:last-child,
-		&:only-child {
-			&:after {
-				display: none;
-			}
-		}
+        &:last-of-type {
+            margin-bottom: 16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        &:only-child {
+            border-radius: var(--card-radius-big);
+        }
 
 		%button {
 			background-color: hsla(var(--accent-hsl),0.1);
