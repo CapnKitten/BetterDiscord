@@ -1,0 +1,148 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  APP DIRECTORY
+ *
+ */
+
+%appDirectoryRoot {
+    animation: page-open 300ms var(--default-animation);
+}
+
+@keyframes page-open {
+	from { transform: scale(1.1); opacity: 0; }
+}
+
+%appDirectoryModal {
+    background-color: var(--main-color) !important;
+}
+
+/* APP DIRECTORY -> SEARCH BAR */
+
+%appDirectorySearch {
+    --input-height: 48px;
+
+    @include new-input-format(true);
+    box-shadow: none !important;
+
+    %inputWrapper {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+
+    %appDirectorySearchBoxInput {
+        height: var(--input-height);
+        padding: 0;
+    }
+}
+
+/* APP DIRECTORY -> SEARCH RESULTS */
+
+%appDirectorySidebarCategory {
+    border-radius: 24px;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--menu-item-hover);
+    }
+
+    &%appDirectorySidebarActiveCategory {
+        background-color: var(--menu-item-select-accent);
+    }
+}
+
+%appDirectorySearchResultsListing {
+    border-radius: var(--card-radius-big);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--card-color-hover);
+    }
+
+    %appDirectorySearchResultsListingDetails {
+        transition: var(--default-time) var(--default-animation) border-color;
+    }
+}
+
+/* APP DIRECTORY -> CATEGORIES */
+
+%appDirectoryCategory {
+    background-color: var(--menu-item-hover);
+    border-radius: 24px;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--menu-item-select);
+    }
+}
+
+/* APP DIRECTORY -> CARDS */
+
+%appDirectoryCardScollerContainer {
+    %scroller {
+        --scrollbar-width: 4px;
+    }
+}
+
+%appDirectoryCard {
+    @include card-format(true, 0, true, true);
+}
+
+%appDirectoryLearnMoreCard {
+    @include card-format;
+}
+
+/* APP DIRECTORY -> BOT INFO */
+
+%botInfoHeaderBanner {
+    border-radius: var(--card-radius-big);
+}
+
+%botInfoHeaderIcon {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+%botInfoSupportServerCard {
+    @include card-format(false, 0, true, true);
+
+    %botInfoSupportServerSplashImage {
+        border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+    }
+
+    %botInfoSupportServerIconMask {
+        background-color: var(--card-color-filled);
+    }
+}
+
+%botInfoPremiumContainer {
+    @include card-format;
+
+    %botInfoPremiumCardHeader {
+        @include card-format--header;
+    }
+
+    %botInfoPremiumPriceAndButtonContainer {
+        background-color: transparent;
+    }
+
+    %botInfoPremiumBenefitsContainer {
+        @include card-format--body;
+        background-color: transparent;
+    }
+}
+
+%botInfoCommandList {
+    @include card-format(false, 16px);
+
+    %botInfoCommandName {
+        @include card-format(false, 10px 12px, true);
+    }
+}
+
+%botInfoPermissionHeader {
+    margin-top: 0;
+}

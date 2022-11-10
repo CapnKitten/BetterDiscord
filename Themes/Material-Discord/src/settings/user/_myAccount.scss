@@ -42,6 +42,28 @@
 	}
 }
 
+%settingsUserBanner {
+    --card-header-margin: 8px;
+
+    position: relative;
+    width: calc(100% - calc(var(--card-header-margin) * 2));
+    margin: var(--card-header-margin);
+    border-radius: calc(var(--card-radius-big) / 1.5);
+
+    &:before {
+        position: absolute;
+        content: " ";
+        width: calc(100% + calc( calc( var(--card-header-margin) * 2) - 2px ) );
+        height: calc(100% + calc( calc( var(--card-header-margin) * 2) - 1px ) );
+        top: calc(var(--card-header-margin) * -1);
+        left: calc(var(--card-header-margin) * -1);
+        border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+        border: 1px solid var(--card-border-color);
+        border-bottom: none;
+        pointer-events: none;
+    }
+}
+
 %fieldList {
 	padding: 0;
 	background-color: transparent;
