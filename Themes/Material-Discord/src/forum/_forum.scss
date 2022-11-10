@@ -1,0 +1,178 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  FORUM
+ *
+ */
+
+%forumContainer {
+    background-color: var(--chat-color) !important;
+}
+
+%forumMainCard {
+    @include card-format(false, 16px);
+    box-shadow: none;
+
+    &%forumMainCardHeaderWithMatchingPosts {
+        border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+    }
+
+    %forumMainCardTitle {
+        input,
+        input::placeholder {
+            font-family: var(--app-font);
+        }
+
+        %input {
+            padding-left: 32px;
+        }
+    }
+
+    %forumMainCardSearchIcon,
+    %forumMainCardCloseIcon {
+        top: 8px;
+    }
+}
+
+%forumMainCardMatchingPostsRow {
+    background-color: var(--card-color-outlined);
+    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+    border: 1px solid var(--card-border-color);
+    border-top: none;
+}
+
+%forumNoPosts {
+    @include card-format(false, 16px);
+}
+
+/* FORUM -> GET STARTED */
+
+%forumGetStartedCard {
+    @include card-format;
+
+    %forumGetStartedWrapper {
+        padding: 0;
+    }
+
+    %forumGetStartedHeaderRow {
+        @include card-format--header;
+    }
+
+    %forumGetStartedChecklist {
+        margin: 16px;
+        @include card-format;
+
+        %forumGetStartedChecklistStepContainer {
+            margin-top: 0;
+            padding: 16px;
+            background-color: transparent;
+            @include card-format--list;
+        }
+    }
+}
+
+%optionPillButton {
+    --button-height: 32px;
+    --button-padding: 0 8px;
+
+    &%buttonFilled {
+        --button-background: transparent;
+        --button-outline: 1px solid var(--text-muted);
+    }
+
+    &:after {
+        display: none;
+    }
+
+    %optionPill {
+        background-color: transparent;
+    }
+}
+
+/* FORUM -> SIDEBAR CARDS */
+
+%forumSidebarCard {
+    @include card-format;
+
+    %forumSidebarCardHeader {
+        @include card-format--header;
+    }
+}
+
+%forumSidebarGuidelines,
+%forumSidebarTags {
+    margin-top: 0;
+    padding: 16px;
+}
+
+%forumSidebarShowMore {
+    margin-top: 0;
+    padding: 0 16px 16px;
+
+    %forumSidebarShowMoreText {
+        color: hsl(var(--accent-hsl)) !important;
+    }
+}
+
+/* FORUM -> TOP BUTTONS */
+
+%forumSortButton,
+%forumTagsButton {
+    --button-padding: 0;
+
+    min-width: var(--button-height);
+
+    %buttonContents {
+        width: var(--button-height);
+        justify-content: center;
+        color: var(--accent-text-color);
+    }
+}
+
+/* FORUM -> TAGS */
+
+%postTag {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid var(--card-border-color);
+
+    &%postTagSmall {
+        border-radius: 6px;
+    }
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    &%postTagSelected {
+        background-color: hsla(var(--accent-hsl),0.3);
+        border-color: transparent;
+
+        &:hover {
+            background-color: hsla(var(--accent-hsl),0.4) !important;
+        }
+
+        %postTagName {
+            color: var(--accent-text-color);
+        }
+    }
+}
+
+%newPostTagsButton {
+    padding: var(--button-padding);
+
+    %newPostTagsButtonInner {
+        color: var(--button-link-text-color) !important;
+    }
+}
+
+%forumSortContainer {
+    svg {
+        height: var(--input-height);
+    }
+
+    %selectMenu {
+        @include remove-caps(14px);
+    }
+}

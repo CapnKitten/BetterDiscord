@@ -1,0 +1,129 @@
+/*
+ *
+ *  FORUM POSTS
+ *
+ */
+
+%post {
+    &:hover {
+        background-color: var(--card-color-hover);
+        box-shadow: none;
+        transform: none;
+    }
+
+    &%postIsOpen {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    %postNewMessageCount {
+        color: hsl(var(--accent-hsl)) !important;
+    }
+
+    %postNewBadge {
+        background-color: hsla(var(--accent-hsl),0.25) !important;
+        border-radius: 6px;
+
+        %postNewBadgeText {
+            color: hsl(var(--accent-hsl));
+            text-transform: capitalize;
+        }
+    }
+
+    %postTags {
+        margin-top: 0;
+    }
+}
+
+%postReaction {
+    background-color: transparent;
+    border-radius: 8px;
+    border-color: var(--separator-color);
+
+    &:hover {
+        background-color: var(--menu-item-hover);
+    }
+
+    &%postReactionMe {
+        background-color: hsla(var(--accent-hsl),0.3);
+        border-color: hsla(var(--accent-hsl),0.075);
+
+        %postReactionCount {
+            color: var(--accent-text-color);
+            font-weight: 400;
+        }
+    }
+}
+
+%postPinIcon {
+    background-color: hsl(var(--accent-hsl));
+
+    path {
+        fill: var(--accent-text-color);
+    }
+}
+
+/* FORUM POSTS -> POSTS THREAD */
+
+%postThread {
+    &:before {
+        display: none;
+    }
+}
+
+%postThreadIconWrapper {
+    background-color: var(--menu-item-hover);
+}
+
+%postThreadReactions {
+    margin-bottom: 0;
+    padding-bottom: 1px;
+}
+
+%postThreadButtonContainer {
+    --button-height: 26px;
+    --button-padding: 0 10px;
+
+    padding: 8px 16px;
+    background-color: var(--chat-color);
+    border-top: 1px solid var(--card-border-color);
+    border-bottom: 1px solid var(--card-border-color);
+    box-shadow: none;
+
+    %button,
+    %postThreadAddReactButton {
+        --button-padding: 0 10px;
+
+        height: var(--button-height);
+        padding: var(--button-padding);
+        background-color: rgba(var(--button-link-color),0.075);
+        border-radius: var(--button-radius);
+        border: none;
+
+        &:hover {
+            background-color: rgba(var(--button-link-color),0.125);
+        }
+    }
+
+    %button {
+        %buttonContents {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+%postThreadDivider {
+    display: none;
+}
+
+%postThreadStartConversationBox {
+    margin: 16px 6px 0 16px;
+    background-color: var(--message-color);
+    border-radius: var(--message-radius);
+
+    &:after {
+        left: 48px;
+        border-top-color: var(--message-color);
+    }
+}
