@@ -3,7 +3,7 @@
 
 <hr>
 
-Download with the button above or use as import with the code below.
+Download with the button above or use as an import with the code below.
 
 ```css
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css);
@@ -17,7 +17,11 @@ You may want to play around with the values below to get your desired look.
 
 ```css
 :root {
-
+    --accent-hue: 224;
+    --accent-saturation: 71%;
+    --accent-lightness: 61%;
+    
+    --accent-text-color: #fff;
 }
 
 .theme-dark {
