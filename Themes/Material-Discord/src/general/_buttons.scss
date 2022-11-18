@@ -18,6 +18,7 @@
 	--button-outline: none;
 
 	background-color: var(--button-background) !important;
+	border-radius: var(--button-radius);
 	border: var(--button-outline) !important;
 	box-shadow: var(--button-shadow);
 	color: var(--button-text-color) !important;
@@ -111,6 +112,8 @@
 	}
 }
 
+/* BUTTONS -> FILLED */
+
 %buttonFilled {
 	&%buttonRed {
 		--button-background: hsl(var(--alert-color));
@@ -127,6 +130,8 @@
 		}
 	}
 }
+
+/* BUTTONS -> OUTLINED */
 
 %buttonOutlined {
 	--button-background: transparent;
@@ -171,6 +176,8 @@
 	}
 }
 
+/* BUTTONS -> LINKS */
+
 %buttonLink {
 	--button-background: transparent;
 	--button-text-color: var(--button-link-text-color);
@@ -189,6 +196,8 @@
 	}
 }
 
+/* BUTTONS -> INVERTED */
+
 %buttonInverted {
 	&%buttonBrand {
 		--button-background: rgba(255,255,255,0.15);
@@ -197,12 +206,7 @@
 	}
 }
 
-%buttonFilled,
-%buttonOutlined,
-%buttonLink {
-	border-radius: var(--button-radius);
-	border: var(--button-outline);
-}
+/* BUTTONS -> SIZES */
 
 %buttonSizeTiny,
 %buttonSizeMin,
@@ -254,6 +258,8 @@
 %iconButton {
 	--button-padding: 0;
 }
+
+/* BUTTONS -> CALL BUTTONS */
 
 %callButtonColorable {
 	--button-background: var(--menu-item-hover);
@@ -319,5 +325,32 @@
 
 	%buttongQuestionMarkIcon {
 		color: var(--accent-text-color);
+	}
+}
+
+/* BUTTONS -> SEGMENTED BUTTONS */
+
+%segmentedButton {
+	padding: 11px 0;
+	background-color: transparent;
+	border-color: var(--separator-color) !important;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:first-child {
+		border-radius: 20px 0 0 20px;
+	}
+
+	&:last-child {
+		border-radius: 0 20px 20px 0;
+	}
+
+	&:not(%segmentedButtonPremiumRequired) {
+		&:hover {
+			background-color: var(--menu-item-hover) !important;
+		}
+
+		&%segmentedButtonSelected {
+			background-color: var(--menu-item-select) !important;
+		}
 	}
 }

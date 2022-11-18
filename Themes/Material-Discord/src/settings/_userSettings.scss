@@ -40,9 +40,41 @@
 }
 
 %settingsNoticeContainer {
+    padding: 8px 8px 8px 16px;
     background-color: var(--popout-color) !important;
-	border-radius: 29px;
-	box-shadow: var(--shadow-3dp) !important;
+	border-radius: 4px;
+	box-shadow: var(--shadow-2dp) !important;
+
+    %settingsNoticeActions {
+        flex-direction: row-reverse;
+    }
+
+    %buttonFilled {
+        --button-background: transparent;
+        --button-text-color: hsl(var(--accent-hsl));
+
+        &:after {
+            --accent-button-action: rgb(var(--button-link-color));
+        }
+    }
+
+    %settingsNoticeResetButton {
+        --button-padding: 0;
+
+        min-width: var(--button-height);
+        margin-left: 0;
+        font-size: 0;
+
+        &:before {
+            display: flex;
+            position: absolute;
+            content: " ";
+            width: 18px;
+            height: 18px;
+            @include add-icon(var(--text-normal), close);
+            transform: scale(1.333333);
+        }
+    }
 }
 
 .keybind-13vtq8 {

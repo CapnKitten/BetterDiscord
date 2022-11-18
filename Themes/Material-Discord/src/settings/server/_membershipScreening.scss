@@ -6,20 +6,32 @@
  *
  */
 
+%ruleScreeningMainColumnContainer {
+    max-width: calc( 100% - calc(188px + 32px) );
+}
+
 %rulesScreeningBackgroundContainer {
     @include card-format(false, 16px);
 
 	%rulesScreeningContainerPadding {
 		padding: 0;
 	}
+
+    %inputWrapper {
+        height: auto;
+        max-height: unset;
+    }
 }
 
 %rulesScreeningContainerFooter {
+    padding: 0;
     background-color: transparent;
 }
 
 %rulesScreeningFieldBackground {
-    @include card-format(false, 16px);
+    &:not(textarea) {
+        @include card-format(false, 16px);
+    }
 
     &%rulesScreeningWithFooter {
 		border-bottom: none;

@@ -43,24 +43,26 @@
 }
 
 %settingsUserBanner {
-    --card-header-margin: 8px;
-
     position: relative;
-    width: calc(100% - calc(var(--card-header-margin) * 2));
-    margin: var(--card-header-margin);
-    border-radius: calc(var(--card-radius-big) / 1.5);
+    border-radius: var(--card-radius-big);
 
-    &:before {
+    &:before,
+    &:after {
         position: absolute;
         content: " ";
-        width: calc(100% + calc( calc( var(--card-header-margin) * 2) - 2px ) );
-        height: calc(100% + calc( calc( var(--card-header-margin) * 2) - 1px ) );
-        top: calc(var(--card-header-margin) * -1);
-        left: calc(var(--card-header-margin) * -1);
-        border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-        border: 1px solid var(--card-border-color);
-        border-bottom: none;
+        width: 1px;
+        height: calc(var(--card-radius-big) / 1.25);
+        bottom: 0;
+        background-color: var(--card-border-color);
         pointer-events: none;
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
     }
 }
 
