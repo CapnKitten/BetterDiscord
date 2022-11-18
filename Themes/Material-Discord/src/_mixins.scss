@@ -12,9 +12,21 @@
 	@if $filled {
 		background-color: var(--card-color-filled) important($important);
 		border: none important($important);
+
+		@if $hover {
+			&:hover {
+				background-color: var(--card-color-hover) important($important);
+			}
+		}
 	} @else {
 		background-color: var(--card-color-outlined) important($important);
 		border: 1px solid var(--card-border-color) important($important);
+
+		@if $hover == false {
+			&:hover {
+				background-color: var(--card-color-outlined) important($important);
+			}
+		}
 	}
 
 	padding: $padding;
@@ -22,10 +34,6 @@
 
 	@if $hover {
 		transition: var(--default-time) var(--default-animation) background-color;
-
-		&:hover {
-			background-color: var(--card-color-hover) important($important);
-		}
 	}
 }
 
@@ -172,9 +180,9 @@
 	}
 }
 
-@mixin md-ripple($type, $pseudo, $scale, $bg: var(--md-ripple-color), $colored: false) {
+@mixin md-ripple($type, $pseudo, $scale, $colored: false) {
 	@if $colored == true {
-		$bg: var(--accent-hsl);
+		--md-ripple-color: var(--accent-hsl);
 	}
 
 	position: relative;
@@ -186,7 +194,7 @@
 		height: 100%;
 		top: 0;
 		left: 0;
-		background-color: hsla(#{$bg},0.1);
+		background-color: hsla(var(--md-ripple-color),0.1);
 		border-radius: 50%;
 		opacity: 0;
 		pointer-events: none;
@@ -206,7 +214,7 @@
 
 		&:active {
 			&:#{$pseudo} {
-				background-color: hsla(#{$bg},0.2);
+				background-color: hsla(var(--md-ripple-color),0.2);
 			}
 		}
 	} @else if $type == click {
@@ -229,7 +237,7 @@
 
 		&:active {
 			&:#{$pseudo} {
-				background-color: hsla(#{$bg},0.2);
+				background-color: hsla(var(--md-ripple-color),0.2);
 			}
 		}
 	}

@@ -11,7 +11,7 @@ div[role="radiogroup"] {
 
 	%radioItem {
 		margin: 0;
-		padding: 4px 16px;
+		padding: 0 16px;
 		background-color: transparent;
 		border-radius: 0;
 		@include card-format--list;
@@ -21,15 +21,37 @@ div[role="radiogroup"] {
 			background-color: transparent;
 		}
 
+		&:active {
+			background-color: transparent;
+		}
+
+		%radioBar {
+			grid-gap: 12px;
+			margin-bottom: 0;
+			padding: 12px 0 !important;
+			border-left: none;
+
+			@include md-ripple(hover, after, 1.15);
+
+			&:after {
+				width: 32px !important;
+				height: 32px !important;
+				top: -1px !important;
+				left: -4px !important;
+				bottom: 0;
+				margin: auto 0;
+			}
+
+			svg {
+				display: flex;
+				justify-content: center;
+			}
+		}
+
 		&[aria-checked=true] {
 			%radioBar {
-				@include md-ripple(hover, after, 1.15, null, true);
-
 				&:after {
-					width: 32px;
-					height: 32px;
-					top: -4px;
-					left: -4px;
+					--md-ripple-color: var(--accent-hsl);
 				}
 
 				path {
@@ -39,23 +61,6 @@ div[role="radiogroup"] {
 
 			%radioIconChecked {
 				color: hsl(var(--accent-hsl));
-			}
-		}
-
-		%radioBar {
-			margin-bottom: 0;
-			padding: 8px 0 8px 0 !important;
-			border-left: none;
-
-			@include md-ripple(hover, after, 1.15);
-
-			&:after {
-				width: 32px;
-				height: 32px;
-				top: -3px;
-				left: -4px;
-				bottom: 0;
-				margin: auto 0;
 			}
 		}
 
