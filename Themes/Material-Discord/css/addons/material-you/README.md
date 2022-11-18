@@ -1,5 +1,5 @@
 # [Add-on] Material You - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url]
-#### An add-on theme to convert the Material Discord color scheme to resemble that of Material You based on the accent color
+#### An add-on theme that changes the entire UI color scheme based on the accent color. Based on Google's Material You. Requires Material Discord as the base theme.
 
 <hr>
 
@@ -39,27 +39,13 @@ You may want to play around with the values below to get your desired look.
 
 (Previews are subject to be out of date)
 
-#### Main chat area
+![discord-001](https://user-images.githubusercontent.com/4013216/202622758-c05cd474-dc7d-4ffe-81c0-03adbef84079.png)
 
-![discord-001](https://user-images.githubusercontent.com/4013216/202617785-2c99bf82-c8d7-4c54-9c77-ee171e0fe6e6.png)
+![discord-002](https://user-images.githubusercontent.com/4013216/202622787-df226d1b-3ddf-4edd-bea5-f852a4a52748.png)
 
-#### User popout info
+![discord-003](https://user-images.githubusercontent.com/4013216/202622807-45b86cf3-9d78-4202-9560-83a529318a4c.png)
 
-![discord-002](https://user-images.githubusercontent.com/4013216/202617935-0260d0fc-e2fe-4f1a-a7ad-c331ed014a01.png)
-
-#### User profile
-
-![discord-003](https://user-images.githubusercontent.com/4013216/202618043-90f1b27f-cb38-4ffd-ba0b-177999e6c0f7.png)
-
-#### User settings
-
-![discord-004](https://user-images.githubusercontent.com/4013216/202618063-65f905cc-d517-40d2-ad7f-74bbaeb14977.png)
-
-![discord-005](https://user-images.githubusercontent.com/4013216/202618074-52d34d80-b342-428d-afdd-454d5f4ef133.png)
-
-#### DMs
-
-![discord-006](https://user-images.githubusercontent.com/4013216/202618092-707512aa-639a-40b0-a7ac-498cf66c3eb1.png)
+![discord-004](https://user-images.githubusercontent.com/4013216/202623999-f43d0e23-904c-46ef-85eb-a95266367e20.png)
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
