@@ -3,6 +3,9 @@
 ### Themes
 
 * [Material Discord](https://github.com/CapnKitten/Material-Discord)
+  * [Material You](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/material-you)
+  * [Solid Icons](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/icons)
+  * [Old Message Bubbles](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/messages)
 * [Spotify Discord](https://github.com/CapnKitten/Spotify-Discord)
 * [Translucence](https://github.com/CapnKitten/Translucence)
 
