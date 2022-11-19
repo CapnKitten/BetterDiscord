@@ -46,6 +46,16 @@
     @include card-format(false, 16px);
 }
 
+%postGuidelinesContainer {
+    @include card-format(false, 16px);
+}
+
+%postGuidelinesDescriptionContainer {
+    --card-color-filled: var(--card-color-alt);
+
+    @include card-format(false, 16px, true);
+}
+
 /* FORUM -> GET STARTED */
 
 %forumGetStartedCard {
@@ -90,31 +100,6 @@
     }
 }
 
-/* FORUM -> SIDEBAR CARDS */
-
-%forumSidebarCard {
-    @include card-format;
-
-    %forumSidebarCardHeader {
-        @include card-format--header;
-    }
-}
-
-%forumSidebarGuidelines,
-%forumSidebarTags {
-    margin-top: 0;
-    padding: 16px;
-}
-
-%forumSidebarShowMore {
-    margin-top: 0;
-    padding: 0 16px 16px;
-
-    %forumSidebarShowMoreText {
-        color: hsl(var(--accent-hsl)) !important;
-    }
-}
-
 /* FORUM -> TOP BUTTONS */
 
 %forumSortButton,
@@ -136,13 +121,14 @@
     background-color: transparent;
     border-radius: 10px;
     border: 1px solid var(--card-border-color);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-color;
 
     &%postTagSmall {
         border-radius: 6px;
     }
 
     &:hover {
-        background-color: var(--card-color-hover) !important;
+        background-color: var(--menu-item-hover) !important;
     }
 
     &%postTagSelected {
@@ -159,20 +145,36 @@
     }
 }
 
-%newPostTagsButton {
-    padding: var(--button-padding);
-
-    %newPostTagsButtonInner {
-        color: var(--button-link-text-color) !important;
-    }
+%postSortContainer,
+%postTagsContainer {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    box-shadow: var(--shadow-3dp);
 }
 
-%forumSortContainer {
-    svg {
-        height: var(--input-height);
+%postSortContainer {
+    padding: 8px 0;
+    overflow: hidden;
+
+    %postSortHeader {
+        padding: 0 6px 0 12px;
     }
 
-    %selectMenu {
-        @include remove-caps(14px);
+    %postSortOptionRow {
+        padding: 9px 12px;
+        border-radius: 0;
+        transition: var(--default-time) var(--default-animation) background-color;
+
+        &:hover {
+            background-color: var(--menu-item-hover);
+        }
+    }
+
+    %postSortSelectedIcon {
+        color: hsl(var(--accent-hsl));
+
+        circle {
+            fill: var(--accent-text-color);
+        }
     }
 }
