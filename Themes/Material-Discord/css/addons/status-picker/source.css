@@ -1,18 +1,18 @@
 :root {
   --default-animation: cubic-bezier(0.4,0,0.2,1);
   --default-time: 250ms;
+  --status-icon-radius: 50%;
   --status-online: 67,181,129;
   --status-idle: 250,166,26;
   --status-dnd: 240,71,71;
   --status-invisibile: 116,127,141;
-  --popout-radius-big: 18px;
-  --shadow-3dp: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+  --status-picker-radius: 4px;
 }
 
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] {
   min-width: 224px;
-  border-radius: var(--popout-radius-big);
-  box-shadow: var(--shadow-3dp);
+  border-radius: var(--status-picker-radius);
+  box-shadow: var(--elevation-high);
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .scroller-1bVxF5 {
   display: grid;
@@ -20,7 +20,7 @@
   padding: 0;
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .scroller-1bVxF5::-webkit-scrollbar {
-  --scrollbar-width: 0;
+  width: 0 !important;
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX {
   position: relative;
@@ -30,48 +30,33 @@
   border-radius: 0;
   font-size: 0;
   overflow: hidden;
-  animation: status 300ms var(--default-animation) backwards;
+  animation: status var(--default-time) var(--default-animation) backwards;
+  animation-delay: var(--status-animation-delay);
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX:active {
   background-color: transparent !important;
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--online {
-  animation-delay: 100ms;
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--online .statusItem-38ArJn {
-  background-color: rgb(var(--status-online));
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--online .status-2DiCMd {
-  background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_dark.svg);
+  --status-color: rgb(var(--status-online));
+  --status-icon-url: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_dark.svg);
+  --status-animation-delay: 100ms;
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--idle {
-  animation-delay: 140ms;
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--idle .statusItem-38ArJn {
-  background-color: rgb(var(--status-idle));
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--idle .status-2DiCMd {
-  background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/alarm_dark.svg);
+  --status-color: rgb(var(--status-idle));
+  --status-icon-url: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/alarm_dark.svg);
+  --status-animation-delay: 140ms;
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--dnd {
-  animation-delay: 180ms;
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--dnd .statusItem-38ArJn {
-  background-color: rgb(var(--status-dnd));
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--dnd .status-2DiCMd {
-  background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/remove_dark.svg);
+  --status-color: rgb(var(--status-dnd));
+  --status-icon-url: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/remove_dark.svg);
+  --status-animation-delay: 180ms;
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--invisible {
-  animation-delay: 220ms;
+  --status-color: rgb(var(--status-invisibile));
+  --status-icon-url: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/visibility_off_dark.svg);
+  --status-animation-delay: 220ms;
 }
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--invisible .statusItem-38ArJn {
-  background-color: rgb(var(--status-invisibile));
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX#account-status-picker--invisible .status-2DiCMd {
-  background-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/visibility_off_dark.svg);
-}
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX .statusItem-38ArJn {
+.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX .statusItem-2a1giL {
   position: absolute;
   display: block;
   width: 34px;
@@ -82,15 +67,19 @@
   bottom: 0;
   margin: auto;
   padding: 0;
+  background-color: var(--status-color);
   background-size: 100%;
   background-position: center;
-  border-radius: 50%;
+  border-radius: var(--status-icon-radius);
   transition: var(--default-time) var(--default-animation);
 }
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX .statusItem-38ArJn .description-1Dd2kv {
+.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX .statusItem-2a1giL .description-22_U3B {
   display: none;
 }
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX:hover .statusItem-38ArJn {
+.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX .status-2DiCMd {
+  background-image: var(--status-icon-url);
+}
+.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX:hover .statusItem-2a1giL {
   transform: scale(1.325);
 }
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX:hover .status-2DiCMd {
@@ -99,7 +88,7 @@
 .submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX.focused-3qFvc8 {
   background-color: transparent;
 }
-.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX .icon-eUBS01 {
+.submenu-1apzyU[aria-activedescendant*=account-status-picker] .item-1OdjEX .icon-OgaO6F {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -131,21 +120,9 @@
   display: none;
 }
 
-@keyframes show-status {
-  from {
-    transform: translateY(15%) translateX(0%) translateZ(0px);
-  }
-}
 @keyframes status {
   from {
     transform: scale(0);
     opacity: 0;
   }
 }
-@keyframes open-context-menu {
-  from {
-    transform: scale(1, 0.5);
-  }
-}
-
-/*# sourceMappingURL=Material-Discord_addon-status-picker.theme.css.map */
