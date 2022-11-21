@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  FORUM POSTS
@@ -5,8 +7,10 @@
  */
 
 %post {
+    @include card-format(true, 16px, true);
+
     &:hover {
-        background-color: var(--card-color-hover);
+        background-color: var(--card-color-hover) !important;
         box-shadow: none;
         transform: none;
     }
@@ -32,6 +36,10 @@
     %postTags {
         margin-top: 0;
     }
+}
+
+%postLoading {
+    background-color: var(--card-color-filled);
 }
 
 %postReaction {

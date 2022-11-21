@@ -6,15 +6,42 @@
  *
  */
 
-%settingsColorPickerCustom {
+%colorPickerCustom {
     @include popout-format(true);
+    border: none !important;
 }
 
-%settingsColorPickerSwatch {
-    border-radius: 10px;
+%colorPickerSuggestedColor {
+    border-radius: 16px;
+    transition: var(--default-time) var(--default-animation) transform;
 
-    &%settingsColorPickerSwatchCustom,
-    &%settingsColorPickerSwatchDefault {
-        border-radius: var(--card-radius-big);
+    &:hover {
+        transform: scale(1.25);
     }
+}
+
+%colorPickerRow {
+    overflow: visible;
+}
+
+%colorPickerSwatch {
+    border-radius: 10px;
+    transition: var(--default-time) var(--default-animation) transform;
+
+    &:hover {
+        transform: scale(1.25);
+    }
+
+    &%colorPickerSwatchCustom,
+    &%colorPickerSwatchDefault {
+        border-radius: var(--card-radius-big);
+
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+%colorSwatch {
+    border-radius: var(--card-radius-big);
 }

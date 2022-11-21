@@ -10,36 +10,23 @@
     background-color: var(--chat-color) !important;
 }
 
-%forumMainCard {
-    @include card-format(false, 16px);
-    box-shadow: none;
+
+%forumMainCardHeader {
+    position: relative;
+    min-height: 48px;
+    background-color: var(--input-color);
+    border-radius: 24px;
 
     &%forumMainCardHeaderWithMatchingPosts {
-        border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-    }
-
-    %forumMainCardTitle {
-        input,
-        input::placeholder {
-            font-family: var(--app-font);
-        }
-
-        %input {
-            padding-left: 32px;
-        }
-    }
-
-    %forumMainCardSearchIcon,
-    %forumMainCardCloseIcon {
-        top: 8px;
+        box-shadow: var(--shadow-3dp);
     }
 }
 
 %forumMainCardMatchingPostsRow {
-    background-color: var(--card-color-outlined);
-    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-    border: 1px solid var(--card-border-color);
-    border-top: none;
+    margin-top: -24px;
+    padding-top: 24px;
+    background-color: var(--input-color);
+    border-radius: 0 0 24px 24px;
 }
 
 %forumNoPosts {
@@ -115,12 +102,22 @@
     }
 }
 
+%forumTagsCountContainer {
+    padding: 0;
+    background-color: transparent;
+
+    %forumTagsCountText {
+        font-size: 16px;
+        color: var(--accent-text-color);
+    }
+}
+
 /* FORUM -> TAGS */
 
 %postTag {
-    background-color: transparent;
+    background-color: var(--card-button-color);
     border-radius: 10px;
-    border: 1px solid var(--card-border-color);
+    //border: 1px solid var(--card-border-color);
     transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-color;
 
     &%postTagSmall {
@@ -128,7 +125,7 @@
     }
 
     &:hover {
-        background-color: var(--menu-item-hover) !important;
+        background-color: var(--card-button-color-hover) !important;
     }
 
     &%postTagSelected {
@@ -174,7 +171,7 @@
         color: hsl(var(--accent-hsl));
 
         circle {
-            fill: var(--accent-text-color);
+            fill: hsl(var(--accent-hsl));
         }
     }
 }
