@@ -4116,14 +4116,8 @@ div[role=radiogroup] {
   text-transform: none;
 }
 
-.peopleList-2VBrVI > div:first-child {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 8px;
-}
-
 .peopleListItem-u6dGxF {
-  margin: 0 !important;
+  margin: 0 8px !important;
   padding: 0 16px !important;
   border-radius: var(--card-radius-big) !important;
   border: none;
@@ -4169,11 +4163,6 @@ div[role=radiogroup] {
   d: path("M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z");
 }
 
-@media (min-width: 1500px) {
-  .peopleList-2VBrVI > div:first-child {
-    grid-template-columns: 50% 50%;
-  }
-}
 /*
  *
  *	LIBRARY
@@ -9177,8 +9166,8 @@ body:active .menu-KSaHL1:not(:active) {
   content: "Theme Add-ons\a\aMaterial Discord has a few add-on themes to either enhance or revert\asome features that can be located at bit.ly/MaterialDiscordAddons.\a\a- Solid Icons\a- Old Message Bubbles\a- Material You";
   width: 100%;
   margin-top: 16px;
-  background-color: var(--card-color-outlined);
-  border: 1px solid var(--card-border-color);
+  background-color: var(--card-color-filled);
+  border: none;
   padding: 16px;
   border-radius: var(--card-radius-big);
   color: var(--text-normal);
@@ -9195,8 +9184,8 @@ body:active .menu-KSaHL1:not(:active) {
 
 .bd-addon-card {
   margin-bottom: 16px;
-  background-color: var(--card-color-outlined) !important;
-  border: 1px solid var(--card-border-color) !important;
+  background-color: var(--card-color-filled) !important;
+  border: none !important;
   padding: 0;
   border-radius: var(--card-radius-big) !important;
 }
@@ -9209,7 +9198,7 @@ body:active .menu-KSaHL1:not(:active) {
   color: var(--card-header-text-color);
   font-weight: 500;
   opacity: 1;
-  border-bottom: 1px solid var(--card-border-color);
+  margin-bottom: -8px;
 }
 .bd-addon-card .bd-addon-header .bd-link {
   color: hsl(var(--accent-hsl));
@@ -9218,20 +9207,20 @@ body:active .menu-KSaHL1:not(:active) {
   background-color: transparent;
 }
 .bd-addon-card .bd-controls {
+  background-color: transparent;
   border-radius: 14px;
-  border: 1px solid var(--card-border-color);
   overflow: hidden;
 }
 .bd-addon-card .bd-controls .bd-button {
   padding: 3px 8px;
-  background-color: transparent;
-  color: var(--menu-item-text-color);
+  background-color: var(--card-button-color);
+  color: var(--text-normal);
 }
 .bd-addon-card .bd-controls .bd-button:hover {
-  background-color: var(--menu-item-hover);
+  background-color: var(--card-button-color-hover);
 }
 .bd-addon-card .bd-controls .bd-button svg {
-  fill: var(--menu-item-text-color);
+  fill: var(--text-normal);
 }
 
 /*
@@ -9245,14 +9234,14 @@ body:active .menu-KSaHL1:not(:active) {
 }
 
 #bd-editor-controls {
-  background-color: var(--main-color);
+  background-color: var(--card-color-filled);
   border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-  border: 1px solid var(--card-border-color);
 }
 
-.monaco-editor {
-  background-color: var(--main-color);
+#bd-customcss-editor {
+  background-color: var(--card-color-filled);
 }
+
 .monaco-editor, .monaco-editor-background,
 .monaco-editor .inputarea.ime-input,
 .monaco-editor .margin {
@@ -9260,7 +9249,6 @@ body:active .menu-KSaHL1:not(:active) {
 }
 .monaco-editor .overflow-guard {
   border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-  border: 1px solid var(--card-border-color);
   border-top: none;
 }
 .monaco-editor .minimap {
