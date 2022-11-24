@@ -20,11 +20,7 @@
 }
 
 %guildSettingsRoleDefaultPermissions {
-    @include card-format(false, 16px);
-
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+    @include card-format(false, 16px, false, true);
 }
 
 %guildSettingsRoleSearchBar {
@@ -86,13 +82,15 @@
 	border-right: 1px solid var(--card-border-color);
 	transition: var(--default-time) var(--default-animation);
 
-	&:hover {
-		background-color: var(--card-color-hover);
+    &:not(%guildSettingsRoleRowDisabledHover) {
+        &:hover {
+    		background-color: var(--card-color-hover);
 
-		&:after {
-			background-color: var(--card-border-color);
-		}
-	}
+    		&:after {
+    			background-color: var(--card-border-color);
+    		}
+    	}
+    }
 
 	&:before {
 		display: none;

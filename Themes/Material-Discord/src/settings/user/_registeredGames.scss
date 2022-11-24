@@ -7,7 +7,7 @@
  */
 
 %settingsGameNotDetectedCard {
-    @include card-format(true, 16px);
+    @include card-format(true, 16px, true);
 
     %settingsGameName {
         color: var(--text-normal) !important;
@@ -47,9 +47,9 @@
         margin-top: 0;
 
         %settingsGameListTitle {
-            margin-bottom: 0;
-            padding: 16px;
-            border: 1px solid var(--card-border-color);
+            @include card-format--header(false, true);
+            margin-bottom: -16px;
+            background-color: var(--card-color-filled);
             border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
         }
     }
@@ -57,6 +57,12 @@
 
 %settingsGameContainer {
     padding: 16px;
+    background-color: var(--card-color-filled);
+    border: none;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
 
     %settingsGameNameInput {
         border: none;

@@ -1,30 +1,64 @@
 @use '../../mixins' as *;
 
+/*
+ *
+ *  USER SETTINGS BILLING
+ *
+ */
+
+%paymentSourceRow {
+    @include card-format(false, 16px, true);
+}
+
 %paymentPane {
-    @include card-format(true);
+    @include card-format(true, 0, true);
 
-    %paymentPaginator {
-        background-color: transparent !important;
-
-        %paymentDescriptionIcon {
-            border-radius: 50%;
-        }
-
-        %paymentExpandedInfo {
-            @include card-format(false, 16px, true);
-
-            %paymentHeader {
-                border-color: var(--card-border-color);
-            }
-        }
+    %paymentRowHeader {
+        padding: 16px;
     }
 
     %paymentBottomDivider {
-        background-color: transparent !important;
+        border: none;
     }
 
     %paymentPageActions {
         padding: 16px 0;
+    }
+}
+
+%paymentRow {
+    &:not(%payment) {
+        border-bottom: none;
+    }
+}
+
+%payment {
+    background-color: var(--card-color-filled) !important;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    &:not(%paymentHoverable) {
+        padding-bottom: 1px;
+    }
+}
+
+%paymentPaginator {
+    background-color: transparent !important;
+
+    %paymentDescriptionIcon {
+        border-radius: 50%;
+    }
+
+    %paymentExpandedInfo {
+        --card-color-filled: var(--card-color-alt);
+        @include card-format(false, 16px, true);
+
+        %paymentHeader {
+            border-color: var(--card-border-color);
+        }
     }
 }
 

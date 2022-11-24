@@ -7,27 +7,35 @@
  */
 
 %settingsAccountProfileCard {
-    background-color: var(--card-color-outlined);
+    background-color: var(--card-color-filled);
 	border-radius: var(--card-radius-big);
 
     %settingsUserInfo {
 		height: 88px;
 		padding: 16px 16px 16px 120px;
-		border-left: 1px solid var(--card-border-color);
-		border-right: 1px solid var(--card-border-color);
 
         %avatarWrapper {
-			background-color: var(--main-color);
-            border-color: var(--main-color);
+			background-color: var(--card-color-filled);
+            border-color: var(--card-color-filled);
 		}
     }
 
     %settingsUserBackground {
+        position: relative;
 		margin: 0;
 		padding: 0;
 		background-color: transparent;
 		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-		border: 1px solid var(--card-border-color);
+
+        &:before {
+            position: absolute;
+            content: " ";
+            width: calc(100% - 32px);
+            height: 1px;
+            top: 0;
+            left: 16px;
+            background-color: var(--card-border-color);
+        }
 
 		%fieldList {
 			margin-top: 0;
@@ -45,25 +53,6 @@
 %settingsUserBanner {
     position: relative;
     border-radius: var(--card-radius-big);
-
-    &:before,
-    &:after {
-        position: absolute;
-        content: " ";
-        width: 1px;
-        height: calc(var(--card-radius-big) / 1.25);
-        bottom: 0;
-        background-color: var(--card-border-color);
-        pointer-events: none;
-    }
-
-    &:before {
-        left: 0;
-    }
-
-    &:after {
-        right: 0;
-    }
 }
 
 %fieldList {

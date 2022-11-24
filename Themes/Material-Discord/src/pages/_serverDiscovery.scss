@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *	SERVER DISCOVERY
@@ -10,7 +12,6 @@
 
 %headerImage {
 	border-radius: var(--card-radius-big);
-	box-shadow: var(--shadow-1dp);
 }
 
 %search {
@@ -18,11 +19,6 @@
 		border-radius: 18px;
 		border: none;
 		box-shadow: none;
-		transition: var(--default-time) var(--default-animation) box-shadow;
-
-		&:focus-within {
-			box-shadow: var(--shadow-3dp);
-		}
 
 		%inputWrapper {
 			border-bottom: none !important;
@@ -71,16 +67,23 @@
 /* SERVER DISCOVERY -> CARDS */
 
 %discoverGuildCard {
-	background-color: var(--card-color-alt) !important;
-	border-radius: var(--card-radius-big);
+	@include card-format(true, 0, true, true);
 	box-shadow: none !important;
-	transition: var(--default-time) var(--default-animation) transform, var(--default-time) var(--default-animation) box-shadow;
+
+	%discoverGuildCardIcon {
+		background-color: var(--card-color-filled) !important;
+		border-radius: 50%;
+
+		%discoverGuildAvatar {
+			border-radius: 50%;
+		}
+	}
 
 	&:hover {
-		box-shadow: var(--shadow-3dp) !important;
+		transform: none;
 
-		%discoverGuildInfo {
-			border-color: transparent;
+		%discoverGuildCardIcon {
+			background-color: var(--card-color-hover) !important;
 		}
 	}
 
@@ -88,11 +91,13 @@
 		margin-bottom: 0;
 	}
 
+	%discoverCardSplashImage {
+		border-radius: var(--card-radius-big);
+	}
+
 	%discoverGuildInfo {
 		padding-top: 32px;
 		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-		border: 1px solid var(--card-border-color);
-		border-top: none;
 		transition: var(--default-time) var(--default-animation) border-color;
 	}
 
@@ -100,14 +105,88 @@
 		foreignObject {
 			mask: none !important;
 		}
+	}
+}
 
-		%discoverGuildCardIcon {
-			background-color: var(--card-color-alt) !important;
-			border-radius: 50%;
+/* SERVER DISCOVERY -> SEARCH RESULTS */
 
-			%discoverGuildAvatar {
-				border-radius: 50%;
-			}
+%discoverSearchPage,
+%discoverSearchCategories,
+%discoverSearchResults {
+	margin-right: 24px;
+}
+
+%discoverSearchPage,
+%discoverSearchCategories,
+%discoverSearchResults,
+%discoverSearchGuildList {
+	max-width: 1200px;
+}
+
+%discoverSearchPage {
+	%discoverSearchPageBar {
+		max-width: unset;
+	}
+
+	%searchBox {
+		padding-right: 5px;
+		background-color: var(--input-color) !important;
+	}
+}
+
+%discoverCategoryPill {
+	border-radius: 8px;
+	background-color: var(--card-button-color);
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		&:not(%discoverCategoryPillSelected) {
+			background-color: var(--card-button-color-hover);
 		}
 	}
+
+	%discoverCategoryLabel {
+		color: var(--text-normal);
+		transition: var(--default-time) var(--default-animation) color;
+	}
+
+	&%discoverCategoryPillSelected {
+		background-color: hsla(var(--accent-hsl),0.3);
+
+		%discoverCategoryLabel {
+			color: hsl(var(--accent-hsl));
+		}
+	}
+}
+
+%discoverSearchCard {
+	height: 160px;
+	@include card-format(false, 0, true, true);
+
+	%discoverSearchCardContainer {
+		height: 100%;
+	}
+
+	%discoverSearchCardContent {
+		height: 100%;
+		padding: 16px 16px 16px 0;
+		box-sizing: border-box;
+	}
+
+	%discoverSearchCardMemberInfo {
+		margin-top: 8px;
+	}
+
+	%textXSNormal {
+		font-weight: 500;
+	}
+}
+
+%discoverSearchSplashContainer {
+	height: 100%;
+	border-radius: var(--card-radius-big);
+}
+
+%discoverSearchSeparator {
+	display: none;
 }

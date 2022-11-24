@@ -8,82 +8,87 @@
 
 div[role="radiogroup"] {
 	@include card-format;
+}
 
-	%radioItem {
-		margin: 0;
-		padding: 0 16px;
-		background-color: transparent;
-		border-radius: 0;
-		@include card-format--list;
+%radioItem {
+	margin: 0;
+	padding: 0 16px;
+	background-color: transparent;
+	border-radius: 0;
+	@include card-format--list;
 
-		&:hover,
-		&[aria-checked=true] {
-			background-color: transparent;
+	&:hover,
+	&[aria-checked=true],
+	&:active {
+		background-color: transparent !important;
+	}
+
+	%radioBar {
+		grid-gap: 12px;
+		margin-bottom: 0;
+		padding: 12px 0 !important;
+		border-left: none;
+
+		@include md-ripple(hover, after, 1.15);
+
+		&:after {
+			width: 32px;
+			height: 32px;
+			top: -1px;
+			left: -4px;
+			bottom: 0;
+			margin: auto 0;
 		}
 
-		&:active {
-			background-color: transparent;
-		}
-
-		%radioBar {
-			grid-gap: 12px;
-			margin-bottom: 0;
-			padding: 12px 0 !important;
-			border-left: none;
-
-			@include md-ripple(hover, after, 1.15);
-
+		&%radioBarAlt {
 			&:after {
-				width: 32px !important;
-				height: 32px !important;
-				top: -1px !important;
-				left: -4px !important;
-				bottom: 0;
-				margin: auto 0;
-			}
-
-			svg {
-				display: flex;
-				justify-content: center;
+				top: 0;
+				left: unset;
+				right: -4px;
 			}
 		}
 
-		&[aria-checked=true] {
-			%radioBar {
-				&:after {
-					--md-ripple-color: var(--accent-hsl);
-				}
-
-				path {
-					fill: hsl(var(--accent-hsl)) !important;
-				}
-			}
-
-			%radioIconChecked {
-				color: hsl(var(--accent-hsl));
-			}
-		}
-
-		&%radioItemDisabled {
-			opacity: 1;
-
-			%radioBar {
-				opacity: 0.3;
-
-                &:after {
-                    display: none;
-                }
-			}
+		svg {
+			display: flex;
+			justify-content: center;
 		}
 	}
 
-	%radioItemDisabledTooltip {
-		margin: 0;
-		@include card-format--list;
+	&[aria-checked=true] {
+		%radioBar {
+			&:after {
+				--md-ripple-color: var(--accent-hsl);
+			}
 
-		&:last-child {
-			border-bottom: none;
+			path {
+				fill: hsl(var(--accent-hsl)) !important;
+			}
 		}
+
+		%radioIconChecked {
+			color: hsl(var(--accent-hsl));
+		}
+	}
+
+	&%radioItemDisabled {
+		opacity: 1;
+
+		%radioBar {
+			opacity: 0.3;
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+%radioItemDisabledTooltip {
+	margin: 0;
+	@include card-format--list;
+
+	&:last-child {
+		border-bottom: none;
 	}
 }
 

@@ -7,14 +7,15 @@
  */
 
 %formNotice {
+    margin-bottom: 32px;
     padding: 0;
 
     %formNoticeTitle {
-        @include card-format--header;
+        @include card-format--header(false, true);
     }
 
     %formNoticeBody {
-        @include card-format--body;
+        @include card-format--body(true);
     }
 }
 
@@ -23,11 +24,17 @@
     padding: 0;
 
     %marginBottom20 {
-        @include card-format--header;
+        @include card-format--header(false, true);
+
+        %defaultColor {
+            font-size: inherit;
+            font-weight: inherit;
+            color: var(--card-header-text-color);
+        }
     }
 
     div:not([class]) {
-        padding: 16px 16px 0;
+        padding: 0 16px;
     }
 
     %marginTop20 {

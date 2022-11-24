@@ -8,18 +8,24 @@
 
 %deviceSessions {
     > div:not([class]) {
-        @include card-format;
+        @include card-format(false, 0, true);
     }
 }
 
 %deviceOtherSessions {
-    @include card-format;
+    margin-top: 32px;
+    @include card-format(false, 0, true);
 }
 
 %deviceSessions,
 %deviceOtherSessions {
     %deviceSectionTitle {
-        @include card-format--header;
+        @include card-format--header(false, true);
+
+        %settingsTitle {
+            margin-bottom: -16px;
+            @include card-format--header-fix;
+        }
     }
 }
 

@@ -12,21 +12,9 @@
 	@if $filled {
 		background-color: var(--card-color-filled) important($important);
 		border: none important($important);
-
-		@if $hover {
-			&:hover {
-				background-color: var(--card-color-hover) important($important);
-			}
-		}
 	} @else {
 		background-color: var(--card-color-outlined) important($important);
 		border: 1px solid var(--card-border-color) important($important);
-
-		@if $hover == false {
-			&:hover {
-				background-color: var(--card-color-outlined) important($important);
-			}
-		}
 	}
 
 	padding: $padding;
@@ -34,21 +22,41 @@
 
 	@if $hover {
 		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+			background-color: var(--card-color-hover) important($important);
+		}
 	}
 }
 
-@mixin card-format--header($important: false) {
+@mixin card-format--header($important: false, $filled: false) {
 	margin-bottom: 0;
 	padding: 16px important($important);
 	background-color: transparent important($important);
-	border-bottom: 1px solid var(--card-border-color);
-	font-size: 1em;
+	font-size: 1.25em;
+	line-height: normal;
+	color: var(--card-header-text-color);
+	font-weight: 500;
+	opacity: 1;
+
+	@if $filled == false {
+		border-bottom: 1px solid var(--card-border-color);
+	}
+}
+
+@mixin card-format--header-fix {
+	line-height: normal;
+	font-size: inherit;
 	color: var(--card-header-text-color);
 	font-weight: 500;
 }
 
-@mixin card-format--body {
-	padding: 16px;
+@mixin card-format--body($filled: false) {
+	@if $filled {
+		padding: 0 16px 16px;
+	} @else {
+		padding: 16px;
+	}
 }
 
 @mixin card-format--footer($padding: 8px) {

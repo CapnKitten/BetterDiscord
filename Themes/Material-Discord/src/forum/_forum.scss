@@ -30,7 +30,11 @@
 }
 
 %forumNoPosts {
-    @include card-format(false, 16px);
+    @include card-format(false, 16px, true);
+
+    %forumNoPostsIcon {
+        background-color: var(--card-color-hover);
+    }
 }
 
 %postGuidelinesContainer {
@@ -117,7 +121,6 @@
 %postTag {
     background-color: var(--card-button-color);
     border-radius: 10px;
-    //border: 1px solid var(--card-border-color);
     transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-color;
 
     &%postTagSmall {
@@ -128,16 +131,21 @@
         background-color: var(--card-button-color-hover) !important;
     }
 
+    %defaultColor {
+        margin-left: 6px;
+        transition: var(--default-time) var(--default-animation) color
+    }
+
     &%postTagSelected {
         background-color: hsla(var(--accent-hsl),0.3);
         border-color: transparent;
 
         &:hover {
-            background-color: hsla(var(--accent-hsl),0.4) !important;
+            background-color: hsla(var(--accent-hsl),0.35) !important;
         }
 
-        %postTagName {
-            color: var(--accent-text-color);
+        %defaultColor {
+            color: hsl(var(--accent-hsl));
         }
     }
 }
