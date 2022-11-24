@@ -59,7 +59,7 @@
 			content: "Theme Add-ons\A\AMaterial Discord has a few add-on themes to either enhance or revert\Asome features that can be located at bit.ly/MaterialDiscordAddons.\A\A - Solid Icons\A - Old Message Bubbles\A - Material You";
 			width: 100%;
 			margin-top: 16px;
-			@include card-format(false, 16px);
+			@include card-format(false, 16px, true);
 			color: var(--text-normal);
 			box-sizing: border-box;
 			white-space: pre;
@@ -78,10 +78,11 @@
 
 %bdAddonCard {
 	margin-bottom: 16px;
-	@include card-format(true);
+	@include card-format(true, 0, true);
 
 	%bdAddonCardHeader {
-		@include card-format--header;
+		@include card-format--header(false, true);
+		margin-bottom: -8px;
 
 		%bdAddonCardLink {
 			color: hsl(var(--accent-hsl));
@@ -93,21 +94,21 @@
 	}
 
 	%bdAddonCardControls {
+		background-color: transparent;
 		border-radius: 14px;
-		border: 1px solid var(--card-border-color);
 		overflow: hidden;
 
 		%bdButton {
 			padding: 3px 8px;
-			background-color: transparent;
-			color: var(--menu-item-text-color);
+			background-color: var(--card-button-color);
+			color: var(--text-normal);
 
 			&:hover {
-				background-color: var(--menu-item-hover);
+				background-color: var(--card-button-color-hover);
 			}
 
 			svg {
-				fill: var(--menu-item-text-color);
+				fill: var(--text-normal);
 			}
 		}
 	}
