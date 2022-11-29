@@ -19,12 +19,7 @@
 
     &%switchContainerChecked {
         --switch-slider-color: hsla(var(--accent-hsl),var(--accent-opacity));
-
-        %switchSlider {
-            rect {
-                --switch-knob-color: var(--accent-text-color);
-            }
-        }
+        --switch-knob-color: var(--accent-text-color);
     }
 
     svg {
@@ -46,10 +41,12 @@
 	input:checked {
 		+ %bdSwitchBody {
 			--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
-
-			%bdSwitchHandle {
-				fill: var(--accent-text-color);
-			}
+            --switch-knob-color: var(--accent-text-color);
 		}
 	}
+}
+
+%bdSwitchDisabled {
+    opacity: 0.3;
+    filter: none;
 }
