@@ -1,0 +1,110 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  FORUM
+ *
+ */
+
+%forumContainer {
+    background-color: transparent !important;
+}
+
+%forumMainCard {
+    @include card-format;
+
+    &%forumMainCardHeader {
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    &%forumMainCardHeaderWithMatchingPosts {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+    }
+
+    %forumMainCardTitle {
+        %input {
+            padding-left: 42px;
+        }
+    }
+}
+
+%forumMainCardSearchIcon,
+%forumMainCardCloseIcon {
+    margin-left: 8px;
+}
+
+%forumMainCardMatchingPostsRow {
+    background-color: var(--card-color);
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
+
+/* FORUM -> TAGS */
+
+%postTag {
+    background-color: var(--card-color) !important;
+    border: none;
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    &%postTagSelected {
+        background-color: hsla(var(--accent-hsl),0.3) !important;
+
+        &:hover {
+            background-color: hsla(var(--accent-hsl),0.4) !important;
+        }
+    }
+}
+
+%postSortContainer {
+    svg {
+        height: var(--button-height);
+    }
+}
+
+%postTagsContainer {
+    @include add-translucence(before, true);
+}
+
+/* FORUM -> POSTS THREAD */
+
+%postThread {
+    &:before {
+        display: none;
+    }
+}
+
+%postThreadIconWrapper {
+    background-color: var(--card-color);
+}
+
+%postThreadButtonContainer {
+    padding: 8px 16px;
+    @include add-translucence-bg(before);
+    border: none;
+
+    %button,
+    %postThreadAddReactButton {
+        height: 32px;
+        background-color: var(--card-color);
+        border: none;
+
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
+    }
+
+    %button {
+        %buttonContents {
+            padding: 0 8px;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+%postThreadDivider {
+    display: none;
+}
