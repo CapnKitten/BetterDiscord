@@ -7,47 +7,24 @@
  */
 
 %homeIntroCard {
-    @include card-format(false, 16px);
+    @include card-format(false, 16px, true);
 
     %homeIntroCardIcon {
-        border: 6px solid var(--card-border-color);
-
-        &:before,
-        &:after {
-            position: absolute;
-            content: " ";
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        &:before {
-            width: calc(100% + 10px);
-            height: calc(100% + 10px);
-            top: -5px;
-            left: -5px;
-            background-color: var(--chat-color);
-        }
-
-        &:after {
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: inherit;
-            background-position: center;
-            background-size: cover;
-            z-index: 2;
-        }
+        border: 6px solid var(--card-color-filled);
     }
 }
 
 /* HOME TAB -> ACTIVE NOW */
 
 %homeActiveNowContainer {
-    @include card-format;
+    @include card-format(false, 0, true);
 
     %homeActiveNowContainerHeader {
-        @include card-format--header;
+        @include card-format--header(false, true);
+
+        %defaultColor {
+            @include card-format--header-fix;
+        }
     }
 
     %homeActiveNowEmptyContainer {
@@ -102,17 +79,19 @@
 /* HOME TAB -> YOUR HIGHLIGHTS */
 
 %homeTopMessagesHeader {
-    margin-bottom: 0;
-    padding: 16px;
-    background-color: var(--card-color-outlined);
+    @include card-format--header(false, true);
+
+    background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-    border: 1px solid var(--card-border-color);
-    border-bottom: none;
+
+    %defaultColor {
+        @include card-format--header-fix;
+    }
 }
 
 %homeHighlightsCard {
     &%homeHighlightsCardBackground {
-        @include card-format(false, 16px);
+        @include card-format(false, 16px, true);
         border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
     }
 }

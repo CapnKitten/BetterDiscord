@@ -6,8 +6,9 @@
  *
  */
 
-%post {
-    @include card-format(true, 16px, true);
+%post,
+%postCard {
+    @include card-format(true, 0, true);
 
     &:hover {
         background-color: var(--card-color-hover) !important;
@@ -19,10 +20,6 @@
         background-color: var(--card-color-hover) !important;
     }
 
-    %postNewMessageCount {
-        color: hsl(var(--accent-hsl)) !important;
-    }
-
     %postNewBadge {
         background-color: hsla(var(--accent-hsl),0.25) !important;
         border-radius: 6px;
@@ -32,10 +29,28 @@
             text-transform: capitalize;
         }
     }
+}
+
+%post {
+    padding: 16px;
 
     %postTags {
         margin-top: 0;
     }
+}
+
+%postCardBodyMedia,
+%postCardContentPreview {
+    border-radius: var(--card-radius-big);
+}
+
+%postCardTagsRow {
+    left: 22px;
+    bottom: 2px;
+}
+
+%postCardTagsRowInTextCard {
+    margin: 0 -8px -18px;
 }
 
 %postLoading {
