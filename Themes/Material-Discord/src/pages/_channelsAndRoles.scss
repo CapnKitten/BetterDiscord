@@ -1,0 +1,37 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  CHANNELS AND ROLES
+ *
+ */
+
+%channelsAndRolesContainer {
+    background-color: var(--chat-color) !important;
+
+    %channelsAndRolesTabBar {
+        margin: 32px 46px 0 32px;
+        border-bottom: 1px solid var(--separator-color);
+
+        + %chat {
+            %pageBody {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+%channelsAndRolesPrompt {
+    @include card-format(false, 16px, true);
+
+    %channelsAndRolesPromptTitle {
+        line-height: normal;
+    	font-size: 1.25em;
+    	color: var(--card-header-text-color) !important;
+    	font-weight: 500;
+    }
+
+    %promptOptionButton {
+        --card-color-filled: var(--card-color-alt);
+    }
+}
