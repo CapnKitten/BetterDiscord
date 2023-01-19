@@ -93,10 +93,7 @@
 
 /* FORUM -> TOP BUTTONS */
 
-%forumSortButton,
 %forumTagsButton {
-    --button-padding: 0;
-
     min-width: var(--button-height);
 
     %buttonContents {
@@ -118,7 +115,26 @@
 
 /* FORUM -> TAGS */
 
+%postSortDropdownEmptyTags {
+    margin-top: -1px;
+    margin-bottom: 0;
+    gap: unset;
+
+    %postSortDropdownEmptyTagsInner {
+        color: var(--button-text-color);
+    }
+
+    %postSortDropdownEmptyTagsText {
+        color: var(--button-text-color) !important;
+    }
+}
+
+%postTagList {
+    height: var(--button-height);
+}
+
 %postTag {
+    height: var(--button-height);
     background-color: var(--card-button-color) !important;
     border-radius: 10px;
     transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-color;
@@ -158,7 +174,7 @@
 }
 
 %postSortContainer {
-    padding: 8px 0;
+    padding: 0;
     overflow: hidden;
 
     %postSortHeader {
@@ -181,5 +197,19 @@
         circle {
             fill: hsl(var(--accent-hsl));
         }
+    }
+}
+
+%postTagsCountContainer {
+    background-color: hsl(var(--accent-hsl));
+
+    %postTagsCountText {
+        color: var(--accent-text-color);
+    }
+}
+
+%postTagsClearButton {
+    %textSMMedium {
+        line-height: var(--button-height);
     }
 }

@@ -7,11 +7,16 @@
  */
 
 %automodEditCard {
-    @include card-format(true);
+    @include card-format(true, 0, true);
 
     &:before {
         display: none;
     }
+}
+
+%automodRuleIconContainer,
+%automodStepCountIcon {
+    background-color: var(--card-button-color);
 }
 
 %triggerMainContainer {
@@ -19,8 +24,10 @@
     border: none;
 
     %triggerSettingsContainer {
+        --card-color-filled: var(--card-color-alt);
+
         margin: 8px 0;
-        @include card-format;
+        @include card-format(false, 0, true);
 
         %paddingTop,
         %triggerSettingsExemptionHint {
