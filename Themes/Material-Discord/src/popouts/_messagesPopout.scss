@@ -40,27 +40,82 @@
 }
 
 %messagesPopoutHeader {
-	padding: 16px;
+	padding: 16px 16px 0;
 	background-color: transparent;
 	border-bottom: 1px solid var(--popout-header-border);
 	box-shadow: none;
 
-	%headerBarTitle {
-		height: 52px;
-		line-height: 52px;
+	&%messagesPopoutHeaderExpanded {
+		height: auto;
+		min-height: unset;
+		padding: 16px 16px 0;
 	}
 
-    %buttonCircle {
-        position: relative;
-        top: 50%;
-        background-color: var(--menu-item-hover);
-        transform: translateY(-50%);
+	%messagesPopoutExpandedInboxHeader {
+		padding-bottom: 0;
+	}
 
-        &:hover {
-            background-color: var(--menu-item-select);
-        }
-    }
+	%messagesPopoutExpandedTabSection {
+		height: 48px;
+	}
+
+	%topPill {
+		height: inherit;
+	}
+
+	%messagesPopoutHeaderFriendRequestButton,
+	%messagesPopoutHeaderButton:not(%messagesPopoutHeaderButtonDisabled) {
+		background-color: var(--card-button-color);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+			background-color: var(--card-button-color-hover);
+		}
+	}
 }
+
+%messagesPopoutContentContainer {
+	background-color: transparent;
+}
+
+%messagesPopoutRow {
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+}
+
+/* MESSAGES POPOUT -> FRIEND REQUEST ROW */
+
+%messagesPopoutFriendRequestContainer {
+	%button {
+		padding: var(--button-padding);
+
+		%textSMMedium {
+			line-height: var(--button-height);
+		}
+	}
+
+	%buttonGreen {
+		margin-right: 8px;
+
+		%textSMMedium {
+			color: var(--button-text-color) !important;
+		}
+	}
+
+	%buttonPrimary {
+		--button-background: rgba(var(--button-link-color),0.1);
+		--button-text-color: var(--button-link-text-color);
+
+		%textSMMedium {
+			color: var(--button-text-color) !important;
+		}
+	}
+}
+
+/* MESSAGES POPOUT -> INNER */
 
 %messagesPopoutInner {
 	padding: 0 8px 20px 8px;
@@ -114,12 +169,6 @@ body:active %messagesPopoutWrap:not(:active) {
 }
 
 /* MESSAGES POPOUT -> RECENT MENTIONS */
-
-%recentMentionsPopout {
-	%messagesPopoutHeader {
-		padding: 0 16px;
-	}
-}
 
 %recentMentionsContainer {
 	padding-left: 8px;

@@ -1,0 +1,74 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  NITRO PURCHASE
+ *
+ */
+
+%premiumSkuSelect {
+    @include popout-format(true);
+
+    %titleH4 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    %premiumSkuButtons {
+         padding-top: 16px;
+    }
+}
+
+/* NITRO PURCHASE -> SELECTION AND REVIEW */
+
+%modalRoot {
+    %modalHeader {
+        &%modalHeaderAlt {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            background-image: linear-gradient(var(--popout-color), var(--popout-color));
+            border-bottom: none;
+
+            %modalCloseButton {
+                top: -4px;
+                right: -4px;
+            }
+        }
+    }
+
+    %paymentNote {
+        margin-top: 0;
+
+        + %breadcrumbsWrapper {
+            margin-top: 4px;
+        }
+    }
+
+    %breadcrumbsWrapper {
+        margin: 0;
+        padding: 0 16px 16px;
+        border-bottom: 1px solid var(--card-border-color);
+    }
+}
+
+%nitroPlanOption {
+    padding: 16px;
+    @include card-format--list;
+}
+
+%nitroPlanSelectDivider {
+    display: none;
+}
+
+%nitroPlanWarnBlock {
+    margin-top: 8px;
+    @include card-format(false, 16px, true);
+}
+
+%nitroTable {
+    @include card-format(false, 16px, true);
+
+    %nitroTableDivider {
+        background-color: var(--card-border-color);
+    }
+}
