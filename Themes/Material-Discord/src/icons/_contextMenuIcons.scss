@@ -302,115 +302,115 @@
         }
     }
 
-    %submenuContainer {
-        %menuPopoutItem {
-            flex-direction: row;
+    /* CONTEXT MENU ICONS -> SUBMENU WITH ARROW */
 
+    %menuPopoutItem[aria-haspopup="true"] {
+        flex-direction: row;
+
+        &:before {
+            display: block;
+            position: relative;
+            content: " ";
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+        }
+
+        &#status-picker-switch-account,
+        &#account-status-picker,
+        &#account-switch-account {
             &:before {
-                display: block;
-                position: relative;
-                content: " ";
-                width: 18px;
-                height: 18px;
-                margin-right: 12px;
+                display: none;
             }
+        }
 
-            &#status-picker-switch-account,
-            &#account-status-picker,
-            &#account-switch-account {
+        $icons: (
+            'user-context-apps':                        'apps',
+            'user-context-invite-to-server':            'add_circle',
+            'user-context-roles':                       'person',
+            'user-context-voice-move':                  'move',
+            'user-context-mute-channel':                'volume_up',
+
+            'gdm-context-mute-channel':                 'volume_up',
+
+            'message-add-reaction-0':                   'emoji',
+            'message-add-burst-reaction':               'burst_reaction',
+            'message-apps':                             'apps',
+            'message-actions-apps':                     'apps',
+            'message-guild-feed-feature':               'feature',
+            'message-guild-automod-add-selection':      'filter',
+            'message-copy-message':                     'content_copy',
+
+            'message-actions-guild-feed-feature':       'feature',
+
+            'thread-context-mute-channel':              'volume_up',
+            'thread-context-thread-notifications':      'notifications',
+            'thread-context-edit-tags':                 'edit',
+            'thread-context-auto-archive-thread':       'archive',
+
+            'textarea-context-suggestions':             'lightbulb',
+
+            'guild-context-mute-guild':                 'volume_up',
+            'guild-context-guild-notifications':        'notifications',
+            'guild-context-guild-settings':             'settings',
+
+            'channel-context-mute-channel':             'volume_up',
+            'channel-context-channel-notifications':    'notifications',
+
+            'user-settings-cog-Appearance':             'chat',
+            'user-settings-cog-Accessibility':          'accessibility',
+            'user-settings-cog-Voice___Video':          'mic',
+            'user-settings-cog-Text___Images':          'keyboard',
+            'user-settings-cog-Streamer_Mode':          'live_tv',
+            'user-settings-cog-Experiments':            'settings'
+        );
+
+        @each $option, $icon in $icons {
+            &##{$option} {
                 &:before {
-                    display: none;
+                    @include add-icon(currentColor, $icon);
                 }
-            }
-
-            $icons: (
-                'user-context-apps':                        'apps',
-                'user-context-invite-to-server':            'add_circle',
-                'user-context-roles':                       'person',
-                'user-context-voice-move':                  'move',
-                'user-context-mute-channel':                'volume_up',
-
-                'gdm-context-mute-channel':                 'volume_up',
-
-                'message-add-reaction':                     'emoji',
-                'message-add-burst-reaction':               'burst_reaction',
-                'message-apps':                             'apps',
-                'message-actions-apps':                     'apps',
-                'message-guild-feed-feature':               'feature',
-                'message-guild-automod-add-selection':      'filter',
-                'message-copy-message':                     'content_copy',
-
-                'message-actions-guild-feed-feature':       'feature',
-
-                'thread-context-mute-channel':              'volume_up',
-                'thread-context-thread-notifications':      'notifications',
-                'thread-context-edit-tags':                 'edit',
-                'thread-context-auto-archive-thread':       'archive',
-
-                'textarea-context-suggestions':             'lightbulb',
-
-                'guild-context-mute-guild':                 'volume_up',
-                'guild-context-guild-notifications':        'notifications',
-                'guild-context-guild-settings':             'settings',
-
-                'channel-context-mute-channel':             'volume_up',
-                'channel-context-channel-notifications':    'notifications',
-
-                'user-settings-cog-Appearance':             'chat',
-                'user-settings-cog-Accessibility':          'accessibility',
-                'user-settings-cog-Voice___Video':          'mic',
-                'user-settings-cog-Text___Images':          'keyboard',
-                'user-settings-cog-Streamer_Mode':          'live_tv',
-                'user-settings-cog-Experiments':            'settings'
-            );
-
-            @each $option, $icon in $icons {
-                &##{$option} {
-                    &:before {
-                        @include add-icon(currentColor, $icon);
-                    }
-                }
-            }
-
-            $icons: (
-                'user-context-Add to Calendar':             'add_circle'
-            );
-
-            @each $option, $icon in $icons {
-                &[id="#{$option}"] {
-                    &:before {
-                        @include add-icon(currentColor, $icon);
-                    }
-                }
-            }
-
-            %menuPopoutIconContainer,
-            %menuPopoutImageContainer {
-                margin-right: 0;
-                margin-left: 12px;
             }
         }
 
-        %autocompleteListItems {
-            %menuPopoutIconContainer {
-                margin-right: 12px;
-                margin-left: 0;
-            }
-        }
+        $icons: (
+            'user-context-Add to Calendar':             'add_circle'
+        );
 
-        #account-status-picker,
-        #account-switch-account {
-            %menuPopoutIconContainerLeft {
-                margin-right: 12px;
-                margin-left: 0;
-            }
-        }
-
-        %contextMenuItemSubMenuAlt {
-            %menuPopoutItem {
+        @each $option, $icon in $icons {
+            &[id="#{$option}"] {
                 &:before {
-                    display: none;
+                    @include add-icon(currentColor, $icon);
                 }
+            }
+        }
+
+        %menuPopoutIconContainer,
+        %menuPopoutImageContainer {
+            margin-right: 0;
+            margin-left: 12px;
+        }
+    }
+
+    %autocompleteListItems {
+        %menuPopoutIconContainer {
+            margin-right: 12px;
+            margin-left: 0;
+        }
+    }
+
+    #account-status-picker,
+    #account-switch-account {
+        %menuPopoutIconContainerLeft {
+            margin-right: 12px;
+            margin-left: 0;
+        }
+    }
+
+    %contextMenuItemSubMenuAlt {
+        %menuPopoutItem {
+            &:before {
+                display: none;
             }
         }
     }
