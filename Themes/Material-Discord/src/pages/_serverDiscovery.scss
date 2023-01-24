@@ -14,24 +14,24 @@
 	border-radius: var(--card-radius-big);
 }
 
-%discoverSearch {
-	%discoverSearchBox {
-		border-radius: 18px;
-		border: none;
-		box-shadow: none;
+%discoverSearchBox {
+	padding-right: 8px;
+	border-radius: var(--input-radius);
+	border: none;
+	box-shadow: none;
 
-		%inputWrapper {
-			border-bottom: none !important;
+	%inputWrapper {
+		border-bottom: none !important;
 
-			&:before,
-			&:after {
-				display: none;
-			}
+		&:before,
+		&:after {
+			display: none;
 		}
+	}
 
-		%discoverSearchBoxInput {
-			padding: 8px 16px;
-		}
+	%discoverSearchBoxInput {
+		height: var(--input-height);
+		padding: 0 16px !important;
 	}
 }
 
@@ -108,6 +108,10 @@
 	}
 }
 
+%discoverSearchEmptyContainer {
+	@include card-format(false, 80px 0, true);
+}
+
 /* SERVER DISCOVERY -> SEARCH RESULTS */
 
 %discoverSearchPage,
@@ -128,9 +132,10 @@
 		max-width: unset;
 	}
 
-	%searchBox {
-		padding-right: 5px;
-		background-color: var(--input-color) !important;
+	%discoverSearchBox {
+		padding-right: 8px;
+		background-color: var(--input-color);
+		box-shadow: none !important;
 	}
 }
 

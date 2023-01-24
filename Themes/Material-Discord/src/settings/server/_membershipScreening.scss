@@ -11,7 +11,7 @@
 }
 
 %rulesScreeningBackgroundContainer {
-    @include card-format(false, 16px);
+    @include card-format(false, 16px, true);
 
 	%rulesScreeningContainerPadding {
 		padding: 0;
@@ -23,6 +23,16 @@
     }
 }
 
+%rulesScreeningContainerTitle {
+    font-size: 1.25em;
+    color: var(--card-header-text-color);
+	font-weight: 500;
+
+    %rulesScreeningContainerVerificationLevel {
+        font-size: 1em;
+    }
+}
+
 %rulesScreeningContainerFooter {
     padding: 0;
     background-color: transparent;
@@ -30,7 +40,9 @@
 
 %rulesScreeningFieldBackground {
     &:not(textarea) {
-        @include card-format(false, 16px);
+        --card-color-filled: var(--card-color-alt);
+
+        @include card-format(false, 16px, true);
     }
 
     &%rulesScreeningWithFooter {
@@ -39,11 +51,11 @@
 }
 
 %rulesScreeningFieldFooterContainer {
-    background-color: var(--card-color-outlined);
+    background-color: var(--card-color-alt);
     border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-	border: 1px solid var(--card-border-color);
+    border-top: 1px solid var(--card-border-color);
 }
 
 %rulesScreeningSidebarFixedContainer {
-    @include card-format(false, 16px);
+    @include card-format(false, 16px, true);
 }
