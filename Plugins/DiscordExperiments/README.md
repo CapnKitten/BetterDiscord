@@ -16,4 +16,4 @@ Current version: v1.0.0 (04/02/2023)
 [github-url]: https://github.com/sponsors/CapnKitten
 
 [download-logo]: https://img.shields.io/static/v1?label=Download&message=Plugin&style=flat&color=blue
-[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?plugin=HideChannels
+[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?plugin=DiscordExperiments
