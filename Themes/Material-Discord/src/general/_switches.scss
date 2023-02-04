@@ -24,6 +24,11 @@
 		box-sizing: border-box;
 	}
 
+	path {
+		fill: var(--switch-slider-color);
+		transform: scale(1.4) translate(-3px, -3px);
+	}
+
 	&%switchContainerChecked {
 		&:before {
 			background-color: var(--switch-color-checked);
@@ -38,7 +43,8 @@
 		}
 
 		path {
-			fill: var(--switch-color-checked);
+			fill: hsl(var(--accent-hsl));
+			filter: brightness(40%);
 		}
 	}
 
@@ -52,9 +58,19 @@
 		transform: translate(1px, -50%);
 		transition: 250ms cubic-bezier(0,0.3,0.7,1) background-color;
 
-		rect,
-		svg {
+		rect {
 			display: none;
+		}
+	}
+}
+
+%themeLight {
+	%switchContainer {
+		&%switchContainerChecked {
+			path {
+				fill: var(--switch-color-checked);
+				filter: unset;
+			}
 		}
 	}
 }
