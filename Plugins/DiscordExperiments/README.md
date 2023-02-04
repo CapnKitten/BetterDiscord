@@ -1,19 +1,13 @@
-# Hide Channels plugin - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url]
-#### Allows you to hide the channels list in servers and DMs
+# Discord Experiments plugin - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url]
+#### Enables Discord Experiments
 <hr>
 
-Current version: v1.0.6.1 (03/11/2020)
-
-## Previews
-
-![ezgif-6-45c8f48e36c7](https://user-images.githubusercontent.com/4013216/92356414-14aec900-f0b4-11ea-88f9-b9e6d1c89ae8.gif)
-
-&nbsp;
+Current version: v1.0.0 (04/02/2023)
 
 ## Changelog
 
-#### v1.0.6 (03/11/2020)
-* Fixed a bug where the toggle button would stop working
+#### v1.0.0 (04/02/2023)
+* Initial release
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
