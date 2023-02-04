@@ -46,7 +46,7 @@ Current version: v3.0.4 (24/01/2022)
  - `--server-color` - The background color for the servers list. Default: `#232327` - `#eee`**
  - `--status-picker-color` - The background color for the status area with the settings button. Default: `#181a1d` - `#dee0e0`**
  - `--sidebar-panel-color` - The background color for the sidebar panels in the channels list. Default: `#111114` - `#d4d6d6`**
- - `--chat-color` - The background color the main chat area. Default: `#202225` - `#fff`**
+ - `--chat-color` - The background color the main chat area. Default: `var(--main-color)`
  - `--avatar-radius` - The border radius of avatars, servers, and change status buttons. Default: `50%`
  - `--tooltip-color` - The background color for tooltips. Default: `rgba(97,97,97,0.9)`
  - `--tooltip-text-color` - The text color for tooltips. Default: `#ddd`
@@ -68,41 +68,44 @@ Current version: v3.0.4 (24/01/2022)
  - `--message-padding-side` - The side padding of message bubbles. Default: `12px`
  - `--media-radius` - The border radius for images, videos, and audio. Default: `19px`
  - `--attachment-color` - The background color for all attachments. Default: `rgb(0,0,0,0.325)` - `rgba(0,0,0,0.1)`**
- - `--main-textarea-color` - The background color for the main chat text box. Default: `#303338` - `#fff`**
+ - `--main-textarea-color` - The background color for the main chat text box. Default: `#2c2f33` - `#fff`**
  - `--main-textarea-color-alt` - An alternative background color for the main chat text box. Default: `#3b3f42` - `#ccc`**
- - `--main-textarea-border` - The border color for the main chat text box. Default: `#3e434a` - `#dadce0`**
+ - `--main-textarea-border` - The border color for the main chat text box. Default: `#3a3e45` - `#dadce0`**
  - `--main-textarea-radius` - The border radius for the main chat text box. Default: `24px`
- - `--typing-color` - The background color for the typing indicator. Default: `rgba(32,34,37,0.9)` - `rgba(255,255,255,0.8)`**
+ - `--typing-color` - The background color for the typing indicator. Default: `rgba(22,23,26,0.9)` - `rgba(249,249,249,0.9)`**
 
 #### Popout menu elements
  - `--popout-color` - The background color for popout menus and modals. Default: `#2c2f33` - `#fff`**
  - `--popout-color-alt` - An alternative background color for popout menus and modals. Default: `#202225` - `#e5e5e5`**
  - `--popout-header-border` - The border color for popout menu headers. Default: `#444` - `#aaa`**
  - `--separator-color` - The background color for the separator lines in various popout menus. Default: `#444` - `#ccc`**
- - `--popout-radius` - The border radius for popout menus. Default: `5px`
- - `--popout-radius-big` - The bigger border radius for modals. Default: `10px`
+ - `--popout-radius` - The border radius for popout menus. Default: `8px`
+ - `--popout-radius-big` - The bigger border radius for modals. Default: `18px`
 
 #### Card elements
- - `--card-color` - The background color for cards. Default: `transparent` - `transparent`**
- - `--card-color-hover` - The background color for hovering over cards. Default: `#292b2f` - `#eee`**
- - `--card-color-alt` - An background color for cards. Default: `#2a2c30` - `transparent`**
- - `--card-color-alt-hover` - An background color for hovering over cards. Default: `#35383d` - `#d4d4d4`**
- - `--card-header-text-color` - The text color for card headers. Default: `#dcddde` - `#333`**
- - `--card-radius` - The border radius for cards. Default: `5px`
- - `--card-radius-big` - The bigger border radius for cards. Default: `10px`
+ - `--card-color-filled` - The background color for cards. Default: `hsl(225,6%,13%)` - `hsl(0,0%,92%)`**
+ - `--card-color-hover` - The background color for hovering over cards. Default: `hsl(225,6%,16%)` - `hsl(0,0%,85%)`**
+ - `--card-color-active`- The background color for active cards. Default: `hsl(225,6%,25%)` - `hsl(0,0%,80%)`**
+ - `--card-color-alt` - An background color for cards. Default: `hsl(225,6%,18%)` - `hsl(0,0%,98%)`**
+ - `--card-color-alt-hover` - An background color for hovering over cards. Default: `hsl(225,6%,21%)` - `hsl(0,0%,88%)`**
+ - `--card-border-color` - The border color for outlined cards. Default `hsl(220,3%,26%)` - `hsl(0,0%,78%)`**
+ - `--card-header-text-color` - The text color for card headers. Default: `#eee` - `#333`**
+ - `--card-radius` - The border radius for cards. Default: `8px`
+ - `--card-radius-big` - The bigger border radius for cards. Default: `18px`
 
 #### Button elements
- - `--button-radius` - The border radius for buttons. Default: `5px`
- - `--button-link-color` - The background color for transparent buttons. Default: `255,255,255` - `0,0,0`**
+ - `--button-height` - The height for buttons. Default: `36px`
+ - `--button-padding` - The left and right padding for buttons. Default: `0 24px`
+ - `--button-radius` - The border radius for buttons. Default: `18px`
+ - `--button-link-color` - The background color for transparent buttons. Default: `0,0%,100%` - `0,0%,0%`**
  - `--button-link-text-color` - The text color for transparent buttons. Default: `#fff` - `#333`**
 
 #### Slider and switch elements
- - `--slider-color` - The background color for sliders. Default: `#4f545c` - `#999`**
- - `--switch-knob-color` - The background color for the knob on switches. Default: `#777` - `#fff`**
- - `--switch-slider-color` - The background color for the background slider on switches. Default: `rgba(65,65,65,0.65)` - `rgba(0,0,0,0.2)`**
+ - `--switch-knob-color` - The background color for the knob on switches. Default: `hsl(0,0%,47%)` - `hsl(0,0%,47%)`**
+ - `--switch-slider-color` - The background color for the background slider on switches. Default: `hsl(240,1%,20%)` - `hsl(240,1%,20%)`**
 
 #### Input elements
- - `--input-color` - The background color for text fields that don't have the animated border. Default: `rgba(255,255,255,0.075)` - `#d2d4d4`**
+ - `--input-color` - The background color for text fields that don't have the animated border. Default: `rgb(38,38,41)` - `rgb(38,38,41)`**
  - `--input-border-color` - The border color for text fields. Default: `#444` - `#aaa`**
 
 #### Various elements
