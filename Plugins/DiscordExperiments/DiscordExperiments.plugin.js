@@ -42,7 +42,7 @@ module.exports = (() => {
 					github_username: "CapnKitten"
 				}
 			],
-			version: "1.0.0",
+			version: "1.0.1",
 			description: "Enables Discord experiments",
 			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/DiscordExperiments/DiscordExperiments.plugin.js",
 			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/DiscordExperiments/DiscordExperiments.plugin.js"
@@ -55,7 +55,19 @@ module.exports = (() => {
 		getAuthor() { return config.info.authors.map(a => a.name).join(", "); }
 		getDescription() { return config.info.description; }
 		getVersion() { return config.info.version; }
-		load() { }
+		load() {
+			BdApi.showConfirmationModal("Library plugin is needed",
+				[`The library plugin needed for ${config.info.name} is missing. Please click Download Now to install it.`], {
+				confirmText: "Download",
+				cancelText: "Cancel",
+				onConfirm: () => {
+					require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
+					if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
+						await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
+					});
+				}
+			});
+		}
 		start() { }
 		stop() { }
 	} : (([Plugin, Api]) => {
