@@ -3,6 +3,7 @@
 ### Plugins
 
 * [Hide Channels](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/HideChannels)
+* [Discord Experiments](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/DiscordExperiments)
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
