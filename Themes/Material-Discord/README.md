@@ -12,25 +12,25 @@ Current version: v3.0.4 (24/01/2022)
 
 #### Main chat area
 
-![discord-601](https://user-images.githubusercontent.com/4013216/151684062-a1f39880-f39e-410a-89e3-c0b8913c225e.png)
+![discord-701](https://user-images.githubusercontent.com/4013216/216792441-cc02a2fc-d175-432d-af75-81975d75e65e.png)
 
 #### User popout info
 
-![discord-602](https://user-images.githubusercontent.com/4013216/151684066-302585e8-4266-4c76-8eb2-af4042ba40ce.png)
+![discord-702](https://user-images.githubusercontent.com/4013216/216792443-04fe70f0-0cd7-4d98-bb49-c937415c53d0.png)
 
 #### User profile
 
-![discord-603](https://user-images.githubusercontent.com/4013216/151684072-a67ff752-6811-4806-9a9f-24b27ee1ce02.png)
+![discord-703](https://user-images.githubusercontent.com/4013216/216792451-676c4d76-6138-42c3-8ce2-3ee76cb82abf.png)
 
 #### User settings
 
-![discord-604](https://user-images.githubusercontent.com/4013216/151684077-902a0e1f-3873-4702-9824-6fa954f37532.png)
+![discord-704](https://user-images.githubusercontent.com/4013216/216792456-36074914-4cb8-4c0b-aa07-74d09e274bcf.png)
 
-![discord-605](https://user-images.githubusercontent.com/4013216/151684081-88791d51-61f5-4cf8-a89b-591cfadef3df.png)
+![discord-705](https://user-images.githubusercontent.com/4013216/216792461-30509d7f-30c1-4d31-b4e0-9be858723cfd.png)
 
 #### DMs
 
-![discord-606](https://user-images.githubusercontent.com/4013216/151684087-a6a29ce8-4939-4964-b427-2ef5c60618f3.png)
+![discord-706](https://user-images.githubusercontent.com/4013216/216792463-a2472c19-21bd-48e0-beba-05d092c715dc.png)
 
 &nbsp;
 
