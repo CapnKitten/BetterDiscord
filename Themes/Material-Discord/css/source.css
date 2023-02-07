@@ -1019,21 +1019,24 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  *  CHANNELS LIST PANELS
  *
  */
-.panels-3wFtMD {
-  position: relative;
-  margin: -12px 8px 8px;
-  background-color: transparent;
-}
-.panels-3wFtMD:before {
+.container-1NXEtd:after {
   position: absolute;
   content: " ";
   width: calc(100% + 16px);
   height: 40px;
-  top: -28px;
   left: -8px;
+  bottom: 0;
   background: linear-gradient(0deg, var(--main-color) 0%, transparent 50%);
-  z-index: -1;
   pointer-events: none;
+  z-index: 1;
+}
+
+.panels-3wFtMD {
+  position: relative;
+  margin: -12px 8px 12px;
+  background-color: transparent;
+  border-radius: var(--popout-radius-big);
+  overflow: hidden;
 }
 .panels-3wFtMD .button-12Fmur {
   position: relative;
@@ -1065,12 +1068,13 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   background-color: hsla(var(--md-ripple-color), 0.2);
 }
 
+.container-6sXIoE,
 .container-1zzFcN,
 .activityPanel-9icbyU,
 .listeningAlong-6YvYsc {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   background-color: var(--sidebar-panel-color);
-  border-radius: var(--card-radius-big);
+  border-radius: 4px;
   border-bottom: none;
 }
 
@@ -1084,10 +1088,10 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 
 .container-YkUktl {
   width: 100%;
-  height: 52px;
+  height: 46px;
   margin-bottom: 0;
   background-color: var(--status-picker-color) !important;
-  border-radius: var(--card-radius-big);
+  border-radius: 4px;
   box-sizing: border-box;
 }
 .container-YkUktl .avatarWrapper-1B9FTW {
@@ -1533,6 +1537,54 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   background-color: var(--popout-color);
   border-radius: var(--popout-radius-big);
   box-shadow: var(--shadow-3dp);
+}
+
+/* DIRECT MESSAGES -> SIDEBAR PROFILE */
+.profilePanel-2PWEok {
+  padding: 12px;
+}
+.profilePanel-2PWEok .scrollerBase-_bVAAt::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.userPanelOuter-xc-WYi {
+  border-radius: var(--popout-radius-big);
+  overflow: hidden;
+}
+
+.badgeList-1EecKl {
+  height: var(--button-height);
+  padding: 0 7px;
+  border-radius: var(--button-radius);
+}
+
+.profilePanelConnections-qFuH1k {
+  margin: 6px 16px 16px;
+}
+.profilePanelConnections-qFuH1k .mutualFriendsDivider-2LiKsc {
+  position: relative;
+  border-top: none;
+}
+.profilePanelConnections-qFuH1k .mutualFriendsDivider-2LiKsc:before {
+  position: absolute;
+  content: " ";
+  width: auto;
+  height: 1px;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  background-color: var(--card-border-color);
+  box-sizing: border-box;
+}
+.profilePanelConnections-qFuH1k .button-f2h6uQ {
+  --button-height: 42px;
+  --button-padding: 0 12px;
+  --button-background: transparent;
+  --button-radius: 0;
+  --button-text-color: var(--text-normal);
+}
+.profilePanelConnections-qFuH1k .button-f2h6uQ:after {
+  display: none;
 }
 
 /*
@@ -2359,20 +2411,31 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 .container-3YcgdM .button-f2h6uQ,
 .container-3YcgdM .addReactButton-3bSQb6 {
   --button-padding: 0 10px;
+  --button-text-color: hsl(var(--accent-hsl));
   height: var(--button-height);
   padding: var(--button-padding);
-  background-color: hsla(var(--button-link-accent-color), 0.075);
+  background-color: transparent;
   border-radius: var(--button-radius);
   border: none;
+  color: var(--button-text-color);
+  transition: var(--default-time) var(--default-animation) background-color;
 }
 .container-3YcgdM .button-f2h6uQ:hover,
 .container-3YcgdM .addReactButton-3bSQb6:hover {
-  background-color: hsla(var(--button-link-accent-color), 0.125);
+  background-color: hsla(var(--button-link-accent-color), 0.14);
+}
+.container-3YcgdM .button-f2h6uQ.active-2hEEcJ,
+.container-3YcgdM .addReactButton-3bSQb6.active-2hEEcJ {
+  background-color: hsla(var(--button-link-accent-color), 0.21);
 }
 .container-3YcgdM .button-f2h6uQ .contents-3ca1mk {
   padding: 0;
   background-color: transparent;
   border: none;
+  color: var(--button-text-color);
+}
+.container-3YcgdM .addReactButton-3bSQb6 svg {
+  color: inherit !important;
 }
 
 .divider-AZrXIA {
@@ -3652,23 +3715,32 @@ div[role=radiogroup] {
 }
 .bd-switch .bd-switch-body {
   --switch-color: var(--switch-slider-color);
+  --switch-animation: 250ms cubic-bezier(0,0.3,0.7,1) all;
   width: 100%;
   height: 100%;
-  transition: 250ms cubic-bezier(0, 0.3, 0.7, 1) all;
+  transition: var(--switch-animation);
   border: 2px solid var(--switch-knob-color);
   box-sizing: border-box;
   overflow: visible;
 }
 .bd-switch .bd-switch-body .bd-switch-slider {
+  width: 14px;
   height: 14px;
   top: 50%;
-  left: 0;
+  left: 3px;
   margin: 0;
   transform: translate(0, -50%);
   overflow: visible;
+  transition: var(--switch-animation);
 }
 .bd-switch .bd-switch-body .bd-switch-slider .bd-switch-handle {
+  width: 28px;
+  height: 28px;
+  x: 0;
+  y: -4px;
+  rx: 14px;
   fill: var(--switch-knob-color);
+  transition: var(--switch-animation);
 }
 .bd-switch .bd-switch-body .bd-switch-slider .bd-switch-symbol {
   display: none;
@@ -3676,20 +3748,30 @@ div[role=radiogroup] {
 .bd-switch input:active + .bd-switch-body {
   --switch-color: var(--switch-slider-color);
 }
+.bd-switch input:active + .bd-switch-body .bd-switch-handle {
+  width: 28px;
+  height: 28px;
+  x: 4px;
+  y: -4px;
+}
 .bd-switch input:checked + .bd-switch-body {
   --switch-color: var(--switch-color-checked);
-  border: none;
+  border-color: transparent;
 }
 .bd-switch input:checked + .bd-switch-body .bd-switch-slider {
+  width: 18px;
   height: 18px;
   left: 0;
-  transform: translate(14px, -50%);
+  transform: translate(16px, -50%);
 }
 .bd-switch input:checked + .bd-switch-body .bd-switch-slider .bd-switch-handle {
   fill: hsl(var(--accent-hue), calc(var(--accent-saturation) * var(--saturation-factor)), calc(var(--accent-lightness) * var(--switch-color-modifier)));
 }
 .bd-switch input:checked:active + .bd-switch-body {
   --switch-color: var(--switch-color-checked);
+}
+.bd-switch input:checked:active + .bd-switch-body .bd-switch-handle {
+  x: -12.5px;
 }
 
 /*
@@ -3953,17 +4035,19 @@ div[role=radiogroup] {
 
 .returnButton-1xn3Ii {
   --button-height: 32px;
+  max-width: 250px;
+  margin-right: 8px;
 }
 
 .returnButtonText-27U_ef {
-  font-size: 0.85em;
+  font-size: 1em;
 }
 .returnButtonText-27U_ef,
 .returnButtonText-27U_ef * {
   line-height: var(--button-height);
   color: hsl(var(--accent-hsl)) !important;
 }
-.returnButtonText-27U_ef .text-xs-medium-2LRpEj {
+.returnButtonText-27U_ef .text-xs-medium-311pdh {
   font-size: 1em;
 }
 
@@ -9005,7 +9089,7 @@ body:active .container-18GwIk:not(:active) {
 }
 
 .userProfileInner-3F03PX {
-  border-radius: calc(var(--popout-radius-big) / 1.25);
+  border-radius: calc(var(--popout-radius-big) - 4px);
 }
 .userProfileInner-3F03PX:before {
   border-radius: inherit;
@@ -9032,20 +9116,17 @@ body:active .container-18GwIk:not(:active) {
 }
 
 .wrapper-400BN2 {
-  border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
+  border-radius: calc(var(--popout-radius-big) - 4px) calc(var(--popout-radius-big) - 4px) 0 0;
 }
 
 .banner-2boKnS, .banner-1rJmju,
-.bannerNitroUpsell-23OMvY {
-  border-radius: calc(var(--popout-radius-big) / 1.25);
+.bannerNitroUpsell-23OMvY,
+.overlayBackground-1KgwVi {
+  border-radius: calc(var(--popout-radius-big) - 4px);
 }
 
 .profileBadges-31rDHI {
   border-radius: 15px;
-}
-
-.overlayBackground-1KgwVi {
-  border-radius: calc(var(--popout-radius-big) / 1.25);
 }
 
 .title-1r9MQ6 {
@@ -11811,14 +11892,8 @@ body:active .menu-KSaHL1:not(:active) {
 .row-3nMNOy .removeKeybind-2YVgVG {
   right: -12px;
 }
-.row-3nMNOy .container-30qY7E:not(.hasValue-2CTSKI) .button-f2h6uQ {
-  width: 158px;
-}
-.row-3nMNOy .container-30qY7E.hasValue-2CTSKI .button-f2h6uQ {
-  transition: var(--default-time) var(--default-animation) width;
-}
-.row-3nMNOy .container-30qY7E.hasValue-2CTSKI:not(.disabled-3S7pz8):hover .button-f2h6uQ, .row-3nMNOy .container-30qY7E.hasValue-2CTSKI:not(.disabled-3S7pz8):focus-within .button-f2h6uQ {
-  width: 148px;
+.row-3nMNOy .container-30qY7E .button-f2h6uQ {
+  width: auto;
 }
 
 /*
