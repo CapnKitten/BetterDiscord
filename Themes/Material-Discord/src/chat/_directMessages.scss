@@ -112,3 +112,59 @@
 %callReactionContainer {
     @include popout-format;
 }
+
+/* DIRECT MESSAGES -> SIDEBAR PROFILE */
+
+%dmProfilePanel {
+    padding: 12px;
+
+    %scroller {
+        &::-webkit-scrollbar {
+            width: 0 !important;
+        }
+    }
+}
+
+%dmUserPanelOuter {
+    border-radius: var(--popout-radius-big);
+    overflow: hidden;
+}
+
+%dmUserProfileBadgeList {
+    height: var(--button-height);
+	padding: 0 7px;
+	border-radius: var(--button-radius);
+}
+
+%dmProfilePanelConnections {
+    margin: 6px 16px 16px;
+
+    %dmMutualFriendsDivider {
+        position: relative;
+        border-top: none;
+
+        &:before {
+            position: absolute;
+            content: " ";
+            width: auto;
+            height: 1px;
+            top: 0;
+            left: 12px;
+            right: 12px;
+            background-color: var(--card-border-color);
+            box-sizing: border-box;
+        }
+    }
+
+    %button {
+        --button-height: 42px;
+        --button-padding: 0 12px;
+        --button-background: transparent;
+        --button-radius: 0;
+        --button-text-color: var(--text-normal);
+
+        &:after {
+            display: none;
+        }
+    }
+}

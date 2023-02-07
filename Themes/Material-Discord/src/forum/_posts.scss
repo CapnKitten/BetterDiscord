@@ -95,15 +95,22 @@
     %button,
     %postThreadAddReactButton {
         --button-padding: 0 10px;
+        --button-text-color: hsl(var(--accent-hsl));
 
         height: var(--button-height);
         padding: var(--button-padding);
-        background-color: hsla(var(--button-link-accent-color),0.075);
+        background-color: transparent;
         border-radius: var(--button-radius);
         border: none;
+        color: var(--button-text-color);
+        transition: var(--default-time) var(--default-animation) background-color;
 
         &:hover {
-            background-color: hsla(var(--button-link-accent-color),0.125);
+            background-color: hsla(var(--button-link-accent-color),0.14);
+        }
+
+        &%postThreadAddReactButtonActive {
+            background-color: hsla(var(--button-link-accent-color),0.21);
         }
     }
 
@@ -112,6 +119,13 @@
             padding: 0;
             background-color: transparent;
             border: none;
+            color: var(--button-text-color);
+        }
+    }
+
+    %postThreadAddReactButton {
+        svg {
+            color: inherit !important;
         }
     }
 }
