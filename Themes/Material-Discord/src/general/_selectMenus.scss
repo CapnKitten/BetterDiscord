@@ -4,6 +4,16 @@
  *
  */
 
+%selectMenuWrapper {
+	%selectMenu {
+		padding-right: calc(var(--icons-width) + 12px);
+
+		&%selectMenuMulti {
+			padding-bottom: 0;
+		}
+	}
+}
+
 %selectMenu {
 	height: var(--input-height);
 	padding: var(--input-padding);
@@ -13,10 +23,34 @@
 	&%selectMenuMulti {
 		min-height: var(--input-height);
 		height: auto;
+
+		> %selectMenuMulti {
+			min-height: inherit;
+		}
 	}
 
 	&%selectMenuFilled {
 		background-color: var(--input-color);
+	}
+
+	%selectMenuSearchInput {
+		&::-webkit-input-placeholder {
+			font-family: var(--app-font);
+			color: var(--input-placeholder-color);
+		}
+
+		&%selectMenuMulti {
+			height: 28px;
+			margin-top: 2px;
+		}
+	}
+}
+
+%selectMenuIconsContainer {
+	height: var(--input-height);
+
+	> div {
+		height: var(--icons-width);
 	}
 }
 
@@ -47,4 +81,24 @@
 			}
 		}
 	}
+}
+
+/* SELECT MENUS -> PILLS */
+
+%optionPillButton {
+    --button-height: 28px;
+    --button-padding: 0 8px;
+
+    &%buttonFilled {
+        --button-background: transparent;
+        --button-outline: 1px solid var(--text-muted);
+    }
+
+    &:after {
+        display: none;
+    }
+
+    %optionPill {
+        background-color: transparent;
+    }
 }

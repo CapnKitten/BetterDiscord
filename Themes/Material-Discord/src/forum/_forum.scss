@@ -51,19 +51,22 @@
 /* FORUM -> GET STARTED */
 
 %forumGetStartedCard {
-    @include card-format;
+    margin-top: 16px;
+    @include card-format(false, 0, true);
 
     %forumGetStartedWrapper {
         padding: 0;
     }
 
     %forumGetStartedHeaderRow {
-        @include card-format--header;
+        @include card-format--header(false, true);
     }
 
     %forumGetStartedChecklist {
+        --card-color-filled: var(--card-color-alt);
+
         margin: 16px;
-        @include card-format;
+        @include card-format(false, 0, true);
 
         %forumGetStartedChecklistStepContainer {
             margin-top: 0;
@@ -71,24 +74,6 @@
             background-color: transparent;
             @include card-format--list;
         }
-    }
-}
-
-%optionPillButton {
-    --button-height: 32px;
-    --button-padding: 0 8px;
-
-    &%buttonFilled {
-        --button-background: transparent;
-        --button-outline: 1px solid var(--text-muted);
-    }
-
-    &:after {
-        display: none;
-    }
-
-    %optionPill {
-        background-color: transparent;
     }
 }
 
