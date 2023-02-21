@@ -28,19 +28,21 @@
     margin-bottom: 0;
 }
 
-%promptOptionButton {
-    @include card-format(false, 16px, true, true);
+%promptOptionButtonWrapper {
+    --card-color-filled: var(--card-color-alt);
+    
+    @include card-format(false, 0, true, true);
 
-    &%promptOptionButtonSelected {
+    &%promptOptionButtonWrapperSelected {
         background-color: var(--card-color-active);
     }
 }
 
 %promptOptionCheckIcon {
-    background-color: hsl(var(--accent-hsl));
+    background-color: hsl(var(--accent-hsl--material-you));
 
     path {
-        fill: var(--accent-text-color);
+        fill: var(--accent-text-color--material-you);
     }
 }
 
@@ -48,6 +50,6 @@
     @extend %promptOptionCheckIcon;
 
     %textXSNormal {
-        color: var(--accent-text-color) !important;
+        color: var(--accent-text-color--material-you) !important;
     }
 }

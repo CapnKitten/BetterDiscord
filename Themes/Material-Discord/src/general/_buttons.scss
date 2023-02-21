@@ -6,14 +6,18 @@
 
 %button {
 	font-size: 1em;
+
+	%textSMMedium {
+		font-size: unset;
+	}
 }
 
 %buttonFilled,
 %buttonOutlined,
 %buttonLink,
 %buttonInverted {
-	--button-background: hsl(var(--accent-hsl));
-	--button-text-color: var(--accent-text-color);
+	--button-background: hsl(var(--accent-hsl--material-you));
+	--button-text-color: var(--accent-text-color--material-you);
 	--button-shadow: none;
 	--button-outline: none;
 
@@ -51,11 +55,6 @@
 	}
 
 	&:disabled {
-		--button-background: hsla(var(--button-link-color),0.15);
-		--button-text-color: var(--button-link-text-color);
-		--button-shadow: none;
-		--button-outline: none;
-
 		opacity: 0.5 !important;
 
 		&:after {
@@ -83,6 +82,7 @@
 		height: var(--button-height);
 		padding: 0;
 		line-height: var(--button-height);
+		overflow: visible;
 
 		svg {
 			height: var(--button-height);
@@ -121,6 +121,12 @@
 /* BUTTONS -> FILLED */
 
 %buttonFilled {
+	&:disabled {
+		--button-background: hsla(var(--button-link-color),0.15);
+		--button-text-color: var(--button-link-text-color);
+		--button-shadow: none;
+	}
+
 	&%buttonRed {
 		--button-background: hsl(var(--alert-color));
 		--button-text-color: var(--alert-text-color);
@@ -135,18 +141,28 @@
 			color: var(--button-text-color);
 		}
 	}
+
+	/*svg {
+		margin: 0 8px 0 -8px;
+	}*/
 }
 
 /* BUTTONS -> OUTLINED */
 
 %buttonOutlined {
 	--button-background: transparent;
-	--button-text-color: hsl(var(--accent-hsl));
+	--button-text-color: hsl(var(--accent-hsl--material-you));
 	--button-shadow: none !important;
-	--button-outline: 1px solid hsl(var(--accent-hsl));
+	--button-outline: 1px solid hsl(var(--accent-hsl--material-you));
 
 	&:after {
-		background-color: hsl(var(--accent-hsl));
+		background-color: hsl(var(--accent-hsl--material-you));
+	}
+
+	&:disabled {
+		--button-background: transparent;
+		--button-text-color: var(--button-link-text-color);
+		--button-outline: 1px solid hsla(var(--button-link-color),0.15);
 	}
 
 	&%buttonRed {
@@ -204,6 +220,15 @@
 			background-image: none !important;
 		}
 	}
+
+	&:disabled {
+		--button-background: transparent;
+		--button-text-color: var(--button-link-text-color);
+	}
+
+	/*svg {
+		margin-right: 8px;
+	}*/
 }
 
 /* BUTTONS -> INVERTED */
@@ -335,12 +360,12 @@
 }
 
 %buttonQuestionMark {
-	background-color: hsl(var(--accent-hsl));
+	background-color: hsl(var(--accent-hsl--material-you));
 	border-radius: 50%;
 	box-shadow: var(--shadow-1dp);
 
 	%buttongQuestionMarkIcon {
-		color: var(--accent-text-color);
+		color: var(--accent-text-color--material-you);
 	}
 }
 
