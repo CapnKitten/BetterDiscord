@@ -90,13 +90,30 @@
 
 	%activeNowCardInset {
 		margin-left: 44px;
-		background-color: var(--activity-card-color--inset);
-		border-radius: var(--card-radius-big);
+		background-color: transparent;
 	}
 
 	%activeNowCardSection {
-		background-color: transparent;
-		border-radius: var(--card-radius-big);
+		margin-bottom: 2px;
+        background-color: var(--activity-card-color--inset);
+        border-radius: 4px;
+
+		&:first-of-type {
+            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+        }
+
+        &:only-child {
+            border-radius: var(--card-radius-big);
+        }
+	}
+
+	%activeNowCardSeparator {
+		display: none;
 	}
 
 	%activeNowCardHeaderIcon {
