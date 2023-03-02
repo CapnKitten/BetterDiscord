@@ -10,87 +10,117 @@
 	margin: 12px;
 	background-color: var(--main-alt);
 	border-radius: var(--popout-radius-big);
+}
 
-	/* SEARCH RESULTS -> HEADER */
-	%searchHeader {
-		padding: 0 16px;
-		background-color: transparent;
-		border-bottom: 1px solid var(--separator-color);
-	}
+/* SEARCH RESULTS -> HEADER */
+%searchHeader {
+	padding: 0 16px;
+	background-color: transparent;
+	border-bottom: 1px solid var(--separator-color);
+}
 
-	%searchHeaderTabList {
+%searchHeaderTabList {
+	height: 100%;
+
+	%tabBarItem {
 		height: 100%;
-
-		%tabBarItem {
-			height: 100%;
-			margin: 0 0 0 8px;
-			padding: 0 8px;
-			line-height: 55px;
-			border-radius: 0;
-
-			&:hover:not(%tabBarItemDisabled),
-			&%tabBarItemSelected {
-				background-color: transparent;
-			}
-
-			&%tabBarItemSelected {
-				@include tab-border(80%);
-			}
-		}
-	}
-
-	/* SEARCH RESULTS -> MESSAGES */
-
-	%searchScroller {
-		padding: 8px;
-	}
-
-	%searchChannelName {
-		padding: 8px 8px 8px 12px;
-		background-color: transparent;
-		color: var(--card-header-text-color);
-	}
-
-	%searchResult {
-		background-color: transparent;
+		margin: 0 0 0 8px;
+		padding: 0 8px;
+		line-height: 55px;
 		border-radius: 0;
 
-		%messagesWrapper {
-			margin: 0 8px 0 60px !important;
-			padding: 12px !important;
-			border-radius: var(--message-radius);
+		&:hover:not(%tabBarItemDisabled),
+		&%tabBarItemSelected {
+			background-color: transparent;
+		}
 
-			&:before,
-			&:after {
-				display: none;
-			}
-
-			%avatarLarge {
-				top: 0 !important;
-				left: -50px !important;
-			}
+		&%tabBarItemSelected {
+			@include tab-border(80%);
 		}
 	}
+}
 
-	%searchResultsButtonsContainer {
-		top: 16px;
-		right: 18px;
+/* SEARCH RESULTS -> MESSAGES */
 
-		%searchResultJumpButton {
-			padding: 4px 8px;
-			border-radius: 12px;
+%searchScroller {
+	padding: 8px;
+}
+
+%searchChannelName {
+	padding: 8px 8px 8px 12px;
+	background-color: transparent;
+	color: var(--card-header-text-color);
+}
+
+%searchResult {
+	background-color: transparent;
+	border-radius: 0;
+
+	%messagesWrapper {
+		margin: 0 8px 0 60px !important;
+		padding: 12px !important;
+		border-radius: var(--message-radius);
+
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		%avatarLarge {
+			top: 0 !important;
+			left: -50px !important;
+		}
+	}
+}
+
+%searchResultsButtonsContainer {
+	top: 16px;
+	right: 18px;
+
+	%searchResultJumpButton {
+		padding: 4px 8px;
+		border-radius: 12px;
+	}
+}
+
+%pageButton {
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--card-button-color-hover);
+	}
+
+	&:disabled {
+		&:hover {
+			background-color: transparent;
 		}
 	}
 }
 
 %pageButtonActive {
 	background-color: hsl(var(--accent-hsl--material-you)) !important;
-	color: var(--accent-text) !important;
+	color: var(--accent-text-color--material-you) !important;
 }
 
 %pageEndButton {
 	&:first-child,
 	&:last-child {
 		padding: var(--button-padding);
+	}
+
+	&:first-child {
+		--button-padding: 0 16px 0 12px;
+
+		%pageEndButtonIconCaret {
+			margin-right: 8px;
+		}
+	}
+
+	&:last-child {
+		--button-padding: 0 12px 0 16px;
+
+		%pageEndButtonIconCaret {
+			margin-left: 8px;
+		}
 	}
 }

@@ -13,7 +13,7 @@
 	%quickswitcherInput {
 		height: 42px;
 		line-height: 42px;
-		margin: 16px;
+		margin: 24px 24px 16px;
 		padding: 0 16px;
 		background-color: var(--input-color);
 		border-radius: 21px;
@@ -29,7 +29,10 @@
 		margin-top: 0;
 		margin-right: 0;
 		background-color: transparent;
-		border-top: 1px solid var(--card-border-color);
+
+		&::-webkit-scrollbar-track {
+			background: transparent !important;
+		}
 	}
 
 	%quickswitcherHeader {
@@ -40,7 +43,7 @@
 		border-radius: 0;
 		transition: var(--default-time) var(--default-animation) background-color;
 
-		&%quickswitcherResultFocused {
+		&[aria-selected="true"] {
 			background-color: var(--menu-item-hover);
 		}
 
@@ -49,8 +52,15 @@
 		}
 	}
 
+	%quickswitcherContent {
+		padding: 0 14px 0 24px;
+	}
+
 	%quickswitcherProtip {
-		padding: 8px;
-		border-top-color: var(--card-border-color);
+		padding: 16px 24px 24px;
+
+		&%quickswitcherHasContent {
+			border-top: none;
+		}
 	}
 }

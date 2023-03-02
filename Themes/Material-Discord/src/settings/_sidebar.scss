@@ -15,9 +15,11 @@
 }
 
 %settingsSidebar {
-	width: 240px;
-	margin: 0 6px 0 0;
-	padding: 60px 6px 40px 0;
+	--sidebar-width: 240px;
+
+	width: var(--sidebar-width);
+	margin: 0;
+	padding: 60px 0 40px;
 
 	%settingsSide {
 		width: inherit;
@@ -26,13 +28,14 @@
 
 %settingsSidebar {
     %tabBarItem {
-        width: calc(240px - 12px);
+        width: calc(var(--sidebar-width) - 18px);
     	height: 32px;
 		margin-left: 12px;
-    	padding: 0 12px;
+    	padding: 0 16px;
     	line-height: 32px;
     	border-radius: var(--channel-radius);
     	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+		box-sizing: border-box;
 
         &%tabBarItemSelected {
 			background-color: hsla(var(--accent-hsl),0.3) !important;
@@ -60,27 +63,34 @@
 		}
     }
 
-    %settingsSideHeader {
-        margin-top: 4px;
-		margin-bottom: 8px;
-		padding: 0 12px 0 24px;
-        color: var(--channels-default) !important;
-
-		%settingsSideHeaderEyebrow {
-			@include remove-caps(0.8em);
-		}
+    %settingsSideHeader,
+	%bdSidebarHeader {
+		margin: 10px 28px 12px;
+		padding: 0;
+        color: var(--text-muted) !important;
     }
+
+	%settingsSideHeaderEyebrow,
+	%bdSidebarHeaderLabel {
+		@include remove-caps(0.8em);
+	}
+
+	%bdSidebarHeaderLabel {
+		padding: 0;
+		line-height: 16px;
+		color: inherit;
+	}
 
     %tabBarSeparator {
 		position: relative;
 		height: 1px;
-		margin: 8px 0;
+		margin: 10px 22px 10px 28px;
 		background: transparent;
 
 		&:before {
 			position: absolute;
 			content: " ";
-			width: calc(100% + 12px);
+			width: 100%;
 			height: 1px;
 			background: rgba(114,118,125,0.3);
 		}
