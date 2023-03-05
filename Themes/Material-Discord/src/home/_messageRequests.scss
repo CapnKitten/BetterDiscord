@@ -28,11 +28,12 @@
 %messageRequestItem {
     padding: 16px;
     @include card-format--list;
+    border-radius: var(--card-radius-big);
     transition: var(--default-time) var(--default-animation) background-color;
 
     &:hover,
     &%messageRequestItemSelected {
-        border-radius: 0;
+        border-radius: var(--card-radius-big);
 
         %messageRequestItemActionButton {
             background-color: var(--card-color-alt);
@@ -49,6 +50,20 @@
 
     %messageRequestItemActionButton {
         background-color: var(--card-color-hover);
+    }
+
+    %button {
+        &%buttonPrimary {
+            --button-padding: 0 12px;
+            --button-background: transparent;
+            --button-text-color: hsl(var(--accent-hsl--material-you));
+            --accent-button-action-hover: 0.14;
+        	--accent-button-action-active: 0.21;
+
+        	&:after {
+        		background-color: hsl(var(--button-link-accent-color));
+        	}
+        }
     }
 }
 
