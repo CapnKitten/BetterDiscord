@@ -154,40 +154,6 @@
 	}
 }
 
-@mixin add-tooltip($text, $pseudo, $width, $height, $xy-position, $position: relative) {
-	position: #{$position};
-
-	&:#{$pseudo} {
-		position: absolute;
-		content: '#{$text}';
-		width: #{$width};
-		max-width: 200px;
-		height: #{$height};
-		top: 0;
-		left: 0;
-		line-height: 16px;
-		padding: var(--tooltip-padding);
-		background-color: var(--tooltip-color);
-		box-shadow: var(--tooltip-shadow);
-		border-radius: var(--card-radius);
-		transform: translate(#{$xy-position});
-		pointer-events: none;
-		color: var(--tooltip-text-color);
-		font-size: var(--tooltip-font-size);
-		font-weight: 500;
-		text-align: center;
-		transition: var(--default-time) var(--default-animation) all;
-		z-index: 3;
-		opacity: 0;
-	}
-
-	&:hover {
-		&:#{$pseudo} {
-			opacity: 1;
-		}
-	}
-}
-
 @mixin md-ripple($type, $pseudo, $scale, $colored: false) {
 	@if $colored == true {
 		--md-ripple-color: var(--accent-hsl);
@@ -251,51 +217,12 @@
 	}
 }
 
-@mixin md-ripple-option($pseudo) {
-	position: relative;
-	overflow: hidden;
-
-	&:#{$pseudo} {
-		position: absolute;
-		content: " ";
-		width: 85%;
-		height: 200%;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		margin: auto;
-		background: radial-gradient(circle, var(--md-ripple-option-inner) 0%, var(--md-ripple-option-outer) 100%);
-		border-radius: 50%;
-		opacity: 0;
-		pointer-events: none;
-		transition: calc(var(--default-time) * 1.5) var(--default-animation) transform,
-					var(--default-time) var(--default-animation) opacity;
-	}
-
-	&:hover {
-		&:#{$pseudo} {
-			transform: scale(1.5);
-			opacity: 1;
-		}
-	}
-}
-
 @mixin add-icon($color, $icon, $type: 'outline') {
 	background-color: #{$color};
 	-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/#{$type}/#{$icon}.svg);
 	mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/#{$type}/#{$icon}.svg);
 	-webkit-mask-repeat: no-repeat;
 	mask-repeat: no-repeat;
-}
-
-@mixin add-profile-icon($width, $height, $color, $icon) {
-	position: relative;
-	content: " ";
-	width: #{$width};
-	height: #{$height};
-	margin-right: 2px;
-	@include add-icon($color, $icon, solid);
 }
 
 @mixin remove-caps($font-size) {
