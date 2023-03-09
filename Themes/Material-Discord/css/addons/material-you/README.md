@@ -39,13 +39,13 @@ You may want to play around with the values below to get your desired look.
 
 (Previews are subject to be out of date)
 
-![discord-001](https://user-images.githubusercontent.com/4013216/202622758-c05cd474-dc7d-4ffe-81c0-03adbef84079.png)
+![md_material-you_1](https://user-images.githubusercontent.com/4013216/223891860-6fd61a40-c559-47f9-8a7f-f31b2222d032.png)
 
-![discord-002](https://user-images.githubusercontent.com/4013216/202622787-df226d1b-3ddf-4edd-bea5-f852a4a52748.png)
+![md_material-you_2](https://user-images.githubusercontent.com/4013216/223891898-0fe2ffb0-550e-4e29-85e2-8ac48c5dc3d6.png)
 
-![discord-003](https://user-images.githubusercontent.com/4013216/202622807-45b86cf3-9d78-4202-9560-83a529318a4c.png)
+![md_material-you_3](https://user-images.githubusercontent.com/4013216/223891911-abcd2852-abff-477e-a3b2-159fcfba2889.png)
 
-![discord-004](https://user-images.githubusercontent.com/4013216/202623999-f43d0e23-904c-46ef-85eb-a95266367e20.png)
+![md_material-you_4](https://user-images.githubusercontent.com/4013216/223891932-fc3388cb-0e5c-4928-bd32-b46076f578ae.png)
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
