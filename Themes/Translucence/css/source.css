@@ -92,6 +92,7 @@
   --scrollbar-opacity-hover: 0.3;
   --scrollbar-width: 10px;
   --text-brand: hsl(var(--accent-hsl));
+  --text-link: hsl(var(--accent-hsl));
 }
 
 .theme-dark,
@@ -483,7 +484,7 @@ body {
   padding-bottom: 0;
   border-radius: var(--message-radius);
 }
-.jumpToPresentBar-1cEnH0 .spinner-2RT7ZC {
+.jumpToPresentBar-1cEnH0 .spinner-2ID8f1 {
   --spinner-size: auto;
 }
 .jumpToPresentBar-1cEnH0 .spinnerItem-2HfQC8 {
@@ -1310,10 +1311,6 @@ body {
 .notice-2HEN-u.notice-2olXi7 .button-YGmtzG:after, .notice-2HEN-u.colorBrand1-2u_MN9 .button-YGmtzG:after {
   opacity: 0.15;
 }
-.notice-2HEN-u .button-1iHNQ2 {
-  border-radius: var(--button-radius);
-}
-
 #pluginNotice #outdatedPlugins span {
   color: var(--accent-text-color);
 }
@@ -1889,9 +1886,27 @@ body {
  */
 .attachment-1PZZB2,
 .embedFull-1HGV2S,
+.embedCard-bDyD5S,
 .container-3i3IzO {
   background-color: var(--card-color);
   border-radius: var(--card-radius);
+}
+
+.withFooter-3i6JUa {
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+  box-shadow: var(--card-header-shadow);
+}
+.withFooter-3i6JUa .wrapper-30-Nkg {
+  margin-left: 48px;
+  margin-right: 0;
+}
+
+.footerContainer-11-cKL {
+  background-color: var(--card-color);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
+.footerContainer-11-cKL .footerIcon-3nJDhW path {
+  fill: currentColor;
 }
 
 .cta-1XhfrG {
@@ -2633,55 +2648,48 @@ body {
  *  SERVER BOOST
  *
  */
-.root-2zfUH6 {
-  margin: calc(var(--app-margin) / 2 + 24px) var(--app-margin) var(--app-margin) var(--app-margin);
+/*%perksRoot {
+	margin: calc(var(--app-margin) / 2 + 24px) var(--app-margin) var(--app-margin) var(--app-margin);
 }
 
-.perksModal-CLcR1c {
-  background-color: var(--main-content-color) !important;
-  border-radius: var(--app-radius);
-  backdrop-filter: blur(var(--app-blur));
+%perksModal {
+    background-color: var(--main-content-color) !important;
+    border-radius: var(--app-radius);
+    backdrop-filter: blur(var(--app-blur));
 }
 
-.ctaBar-Nhk8yY {
-  background-color: var(--card-color);
-  border-radius: var(--card-radius);
-  border: none;
+%perksModalCtaBar {
+    @include card-format;
 }
 
-.barBackground-unEPDT,
-.tierMarkerBackground-G8FoN4 {
-  background-color: var(--card-color) !important;
-}
-
+%tierBarBackground,
+%tierMarkerBackground {
+    background-color: var(--card-color) !important;
+}*/
 /* SERVER BOOST -> TIERS */
-.tierWrapper-CsnudO {
-  border-radius: var(--card-radius);
+/*%tierWrapper {
+    border-radius: var(--card-radius);
 }
 
-.tier-lFqDUs {
-  background-color: var(--card-color);
-  border-radius: var(--card-radius);
-  border: none;
-}
-.tier-lFqDUs .tierHeader-wgo0w_ {
-  border-radius: var(--card-radius) var(--card-radius) 0 0;
-}
-.tier-lFqDUs .tierHeader-wgo0w_.tierHeaderLocked-3ItHYn {
-  background-color: transparent !important;
-  box-shadow: var(--card-header-shadow);
-  border: none !important;
-}
-.tier-lFqDUs .tierBody-3ju-rc {
-  background-color: transparent !important;
+%tier {
+    @include card-format;
+
+    %tierHeader {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+
+        &%tierHeaderLocked {
+            @include card-format--header(true);
+        }
+    }
+
+    %tierBody {
+        background-color: transparent !important;
+    }
 }
 
-.perk-19D_HN {
-  background-color: var(--card-color) !important;
-  border-radius: var(--card-radius) !important;
-  border: none !important;
-}
-
+%perk {
+    @include card-format(true);
+}*/
 /*
  *
  *  SERVER DISCOVERY
@@ -3839,11 +3847,29 @@ body {
   border-radius: var(--card-radius);
   border: none;
 }
+.editCard-K9Q9mb:before {
+  display: none;
+}
+.editCard-K9Q9mb.active-Xi2rnV {
+  background-color: var(--card-color) !important;
+}
 .editCard-K9Q9mb .ruleIconContainer-dXW56- {
   background-color: var(--card-color);
 }
 .editCard-K9Q9mb .actionContainer-EzNGrb {
   background-color: var(--card-color);
+}
+
+.collapseable-1FiLab {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
+  border: none;
+}
+.collapseable-1FiLab:active {
+  background-color: var(--card-color) !important;
+}
+.collapseable-1FiLab:before {
+  display: none;
 }
 
 .actionContainer-1mTfAD {
@@ -4786,17 +4812,4 @@ body {
 }
 .profileBannerPreview-3mLIdO .fakeActivityWrapper-2i1oU- {
   padding: 0 16px 0;
-}
-
-/*
- *
- *  USER SETTINGS SERVER BOOST
- *
- */
-.circle-1BhSZ2,
-.circle-1BhSZ2 * {
-  filter: none;
-}
-.circle-1BhSZ2 .circleBackgroundAlt-32_kWx {
-  fill: var(--card-color);
 }
