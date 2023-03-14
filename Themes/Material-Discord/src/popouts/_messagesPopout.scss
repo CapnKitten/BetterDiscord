@@ -33,15 +33,15 @@
 }
 
 %messagesPopoutHeader {
-	padding: 16px 16px 0;
+	padding: 24px 24px 0;
 	background-color: transparent;
-	border-bottom: 1px solid var(--popout-header-border);
 	box-shadow: none;
 
 	%headingMDMedium,
 	%textLGSemibold {
-		font-size: 20px;
 		line-height: 24px;
+		font-size: 20px;
+		font-weight: 400;
 		color: var(--header-primary);
 	}
 
@@ -52,7 +52,8 @@
 	&%messagesPopoutHeaderExpanded {
 		height: auto;
 		min-height: unset;
-		padding: 16px 16px 0;
+		padding: 24px 24px 0;
+		border-bottom: 1px solid var(--popout-header-border);
 	}
 
 	%messagesPopoutExpandedInboxHeader {
@@ -131,15 +132,19 @@
 /* MESSAGES POPOUT -> INNER */
 
 %messagesPopoutInner {
-	padding: 0 8px 20px 8px;
+	padding: 0 calc(24px - var(--scrollbar-thin-width)) 24px 24px !important;
 
 	%pinnedMessageGroupWrapper {
-		margin: 0;
+		margin: 0 0 16px;
 		background-color: transparent;
 		border: none;
 
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
 		%messagesWrapper {
-			margin: 16px 8px 0 52px;
+			margin: 0 0 0 50px;
 			padding: var(--message-padding-top) var(--message-padding-side) !important;
 			background-color: var(--message-color-alt) !important;
 			border-radius: var(--message-radius);
@@ -184,8 +189,8 @@ body:active %messagesPopoutWrap:not(:active) {
 /* MESSAGES POPOUT -> RECENT MENTIONS */
 
 %recentMentionsContainer {
-	padding-left: 8px;
-	padding-right: 8px;
+	padding-left: 0;
+	padding-right: 0;
 
 	&:first-child {
 		margin-top: 16px;
@@ -197,6 +202,8 @@ body:active %messagesPopoutWrap:not(:active) {
 		border-radius: 0 0 var(--message-radius) var(--message-radius);
 
 		%messagesWrapper {
+			--message-color: var(--message-color-hover);
+
 			&%messageCozy {
 				margin: 0 0 0 66px;
 				border-radius: var(--message-radius);

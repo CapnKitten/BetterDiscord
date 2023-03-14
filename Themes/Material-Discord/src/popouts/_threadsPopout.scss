@@ -13,20 +13,25 @@
 	animation: top-pop-out 400ms var(--default-animation);
 
 	%threadsPopoutHeader {
-		padding: 0 16px;
+		min-height: unset;
+		height: auto;
+		padding: 24px 24px 16px;
 		background-color: transparent;
-		border-bottom: 1px solid var(--popout-header-border);
+
+		%threadsPopoutHeaderDivider {
+			display: none;
+		}
 
 		%threadsPopoutTabBar {
 			height: 100%;
 		}
 
 		%threadsPopoutSearchBar {
-			--input-height: 30px;
+			--input-height: 32px;
 		}
 
 		%threadsPopoutCreateButton {
-			--button-height: 30px;
+			--button-height: 32px;
 			--button-padding: 0 12px;
 
 			min-width: 84px;
@@ -63,6 +68,15 @@
 		padding: 16px;
 	}
 
+	%threadsPopoutSectionHeader {
+		margin-top: 0;
+		@include remove-caps(14px);
+	}
+
+	%threadsPopoutList {
+		padding: 0 24px;
+	}
+
 	.activeThreadsList-c8qlqZ {
 		padding-bottom: 16px;
 	}
@@ -72,11 +86,7 @@
 	}
 
 	%threadPreview {
-		@include card-format(false, 16px);
-
-		&:hover {
-			background-color: var(--card-color-hover);
-		}
+		@include card-format(false, 16px, true, true);
 
 		&:last-of-type {
 			margin-bottom: 0;

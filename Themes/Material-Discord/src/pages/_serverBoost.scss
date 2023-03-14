@@ -6,77 +6,165 @@
  *
  */
 
-%perksModal {
-	background-color: var(--main-color) !important;
-	background-image: none !important;
+%serverBoostScroller {
+	background-color: var(--main-color);
+
+    %serverBoostHeading {
+        color: var(--header-primary) !important;
+    }
+
+    %serverBoostHeading,
+    .heading-xl-bold-38fuFv,
+    .heading-xxl-semibold-2jeRzp,
+    .heading-xxl-bold-nfv1ir,
+    .heading-xxl-extrabold-2-MUEs {
+        font-weight: 400;
+    }
 }
 
-%perksModalCtaBar {
-	@include card-format(false, 16px);
-	background-image: none !important;
+%serverBoostHeader {
+    background: none !important;
+
+    %serverBoostHeaderWave {
+        display: none;
+    }
+
+    %serverBoostGuildName {
+        color: var(--header-primary) !important;
+    }
+
+    %serverBoostGuildBoostCountWrapper {
+        color: var(--header-secondary);
+
+        %serverBoostGuildStatusCopy {
+            opacity: 1;
+        }
+    }
 }
 
-%buttonGiftIcon path {
-	fill: var(--accent-text-color--material-you);
+%serverBoostBodyWave {
+    display: none;
 }
 
-%perk {
-	@include card-format(true, 16px);
+%serverBoostFloatingPillInnerWrapper {
+    padding: 12px 24px 12px 12px;
+    background-color: var(--popout-color);
+    box-shadow: var(--shadow-3dp);
+
+    &:before,
+    &:after {
+        display: none;
+    }
 }
 
-%serverBoostSubscriptionCard {
-	@include card-format(false, 16px);
+/* SERVER BOOST -> BOOST BUTTONS */
+
+%serverBoostGuildBoostCtas {
+    max-width: unset;
+    justify-content: center;
+
+    %serverBoostGuildBoostCta {
+        flex: 0 1 auto;
+
+        &:hover {
+            transform: none;
+        }
+    }
 }
 
-/* SERVER BOOST -> LEVELS */
+%serverBoostGuildBoostCtaBoost {
+    --button-background: hsl(var(--accent-hsl--material-you)) !important;
+	--button-text-color: var(--accent-text-color--material-you) !important;
 
-%tierMarkerBackground {
-	background-color: var(--main-color) !important;
+    width: auto;
+
+    %serverBoostGuildBoostCtaBoostContent {
+        margin: 0;
+        color: var(--button-text-color);
+    }
 }
 
-/* SERVER BOOST -> TIERS */
-
-%tierWrapper {
-	box-shadow: none !important;
+%serverBoostGuildBoostCtaSecondary {
+    --button-text-color: hsl(var(--accent-hsl--material-you)) !important;
+    --button-outline: 1px solid hsl(var(--accent-hsl--material-you)) !important;
 }
 
-%tier {
-	border-radius: var(--card-radius-big);
+/* SERVER BOOST -> BOOST PROGRESS BAR */
 
-	%tierHeader {
-		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-	}
-
-	%tierBody {
-		background-color: var(--card-color-alt) !important;
-		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-		border: 1px solid var(--card-border-color);
-		border-top: none;
-		transition: var(--default-time) var(--default-animation) border;
-	}
+%serverBoostProgressBarFill {
+	background-image: none;
+	background-color: var(--guild-boosting-pink);
 }
 
-%carouselItem {
-	border-radius: var(--card-radius-big);
-	transition: var(--default-time) var(--default-animation) box-shadow;
-
-	&%carouselItemSelected {
-		box-shadow: var(--shadow-3dp);
-
-		%tierBody {
-			border-color: var(--card-color-alt);
-		}
-	}
+%serverBoostProgressBarTrack {
+    background-color: var(--card-color-filled);
 }
 
-/* SERVER BOOST PERKS */
+%serverBoostProgressBarMarker {
+    background-color: var(--main-color);
 
-%perksModalList {
-	@include card-format;
+    %serverBoostBoostedTierIconBackground {
+        background-color: var(--card-color-filled);
+        opacity: 1;
+    }
 
-	%perksModalRow {
-		margin: 0;
-		padding: 16px;
-		@include card-format--list;
-	}
+    %serverBoostProgressBarMarkerLabel {
+        font-weight: 500;
+        color: var(--text-normal);
+        opacity: 1;
+    }
+
+    &%serverBoostProgressBarMarkerLocked {
+        %serverBoostProgressBarMarkerLabel {
+            color: var(--text-muted);
+        }
+    }
+}
+
+/* SERVER BOOST -> TIER CARDS */
+
+%serverBoostTierCard {
+    border-radius: var(--card-radius-big);
+}
+
+/* SERVER BOOST -> TOP PERKS */
+
+%serverBoostTopPerksCard {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+/* SERVER BOOST -> COMMUNITY RECOGNITION */
+
+%serverBoostCommunityRecognitionWrapper {
+    margin-bottom: 64px;
+    border-radius: var(--card-radius-big);
+
+    %serverBoostCommunityRecognitionBackgroundImages {
+        border-radius: var(--card-radius-big);
+    }
+}
+
+%serverBoostCommunityRecognitionCard {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+/* SERVER BOOST -> BOOSTING FAQ */
+
+%serverBoostFaqWrapper {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %serverBoostFaqList {
+        border: none;
+    }
+
+    %serverBoostFaqListItem {
+        border-bottom-color: var(--card-border-color);
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
 }
