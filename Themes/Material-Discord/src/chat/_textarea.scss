@@ -27,7 +27,7 @@
 	%channelTextAreaScrollable {
 		background-color: var(--main-textarea-color);
 		border-radius: var(--main-textarea-radius);
-		border: 1px solid var(--main-textarea-border);
+		//border: 1px solid var(--main-textarea-border);
 		opacity: 1;
 
 		&%channelTextAreaReplyBarConnected {
@@ -39,15 +39,38 @@
 		padding-right: 10px;
 	}
 
+	%textAreaPlaceholder {
+		color: var(--input-placeholder-color);
+	}
+
+	%textAreaEditor {
+		color: var(--input-text-color);
+	}
+
 	%channelTextAreaAttachedBar {
+		position: relative;
 		background-color: var(--main-textarea-color);
 		border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
-		border: 1px solid var(--main-textarea-border);
 		border-bottom: none;
+
+		&:after {
+			position: absolute;
+			content: " ";
+			width: calc(100% - 24px);
+			height: 1px;
+			left: 0;
+			bottom: 0;
+			margin: 0 12px;
+			background-color: var(--main-textarea-border);
+		}
 
 		%replyBar {
 			background-color: transparent;
 			border-radius: 0;
+		}
+
+		%replySeperator {
+			background-color: var(--main-textarea-border);
 		}
 
 		%colorLink {
