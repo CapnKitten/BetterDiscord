@@ -126,6 +126,10 @@
 	--button-text-color: var(--profile-gradient-button-text-color);
 }
 
+%userProfileDivider {
+	background-color: var(--separator-color);
+}
+
 /* USER POPOUT -> STATUS AREA */
 
 %accountProfilePopoutWrapper {
@@ -142,6 +146,19 @@ body:active %accountProfilePopoutWrapper:not(:active) {
 	box-shadow: none;
 	animation: none;
 
+	%scroller {
+		padding-right: 0 !important;
+
+		&::-webkit-scrollbar {
+			--scrollbar-width: 0;
+		}
+
+		%menuPopoutSeparator {
+			width: calc(100% - 24px);
+			margin: 8px 12px;
+		}
+	}
+
 	%menuPopoutItem {
 		&[id*="account-divider-"] {
 			min-height: unset;
@@ -150,6 +167,19 @@ body:active %accountProfilePopoutWrapper:not(:active) {
 			%menuPopoutDivider {
 				margin: 8px 12px;
 			}
+		}
+	}
+
+	%menuPopoutSeparator {
+		width: calc(100% - 24px);
+		margin: 8px 12px;
+		background-color: var(--separator-color);
+	}
+
+	%contextMenuItemSubMenuAlt {
+		%menuPopoutSeparator {
+			width: 100%;
+			margin: 8px 0;
 		}
 	}
 }

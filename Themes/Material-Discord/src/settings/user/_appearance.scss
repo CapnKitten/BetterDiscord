@@ -15,3 +15,95 @@
         margin-left: 48px;
     }
 }
+
+/* USER SETTINGS APPEARANCE -> THEME */
+
+%titleH5 {
+    &%settingsHeaderTitle {
+        + div:not([class]) {
+            div[role=radiogroup] {
+                padding: 16px;
+                background-color: var(--card-color-filled);
+                border: none;
+            }
+        }
+    }
+}
+
+%basicThemeSelectors {
+    + %premiumFeatureBorder {
+        margin: 0 -8px -8px;
+        background: linear-gradient(var(--card-color-filled),var(--card-color-filled)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
+        border-radius: calc(var(--card-radius-big) - 4px);
+    }
+}
+
+%themeEditorSelectionCircle {
+    box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 4px var(--card-color-filled);
+    outline: none;
+}
+
+%themeEditorCheckmarkCircle {
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.34));
+
+    circle {
+        fill: hsl(var(--accent-text-color--material-you));
+    }
+}
+
+%themeEditorCheckmark {
+    color: hsl(var(--accent-hsl--material-you));
+}
+
+%themeEditor {
+    margin-left: 8px;
+    padding: 0;
+    background-color: var(--chat-color);
+    border-radius: var(--card-radius-big) var(--card-radius-big) 0 var(--card-radius-big);
+    border-left: none;
+
+    &:before,
+    &:after {
+        position: absolute;
+        content: " ";
+        width: var(--card-radius-big);
+        height: var(--card-radius-big);
+        left: calc( calc(var(--card-radius-big) + 8px) * -1);
+        bottom: 0;
+        pointer-events: none;
+    }
+
+    &:before {
+        background-color: var(--main-alt);
+    }
+
+    &:after {
+        background-color: var(--chat-color);
+        border-bottom-right-radius: var(--card-radius-big);
+    }
+
+    %themeEditorHeader {
+        padding: 16px;
+    }
+
+    %themeEditorFooter {
+        padding: 0 16px 16px;
+    }
+
+    %headingLgExtrabold {
+    	font-size: 1.25em;
+    	line-height: normal;
+    	color: var(--card-header-text-color);
+    	font-weight: 400;
+    }
+
+    %themeEditorSelectionGroup {
+        margin-top: 0;
+    }
+
+    div[role=radiogroup] {
+        margin-bottom: 24px;
+        background-color: transparent;
+        border: none;
+    }
+}

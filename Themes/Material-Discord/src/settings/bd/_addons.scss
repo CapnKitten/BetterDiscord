@@ -6,6 +6,10 @@
  *
  */
 
+%bdSettingsTitle {
+	color: var(--header-primary);
+}
+
 %bdButton {
 	background-color: hsl(var(--accent-hsl--material-you)) !important;
 	border-radius: var(--button-radius);
@@ -29,6 +33,54 @@
 
 		&::-webkit-input-placeholder {
 			font-family: var(--app-font);
+		}
+	}
+}
+
+%bdSelectLabel {
+	line-height: 26px;
+}
+
+%bdSelect {
+	line-height: 26px;
+
+	&%bdSelectTransparent {
+		gap: 4px;
+	}
+
+	%bdSelectValue {
+		padding-left: 0;
+	}
+
+	%bdSelectArrow {
+		height: 26px !important;
+		margin-left: 0;
+	}
+
+	%bdSelectOptions {
+		padding: 8px 0;
+		background-color: var(--popout-color);
+		border-radius: var(--popout-radius);
+		border: none;
+	    box-shadow: var(--shadow-3dp);
+	    animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
+		transform-origin: top;
+	}
+
+	%bdSelectOption {
+		min-height: 32px;
+		padding: 9px 12px;
+		line-height: 18px;
+		font-weight: 500;
+		color: var(--menu-item-text-color);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+            background-color: var(--menu-item-hover);
+        }
+
+		&%bdSelectOptionSelected {
+			background-color: var(--menu-item-select);
 		}
 	}
 }
