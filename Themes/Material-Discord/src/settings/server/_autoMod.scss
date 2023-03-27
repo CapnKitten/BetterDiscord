@@ -38,9 +38,15 @@
 }
 
 %triggerCollapseable {
+    margin-top: 0;
+    padding: 16px;
     background-color: transparent;
     border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
     border-top: 1px solid var(--card-border-color);
+
+    &:not(:last-child) {
+        margin-bottom: 0;
+    }
 
     &:active {
         background-color: transparent !important;
@@ -77,12 +83,33 @@
     }
 }
 
-%keywordsTextArea {
-    width: calc(100% - 32px);
-    margin: 16px 16px 8px;
+%keywordsTextArea,
+%regexTextArea {
+    padding: 12px;
     background-color: var(--input-color);
     border-radius: 19px;
     border: none;
+
+    &::-webkit-input-placeholder {
+        font-family: var(--app-font);
+        color: var(--input-placeholder-color);
+    }
+}
+
+%keywordsTextArea {
+    width: calc(100% - 32px);
+    margin: 16px 16px 8px;
+}
+
+%regexTextArea {
+    %regexTextAreaInnerScroller {
+        padding: 0;
+    }
+
+    %regexChipletContainer {
+        background-color: var(--card-button-color);
+        border-radius: 6px;
+    }
 }
 
 %keywordsCounter {

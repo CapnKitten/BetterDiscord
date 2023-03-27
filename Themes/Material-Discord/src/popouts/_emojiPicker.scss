@@ -10,12 +10,17 @@
 	animation: bottom-pop-out 400ms var(--default-animation);
 }
 
+%emojiWrapperIsBurstReactionPicker {
+	border-radius: var(--popout-radius-big) !important;
+}
+
 %emojiWrapper,
 %emojiPicker {
 	@include popout-format;
 }
 
 /* EMOJI PICKER -> HEADER */
+
 %emojiPickerNavButton {
 	border-radius: 12px;
 	color: var(--menu-item-text-color) !important;
@@ -27,6 +32,10 @@
 	&%emojiPickerNavButtonActive {
 		background-color: var(--menu-item-select) !important;
 	}
+}
+
+%emojiPickerNavButtonSuperReactActive {
+	background: var(--menu-item-select);
 }
 
 %emojiPickerNavEmoji,
@@ -83,6 +92,7 @@
 }
 
 /* EMOJI PICKER -> HEADER -> SEARCH BAR */
+
 %emojiPickerSearchBar {
 	background-color: var(--input-color);
 	border-radius: 16px;
@@ -100,6 +110,15 @@
 
 
 /* EMOJI PICKER -> EMOJIS */
+
+%emojiSuperReactContainer {
+	background-color: var(--popout-color);
+
+	%emojiSuperReactBanner {
+		border-radius: var(--card-radius-big);
+	}
+}
+
 %emojiPickerCategoryHeaderWrapper {
 	background-color: var(--emoji-category-header);
 
@@ -137,6 +156,7 @@
 }
 
 /* EMOJI PICKER -> CATEGORIES */
+
 %emojiCategoryList {
 	border-radius: 0 0 0 var(--popout-radius-big);
 
@@ -153,8 +173,13 @@
 	}
 }
 
+%emojiPickerHasTabWrapper {
+	%emojiCategoryWrapper {
+		top: 50px;
+	}
+}
+
 %emojiCategoryWrapper {
-	margin-top: 7px;
 	background-color: var(--attachment-color);
 
 	%emojiCategoryItem,
