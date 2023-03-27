@@ -1,0 +1,82 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  VENCORD SETTINGS
+ *
+ */
+
+%vencordSettingsTabBar {
+    height: 48px;
+    border-bottom-width: 1px !important;
+
+    %tabBarItem {
+        height: inherit;
+        line-height: 48px;
+        margin: 0 24px 0 0;
+        padding: 0 8px;
+        border-radius: 0;
+        border: none !important;
+        color: var(--interactive-normal) !important;
+
+        &%tabBarItemSelected {
+            @include tab-border(80%);
+        }
+    }
+
+    + %settingsHeaderDivider {
+        display: none;
+    }
+}
+
+%vencordSettingsCard {
+    + %eyebrow {
+        + %input {
+                padding: 11px 12px !important;
+                background-color: var(--input-color);
+                border-radius: var(--input-radius);
+                border: none !important;
+                line-height: 1.375rem;
+                font-size: 1rem;
+        }
+    }
+}
+
+%settingsCardPrimary {
+    &[style*="padding: 0.5em"] {
+        padding: 16px !important;
+    }
+}
+
+%vencordPluginsCard {
+    padding: 16px !important;
+    background-color: var(--card-color-filled) !important;
+    border-radius: var(--card-radius-big) !important;
+
+    &:hover {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    %vencordPluginsCardHeader {
+        height: auto !important;
+
+        %vencordPluginsCardName {
+            font-size: 1.25em !important;
+            font-weight: 500;
+        }
+    }
+
+    %switchContainer {
+        %switchSlider {
+            transform: translate(-2px, -50%) !important;
+            transition: var(--default-time) var(--default-animation) all;
+        }
+
+        &%switchContainerChecked {
+            %switchSlider {
+                transform: translate(11px, -50%) !important;
+            }
+        }
+    }
+}
