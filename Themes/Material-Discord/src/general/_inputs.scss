@@ -8,13 +8,31 @@
 
 %input {
     height: var(--input-height);
-	padding: 0;
-	background-color: transparent;
-	border-radius: 0;
-	border: none;
+	padding: 0 12px;
+	background-color: var(--input-color);
+	border-radius: 4px 4px 0 0;
+    border: none;
+    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
+    color: var(--input-text-color);
+    transition: var(--default-time) var(--default-animation) box-shadow;
+
+    &:focus {
+        box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+    }
+
+    &%multiInput {
+        padding: 0;
+    }
 
     &::-webkit-input-placeholder {
         font-family: var(--app-font);
+        color: var(--input-placeholder-color);
+    }
+
+    &%inputTextArea {
+        --input-height: auto;
+
+        padding: 8px 12px;
     }
 
     &%inputHidden {
@@ -22,9 +40,29 @@
     }
 }
 
-%inputWrapper {
-    @include input-format;
+%multiInputLast {
+    &:before {
+        display: none;
+    }
+}
 
+%eyebrowError {
+    + %inputWrapper {
+        %input {
+            box-shadow: inset 0 -1px 0 0 hsl(var(--alert-hsl));
+
+            &:focus {
+                box-shadow: inset 0 -2px 0 0 hsl(var(--alert-hsl));
+            }
+        }
+    }
+}
+
+%inputLabel {
+    @include remove-caps(14px);
+}
+
+%inputWrapper {
     %inputPrefix {
         + %input {
             padding-left: 32px;

@@ -29,15 +29,64 @@
     }
 }
 
+%vencordSettingsCard,
+%vencordPluginsInfoCard {
+    %titleH5 {
+        margin-bottom: 0;
+        padding-bottom: 16px;
+        line-height: normal;
+        font-size: 1.25em;
+        font-weight: 400;
+        color: var(--card-header-text-color);
+    }
+
+    %settingsHeaderDivider {
+        margin: 16px 0;
+    }
+}
+
+%vencordSettingsDonateCard {
+    %button {
+        position: absolute;
+        bottom: 16px;
+        transform: none !important;
+
+        %buttonContents {
+            display: flex;
+        }
+
+        svg {
+            transform: none !important;
+
+            path {
+                fill: currentColor;
+            }
+        }
+    }
+
+    img {
+        margin: 16px;
+    }
+}
+
+/* VENCORD SETTINGS -> THEMES */
+
 %vencordSettingsCard {
     + %eyebrow {
         + %input {
-                padding: 11px 12px !important;
-                background-color: var(--input-color);
-                border-radius: var(--input-radius);
-                border: none !important;
-                line-height: 1.375rem;
-                font-size: 1rem;
+            padding: 12px !important;
+            background-color: var(--input-color);
+            border-radius: 4px 4px 0 0 !important;
+            border: none !important;
+            box-shadow: inset 0 -1px 0 0 var(--input-border-color);
+            line-height: 1.375rem;
+            font-size: 1rem;
+            color: var(--input-text-color) !important;
+            transition: var(--default-time) var(--default-animation) box-shadow;
+
+            &:focus {
+                box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+            }
         }
     }
 }
@@ -45,6 +94,22 @@
 %settingsCardPrimary {
     &[style*="padding: 0.5em"] {
         padding: 16px !important;
+    }
+}
+
+/* VENCORD SETTINGS -> PLUGINS */
+
+%vencordPluginsInfoCard {
+    height: auto !important;
+}
+
+%vencordPluginsFilterControls {
+    %inputWrapper {
+        &:last-of-type {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
     }
 }
 
@@ -78,5 +143,34 @@
                 transform: translate(11px, -50%) !important;
             }
         }
+    }
+}
+
+/* VENCORD SETTINGS -> BACKUP AND RESTORE */
+
+%vencordBackupRestoreCard {
+    > div {
+        gap: 0 !important;
+    }
+
+    strong {
+        padding-bottom: 16px;
+        line-height: normal;
+        font-size: 1.25em;
+        font-weight: 400;
+        color: var(--card-header-text-color) !important;
+    }
+}
+
+/* VENCORD SETTINGS -> NOTIFICATION */
+
+%vencordNotificationRoot {
+    background-color: var(--popout-color) !important;
+    border-radius: var(--popout-radius-big) !important;
+    box-shadow: var(--shadow-3dp) !important;
+
+    %vencordNotificationTitle {
+        font-size: 22px !important;
+        font-weight: 400 !important;
     }
 }

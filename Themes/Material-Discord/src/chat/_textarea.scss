@@ -106,8 +106,20 @@
 }
 
 %replySuggestion {
+	position: relative;
 	background-color: transparent;
-	border-color: var(--main-textarea-border);
+	border: none;
+
+	&:before {
+		position: absolute;
+		content: " ";
+		width: calc(100% - 24px);
+		height: 1px;
+		top: 0;
+		left: 0;
+		margin: 0 12px;
+		background-color: var(--main-textarea-border);
+	}
 
 	%replySuggestionCreateThreadButton {
 		color: hsl(var(--accent-hsl)) !important;
@@ -162,7 +174,7 @@
 }
 
 %channelTextAreaUpload {
-	@include card-format(false, 8px);
+	@include card-format(false, 8px, true);
 
 	%channelTextAreaUploadImage {
 		border-radius: var(--card-radius-big);
