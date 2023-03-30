@@ -91,8 +91,6 @@
   --scrollbar-opacity: 0.2;
   --scrollbar-opacity-hover: 0.3;
   --scrollbar-width: 10px;
-  --text-brand: hsl(var(--accent-hsl));
-  --text-link: hsl(var(--accent-hsl));
 }
 
 .theme-dark,
@@ -101,6 +99,8 @@
   --background-modifier-active: rgba(255,255,255,0.1);
   --background-modifier-selected: rgba(255,255,255,0.125);
   --background-modifier-accent: rgba(255,255,255,0.175);
+  --text-brand: hsl(var(--accent-hsl));
+  --text-link: hsl(var(--accent-hsl));
 }
 
 /*
@@ -518,7 +518,7 @@ body {
   filter: none;
 }
 
-.border-2BJQjd.speaking-3RWJBr {
+.border-2Vy6FN.speaking-7QZEkv {
   box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-secondary);
 }
 
@@ -801,6 +801,17 @@ body {
 }
 
 /* FORUM -> TAGS */
+.sortDropdown-hY93nR {
+  margin-top: -1px;
+  gap: unset;
+}
+.sortDropdown-hY93nR .sortDropdownInner-1kHAUi {
+  color: var(--button-text-color);
+}
+.sortDropdown-hY93nR .sortDropdownText-3smleu {
+  color: var(--button-text-color) !important;
+}
+
 .pill-3pRQlO {
   background-color: var(--card-color) !important;
   border: none;
@@ -815,8 +826,11 @@ body {
   background-color: hsla(var(--accent-hsl), 0.4) !important;
 }
 
-.container-2d0jMv svg {
-  height: var(--button-height);
+.container-2d0jMv {
+  background-color: transparent;
+}
+.container-2d0jMv .menu-2TXYjN {
+  min-width: unset;
 }
 
 .container-3kfp0r {
@@ -851,26 +865,9 @@ body {
 
 .container-3YcgdM {
   padding: 8px 16px;
-  overflow: hidden;
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
   border: none;
-}
-.container-3YcgdM:before {
-  content: " ";
-  position: absolute;
-  width: calc(100% + var(--app-margin) * 2);
-  height: calc(100% + var(--app-margin) * 2 + 24px);
-  top: calc((var(--app-margin) + 24px) * -1);
-  left: calc(var(--app-margin) * -1);
-  background-color: transparent;
-  background-image: var(--app-bg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  box-shadow: inset 0 0 0 100vmax var(--main-content-color);
-  filter: blur(var(--app-blur));
-  z-index: -1;
-  pointer-events: none;
 }
 .container-3YcgdM .button-ejjZWC,
 .container-3YcgdM .addReactButton-3bSQb6 {
@@ -890,6 +887,14 @@ body {
 
 .divider-AZrXIA {
   display: none;
+}
+
+.box-2iMsQm {
+  margin-top: 8px;
+  background-color: var(--message-color);
+}
+.box-2iMsQm:after {
+  border-top-color: var(--message-color);
 }
 
 /*
@@ -1342,6 +1347,15 @@ body {
 }
 .item-1TA5qI .radioBar-1XgZqD {
   border-radius: var(--card-radius);
+}
+
+/* RADIO BUTTONS -> CONTEXT MENU */
+[role=menuitemradio][aria-checked=true].item-5ApiZt .icon-3XHs8t {
+  color: hsl(var(--accent-hsl));
+}
+
+.icon-3XHs8t .radioSelection-3PDNAQ {
+  color: currentColor !important;
 }
 
 /*
@@ -2799,18 +2813,18 @@ body {
  *  EMOJI PICKER
  *
  */
-.contentWrapper-3vHNP2,
+.contentWrapper-3vHNP2, .contentWrapper-2f9yME,
 .emojiPicker-6YCk8a {
   background-color: transparent;
 }
 
-.contentWrapper-3vHNP2 {
+.contentWrapper-3vHNP2, .contentWrapper-2f9yME {
   background-color: transparent;
   border-radius: var(--popout-radius);
   box-shadow: none;
   overflow: hidden;
 }
-.contentWrapper-3vHNP2:before {
+.contentWrapper-3vHNP2:before, .contentWrapper-2f9yME:before {
   position: absolute;
   content: " ";
   width: 100%;
@@ -2826,10 +2840,10 @@ body {
 }
 
 /* EMOJI PICKER -> HEADER */
-.navButton-1XuvI-:hover {
+.navButton-1XuvI-:hover, .navButton-Z_c6CC:hover {
   background-color: var(--background-modifier-hover);
 }
-.navButton-1XuvI-.navButtonActive-1EqC5l {
+.navButton-1XuvI-.navButtonActive-1EqC5l, .navButton-Z_c6CC.navButtonActive-1EqC5l, .navButton-1XuvI-.navButtonActive-fwiUKp, .navButton-Z_c6CC.navButtonActive-fwiUKp {
   background-color: var(--background-modifier-selected);
 }
 
@@ -2884,7 +2898,7 @@ body {
   border-radius: 0;
 }
 
-.emojiPickerInExpressionPicker-2nOwH8 .wrapper-22rqw6 {
+.emojiPickerHasTabWrapper-LoluYe .wrapper-22rqw6 {
   top: 52px;
 }
 
@@ -2926,28 +2940,6 @@ body {
 }
 .result-pzZrwj .categoryFadeBlurple-1l49_Q {
   background-color: hsla(var(--accent-hsl), 0.8) !important;
-}
-
-/* EMOJI PICKER -> CHAT */
-.translate-PeW1wK .wrapper-3u51GQ {
-  background-color: transparent !important;
-  border-radius: var(--popout-radius) !important;
-  box-shadow: none !important;
-  overflow: hidden;
-}
-.translate-PeW1wK .wrapper-3u51GQ:before {
-  position: absolute;
-  content: " ";
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--popout-color);
-  border-radius: var(--popout-radius);
-  box-shadow: var(--popout-shadow);
-  backdrop-filter: blur(var(--popout-blur));
-  pointer-events: none;
-  z-index: -1;
 }
 
 /*
