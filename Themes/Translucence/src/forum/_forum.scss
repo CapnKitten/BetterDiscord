@@ -41,6 +41,23 @@
 
 /* FORUM -> TAGS */
 
+%postSortDropdown {
+    margin-top: -1px;
+    gap: unset;
+
+    %postSortDropdownInner {
+        color: var(--button-text-color);
+
+        svg {
+
+        }
+    }
+
+    %postSortDropdownText {
+        color: var(--button-text-color) !important;
+    }
+}
+
 %postTag {
     background-color: var(--card-color) !important;
     border: none;
@@ -59,8 +76,10 @@
 }
 
 %postSortContainer {
-    svg {
-        height: var(--button-height);
+    background-color: transparent;
+
+    %menuPopout {
+        min-width: unset;
     }
 }
 
@@ -82,7 +101,8 @@
 
 %postThreadButtonContainer {
     padding: 8px 16px;
-    @include add-translucence-bg(before);
+    background-color: var(--card-color);
+    border-radius: var(--card-radius);
     border: none;
 
     %button,
@@ -107,4 +127,13 @@
 
 %postThreadDivider {
     display: none;
+}
+
+%postThreadStartConversationBox {
+    margin-top: 8px;
+    background-color: var(--message-color);
+
+    &:after {
+        border-top-color: var(--message-color);
+    }
 }
