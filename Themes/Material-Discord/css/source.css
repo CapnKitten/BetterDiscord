@@ -697,13 +697,51 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 #vc-spotify-player #vc-spotify-album-image {
   border-radius: 50%;
 }
+#vc-spotify-player #vc-spotify-album-expanded-wrapper {
+  margin: -8px -8px 0;
+}
+#vc-spotify-player #vc-spotify-album-expanded-wrapper img {
+  border-radius: var(--card-radius-big) !important;
+}
 #vc-spotify-player .track-3I-RwH {
   top: 12px;
 }
 #vc-spotify-player .grabber-3R-Rx9 {
   background-color: hsl(var(--accent-hsl--material-you)) !important;
 }
+#vc-spotify-player .vc-spotify-button-row {
+  gap: 8px !important;
+}
+#vc-spotify-player .vc-spotify-button {
+  color: var(--text-normal) !important;
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+#vc-spotify-player .vc-spotify-play,
+#vc-spotify-player .vc-spotify-pause {
+  padding: 4px;
+  background-color: hsl(var(--accent-hsl--material-you));
+  color: var(--accent-text-color--material-you);
+  transition: var(--default-time) var(--default-animation) border-radius;
+}
+#vc-spotify-player .vc-spotify-play {
+  border-radius: 16px;
+  animation: vc-spotify-play-button var(--default-time) var(--default-animation);
+}
+#vc-spotify-player .vc-spotify-pause {
+  border-radius: 10px;
+  animation: vc-spotify-pause-button var(--default-time) var(--default-animation);
+}
 
+@keyframes vc-spotify-play-button {
+  from {
+    border-radius: 10px;
+  }
+}
+@keyframes vc-spotify-pause-button {
+  from {
+    border-radius: 16px;
+  }
+}
 /*
  *
  *  SUPPORTED PLUGIN -> StatusEverywhere
@@ -2301,16 +2339,16 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   padding: 0 8px 0 6px;
 }
 
-.container-2d0jMv,
-.container-3kfp0r {
-  background-color: var(--popout-color);
-  border-radius: var(--popout-radius);
-  box-shadow: var(--shadow-3dp);
-}
-
 .container-2d0jMv {
   padding: 0;
+  background-color: transparent;
   overflow: hidden;
+}
+.container-2d0jMv .menu-2TXYjN {
+  min-width: unset;
+}
+.container-2d0jMv .menu-2TXYjN .scrollerBase-1Pkza4::-webkit-scrollbar {
+  --scrollbar-width: 0;
 }
 .container-2d0jMv .header-2Mcelf {
   padding: 0 6px 0 12px;
@@ -2355,9 +2393,10 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 }
 .container-JhuCwn.collapsed-23aTv6 .inputWrapper-2K8ds1 {
   margin-right: 8px;
-  border-bottom: none !important;
 }
 .container-JhuCwn.collapsed-23aTv6 .inputWrapper-2K8ds1 .input-3O04eu {
+  padding: 0;
+  box-shadow: none !important;
   cursor: text;
 }
 .container-JhuCwn.collapsed-23aTv6 .inputWrapper-2K8ds1 .input-3O04eu, .container-JhuCwn.collapsed-23aTv6 .inputWrapper-2K8ds1 .input-3O04eu::-webkit-input-placeholder {
@@ -3508,12 +3547,12 @@ div[role=radiogroup] {
 }
 
 /* RADIO BUTTONS -> CONTEXT MENU */
-[role=menuitemradio][aria-checked=true].item-5ApiZt.labelContainer-35-WEd path {
-  fill: hsl(var(--accent-hsl--material-you)) !important;
+[role=menuitemradio][aria-checked=true].item-5ApiZt .icon-3XHs8t {
+  color: hsl(var(--accent-hsl--material-you));
 }
 
 .icon-3XHs8t .radioSelection-3PDNAQ {
-  color: hsl(var(--accent-hsl--material-you)) !important;
+  color: currentColor !important;
 }
 
 /*
@@ -8032,15 +8071,10 @@ body:active .root-1CAIjD .container-18GwIk:not(:active) {
   border: none;
   box-shadow: none;
 }
-.searchBox-pyIJJj .inputWrapper-2K8ds1 {
-  border-bottom: none !important;
-}
-.searchBox-pyIJJj .inputWrapper-2K8ds1:before, .searchBox-pyIJJj .inputWrapper-2K8ds1:after {
-  display: none;
-}
 .searchBox-pyIJJj .searchBoxInput-P0mWHW {
   height: var(--input-height);
   padding: 0 16px !important;
+  box-shadow: none !important;
 }
 
 /* SERVER DISCOVERY -> SIDEBAR */
@@ -8456,6 +8490,10 @@ body:active .root-1CAIjD .container-18GwIk:not(:active) {
 }
 .menu-2TXYjN .scrollerBase-1Pkza4::-webkit-scrollbar {
   --scrollbar-thin-width: 0;
+}
+.menu-2TXYjN .groupLabel-KyZarI {
+  font-size: 14px;
+  text-transform: none;
 }
 .menu-2TXYjN .item-5ApiZt {
   min-height: 32px;
@@ -10663,10 +10701,12 @@ body:active .menu-KSaHL1:not(:active) {
 }
 .vc-plugins-card .vc-plugins-card-header {
   height: auto !important;
+  justify-content: flex-start !important;
 }
 .vc-plugins-card .vc-plugins-card-header .vc-plugins-name {
+  overflow: hidden;
   font-size: 1.25em !important;
-  font-weight: 500;
+  font-weight: 400;
 }
 .vc-plugins-card .container-1QtPKm .slider-HJFN2i {
   transform: translate(-2px, -50%) !important;
