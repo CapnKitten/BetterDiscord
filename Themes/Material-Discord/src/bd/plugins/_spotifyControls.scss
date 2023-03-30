@@ -42,6 +42,14 @@
         border-radius: 50%;
     }
 
+    %vencordSpotifyAlbumExpandedWrapper {
+        margin: -8px -8px 0 ;
+
+        img {
+            border-radius: var(--card-radius-big) !important;
+        }
+    }
+
     %sliderTrack {
         top: 12px;
     }
@@ -49,4 +57,39 @@
     %sliderGrabber {
         background-color: hsl(var(--accent-hsl--material-you)) !important;
     }
+
+    %vencordSpotifyButtonRow {
+        gap: 8px !important;
+    }
+
+    %vencordSpotifyButton {
+        color: var(--text-normal) !important;
+        transition: var(--default-time) var(--default-animation) background-color;
+    }
+
+    %vencordSpotifyPlay,
+    %vencordSpotifyPause {
+        padding: 4px;
+        background-color: hsl(var(--accent-hsl--material-you));
+        color: var(--accent-text-color--material-you);
+        transition: var(--default-time) var(--default-animation) border-radius;
+    }
+
+    %vencordSpotifyPlay {
+        border-radius: 16px;
+        animation: vc-spotify-play-button var(--default-time) var(--default-animation);
+    }
+
+    %vencordSpotifyPause {
+        border-radius: 10px;
+        animation: vc-spotify-pause-button var(--default-time) var(--default-animation);
+    }
+}
+
+@keyframes vc-spotify-play-button {
+    from { border-radius: 10px; }
+}
+
+@keyframes vc-spotify-pause-button {
+    from { border-radius: 16px; }
 }

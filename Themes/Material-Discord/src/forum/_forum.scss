@@ -169,16 +169,20 @@
     }
 }
 
-%postSortContainer,
-%postTagsContainer {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--shadow-3dp);
-}
-
 %postSortContainer {
     padding: 0;
+    background-color: transparent;
     overflow: hidden;
+
+    %menuPopout {
+        min-width: unset;
+
+        %scroller {
+    		&::-webkit-scrollbar {
+    			--scrollbar-width: 0;
+    		}
+        }
+    }
 
     %postSortHeader {
         padding: 0 6px 0 12px;
