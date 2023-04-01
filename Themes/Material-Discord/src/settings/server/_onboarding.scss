@@ -1,0 +1,166 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  SERVER COMMUNITY ONBOARDING
+ *
+ */
+
+.progressBarContainer-3nSoms {
+    .progressBarCurrent-ea4YDg {
+        background-color: hsl(var(--accent-hsl--material-you));
+    }
+
+    .text-xs-medium-311pdh[style="color: var(--text-brand);"] {
+        color: hsl(var(--accent-hsl--material-you)) !important;
+    }
+}
+
+/* SERVER COMMUNITY ONBOARDING -> DEFAULT CHANNELS */
+
+%onboardingCategoryRow {
+    %onboardingCategoryText {
+        @include remove-caps(14px);
+    }
+}
+
+%onboardingChannelRow {
+    background-color: var(--card-color-filled);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &%onboardingChannelRowFirst {
+        border-top-left-radius: var(--card-radius-big);
+        border-top-right-radius: var(--card-radius-big);
+    }
+
+    &%onboardingChannelRowLast {
+        border-bottom-left-radius: var(--card-radius-big);
+        border-bottom-right-radius: var(--card-radius-big);
+    }
+
+    &:hover {
+        &:not(%onboardingChannelRowDisabled) {
+            background-color: var(--card-color-hover);
+        }
+    }
+
+    %onboardingChannelLockedPill {
+        --button-padding: 0 24px 0 16px;
+    }
+}
+
+%onboardingChannelSeparator {
+    background-color: var(--card-border-color);
+}
+
+%onboardingChannelSelectionContainer {
+    @include card-format(false, 0, true);
+
+    %onboardingChannelSelectionHeader,
+    %onboardingChannelSelectionHeaderContainer,
+    %onboardingChannelSelectionList {
+        background-color: transparent;
+    }
+}
+
+/* SERVER COMMUNITY ONBOARDING -> NAVIGATION BANNER */
+
+%onboardingNavigationBarContainer {
+    background-color: var(--popout-color) !important;
+    border-radius: 4px;
+    box-shadow: var(--shadow-2dp);
+
+    %button {
+        &%buttonOutlined {
+            --button-padding: 0 24px 0 16px;
+        }
+
+        &%buttonFilled {
+            --button-padding: 0 16px 0 24px;
+
+            %onboardingNavigationBarInnerButton {
+                color: var(--accent-text-color--material-you) !important;
+            }
+        }
+    }
+}
+
+%onboardingNavigationEducationUpsell {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+
+    %onboardingNavigationEducationUpsellArrow {
+        border-bottom-color: var(--popout-color);
+    }
+}
+
+/* SERVER COMMUNITY ONBOARDING -> PREVIEW */
+
+%onboardingTestimonialHeroContainer {
+    @include card-format(false, 32px, true);
+
+    %onboardingQuotes {
+        top: 40px;
+        color: var(--card-header-text-color);
+    }
+
+    %onboardingTestimonialsControls {
+        margin: 0;
+    }
+
+    %button {
+        --button-padding: 0 10px;
+    }
+}
+
+%onboardingUpsellPreview {
+    gap: 16px;
+    @include card-format(false, 16px, true);
+
+    &%onboardingSpacingLarge {
+        gap: 2px;
+
+        %onboardingHeadingMdSemibold {
+            padding-bottom: 14px;
+        }
+
+        %onboardingWelcomeMessageContainer {
+            margin-bottom: 14px;
+        }
+    }
+
+    %onboardingHeadingMdSemibold {
+        line-height: normal;
+    	font-size: 1.25em;
+    	color: var(--card-header-text-color);
+    	font-weight: 400;
+    }
+
+    %onboardingSpacingSmall {
+        gap: 2px;
+    }
+
+    %onboardingPreviewListItem {
+        padding: 12px;
+
+        &%onboardingPreviewListItemSelected {
+            background-color: var(--card-color-alt-hover);
+        }
+    }
+
+    %onboardingPreviewListItem,
+    %onboardingPreviewAction {
+        background-color: var(--card-color-alt);
+        border-radius: 4px;
+
+        &:first-of-type {
+            border-top-left-radius: var(--card-radius-big);
+            border-top-right-radius: var(--card-radius-big);
+        }
+
+        &:last-of-type {
+            border-bottom-left-radius: var(--card-radius-big);
+            border-bottom-right-radius: var(--card-radius-big);
+        }
+    }
+}
