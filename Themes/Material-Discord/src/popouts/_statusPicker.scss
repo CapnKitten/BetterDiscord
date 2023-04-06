@@ -13,7 +13,34 @@
 }
 
 %statusMenu {
-	border-radius: var(--popout-radius-big);
+	--popout-color: transparent;
+
+	animation: none;
+
+	%scroller {
+		padding-right: 0 !important;
+
+		&::-webkit-scrollbar {
+            --scrollbar-width: 0;
+        }
+	}
+
+	%menuPopoutSeparator {
+		width: calc(100% - 24px);
+		margin: 8px 12px !important;
+        border-color: var(--separator-color) !important;
+	}
+
+	%contextMenuItemSubMenuAlt {
+        %menuPopoutSeparator {
+            width: 100%;
+    		margin: 8px 0 !important;
+    	}
+    }
+}
+
+body:active %statusMenu:not(:active) {
+	opacity: 1;
 }
 
 %statusMenuProfileGroup {

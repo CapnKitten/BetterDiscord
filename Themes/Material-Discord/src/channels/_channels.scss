@@ -215,8 +215,40 @@
 
 /* CHANNELS -> VOICE USERS */
 
-%voiceUserAvatarImage {
-	border-radius: var(--avatar-radius);
+%channelVoiceList {
+    padding: 0 2px 8px 36px;
+}
+
+%voiceUserList {
+	%voiceUserContent {
+		margin: 2px 0 0;
+	}
+
+	%voiceUserClickable {
+		&:hover {
+			%voiceUserContent {
+				background-color: var(--menu-item-hover);
+			}
+		}
+
+		&%voiceUserSelected {
+			%voiceUserContent {
+				background-color: hsla(var(--accent-hsl),var(--menu-item-select-accent-opacity));
+			}
+		}
+	}
+}
+
+%voiceUserName {
+	transition: var(--default-time) var(--default-animation) color;
+}
+
+%voiceUserAvatar {
+    margin-left: 3px;
+
+	%voiceUserAvatarImage {
+		border-radius: var(--avatar-radius);
+	}
 }
 
 %voiceUserOverlap {
