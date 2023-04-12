@@ -6,83 +6,30 @@
  *
  */
 
-%safetySetupCard {
-    @include card-format(false, 0, true);
-}
-
-%safetySetupGroupContainer {
-    background-color: transparent;
-
-    &:active {
-        background-color: transparent;
-    }
-
-    &:before {
-        display: none;
-    }
-
-    &%safetySetupGroupContainerToggled {
-        &:active {
-            background-color: transparent;
-        }
-    }
-}
-
-%safetySetupGroupCollapsedContainer {
-    margin-top: 16px;
+%safetySetupChangelog {
     @include card-format(false, 16px, true);
+}
 
-    %safetySetupGroupCollapsedPointer {
-        background-color: var(--card-color-filled);
+%safetySetupChecklist {
+    @include card-format(false, 0, true);
+
+    %buttonOutlined {
+        border: var(--button-outline) !important;
+    }
+
+    %safetySetupChecklistDivider {
+        background-color: var(--card-border-color);
     }
 }
 
-%safetySetupClickableContainer {
-    background-color: transparent;
-}
+%safetySetupBackButton {
+    --button-padding: 0;
 
-%safetyCardBackgroundModifierContainer {
-    border-radius: var(--card-radius-big);
-    border: 1px solid;
+    margin-bottom: 16px;
 
-    &:hover {
-        &:not(%safetyCardBackgroundModifierDisabled) {
-            &:not(%safetyCardBackgroundModifierNoAction) {
-                background-color: var(--card-color-hover);
-            }
-        }
-    }
-
-    &%safetyCardBackgroundModifierSelected {
-        background-color: var(--card-color-active) !important;
-
-        %safetySetupRadioItem {
-            color: hsl(var(--accent-hsl--material-you));
-        }
-    }
-
-    &%safetyCardBackgroundModifierDisabled {
-        border-left-width: 1px;
-    }
-
-    &%safetySetupCardAccent,
-    &%safetySetupCardTransparent {
-        border-color: var(--card-border-color);
-    }
-
-    &%safetySetupCardStatusGreen {
-        border-color: var(--status-positive);
-    }
-
-    &%safetySetupCardStatusYellow {
-        border-color: var(--status-warning);
-    }
-
-    &%safetySetupCardStatusOrange {
-        border-color: var(--status-orange-530);
-    }
-
-    &%safetySetupCardStatusRed {
-        border-color: var(--status-danger);
+    %safetySetupBackButtonText {
+        background-image: none;
+        text-transform: none;
+        text-decoration: none;
     }
 }
