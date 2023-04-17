@@ -96,43 +96,47 @@
 
 /* USER SETTINGS -> ANIMATION */
 
-%layer.animating {
-	pointer-events: initial !important;
-	will-change: transform, opacity;
-}
-
-%themeDark %standardSidebarView,
-%themeLight %standardSidebarView {
-	backface-visibility: hidden;
+%themeDark,
+%themeLight {
+    %standardSidebarView {
+        backface-visibility: hidden;
+    }
 }
 
 %layer {
-	transform: none !important;
+    transform: none !important;
 	transition: 300ms var(--default-animation) all;
 	backface-visibility: hidden;
-}
 
-%layer%layerAnimating {
-	transform: none !important;
-}
+    &.animating {
+    	pointer-events: initial !important;
+    	will-change: transform, opacity;
+    }
 
-%layer.stop-animations:first-of-type {
-	transform: scale(0.95) !important;
-	opacity: 0 !important;
-}
+    + %layer {
+    	transform: scale(1.1) !important;
+    	opacity: 0 !important;
+    	pointer-events: none !important;
+    	transition: 300ms var(--default-animation) all, 150ms ease opacity;
+    }
 
-%layer + %layer {
-	transform: scale(1.1) !important;
-	opacity: 0 !important;
-	pointer-events: none !important;
-	transition: 300ms var(--default-animation) all, 150ms ease opacity;
-}
+    &%layerAnimating {
+    	transform: none !important;
+    }
 
-%layer.stop-animations ~ %layer {
-	pointer-events: initial !important;
-	transform: none !important;
-	opacity: 1 !important;
-	animation: opensettings 300ms var(--default-animation);
+    &.stop-animations {
+        &:first-of-type {
+        	transform: scale(0.95) !important;
+        	opacity: 0 !important;
+        }
+
+        ~ %layer {
+        	pointer-events: initial !important;
+        	transform: none !important;
+        	opacity: 1 !important;
+        	animation: opensettings 300ms var(--default-animation);
+        }
+    }
 }
 
 @keyframes opensettings {
