@@ -72,6 +72,34 @@
 %autocompletePopout {
 	@include popout-format;
 
+	%autocompletePopoutArrow {
+		background-color: var(--popout-color);
+	}
+
+	%autocompletePopoutHeader {
+		background-color: transparent;
+		border-bottom: 1px solid var(--card-border-color);
+	}
+
+	%autocompletePopoutHeaderText {
+		margin-right: 0;
+	}
+
+	%autocompletePopoutInput {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+	%autocompletePopoutSectionTag {
+		background-color: transparent !important;
+	}
+
+	%autocompletePopoutSection {
+		line-height: 36px;
+		padding: 0 16px;
+		@include remove-caps(14px);
+	}
+
 	%autocompletePopoutShadow {
 		display: none;
 	}
@@ -81,6 +109,10 @@
 	}
 
 	%autocompletePopoutHeader {
+		display: flex;
+        padding: 0 16px;
+        gap: 8px;
+        justify-content: flex-start;
 		background-color: transparent;
 		border-bottom: 1px solid var(--card-border-color);
 	}
@@ -94,13 +126,24 @@
 		padding: 0 16px;
 		@include remove-caps(14px);
 	}
+}
 
-	%autocompletePopoutRow {
-		padding: 0;
+%autocompletePopoutShadow,
+%autocompletePopoutHeaderBackground {
+	display: none;
+}
 
+%autocompletePopoutRow {
+	padding-left: var(--scrollbar-thin-width);
+
+	&%autocompletePopoutSelected {
 		%autocompletePopoutRowInner {
-			padding: 12px 16px;
-			border-radius: 0;
+			background-color: var(--menu-item-hover);
 		}
+	}
+
+	%autocompletePopoutRowInner {
+		border-radius: var(--popout-radius);
+		transition: var(--default-time) var(--default-animation) background-color;
 	}
 }
