@@ -16,7 +16,7 @@ Download with the button above or use as import with the code below.
 
 ```css
 /* Copy and paste this example and then changes the server name and hex color code */
-.container-3w7J-x[aria-label*="SERVER_NAME"]:before {
+.container-1NXEtd[aria-label*="SERVER_NAME"]:before {
       --title-custom: #184c88;
 }
 ```
