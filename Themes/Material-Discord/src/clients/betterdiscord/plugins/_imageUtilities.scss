@@ -1,0 +1,42 @@
+@use '../../../mixins' as *;
+
+/*
+ *
+ *  BETTERDISCORD PLUGIN -> ImageUtilities
+ *
+ */
+
+%menuPopout {
+    %menuPopoutItem {
+        $icons: (
+            'message-imageutilities-copy-link':         'content_copy',
+            'message-imageutilities-copy-media-link':   'content_copy',
+            'message-imageutilities-open-link':         'open_in_new',
+            'message-imageutilities-copy-file':         'image_copy',
+            'message-imageutilities-view-file':         'image_view'
+        );
+
+        @each $option, $icon in $icons {
+            &##{$option} {
+                &:after {
+                    @include add-icon(currentColor, $icon);
+                }
+            }
+        }
+
+        /* SUBMENU WITH ARROW */
+
+        $icons: (
+            'message-imageutilities-download-file-as':  'save',
+            'message-imageutilities-submenu-search':    'search'
+        );
+
+        @each $option, $icon in $icons {
+            &##{$option} {
+                &:before {
+                    @include add-icon(currentColor, $icon);
+                }
+            }
+        }
+    }
+}
