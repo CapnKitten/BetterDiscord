@@ -7,10 +7,18 @@
  */
 
 %oauth2Wrapper {
+	min-height: 100px;
 	@include popout-format;
+	overflow: hidden;
 
 	%authorizeWrapper {
 		background-color: transparent;
+
+		%authorizeHeader {
+			padding: 24px 24px 16px;
+			border-radius: 0;
+			border-bottom: none;
+		}
 
 		%authorizeScrollContent {
 			padding: 0 !important;
@@ -19,12 +27,6 @@
 				padding-bottom: 0;
 			}
 
-			%authorizeHeader {
-				padding: 24px 24px 16px;
-				border-radius: 0;
-			}
-
-			%authorizeHeader,
 			%authorizeScopes {
 				border-bottom: 1px solid var(--popout-header-border);
 			}
@@ -49,6 +51,14 @@
 			}
 		}
 	}
+
+	%authorizeCaptcha {
+        padding: 0 24px 24px !important;
+    }
+
+    %authorizeSuccessWrapper {
+        padding: 24px;
+    }
 }
 
 %authorizeDiscordConsentBody {
@@ -65,6 +75,20 @@
 	&:last-child {
 		padding-bottom: 0;
 	}
+}
+
+%authorizeSectionGroup {
+    padding-left: 24px;
+    padding-right: 24px;
+
+    &:first-of-type {
+        padding-top: 0;
+    }
+}
+
+%authorizeBotPermissions {
+    padding: 0 24px;
+    border-bottom: none;
 }
 
 %authorizeFooter {
