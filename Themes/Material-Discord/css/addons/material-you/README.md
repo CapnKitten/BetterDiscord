@@ -1,12 +1,16 @@
-# [Add-on] Material You - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Download][download-logo]][download-url]
+# [Add-on] Material You - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Discord][discord-logo]][discord-url]
 #### An add-on theme that changes the entire UI color scheme based on the accent color. Based on Google's Material You. Requires Material Discord as the base theme.
 
 <hr>
 
-Download with the button above or use as an import with the code below.
-
+[Download here](https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=material-you) or use as import with the code below.
 ```css
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css);
+```
+
+Vencord link
+```
+https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css
 ```
 
 <hr>
@@ -53,5 +57,5 @@ You may want to play around with the values below to get your desired look.
 [github-logo]: https://img.shields.io/static/v1?label=GitHub&message=Sponsor&style=flat&logo=github&color=black
 [github-url]: https://github.com/sponsors/CapnKitten
 
-[download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
-[download-url]: https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=material-you
+[discord-logo]: https://img.shields.io/static/v1?label=Discord&message=Server&style=flat&logo=discord&color=blue
+[discord-url]: https://discord.gg/jzJkA6Z
