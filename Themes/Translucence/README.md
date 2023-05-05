@@ -1,8 +1,15 @@
-# Translucence Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Discord][discord-logo]][discord-url] [![Download][download-logo]][download-url]
+# Translucence Theme - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Discord][discord-logo]][discord-url]
 #### A translucent/frosted glass Discord theme
 <hr>
 
 Current version: v1.0.6.3 (26/02/2021)
+
+[BetterDiscord download](https://betterdiscord.app/theme/Translucence)
+
+Vencord link
+```
+https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css
+```
 
 ## Previews
 
@@ -25,8 +32,6 @@ Current version: v1.0.6.3 (26/02/2021)
 #### DMs
 
 ![discord-105](https://user-images.githubusercontent.com/4013216/125158378-c8527080-e13e-11eb-9ad5-a7f2e229ac2b.png)
-
-&nbsp;
 
 ## Variables
 
@@ -88,24 +93,11 @@ Current version: v1.0.6.3 (26/02/2021)
  - `--popout-radius` - The border radius for modals/popouts. Default: `8px`
  - `--popout-shadow` - The shadow for modals/popouts. Default: `0 8px 10px 1px rgba(0,0,0, 0.14)`
  
-&nbsp;
-
-## Changelog
-
-#### v1.0.6 (18/11/2020)
-* Inline replies styled
-* Updated elements that Discord changed (If I missed any, please let me know)
-
-[View previous changelogs](https://github.com/CapnKitten/BetterDiscord/blob/master/Themes/Translucence/changelog.md)
-
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
 
 [github-logo]: https://img.shields.io/static/v1?label=GitHub&message=Sponsor&style=flat&logo=github&color=black
 [github-url]: https://github.com/sponsors/CapnKitten
-
-[download-logo]: https://img.shields.io/static/v1?label=Download&message=Theme&style=flat&color=blue
-[download-url]: https://betterdiscord.app/theme/Translucence
 
 [discord-logo]: https://img.shields.io/static/v1?label=Discord&message=Server&style=flat&logo=discord&color=blue
 [discord-url]: https://discord.gg/jzJkA6Z
