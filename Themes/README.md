@@ -6,6 +6,7 @@
   * [Material You](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/material-you)
   * [Solid Icons](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/icons)
   * [Old Message Bubbles](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/messages)
+  * [Custom Themes](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/custom-themes)
 * [Spotify Discord](https://github.com/CapnKitten/Spotify-Discord)
   * [Spotify Discord Redesign](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord/css/addons/redesign)
 * [Translucence](https://github.com/CapnKitten/Translucence)
