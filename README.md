@@ -7,6 +7,7 @@
   * [Solid Icons](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/icons)
   * [Old Message Bubbles](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Material-Discord/css/addons/messages)
 * [Spotify Discord](https://github.com/CapnKitten/Spotify-Discord)
+  * [Spotify Discord Redesign](https://github.com/CapnKitten/BetterDiscord/tree/master/Themes/Spotify-Discord/css/addons/redesign)
 * [Translucence](https://github.com/CapnKitten/Translucence)
 
 ### Plugins
