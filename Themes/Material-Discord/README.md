@@ -39,8 +39,6 @@ https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/source.cs
 
 ![discord-706](https://user-images.githubusercontent.com/4013216/216792463-a2472c19-21bd-48e0-beba-05d092c715dc.png)
 
-&nbsp;
-
 ## Variables
 
 ** **Indicates that it has two values for both the dark and light themes of Discord. Instead of using `:root`, use `.theme-dark` or `.theme-light`.**
