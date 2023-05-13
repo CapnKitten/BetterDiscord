@@ -1,3 +1,5 @@
+@use '../../mixins' as *;
+
 /*
  *
  *  USER SETTINGS KEYBINDS
@@ -24,7 +26,7 @@
 
 %keybindRow {
 	--input-color: var(--input-color-alt);
-	
+
 	padding: 16px;
 	background-color: var(--card-color-filled);
 	border-bottom: 1px solid var(--card-border-color);
@@ -69,5 +71,59 @@
 		%button {
 			width: auto;
 		}
+    }
+}
+
+/* KEYBINDS -> DEFAULT */
+
+%keybindDefaultGroup {
+    margin: 24px 0 0;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %keybindDefault {
+        + %keybindDivider {
+            display: block;
+        }
+    }
+
+    %keybindDivider {
+        width: calc(100% - 32px);
+        margin: 0 16px;
+        border-top-color: var(--card-border-color);
+
+        &:last-of-type {
+            display: none;
+        }
+    }
+}
+
+%keybindDefault {
+    padding: 0 16px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    + %keybindDivider {
+        display: none;
+    }
+}
+
+%keybindDefaultGroupHeader {
+    margin-bottom: 0;
+    padding: 16px 16px 0;
+    @include remove-caps(18px);
+    font-weight: 500;
+
+    + %keybindDivider {
+        display: none;
+    }
+}
+
+%keybindDefaultGroupDescription {
+    margin-bottom: 0;
+    padding: 16px 16px 0;
+
+    + %keybindDivider {
+        display: none;
     }
 }
