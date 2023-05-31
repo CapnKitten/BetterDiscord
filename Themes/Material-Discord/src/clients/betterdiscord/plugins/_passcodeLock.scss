@@ -1,0 +1,78 @@
+/*
+ *
+ *  BETTERDISCORD PLUGIN -> PasscodeLock
+ *
+ */
+
+%PclLayoutBg {
+    background-color: var(--main-alt) !important;
+    backdrop-filter: none !important;
+}
+
+%PclIcon {
+    padding: 16px;
+    background-color: var(--card-color-hover);
+    border-radius: 50%;
+}
+
+%themeLight {
+    %PclIcon {
+        background-color: var(--switch-knob-color);
+    }
+}
+
+%PclTitle {
+    color: var(--header-primary);
+}
+
+%PclDot {
+    &:before {
+        background: var(--text-normal) !important;
+    }
+}
+
+%PclDivider {
+    display: none;
+}
+
+%PclButtons {
+    grid-template-columns: repeat(3, 80px) !important;
+    grid-auto-rows: 80px !important;
+    gap: 16px !important;
+    padding: 16px 20px 40px !important;
+}
+
+%PclBtn {
+    background-color: var(--card-color-filled);
+    color: var(--text-normal);
+    transition: var(--default-time) var(--default-animation) border-radius, var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color !important;
+
+    &:hover {
+        background-color: var(--card-color-active) !important;
+    }
+
+    &:active {
+        background-color: hsl(var(--accent-hsl--material-you)) !important;
+        border-radius: 20px !important;
+        color: var(--accent-text-color--material-you);
+
+        %PclBtnDec {
+            color: var(--accent-text-color--material-you);
+        }
+    }
+
+    &%PclBtnEscape,
+    &%PclBtnBackspace {
+        background-color: hsl(var(--accent-hsl--material-you)) !important;
+        color: var(--accent-text-color--material-you);
+    }
+
+    %PclBtnNumber {
+        font-weight: 400;
+    }
+
+    %PclBtnDec {
+        color: var(--text-muted);
+        transition: var(--default-time) var(--default-animation) color !important;
+    }
+}
