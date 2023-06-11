@@ -271,13 +271,29 @@
 
     --accent-hsl--material-you:
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-factor)),
-            var(--accent-lightness);
+            calc(var(--accent-saturation) * var(--saturation-modifier) * 2 * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.65);
     --accent-text-color--material-you: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
-            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.75)
+            calc(var(--accent-saturation) * var(--saturation-modifier) * 2 * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.2)
         );
+
+    --alert-hsl:
+            var(--alert-hue),
+            calc(var(--alert-saturation) * 0.9 * var(--saturation-factor)),
+            calc(var(--alert-lightness) * 1.15);
+    --alert-text-color: hsl(
+            var(--alert-hue),
+            calc(var(--alert-saturation) * 0.65 * var(--saturation-factor)),
+            calc(var(--alert-lightness) * 0.4)
+        );
+
+    --button-link-accent-color:
+            var(--accent-hue),
+            calc(var(--accent-saturation) * var(--saturation-modifier) * 2 * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.535);
+    --button-link-accent-text-color: var(--accent-text-color--material-you);
 
 	--status-picker-color: hsl(
             var(--accent-hue),
@@ -416,18 +432,19 @@
 
     --switch-knob-color: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * 0.425 * var(--saturation-factor)),
-            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.4)
+            calc(var(--accent-saturation) * var(--saturation-modifier) * 0.3 * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.375)
         );
-    --switch-slider-color: hsl(
+	--switch-slider-color: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * 0.425 * var(--saturation-factor)),
-            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.6)
+            calc(var(--accent-saturation) * var(--saturation-modifier) * 0.8 * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.65)
         );
-    --switch-slider-color-modal: hsl(
+	--switch-slider-color-modal: var(--switch-slider-color);
+	--switch-color-checked: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * 0.425 * var(--saturation-factor)),
-            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.56)
+            calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
         );
 
     --profile-body-background-color: hsl(
@@ -464,6 +481,85 @@
             0.95
         );
 
+    %buttonOutlined {
+        &%buttonBrand {
+            --button-text-color: hsl(
+                    var(--accent-hue),
+                    calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                    calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                );
+            --button-outline: 1px solid hsl(
+                    var(--accent-hue),
+                    calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                    calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                );
+
+            &:after {
+                background-color: hsl(
+                        var(--accent-hue),
+                        calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                        calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                    );
+            }
+        }
+    }
+
+    %slider {
+        %sliderBar %sliderBarFill,
+        %sliderTrack %sliderGrabber {
+            background-color: hsl(
+                    var(--accent-hue),
+                    calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                    calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                ) !important;
+        }
+    }
+
+    %radioItem {
+        &[aria-checked=true] {
+            %radioBar svg {
+                color: hsl(
+                        var(--accent-hue),
+                        calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                        calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                    );
+            }
+        }
+    }
+
+    %menuPopoutItem {
+        &[role=menuitemradio][aria-checked=true] {
+            %menuPopoutIcon {
+                color: hsl(
+                        var(--accent-hue),
+                        calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                        calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                    );
+            }
+        }
+    }
+
+    %menuPopoutSelected {
+        %menuPopoutCheckbox {
+            color: hsl(
+                    var(--accent-hue),
+                    calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                    calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                );
+        }
+
+        %menuPopoutCheck {
+            color: hsl(var(--accent-hsl--material-you));
+        }
+    }
+
+    %input:focus {
+        --accent-hsl--material-you:
+                var(--accent-hue),
+                calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3);
+    }
+
     &%popoutLayer,
     &.layer-fP3xEz {
         %input {
@@ -472,6 +568,18 @@
                     calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
                     calc(var(--accent-lightness) * var(--lightness-modifier) * 0.72)
                 );
+        }
+    }
+
+    %modalRoot {
+        %modalContent {
+            a {
+                color: hsl(
+                        var(--accent-hue),
+                        calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
+                        calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3)
+                    );
+            }
         }
     }
 
