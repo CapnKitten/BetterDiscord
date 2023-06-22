@@ -7,23 +7,46 @@
  */
 
 %inviteScroller {
-    padding: 0;
+    padding-top: 0;
 }
 
 %inviteRow {
-    padding: 8px 24px 8px 16px;
-    border-radius: 0;
+    --button-height: 32px;
+    --button-outline: 1px solid hsl(var(--accent-hsl--material-you));
+
+    margin-right: calc(var(--scrollbar-thin-width));
+    padding: 12px;
+    border-radius: var(--card-radius);
     transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--menu-item-hover);
-	}
+    &:hover {
+        background-color: var(--menu-item-hover) !important;
+    }
 
     %button {
-        --button-height: 32px;
-        --button-outline: 1px solid hsl(var(--accent-hsl--material-you));
-
         width: auto;
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border, var(--default-time) var(--default-animation) color;
+    }
+}
+
+%inviteContent {
+    &:before {
+        display: none;
+    }
+}
+
+%inviteFooter {
+    %input {
+        --button-height: 28px;
+
+        padding: 0 6px 0 12px;
+        border-radius: var(--input-height);
+        box-shadow: none;
+
+        %input {
+            padding: 0;
+            box-shadow: none;
+        }
     }
 }
 
