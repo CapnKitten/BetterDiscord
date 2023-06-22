@@ -34,26 +34,70 @@
         }
     }
 
+    &:not(%newPostContainerCollapsed) {
+        padding: 16px;
+
+        %newPostFormContainer {
+            padding: 0;
+        }
+
+        %newPostForm {
+            > div {
+                padding: 0;
+            }
+        }
+
+        %newPostTitleContainer {
+            position: relative;
+        }
+
+        %input {
+            --input-color: var(--card-color-filled);
+
+            margin-top: 0;
+            margin-right: 0;
+            border-radius: 20px;
+            box-shadow: none;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        %newPostPrefixElement {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 0;
+            right: 0;
+            margin: 0;
+            z-index: 2;
+
+            svg {
+                padding: 8px;
+            }
+        }
+    }
+
     %newPostContentContainer {
         padding-left: 0;
-        padding-right: 94px;
     }
 
     %newPostFormContainer {
-        position: relative;
-        display: block;
+        padding: 0;
     }
 
     %newPostAttachmentContainer {
-        position: absolute;
-        top: 55px;
-        right: 0;
+        width: 80px;
+        height: 80px;
+        margin-left: 16px;
 
         %newPostAttachmentUploadInput {
             @include card-format;
         }
 
         %newPostAttachmentImageSmall {
+            height: 80px;
             border-radius: var(--card-radius-big);
         }
 
@@ -77,12 +121,12 @@
     }
 
     %newPostTextArea {
-        min-height: 70px;
+        min-height: 68px;
         margin-top: 16px;
     }
 
     %newPostTextAreaInner {
-        min-height: 70px;
+        min-height: 68px;
         padding: 6px 12px;
         background-color: var(--card-color-filled);
         border-radius: 19px;

@@ -1,0 +1,90 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  MEDIA NEW POST
+ *
+ */
+
+%newPostContainer {
+    %mediaAttachmentItemSmall {
+        min-width: 80px;
+        min-height: 80px;
+        max-width: 80px;
+        max-height: 80px;
+        padding: 0;
+
+        %newPostAttachmentImageSmall {
+            height: 80px;
+        }
+    }
+}
+
+%mediaThumbnailContainer {
+    margin-left: 16px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %channelTextAreaUpload {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    %mediaThumbnail {
+        border-radius: var(--card-radius-big);
+    }
+
+    %button {
+        --button-height: 100%;
+        --button-padding: 0;
+        --button-radius: var(--card-radius-big);
+
+        &:after {
+            display: none;
+        }
+    }
+
+    %buttonFilled {
+        --button-background: transparent;
+    }
+}
+
+%mediaUploadMediaContainer {
+    margin: 16px 0 8px;
+    background-color: transparent;
+}
+
+%newPostAttachmentUploadInput {
+    @include card-format;
+}
+
+/* MEDIA -> MOD MESSAGE */
+
+%mediaModContainer {
+    margin-top: 16px;
+    @include card-format(false, 0, true);
+
+    %mediaModContainerHeaderRow {
+        background-color: transparent;
+    }
+}
+
+%mediaContentMediaContainer {
+    background-color: var(--card-color-hover);
+    border-radius: var(--card-radius-big);
+
+    %mediaPreviewEmbedImage {
+        border-radius: calc(var(--card-radius-big) - 4px);
+    }
+
+    %mediaPreviewVideo {
+        background-color: var(--card-color-filled);
+        border-radius: calc(var(--card-radius-big) - 4px);
+    }
+
+    %mediaPreviewReactionBox {
+        padding: 4px 12px 4px 4px;
+        background-color: transparent;
+        border: 1px solid var(--separator-color);
+    }
+}
