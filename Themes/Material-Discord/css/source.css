@@ -491,6 +491,11 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   padding-bottom: 4px;
 }
 
+.bar-wDIGjg {
+  background-color: var(--popout-color);
+  box-shadow: var(--shadow-3dp);
+}
+
 .mentionsBar-DpLHCy {
   background-color: hsl(var(--alert-hsl));
 }
@@ -502,12 +507,6 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   font-size: 14px;
   text-transform: none;
   font-weight: 500;
-}
-
-.bar-wDIGjg {
-  background-color: var(--popout-color);
-  box-shadow: var(--shadow-3dp);
-  opacity: 1;
 }
 
 #bd-notices + .content-1SgpWY .sidebar-1tnWFu {
@@ -582,8 +581,8 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   color: hsl(var(--accent-hsl--material-you));
 }
 [style="background-color: var(--brand-260);"].newChannel-3q3LPr {
-  background-color: hsla(var(--accent-hsl), 0.3) !important;
-  filter: brightness(1.15) saturate(1.5);
+  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  color: var(--accent-text-color--material-you);
 }
 
 .typeThread-2Aqh6X .mainContent-20q_Hp {
@@ -681,9 +680,17 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  *  CHANNELS LIST ICONS
  *
  */
+.children-1MGS9G:not(:empty) {
+  height: 32px;
+  gap: 10px;
+  margin-top: 0;
+  margin-left: 10px;
+  align-items: center;
+}
+
 .iconItem-1EjiK0 {
   position: relative;
-  margin: 0 0 0 10px;
+  margin: 0;
   padding: 2px;
   position: relative;
 }
@@ -889,7 +896,7 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 }
 .container-YkUktl .withTagAsButton-OsgQ9L,
 .container-YkUktl .withTagless-10ooWt {
-  min-width: 112px;
+  min-width: 0;
   margin-left: 0;
   padding-left: 0;
 }
@@ -897,10 +904,6 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 .container-YkUktl .withTagless-10ooWt:hover {
   background-color: transparent;
   border-radius: 0;
-}
-.container-YkUktl.gameActivityToggleAdded-Yd-YxC .withTagAsButton-OsgQ9L,
-.container-YkUktl.gameActivityToggleAdded-Yd-YxC .withTagless-10ooWt {
-  min-width: calc(100% - 128px);
 }
 .container-YkUktl .nameTag-sc-gpq {
   margin-right: 2px;
@@ -3108,6 +3111,15 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   border-radius: var(--card-radius-big);
 }
 
+.newPostsButton-UaBhcU {
+  background-color: hsl(var(--accent-hsl--material-you));
+  border: none;
+  box-shadow: var(--shadow-3dp);
+}
+.newPostsButton-UaBhcU .text-md-medium-2n7Vn5 {
+  color: var(--accent-text-color--material-you) !important;
+}
+
 /* FORUM -> GET STARTED */
 .container-2_J666 {
   margin-top: 16px;
@@ -3334,6 +3346,28 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   border-radius: var(--card-radius-big);
 }
 
+.container-1PloNW {
+  background-color: var(--card-color-filled);
+  border: none;
+  padding: 0;
+  border-radius: var(--card-radius-big);
+}
+.container-1PloNW:hover {
+  background-color: var(--card-color-hover);
+  box-shadow: none;
+  transform: none;
+}
+.container-1PloNW.isOpen-2Gyel_ {
+  background-color: var(--card-color-active);
+}
+.container-1PloNW .heading-md-extrabold-1MUt_W {
+  font-size: 22px;
+  font-weight: 400;
+}
+.container-1PloNW .authorRow-1tntVd {
+  padding-top: 0;
+}
+
 /* MEDIA -> MOD MESSAGE */
 .container-2jHDEP {
   margin-top: 16px;
@@ -3361,6 +3395,21 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   padding: 4px 12px 4px 4px;
   background-color: transparent;
   border: 1px solid var(--separator-color);
+}
+
+/* MEDIA -> SHARE POST */
+.sharePromptContainer-2E60ZS {
+  margin: 16px 10px 0 16px;
+  background-color: var(--card-color-filled);
+  border: none;
+  padding: 16px;
+  border-radius: var(--card-radius-big);
+}
+.sharePromptContainer-2E60ZS .lookFilled-1H2Jvj svg {
+  margin-left: -4px;
+}
+.sharePromptContainer-2E60ZS .lookFilled-1H2Jvj .text-sm-medium-2-Xzsi {
+  color: inherit !important;
 }
 
 /*
@@ -3490,27 +3539,32 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
  *
  */
 .container-2qVG6q,
-.container-1PloNW {
+.container-q2_DnH {
   background-color: var(--card-color-filled) !important;
   border: none !important;
-  padding: 0;
+  padding: 16px;
   border-radius: var(--card-radius-big) !important;
 }
 .container-2qVG6q:hover,
-.container-1PloNW:hover {
+.container-q2_DnH:hover {
   background-color: var(--card-color-hover) !important;
   box-shadow: none;
   transform: none;
 }
-.container-2qVG6q.isOpen-2OXbFs,
-.container-1PloNW.isOpen-2OXbFs {
-  background-color: var(--card-color-hover) !important;
+.container-2qVG6q.isOpen-2Gyel_,
+.container-q2_DnH.isOpen-2Gyel_ {
+  background-color: var(--card-color-active) !important;
 }
 .container-2qVG6q .newBadge-1LcB6t,
-.container-1PloNW .newBadge-1LcB6t {
+.container-q2_DnH .newBadge-1LcB6t {
   background-color: hsla(var(--accent-hsl), 0.3) !important;
   border-radius: 6px;
   color: hsl(var(--accent-hsl--material-you));
+}
+.container-2qVG6q .heading-lg-semibold-14ouVv,
+.container-q2_DnH .heading-lg-semibold-14ouVv {
+  font-size: 22px;
+  font-weight: 400;
 }
 
 .headerRow-1MKoR- {
@@ -5451,7 +5505,7 @@ div[role=radiogroup] {
   border-radius: 0 11px 11px 0;
   color: var(--input-text-color);
 }
-.search-2Mwzzq .searchBar-jGtisZ .icon-tZMHgY {
+.search-2Mwzzq .searchBar-jGtisZ .icon-18rqoe {
   width: 32px;
   height: 32px;
 }
@@ -11495,6 +11549,18 @@ body:active .accountProfilePopoutWrapper-3GskID:not(:active) {
   margin: 8px 0;
 }
 
+.connectionsContainer-3MmgH3 {
+  background-color: var(--popout-color);
+  border-radius: calc(var(--popout-radius-big) - 4px);
+  border: none;
+}
+.connectionsContainer-3MmgH3 .connections-2K6Bu6 {
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+.connectionsContainer-3MmgH3 .connections-2K6Bu6:hover {
+  background-color: var(--menu-item-hover);
+}
+
 body:active .menu-KSaHL1:not(:active) {
   opacity: 1;
 }
@@ -11546,6 +11612,18 @@ body:active .menu-KSaHL1:not(:active) {
 .role-2TIOKu.addButton-1_dZYu .addButtonIcon-3HZ_2f, .role-3uAPnQ.addButton-1_dZYu .addButtonIcon-3HZ_2f {
   width: 18px;
   height: 18px;
+}
+
+.roleFlowerStar-91jU2T {
+  display: flex;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+.roleFlowerStar-91jU2T .linkIcon-1X-V0c {
+  margin: 0 !important;
 }
 
 /* USER POPOUT -> NOTE */
