@@ -58,6 +58,29 @@
     @include card-format;
 }
 
+%postMediaCard {
+    @include card-format(false, 0, true);
+
+    &:hover {
+        background-color: var(--card-color-hover);
+        box-shadow: none;
+        transform: none;
+    }
+
+    &%postIsOpen {
+        background-color: var(--card-color-active);
+    }
+
+    %headingMdExtraBold {
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    %postMediaCardAuthorRow {
+        padding-top: 0;
+    }
+}
+
 /* MEDIA -> MOD MESSAGE */
 
 %mediaModContainer {
@@ -86,5 +109,22 @@
         padding: 4px 12px 4px 4px;
         background-color: transparent;
         border: 1px solid var(--separator-color);
+    }
+}
+
+/* MEDIA -> SHARE POST */
+
+%mediaSharePromptContainer {
+    margin: 16px 10px 0 16px;
+    @include card-format(false, 16px, true);
+
+    %buttonFilled {
+        svg {
+            margin-left: -4px;
+        }
+
+        %textSMMedium {
+            color: inherit !important;
+        }
     }
 }
