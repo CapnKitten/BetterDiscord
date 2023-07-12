@@ -200,6 +200,34 @@
 		}
 	}
 
+	&:not(%messageGroupStart) {
+		border-radius: 0 0 var(--message-radius) var(--message-radius);
+
+		&:before,
+		&:after {
+			content: " ";
+			position: absolute;
+			width: 0;
+            height: 0;
+			top: calc(var(--message-radius) / 1.15 * -1);
+			background-color: transparent;
+            border: calc(var(--message-radius) / 2.25) solid transparent;
+			border-bottom-color: var(--message-color);
+			pointer-events: none;
+			transition: var(--default-time) var(--default-animation) border-color;
+		}
+
+		&:before {
+			left: 0;
+			border-left-color: var(--message-color);
+		}
+
+		&:after {
+			right: 0;
+			border-right-color: var(--message-color);
+		}
+	}
+
 	&%ephemeral,
 	&%replyingToIndicator {
 		a {
@@ -213,220 +241,8 @@
 		}
 	}
 
-	&:not(%messageGroupStart) {
-		border-radius: 0 0 var(--message-radius) var(--message-radius);
-
-		&:before,
-		&:after {
-			content: " ";
-			position: absolute;
-			width: calc(var(--message-radius) / 3);
-			height: calc(var(--message-radius) / 2);
-			top: calc(var(--message-radius) / 2 * -1);
-			background-color: var(--message-color);
-			pointer-events: none;
-			transition: var(--default-time) var(--default-animation) background-color;
-		}
-
-		&:before {
-			left: 0;
-		}
-
-		&:after {
-			right: 0;
-		}
-	}
-
-	&%messageCozy {
-		&%messageGroupStart {
-			margin-bottom: 0;
-
-			&%mentioned {
-				&:before {
-					display: none;
-				}
-			}
-		}
-
-		&%messageGroupStart {
-			padding: var(--message-padding-top) var(--message-padding-side) !important;
-		}
-
-		&:not(%messageGroupStart) {
-			margin-top: calc(var(--message-padding-top) * -1);
-			padding: calc(var(--message-padding-top) / 2) var(--message-padding-side) var(--message-padding-top) var(--message-padding-side) !important;
-
-			& + %newMessagesDivider {
-				&:not(%newMessagesDividerBeforeGroup) {
-					top: -4px;
-				}
-			}
-		}
-
-		%messageHeader {
-			margin-bottom: 4px;
-		}
-
-		%markup {
-			margin-left: 0;
-			padding-left: 0;
-		}
-
-		&:hover {
-			%messageTimestamp {
-				&%messageTimestampAlt {
-					opacity: 1;
-					transition: var(--default-time) ease opacity 750ms;
-				}
-			}
-		}
-
-		%messageTimestamp {
-			&%messageTimestampAlt {
-				opacity: 0;
-				left: -64px;
-				color: var(--text-muted);
-				font-weight: 600;
-				transition: var(--default-time) ease opacity 0ms;
-			}
-		}
-
-		%removeAttachmentButton {
-			right: -4px;
-		}
-
-		&:not(%message) {
-			margin: 16px 26px 0 68px;
-			padding: var(--message-padding-top) var(--message-padding-side) !important;
-			border-radius: var(--message-radius);
-
-			&:before,
-			&:after {
-				display: none;
-			}
-
-			%avatarLarge {
-				top: 0;
-				left: -63px;
-			}
-		}
-
-		%messageReplied {
-			&:before {
-				transform: translateX(42px);
-			}
-
-			.replyAvatar-sHd2sU,
-			.replyBadge-LMm_Ic,
-			.executedCommandAvatar-3oOnb1,
-			.userJoinSystemMessageIcon-3FQ_Mo {
-				margin-left: 42px;
-			}
-		}
-	}
-
-	&%messageCompact {
-		margin-bottom: 0;
-		padding-right: 8px !important;
-
-		&%messageGroupStart {
-			padding: 8px;
-
-			%avatarLarge {
-				width: 1em;
-				height: 1em;
-				top: 0.18em;
-				left: 0;
-			}
-
-			&%mentioned {
-				&:before {
-					display: none;
-				}
-			}
-
-			& + %newMessagesDivider {
-				margin-bottom: -1px;
-			}
-		}
-
-		&:not(%messageGroupStart) {
-			padding: 0 8px 8px 8px;
-		}
-
-		&%messageHasThread {
-			%messageContent:before {
-				display: none;
-			}
-
-			.content-vSHmMD {
-				margin-left: 44px;
-			}
-
-			.spine-2vt3pM {
-				display: none;
-			}
-		}
-
-		%messageHeader {
-			position: relative;
-			left: -8px;
-		}
-
-		%messageTimestamp {
-			width: 52px;
-			margin-right: 16px;
-			color: var(--text-muted);
-		}
-
-		& + %newMessagesDivider {
-			margin-left: 80px;
-
-			&:not(%newMessagesDividerBeforeGroup) {
-				top: -11px;
-			}
-		}
-
-		%messageReplied {
-			margin-left: calc(var(--timestamp-width) + 3.1rem + var(--text-indent));
-		}
-
-		& + &:not(%message) {
-			margin: 16px 20px 0 70px;
-		}
-
-		.iconContainer-2rPbqG {
-			margin-left: 4.5ch;
-		}
-	}
-
 	%slateTextArea {
 		padding-left: 12px !important;
-	}
-
-	&%mentioned {
-		%messageContentInner {
-			position: relative;
-			background-color: hsla(var(--accent-hsl),0.15);
-			border-radius: var(--card-radius);
-			transition: var(--default-time) var(--default-animation) background-color;
-
-			&:hover {
-				background-color: hsla(var(--accent-hsl),0.3);
-			}
-
-			a {
-				color: hsl(var(--accent-hsl));
-			}
-
-			%mentionWrapper {
-				background-color: transparent;
-
-				&:before {
-					display: none;
-				}
-			}
-		}
 	}
 
 	%messageContentInner {
@@ -477,17 +293,6 @@
 	}
 }
 
-%avatarDecoration {
-	top: 0;
-	left: -54px;
-}
-
-%messageListItem,
-%messageQuoted {
-	margin-left: 68px;
-	margin-right: 10px;
-}
-
 %messageListItem,
 %messageBackgroundFlash {
 	&:hover {
@@ -498,12 +303,225 @@
 				&:not(%messageGroupStart) {
 					&:before,
 					&:after {
-						background-color: var(--message-color-hover);
+						border-bottom-color: var(--message-color-hover);
+					}
+
+					&:before {
+						border-left-color: var(--message-color-hover);
+					}
+
+					&:after {
+						border-right-color: var(--message-color-hover);
 					}
 				}
 			}
 		}
 	}
+}
+
+%messageCozy {
+	&%messageGroupStart {
+		margin-bottom: 0;
+
+		&%mentioned {
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	&%messageGroupStart {
+		padding: var(--message-padding-top) var(--message-padding-side) !important;
+	}
+
+	&:not(%messageGroupStart) {
+		margin-top: calc(var(--message-padding-top) * -1);
+		padding: calc(var(--message-padding-top) / 2) var(--message-padding-side) var(--message-padding-top) var(--message-padding-side) !important;
+
+		& + %newMessagesDivider {
+			&:not(%newMessagesDividerBeforeGroup) {
+				top: -4px;
+			}
+		}
+	}
+
+	%messageHeader {
+		margin-bottom: 4px;
+	}
+
+	%markup {
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	&:hover {
+		%messageTimestamp {
+			&%messageTimestampAlt {
+				opacity: 1;
+				transition: var(--default-time) ease opacity 750ms;
+			}
+		}
+	}
+
+	%messageTimestamp {
+		&%messageTimestampAlt {
+			opacity: 0;
+			left: -64px;
+			color: var(--text-muted);
+			font-weight: 600;
+			transition: var(--default-time) ease opacity 0ms;
+		}
+	}
+
+	%removeAttachmentButton {
+		right: -4px;
+	}
+
+	&:not(%message) {
+		margin: 16px 26px 0 68px;
+		padding: var(--message-padding-top) var(--message-padding-side) !important;
+		border-radius: var(--message-radius);
+
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		%avatarLarge {
+			top: 0;
+			left: -63px;
+		}
+	}
+
+	%messageReplied {
+		&:before {
+			transform: translateX(42px);
+		}
+
+		.replyAvatar-sHd2sU,
+		.replyBadge-LMm_Ic,
+		.executedCommandAvatar-3oOnb1,
+		.userJoinSystemMessageIcon-3FQ_Mo {
+			margin-left: 42px;
+		}
+	}
+}
+
+%messageCompact {
+	margin-bottom: 0;
+	padding-right: 8px !important;
+
+	&%messageGroupStart {
+		padding: 8px;
+
+		%avatarLarge {
+			width: 1em;
+			height: 1em;
+			top: 0.18em;
+			left: 0;
+		}
+
+		&%mentioned {
+			&:before {
+				display: none;
+			}
+		}
+
+		& + %newMessagesDivider {
+			margin-bottom: -1px;
+		}
+	}
+
+	&:not(%messageGroupStart) {
+		padding: 0 8px 8px 8px;
+	}
+
+	%messageContent {
+		margin-left: -4.25rem;
+		padding-left: 4.25rem;
+		text-indent: -3.75rem;
+	}
+
+	&%messageHasThread {
+		%messageContent:before {
+			display: none;
+		}
+
+		.content-vSHmMD {
+			margin-left: 44px;
+		}
+
+		.spine-2vt3pM {
+			display: none;
+		}
+	}
+
+	%messageHeader {
+		position: relative;
+		left: -8px;
+	}
+
+	%messageTimestamp {
+		width: 52px;
+		margin-right: 16px;
+		color: var(--text-muted);
+	}
+
+	& + %newMessagesDivider {
+		margin-left: 80px;
+
+		&:not(%newMessagesDividerBeforeGroup) {
+			top: -11px;
+		}
+	}
+
+	%messageReplied {
+		margin-left: calc(var(--timestamp-width) + 3.1rem + var(--text-indent));
+	}
+
+	& + &:not(%message) {
+		margin: 16px 20px 0 70px;
+	}
+
+	.iconContainer-2rPbqG {
+		margin-left: 4.5ch;
+	}
+}
+
+%mentioned {
+	%messageContentInner {
+		position: relative;
+		background-color: hsla(var(--accent-hsl),0.15);
+		border-radius: var(--card-radius);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+		&:hover {
+			background-color: hsla(var(--accent-hsl),0.3);
+		}
+
+		a {
+			color: hsl(var(--accent-hsl));
+		}
+
+		%mentionWrapper {
+			background-color: transparent;
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
+
+%avatarDecoration {
+	top: 0;
+	left: -54px;
+}
+
+%messageListItem,
+%messageQuoted {
+	margin-left: 68px;
+	margin-right: 10px;
 }
 
 %operations {
