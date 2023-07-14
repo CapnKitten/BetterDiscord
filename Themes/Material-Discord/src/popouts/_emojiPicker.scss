@@ -78,16 +78,22 @@
 	}
 }
 
+%positionContainer {
+	&:not(%positionContainerOnlyEmoji) {
+		%drawerSizingWrapper {
+		    %emojiContentWrapper {
+		        --nav-container-padding: 4px;
+		        --nav-button-height: 24px;
+		        --nav-button-radius: 12px;
+
+		        grid-template-rows: calc(var(--nav-button-height) + (var(--nav-container-padding) * 2)) auto;
+		        grid-row-gap: 16px;
+		    }
+		}
+	}
+}
+
 %drawerSizingWrapper {
-    %emojiContentWrapper {
-        --nav-container-padding: 4px;
-        --nav-button-height: 24px;
-        --nav-button-radius: 12px;
-
-        grid-template-rows: calc(var(--nav-button-height) + (var(--nav-container-padding) * 2)) auto;
-        grid-row-gap: 16px;
-    }
-
     %emojiPickerNavList {
         position: relative;
         width: 100%;
