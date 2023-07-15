@@ -3,8 +3,11 @@
   --app-blur: 6px;
   --app-margin: 24px;
   --app-radius: 10px;
-  --sidebar-color: rgba(0,0,0,0.4);
-  --main-content-color: rgba(0,0,0,0.2);
+  --main-rgb: 0,0,0;
+  --main-content-opacity: 0.2;
+  --sidebar-opacity: 0.4;
+  --main-content-color: rgba(var(--main-rgb), var(--main-content-opacity));
+  --sidebar-color: rgba(var(--main-rgb), var(--sidebar-opacity));
   --accent-hue: 156;
   --accent-saturation: 77.5%;
   --accent-lightness: 47.1%;
@@ -511,7 +514,7 @@ body {
  *
  */
 .searchResultsWrap-5RVOkx {
-  background-color: var(--sidebar-color);
+  background-color: rgba(var(--main-rgb), calc((var(--sidebar-opacity) - var(--main-content-opacity)) / (1 - var(--main-content-opacity))));
 }
 
 /* SEARCH RESULTS -> HEADER */
@@ -1376,6 +1379,22 @@ body {
   border: none !important;
 }
 
+.applicationPermissions-3bwpAg .cardPrimary-pAe8Ed {
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: transparent !important;
+}
+.applicationPermissions-3bwpAg .cardPrimary-pAe8Ed .cardHeader-3d6H8N {
+  background-color: unset;
+  border-bottom: 1px solid var(--card-color);
+}
+.applicationPermissions-3bwpAg .cardPrimary-pAe8Ed .group-1-kPpw {
+  background-color: var(--card-color);
+  border-radius: var(--button-radius);
+  border: none;
+  overflow: hidden;
+}
+
 .button-1yVL_7 {
   background-color: var(--card-color) !important;
 }
@@ -2132,6 +2151,11 @@ body {
   background-color: var(--card-color) !important;
   border-radius: var(--card-radius);
   border: none;
+}
+
+.inviteSplash-2nkLRX {
+  border-top-right-radius: var(--card-radius);
+  border-top-left-radius: var(--card-radius);
 }
 
 .container-3M84ky {
@@ -3046,6 +3070,12 @@ body {
 .menu-2TXYjN .submenu-3ycVEH:before {
   width: calc(100% - 16px);
   left: 8px;
+}
+.menu-2TXYjN .button-1zW0-r {
+  background-color: var(--card-color);
+}
+.menu-2TXYjN .button-1zW0-r:hover {
+  background-color: var(--card-color-hover);
 }
 
 /*
@@ -4228,6 +4258,15 @@ body {
   border: none;
 }
 
+.developerPortalCtaWrapper-2PniQs {
+  background-color: var(--card-color);
+}
+
+.error-2568aZ {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
+}
+
 /*
  *
  *  SERVER SETTINGS MEMBERSHIP SCREENING
@@ -4529,13 +4568,21 @@ body {
   background-color: var(--card-color-hover);
   border: none;
 }
-
 .background-3xJH_4 {
   color: var(--card-color) !important;
 }
 
-.tierInProgress-1vFUnw {
-  background-color: var(--card-color) !important;
+.foreground-3_3Pgi {
+  color: hsla(var(--accent-hsl), var(--accent-opacity));
+}
+
+.theme-dark .tierInProgress-1vFUnw {
+  background-color: var(--card-color);
+}
+.theme-dark .tierAccomplished-1I5NaT,
+.theme-dark .tierCurrent-2nowYi,
+.theme-dark .tierFirst-1Vn3wS {
+  background: hsla(var(--accent-hsl), var(--accent-opacity));
 }
 
 /*
@@ -4951,3 +4998,23 @@ body {
  *  USER SETTINGS SERVER BOOST
  *
  */
+/*
+ *
+ *  USER SETTINGS VOICE & VIDEO
+ *
+ */
+.cameraWrapper-nG8dpo {
+  background: var(--card-color);
+  border-radius: var(--card-radius);
+  border-color: hsla(var(--accent-hsl), var(--accent-opacity));
+  border-width: 2px;
+}
+
+.backgroundOption-2mIYjm .backgroundOptionRing-1vvQ0C {
+  border-radius: var(--card-radius);
+  border-color: hsla(var(--accent-hsl), var(--accent-opacity));
+}
+.backgroundOption-2mIYjm .backgroundOptionInner-SSz19O {
+  background: var(--card-color);
+  border-radius: var(--card-radius);
+}
