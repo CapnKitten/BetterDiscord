@@ -209,7 +209,7 @@
 			position: absolute;
 			width: 0;
             height: 0;
-			top: calc(var(--message-radius) / 1.15 * -1);
+			top: calc(var(--message-radius) / 1.1 * -1);
 			background-color: transparent;
             border: calc(var(--message-radius) / 2.25) solid transparent;
 			border-bottom-color: var(--message-color);
@@ -492,7 +492,7 @@
 	%messageContentInner {
 		position: relative;
 		background-color: hsla(var(--accent-hsl),0.15);
-		border-radius: var(--card-radius);
+		border-radius: calc(var(--message-radius) / 1.4);
 		transition: var(--default-time) var(--default-animation) background-color;
 
 		&:hover {
@@ -511,6 +511,19 @@
 			}
 		}
 	}
+
+	%messageContent {
+        %messageContentInner {
+            margin: 0 -4px;
+            padding: 0 4px;
+        }
+    }
+
+    %messageReplied {
+        %messageContentInner {
+            padding: 0 1px 0 4px;
+        }
+    }
 }
 
 %avatarDecoration {
