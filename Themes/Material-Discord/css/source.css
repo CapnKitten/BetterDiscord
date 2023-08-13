@@ -7,17 +7,11 @@
   --accent-saturation: 71%;
   --accent-lightness: 61%;
   --accent-hsl: var(--accent-hue),calc(var(--accent-saturation) * var(--saturation-factor)),var(--accent-lightness);
-  --accent-button-action: hsl(0,0%,100%);
-  --accent-button-action-hover: 0.06;
-  --accent-button-action-active: 0.12;
   --accent-text-color: hsl(0,0%,100%);
   --alert-hue: 0;
   --alert-saturation: 85%;
   --alert-lightness: 61%;
   --alert-hsl: var(--alert-hue), calc(var(--alert-saturation) * var(--saturation-factor)), var(--alert-lightness);
-  --alert-button-action: #fff;
-  --alert-button-action-hover: 0.1;
-  --alert-button-action-active: 0.2;
   --alert-text-color: hsl(0,0%,100%);
   --success-color: #43b581;
   --message-radius: 19px;
@@ -34,6 +28,9 @@
   --button-padding: 0 24px;
   --button-link-accent-color: var(--accent-hsl--material-you);
   --button-link-accent-text-color: hsl(var(--accent-hsl--material-you));
+  --button-action-color: hsl(0,0%,100%);
+  --button-action-hover: 0.06;
+  --button-action-active: 0.12;
   --input-height: var(--button-height);
   --input-radius: var(--button-radius);
   --input-padding: 0 12px;
@@ -3861,10 +3858,23 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   height: 100%;
   top: 0;
   left: 0;
+  background-color: var(--button-action-color);
   border-radius: var(--button-radius);
   opacity: 0;
   pointer-events: none;
   transition: var(--default-time) var(--default-animation) opacity;
+}
+.lookFilled-1H2Jvj:hover:after,
+.lookOutlined-3RTC7c:hover:after,
+.lookLink-13iF2K:hover:after,
+.lookInverted-2GrLaB:hover:after {
+  opacity: var(--button-action-hover);
+}
+.lookFilled-1H2Jvj:active:after,
+.lookOutlined-3RTC7c:active:after,
+.lookLink-13iF2K:active:after,
+.lookInverted-2GrLaB:active:after {
+  opacity: var(--button-action-active);
 }
 .lookFilled-1H2Jvj:disabled,
 .lookOutlined-3RTC7c:disabled,
@@ -3877,24 +3887,6 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
 .lookLink-13iF2K:disabled:after,
 .lookInverted-2GrLaB:disabled:after {
   display: none;
-}
-.lookFilled-1H2Jvj:after,
-.lookOutlined-3RTC7c:after,
-.lookLink-13iF2K:after,
-.lookInverted-2GrLaB:after {
-  background-color: var(--accent-button-action);
-}
-.lookFilled-1H2Jvj:hover:after,
-.lookOutlined-3RTC7c:hover:after,
-.lookLink-13iF2K:hover:after,
-.lookInverted-2GrLaB:hover:after {
-  opacity: var(--accent-button-action-hover);
-}
-.lookFilled-1H2Jvj:active:after,
-.lookOutlined-3RTC7c:active:after,
-.lookLink-13iF2K:active:after,
-.lookInverted-2GrLaB:active:after {
-  opacity: var(--accent-button-action-active);
 }
 .lookFilled-1H2Jvj .contents-3NembX,
 .lookOutlined-3RTC7c .contents-3NembX,
@@ -3974,7 +3966,7 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   --button-outline: 1px solid hsl(var(--accent-hsl--material-you));
 }
 .lookOutlined-3RTC7c:after {
-  background-color: hsl(var(--accent-hsl--material-you));
+  --button-action-color: hsl(var(--accent-hsl--material-you));
 }
 .lookOutlined-3RTC7c:disabled {
   --button-background: transparent;
@@ -3986,13 +3978,9 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   --button-outline: 1px solid hsl(var(--alert-hsl));
 }
 .lookOutlined-3RTC7c.colorRed-2VFhM4:after {
-  background-color: hsl(var(--alert-hsl));
-}
-.lookOutlined-3RTC7c.colorRed-2VFhM4:hover:after {
-  opacity: var(--alert-button-action-hover);
-}
-.lookOutlined-3RTC7c.colorRed-2VFhM4:active:after {
-  opacity: var(--alert-button-action-active);
+  --button-action-color: hsl(var(--alert-hsl));
+  --button-action-hover: 0.1;
+  --button-action-active: 0.2;
 }
 .lookOutlined-3RTC7c.colorWhite-Eshn2o {
   --button-background: transparent;
@@ -4001,7 +3989,7 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   box-shadow: none !important;
 }
 .lookOutlined-3RTC7c.colorWhite-Eshn2o:after {
-  background-color: #fff;
+  --button-action-color: #fff;
 }
 
 /* BUTTONS -> LINKS */
@@ -4012,12 +4000,9 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   --button-shadow: none !important;
   --accent-button-action-hover: 0.14;
   --accent-button-action-active: 0.21;
-  /*svg {
-  	margin-right: 8px;
-  }*/
 }
 .lookLink-13iF2K:after {
-  background-color: hsl(var(--button-link-accent-color));
+  --button-action-color: hsl(var(--button-link-accent-color));
 }
 .lookLink-13iF2K:hover {
   text-decoration: none !important;
@@ -4108,17 +4093,17 @@ html:not(.app-focused) .typeWindows-2-g3UY .winButton-3UMjdg.winButtonMinMax-3Rs
   height: 100%;
   top: 0;
   left: 0;
-  background-color: var(--alert-button-action);
+  background-color: #fff;
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
   transition: var(--default-time) var(--default-animation) opacity;
 }
 .colorable-3rVGna:hover:after {
-  opacity: var(--accent-button-action-hover);
+  opacity: var(--button-action-hover);
 }
 .colorable-3rVGna:active:after {
-  opacity: var(--accent-button-action-active);
+  opacity: var(--button-action-active);
 }
 .colorable-3rVGna.red-3T8maV {
   --button-background: hsl(var(--alert-hsl));
