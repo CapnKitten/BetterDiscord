@@ -54,10 +54,23 @@
 		height: 100%;
 		top: 0;
 		left: 0;
+		background-color: var(--button-action-color);
 		border-radius: var(--button-radius);
 		opacity: 0;
 		pointer-events: none;
 		transition: var(--default-time) var(--default-animation) opacity;
+	}
+
+	&:hover {
+		&:after {
+			opacity: var(--button-action-hover);
+		}
+	}
+
+	&:active {
+		&:after {
+			opacity: var(--button-action-active);
+		}
 	}
 
 	&:disabled {
@@ -65,22 +78,6 @@
 
 		&:after {
 			display: none;
-		}
-	}
-
-	&:after {
-		background-color: var(--accent-button-action);
-	}
-
-	&:hover {
-		&:after {
-			opacity: var(--accent-button-action-hover);
-		}
-	}
-
-	&:active {
-		&:after {
-			opacity: var(--accent-button-action-active);
 		}
 	}
 
@@ -151,7 +148,7 @@
 	--button-outline: 1px solid hsl(var(--accent-hsl--material-you));
 
 	&:after {
-		background-color: hsl(var(--accent-hsl--material-you));
+		--button-action-color: hsl(var(--accent-hsl--material-you));
 	}
 
 	&:disabled {
@@ -165,19 +162,9 @@
 		--button-outline: 1px solid hsl(var(--alert-hsl));
 
 		&:after {
-			background-color: hsl(var(--alert-hsl));
-		}
-
-		&:hover {
-			&:after {
-				opacity: var(--alert-button-action-hover);
-			}
-		}
-
-		&:active {
-			&:after {
-				opacity: var(--alert-button-action-active);
-			}
+			--button-action-color: hsl(var(--alert-hsl));
+			--button-action-hover: 0.1;
+			--button-action-active: 0.2;
 		}
 	}
 
@@ -188,7 +175,7 @@
 		box-shadow: none !important;
 
 		&:after {
-			background-color: #fff;
+			--button-action-color: #fff;
 		}
 	}
 }
@@ -205,7 +192,7 @@
 	--accent-button-action-active: 0.21;
 
 	&:after {
-		background-color: hsl(var(--button-link-accent-color));
+		--button-action-color: hsl(var(--button-link-accent-color));
 	}
 
 	&:hover {
@@ -226,10 +213,6 @@
 			color: var(--button-text-color) !important;
 		}
 	}
-
-	/*svg {
-		margin-right: 8px;
-	}*/
 }
 
 /* BUTTONS -> INVERTED */
@@ -321,7 +304,7 @@
 		height: 100%;
 		top: 0;
 		left: 0;
-		background-color: var(--alert-button-action);
+		background-color: #fff;
 		border-radius: 50%;
 		opacity: 0;
 		pointer-events: none;
@@ -330,13 +313,13 @@
 
 	&:hover {
 		&:after {
-			opacity: var(--accent-button-action-hover);
+			opacity: var(--button-action-hover);
 		}
 	}
 
 	&:active {
 		&:after {
-			opacity: var(--accent-button-action-active);
+			opacity: var(--button-action-active);
 		}
 	}
 
