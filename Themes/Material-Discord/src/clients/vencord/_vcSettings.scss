@@ -96,25 +96,12 @@
     }
 }
 
-%vencordPluginsCard {
-    padding: 16px !important;
-    background-color: var(--card-color-filled) !important;
-    border-radius: var(--card-radius-big) !important;
+%vencordAddonCard {
+    @include card-format(true, 16px, true);
 
     &:hover {
         box-shadow: none !important;
         transform: none !important;
-    }
-
-    %vencordPluginsCardHeader {
-        height: auto !important;
-        justify-content: flex-start !important;
-
-        %vencordPluginsCardName {
-            overflow: hidden;
-            font-size: 1.25em !important;
-            font-weight: 400;
-        }
     }
 
     %switchContainer {
@@ -125,9 +112,36 @@
 
         &%switchContainerChecked {
             %switchSlider {
-                transform: translate(11px, -50%) !important;
+                transform: translate(calc(100% - 7px), -50%) !important;
             }
         }
+    }
+}
+
+%vencordAddonHeader {
+    height: auto !important;
+    margin-bottom: 12px !important;
+    justify-content: flex-start !important;
+
+    %vencordAddonNameAuthor {
+        overflow: hidden;
+        font-size: 1.1em !important;
+        font-weight: 400;
+
+        %vencordAddonName {
+            font-size: inherit !important;
+            font-weight: inherit !important;
+        }
+    }
+}
+
+%vencordAddonNote {
+    &:not(:last-child) {
+        margin-bottom: 0.875em !important;
+    }
+
+    + div:not([class]) {
+        font-size: 14px;
     }
 }
 
