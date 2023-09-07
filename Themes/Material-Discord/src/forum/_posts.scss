@@ -53,6 +53,29 @@
     border-radius: var(--card-radius-big);
 }
 
+%postCardContentPreview {
+    background-color: var(--card-color-hover);
+    border: none;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    %postCardTextContentFooter {
+        padding: 16px 12px 12px;
+        background: inherit;
+    }
+}
+
+%postMediaCard {
+    &:hover {
+        %postCardContentPreview {
+            background-color: var(--card-color-active);
+
+            %postTag {
+                background-color: var(--card-button-color-hover) !important;
+            }
+        }
+    }
+}
+
 %postCardTagsRow {
     left: 22px;
     bottom: 2px;
