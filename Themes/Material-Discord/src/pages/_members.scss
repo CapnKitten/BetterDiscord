@@ -1,0 +1,114 @@
+/*
+ *
+ *  RECENT MEMBERS
+ *
+ */
+
+%membersPageContainer {
+    padding: 32px;
+    background-color: var(--chat-color) !important;
+}
+
+%membersPageMainTableContainer {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+%membersPageSearchHeaderContainer {
+    margin-bottom: 16px;
+    padding: 0;
+
+    %headingMDMedium {
+        font-weight: 400;
+        font-size: 1.25em;
+    }
+
+    %listPopoutSearchBar {
+        --input-padding: 0 4px 0 12px;
+    }
+
+    %listPopoutSearchInput {
+        font-size: 1em;
+    }
+}
+
+%membersPageTable {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+    border-top: none;
+
+    tbody {
+        &:before {
+            content: " ";
+            display: block;
+            height: 8px;
+        }
+    }
+}
+
+%membersPageTableHeaderRow {
+    &:first-child {
+        &:after {
+            bottom: 0;
+            box-shadow: 0 1px 0 0 var(--card-border-color);
+        }
+    }
+}
+
+%membersPageTableHeaderCellContainer {
+    padding: 12px 8px;
+}
+
+%membersPageMemberRowContainer {
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--card-color-alt-hover) !important;
+
+        %membersPageMemberRowButton {
+            background-color: var(--card-button-color-hover);
+        }
+    }
+
+    td {
+        padding: 12px 8px;
+        background-color: transparent !important;
+
+        &:after {
+            display: none;
+        }
+
+        &:first-child {
+            border-radius: calc(var(--card-radius-big) / 1.5) 0 0 calc(var(--card-radius-big) / 1.5);
+        }
+
+        &:last-child {
+            border-radius: 0 calc(var(--card-radius-big) / 1.5) calc(var(--card-radius-big) / 1.5) 0;
+        }
+    }
+}
+
+%membersPageMemberOtherRoles {
+    background-color: var(--card-color-filled);
+    border-radius: 50%;
+    transition: var(--default-time) var(--default-animation) opacity;
+
+    %membersPageMemberAddRoleIcon {
+        color: var(--text-normal);
+    }
+}
+
+%membersPageMemberButton {
+    background-color: var(--card-button-color);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--card-button-color-hover);
+    }
+}
+
+%membersPagePaginationContainer {
+    margin-top: 8px;
+    padding: 0;
+    border-top: none;
+}

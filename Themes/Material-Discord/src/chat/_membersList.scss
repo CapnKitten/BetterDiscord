@@ -1,0 +1,66 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	MEMBERS LIST
+ *
+ */
+
+%membersContainer {
+	background-color: var(--main-color);
+}
+
+%members {
+	&,
+	& > div {
+		background-color: var(--main-color);
+	}
+
+    %listItem {
+		width: 100%;
+		height: 42px;
+		margin-left: 0;
+		margin-bottom: 2px;
+
+		&,
+		%listItemLayout {
+			border-radius: var(--channel-radius);
+		}
+
+		%listItemLayout {
+			width: calc(100% - 18px);
+			margin-left: 8px;
+			padding: 0 8px 0 8px;
+			transition: 200ms ease all;
+		}
+
+		&:hover %listItemLayout {
+			background-color: var(--menu-item-hover);
+		}
+
+		&%listItemSelected %listItemLayout {
+			background-color: hsla(var(--accent-hsl),var(--menu-item-select-accent-opacity));
+		}
+	}
+}
+
+%member {
+	background-color: transparent;
+}
+
+%membersGroup {
+    @include remove-caps(14px);
+}
+
+%botTag {
+	border-radius: 8px !important;
+
+	&%botTagRegular {
+		background-color: hsl(var(--accent-hsl--material-you));
+		color: var(--accent-text-color--material-you);
+
+		%botTagVerified {
+			z-index: 2;
+		}
+	}
+}
