@@ -48,7 +48,7 @@
 
         %settingsHeaderTitle {
             @include card-format--header(false, true);
-            padding: 16px 16px 0;
+            padding: 16px 16px 8px;
             background-color: var(--card-color-filled);
             border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
         }
@@ -58,19 +58,27 @@
 %settingsGameContainer {
     padding: 16px;
     background-color: var(--card-color-filled);
+    border-radius: 0 !important;
     border: none;
 
     &:last-of-type {
-        border-bottom: none;
+        border-radius: 0 0 var(--card-radius-big) var(--card-radius-big) !important;
+        box-shadow: none !important;
     }
 
     %settingsGameName {
         font-weight: 500;
     }
 
+    &:hover {
+        %settingsGameNameInput {
+            background-color: var(--input-color-alt);
+        }
+    }
+
     %settingsGameNameInput {
-        margin-left: -8px;
-        padding: 0 8px;
+        margin-left: -4px;
+        padding: 0 4px;
         border: none;
         border-radius: 12px;
         line-height: 24px;
@@ -78,7 +86,7 @@
 
         &:hover,
         &:focus {
-            background-color: var(--input-color);
+            background-color: var(--input-color-alt);
         }
     }
 

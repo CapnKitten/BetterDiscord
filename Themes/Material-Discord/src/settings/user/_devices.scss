@@ -23,16 +23,48 @@
         @include card-format--header(false, true);
 
         %settingsHeaderTitle {
-            margin-bottom: -16px;
+            margin-bottom: -8px;
             @include card-format--header-fix;
         }
     }
 }
 
 %deviceSession {
+    position: relative;
     padding: 16px;
     gap: 16px;
-    @include card-format--list;
+    border-bottom: none;
+
+    &:before {
+        position: absolute;
+        content: " ";
+        width: calc(100% - 16px);
+        height: 100%;
+        top: 0;
+        left: 8px;
+        background-color: var(--card-color-hover);
+        border-radius: calc(var(--card-radius-big) / 1.5);
+        opacity: 0;
+        transition: var(--default-time) var(--default-animation) opacity;
+    }
+
+    &:last-of-type {
+        padding-bottom: 24px;
+
+        &:before {
+            height: calc(100% - 8px);
+        }
+    }
+
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    > * {
+        z-index: 2;
+    }
 
     %deviceSessionIcon {
         background-color: hsl(var(--accent-hsl--material-you));

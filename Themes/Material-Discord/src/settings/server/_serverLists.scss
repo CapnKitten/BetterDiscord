@@ -7,17 +7,45 @@
  */
 
 %settingsLongCard {
+    padding: 16px;
     background-color: var(--card-color-filled);
-    @include card-format--list;
-    box-shadow: none !important;
+
+    &:nth-child(3) {
+        padding-top: 24px;
+		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+
+		&:last-of-type {
+			border-radius: var(--card-radius-big);
+		}
+
+        &:before {
+            height: calc(100% - 8px);
+            top: 8px;
+        }
+	}
+
+	&:last-of-type {
+		margin-bottom: 32px;
+        padding-bottom: 24px;
+        border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+
+        &:before {
+            height: calc(100% - 8px);
+        }
+	}
 
     &:before {
-		display: none;
-	}
-
-    &:last-of-type {
-		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-	}
+        width: calc(100% - 16px);
+        left: 8px;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        background-color: var(--card-color-hover) !important;
+        border: none;
+        border-radius: calc(var(--card-radius-big) / 1.65);
+        transition: var(--default-time) var(--default-animation) opacity;
+        pointer-events: none;
+    }
 }
 
 %settingsHeader,
@@ -30,45 +58,23 @@
 /* SERVER LISTS -> MEMBERS LIST */
 
 %settingsMemberCard {
-    padding: 16px;
-
     &:nth-child(3) {
 		margin-top: 24px;
-		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-
-		&:last-of-type {
-			border-radius: var(--card-radius-big);
-		}
-	}
-
-	&:last-of-type {
-		margin-bottom: 32px;
-	}
-
-	%roleWrapper {
-		overflow: visible;
-	}
-
-    %roleOverflowButton {
-        width: var(--button-height);
     }
 
-	%button {
-        --button-padding: 0;
+    %roleOverflowButton {
+        width: 36px;
 
-        min-width: var(--button-height);
-		background-color: transparent !important;
-		@include md-ripple(hover, after, 1.1);
+        %button {
+            --button-padding: 0;
 
-        %buttonContents {
-            width: var(--button-height);
-            height: var(--button-height);
+            min-width: var(--button-height);
         }
 
-        svg {
-            margin-top: 6px;
+        %roleOverflowIcon {
+            vertical-align: middle;
         }
-	}
+    }
 }
 
 /* SERVER LISTS -> INVITE LIST */
@@ -83,45 +89,28 @@
 
 	%settingsInviteHeader {
         margin-top: 24px;
-		padding: 16px;
+		padding: 16px 16px 4px;
         background-color: var(--card-color-filled);
 		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 	}
 }
 
 %settingsInviteCard {
-    height: 68px;
-	padding: 16px;
+    height: 72px;
 
-    %settingsInviteText {
-		%settingsInviteUser {
-			%avatarWrapper {
-				position: absolute;
-				width: 34px !important;
-				height: 34px !important;
-				top: 0;
-				bottom: 0;
-				margin: auto 0;
+    &:nth-child(3) {
+		border-radius: 0;
+    }
 
-                > svg {
-                    width: inherit;
-                    height: inherit;
-                }
-			}
+    %settingsInviteAvatar {
+        width: 24px !important;
+        height: 24px !important;
+    }
 
-			%settingsInviteUsername {
-				margin-left: 48px;
-			}
-		}
-
-		%textXSNormal {
-			margin-left: 48px;
-		}
-	}
-
-	%settingsInviteRevokeInvite {
-		right: -16px;
-	}
+    %settingsInviteRevokeInvite {
+        top: -12px;
+        right: -8px;
+    }
 }
 
 /* SERVER LISTS -> BAN LIST */

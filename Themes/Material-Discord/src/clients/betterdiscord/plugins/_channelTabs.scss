@@ -5,7 +5,7 @@
  */
 
 %channelTabsContainer {
-    padding: 4px 8px !important;
+    padding: 4px 8px 0 8px !important;
 }
 
 %channelTabsTabContainer {
@@ -16,6 +16,8 @@
         margin: 0 4px 0 0 !important;
 
         > div {
+            width: 28px;
+            height: 28px;
             margin-right: 0 !important;
             border-radius: 16px !important;
             transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
@@ -28,21 +30,64 @@
 }
 
 %channelTabsTab {
+    --inverted-curve-size: 16px;
+
+    position: relative;
     margin-bottom: 0 !important;
-    border-radius: var(--popout-radius) !important;
+    border-radius: 12px 12px 0 0 !important;
     transition: var(--default-time) var(--default-animation) background-color;
 
     &:hover {
         background-color: var(--menu-item-hover) !important;
+
+        &:before,
+        &:after {
+            box-shadow: 0 calc((var(--inverted-curve-size) / 2) * -1) 0 0 var(--menu-item-hover);
+        }
     }
 
     &%channelTabsTabSelected {
-        background-color: var(--menu-item-select) !important;
+        background: var(--main-color) !important;
+        z-index: 2;
+
+        &:before,
+        &:after {
+            box-shadow: 0 calc((var(--inverted-curve-size) / 2) * -1) 0 0 var(--main-color);
+        }
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        content: " ";
+        width: calc(var(--inverted-curve-size) / 2);
+        height: var(--inverted-curve-size);
+        bottom: 0;
+        background-color: transparent;
+        transform: rotate(180deg);
+        pointer-events: none;
+        transition: var(--default-time) var(--default-animation) box-shadow;
+    }
+
+    &:before {
+        left: calc((var(--inverted-curve-size) / 2) * -1);
+        border-top-left-radius: calc(var(--inverted-curve-size) / 2);
+    }
+
+    &:after {
+        right: calc((var(--inverted-curve-size) / 2) * -1);
+        border-top-right-radius: calc(var(--inverted-curve-size) / 2);
     }
 
     %channelTabsTabName {
+        margin-right: 0 !important;
         font-weight: 500;
         transition: var(--default-time) var(--default-animation) color;
+    }
+
+    %channelTabsGridContainer {
+        gap: 6px;
+        margin-right: 0;
     }
 }
 
@@ -51,14 +96,19 @@
     color: var(--accent-text-color--material-you) !important;
 }
 
+%channelTabsMentionBadge {
+    background-color: hsl(var(--alert-hsl)) !important;
+    color: var(--alert-text-color) !important;
+}
+
 %channelTabsCloseTab {
     border-radius: 8px !important;
     transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 }
 
 %channelTabsNewTab {
-    width: 32px !important;
-    height: 32px !important;
+    width: 28px !important;
+    height: 28px !important;
     margin: 0 0 0 4px !important;
-    border-radius: 16px !important;
+    border-radius: 14px !important;
 }

@@ -6,22 +6,52 @@
  *
  */
 
-%emojiRow {
-	padding: 0 16px;
-	box-shadow: none !important;
-	@include card-format--list;
+%emojiContent {
+    padding: 8px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
 
-	&:before {
-		display: none;
+%emojiTable {
+	margin-bottom: 0;
+	padding: 8px 12px;
+	background-color: var(--card-color-filled);
+	border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+
+	%formText {
+		@include remove-caps(14px);
 	}
+}
 
-	&:hover {
-		%emojiAliasPlaceholder {
-			opacity: 0;
+%emojiRow {
+    position: relative;
+    padding: 0 16px;
+    box-shadow: none !important;
+
+	&:nth-child(3) {
+        padding-top: 16px !important;
+
+		&:before {
+			height: 100% !important;
+			top: 0 !important;
 		}
 	}
 
-	%emojiAliasInput {
+	&:last-of-type {
+		margin-bottom: 0 !important;
+
+		&:before {
+			height: 100% !important;
+		}
+	}
+
+    &:before {
+		width: 100% !important;
+		left: 0 !important;
+    }
+
+    %emojiAliasInput {
+        margin-top: 0;
 		border-bottom: none !important;
 
 		&:before,
@@ -38,12 +68,12 @@
 		%emojiInput {
 			padding: 0 8px;
 			font-size: 16px;
-			background-color: var(--input-color);
-			transition: var(--default-time) var(--default-animation) box-shadow;
+			background-color: var(--input-color-alt);
+			transition: var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) opacity;
 		}
 	}
 
-	%emojiAliasPlaceholder {
+    %emojiAliasPlaceholder {
 		height: auto;
 		margin-left: 8px;
 		padding: 0;
@@ -54,17 +84,16 @@
 	}
 
 	%emojiRemove {
-		right: -12px;
-	}
-}
+        top: 0;
+		right: 12px;
+        bottom: 0;
+        margin: auto 0;
+        background-color: var(--card-button-color);
+        box-shadow: none !important;
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) opacity;
 
-%emojiTable {
-	margin-bottom: 0;
-	padding: 16px 16px 0;
-	background-color: var(--card-color-filled);
-	border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-
-	%formText {
-		@include remove-caps(14px);
+        &:hover {
+            background-color: var(--card-button-color-hover);
+        }
 	}
 }

@@ -31,20 +31,34 @@
 }
 
 %activityItem {
-    @include card-format;
-    box-shadow: none;
-    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-color, var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) transform;
+    --card-color-hover: var(--card-color-active);
 
-    &:hover {
-        background-color: var(--card-color-hover);
-        border-color: transparent;
-        box-shadow: var(--shadow-3dp);
-        transform: translateY(-2px);
-    }
+    @include card-format(false, 0, true, true);
+    box-shadow: none;
 }
 
 %activityTag {
     background-color: transparent;
     border-radius: 6px;
     border: 1px solid var(--card-border-color);
+}
+
+%activityImageContainer {
+    border-radius: var(--card-radius-big);
+}
+
+/* ACTIVITES MODAL -> SUGGESTED ACTIVITES */
+
+%suggestedActivitiesContainer {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+    box-shadow: var(--shadow-3dp);
+}
+
+%suggestedActivitiesItem {
+    border-radius: calc(var(--popout-radius-big) / 1.5);
+}
+
+%wumpusRocketInnerContainer {
+    background: linear-gradient(270deg, var(--popout-color), var(--popout-color) 90%, transparent);
 }

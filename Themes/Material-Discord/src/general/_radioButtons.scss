@@ -7,21 +7,24 @@
  */
 
 div[role="radiogroup"] {
-	@include card-format;
+	@include card-format(false, 8px, true);
 }
 
 %radioItem {
 	margin: 0;
-	padding: 0 16px;
+	padding: 0 12px;
 	background-color: transparent;
-	border-radius: 0;
-	@include card-format--list;
+	border-radius: calc(var(--card-radius-big) / 1.65);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 
-	&:hover,
-	&[aria-checked=true],
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    &[aria-checked=true],
 	&:active {
-		background-color: transparent !important;
-	}
+        background-color: var(--card-color-active) !important;
+    }
 
 	%radioBar {
 		grid-gap: 12px;
@@ -47,11 +50,6 @@ div[role="radiogroup"] {
 				right: -4px;
 			}
 		}
-
-		/*svg {
-			display: flex;
-			justify-content: center;
-		}*/
 	}
 
 	&[aria-checked=true] {
