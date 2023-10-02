@@ -5,7 +5,7 @@
  */
 
 %userProfileOuterThemed {
-    %reviewDB {
+    %reviewDBView {
         %messagesWrapper {
             --message-color: var(--profile-body-background-hover);
             --message-color-hover: var(--profile-body-background-hover);
@@ -16,42 +16,46 @@
         }
 
         %input {
-            --input-color: var(--profile-body-background-color) !important;
+            --textarea-background: var(--profile-body-background-color) !important;
         }
     }
 }
 
-%reviewDB {
+%reviewDBView {
     %messagesWrapper {
-        --message-color: var(--background-modifier-hover);
-        --message-color-hover: var(--background-modifier-hover);
+        --message-color: var(--popout-color);
+        --message-color-hover: var(--popout-color);
 
-        margin-bottom: 2px !important;
-        margin-right: 0;
-
-        &:first-of-type {
-            margin-bottom: 8px !important;
-        }
-
-        %messageContent {
-            padding-left: 52px !important;
-        }
-
-        %avatarLarge {
-            top: 10px !important;
-            left: 10px !important;
-            margin-top: 0;
-        }
+        margin-left: 52px !important;
     }
 
-    %formText {
-        padding: 8px !important;
-        background-color: var(--background-modifier-hover);
-        border-radius: var(--message-radius);
+    %avatarLarge {
+        left: -52px !important;
+    }
+}
+
+%reviewDBReviewComment {
+    margin-bottom: 0;
+}
+
+%reviewDBInput {
+    --textarea-background: rgba(var(--textarea-color), var(--textarea-alpha));
+
+    margin-top: 12px !important;
+    background-color: var(--textarea-background) !important;
+    border-radius: 22px !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    %textAreaPlaceholder {
+        color: var(--textarea-placeholder-color);
     }
 
-    %input {
-        margin-top: 12px;
-        padding: 7px 12px;
+    %textAreaEditor {
+        color: var(--textarea-text-color);
+    }
+
+    %channelTextAreaButtonsContainer {
+        margin-right: 0 !important;
     }
 }
