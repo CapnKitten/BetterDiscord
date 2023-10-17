@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *	DISCORD SHOP
@@ -8,13 +10,8 @@
     background-color: var(--main-alt);
 }
 
-%shopPage {
-    gap: 40px;
-
-    > div:nth-child(3) {
-        display: grid;
-        gap: inherit;
-    }
+.shopScroll-2RzMLg {
+    background-color: var(--chat-color);
 }
 
 %shopHeroBanner,
@@ -23,14 +20,14 @@
     border-radius: var(--card-radius-big);
 }
 
-%shopBannerCard {
-    margin-top: 0;
-}
-
 %shopBanner {
-    margin-top: 0;
     border-radius: var(--card-radius-big);
     outline: none;
+}
+
+%shopItemTypeTitle {
+    @include remove-caps(16px);
+    font-weight: 500;
 }
 
 %shopCard {
@@ -45,9 +42,20 @@
         transform: none;
     }
 
+    %textLGBold {
+        font-weight: 400;
+        font-size: 24px;
+    }
+
     %shopPreviewButtonInner {
         max-width: none;
         max-height: none;
+    }
+}
+
+%shopCardTextProfileEffect {
+    &:before {
+        background: linear-gradient(180deg, transparent, transparent, var(--card-color-filled)) !important;
     }
 }
 
@@ -62,5 +70,10 @@
 
     %shopCollectibleInfoContainer {
         border-radius: var(--popout-radius-big);
+    }
+
+    %shopCollectibleCategoryBanner {
+        width: calc(100% + var(--popout-radius-big));
+        left: calc(var(--popout-radius-big) * -1);
     }
 }
