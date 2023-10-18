@@ -1,0 +1,83 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  FORUM
+ *
+ */
+
+%forumContainer {
+    background: transparent;
+}
+
+%forumCardHeaderRow {
+    padding-bottom: 16px;
+}
+
+%forumGuidelinesContainer {
+    @include card-format;
+
+    margin-bottom: 0;
+    border: none;
+
+    %forumGuidelinesDescriptionContainer {
+        background-color: var(--card-color-hover);
+        border-radius: var(--card-radius);
+    }
+}
+
+%forumSortDropdown {
+    --button-background: hsl(var(--accent-hsl));
+    --button-text-color: var(--accent-text-color);
+
+    %forumSortDropdownInner,
+    %forumSortDropdownText {
+        color: inherit !important;
+    }
+}
+
+%forumTagsButton {
+    --button-background: hsl(var(--accent-hsl));
+    --button-text-color: var(--accent-text-color);
+
+    %forumTagsButtonInner {
+        color: inherit;
+    }
+
+    %forumTagsCountContainer {
+        background-color: var(--accent-text-color);
+    }
+
+    %forumTagsCountText {
+        color: hsl(var(--accent-hsl));
+    }
+}
+
+/* FORUM -> TAGS */
+
+%forumTagsContainer {
+    padding: 16px 0 0;
+}
+
+%forumTagList {
+    height: var(--button-height);
+}
+
+%forumPostTagPill {
+    height: var(--button-height);
+    background-color: var(--card-color-hover);
+    border-radius: var(--button-radius);
+
+    &%forumPostTagPillClickable {
+        &:not(%forumPostTagPillDisabled) {
+            &:hover {
+                background-color: var(--card-color-active);
+            }
+        }
+    }
+
+    &%forumPostTagPillSelected {
+        background-color: hsla(var(--accent-hsl),0.2) !important;
+        border-color: hsl(var(--accent-hsl)) !important;
+    }
+}

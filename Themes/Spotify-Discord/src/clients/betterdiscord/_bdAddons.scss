@@ -1,0 +1,98 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  BETTERDISCORD ADDONS
+ *
+ */
+
+%bdAddonSearchBar {
+    @include input-format(false, true);
+
+    %bdAddonSearchInput {
+        height: 100%;
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+
+        &::-webkit-input-placeholder {
+            color: var(--input-placeholder-color);
+        }
+    }
+
+    svg {
+        width: 20px !important;
+        height: 20px !important;
+        margin-right: 0;
+    }
+}
+
+%bdButton {
+    --button-background: hsl(var(--accent-hsl));
+    --button-text-color: var(--accent-text-color);
+
+    padding: var(--button-padding);
+    background-color: var(--button-background) !important;
+	border-radius: var(--button-radius);
+    border: var(--button-outline) !important;
+	font-size: 14px;
+	font-weight: 700;
+    color: var(--button-text-color);
+
+    &%bdButtonTitle {
+        line-height: var(--button-height);
+
+        &:hover {
+            opacity: 0.95;
+			transform: scale(1.05);
+		}
+
+        &:active {
+            opacity: 0.75;
+
+			&:hover {
+				transform: scale(1);
+			}
+		}
+    }
+
+    &%bdAddonViewsButton {
+        --button-background: var(--background-tinted-highlight);
+
+        &%bdAddonViewsButtonSelected {
+            --button-background: hsl(var(--accent-hsl));
+
+            svg {
+                fill: var(--accent-text-color);
+            }
+        }
+    }
+}
+
+%bdAddonList {
+    %bdAddonCard {
+        @include card-format;
+    }
+
+    %bdAddonCardHeader {
+        @include card-format--header;
+    }
+}
+
+%bdAddonCardControls {
+    > %bdButton {
+        --button-background: var(--background-tinted-active);
+
+        &:hover {
+            --button-background: var(--background-tinted-highlight);
+        }
+
+        &:first-of-type {
+            border-radius: var(--card-radius) 0 0 var(--card-radius);
+        }
+
+        &:last-of-type {
+            border-radius: 0 var(--card-radius) var(--card-radius) 0;
+        }
+    }
+}

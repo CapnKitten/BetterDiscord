@@ -1,0 +1,112 @@
+/*
+ *
+ *  CHAT AREA
+ *
+ */
+
+%base {
+    width: calc( calc(72px + calc(var(--app-card-margin) * 2)) - 100vw);
+    margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size) 0;
+    overflow: visible;
+}
+
+%guildsWrapperHidden + %base {
+    margin: 0;
+}
+
+%chat {
+    border-radius: var(--app-card-radius);
+    background-color: var(--app-foreground) !important;
+    overflow: visible;
+
+    &%chatThreadSidebarOpen {
+        border-radius: var(--app-card-radius);
+    }
+
+    %chatContentWrapper {
+        border-bottom-right-radius: var(--app-card-radius);
+    }
+}
+
+%chatContent {
+	background-color: transparent;
+}
+
+%chatContentWrapper {
+    &:before {
+        display: none;
+    }
+}
+
+%messagesScrollerSpacer {
+    height: 28px;
+}
+
+%threadResizeHandle {
+    background-color: var(--app-background);
+}
+
+/* CHAT AREA -> DIVIDERS */
+
+%divider {
+    --divider-color: var(--popout-color);
+    --divider-text-color: var(--menu-text-color);
+
+    border-top-color: var(--divider-color);
+
+    &%dividerUnread {
+        --divider-color: hsl(var(--alert-hsl));
+        --divider-text-color: var(--alert-text-color);
+    }
+
+    %dividerDate,
+    %unreadPill {
+        background: var(--divider-color);
+        color: var(--divider-text-color);
+    }
+
+    %dividerDate {
+        padding: 4px 8px;
+        border-radius: 11px;
+    }
+}
+
+/* CHAT AREA -> NEW MESSAGES BAR */
+
+%newMessagesBar {
+    padding: 0 12px;
+    top: 8px;
+    border-radius: 16px;
+    background-color: hsl(var(--accent-hsl));
+    box-shadow: var(--default-shadow);
+    gap: 12px;
+
+    %newMessagesBarButtonBase {
+        padding: 0;
+        color: var(--accent-text-color);
+    }
+}
+
+/* CHAT AREA -> JUMP TO PRESENT BUTTON */
+
+%jumpToPresentBar {
+    margin-bottom: 8px;
+    padding-bottom: 0;
+    border-radius: 4px;
+}
+
+/* CHAT AREA -> PLACEHOLDER */
+
+%chatLoadingWrapper {
+	background-color: var(--app-foreground);
+}
+
+%chatLoadingWrapper {
+	background-color: transparent;
+}
+
+%chatLoadingAttachment,
+%chatLoadingAvatar,
+%chatLoadingBlob {
+	background-color: hsl(0,0%,100%);
+}

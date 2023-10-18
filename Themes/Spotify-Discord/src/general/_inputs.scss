@@ -1,0 +1,84 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  INPUTS
+ *
+ */
+
+%input {
+    @include input-format;
+
+    &%inputTextArea {
+        --input-height: auto;
+        --input-padding: 8px 12px;
+    }
+}
+
+%multiInput {
+    padding: 0;
+
+    %input {
+        background-color: transparent;
+        border: none;
+    }
+
+    &%multiInputFocused {
+        border-color: var(--input-border-color);
+    }
+}
+
+/* INPUTS -> COPY INPUTS */
+
+%copyInput {
+    @include input-format(true, true);
+
+    %accountPanelFlex {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    %button {
+        margin: var(--input-padding);
+    }
+}
+
+/* INPUTS -> EMOJI INPUTS */
+
+%inputEmojiContainer {
+    margin: var(--input-padding);
+
+    + %inputWrapper {
+        %input {
+            padding-left: 42px;
+        }
+    }
+}
+
+%emojiInput {
+    %channelTextAreaEmojiButton {
+        height: var(--input-height);
+        margin: var(--input-padding);
+
+        + %inputWrapper {
+            %input {
+                padding-left: 42px;
+            }
+        }
+    }
+}
+
+/* INPUTS -> FILE UPLOAD INPUTS */
+
+%fileUploadContainer {
+    @include input-format(true, true);
+    align-items: center;
+
+    %fileUploadInput {
+        padding: 0;
+    }
+
+    %fileUploadButton {
+        margin: 0;
+    }
+}

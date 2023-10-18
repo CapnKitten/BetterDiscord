@@ -1,0 +1,45 @@
+/*
+ *
+ *  SCROLLBARS
+ *
+ */
+
+::-webkit-scrollbar {
+	width: var(--scrollbar-width) !important;
+	height: var(--scrollbar-width) !important;
+    background: transparent !important;
+	border-color: transparent !important;
+
+    &-thumb {
+    	background: hsla(var(--scrollbar-color),var(--scrollbar-opacity)) !important;
+    	border-radius: 0 !important;
+
+    	&:hover {
+    		background: hsla(var(--scrollbar-color),var(--scrollbar-opacity-hover)) !important;
+    	}
+
+        &:active {
+            background: hsla(var(--scrollbar-color),var(--scrollbar-opacity-active)) !important;
+        }
+    }
+
+    &-track,
+    &-track-piece {
+        background: transparent !important;
+    	border-color: transparent !important;
+    }
+}
+
+%scrollbarThin {
+	&::-webkit-scrollbar {
+		width: calc(var(--scrollbar-width) / 2) !important;
+		height: calc(var(--scrollbar-width) / 2) !important;
+	}
+}
+
+%scrollbarNone {
+	&::-webkit-scrollbar {
+		width: 0 !important;
+		height: 0 !important;
+	}
+}

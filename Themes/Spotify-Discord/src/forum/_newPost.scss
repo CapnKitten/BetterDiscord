@@ -1,0 +1,81 @@
+/*
+ *
+ *  FORUM NEW POST / SEARCH POSTS
+ *
+ */
+
+%forumHeaderCard {
+    background-color: var(--card-color);
+    border-radius: var(--card-radius);
+    border: none;
+
+    &%forumHeaderCardWithMatchingPosts {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+    }
+
+    %input {
+        &%inputTextArea {
+            --input-height: 36px !important;
+            --input-padding: 0 12px !important;
+
+            height: var(--input-height);
+            margin: 0;
+            line-height: calc(var(--input-height) - 2px);
+        }
+    }
+}
+
+%forumHeaderCardMatchingPostsRow {
+    background-color: var(--card-color);
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
+
+%forumNewPostContainer {
+    &:not(%forumNewPostContainerCollapsed) {
+        %forumNewPostFormContainer {
+            %forumNewPostForm {
+                margin-right: 16px;
+            }
+        }
+
+        %forumNewPostTitleContainer {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+%forumNewPostFormContainer {
+    %channelTextAreaScrollable {
+        --main-textarea-color: var(--input-color);
+
+        padding: 6px 8px;
+        border-radius: var(--input-radius);
+        border: 1px solid transparent;
+        transition: var(--default-time) var(--default-animation) border-color;
+
+        &:focus-within {
+            border-color: var(--input-border-color);
+        }
+    }
+}
+
+%forumNewPostUploadInput {
+    background-color: var(--input-color);
+    border-radius: var(--input-radius);
+}
+
+%forumNewPostImageSmall {
+    border-radius: var(--input-radius);
+}
+
+%forumNewPostAttachmentContainer {
+    %spoilerContainer {
+        border-radius: var(--input-radius);
+    }
+}
+
+%forumNewPostAttachmentAction {
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+}

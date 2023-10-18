@@ -1,0 +1,44 @@
+/*
+ *
+ *  MESSAGES
+ *
+ */
+
+%messages {
+    border-bottom-left-radius: var(--app-card-radius);
+    overflow: hidden;
+}
+
+%message {
+    --main-textarea-min-height: 44px;
+}
+
+/* MESSAGES -> HOVER AND MENTIONED */
+
+%message%messageSelected {
+    background-color: var(--message-color-hover);
+
+    &%mentioned {
+        background-color: hsla(var(--accent-hsl),0.175);
+    }
+}
+
+%mouseModeFullMotion {
+    %message {
+        &:hover {
+            background-color: var(--message-color-hover);
+        }
+
+        &%mentioned:hover {
+            background-color: hsla(var(--accent-hsl),0.175);
+        }
+    }
+}
+
+%mentioned {
+    background-color: hsla(var(--accent-hsl),0.1);
+
+    &:before {
+        background-color: hsl(var(--accent-hsl));
+    }
+}

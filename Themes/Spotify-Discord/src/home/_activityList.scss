@@ -1,0 +1,49 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  ACTIVITY LIST
+ *
+ */
+
+%nowPlayingColumn {
+    background-color: transparent;
+}
+
+%nowPlayingColumnContainer {
+    background-color: transparent;
+
+    %nowPlayingColumnScroller {
+        margin-left: 0;
+        border-left-color: var(--app-card-border-color);
+    }
+}
+
+%nowPlayingColumnMemberItem {
+    padding: 0;
+}
+
+%activeNowCardInteractive {
+    @include card-format;
+    border: none;
+
+    &:hover,
+    &%activeNowCardActive {
+        %activeNowCardSection {
+            background-color: var(--card-color);
+        }
+    }
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
+
+    &%activeNowCardActive {
+        background-color: var(--card-color-active) !important;
+    }
+
+    %activeNowCardSection {
+        background-color: var(--card-color-hover);
+        border-radius: var(--card-radius);
+    }
+}

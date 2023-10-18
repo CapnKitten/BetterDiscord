@@ -1,0 +1,79 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	USER POPOUT
+ *
+ */
+
+%userProfileColors {
+	--profile-gradient-primary-color: var(--popout-color);
+	--profile-gradient-secondary-color: var(--popout-color);
+	--profile-avatar-border-color: var(--popout-color);
+	--profile-body-background-color: var(--popout-color-alt);
+}
+
+%userProfileOuter {
+	border-radius: var(--popout-radius-big);
+}
+
+%userProfileInner {
+	border-radius: calc(var(--popout-radius-big) / 1.25);
+
+	&:before {
+		border-radius: inherit;
+	}
+
+    %avatarWrapper {
+		circle {
+			fill: var(--profile-avatar-border-color);
+		}
+	}
+}
+
+%userProfileNitroUpsellWrapper {
+	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
+}
+
+%userProfileBanner {
+	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
+}
+
+%userProfileBadges {
+	border-radius: 15px;
+}
+
+%userProfileOverlayBackground {
+	border-radius: calc(var(--popout-radius-big) / 1.25);
+}
+
+%userProfileSection {
+    margin-right: calc( calc(var(--scrollbar-width) / 2) * -1 );
+}
+
+/* USER POPOUT -> STATUS AREA */
+
+%userProfileStatusMenu {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+
+    > %scroller {
+        padding: 0 4px 8px 4px !important;
+    }
+
+    %menuPopoutItem {
+		&[id*="account-divider-"] {
+			min-height: unset;
+			padding: 0;
+
+			%menuPopoutDivider {
+				margin: 8px 12px;
+			}
+		}
+	}
+
+    %statusPickerItem {
+        padding: 0;
+    }
+}
