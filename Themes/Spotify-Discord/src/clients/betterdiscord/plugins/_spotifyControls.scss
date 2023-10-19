@@ -5,7 +5,7 @@
  */
 
 %spotifyPanel {
-    --panel-placement: calc( 72px + calc(var(--app-card-margin) * 2) );
+    --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
 
     position: absolute;
     width: calc(240px + var(--panel-placement));
@@ -59,8 +59,8 @@
 
     &%spotifyPanelMaximized {
         %spotifyPanelCoverWrapper {
-            --left: calc( 72px + calc(var(--app-card-margin) * 2) );
-            --bottom: -240px;
+            --left: calc(72px + calc(var(--app-card-margin) * 2));
+            --bottom: -292px;
 
             width: 240px;
             height: 240px;
@@ -102,4 +102,73 @@
             margin: 0;
         }
     }
+}
+
+/* BETTERDISCORD PLUGIN -> SpotifyControls -> VENCORD */
+
+%vencordSpotifyPlayer {
+    --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
+
+    position: absolute;
+    width: calc(240px + var(--panel-placement));
+    height: var(--app-bar-size);
+    left: calc((72px + (var(--app-card-margin) * 2)) * -1);
+    bottom: calc(var(--app-bar-size) * -1);
+    padding: 0 0 0 16px;
+    background: transparent !important;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+%vencordSpotifyInfoWrapper {
+    width: calc(100% - ((var(--app-card-margin) * 2) + 52px + 160px));
+    height: auto;
+    margin-top: 8px;
+    margin-left: calc((var(--app-card-margin) * 2) + 52px);
+    gap: 0;
+}
+
+%vencordSpotifyAlbumImage {
+    position: absolute;
+    width: 52px;
+    height: 52px !important;
+    left: 18px;
+    top: 14px;
+}
+
+%vencordSpotifyTitles {
+    %vencordSpotifyEllipoverflow {
+        &:last-of-type {
+            display: none;
+        }
+    }
+}
+
+%vencordSpotifyProgressBar {
+    width: calc(100% - 72px);
+    margin: 8px 0 0 72px;
+
+    %menuPopoutSliderContainer {
+        width: calc(100% - 84px);
+        margin: 0 auto;
+    }
+
+    %sliderGrabber {
+        top: 11px;
+    }
+
+    %vencordSpotifyProgressTime {
+        top: -4px;
+    }
+}
+
+%vencordSpotifyProgressTime {
+    top: -4px;
+}
+
+%vencordSpotifyButtonRow {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background-color: var(--app-background);
 }
