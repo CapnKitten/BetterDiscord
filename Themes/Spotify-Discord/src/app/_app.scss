@@ -6,64 +6,79 @@
  *
  */
 
-body {
-	background-color: transparent;
+* {
+    //font-family: var(--app-font), sans-serif !important;
 }
 
 %appMount {
-	background: var(--app-bg) !important;
-	background-repeat: no-repeat !important;
-	background-position: center !important;
-	background-size: cover !important;
+    --app-search-bar-margin: calc( (var(--app-search-bar-height) + 22px) / 2 );
+    --window-title-bar-height: 22px;
+    --notice-bar-height: 36px;
+}
 
-    * {
-    	text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
-    }
+body,
+%app,
+%appMount {
+	background-color: var(--app-background);
+}
 
-    svg {
-    	filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
-    }
+%bg,
+%loadingScreen {
+	background-color: var(--app-background);
+}
+
+%loadingScreenContent {
+    padding: 0 8px;
+    @include modal-format;
 }
 
 ::selection {
-	background: hsla(var(--accent-hsl),0.65);
-	color: var(--accent-text-color);
-}
-
-%layers {
-	margin: calc(var(--app-margin) / 2) var(--app-margin) var(--app-margin) var(--app-margin);
-	border-radius: var(--app-radius);
-	overflow: hidden;
-    z-index: 1;
-	backdrop-filter: blur(var(--app-blur));
-}
-
-%titlebarMac + %app %layers {
-	margin: var(--app-margin);
-}
-
-%shakeable,
-%bg {
-	background-color: transparent;
+    background: hsla(var(--accent-hsl), 0.65);
+    color: hsl(var(--accent-text-color));
 }
 
 %anchor {
-	color: hsl(var(--accent-hsl));
+    --text-link: hsl(var(--accent-hsl));
 }
 
-%colorLink,
-%textColorBrand {
-	color: hsl(var(--accent-hsl));
+%layers {
+    z-index: 1001;
 }
 
-%loadingScreen {
-	background: var(--app-bg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+%layer {
+    background-color: var(--app-background);
+    z-index: 1002;
+}
 
-	%loadingScreenContent {
-		padding: 16px;
-		@include add-translucence(null, true);
-	}
+%pictureInPicture {
+	z-index: 1002;
+}
+
+/* APP ELEMENTS -> FONTS */
+
+@font-face {
+	font-family: 'CircularSp';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/files/fonts/CircularSp-Book.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: 'CircularSp';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/files/fonts/CircularSp-Book.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: 'CircularSp';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/files/fonts/CircularSp-Bold.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

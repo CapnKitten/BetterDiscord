@@ -1,22 +1,25 @@
-@use '../mixins' as *;
-
 /*
  *
- *  MESSAGES ACTIONS
+ *  MESSAGE ACTIONS
  *
  */
 
 %messageButtonWrapper {
-	@include add-translucence(null, true, true, true);
-}
+    height: 40px;
+    padding: 4px;
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    box-shadow: var(--default-shadow) !important;
 
-%messageAlt {
-	padding: 0;
-	background-color: transparent !important;
-	box-shadow: none !important;
+    %messageButton {
+        border-radius: calc(var(--popout-radius) - 2px);
 
-	%messagesWrapper {
-		margin-left: 48px;
-		margin-right: 0;
-	}
+        &:hover {
+            background-color: var(--background-tinted-hover);
+        }
+
+        &%messageButtonSelected {
+            background-color: var(--background-tinted-active);
+        }
+    }
 }

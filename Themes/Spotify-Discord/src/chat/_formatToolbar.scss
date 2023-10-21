@@ -1,21 +1,37 @@
-@use '../mixins' as *;
-
 /*
  *
- *	FORMAT TOOLBAR
+ *  FORMAT TOOLBAR
  *
  */
 
 %formatToolbar {
-	@include add-translucence(null, true, true, true);
-    overflow: hidden;
+    padding: 4px;
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    box-shadow: var(--default-shadow);
 
-	%button {
-		--button-radius: 0;
-		--button-background: transparent;
+    &:before {
+        border-top-color: var(--popout-color);
+    }
 
-		&:after {
-			--button-action-color: #fff;
-		}
-	}
+    %button {
+        --button-padding: 0;
+        --button-radius: calc(var(--popout-radius) - 2px);
+        --button-text-color: var(--menu-text-color);
+
+        transition: none;
+
+        &:not([disabled]) {
+            &:hover {
+                --button-background: var(--background-tinted-hover);
+    			--button-text-color: var(--menu-text-color);
+
+                transform: none;
+            }
+        }
+    }
+
+    %formatToolbarDivider {
+        border-left-color: var(--popout-border-color);
+    }
 }

@@ -1,89 +1,81 @@
-@use '../mixins' as *;
-
 /*
  *
- *  FORUM NEW POST
+ *  FORUM NEW POST / SEARCH POSTS
  *
  */
 
-%newPostContainer {
-    &%newPostContainerCollapsed {
-        height: auto;
+%forumHeaderCard {
+    background-color: var(--card-color);
+    border-radius: var(--card-radius);
+    border: none;
 
-        %inputWrapper {
-            margin-right: 8px;
-        }
-    }
-
-    %newPostTitleContainer {
-        min-height: 0;
-    }
-
-    %newPostContentContainer {
-        padding-left: 0;
-        padding-right: 94px;
-    }
-
-    %newPostFormContainer {
-        position: relative;
-        display: block;
-    }
-
-    %newPostAttachmentContainer {
-        position: absolute;
-        top: 52px;
-        right: 0;
-
-        %newPostAttachmentUploadInput {
-            @include card-format;
-        }
-
-        %newPostAttachmentImageSmall {
-            border-radius: var(--card-radius);
-        }
-
-        %newPostAttachmentBadge {
-            background-color: hsl(var(--accent-hsl));
-            border-width: 4px;
-            color: var(--accent-text-color);
-        }
+    &%forumHeaderCardWithMatchingPosts {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
     }
 
     %input {
-        margin: 0;
-        padding: 0 12px;
-        @include input-format;
-        line-height: var(--input-height);
-    }
+        &%inputTextArea {
+            --input-height: 36px !important;
+            --input-padding: 0 12px !important;
 
-    %newPostTextArea {
-        background-color: transparent;
-    }
-
-    %newPostTextArea {
-        margin: 16px 0 0;
-    }
-
-    %newPostTextAreaInner {
-        --textarea-alpha: 0.1;
-
-        padding: 8px 16px;
-        background-color: rgba(var(--textarea-color),var(--textarea-alpha)) !important;
-    	border-radius: var(--textarea-radius);
-        color: var(--textarea-text-color);
-
-        &::-webkit-input-placeholder {
-            color: var(--textarea-placeholder-color);
+            height: var(--input-height);
+            margin: 0;
+            line-height: calc(var(--input-height) - 2px);
         }
     }
+}
 
-    %newPostAttachmentArea {
-        margin: 0;
-        padding: 16px 0 0;
-    }
+%forumHeaderCardMatchingPostsRow {
+    background-color: var(--card-color);
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
 
-    %newPostMediaButton {
-        background-color: var(--button-color) !important;
-        border: none !important;
+%forumNewPostContainer {
+    &:not(%forumNewPostContainerCollapsed) {
+        %forumNewPostFormContainer {
+            %forumNewPostForm {
+                margin-right: 16px;
+            }
+        }
+
+        %forumNewPostTitleContainer {
+            margin-bottom: 16px;
+        }
     }
+}
+
+%forumNewPostFormContainer {
+    %channelTextAreaScrollable {
+        --main-textarea-color: var(--input-color);
+
+        padding: 6px 8px;
+        border-radius: var(--input-radius);
+        border: 1px solid transparent;
+        transition: var(--default-time) var(--default-animation) border-color;
+
+        &:focus-within {
+            border-color: var(--input-border-color);
+        }
+    }
+}
+
+%forumNewPostUploadInput {
+    background-color: var(--input-color);
+    border-radius: var(--input-radius);
+}
+
+%forumNewPostImageSmall {
+    border-radius: var(--input-radius);
+}
+
+%forumNewPostAttachmentContainer {
+    %spoilerContainer {
+        border-radius: var(--input-radius);
+    }
+}
+
+%forumNewPostAttachmentAction {
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
 }

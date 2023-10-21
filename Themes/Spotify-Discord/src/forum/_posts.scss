@@ -4,56 +4,73 @@
  *
  */
 
-%post,
-%postCard {
+%forumPostCardGallery,
+%forumPostCardList {
+    background-color: var(--card-color);
+    border-radius: var(--card-radius);
+    border: none;
+    transition: none;
+
     &:hover {
         background-color: var(--card-color-hover);
         box-shadow: none;
         transform: none;
     }
+
+    &%forumPostCardGalleryIsOpen,
+    &%forumPostCardListIsOpen {
+        background-color: var(--card-color-active) !important;
+    }
 }
 
-%postCardBodyMedia,
-%postCardContentPreview {
-    border-radius: var(--message-radius);
+%forumPostCardList {
+    &:hover {
+        %forumPostTagPill {
+            background-color: var(--card-color-active);
+        }
+    }
+
+    &%forumPostCardListIsOpen {
+        %forumPostTagPill {
+            background-color: var(--card-color-hover);
+        }
+    }
 }
 
-%postCardContentPreview {
-    background-color: var(--message-color);
-    border: none;
+/* FORUM POSTS -> POST BUTTON ACTIONS */
+
+%forumPostThreadButtonContainer {
+    background-color: var(--app-foreground);
 }
 
-%postCardTextContentFooter {
-    background: none !important;
-}
-
-%postReaction {
-    background-color: var(--message-color);
-	border-radius: var(--message-radius);
-	border: none;
+%forumPostThreadAddReactButton,
+%forumPostButtonInner {
+    height: 24px;
+    padding: 0 12px;
+    background-color: transparent;
+    border-radius: var(--button-radius);
+    border: 1px solid hsl(0,0%,80%);
+    font-size: 14px;
+    font-weight: 600;
+    color: hsl(0,0%,80%);
 
     &:hover {
-        background-color: var(--message-color);
+        background-color: transparent;
+        border-color: hsl(0,0%,100%);
+        color: hsl(0,0%,100%) !important;
+        opacity: 0.95;
+        transform: scale(1.05);
     }
 
-    &%postReactionMe {
-        background-color: hsla(var(--accent-hsl),0.3);
-		border-color: transparent;
+    &:active {
+        opacity: 0.75;
 
         &:hover {
-			background-color: hsla(var(--accent-hsl),0.4);
-		}
-
-		%postReactionCount {
-			color: hsla(var(--accent-hsl),var(--accent-opacity));
-		}
+            transform: scale(1);
+        }
     }
 }
 
-%postPinIcon {
-    background-color: hsl(var(--accent-hsl));
-
-    path {
-        fill: var(--accent-text-color);
-    }
+%forumPostThreadDivider {
+    background-color: var(--card-color);
 }

@@ -2,7 +2,7 @@
 
 /*
  *
- *  USER POPOUT
+ *	USER POPOUT
  *
  */
 
@@ -10,60 +10,47 @@
 	--profile-gradient-primary-color: var(--popout-color);
 	--profile-gradient-secondary-color: var(--popout-color);
 	--profile-avatar-border-color: var(--popout-color);
-	--profile-body-background-color: var(--popout-color);
-
-	* {
-		text-shadow: none;
-	}
-
-	svg {
-    	filter: none;
-    }
-
-	&%themeLight {
-		--textarea-color: 0,0,0;
-		--textarea-text-color: #333;
-		--textarea-placeholder-color: #666;
-		--background-modifier-selected: rgba(0,0,0,0.125);
-	}
+	--profile-body-background-color: var(--popout-color-alt);
 }
 
 %userProfileOuter {
-	@include add-translucence(before, true, false);
-	border-radius: var(--popout-radius);
+	border-radius: var(--popout-radius-big);
 }
 
 %userProfileInner {
-	border-radius: calc(var(--popout-radius) / 1.25);
+	border-radius: calc(var(--popout-radius-big) / 1.25);
 
 	&:before {
 		border-radius: inherit;
 	}
 
-	%avatarWrapper {
+    %avatarWrapper {
 		circle {
 			fill: var(--profile-avatar-border-color);
 		}
 	}
+}
 
-	%inputWrapper {
-		border-radius: 18px;
-		border: none;
+%userProfileOverlayBackground {
+	> %menuPopout {
+		background-color: transparent;
+
+		%menuPopoutItem {
+			color: var(--interactive-normal);
+		}
 	}
 
-	%input {
-		&::-webkit-input-placeholder {
-			color: var(--textarea-placeholder-color);
-		}
+	%statusPickerItem {
+		padding: 0;
 	}
 }
 
 %userProfileNitroUpsellWrapper {
-	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
+	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
 }
 
 %userProfileBanner {
-	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
+	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
 }
 
 %userProfileBadges {
@@ -71,44 +58,36 @@
 }
 
 %userProfileOverlayBackground {
-	border-radius: calc(var(--popout-radius) / 1.25);
+	border-radius: calc(var(--popout-radius-big) / 1.25);
 }
 
-%role {
-	background-color: var(--background-modifier-selected);
-	border-radius: 11px;
-	border: none;
-}
-
-%userProfileNote {
-	margin-left: 0;
-	margin-right: 0;
-
-	%input {
-		height: unset;
-		font-size: 14px;
-		line-height: 16px;
-	}
-
-	%userProfileNoteTextArea {
-		padding: 4px 10px;
-		font-size: 14px;
-		line-height: 16px;
-
-		&::-webkit-input-placeholder {
-			color: var(--textarea-placeholder-color);
-		}
-
-		&:focus {
-			background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus));
-		}
-	}
+%userProfileSection {
+    margin-right: calc( calc(var(--scrollbar-width) / 2) * -1 );
 }
 
 /* USER POPOUT -> STATUS AREA */
 
 %userProfileStatusMenu {
-	&:before {
-		display: none;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+
+    > %scroller {
+        padding: 0 4px 8px 4px !important;
+    }
+
+    %menuPopoutItem {
+		&[id*="account-divider-"] {
+			min-height: unset;
+			padding: 0;
+
+			%menuPopoutDivider {
+				margin: 8px 12px;
+			}
+		}
 	}
+
+    %statusPickerItem {
+        padding: 0;
+    }
 }

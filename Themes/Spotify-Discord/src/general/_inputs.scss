@@ -6,57 +6,79 @@
  *
  */
 
-%input,
-%copyInput {
+%input {
     @include input-format;
 
-    &::-webkit-input-placeholder {
-        color: var(--textarea-placeholder-color);
-    }
-
-    &%multiInput {
-        background-color: transparent;
+    &%inputTextArea {
+        --input-height: auto;
+        --input-padding: 8px 12px;
     }
 }
 
 %multiInput {
-    %inputWrapper {
-        margin-right: 8px;
+    padding: 0;
+
+    %input {
+        background-color: transparent;
+        border: none;
+    }
+
+    &%multiInputFocused {
+        border-color: var(--input-border-color);
     }
 }
 
-%multiInputLast {
-    &:before {
-        display: none;
+/* INPUTS -> COPY INPUTS */
+
+%copyInput {
+    @include input-format(true, true);
+
+    %accountPanelFlex {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    %button {
+        margin: var(--input-padding);
     }
 }
 
-%fileUploadInput {
-    width: auto;
+/* INPUTS -> EMOJI INPUTS */
+
+%inputEmojiContainer {
+    margin: var(--input-padding);
+
+    + %inputWrapper {
+        %input {
+            padding-left: 42px;
+        }
+    }
 }
 
-%fileUploadButton {
-    padding: 0 12px;
+%emojiInput {
+    %channelTextAreaEmojiButton {
+        height: var(--input-height);
+        margin: var(--input-padding);
+
+        + %inputWrapper {
+            %input {
+                padding-left: 42px;
+            }
+        }
+    }
 }
 
-/* INPUTS -> OPTION PILLS */
+/* INPUTS -> FILE UPLOAD INPUTS */
 
-%optionPill {
-    background-color: var(--textarea-block-color) !important;
-    border-radius: var(--button-radius);
-    border-color: transparent !important;
+%fileUploadContainer {
+    @include input-format(true, true);
+    align-items: center;
 
-    &%optionPillSelected {
-        border-color: hsl(var(--accent-hsl)) !important;
+    %fileUploadInput {
+        padding: 0;
     }
 
-    &%optionPillErrored {
-        border-color: hsl(var(--alert-hsl)) !important;
-    }
-
-    %optionPillKey {
-        background-color: var(--textarea-block-color) !important;
-        border-top-left-radius: inherit;
-        border-bottom-left-radius: inherit;
+    %fileUploadButton {
+        margin: 0;
     }
 }

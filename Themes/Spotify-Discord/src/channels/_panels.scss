@@ -1,55 +1,61 @@
-@use '../mixins' as *;
-
 /*
  *
- *  PANELS
+ *  CHANNELS LIST PANELS
  *
  */
 
 %panels {
-	background-color: transparent;
+    background-color: var(--app-foreground);
+    border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
+    //z-index: 103;
 }
 
-%voiceUserAvatarSpeaking {
-	box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-secondary);
-}
-
-%activitiesPanel {
-	width: calc(100% - 16px);
-    margin: 0 8px 8px;
-	@include add-translucence(before, true);
-
-	%activitiesPanelContent {
-        padding: 8px 0;
-    }
-
-    %activitiesPanelVideo {
-        width: 208px !important;
-        height: 117px !important;
-        border-radius: var(--popout-radius);
-    }
-}
-
-%connectionPanel,
-%accountPanel,
 %activityPanel {
-	background: transparent !important;
+    background: transparent !important;
+    border-bottom: none;
+
+    + %connectionPanelWrapper {
+        &:not(:empty) {
+            border-top: 1px solid var(--sidebar-panel-border);
+        }
+    }
+}
+
+%connectionPanelWrapper {
+    transition: var(--default-time) var(--default-animation) margin-bottom;
 }
 
 %connectionPanel {
-	%disabledButtonWrapper {
-		--button-padding: 0;
+    background-color: transparent;
+    border-bottom: none;
+}
 
-		border-radius: var(--button-radius);
-	}
+%connectionPanelActionButtons {
+    %button {
+        --button-padding: 0 12px;
+    }
+}
+
+%accountPanel {
+    background: transparent !important;
+    transition: var(--default-time) var(--default-animation) margin-bottom;
+}
+
+%panelButton {
+    border-radius: 16px;
 }
 
 %accountPanelWithTagAsButton,
 %accountPanelWithTagless {
-	margin-left: -4px;
-	padding-left: 4px;
+    &:hover {
+        background-color: var(--background-tinted-hover);
+        border-radius: 20px;
+    }
+}
 
-	&:hover {
-		border-radius: 20px;
-	}
+%accountPanelGameActivityToggleAdded {
+    %accountPanelWithTagAsButton {
+        flex: 0;
+        min-width: 32px;
+    }
 }

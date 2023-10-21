@@ -4,13 +4,32 @@
  *
  */
 
-%chat,
-%noChannel {
-    background-color: var(--main-content-color) !important;
+%base {
+    width: calc( calc(72px + calc(var(--app-card-margin) * 2)) - 100vw);
+    margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size) 0;
+    overflow: visible;
+}
+
+%guildsWrapperHidden + %base {
+    margin: 0;
+}
+
+%chat {
+    border-radius: var(--app-card-radius);
+    background-color: var(--app-foreground) !important;
+    overflow: visible;
+
+    &%chatThreadSidebarOpen {
+        border-radius: var(--app-card-radius);
+    }
+
+    %chatContentWrapper {
+        border-bottom-right-radius: var(--app-card-radius);
+    }
 }
 
 %chatContent {
-    background-color: transparent;
+	background-color: transparent;
 }
 
 %chatContentWrapper {
@@ -19,47 +38,79 @@
     }
 }
 
-%emptyChannelIcon,
-%threadChannelIcon {
-    background-color: var(--message-color);
+%messagesScrollerSpacer {
+    height: 28px;
 }
 
-%chatOptionButton {
-    color: hsl(var(--accent-hsl));
+%threadResizeHandle {
+    background-color: var(--app-background);
 }
 
-%chatRole {
-    background-color: var(--message-color);
-    border-radius: 12px;
+/* CHAT AREA -> DIVIDERS */
 
-    &:hover {
-        background-color: var(--message-color-hover);
+%divider {
+    --divider-color: var(--popout-color);
+    --divider-text-color: var(--menu-text-color);
+
+    border-top-color: var(--divider-color);
+
+    &%dividerUnread {
+        --divider-color: hsl(var(--alert-hsl));
+        --divider-text-color: var(--alert-text-color);
+    }
+
+    %dividerDate,
+    %unreadPill {
+        background: var(--divider-color);
+        color: var(--divider-text-color);
+    }
+
+    %dividerDate {
+        padding: 4px 8px;
+        border-radius: 11px;
     }
 }
 
-%newMessagesBar,
-%jumpToPresentBar {
-	background-color: hsla(var(--accent-hsl),var(--accent-opacity));
-}
+/* CHAT AREA -> NEW MESSAGES BAR */
 
 %newMessagesBar {
-	border-radius: 0 0 var(--message-radius) var(--message-radius);
+    padding: 0 12px;
+    top: 8px;
+    border-radius: 16px;
+    background-color: hsl(var(--accent-hsl));
+    box-shadow: var(--default-shadow);
+    gap: 12px;
+
+    %newMessagesBarButtonBase {
+        padding: 0;
+        color: var(--accent-text-color);
+    }
 }
+
+/* CHAT AREA -> JUMP TO PRESENT BUTTON */
 
 %jumpToPresentBar {
-    bottom: 10px;
-	padding-bottom: 0;
-	border-radius: var(--message-radius);
+    margin-bottom: 30px;
+    padding-bottom: 0;
+    border-radius: 4px;
 
-	%spinner {
-		--spinner-size: auto;
-	}
-
-	%spinnerItem {
-		background-color: var(--accent-text-color);
-	}
+    &:active {
+        margin-bottom: 28px;
+    }
 }
 
-%jumpToPresentBarButtonBase {
-	color: var(--accent-text-color);
+/* CHAT AREA -> PLACEHOLDER */
+
+%chatLoadingWrapper {
+	background-color: var(--app-foreground);
+}
+
+%chatLoadingWrapper {
+	background-color: transparent;
+}
+
+%chatLoadingAttachment,
+%chatLoadingAvatar,
+%chatLoadingBlob {
+	background-color: hsl(0,0%,100%);
 }

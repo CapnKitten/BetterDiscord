@@ -1,53 +1,61 @@
 /*
  *
- *  HEADER SEARCH BAR
+ *  HEADER BAR SEARCH
  *
  */
 
-%chatSearchBar {
-    padding: 0 4px;
-    background-color: rgba(var(--textarea-color),var(--textarea-alpha));
-	border-radius: 12px;
+%searchContainer {
+    margin: 0 8px;
+}
 
-	%privateChannelsSearchBarComponent {
-		padding: 0 8px;
-		border-radius: 14px;
-	}
-
-    %chatSearchContainer {
-        %chatSearchFilter,
-        %chatSearchFilter + span[data-offset-key],
-        %chatSearchAnswer span[data-offset-key] {
-            background-color: var(--textarea-block-color) !important;
-            color: var(--textarea-block-text-color);
+%chatSearch {
+    &%chatSearchOpen,
+    &%chatSearchFocused {
+        %chatSearchBar {
+            height: 32px;
+            padding: 4px 4px 4px 8px;
+            background-color: var(--input-color);
+            border-radius: 16px;
         }
 
-        %chatSearchFilter {
-            margin-right: 2px;
-            padding: 0 4px 0 8px;
-            border-radius: 10px 0 0 10px;
-
-            &:only-child {
-                padding: 0 8px;
-                border-radius: 11px;
-            }
+        %chatSearchRoot {
+            flex: 1;
+            padding: 2px 0 2px 4px;
         }
+    }
 
-        %chatSearchAnswer {
-            background-color: transparent;
-        }
-
-        %chatSearchFilter + span[data-offset-key],
-        %chatSearchAnswer span[data-offset-key] {
-            display: inline-block;
-            height: 20px;
-            margin: 0 2px 0 -2px;
-            padding: 0px 8px 0px 0;
-            border-radius: 0 11px 11px 0;
-        }
+    %chatSearchBar {
+        background-color: transparent;
+        transition: var(--default-time) var(--default-animation) all;
     }
 }
 
-%chatSearchFilter {
-    background-color: var(--attachment-color) !important;
+%chatSearchBar {
+    width: 24px;
+    padding: 0;
+    border-radius: 12px;
+    overflow: visible;
+    transition: var(--default-time) var(--default-animation) all;
+    flex-direction: row-reverse;
+
+    %chatSearchPlaceholder {
+        color: var(--text-normal) !important;
+    }
+
+    %chatSearchRoot {
+        flex: 0;
+        padding: 0;
+        color: var(--header-secondary);
+        transition: var(--default-time) var(--default-animation) flex;
+    }
+
+    %chatSearchIconContainer {
+        width: inherit;
+        height: inherit;
+        cursor: pointer;
+    }
+
+    %chatSearchIcon {
+        color: var(--interactive-normal);
+    }
 }
