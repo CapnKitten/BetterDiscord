@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  CHANNELS LIST
@@ -6,59 +8,58 @@
 
 %platformWin {
     %channelsSidebar {
-        border-radius: var(--app-card-radius) !important;
+        border-radius: 0;
     }
 }
 
 %channelsSidebar {
-    margin: 0 var(--app-card-margin) 0 0;
-    background-color: var(--app-foreground);
-
-    &%channelSidebarHidden {
-        margin: 0;
-    }
+	background-color: var(--sidebar-color);
 
     %channelsContainer {
-        background-color: transparent;
+    	background-color: transparent;
     }
-}
 
-%channelLink {
-    border-radius: var(--menu-item-radius);
-}
-
-%channelWrapper {
-    &:hover {
-        %channelLink {
-            background-color: var(--background-tinted-hover);
-        }
-    }
-}
-
-%channelWrapperSelected {
     %channelLink {
-        background-color: var(--background-tinted-active);
+        border-radius: var(--list-item-radius);
     }
 
-    &:hover {
-        %channelLink {
-            background-color: var(--background-tinted-highlight);
+    %voiceChannelsButton {
+        &:hover {
+            background-color: var(--background-modifier-hover);
         }
     }
 }
 
 %channelsHeader {
-    height: var(--header-bar-height);
-    padding: 0 16px;
-    background-color: var(--header-bar-color) !important;
-    border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
-    box-shadow: none;
+	background-color: transparent !important;
+    box-shadow: var(--popout-header-shadow);
 
-    %channelsHeaderPrimaryInfo {
-        height: var(--header-bar-height);
+    %guildCommunityInfoPill {
+        background-color: var(--card-color);
+        border-radius: var(--card-radius);
     }
 }
 
-%channelHasBanner {
-    --header-bar-color: transparent;
+%voiceUserContent {
+    border-radius: var(--list-item-radius);
+}
+
+%guildLiveEvent {
+    @include card-format;
+}
+
+/* CHANNELS LIST -> ACTION BUTTONS */
+
+%channelActionButton {
+    background-color: var(--background-modifier-hover);
+    border-radius: var(--list-item-radius);
+    border: none;
+
+    &:hover {
+		background-color: var(--background-modifier-active);
+	}
+
+	&%channelActionButtonSelected {
+		background-color: var(--background-modifier-accent);
+	}
 }

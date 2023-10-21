@@ -6,79 +6,57 @@
  *
  */
 
-%input {
+%input,
+%copyInput {
     @include input-format;
 
-    &%inputTextArea {
-        --input-height: auto;
-        --input-padding: 8px 12px;
+    &::-webkit-input-placeholder {
+        color: var(--textarea-placeholder-color);
+    }
+
+    &%multiInput {
+        background-color: transparent;
     }
 }
 
 %multiInput {
-    padding: 0;
-
-    %input {
-        background-color: transparent;
-        border: none;
-    }
-
-    &%multiInputFocused {
-        border-color: var(--input-border-color);
+    %inputWrapper {
+        margin-right: 8px;
     }
 }
 
-/* INPUTS -> COPY INPUTS */
-
-%copyInput {
-    @include input-format(true, true);
-
-    %accountPanelFlex {
-        margin-right: 0;
-        align-items: center;
-    }
-
-    %button {
-        margin: var(--input-padding);
+%multiInputLast {
+    &:before {
+        display: none;
     }
 }
 
-/* INPUTS -> EMOJI INPUTS */
-
-%inputEmojiContainer {
-    margin: var(--input-padding);
-
-    + %inputWrapper {
-        %input {
-            padding-left: 42px;
-        }
-    }
+%fileUploadInput {
+    width: auto;
 }
 
-%emojiInput {
-    %channelTextAreaEmojiButton {
-        height: var(--input-height);
-        margin: var(--input-padding);
-
-        + %inputWrapper {
-            %input {
-                padding-left: 42px;
-            }
-        }
-    }
+%fileUploadButton {
+    padding: 0 12px;
 }
 
-/* INPUTS -> FILE UPLOAD INPUTS */
+/* INPUTS -> OPTION PILLS */
 
-%fileUploadContainer {
-    @include input-format(true, true);
-    align-items: center;
+%optionPill {
+    background-color: var(--textarea-block-color) !important;
+    border-radius: var(--button-radius);
+    border-color: transparent !important;
 
-    %fileUploadInput {
-        padding: 0;
+    &%optionPillSelected {
+        border-color: hsl(var(--accent-hsl)) !important;
     }
 
-    %fileUploadButton {
-        margin: 0;
+    &%optionPillErrored {
+        border-color: hsl(var(--alert-hsl)) !important;
+    }
+
+    %optionPillKey {
+        background-color: var(--textarea-block-color) !important;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
     }
 }

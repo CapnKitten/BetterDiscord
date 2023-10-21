@@ -1,0 +1,64 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  VENCORD SETTINGS
+ *
+ */
+
+%vencordSettingsTabBar {
+    margin-top: 24px;
+    margin-bottom: 0 !important;
+    padding-top: 10px;
+    border-bottom: 1px solid var(--background-modifier-accent) !important;
+
+    %tabBarItem {
+        margin: 8px;
+        padding: 2px 8px;
+        border-radius: var(--button-radius);
+        border-bottom: none;
+        line-height: 20px;
+        font-size: 16px;
+        color: var(--interactive-normal) !important;
+
+        &:hover {
+            background-color: var(--background-modifier-hover) !important;
+            color: var(--interactive-hover) !important;
+        }
+
+        &.selected-1sf9UK {
+            background-color: var(--background-modifier-selected) !important;
+            color: var(--interactive-active) !important;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    + %settingsHeaderDivider {
+        display: none;
+    }
+}
+
+/* VENCORD SETTINGS -> PLUGINS */
+
+%vencordPluginsCard {
+    background-color: var(--card-color) !important;
+    border-radius: var(--card-radius) !important;
+
+    &:hover {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+}
+
+/* VENCORD SETTINGS -> NOTIFICATION */
+
+%vencordNotificationRoot {
+    @include add-translucence(before, true);
+}

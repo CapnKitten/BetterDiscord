@@ -1,8 +1,6 @@
-@use '../mixins' as *;
-
 /*
  *
- *  MARKUP
+ *	MARKUP
  *
  */
 
@@ -11,49 +9,27 @@
 		color: hsl(var(--accent-hsl));
 	}
 
-	code {
-        --app-font: var(--code-font);
+    pre {
+		border-radius: var(--card-radius);
+	}
 
-		background-color: var(--attachment-color);
-		border-radius: var(--attachment-radius);
+	code {
+		background-color: var(--textarea-block-color);
+		border-radius: var(--card-radius);
 		border: none;
 	}
-}
 
-pre, pre code, code.inline, %codeBlockText, %codeLine, %codeBlockLang, %codeBlockSyntax, %syntaxAfter, %syntaxBefore, %channelTextAreaInlineCodeAfter, %channelTextAreaInlineCodeBefore, %channelTextAreaInlineCode {
-    --app-font: var(--code-font);
-}
+    %mentionWrapper {
+		background-color: hsla(var(--mention-hsl),0.25);
+		color: hsl(var(--mention-hsl));
 
-%fakeLink {
-	--text-link: hsl(var(--accent-hsl));
-}
-
-%spoilerText {
-	&%spoilerHidden {
-		background-color: var(--attachment-color) !important;
+		&:hover {
+			background-color: hsla(var(--mention-hsl),0.475);
+            color: hsl(var(--mention-hsl));
+		}
 	}
 }
 
-/* MARKUP -> MENTIONS */
-
-%mentionWrapper {
-	background-color: hsla(var(--accent-hsl),0.175);
-	color: hsl(var(--accent-hsl));
-}
-
-%themeDark {
-	%mentionWrapper {
-	    background-color: hsla(var(--accent-hsl),0.175);
-	    color: hsl(var(--accent-hsl));
-
-	    &:hover {
-	        background-color: hsla(var(--accent-hsl),0.3);
-	    }
-	}
-}
-
-/* MARKUP -> UPLOADS */
-
-%channelTextAreaUpload {
-	@include card-format;
+%spoilerMarkdownContent {
+	background-color: var(--textarea-block-color);
 }

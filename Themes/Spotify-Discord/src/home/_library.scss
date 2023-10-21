@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  LIBRARY
@@ -5,17 +7,15 @@
  */
 
 %libraryContainer {
-    background-color: var(--app-foreground);
-    border-radius: var(--app-card-radius);
-}
+    background-color: var(--main-content-color);
 
-%libraryHeader {
-    &:before {
-        display: none;
+    %librarySearchBar {
+        @include input-format(auto);
+
+        %librarySearchInput {
+            &::-webkit-input-placeholder {
+                color: var(--textarea-placeholder-color);
+            }
+        }
     }
-}
-
-%libraryScroller,
-%librarySettingsScroller {
-    background-color: transparent;
 }

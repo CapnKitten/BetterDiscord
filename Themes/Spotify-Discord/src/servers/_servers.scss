@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  SERVERS LIST
@@ -5,17 +7,7 @@
  */
 
 %guildsWrapper {
-    margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size);
-    background-color: transparent;
-    border-radius: var(--app-card-radius);
-
-    &%guildsWrapperHidden {
-        margin: 0;
-    }
-
-    %guilds {
-		background-color: transparent;
-	}
+	background-color: var(--sidebar-color);
 
 	%guildsTree {
 		&:focus {
@@ -24,166 +16,37 @@
 	}
 }
 
-/* SERVERS LIST -> HOME BUTTON AND DMS */
-
-%guildsHomeContainer {
-    padding: 8px 0;
-    background-color: var(--app-foreground);
-    border-radius: var(--app-card-radius);
-
-    %guild {
-        margin-bottom: 0;
-    }
-
-    + %guild {
-        margin: 0 0 var(--app-card-margin);
-    }
-}
-
-%platformWin {
-    %guilds {
-        padding-top: 0;
-    }
-}
-
 %guilds {
-    > div[style*="height: 56px"]:not([class]) {
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
-
-        + %guild {
-            margin: 0 0 var(--app-card-margin);
-        }
-
-        &:before,
-        &:after {
-            --app-card-radius-fix: calc(var(--app-card-radius) * 1.75);
-
-            position: absolute;
-            content: " ";
-            width: calc(var(--app-card-radius-fix) / 2);
-            height: var(--app-card-radius-fix);
-            background-color: var(--app-foreground);
-            top: calc((var(--app-card-radius-fix) / 2) * -1);
-            pointer-events: none;
-        }
-
-        &:before {
-            left: 0;
-        }
-
-        &:after {
-            right: 0;
-        }
-    }
+	background-color: transparent !important;
 }
 
-%guild {
-    + div[aria-label]:not([class]) {
-        padding: 8px 0;
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
-
-        > %guild {
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    %guildSeparator {
-        display: none;
-    }
-
-    %guildFolder {
-        background-color: var(--popout-color);
-    }
+%guild svg {
+    filter: none;
 }
 
-%guildLink {
-    &:hover,
-    &%guildLinkSelected {
-        %guildChildWrapper {
-            background-color: hsl(var(--accent-hsl));
-            color: var(--accent-text-color);
-        }
-    }
-}
-
-/* SERVERS LIST -> FOLDERS */
-
-%guildExpandedFolderBackground {
-    background-color: var(--popout-color);
-}
-
-%guildFolderWrapper {
-    margin-bottom: 8px;
-
-    &:last-of-type {
-        margin-bottom: 0;
-    }
-
-    %guild {
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-    }
-
-    [id*="folder-items"] {
-        display: block;
-        margin-bottom: -8px;
-    }
-}
-
-/* SERVERS LIST -> ADD SERVER AND DISCOVERY */
-
-%guildsAddServerContainer {
-    margin-top: var(--app-card-margin);
-
-    %guild {
-        margin-bottom: 0;
-    }
-
-    &,
-    + %guild {
-        padding-top: 8px;
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
-    }
-
-    + %guild {
-        margin-bottom: 0;
-        padding-bottom: 8px;
-
-        &:before,
-        &:after {
-            --app-card-radius-fix: calc(var(--app-card-radius) * 1.75);
-
-            position: absolute;
-            content: " ";
-            width: calc(var(--app-card-radius-fix) / 2);
-            height: var(--app-card-radius-fix);
-            background-color: var(--app-foreground);
-            top: calc((var(--app-card-radius-fix) / 2) * -1);
-            pointer-events: none;
-        }
-
-        &:before {
-            left: 0;
-        }
-
-        &:after {
-            right: 0;
-        }
-    }
-}
-
+%guildChildWrapper,
 %circleIconButton {
-    background-color: var(--background-tinted-active);
-    color: hsl(var(--accent-hsl));
+    @include app-accents(true, true);
+}
 
-    &%circleIconButtonSelected {
-        background-color: hsl(var(--accent-hsl));
-        color: var(--accent-text-color);
-    }
+%channelsMentionIndicator {
+    @include app-accents;
+}
+
+%numberBadge {
+    @include app-accents(true, true);
+}
+
+%guildBadge {
+	&%guildBadgeParticipating {
+        @include app-accents(false);
+
+		path {
+			fill: var(--accent-text-color);
+		}
+	}
+}
+
+%guildPillItem {
+	background-color: var(--notification-color);
 }

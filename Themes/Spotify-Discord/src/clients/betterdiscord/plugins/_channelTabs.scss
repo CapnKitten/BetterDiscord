@@ -5,79 +5,33 @@
  */
 
 %channelTabsContainer {
-    padding: 4px var(--app-card-margin) !important;
+    margin: calc(var(--app-margin) / 2) var(--app-margin) calc((var(--app-margin) / 4) * -1);
+    padding: 4px !important;
+    background-color: var(--sidebar-color) !important;
+    border-radius: var(--app-radius);
+    backdrop-filter: blur(var(--app-blur));
 }
 
 %channelTabsTabContainer {
-    gap: 8px;
+    gap: 4px;
 }
 
 %channelTabsTabNav {
     margin: 0 !important;
-    gap: 4px;
 
     > div {
-        margin: 0 !important;
-        border-radius: var(--menu-item-radius) !important;
-
-        &:hover {
-            background-color: var(--background-tinted-hover) !important;
-        }
+        border-radius: calc(var(--app-radius) / 1.5) !important;
     }
 }
 
 %channelTabsTab {
     margin-bottom: 0 !important;
-    border-radius: var(--menu-item-radius) !important;
-
-    &:hover {
-        background-color: var(--background-tinted-hover) !important;
-    }
-
-    &%channelTabsTabSelected {
-        background-color: var(--background-tinted-active) !important;
-    }
+    border-radius: calc(var(--app-radius) / 1.5) !important;
 }
 
 %channelTabsNewTab {
-    width: var(--channelTabs-tabHeight) !important;
-    height: var(--channelTabs-tabHeight) !important;
+    width: 32px !important;
+    height: 32px !important;
     margin: 0 !important;
-    border-radius: var(--menu-item-radius) !important;
-
-    &:hover {
-        background-color: var(--background-tinted-hover) !important;
-    }
-}
-
-/* BETTERDISCORD PLUGIN -> ChannelTabs -> REPOSITION HEADER BAR AND AVATAR */
-
-%channelTabsContainer + %bg + %layers {
-    %channelsContainer,
-    %privateChannels {
-        &[aria-label] {
-            &:after {
-                --header-bar-yposition: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + 40px);
-            }
-        }
-    }
-
-    %accountPanel {
-        top: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + 40px);
-    }
-}
-
-%channelTabsContainer + %bg + %layers %notice + %contentMain {
-    %channelsContainer,
-    %privateChannels {
-        &[aria-label] {
-            &:after {
-                --header-bar-yposition: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + var(--notice-bar-height) + var(--app-card-margin) + 40px);
-            }
-        }
-    }
-
-    %accountPanel {
-        top: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + var(--notice-bar-height) + var(--app-card-margin) + 40px);
-    }
+    border-radius: calc(var(--app-radius) / 1.5) !important;
 }

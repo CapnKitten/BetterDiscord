@@ -1,31 +1,43 @@
 /*
  *
- *  REACTIONS
+ *  MESSAGE REACTIONS
  *
  */
 
-%reactions {
-	margin-top: 6px;
-}
-
 %reaction {
-	background-color: var(--card-color);
-    border-radius: 13px;
+	background-color: var(--message-color);
+	border-radius: var(--message-radius);
+	border: none;
 
 	&:hover {
-		background-color: var(--card-color-hover);
+		background-color: var(--message-color);
 	}
 
 	&%reactionMe {
 		background-color: hsla(var(--accent-hsl),0.3);
-		border-color: hsla(var(--accent-hsl),0.2);
+		border-color: transparent;
 
 		&:hover {
 			background-color: hsla(var(--accent-hsl),0.4);
 		}
 
 		%reactionCount {
-			color: var(--accent-text-color);
+			color: hsla(var(--accent-hsl),var(--accent-opacity));
+		}
+	}
+
+	%reactionGlow {
+		border-radius: var(--message-radius);
+	}
+}
+
+/* MESSAGE REACTIONS -> REVERT BUTTONS TO REACTION STYLE */
+
+%embedContainer {
+	%embedChildren {
+		%buttonFilled {
+			--button-height: 28px;
+			--button-padding: 0 8px;
 		}
 	}
 }

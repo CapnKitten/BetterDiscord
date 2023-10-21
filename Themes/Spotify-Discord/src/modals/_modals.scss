@@ -7,51 +7,78 @@
  */
 
 %modalRoot {
-    @include modal-format(true);
-
-    &%carouselModal,
-    &%modalRootNoBg {
-        background-color: transparent !important;
-        box-shadow: none !important;
-    }
+    @include add-translucence(null, false, true, true);
 
     &%modalSmall {
         min-height: 75px;
     }
 
-    %modalContent {
-
+    &%modalRootNoBg,
+    &%carouselModal {
+    	background-color: transparent !important;
+    	box-shadow: none !important;
     }
 
-    %modalCloseButton {
-        --button-height: 24px;
-        
-        padding: 0;
-    }
+    &%groupInvitePopout {
+		backdrop-filter: blur(var(--popout-blur));
+	}
 
-    %modalFooter {
-        background-color: var(--popout-color);
-        border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
-        border-top: 1px solid var(--popout-border-color);
-        box-shadow: none;
-        gap: 8px;
+    %modalHeader {
+        background-color: transparent;
+        box-shadow: var(--popout-header-shadow);
 
-        %modalFooterRight {
-            gap: 8px;
+        %modalTitle {
+            margin-bottom: 0;
         }
 
-        %buttonLink {
-            --button-background: hsla(0,0%,0%, 0.1);
-            --button-outline: 1px solid hsl(0,0%,80%);
-            --button-text-color: hsl(0,0%,100%);
+        %modalCloseButton,
+        %modalHeaderButton {
+            --button-height: 32px;
 
-            &:hover {
-                --button-outline: 1px solid hsl(0,0%,100%);
+            position: absolute;
+            width: var(--button-height);
+			height: var(--button-height);
+            top: 12px;
+			right: 12px;
+			margin: 0;
+			padding: 0;
+        }
+
+        %modalCloseButton {
+            %buttonContents {
+                height: 24px;
+            }
+
+            svg {
+                height: 24px !important;
+				transform: scale(0.85);
+			}
+        }
+
+        %modalHeaderButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            %modalHeaderButtonIcon {
+                height: 24px;
+                transform: scale(0.85);
             }
         }
     }
 
-    %modalFooterButtonsContainer {
-        gap: 8px;
+    %modalContent {
+        padding: 16px;
     }
+
+    %modalFooter {
+        background-color: transparent;
+		box-shadow: none;
+    }
+}
+
+%backdrop {
+    background-color: rgba(0,0,0,0.3) !important;
+	backdrop-filter: blur(calc(var(--popout-blur) * 1.4));
+	opacity: 1 !important;
 }

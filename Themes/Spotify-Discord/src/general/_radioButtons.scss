@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  RADIO BUTTONS
@@ -5,24 +7,36 @@
  */
 
 %radioItem {
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
-    transition: var(--default-time) var(--default-animation) background-color;
+	@include card-format(true, true);
 
-    &:hover {
-        &[aria-checked="false"] {
-            &:not(%radioItemDisabled) {
-                background-color: var(--card-color-hover);
-            }
-        }
+	&[aria-checked=true] {
+		background-color: var(--card-color-select) !important;
+	}
+
+	&[aria-checked=true] {
+		path,
+		%radioIconChecked {
+			fill: hsla(var(--accent-hsl),var(--accent-opacity));
+		}
+	}
+
+    %radioBar {
+        border-radius: var(--card-radius);
     }
+}
 
-    &[aria-checked="true"] {
-        background-color: var(--card-color-active);
+/* RADIO BUTTONS -> CONTEXT MENU */
 
-        svg,
-        %radioIconChecked {
-            color: hsl(var(--accent-hsl));
-        }
+%menuPopoutItem {
+	&[role="menuitemradio"][aria-checked="true"] {
+		%menuPopoutIcon {
+			color: hsl(var(--accent-hsl));
+		}
+	}
+}
+
+%menuPopoutIcon {
+    %menuPopoutRadio {
+        color: currentColor !important;
     }
 }

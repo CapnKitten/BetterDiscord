@@ -7,124 +7,111 @@
  */
 
 %emojiWrapper,
-%emojiContentWrapper {
-    grid-template-rows: 32px auto;
-    grid-row-gap: 16px;
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+%emojiPicker {
+	background-color: transparent;
 }
 
-/* EMOJI PICKER -> NAV LIST */
-
-%emojiPickerNavList {
-    gap: 8px;
-
-    %emojiPickerNavButton {
-        margin: 0;
-        padding: 4px 12px;
-        border-radius: 16px;
-
-        &:hover {
-            background-color: var(--background-tinted-hover);
-        }
-
-        &%emojiPickerNavButtonActive {
-            background-color: var(--background-tinted-active);
-        }
-    }
+%emojiWrapper,
+%popoutTranslate %emojiWrapperAlt {
+    @include add-translucence(before, true);
 }
 
-%emojiPickerNavEmoji,
+/* EMOJI PICKER -> HEADER */
+
+%emojiPickerNavButton {
+	&:hover {
+		background-color: var(--background-modifier-hover);
+	}
+
+	&%emojiPickerNavButtonActive {
+		background-color: var(--background-modifier-selected);
+	}
+}
+
+%emojiPickerNavGif,
 %emojiPickerNavSticker,
-%emojiPickerNavGif {
-    border-bottom: 1px solid var(--popout-border-color);
-    box-shadow: none !important;
+%emojiPickerNavEmoji {
+	background-color: transparent;
+    box-shadow: var(--popout-header-shadow) !important;
 }
 
-%emojiPickerNavGif {
-    padding-bottom: 16px;
+%emojiPickerDiversitySelectorPopout {
+    @include add-translucence(null, true);
+    border: none;
+    overflow: hidden;
 }
 
-%emojiPickerSearchBar {
-    --input-padding: 0 calc(12px - (var(--scrollbar-width) / 2)) 0 12px;
+/* EMOJI PICKER -> HEADER -> SEARCH BAR */
 
-    @include input-format(false, true);
-
-    %emojiPickerSearchInner {
-        padding: 0;
-
-        &::-webkit-scrollbar {
-            width: 0 !important;
-        }
-    }
-
-    %emojiPickerSearchInput {
-        height: auto;
-        margin: 0;
-        padding: 0;
-        color: var(--input-text-color);
-
-        &:-webkit-input-placeholder {
-            color: var(--input-placeholder-color);
-        }
-    }
-
-    %emojiPickerSearchIconLayout {
-        height: auto;
-    }
+%emojiPickerSearchBar,
+%emojiPickerGifSearchBar {
+    @include input-format;
 }
 
-%gifPickerSearchBar {
-    @extend %emojiPickerSearchBar;
+/* EMOJI PICKER -> EMOJIS */
 
-    %gifPickerSearchBarInner {
-        padding: 0;
-    }
-
-    %gifPickerSearchInput {
-        @extend %emojiPickerSearchInput;
-    }
+%emojiPickerCategoryHeaderWrapper {
+	position: relative;
+	background-color: transparent;
 }
 
-/* EMOJI PICKER -> CONTENT */
+%emojiPickerInspector {
+	background-color: transparent
+}
 
 %emojiCategoryWrapper {
-    background-color: var(--app-foreground);
-}
+	top: 60px;
+    background-color: var(--sidebar-color);
 
-%emojiPickerCategoryHeaderWrapper,
-%emojiPickerInspector {
-    background-color: var(--popout-color);
-}
-
-%emojiPickerHasTabWrapper,
-%emojiStickerContainer {
-    %emojiCategoryWrapper {
-        top: 57px;
+    %emojiCategoryUnicodeShortcut {
+        @include add-translucence(null, true);
+        border-radius: 0;
     }
+}
+
+%emojiPickerHasTabWrapper {
+	%emojiCategoryWrapper {
+		top: 52px;
+	}
 }
 
 %emojiPickerItem {
-    border-radius: var(--popout-radius);
-    
+    border-radius: var(--card-radius);
+
     &%emojiPickerItemSelected {
-        background-color: var(--background-tinted-active);
+        background-color: var(--background-modifier-hover);
     }
 }
 
-%gifPickerCategoryFade,
-%gifPickerCategoryFadeBlurple {
-    border-radius: var(--popout-radius);
+/* EMOJI PICKER -> GIFS */
+
+%gifPickerSearchBar {
+	@include input-format;
 }
 
-%gifPickerCategoryFadeBlurple {
-    background-color: hsla(var(--accent-hsl),0.8) !important;
-}
+%gifPickerResult {
+    border-radius: var(--card-radius);
 
-%gifPickerResult:hover,
-%gifPickerResultFocused {
     &:after {
-        box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--popout-color) !important;
+        border-radius: inherit;
+    }
+
+    &:hover {
+        &:after {
+            box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)),inset 0 0 0 3px #2f3136 !important;
+        }
+    }
+
+    %gifPickerGif {
+        border-radius: inherit;
+    }
+
+    %gifPickerCategoryFade,
+    %gifPickerCategoryFadeBlurple {
+        border-radius: inherit
+    }
+
+    %gifPickerCategoryFadeBlurple {
+        background-color: hsla(var(--accent-hsl),0.8) !important;
     }
 }

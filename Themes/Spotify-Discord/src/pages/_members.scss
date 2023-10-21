@@ -6,78 +6,43 @@
  *
  */
 
-%membersPageScroller {
-    padding-bottom: 0;
-}
-
 %membersPageContainer {
     background-color: transparent !important;
 }
 
 %membersPageMainTableContainer {
-    background-color: transparent;
     box-shadow: none;
-    gap: 8px;
 }
 
 %membersPageSearchHeaderContainer {
-    padding: 0;
-}
-
-%listPopoutSearchBar {
-    @include input-format(false, true);
-
-    %listPopoutSearchBarInner {
-        padding: 0;
-    }
-
-    %listPopoutSearchInput {
-        margin: 0;
-        padding: 0;
-    }
+    padding: 8px 0 16px;
 }
 
 %membersPageTable {
     @include card-format;
-    border-top: none;
-}
-
-%membersPageTableHeaderRow {
-    &:first-child {
-        &:after {
-            box-shadow: 0 1px 0 var(--card-border-color);
-        }
-    }
 }
 
 %membersPageMemberRowContainer {
     td {
         &:first-child {
-            border-radius: var(--menu-item-radius) 0 0 var(--menu-item-radius);
+            border-top-left-radius: var(--list-item-radius);
+            border-bottom-left-radius: var(--list-item-radius);
         }
 
         &:last-child {
-            border-radius: 0 var(--menu-item-radius) var(--menu-item-radius) 0;
+            border-top-right-radius: var(--list-item-radius);
+            border-bottom-right-radius: var(--list-item-radius);
         }
     }
 
-    &:hover {
-        td {
-            background-color: var(--background-tinted-hover);
-        }
-
-        %membersPageMemberButton {
-            background-color: var(--background-tinted-active);
-        }
+    %membersPageMemberOtherRoles,
+    %membersPageMemberButton {
+        background-color: var(--background-modifier-active);
     }
-}
-
-%membersPageMemberOtherRoles,
-%membersPageMemberButton {
-    background-color: var(--background-tinted-hover);
 }
 
 %membersPagePaginationContainer {
+    margin-top: 16px;
     padding: 0;
     border-top: none;
 }

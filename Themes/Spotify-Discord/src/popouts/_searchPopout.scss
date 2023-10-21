@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *	SEARCH POPOUT
@@ -5,20 +7,50 @@
  */
 
 %searchPopout {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow) !important;
+    @include add-translucence(null, true, true, true);
+}
+
+%keybindShortcutKey {
+    height: 20px;
+    padding: 0 6px;
+    line-height: 20px;
+    background-color: var(--card-color) !important;
+    border-radius: var(--card-radius);
+    border: none;
+    box-shadow: none !important;
+
+    &:active {
+        height: 20px;
+        padding-bottom: 0;
+        background-color: var(--card-color-hover) !important;
+        border: none !important;
+        transform: none;
+    }
 }
 
 %searchPopoutOption {
-    border-radius: var(--popout-radius);
+	border-radius: var(--popout-radius);
 
-    &:hover {
-        background-color: var(--background-tinted-hover);
-    }
+	&:after {
+		display: none;
+	}
 
-    &:before,
-    &:after {
+	&[aria-selected="true"] {
+		background-color: var(--background-modifier-hover);
+	}
+}
+
+%searchPopoutQueryContainerFocused {
+	background-color: transparent !important;
+}
+
+%searchPopoutQueryContainer {
+	border: none;
+	box-shadow: var(--popout-header-shadow);
+}
+
+%searchPopoutResultsGroup {
+    &:before {
         display: none;
     }
 }

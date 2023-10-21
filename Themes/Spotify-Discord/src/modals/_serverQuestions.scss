@@ -1,0 +1,43 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  SERVER QUESTIONS
+ *
+ */
+
+%promptGradient {
+    background: linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+}
+
+%prompt {
+    @include add-translucence(null, true, true, true);
+
+    %promptNavButtons {
+        background-color: transparent;
+    }
+}
+
+%promptOptionButton {
+    @include card-format(false, true);
+
+    &%promptOptionButtonSelected {
+        background-color: var(--card-color-select);
+    }
+}
+
+%promptOptionCheckIcon {
+    background-color: hsl(var(--accent-hsl));
+
+    path {
+        fill: var(--accent-text-color);
+    }
+}
+
+%promptOptionMemberCount {
+    @extend %promptOptionCheckIcon;
+
+    %textXSNormal {
+        color: var(--accent-text-color) !important;
+    }
+}

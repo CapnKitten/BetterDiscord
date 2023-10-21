@@ -2,63 +2,148 @@
 	@return #{if($important, '!important', '')};
 }
 
-@mixin modal-format($important: false) {
-	background: var(--popout-color) important($important);
-	border-radius: var(--popout-radius-big) important($important);
-	box-shadow: var(--default-shadow) important($important);
+@mixin add-translucence($pseudo, $filter: false, $bg: true, $important: false) {
+	$bg: #{if($bg, 'var(--popout-color)', 'transparent')};
+
+	@if $pseudo != null {
+		background-color: transparent important($important);
+		border-radius: var(--popout-radius) important($important);
+		box-shadow: none important($important);
+		overflow: hidden;
+
+		&:#{$pseudo} {
+			position: absolute;
+			content: " ";
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: $bg;
+			border-radius: var(--popout-radius);
+			box-shadow: var(--popout-shadow);
+
+			@if $filter == true {
+				backdrop-filter: blur(var(--popout-blur));
+			}
+
+			pointer-events: none;
+			z-index: -1;
+		}
+	} @else {
+		background-color: $bg important($important);
+		border-radius: var(--popout-radius) important($important);
+		box-shadow: var(--popout-shadow) important($important);
+
+		@if $filter == true {
+			backdrop-filter: blur(var(--popout-blur));
+		}
+	}
+}
+
+@mixin add-translucence-bg($pseudo, $bg: false) {
+	$bg: #{if($bg, 'var(--popout-color)', 'transparent')};
+
+	overflow: hidden;
+
+	&:#{$pseudo} {
+		content: " ";
+		position: absolute;
+		width: calc(100% + (var(--app-margin) * 2));
+		height: calc(100% + (var(--app-margin) * 2) + 24px);
+		top: calc((var(--app-margin) + 24px) * -1);
+		left: calc(var(--app-margin) * -1);
+		background-color: $bg;
+		background-image: var(--app-bg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+		box-shadow: inset 0 0 0 100vmax var(--main-content-color);
+		filter: blur(var(--app-blur));
+		z-index: -1;
+		pointer-events: none;
+	}
+}
+
+@mixin input-format($height: var(--input-height), $radius: var(--input-radius), $focusType: focus, $important: false) {
+	height: $height;
+	border-radius: $radius;
+    background-color: rgba(var(--textarea-color),var(--textarea-alpha)) important($important);
+	border: none important($important);
+	color: var(--textarea-text-color);
+	transition: var(--transition-time) var(--transition-type);
+
+	&:#{$focusType} {
+		background-color: rgba(var(--textarea-color),var(--textarea-alpha-focus));
+	}
 }
 
 @mixin card-format($important: false, $hover: false) {
 	background-color: var(--card-color) important($important);
 	border-radius: var(--card-radius) important($important);
+	border: none important($important);
 
 	@if $hover == true {
-		transition: 250ms ease all;
-
 		&:hover {
 			background-color: var(--card-color-hover) important($important);
+			border: none;
 		}
 	}
 }
 
 @mixin card-format--header($important: false) {
-	margin-bottom: 0;
-	padding: 16px;
-	background-color: var(--card-color) important($important);
-	border-radius: var(--card-radius) var(--card-radius) 0 0 important($important);
-	border-bottom: 1px solid var(--card-border-color);
-	line-height: 22px;
-	font-size: 1em;
-	font-weight: 500;
-	text-transform: none;
-	color: var(--header-primary);
+	background-color: transparent important($important);
+	box-shadow: var(--card-header-shadow);
+	border: none important($important);
 }
 
-@mixin input-format($important: false, $focus-within: false) {
-	height: var(--input-height);
-	padding: var(--input-padding);
-    background-color: var(--input-color) important($important);
-    border-radius: var(--input-radius);
-	border: 1px solid transparent important($important);
-	color: var(--input-text-color);
-	font-size: 14px;
-	transition: var(--default-time) var(--default-animation) border-color;
+@mixin add-button-style($type, $important: false, $innerText: '.contents-3ca1mk', $bg: var(--button-color), $textColor: var(--button-text-color)) {
+	@if $type == 'solid' {
+		background-color: $bg important($important);
 
-    &:hover {
-		border-color: transparent important($important);
+		&:hover,
+		&:active,
+		&:disabled {
+			background-color: $bg important($important);
+		}
+	} @else if $type == 'outline' {
+		border-color: $bg important($important);
 	}
 
-	@if ($focus-within) {
-		&:focus-within {
-			border-color: var(--input-border-color) important($important);
-		}
-	} @else {
-		&:focus {
-			border-color: var(--input-border-color) important($important);
-		}
+	#{$innerText} {
+		color: $textColor;
+	}
+}
+
+@mixin add-button-action($bg: var(--button-action-color)) {
+	overflow: hidden;
+
+	&:before {
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: $bg;
+		opacity: 0;
+		pointer-events: none;
+		transition: var(--transition-time) var(--transition-type);
 	}
 
-    &::-webkit-input-placeholder {
-        color: var(--input-placeholder-color);
-    }
+	&:hover:before {
+		opacity: 0.075;
+	}
+
+	&:active:before {
+		opacity: 0.15;
+	}
+}
+
+@mixin app-accents($hasText: true, $important: false) {
+	background-color: hsla(var(--accent-hsl),var(--accent-opacity)) important($important);
+
+	@if $hasText {
+		color: var(--accent-text-color) important($important);
+	}
 }
