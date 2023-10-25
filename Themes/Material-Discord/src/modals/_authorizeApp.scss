@@ -61,6 +61,10 @@
     }
 }
 
+%authorizeContent {
+    padding: 0 24px;
+}
+
 %authorizeDiscordConsentBody {
 	margin: 0;
 	padding: 0 calc(24px - var(--scrollbar-thin-width)) 0 24px;
@@ -77,6 +81,34 @@
 	}
 }
 
+%authorizeScopes {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+%authorizeScopes,
+%authorizeSelectorGroup {
+    %defaultColor {
+        @include remove-caps(14px);
+    }
+}
+
+%authorizeScope {
+    margin: 0;
+    padding: 8px 16px;
+    background-color: var(--card-color-filled);
+
+    &:first-of-type {
+        padding-top: 16px;
+        border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+    }
+
+    &:last-of-type {
+        padding-bottom: 16px;
+        border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+    }
+}
+
 %authorizeSectionGroup {
     padding-left: 24px;
     padding-right: 24px;
@@ -87,8 +119,23 @@
 }
 
 %authorizeBotPermissions {
-    padding: 0 24px;
+    padding: 0;
     border-bottom: none;
+}
+
+%authorizePermissionsList {
+    max-height: 25vh;
+    margin-top: 16px;
+    padding: 16px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+    overflow-y: scroll;
+
+    %authorizePermission {
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
 }
 
 %authorizeFooter {
