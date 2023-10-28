@@ -6,147 +6,167 @@
  *
  */
 
-/*%newPostContainer {
-    padding: 6px 12px 8px;
+%forumHeader {
+    position: relative;
+    min-height: 52px;
+    background-color: var(--input-color);
+    border-radius: 26px;
+    border: none;
 
-    &%newPostContainerCollapsed {
-        height: auto;
-        padding: 0 6px 0 12px;
-
-        %inputWrapper {
-            margin-right: 8px;
-
-            %input {
-                padding: 0;
-                box-shadow: none !important;
-                cursor: text;
-
-                &,
-                &::-webkit-input-placeholder {
-                    font-weight: 500;
-                }
-            }
-
-            &:before,
-            &:after {
-                display: none;
-            }
-        }
+    &%forumHeaderWithMatchingPosts {
+        box-shadow: var(--shadow-3dp);
     }
 
-    &:not(%newPostContainerCollapsed) {
-        padding: 16px;
+    %buttonFilled {
+        --button-padding: 0 24px 0 16px;
+    }
+}
+
+%forumHeaderMatchingPostsRow {
+    margin-top: -24px;
+    padding-top: 24px;
+    background-color: var(--input-color);
+    border-radius: 0 0 24px 24px;
+}
+
+%newPostContainer {
+    &%newPostContainerCollapsed {
+        padding: 0;
 
         %newPostFormContainer {
-            padding: 0;
-        }
-
-        %newPostForm {
-            > div {
-                padding: 0;
-            }
+            padding: 0 8px 0 16px;
         }
 
         %newPostTitleContainer {
-            position: relative;
-        }
-
-        %input {
-            --input-color: var(--card-color-filled);
-
-            margin-top: 0;
-            margin-right: 0;
-            border-radius: 20px;
-            box-shadow: none;
-
-            &:focus {
-                box-shadow: none;
-            }
+            gap: 12px;
         }
 
         %newPostPrefixElement {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            top: 0;
-            right: 0;
-            margin: 0;
-            z-index: 2;
+            position: relative;
 
             svg {
-                padding: 8px;
+                padding: 0;
             }
+        }
+
+        %input%inputTextArea {
+            --input-color: transparent;
+            --input-padding: 0;
+
+            border-radius: 0;
+        }
+
+        %newPostGuidelinesButton {
+            height: var(--button-height);
+            margin: 0;
         }
     }
 
-    %newPostContentContainer {
-        padding-left: 0;
+    %newPostPrefixElement {
+        width: auto;
+        height: var(--button-height);
+        margin: 0;
+
+        div[role="button"],
+        svg {
+            height: inherit;
+        }
     }
+}
+
+
+%newPostContainer {
+    padding: 16px;
 
     %newPostFormContainer {
         padding: 0;
-    }
 
-    %newPostAttachmentContainer {
-        width: 80px;
-        height: 80px;
-        margin-left: 16px;
-
-        %newPostAttachmentUploadInput {
-            @include card-format;
-        }
-
-        %newPostAttachmentImageSmall {
-            height: 80px;
-            border-radius: var(--card-radius-big);
-        }
-
-        %newPostAttachmentBadge {
-            background-color: hsl(var(--accent-hsl--material-you));
-            border-width: 4px;
-            border-color: var(--input-color);
-            color: var(--accent-text-color--material-you);
-        }
-    }
-
-    %newPostAttachmentPopoutContainer {
-        %newPostAttachmentPopout {
-            @include popout-format;
-            border: none;
-        }
-
-        %channelTextAreaUpload {
+        + %newPostForm > div {
             padding: 0;
         }
     }
 
-    %newPostTextArea {
+    %newPostTitleContainer {
+        position: relative;
+    }
+
+    %newPostBodyContainer {
+        margin-right: 94px;
+    }
+
+    %newPostPrefixElement {
+        position: absolute;
+        right: 0;
+        z-index: 2;
+
+        svg {
+            padding: 0 8px;
+        }
+    }
+
+    %input%inputTextArea {
+        --input-color: var(--card-color-filled);
+
+        height: var(--button-height);
+        margin: 0;
+        padding: var(--input-padding);
+        border-radius: 20px;
+        box-shadow: none;
+        font-weight: 400;
+        line-height: var(--button-height);
+        cursor: text;
+
+        &::-webkit-input-placeholder {
+            font-weight: inherit;
+        }
+    }
+
+    %buttonFilled:disabled {
+        opacity: 0.5 !important;
+    }
+}
+
+%newPostContentContainer {
+    padding-left: 0;
+
+    %channelTextArea {
         min-height: 68px;
         margin-top: 16px;
     }
 
-    %newPostTextAreaInner {
+    %channelTextAreaScrollable {
         min-height: 68px;
         padding: 6px 12px;
         background-color: var(--card-color-filled);
-        border-radius: 19px;
+        border-radius: var(--card-radius-big);
         color: var(--input-text-color);
 
         &::-webkit-input-placeholder {
             color: var(--input-placeholder-color);
         }
     }
+}
 
-    %newPostTagsContainer {
-        margin-top: 12px;
+%newPostAttachmentPopoutContainer {
+    position: absolute;
+    top: calc(var(--button-height) + (16px * 2));
+    right: 16px;
+    z-index: 3;
+
+    %newPostAttachmentUploadInput {
+        background-color: transparent;
+        border: 1px solid var(--card-border-color);
     }
 
-    %newPostTagsDivider {
-        width: 100%;
-        left: 0;
+    %newPostAttachmentUploadInput,
+    %spoilerContainer,
+    %newPostAttachmentImageSmall {
+        border-radius: var(--card-radius-big);
     }
 
-    %newPostControlsContainer {
-        margin-top: 8px;
+    %newPostAttachmentBadge {
+        background-color: hsl(var(--accent-hsl--material-you));
+        color: var(--accent-text-color--material-you);
+        border-color: var(--input-color);
     }
-}*/
+}

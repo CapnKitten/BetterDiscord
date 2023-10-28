@@ -1,0 +1,326 @@
+/*
+ *
+ *  CUSTOM THEMES
+ *
+ */
+
+%themeDark,
+%themeLight {
+    --app-bg: var(--bg-overlay-4,var(--background-tertiary)) !important;
+    --accent-text-color--material-you: var(--interactive-active);
+
+    %titlebarWithBackgroundOverride {
+        background: transparent;
+    }
+
+    %base {
+        background: var(--bg-overlay-2, var(--background-secondary));
+        border-radius: var(--card-radius-big);
+    }
+
+    %headerBarThemed {
+        background: var(--bg-overlay-2, var(--background-secondary));
+    }
+
+    %standardSidebarView {
+        background: var(--app-bg);
+    }
+
+    %settingsSidebarScroller {
+        background-color: transparent;
+    }
+
+    %settingsContentRegion {
+        background: var(--bg-overlay-2, var(--background-secondary));
+    }
+
+    %settingsCardPrimary,
+    %settingsAccountProfileCard,
+    %settingsProfileCard,
+    %deviceSessions > div:not([class]),
+    %deviceOtherSessions,
+    %accountList,
+    %connectionCard,
+    %titleH5%eyebrow + div:not([class]) div[role=radiogroup],
+    div[role=radiogroup] {
+        background: var(--bg-overlay-3, var(--background-secondary));
+    }
+
+    %radioItem {
+        &:hover {
+            background: var(--bg-overlay-4, var(--background-secondary));
+        }
+
+        &:active,
+        &[aria-checked=true] {
+            background: var(--bg-overlay-5, var(--background-secondary));
+        }
+    }
+
+    %settingsSidebar {
+        %settingsSideItem {
+            &:hover {
+                background: var(--bg-overlay-hover, var(--background-primary));
+            }
+
+            &%settingsSideItemSelected {
+                background: var(--bg-overlay-selected, var(--background-primary));
+            }
+        }
+    }
+
+    %settingsProfileCustomizationSectionBorder {
+        background: var(--bg-overlay-3, var(--background-secondary)) padding-box, linear-gradient(45deg, hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%), hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)) border-box;
+    }
+
+    %connectionCardMetadataContainer,
+    %integrationCard {
+        background: var(--bg-overlay-4, var(--background-secondary));
+    }
+
+    %buttonFilled {
+        --button-background: var(--bg-overlay-selected,var(--background-modifier-selected));
+        --button-text-color: var(--interactive-active);
+    }
+
+    %connectionCardUpsellContainer {
+        background: var(--bg-overlay-4, var(--background-secondary));
+    }
+
+    %guildsWrapper {
+        background: transparent;
+
+        %scroller {
+            background: transparent;
+        }
+    }
+
+    %guilds {
+        background: transparent;
+    }
+
+    %guildLink {
+        %guildChildWrapper {
+            background: var(--bg-overlay-1, var(--background-primary));
+            color: var(--interactive-active);
+        }
+
+        &%guildLinkSelected {
+            %guildChildWrapper {
+                background: var(--bg-overlay-6, var(--background-primary));
+                color: var(--interactive-active);
+            }
+        }
+    }
+
+    %circleIconButtonMask,
+    %circleIconButton {
+        background: var(--bg-overlay-1, var(--background-primary));
+        color: var(--interactive-active);
+
+        &%circleIconButtonSelected {
+            background: var(--bg-overlay-6, var(--background-primary));
+            color: var(--interactive-active);
+        }
+    }
+
+    %privateChannels {
+        background: transparent;
+
+        %scroller {
+            background: inherit;
+        }
+    }
+
+    %channelWrapper {
+        &,
+        &:hover {
+            %channelLink {
+                background: transparent;
+            }
+        }
+
+        &:hover {
+            background: var(--bg-overlay-hover, var(--background-primary));
+        }
+
+        &%channelWrapperSelected {
+            background: var(--bg-overlay-selected, var(--background-primary));
+        }
+    }
+
+    %nowPlayingColumn {
+        background: transparent;
+
+        %nowPlayingColumnContainer {
+            background: inherit;
+        }
+    }
+
+    %activeNowCardInteractive {
+        background: var(--bg-overlay-2, var(--background-primary));
+
+        &:hover,
+        &%activeNowCardActive {
+            background: var(--bg-overlay-3, var(--background-primary));
+        }
+
+        %activeNowCardSection {
+            background: var(--bg-overlay-4, var(--background-primary));
+        }
+    }
+
+    %channelsSidebar {
+        background: transparent;
+
+        %channelsHeaderContainer {
+            &:not(%channelHasBanner) %channelsHeader {
+                background-color: transparent;
+            }
+        }
+    }
+
+    %channelsContainer {
+        background: transparent !important;
+
+        &:after {
+            --main-color: transparent;
+        }
+    }
+
+    %connectionPanel,
+    %activityPanel,
+    %listeningAlongPanel,
+    %spotifyPanel,
+    %vencordSpotifyPlayer {
+        background: var(--bg-overlay-3, var(--background-tertiary)) !important;
+    }
+
+    %accountPanel {
+        background: var(--bg-overlay-4, var(--background-tertiary)) !important;
+    }
+
+    %chat,
+    %chatContent {
+        background: transparent !important;
+    }
+
+    %chatForm {
+        background-color: transparent;
+    }
+
+    %channelTextAreaTyping {
+        background: var(--bg-overlay-2, var(--background-secondary));
+    }
+
+    %messagesWrapper {
+        background: var(--bg-overlay-3, var(--background-secondary));
+
+        &:not(%messageGroupStart) {
+            &:before,
+            &:after {
+                width: calc(var(--message-radius) / 3);
+                height: calc(var(--message-radius) / 2);
+                top: calc(var(--message-radius) / 2 * -1);
+                background: var(--bg-overlay-3, var(--background-secondary));
+                border: none;
+            }
+        }
+
+        &:hover {
+            background: var(--bg-overlay-4, var(--background-secondary));
+        }
+    }
+
+    %messageListItem {
+        &:hover {
+            + %messageListItem {
+                %messagesWrapper {
+                    &:not(%messageGroupStart) {
+                        &:before,
+                        &:after {
+                            background: var(--bg-overlay-4, var(--background-secondary));
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    %mentioned {
+        %messageContentInner {
+            background: var(--bg-overlay-5, var(--background-primary));
+        }
+    }
+
+    %mentionWrapper {
+        color: var(--text-normal);
+    }
+
+    %markup {
+        a {
+            span {
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent;
+                background: var(--bg-overlay-6, var(--background-primary));
+            }
+        }
+    }
+
+    %embed {
+        &%embedFull {
+            background: var(--bg-overlay-2, var(--background-secondary));
+        }
+    }
+
+    %inviteWrapper {
+        background: var(--bg-overlay-2, var(--background-secondary));
+    }
+
+    %messageButtonWrapper {
+        background: var(--bg-overlay-5, var(--background-secondary));
+
+        %messageButton {
+            color: var(--interactive-active);
+        }
+    }
+
+    %members {
+        &,
+        & > div {
+            background: transparent;
+        }
+
+        %member {
+            background: inherit;
+        }
+    }
+
+    %channelTextAreaUpload {
+        background: var(--bg-overlay-5, var(--background-secondary));
+    }
+
+    %searchResultsWrap {
+        background: var(--bg-overlay-3, var(--background-secondary));
+    }
+
+    %themeEditor {
+        background: var(--bg-overlay-2, var(--background-secondary));
+
+        &:before {
+            background: var(--app-bg);
+        }
+
+        &:after {
+            background: var(--bg-overlay-2, var(--background-secondary));
+        }
+    }
+}
+
+%buttonFilled,
+%buttonOutlined,
+%buttonLink,
+%buttonInverted {
+    background: var(--button-background);
+}
