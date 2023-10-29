@@ -7,133 +7,123 @@
  */
 
 %forumContainer {
-    background-color: transparent !important;
+    background: transparent;
 }
 
-%forumMainCard {
+%forumHeader {
     @include card-format;
+    border: none;
 
-    &%forumMainCardHeader {
-        border: none !important;
-        box-shadow: none !important;
-    }
-
-    &%forumMainCardHeaderWithMatchingPosts {
-        border-radius: var(--card-radius) var(--card-radius) 0 0;
-    }
-
-    %forumMainCardTitle {
-        %input {
-            padding-left: 42px;
-        }
+    &%forumHeaderWithMatchingPosts {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
 
-%forumMainCardSearchIcon,
-%forumMainCardCloseIcon {
-    margin-left: 8px;
-}
-
-%forumMainCardMatchingPostsRow {
+%forumHeaderMatchingPostsRow {
     background-color: var(--card-color);
     border-radius: 0 0 var(--card-radius) var(--card-radius);
 }
 
-/* FORUM -> TAGS */
+%forumTagsContainer {
+    padding: 16px 0 0;
+}
 
-%postSortDropdown {
-    margin-top: -1px;
-    gap: unset;
-
-    %postSortDropdownInner {
-        color: var(--button-text-color);
-
-        svg {
-
-        }
-    }
-
-    %postSortDropdownText {
-        color: var(--button-text-color) !important;
+%forumSortDropdown {
+    %buttonContents {
+        color: var(--accent-text-color);
     }
 }
 
-%postTag {
-    background-color: var(--card-color) !important;
-    border: none;
-
-    &:hover {
-        background-color: var(--card-color-hover) !important;
-    }
-
-    &%postTagSelected {
-        background-color: hsla(var(--accent-hsl),0.3) !important;
-
-        &:hover {
-            background-color: hsla(var(--accent-hsl),0.4) !important;
-        }
-    }
+%forumSortDropdownText {
+    color: inherit !important;
 }
 
-%postSortContainer {
+%forumSortContainer {
+    padding: 0;
     background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 
     %menuPopout {
         min-width: unset;
+
+        %menuPopoutGroupLabel {
+            padding-top: 0;
+        }
     }
 }
 
-%postTagsContainer {
-    @include add-translucence(before, true);
-}
+%forumTagsButton {
+    --button-padding: 0 8px 0 12px;
 
-/* FORUM -> POSTS THREAD */
+    &%forumTagsButtonWithCount {
+        --button-padding: 0 8px;
+    }
 
-%postThread {
-    &:before {
-        display: none;
+    %forumTagsButtonInner {
+        color: inherit;
+    }
+
+    svg {
+        color: var(--accent-text-color);
     }
 }
 
-%postThreadIconWrapper {
-    background-color: var(--card-color);
+%forumTagsCountContainer {
+    background-color: var(--accent-text-color);
+
+    %forumTagsCountText {
+        color: hsl(var(--accent-hsl));
+    }
 }
 
-%postThreadButtonContainer {
-    padding: 8px 16px;
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
+%forumFilterContainer {
+    padding: 16px 16px 8px;
+    @include add-translucence(null, true, true, true);
+
+    %forumFilterHeader {
+        padding: 0;
+    }
+
+    %forumFilterCountContainer {
+        background-color: hsl(var(--accent-hsl));
+
+        %forumFilterCountText {
+            color: var(--accent-text-color);
+        }
+    }
+}
+
+%forumCard {
+    padding-bottom: 16px;
+
+    &[style*="height: 558px"] {
+        padding-bottom: 0;
+    }
+}
+
+/* FORUM -> PILLS */
+
+%postPill {
+    background-color: var(--card-color) !important;
     border: none;
 
-    %button,
-    %postThreadAddReactButton {
-        height: 32px;
-        background-color: var(--card-color);
-        border: none;
+    &%postPillClickable {
+        &:hover {
+            background-color: var(--card-color-hover) !important;
+        }
+    }
+
+    &%postPillSelected {
+        background-color: hsl(var(--accent-hsl),0.3) !important;
 
         &:hover {
-            background-color: var(--card-color-hover);
+            background-color: hsl(var(--accent-hsl),0.4) !important;
         }
-    }
 
-    %button {
-        %buttonContents {
-            padding: 0 8px;
-            background-color: transparent;
-            border: none;
+        %postPillText {
+            color: hsl(var(--accent-hsl));
         }
-    }
-}
-
-%postThreadDivider {
-    display: none;
-}
-
-%postThreadStartConversationBox {
-    margin-top: 8px;
-    background-color: var(--message-color);
-
-    &:after {
-        border-top-color: var(--message-color);
     }
 }

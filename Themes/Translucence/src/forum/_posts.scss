@@ -4,56 +4,54 @@
  *
  */
 
-%post,
-%postCard {
+%postContainer {
+    background-color: var(--card-color);
+    border-radius: var(--card-radius);
+    border: none !important;
+
     &:hover {
         background-color: var(--card-color-hover);
         box-shadow: none;
         transform: none;
     }
-}
 
-%postCardBodyMedia,
-%postCardContentPreview {
-    border-radius: var(--message-radius);
-}
-
-%postCardContentPreview {
-    background-color: var(--message-color);
-    border: none;
-}
-
-%postCardTextContentFooter {
-    background: none !important;
-}
-
-%postReaction {
-    background-color: var(--message-color);
-	border-radius: var(--message-radius);
-	border: none;
-
-    &:hover {
-        background-color: var(--message-color);
-    }
-
-    &%postReactionMe {
-        background-color: hsla(var(--accent-hsl),0.3);
-		border-color: transparent;
-
-        &:hover {
-			background-color: hsla(var(--accent-hsl),0.4);
-		}
-
-		%postReactionCount {
-			color: hsla(var(--accent-hsl),var(--accent-opacity));
-		}
+    &%postContainerIsOpen {
+        background-color: var(--card-color-select) !important;
     }
 }
 
 %postPinIcon {
     background-color: hsl(var(--accent-hsl));
 
+    svg {
+        filter: none;
+    }
+
     path {
         fill: var(--accent-text-color);
+    }
+}
+
+%postContentPreview,
+%postTextContentFooter {
+    background-color: var(--card-color-hover);
+}
+
+%postContentPreview {
+    border-radius: var(--card-radius);
+    border: none;
+}
+
+%postTextContentFooter {
+    background: transparent !important;
+}
+
+%postContainer {
+    &:not(%postContainerIsOpen) {
+        &:hover {
+            %postContentPreview {
+                background-color: var(--card-color);
+            }
+        }
     }
 }
