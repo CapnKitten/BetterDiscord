@@ -1,0 +1,85 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	SERVER SHOP
+ *
+ */
+
+%serverShopContent {
+    background-color: var(--chat-color);
+
+    %serverShopContentContainer {
+        width: 100%;
+    }
+}
+
+%serverShopHeroCard,
+%serverShopFilters {
+    max-width: unset;
+}
+
+%serverShopHeroCard {
+    @include card-format(false, 0, true);
+    box-shadow: none;
+
+    %serverShopHeroInfoContainer {
+        padding: 0 16px 16px;
+    }
+
+    %serverShopHeroCoverImage {
+        border-radius: var(--card-radius-big);
+    }
+}
+
+%serverShopFilters {
+    %buttonFilled {
+        %buttonContents {
+            color: var(--accent-text-color--material-you);
+        }
+
+        %textSMMedium {
+            color: inherit !important;
+        }
+    }
+}
+
+%serverShopHeader {
+    @include remove-caps(14px);
+}
+
+%serverShopTab {
+    border-radius: var(--card-radius-big);
+
+    &%serverShopTabSelected {
+        background-color: hsl(var(--accent-hsl--material-you),0.3);
+        border-color: hsl(var(--accent-hsl--material-you));
+        box-shadow: none;
+    }
+}
+
+%serverShopProductCard {
+    @include card-format(true, 0, true, true);
+}
+
+%serverShopCard {
+    &:hover {
+        %serverShopCardContent {
+            box-shadow: none;
+            outline: none;
+            transform: none;
+        }
+    }
+}
+
+/* SERVER SHOP -> PRODUCT MODAL */
+
+%serverShopProductModalHeaderImage {
+    width: calc(100% + 48px);
+    margin: -24px -24px -16px;
+    border-radius: var(--card-radius-big);
+}
+
+%serverShopProductModalBody {
+    background-color: transparent;
+}

@@ -1,0 +1,123 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  SERVER SETTINGS SERVER PRODUCTS
+ *
+ */
+
+%serverProductsBasicInfoContainer {
+    @include card-format(false, 16px, true);
+}
+
+%serverProductsCoverImageUploader {
+    %settingsImageUploaderInner {
+        @include card-format(false, 0, true);
+    }
+
+    %settingsImageUploaderIcon {
+        left: unset;
+        right: 0;
+    }
+}
+
+%serverProductsMetricCard,
+%serverProductsTableContainer {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %textXSMedium {
+        @include remove-caps(14px);
+    }
+}
+
+/*SERVER SETTINGS SERVER PRODUCTS -> CREATE PRODUCT */
+
+%serverProductTextArea {
+    background-color: var(--input-color);
+    border-radius: 19px;
+}
+
+%serverProductThumbnail {
+    border-radius: var(--card-radius-big);
+
+    %serverProductThumbnailRadioOptionImage {
+        border-radius: calc(var(--card-radius-big) - 2px) !important;
+    }
+}
+
+%serverProductUploadDownloadableContainer {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %textSMMedium {
+        color: var(--accent-text-color--material-you) !important;
+    }
+}
+
+%serverProductAttachedRoleContainer {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+    border: none;
+}
+
+%serverProductBenefitToggleContainer {
+    padding: 8px 2px 8px 12px;
+    background-color: var(--card-color-filled);
+    border-radius: 20px;
+}
+
+%serverProductPublishableCard {
+    background-color: hsl(var(--accent-hsl--material-you),0.15);
+    border-radius: var(--card-radius-big);
+    border-color: hsl(var(--accent-hsl--material-you));
+    box-shadow: none;
+}
+
+%serverProductWasEverPublishedCard {
+    background-color: hsl(var(--alert-hsl),0.15);
+    border-radius: var(--card-radius-big);
+    border: 1px solid hsl(var(--alert-hsl));
+}
+
+%serverProductPreview {
+    %textXsBold {
+        @include remove-caps(14px);
+    }
+}
+
+/*SERVER SETTINGS SERVER PRODUCTS -> PRODUCT CARD */
+
+%serverProductCard {
+    @include card-format(true, 0, true, true);
+
+    %serverProductCardThumbnail {
+        border-radius: var(--card-radius-big);
+    }
+}
+
+%serverProductBadge {
+    background-color: var(--card-color-active) !important;
+    border-radius: 13px;
+}
+
+%serverProductRoleTag {
+	min-width: 28px;
+	height: 28px;
+	gap: 6px;
+	padding: 0 12px 0 6px;
+	background-color: transparent;
+	border-radius: 8px;
+	border: 1px solid var(--card-border-color);
+
+	%serverProductRoleColor {
+		width: 16px;
+		height: 16px;
+		margin: 0;
+		border-radius: 8px;
+
+        + span {
+            display: none !important;
+        }
+	}
+}
