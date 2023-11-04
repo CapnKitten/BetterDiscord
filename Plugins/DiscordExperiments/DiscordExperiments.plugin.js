@@ -42,7 +42,7 @@ module.exports = (() => {
 					github_username: "CapnKitten"
 				}
 			],
-			version: "1.0.1",
+			version: "1.0.2",
 			description: "Enables Discord experiments",
 			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/DiscordExperiments/DiscordExperiments.plugin.js",
 			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/DiscordExperiments/DiscordExperiments.plugin.js"
@@ -73,23 +73,15 @@ module.exports = (() => {
 	} : (([Plugin, Api]) => {
 		const plugin = (Plugin, Api) => {
 			return class DiscordExperiments extends Plugin {
-
 				onStart() {
-					let wpRequire;
-					window.webpackChunkdiscord_app.push([[Math.random()],{},(req) => {wpRequire = req;},]);
-					let mod = Object.values(wpRequire.c).find((x) => typeof x?.exports?.Z?.isDeveloper !== "undefined");
-					let usermod = Object.values(wpRequire.c).find((x) => x?.exports?.default?.getUsers);
-					let nodes = Object.values(mod.exports.Z._dispatcher._actionHandlers._dependencyGraph.nodes);
+					let c = webpackChunkdiscord_app.push([[Symbol()],{},({c})=>Object.values(c)]);
+					let u = c.find((x)=> x?.exports?.default?.getUsers).exports.default;
+					let m = Object.values(u._dispatcher._actionHandlers._dependencyGraph.nodes);
 
-					try {
-					  nodes.find((x) => x.name == "ExperimentStore").actionHandler["OVERLAY_INITIALIZE"]({ user: { flags: 1 } });
-					} catch (e) {}
-
-					let oldGetUser = usermod.exports.default.__proto__.getCurrentUser;
-
-					usermod.exports.default.__proto__.getCurrentUser = () => ({ isStaff: () => true });
-					nodes.find((x) => x.name == "DeveloperExperimentStore").actionHandler["CONNECTION_OPEN"]();
-					usermod.exports.default.__proto__.getCurrentUser = oldGetUser;
+					u.getCurrentUser().flags |= 1;
+					m.find((x)=>x.name === "DeveloperExperimentStore").actionHandler["CONNECTION_OPEN"]();
+					try {m.find((x)=>x.name === "ExperimentStore").actionHandler["OVERLAY_INITIALIZE"]({user:{flags: 1}})} catch {}
+					m.find((x)=>x.name === "ExperimentStore").storeDidChange();
 				}
 
 				stop() {
