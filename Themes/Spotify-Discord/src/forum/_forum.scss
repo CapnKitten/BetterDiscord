@@ -30,10 +30,14 @@
     --button-background: hsl(var(--accent-hsl));
     --button-text-color: var(--accent-text-color);
 
-    %forumSortDropdownInner,
-    %forumSortDropdownText {
-        color: inherit !important;
+    %buttonContents {
+        color: var(--accent-text-color);
     }
+}
+
+%forumSortDropdownText {
+    color: inherit !important;
+    font-weight: inherit;
 }
 
 %forumTagsButton {
@@ -53,6 +57,27 @@
     }
 }
 
+%forumFilterContainer {
+    --card-color-hover: var(--card-color);
+    
+    padding: 16px 16px 8px;
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+    box-shadow: var(--default-shadow);
+
+    %forumFilterHeader {
+        padding: 0;
+    }
+
+    %forumFilterCountContainer {
+        background-color: hsl(var(--accent-hsl));
+
+        %forumFilterCountText {
+            color: var(--accent-text-color);
+        }
+    }
+}
+
 /* FORUM -> TAGS */
 
 %forumTagsContainer {
@@ -63,20 +88,20 @@
     height: var(--button-height);
 }
 
-%forumPostTagPill {
+%postPill {
     height: var(--button-height);
     background-color: var(--card-color-hover);
     border-radius: var(--button-radius);
 
-    &%forumPostTagPillClickable {
-        &:not(%forumPostTagPillDisabled) {
+    &%postPillClickable {
+        &:not(%postPillDisabled) {
             &:hover {
                 background-color: var(--card-color-active);
             }
         }
     }
 
-    &%forumPostTagPillSelected {
+    &%postPillSelected {
         background-color: hsla(var(--accent-hsl),0.2) !important;
         border-color: hsl(var(--accent-hsl)) !important;
     }
