@@ -611,15 +611,13 @@ body,
  *  VOICE CHAT
  *
  */
-.callContainer_cbde45 {
+.wrapper_bd2abe:not(.fullScreen__5263c) .callContainer_cbde45 {
   overflow: visible;
 }
-
-.root__3eef0.idle_d696d0 .bottomControls__8bd89 {
+.wrapper_bd2abe:not(.fullScreen__5263c) .root__3eef0.idle_d696d0 .bottomControls__8bd89 {
   transform: translate3d(0, calc(var(--app-bar-size) + 8px), 0);
 }
-
-.bottomControls__8bd89 {
+.wrapper_bd2abe:not(.fullScreen__5263c) .bottomControls__8bd89 {
   transform: translate3d(0, var(--app-bar-size), 0);
 }
 
@@ -1052,8 +1050,13 @@ body,
   --button-background: hsl(var(--accent-hsl));
   --button-text-color: var(--accent-text-color);
 }
-.sortDropdown_ec3016 .sortDropdownText_e8ca8d {
+.sortDropdown_ec3016 .contents_fb6220 {
+  color: var(--accent-text-color);
+}
+
+.sortDropdownText_e8ca8d {
   color: inherit !important;
+  font-weight: inherit;
 }
 
 .tagsButton_e96762 {
@@ -1070,6 +1073,23 @@ body,
   color: hsl(var(--accent-hsl));
 }
 
+.container_ae7412 {
+  --card-color-hover: var(--card-color);
+  padding: 16px 16px 8px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--default-shadow);
+}
+.container_ae7412 .header__4ad5b {
+  padding: 0;
+}
+.container_ae7412 .countContainer__51412 {
+  background-color: hsl(var(--accent-hsl));
+}
+.container_ae7412 .countContainer__51412 .countText__8c2eb {
+  color: var(--accent-text-color);
+}
+
 /* FORUM -> TAGS */
 .tagsContainer_e0ece5 {
   padding: 16px 0 0;
@@ -1079,18 +1099,77 @@ body,
   height: var(--button-height);
 }
 
+.pill_f055c3 {
+  height: var(--button-height);
+  background-color: var(--card-color-hover);
+  border-radius: var(--button-radius);
+}
+.pill_f055c3.clickable__8b375:not(.disabled__70fda):hover {
+  background-color: var(--card-color-active);
+}
+.pill_f055c3.selected_dc72d1 {
+  background-color: hsla(var(--accent-hsl), 0.2) !important;
+  border-color: hsl(var(--accent-hsl)) !important;
+}
+
 /*
  *
  *  FORUM NEW POST / SEARCH POSTS
  *
  */
-/*
- *
- *  FORUM FLOATING POST
- *
- */
-.chat__52833.threadSidebarFloating_b980c7 .toolbar__88c63 {
-  margin-right: 450px;
+.header_c01fde {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
+  border: none;
+}
+.header_c01fde.headerWithMatchingPosts_da85d4 {
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+.header_c01fde .input_d266e7.textArea__97e3f {
+  --input-height: 36px !important;
+  --input-padding: 0 12px !important;
+  height: var(--input-height);
+  margin: 0;
+  line-height: calc(var(--input-height) - 2px);
+}
+
+.matchingPostsRow__510be {
+  background-color: var(--card-color);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
+
+.container__7940a:not(.collapsed_fa2cdb) .formContainer__8f0e4 .form_c73970 {
+  margin-right: 16px;
+}
+.container__7940a:not(.collapsed_fa2cdb) .titleContainer__01b90 {
+  margin-bottom: 16px;
+}
+
+.formContainer__8f0e4 .channelTextArea__56a36 {
+  background-color: transparent;
+}
+.formContainer__8f0e4 .scrollableContainer__33e06 {
+  --main-textarea-color: var(--input-color);
+  padding: 6px 8px;
+  border-radius: var(--input-radius);
+  border: 1px solid transparent;
+  transition: var(--default-time) var(--default-animation) border-color;
+}
+.formContainer__8f0e4 .scrollableContainer__33e06:focus-within {
+  border-color: var(--input-border-color);
+}
+
+.uploadInput_bbab2f {
+  background-color: var(--input-color);
+  border-radius: var(--input-radius);
+}
+
+.imageSmall__59845 {
+  border-radius: var(--input-radius);
+}
+
+.container__4f0d0 .spoilerContainer_b653f1 {
+  border-radius: var(--input-radius);
 }
 
 /*
@@ -1098,7 +1177,80 @@ body,
  *  FORUM POSTS
  *
  */
+.container_c24cbd, .container__99b06 {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
+  border: none;
+  transition: none;
+}
+.container_c24cbd:hover, .container__99b06:hover {
+  background-color: var(--card-color-hover);
+  box-shadow: none;
+  transform: none;
+}
+.container_c24cbd.isOpen_d88bb6, .container__99b06.isOpen_d88bb6, .container_c24cbd.isOpen__8593d, .container__99b06.isOpen__8593d {
+  background-color: var(--card-color-active) !important;
+}
+.container_c24cbd .pinIcon__39b6e, .container__99b06 .pinIcon__39b6e {
+  background-color: hsl(var(--accent-hsl));
+  color: var(--accent-text-color);
+}
+.container_c24cbd .pinIcon__39b6e path, .container__99b06 .pinIcon__39b6e path {
+  fill: currentColor;
+}
+
+.container_c24cbd:hover .pill_f055c3, .container__99b06:hover .pill_f055c3 {
+  background-color: var(--card-color-active);
+}
+.container_c24cbd.isOpen_d88bb6 .pill_f055c3, .container__99b06.isOpen_d88bb6 .pill_f055c3, .container_c24cbd.isOpen__8593d .pill_f055c3, .container__99b06.isOpen__8593d .pill_f055c3 {
+  background-color: var(--card-color-hover);
+}
+
 /* FORUM POSTS -> POST BUTTON ACTIONS */
+.container__8ee50 {
+  background-color: var(--app-foreground);
+}
+
+.container__8ee50 .button_afdfd9,
+.container__8ee50 .addReactButton__59750 {
+  --button-height: 26px;
+  --button-padding: 0 10px;
+  height: 24px;
+  padding: 0 12px;
+  background-color: transparent;
+  border-radius: var(--button-radius);
+  border: 1px solid hsl(0, 0%, 80%);
+  font-size: 14px;
+  font-weight: 600;
+  color: hsl(0, 0%, 80%);
+}
+.container__8ee50 .button_afdfd9:hover,
+.container__8ee50 .addReactButton__59750:hover {
+  background-color: transparent;
+  border-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%) !important;
+  opacity: 0.95;
+  transform: scale(1.05);
+}
+.container__8ee50 .button_afdfd9:active,
+.container__8ee50 .addReactButton__59750:active {
+  opacity: 0.75;
+}
+.container__8ee50 .button_afdfd9:active:hover,
+.container__8ee50 .addReactButton__59750:active:hover {
+  transform: scale(1);
+}
+.container__8ee50 .button_afdfd9 .contents_fb6220 {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: var(--button-text-color);
+}
+
+.divider_ffec75 {
+  background-color: var(--card-color);
+}
+
 /*
  *
  *  BUTTONS
@@ -1338,10 +1490,10 @@ body,
 }
 
 /* INPUTS -> EMOJI INPUTS */
-.emojiButtonContainer-gCE6AT, .emojiButtonContainer-1n1BNw, .emojiButtonContainer-2HweDK {
+.emojiButtonContainer__59552 {
   margin: var(--input-padding);
 }
-.emojiButtonContainer-gCE6AT + .inputWrapper__934f5 .input_d266e7, .emojiButtonContainer-1n1BNw + .inputWrapper__934f5 .input_d266e7, .emojiButtonContainer-2HweDK + .inputWrapper__934f5 .input_d266e7 {
+.emojiButtonContainer__59552 + .inputWrapper__934f5 .input_d266e7 {
   padding-left: 42px;
 }
 
