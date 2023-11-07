@@ -44,6 +44,11 @@
     right: -24px;
 }
 
+%nitroPlanHeaderBackground,
+%nitroPlanPanningAnimation {
+    border-radius: var(--popout-radius-big);
+}
+
 %breadcrumbsWrapper {
     padding: 0 24px 16px;
     background-color: transparent;
@@ -53,14 +58,33 @@
     }
 }
 
+%nitroPlanSpinner {
+    background-color: transparent;
+}
+
 %nitroPlanSliderBody {
     width: 392px;
     padding-bottom: 0;
 }
 
-%nitroPlanOption {
-    padding: 16px;
-    @include card-format--list;
+%nitroPlanSelectSeparator,
+%nitroPlanSelectSeparatorLower {
+    display: none;
+}
+
+%nitroPlanSelectSeparatorLower + %textXSNormal {
+    margin-top: 12px;
+}
+
+%nitroPlanOptionClickableContainer {
+    padding: 0 12px;
+	background-color: transparent;
+	border-radius: calc(var(--card-radius-big) / 1.65);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+    &:hover {
+        background-color: var(--card-color-hover) !important;
+    }
 }
 
 %nitroPlanSelectDivider {
@@ -78,4 +102,9 @@
     %nitroTableDivider {
         background-color: var(--card-border-color);
     }
+}
+
+%nitroPlanPaymentSourceWarning {
+    margin-top: 8px;
+    @include card-format(false, 8px, true);
 }
