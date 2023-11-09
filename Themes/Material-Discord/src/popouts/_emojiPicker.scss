@@ -234,6 +234,7 @@
 /* EMOJI PICKER -> CATEGORIES */
 
 %emojiCategoryList {
+	top: 64px;
 	border-radius: 0 0 0 var(--popout-radius-big);
 
 	%emojiCategoryScroller {
@@ -341,7 +342,7 @@ body:active %emojiWrapper:not(:active) {
 	}
 
 	%gifPickerCategoryFadeBlurple {
-		background-color: hsla(var(--accent-hsl),0.8) !important;
+		background-color: hsl(var(--accent-hsl),0.8) !important;
 	}
 
 	&:hover {
@@ -417,4 +418,50 @@ body:active %emojiWrapper:not(:active) {
 		border-radius: 0 0 calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25);
 		box-shadow: none;
 	}
+}
+
+/* EMOJI PICKER -> SUPER REACT */
+
+%emojiSuperReactContainer {
+    border-radius: var(--popout-radius-big);
+    overflow: hidden;
+
+    %emojiSuperReactCloseButton {
+        display: flex;
+        width: 28px;
+        height: 28px;
+        background-color: var(--card-button-color-hover);
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+%emojiSuperReactContent {
+    height: 100%;
+    padding: 24px calc(24px - var(--scrollbar-width)) 24px 24px;
+    overflow-y: scroll;
+    gap: 16px;
+
+    %emojiSuperReactContentFill {
+        margin: 0;
+        border-radius: var(--card-radius-big);
+    }
+
+    %emojiSuperReactContentContainer {
+        padding: 0;
+
+        %headlingXlBold {
+            font-weight: 400;
+        }
+    }
+
+    %emojiSuperReactGradientUpsellWrapper {
+        border-radius: var(--card-radius-big);
+    }
 }

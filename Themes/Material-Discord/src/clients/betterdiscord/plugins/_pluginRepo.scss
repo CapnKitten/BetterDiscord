@@ -1,0 +1,132 @@
+/*
+ *
+ *  BETTERDISCORD PLUGIN -> PluginRepo
+ *
+ */
+
+%repoHeader {
+    margin: 0 32px 0 0 !important;
+    padding-bottom: 0 !important;
+}
+
+%repoScroller {
+    margin: 0 !important;
+    padding-top: 16px !important;
+    padding-right: 82px !important;
+
+    %repoTabContent {
+        margin-top: 0;
+    }
+}
+
+%repoCard {
+    height: 400px;
+    background-color: var(--card-color-filled) !important;
+    border-radius: var(--card-radius-big);
+    border: none;
+    box-shadow: none;
+
+    &:hover {
+        box-shadow: none;
+        transform: none;
+
+        %repoCoverWrapper {
+            transform: none;
+        }
+    }
+
+    %repoCoverWrapper,
+    %repoCover {
+        border-radius: var(--card-radius-big);
+    }
+
+    %repoCoverBadge {
+        background-color: hsl(var(--alert-hsl)) !important;
+        color: var(--alert-text-color);
+        border-radius: 8px !important;
+        text-transform: capitalize !important;
+        font-size: 14px;
+    }
+
+    %repoIconWrapper {
+        background-color: var(--card-color-active) !important;
+        border-radius: 50%;
+        border: 4px solid var(--card-color-filled);
+    }
+
+    %repoInfo {
+        overflow: visible;
+    }
+
+    %repoTitle {
+        position: relative;
+        line-height: normal;
+        font-size: 1.4em;
+        font-weight: 400;
+        color: var(--card-header-text-color);
+
+        &:before {
+            position: absolute;
+            content: " ";
+            width: 62px;
+            height: 32px;
+            top: -2px;
+            right: -2px;
+            background-color: var(--card-button-color);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+    }
+}
+
+%repoTitleButton {
+    position: relative;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50%;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--card-button-color-hover);
+    }
+
+    &%repoFavButton {
+        margin-left: 2px;
+    }
+}
+
+%repoTag {
+    height: 24px;
+    padding: 0 8px;
+    background-color: var(--card-button-color) !important;
+    line-height: 24px;
+    border-radius: 6px;
+    text-transform: capitalize;
+}
+
+%repoButton {
+    --button-padding: 0 24px 0 16px;
+
+    height: var(--button-height);
+    padding: var(--button-padding);
+    gap: 8px;
+    background-color: hsl(var(--accent-hsl--material-you)) !important;
+    border-radius: var(--button-radius);
+    font-size: 1em;
+    color: var(--accent-text-color--material-you);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+    &[style="background-color: var(--status-positive);"] {
+        background-color: rgba(255,255,255,0.15) !important;
+        color: #fff;
+    }
+
+    &[style="background-color: var(--status-danger);"] {
+        background-color: hsl(var(--alert-hsl)) !important;
+        color: var(--alert-text-color);
+    }
+
+    %repoStatIcon {
+        margin-right: 0;
+    }
+}
