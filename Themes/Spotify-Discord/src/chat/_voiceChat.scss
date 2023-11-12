@@ -4,6 +4,10 @@
  *
  */
 
+%callContainer {
+    width: 0;
+}
+
 %callWrapper {
     &:not(%callWrapperFullScreen) {
         %callContainer {
@@ -18,6 +22,18 @@
 
         %callBottomControls {
             transform: translate3d(0,var(--app-bar-size),0);
+        }
+    }
+
+    &%callMinimum {
+        %callRoot%callIdle {
+            %callBottomControls {
+                transform: none;
+            }
+        }
+
+        %callBottomControls {
+            transform: none !important;
         }
     }
 }
