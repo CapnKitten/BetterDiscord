@@ -5,7 +5,6 @@
 
 Using:
 
-![Markdown image](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white "Markdown")
 ![Github image](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white "Github")
 
 # Repo info
