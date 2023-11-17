@@ -19,6 +19,20 @@
 	@include popout-format;
 }
 
+%emojiWrapperChat {
+    border-radius: var(--popout-radius-big);
+
+    &%emojiWrapperIsBurstReactionUnlimited {
+        border-radius: var(--popout-radius-big);
+        box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you));
+
+        &:before {
+            border-radius: inherit;
+            box-shadow: 0 0 100px hsl(var(--accent-hsl--material-you));
+        }
+    }
+}
+
 /* EMOJI PICKER -> HEADER */
 
 %emojiPickerNavButtonSuperReactActive {
@@ -142,6 +156,11 @@
     }
 }
 
+body:active %drawerSizingWrapper:not(:active) {
+	opacity: 0;
+	transition: 150ms ease all;
+}
+
 %emojiPickerNavButtonActive {
     background: none;
 }
@@ -211,6 +230,35 @@
 	}
 }
 
+%emojiPickerHighlightNewlyAdded {
+    border-radius: 8px 8px 8px 0;
+    border-color: hsl(var(--accent-hsl--material-you)) !important;
+    overflow: hidden;
+
+    &%emojiPickerHighlightOneItem {
+        border-radius: 8px 8px 0 0
+    }
+
+    %emojiPickerItem {
+        border-radius: 0;
+    }
+}
+
+%emojiPickerHighlightNewlyAddedBadge {
+    background-color: hsl(var(--accent-hsl--material-you)) !important;
+    border-radius: 0 0 8px 8px;
+    color: var(--accent-text-color--material-you);
+
+    %emojiPickerHighlightNewlyAddedBadgeStar {
+        color: inherit;
+    }
+
+    div {
+        color: inherit !important;
+        text-transform: capitalize;
+    }
+}
+
 %emojiPickerUpsell {
 	height: auto;
 	margin-bottom: 2px;
@@ -229,6 +277,19 @@
 %emojiPickerBadgeLabel {
 	border-radius: 13px;
 	text-transform: none;
+
+	&%emojiPickerNewlyAddedBadge {
+		background: hsl(var(--accent-hsl--material-you));
+		color: var(--accent-text-color--material-you);
+
+		%emojiPickerNewlyAddedBadgeIcon {
+			color: inherit;
+		}
+
+		div {
+			color: inherit !important;
+		}
+	}
 }
 
 /* EMOJI PICKER -> CATEGORIES */
@@ -308,11 +369,6 @@
 	&::-webkit-input-placeholder {
 		font-family: var(--app-font);
 	}
-}
-
-body:active %emojiWrapper:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
 }
 
 /* EMOJI PICKER -> GIFS */
@@ -421,6 +477,20 @@ body:active %emojiWrapper:not(:active) {
 }
 
 /* EMOJI PICKER -> SUPER REACT */
+
+%emojiPickerLabel {
+    background-color: var(--card-color-filled);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+    &%emojiPickerLabelChecked {
+        background-color: hsl(var(--accent-hsl--material-you));
+        color: var(--accent-text-color--material-you);
+    }
+
+    svg path {
+        fill: currentColor;
+    }
+}
 
 %emojiSuperReactContainer {
     border-radius: var(--popout-radius-big);

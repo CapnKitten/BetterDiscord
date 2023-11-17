@@ -32,9 +32,22 @@
 	}
 }
 
+body:active {
+	%messagesPopoutWrap,
+	%recentMentionsPopout {
+		&:not(:active) {
+			opacity: 0;
+			transition: 150ms ease all;
+		}
+	}
+}
+
 %messagesPopoutHeader {
+	height: auto;
+	min-height: unset;
 	padding: 24px 24px 0;
 	background-color: transparent;
+	border-bottom: 1px solid var(--popout-header-border);
 	box-shadow: none;
 
 	%headingMDMedium,
@@ -49,13 +62,6 @@
 		margin-bottom: 16px;
 	}
 
-	&%messagesPopoutHeaderExpanded {
-		height: auto;
-		min-height: unset;
-		padding: 24px 24px 0;
-		border-bottom: 1px solid var(--popout-header-border);
-	}
-
 	%messagesPopoutExpandedInboxHeader {
 		padding-bottom: 0;
 	}
@@ -65,7 +71,7 @@
 	}
 
 	%topPill {
-		height: inherit;
+		height: 48px;
 	}
 
 	%messagesPopoutHeaderFriendRequestButton,
@@ -179,11 +185,6 @@
 			background-color: var(--menu-item-select);
 		}
 	}
-}
-
-body:active %messagesPopoutWrap:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
 }
 
 /* MESSAGES POPOUT -> RECENT MENTIONS */
