@@ -7,10 +7,14 @@
  */
 
 %eventCard {
-    @include card-format(false, 16px, false, true);
+    @include card-format(false, 16px, true, true);
 
     %eventCardRsvpCount {
         background-color: var(--menu-item-hover);
+    }
+
+    %eventCardThumbnail {
+        width: 200px;
     }
 
     %eventCardDivider {
@@ -22,10 +26,14 @@
     }
 }
 
+%eventCardPadding {
+    padding: 0;
+}
+
 /* EVENTS -> EVENTS MODAL */
 
 %eventBanner {
-    border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
+    border-radius: var(--popout-radius-big);
 }
 
 %eventModalHeader {
@@ -69,10 +77,6 @@
 
 /* EVENTS -> CREATE EVENT */
 
-%eventCreateProgressBarContainer {
-    padding-top: 24px;
-}
-
 %eventCreateSelectedProgressBar {
     background-color: hsl(var(--accent-hsl--material-you));
 }
@@ -96,6 +100,7 @@
 
 %eventStartDateContainer {
     @include new-input-format;
+    box-shadow: none !important;
 
     %eventStartDateContent {
         height: var(--input-height);
@@ -110,6 +115,7 @@
     @include card-format(true, 16px, true);
 
     %eventPreviewCardCoverContainer {
+        margin: -16px -16px 16px;
         border-radius: var(--card-radius-big);
     }
 }

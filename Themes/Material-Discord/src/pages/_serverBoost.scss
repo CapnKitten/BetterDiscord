@@ -125,6 +125,7 @@
 
 %serverBoostTierCard {
     border-radius: var(--card-radius-big);
+	box-shadow: none;
 }
 
 /* SERVER BOOST -> TOP PERKS */
@@ -154,21 +155,22 @@
     border-radius: var(--card-radius-big);
 }
 
-/* SERVER BOOST -> BOOSTING FAQ */
+/* SERVER BOOST -> BOOST MODAL */
 
-%serverBoostFaqWrapper {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+%serverBoostSubscriptionCard {
+    @include card-format(false, 16px, true);
 
-    %serverBoostFaqList {
-        border: none;
+    %serverBoostSubscriptionTierPill {
+        background-color: var(--card-color-active) !important;
     }
+}
 
-    %serverBoostFaqListItem {
-        border-bottom-color: var(--card-border-color);
+%pendingCancellationCard {
+    background-color: hsl(var(--warning-hsl),0.3);
+    border-radius: var(--card-radius-big);
+    border: none;
 
-        &:last-of-type {
-            border-bottom: none;
-        }
+    %pendingCancellationIcon {
+        color: hsl(var(--warning-hsl));
     }
 }
