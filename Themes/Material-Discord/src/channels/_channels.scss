@@ -316,7 +316,18 @@
 
 %voiceUserList {
 	%voiceUserContent {
+		min-height: 30px;
 		margin: 2px 0 0;
+	    padding: 0 3px;
+	    gap: 8px;
+
+	    %voiceUserAvatar {
+	        margin: 0;
+	    }
+
+	    %voiceUserIcons {
+	        margin-right: 0;
+	    }
 	}
 
 	%voiceUserClickable {
@@ -350,4 +361,71 @@
 	%voiceUserAvatarImage {
 		border-color: var(--main-color);
 	}
+}
+
+/* CHANNELS -> VOICE USERS -> CUSTOM VC ACTIVITY */
+
+%voiceUserCustomActivityIconSpacing {
+    margin-left: 0;
+}
+
+%voiceUserSelfHangStatus {
+    margin-right: 0;
+    background-color: var(--card-button-color);
+    border-radius: 13px;
+    border: none;
+    transition: var(--default-time) var(--default-animation) background-color;
+}
+
+%voiceUserActivityPopout {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+    box-shadow: var(--shadow-3dp);
+
+    %voiceUserActivityIconWidget {
+        background-color: var(--card-button-color) !important;
+        border-radius: 50%;
+        border: none;
+        transition: var(--default-time) var(--default-animation) background-color;
+
+        &:hover {
+            background-color: var(--card-button-color-hover) !important;
+        }
+
+        &%voiceUserActivitySelectedWidget {
+            background-color: var(--card-color-filled) !important;
+        }
+    }
+
+    %voiceUserActivityDivider {
+        margin: 16px 0;
+        background-color: var(--popout-header-border);
+    }
+
+    %voiceUserActivityIconContainer {
+        padding: 0;
+    }
+
+    %voiceUserActivitySetCutomButton {
+        height: var(--button-height);
+        padding: 0 20px;
+        background-color: hsl(var(--accent-hsl--material-you));
+        border-radius: var(--button-radius);
+        border: none;
+        color: var(--accent-text-color--material-you);
+        justify-content: center;
+
+        svg {
+            display: none;
+        }
+
+        %voiceUserActivityEditIconColor {
+            color: inherit;
+        }
+
+        %textXSMedium {
+            color: inherit !important;
+            font-size: 16px;
+        }
+    }
 }
