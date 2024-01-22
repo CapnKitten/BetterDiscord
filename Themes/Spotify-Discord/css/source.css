@@ -55,6 +55,7 @@
   --main-textarea-text-color: hsl(0,0%,60%);
   --main-textarea-placeholder-color: hsl(0,0%,54%);
   --main-textarea-typing-color: hsla(0,0%,7%,0.9);
+  --textarea-margin: calc(calc(var(--app-bar-size) - var(--main-textarea-min-height)) / 2);
   --switch-knob-color: hsl(0,0%,100%);
   --switch-slider-color: hsl(0,0%,33%);
   --message-color-hover: hsl(0,0%,9%);
@@ -71,6 +72,10 @@
   --text-link: hsl(var(--accent-hsl));
   --default-shadow: 0 16px 24px hsla(0,0%,0%,0.3), 0 6px 8px hsla(0,0%,0%,0.2);
   --code-font: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace;
+  --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin) - 22px);
+}
+:root:has(#vencord-native-titlebar-style), :root:has(.typeWindows__5fa63) {
+  --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin));
 }
 
 /*
@@ -158,6 +163,10 @@ body,
 }
 .sidebar_ded4b5 .container__590e2 {
   background-color: transparent;
+}
+
+body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_ded4b5 {
+  height: var(--content-full-height);
 }
 
 .link__95dc0 {
@@ -526,7 +535,6 @@ body,
  *
  */
 .form__13a2c {
-  --textarea-margin: calc( calc(var(--app-bar-size) - var(--main-textarea-min-height)) / 2 );
   position: relative;
   width: 100%;
   bottom: calc(var(--app-bar-size) * -1);
@@ -1997,6 +2005,7 @@ body,
  *
  */
 .container__5c7e7 {
+  height: var(--content-full-height);
   background-color: var(--app-foreground);
   border-radius: var(--app-card-radius);
 }
@@ -2076,6 +2085,10 @@ body,
  *  MESSAGE REQUESTS
  *
  */
+.container_d3a736 {
+  height: var(--content-full-height);
+}
+
 .messageRequestItem__3b951:hover, .messageRequestItem__3b951.selected_ee2dc5, .messageRequestItem__3b951.selected__2244b {
   border-radius: var(--card-radius);
 }
@@ -2098,6 +2111,7 @@ body,
  *
  */
 .applicationStore_fc7d76 {
+  height: var(--content-full-height);
   background-color: var(--app-foreground);
   border-radius: var(--app-card-radius);
 }
@@ -2758,6 +2772,7 @@ pre, pre code, code.inline, .codeBlockText__6172e, .codeLine__3797b, .codeBlockL
  *
  */
 .layer__2efaa .shop_b31ed2 {
+  height: var(--content-full-height);
   margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
   border-radius: var(--app-card-radius);
   overflow: hidden;
@@ -3288,6 +3303,10 @@ pre, pre code, code.inline, .codeBlockText__6172e, .codeLine__3797b, .codeBlockL
 }
 .wrapper_a7e7a8 .tree__7a511:focus {
   outline: none;
+}
+
+body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .wrapper_a7e7a8 {
+  height: var(--content-full-height);
 }
 
 /* SERVERS LIST -> HOME BUTTON AND DMS */
