@@ -1,0 +1,43 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  DISCORD SHOP
+ *
+ */
+
+%shopContainer {
+    background-color: var(--main-content-color);
+}
+
+%shopHeroBanner,
+%shopBanner {
+    border-radius: var(--card-radius);
+}
+
+%shopCard {
+    @include card-format(true, true);
+
+    &:hover {
+        top: unset;
+        box-shadow: none !important;
+    }
+
+    %shopCardAvatarContainer {
+        box-shadow: var(--card-header-shadow);
+    }
+
+    %shopCardText {
+        width: 100%;
+        left: 0;
+        bottom: 0;
+    }
+
+    %shopCardTextBlur {
+        border-radius: 0 0 var(--card-radius) var(--card-radius);
+    }
+
+    %shopCardBackground {
+        background-color: transparent !important;
+    }
+}
