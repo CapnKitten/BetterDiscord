@@ -70,6 +70,7 @@
     --main-textarea-text-color: hsl(0,0%,60%);
     --main-textarea-placeholder-color: hsl(0,0%,54%);
     --main-textarea-typing-color: hsla(0,0%,7%,0.9);
+    --textarea-margin: calc(calc(var(--app-bar-size) - var(--main-textarea-min-height)) / 2);
 
 	--switch-knob-color: hsl(0,0%,100%);
 	--switch-slider-color: hsl(0,0%,33%);
@@ -96,4 +97,12 @@
 
     --default-shadow: 0 16px 24px hsla(0,0%,0%,0.3), 0 6px 8px hsla(0,0%,0%,0.2);
     --code-font: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace;
+
+    // Subtract margins and title bar height unless using native titlebars
+    --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin) - 22px);
+    // Placeholder selectors not supported yet inside :has()
+    &:has(#vencord-native-titlebar-style),
+    &:not(:has(.typeWindows__5fa63)) {
+        --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin));
+    }
 }
