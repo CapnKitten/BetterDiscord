@@ -19,6 +19,20 @@
 		background-color: hsl(var(--alert-hsl)) !important;
 		color: var(--alert-text-color);
 	}
+
+	&%bdButtonColorBrand {
+        %bdButtonContent {
+            svg:not([fill]) {
+                path[fill] {
+                    fill: currentColor;
+                }
+            }
+
+            svg[fill] {
+                fill: currentColor;
+            }
+        }
+    }
 }
 
 %bdAddonSearchBar {
@@ -89,6 +103,12 @@
 %bdAddonViews {
 	%bdAddonViewsButton {
 		background-color: transparent !important;
+
+		&:not(%bdAddonViewsButtonSelected) {
+            svg[fill] {
+                fill: var(--interactive-normal);
+            }
+        }
 
 		&%bdAddonViewsButtonSelected {
 			background-color: hsl(var(--accent-hsl--material-you)) !important;
