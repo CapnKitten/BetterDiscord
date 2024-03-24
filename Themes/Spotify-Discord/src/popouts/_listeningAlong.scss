@@ -1,11 +1,18 @@
+@use '../mixins' as *;
+
 /*
  *
- *  LISTENING ALONG CHANNEL POPOUT
+ *  LISTENING ALONG POPOUT
  *
  */
 
 %listeningAlongPopout {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+    @include add-translucence(null, true);
+
+	&:before {
+		position: fixed;
+		width: calc(100% - 16px);
+		height: 100%;
+		margin-left: 16px;
+	}
 }

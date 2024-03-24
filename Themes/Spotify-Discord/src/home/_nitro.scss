@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  NITRO
@@ -5,10 +7,25 @@
  */
 
 %nitroHomePage {
-    background-color: var(--app-foreground);
-    border-radius: var(--app-card-radius);
+    background-color: var(--main-content-color);
 }
 
-%nitroHomePageScroller {
-    background-color: transparent;
+%nitroPremiumContainer,
+%nitroSettingsContainer,
+%nitroHomeTierCard {
+    %button {
+        --button-background: hsla(0,0%,100%,0.15);
+        --button-text-color: #fff;
+        --button-action-color: #fff;
+    }
+}
+
+%nitroSettingsContainer,
+%nitroHomeTierCard {
+    border-radius: var(--card-radius);
+}
+
+%nitroHomeBigPerkCard,
+%nitroHomeSmallPerkCard {
+    @include card-format;
 }

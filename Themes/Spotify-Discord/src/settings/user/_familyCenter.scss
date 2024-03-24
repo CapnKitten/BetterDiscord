@@ -6,32 +6,34 @@
  *
  */
 
-%familyCenterGetStartedContainer,
-%familyCenterFeatureCard,
-%familyCenterSeeContainer,
-%familyCenterBox,
-%familyCenterEnableCard {
+%familyCenterGetStartedContainer {
     @include card-format;
-    box-shadow: none;
 }
 
-%familyCenterFeatureCardCircle {
-    background-color: var(--card-color-active);
+%familyCenterFeatureCard {
+    @include card-format;
 }
 
-%familyCenterSeeRow {
-    background-color: var(--card-color-hover);
-    border-radius: var(--card-radius);
+%familyCenterSeeContainer {
+    @include card-format;
+
+    %familyCenterSeeRow {
+        @extend %familyCenterSeeContainer;
+    }
 
     %familyCenterSeeRowIconContainer {
-        background-color: var(--card-color-active);
+        background-color: var(--background-modifier-hover);
     }
 }
 
-%familyCenterBoxStepNumber {
-    background-color: var(--card-color-active);
+%familyCenterBox {
+    @include card-format;
 
-    %headingMDSemibold {
-        color: hsl(var(--accent-hsl)) !important;
+    %familyCenterBoxStepNumber {
+        background-color: var(--background-modifier-hover);
     }
+}
+
+%familyCenterEnableCard {
+    @include card-format;
 }

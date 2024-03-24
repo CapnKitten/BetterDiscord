@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  THREADS POPOUT
@@ -5,109 +7,33 @@
  */
 
 %threadsPopoutContainer {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+    @include add-translucence(null, true);
 
     %threadsPopoutHeader {
-        --button-height: 24px;
-
-        height: 52px;
-        min-height: 52px;
-        gap: 12px;
-        background-color: transparent;
-
-        > * {
-            margin-right: 0;
-        }
-
-        %threadsPopoutHeaderSpacer {
-            display: none;
-        }
+        @include card-format--header;
     }
 
     %threadsPopoutSearchBar {
-        height: 24px;
-        background-color: var(--input-color);
-        border-radius: 12px;
+        @include input-format(auto);
+    }
 
-        %threadsPopoutSearchInner {
-            padding: 0;
-        }
-
-        %threadsPopoutSearchInput {
-            height: 100%;
-            margin: 0;
-            padding: 0 8px;
-            color: var(--input-text-color);
-
-            &::-webkit-input-placeholder {
-                color: var(--input-placeholder-color);
-            }
-        }
-
-        %threadsPopoutSearchIconLayout {
-            margin-right: 4px;
-        }
+    %threadPreview {
+		@include card-format(null, true);
     }
 }
-
-%threadPreview {
-    background-color: var(--background-tinted-hover);
-    border-radius: var(--menu-item-radius);
-    border: none;
-
-    &:hover {
-        background-color: var(--background-tinted-active);
-    }
-}
-
-/* THREADS POPOUT -> CHANNEL POPOUT */
 
 %channelThreadPopout {
-    padding: 4px;
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
-
-    %channelThreadPopoutTitle {
-        margin-left: 0;
-        padding: 8px 8px 6px;
-    }
+    @include add-translucence(null, true);
 
     %channelThreadPopoutRow {
-        margin: 0;
-        border-radius: calc(var(--popout-radius) - 2px);
-        color: var(--menu-text-color);
-        font-weight: 500;
+        border-radius: var(--list-item-radius);
 
         &:hover {
-            background-color: var(--background-tinted-hover);
-            color: var(--menu-text-color);
+            background-color: var(--background-modifier-hover);
         }
     }
 
     %channelThreadPopoutMore {
-        position: relative;
-        margin-top: 0;
-        padding: 8px;
-        border-radius: calc(var(--popout-radius) - 2px);
-        border: none;
-        color: var(--menu-text-color);
-
-        &:before {
-            position: absolute;
-            content: " ";
-            width: 100%;
-            height: 1px;
-            top: 0;
-            left: 0;
-            background-color: var(--menu-border-color);
-        }
-
-        &:hover {
-            background-color: var(--background-tinted-hover);
-            text-decoration: none;
-        }
+        color: hsl(var(--accent-hsl));
     }
 }

@@ -4,33 +4,67 @@
  *
  */
 
-%embed {
+%attachment,
+%embedFull,
+%embedCard,
+%threadEmbed {
+    background-color: var(--card-color);
 	border-radius: var(--card-radius);
-
-	&%embedFull {
-		background-color: var(--background-tinted-active);
-	}
 }
 
-%attachment {
-    background-color: var(--background-tinted-active);
-    border-radius: var(--card-radius);
+%embedCardWithFooter {
+    border-radius: var(--card-radius) var(--card-radius) 0 0;
+    box-shadow: var(--card-header-shadow);
+
+    %messagesWrapper {
+        margin-left: 48px;
+        margin-right: 0;
+    }
+}
+
+%embedCardFooterContainer {
+    background-color: var(--card-color);
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+
+    %embedCardFooterIcon path {
+        fill: currentColor;
+    }
+}
+
+%threadCTA {
+    color: hsl(var(--accent-hsl));
+}
+
+%inviteWrapper,
+%activityInvite,
+%playerAudio {
+    background-color: var(--card-color) !important;
+	border-radius: var(--card-radius);
     border: none;
 }
 
-%buildOverrideWrapper {
-    background-color: var(--background-tinted-active);
-    border-radius: var(--card-radius);
+%inviteSplash {
+    border-top-right-radius: var(--card-radius);
+	border-top-left-radius: var(--card-radius);
 }
 
-/* ATTACHMENTS -> INVITE */
+%voiceMessageContainer {
+	background-color: var(--card-color);
+}
 
-%inviteWrapper {
-    background-color: var(--background-tinted-active);
-    border-radius: var(--card-radius);
+%voiceMessageContainerRipple {
+    display: none;
+}
 
-    %inviteButton {
-        height: var(--button-height);
+%voiceMessagePlayButtonContainer {
+    background: hsl(var(--accent-hsl)) !important;
+
+    &:active {
+        transform: none;
+    }
+
+    %voiceMessagePlayIcon {
+        color: var(--accent-text-color) !important;
     }
 }
 
@@ -38,35 +72,39 @@
 
 %textContainer,
 %textContainerFooter {
-    background-color: var(--background-tinted-active);
+    background-color: var(--card-color);
     border: none;
-}
-
-%textContainer {
-    border-radius: var(--card-radius) var(--card-radius) 0 0;
-}
-
-%textContainerFooter {
     border-radius: 0 0 var(--card-radius) var(--card-radius);
-    border-top: 1px solid var(--background-tinted-highlight);
 }
 
-/* ATTACHMENTS -> PLAYER */
+%attachmentNewMosaicStyle {
+    %textContainer,
+    %textContainerFooter {
+        background-color: var(--card-color);
+        border: none;
+    }
 
-%player {
-    border-radius: var(--card-radius);
+    %textContainer {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+        box-shadow: var(--card-header-shadow);
+
+        %codeHLJS {
+            background-color: transparent;
+        }
+    }
+
+    %textContainerFooter {
+        border-radius: 0 0 var(--card-radius) var(--card-radius);
+    }
 }
 
-%playerAudio {
-    background-color: var(--background-tinted-active) !important;
+%textContainerModal {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius) var(--popout-radius) 0 0;
     border: none;
-}
+    box-shadow: var(--card-header-shadow);
 
-%playerAudioControls,
-%playerVideoControls {
-
-}
-
-%playerAudioControls {
-    border-radius: 16px;
+    %codeHLJS {
+        background-color: transparent;
+    }
 }

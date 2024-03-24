@@ -4,155 +4,154 @@
  *
  */
 
-%buttonFilled,
-%buttonOutlined,
-%buttonInverted,
-%buttonLink {
-    --button-background: hsl(var(--accent-hsl));
-	--button-text-color: var(--accent-text-color);
-	--button-outline: none;
+%button {
+    border-radius: var(--button-radius) !important;
 
-    padding: var(--button-padding);
-    background-color: var(--button-background) !important;
-	border-radius: var(--button-radius);
-    border: var(--button-outline) !important;
-	font-size: 14px;
-	font-weight: 700;
-    color: var(--button-text-color) !important;
-
-    &:not([disabled]) {
-        &:hover {
-			box-shadow: none;
-            opacity: 0.95;
-			transform: scale(1.05);
-
-			%buttonContents {
-				background-image: none;
-			}
-		}
-
-        &:active {
-            opacity: 0.75;
-
-			&:hover {
-				transform: scale(1);
-			}
-		}
-    }
-
-    %defaultColor {
-        font-size: inherit;
-        font-weight: inherit;
-        color: inherit;
+    * {
+        text-shadow: none;
     }
 }
-
-/* BUTTONS -> FILLED */
-
-%buttonFilled {
-    &%buttonBrand {
-        --button-background: hsl(var(--accent-hsl));
-        --button-text-color: var(--accent-text-color);
-    }
-
-    &%buttonPrimary {
-        --button-background: hsl(0,0%,94%);
-        --button-text-color: hsl(0,0%,0%);
-    }
-
-    &%buttonRed {
-        --button-background: hsl(var(--alert-hsl));
-        --button-text-color: var(--alert-text-color);
-    }
-
-    &%buttonGreen {
-        --button-background: var(--button-positive-background);
-        --button-text-color: hsl(0,calc(var(--saturation-factor, 1) * 0%),100%);
-    }
-
-    &%buttonColor {
-        --button-background: hsl(0,0%,94%);
-        --button-text-color: hsl(0,0%,0%);
-    }
-}
-
-/* BUTTONS -> OUTLINED */
-
-%buttonOutlined {
-    &%buttonPrimary {
-        --button-text-color: hsl(var(--accent-hsl));
-        --button-outline: 1px solid hsl(var(--accent-hsl));
-    }
-
-    &%buttonRed {
-        --button-background: hsla(var(--alert-hsl),0.1);
-        --button-text-color: hsl(var(--alert-hsl));
-        --button-outline: 1px solid hsl(var(--alert-hsl));
-    }
-
-    &%buttonWhite {
-        --button-text-color: hsl(0,0%,100%);
-        --button-outline: 1px solid hsl(0,0%,100%);
-    }
-}
-
-/* BUTTONS -> LINKS */
-
-%buttonLink {
-    --button-background: hsla(0,0%,0%, 0.1);
-    --button-outline: 1px solid hsl(0,0%,80%);
-    --button-text-color: hsl(0,0%,100%);
-
-    &:hover {
-        --button-outline: 1px solid hsl(0,0%,100%);
-    }
-    
-    &%buttonPrimary {
-        --button-background: hsla(0,0%,0%, 0.1);
-        --button-outline: 1px solid hsl(0,0%,80%);
-        --button-text-color: hsl(0,0%,100%);
-
-        &:hover {
-            --button-outline: 1px solid hsl(0,0%,100%);
-        }
-    }
-
-    &%buttonWhite {
-        --button-background: hsla(0,0%,0%, 0.1);
-        --button-outline: 1px solid hsl(0,0%,80%);
-        --button-text-color: hsl(0,0%,100%);
-
-        &:hover {
-            --button-outline: 1px solid hsl(0,0%,100%);
-        }
-    }
-
-    &:hover {
-        text-decoration: none;
-    }
-}
-
-/* BUTTONS -> SIZES */
 
 %buttonSizeSmall,
 %buttonSizeMedium,
 %buttonSizeLarge,
-%buttonSizeXlarge,
-%buttonSizeGrow {
-    min-width: auto;
+%buttonSizeXlarge {
     height: var(--button-height);
     min-height: var(--button-height);
-}
-
-%buttonIconSize,
-%buttonSizeIcon {
-    --button-padding: 0;
-
     min-width: var(--button-height);
+    padding: var(--button-padding);
 }
 
-/* BUTTONS -> CALL BUTTONS */
+%buttonFilled,
+%buttonOutlined,
+%buttonLink,
+%buttonInverted {
+    --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
+	--button-text-color: var(--accent-text-color);
+    --button-outline: none;
 
-%callCenterButton {
-    --button-height: 56px;
+	background-color: var(--button-background) !important;
+	border: var(--button-outline) !important;
+	color: var(--button-text-color) !important;
+    border: var(--button-outline) !important;
+	//overflow: hidden;
+
+    &:after {
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+        background-color: var(--button-action-color);
+        border-radius: var(--button-radius);
+		opacity: 0;
+		pointer-events: none;
+		transition: var(--default-time) var(--default-animation) opacity;
+	}
+
+    &:hover:after {
+		opacity: 0.075;
+	}
+
+	&:active:after {
+		opacity: 0.15;
+	}
+
+    %buttonContents {
+        color: var(--button-text-color);
+
+        svg {
+            filter: none;
+        }
+    }
+}
+
+%buttonLink {
+    &:hover {
+        %buttonContents {
+            background-image: linear-gradient(0deg,transparent,transparent 1px,hsl(var(--accent-hsl)) 0,hsl(var(--accent-hsl)) 2px,transparent 0) !important;
+        }
+    }
+}
+
+%callButtonColorable {
+    --button-background: var(--background-modifier-hover);
+	--button-text-color: #fff;
+    --button-radius: 50%;
+
+	background-color: var(--button-background) !important;
+	color: var(--button-text-color) !important;
+
+    &:after {
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+        background-color: var(--button-action-color);
+        border-radius: 50%;
+		opacity: 0;
+		pointer-events: none;
+		transition: var(--default-time) var(--default-animation) opacity;
+	}
+
+    &:hover:after {
+		opacity: 0.075;
+	}
+
+	&:active:after {
+		opacity: 0.15;
+	}
+
+    &%callButtonPrimaryDark {
+        --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
+    	--button-text-color: var(--accent-text-color);
+    }
+
+    &%callButtonRed {
+        --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
+        --button-text-color: var(--alert-text-color);
+	}
+
+    &%callButtonWhite {
+		--button-background: #fff;
+		--button-text-color: #060607;
+	}
+
+	&%callButtonLight {
+		--button-text-color: #060607;
+	}
+
+	&%callButtonLightActive {
+		--button-background: var(--background-modifier-active);
+		--button-text-color: #060607;
+	}
+
+    %callCenterIcon {
+		color: var(--button-text-color) !important;
+	}
+}
+
+%buttonLink {
+    --button-background: transparent;
+    --button-text-color: hsla(var(--accent-hsl),var(--accent-opacity));
+    --button-action-color: transparent;
+}
+
+%buttonRed {
+    --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
+    --button-text-color: var(--alert-text-color);
+    --button-action-color: var(--alert-action-color);
+}
+
+%buttonQuestionMark {
+    background-color: hsla(var(--accent-hsl),var(--accent-opacity));
+    border-radius: 50%;
+
+    %buttongQuestionMarkIcon {
+        color: var(--accent-text-color);
+        filter: none;
+    }
 }

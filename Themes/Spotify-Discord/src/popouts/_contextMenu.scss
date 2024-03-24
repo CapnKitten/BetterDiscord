@@ -1,47 +1,50 @@
+@use '../mixins' as *;
+
 /*
  *
- *	CONTEXT MENU
+ *  CONTEXT MENU
  *
  */
 
 %menuPopout {
-    padding: 0 4px;
-	background-color: var(--popout-color);
-	border-radius: var(--popout-radius);
-	box-shadow: var(--default-shadow);
-
-    %scroller {
-		padding: 4px 0;
-
-		&::-webkit-scrollbar {
-			width: 0 !important;
-		}
-	}
+    @include add-translucence(before, true);
 
     %menuPopoutItem {
-        margin: 0;
-		padding: 10px 12px;
-		border-radius: calc(var(--popout-radius) - 2px);
-		font-size: 14px;
-		color: var(--menu-text-color);
-		font-weight: 500;
+        border-radius: var(--popout-radius);
 
         &%menuPopoutItemHover {
-			background-color: var(--background-tinted-hover);
-			color: var(--menu-text-color);
-		}
+            background-color: var(--background-modifier-selected);
+        }
     }
 
-    %menuPopoutSeparator {
-		margin: 0;
-		border-color: var(--menu-border-color);
-	}
+    %contextMenuItemSubMenuAlt {
+        &:before {
+            width: calc(100% - 16px);
+            left: 8px;
+        }
+    }
+
+    %contextMenuQuickReaction {
+        background-color: var(--card-color);
+
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
+    }
 }
 
-%quickReactButton {
-	background-color: var(--background-tinted-hover);
+%layerContainer {
+    %backdrop {
+        + %popoutLayerAlt + %popoutLayer {
+            %menuPopout {
+                backdrop-filter: blur(var(--popout-blur));
+            }
+        }
+    }
+}
 
-	&:hover {
-		background-color: var(--background-tinted-active);
-	}
+%popoutLayer ~ %popoutLayer {
+    %menuPopout {
+        backdrop-filter: blur(var(--popout-blur));
+    }
 }

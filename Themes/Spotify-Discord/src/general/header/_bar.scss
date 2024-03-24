@@ -5,16 +5,36 @@
  */
 
 %headerBar {
-    height: var(--header-bar-height);
-    border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+    box-shadow: var(--popout-header-shadow);
+
+    &:before {
+        display: none;
+    }
 
     &%headerBarThemed {
-        background: var(--header-bar-color);
-
-        %headerBarChildren {
-            &:after {
-                background: linear-gradient(90deg, transparent 0, var(--header-bar-color));
-            }
-        }
+        background-color: transparent;
     }
+}
+
+%headerBarChildren {
+    &:after {
+        display: none;
+    }
+}
+
+%headerBarAkaBadge {
+    background-color: var(--card-color);
+}
+
+%headerBarReturnButton {
+	--button-height: 32px;
+}
+
+%headerBarReturnButtonText {
+	font-size: 1em;
+
+	&,
+	* {
+		color: var(--accent-text-color) !important;
+	}
 }

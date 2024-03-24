@@ -2,7 +2,7 @@
 
 /*
  *
- *	USER POPOUT
+ *  USER POPOUT
  *
  */
 
@@ -10,82 +10,60 @@
 	--profile-gradient-primary-color: var(--popout-color);
 	--profile-gradient-secondary-color: var(--popout-color);
 	--profile-avatar-border-color: var(--popout-color);
-	--profile-body-background-color: var(--popout-color-alt);
-}
+	--profile-body-background-color: var(--popout-color);
 
-%userProfileOuterThemed {
-	--profile-gradient-button-color: hsl(var(--accent-hsl));
-	--profile-gradient-button-text-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
-
-	%userProfileBanner {
-		border-radius: calc(var(--popout-radius-big) - 4px) calc(var(--popout-radius-big) - 4px) 0 0;
+	* {
+		text-shadow: none;
 	}
 
-	%userProfileNoteTextArea,
-	%inputWrapper %input {
-		--input-color: var(--profile-body-background-color) !important;
-	}
+	svg {
+    	filter: none;
+    }
 
-	%buttonFilled {
-		--button-background: var(--profile-gradient-button-color);
-        --button-text-color: var(--white-500);
-	}
-
-	%markup a {
-		color: var(--profile-gradient-button-color);
-	}
-
-	%flowerStar {
-	    path {
-	        fill: var(--profile-gradient-button-color);
-	    }
-	}
-
-	%flowerStarChild {
-	    path {
-	        fill: var(--white-500);
-	    }
+	&%themeLight {
+		--textarea-color: 0,0,0;
+		--textarea-text-color: #333;
+		--textarea-placeholder-color: #666;
+		--background-modifier-selected: rgba(0,0,0,0.125);
 	}
 }
 
 %userProfileOuter {
-	border-radius: var(--popout-radius-big);
+	@include add-translucence(before, true, false);
+	border-radius: var(--popout-radius);
 }
 
 %userProfileInner {
-	border-radius: calc(var(--popout-radius-big) / 1.25);
+	border-radius: calc(var(--popout-radius) / 1.25);
 
 	&:before {
 		border-radius: inherit;
 	}
 
-    %avatarWrapper {
+	%avatarWrapper {
 		circle {
 			fill: var(--profile-avatar-border-color);
 		}
 	}
-}
 
-%userProfileOverlayBackground {
-	> %menuPopout {
-		background-color: transparent;
-
-		%menuPopoutItem {
-			color: var(--interactive-normal);
-		}
+	%inputWrapper {
+		border-radius: 18px;
+		border: none;
 	}
 
-	%statusPickerItem {
-		padding: 0;
+	%input {
+		&::-webkit-input-placeholder {
+			color: var(--textarea-placeholder-color);
+		}
 	}
 }
 
 %userProfileNitroUpsellWrapper {
-	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
+	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
 }
 
 %userProfileBanner {
-	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
+	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
 }
 
 %userProfileBadges {
@@ -93,36 +71,44 @@
 }
 
 %userProfileOverlayBackground {
-	border-radius: calc(var(--popout-radius-big) / 1.25);
+	border-radius: calc(var(--popout-radius) / 1.25);
 }
 
-%userProfileSection {
-    //margin-right: calc( calc(var(--scrollbar-width) / 2) * -1 );
+%role {
+	background-color: var(--background-modifier-selected);
+	border-radius: 11px;
+	border: none;
+}
+
+%userProfileNote {
+	margin-left: 0;
+	margin-right: 0;
+
+	%input {
+		height: unset;
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	%userProfileNoteTextArea {
+		padding: 4px 10px;
+		font-size: 14px;
+		line-height: 16px;
+
+		&::-webkit-input-placeholder {
+			color: var(--textarea-placeholder-color);
+		}
+
+		&:focus {
+			background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus));
+		}
+	}
 }
 
 /* USER POPOUT -> STATUS AREA */
 
 %userProfileStatusMenu {
-    padding: 0;
-    background-color: transparent;
-    box-shadow: none;
-
-    > %scroller {
-        padding: 0 4px 8px 4px !important;
-    }
-
-    %menuPopoutItem {
-		&[id*="account-divider-"] {
-			min-height: unset;
-			padding: 0;
-
-			%menuPopoutDivider {
-				margin: 8px 12px;
-			}
-		}
+	&:before {
+		display: none;
 	}
-
-    %statusPickerItem {
-        padding: 0;
-    }
 }

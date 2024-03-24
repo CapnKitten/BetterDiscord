@@ -4,31 +4,48 @@
  *
  */
 
-%pageControl {
-    height: 40px;
-    gap: 8px;
+%searchResultsWrap {
+    background-color: rgba( var(--main-rgb), calc( (var(--sidebar-opacity) - var(--main-content-opacity)) / (1 - var(--main-content-opacity)) ));
+}
 
-    %pageButton {
-        margin: 0;
+/* SEARCH RESULTS -> HEADER */
 
-        &:hover {
-            background-color: var(--background-tinted-hover);
-        }
+%searchHeader {
+	background-color: transparent;
+	box-shadow: var(--popout-header-shadow);
+}
 
-        &%pageButtonActive {
-            background-color: hsl(var(--accent-hsl));
-            color: var(--accent-text-color);
-        }
+%searchChannelName {
+	background-color: transparent;
+}
+
+/* SEARCH RESULTS -> MESSAGES */
+
+%searchResult {
+	&:before,
+	&:after {
+		display: none;
+	}
+
+	%messagesWrapper {
+		margin-left: 50px;
+		margin-right: 0;
+	}
+}
+
+%searchResultsButtonsContainer {
+    top: 16px;
+    right: 8px;
+
+    %searchResultJumpButton {
+        background-color: var(--card-color);
+        border-radius: var(--button-radius);
     }
+}
 
-    %pageEndButton {
-        margin: 0;
-        border-radius: 16px;
+/* SEARCH RESULTS -> PAGINATION */
 
-        &[disabled] {
-            &:hover {
-                background-color: transparent;
-            }
-        }
-    }
+%pageButtonActive {
+	background-color: hsla(var(--accent-hsl),var(--accent-opacity)) !important;
+	color: var(--accent-text-color) !important;
 }

@@ -6,29 +6,137 @@
  *
  */
 
-%messagesPopoutWrap,
-%recentMentionsPopout {
-	max-height: 80vh !important;
-	background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+%messagesPopoutWrap {
+    max-height: 80vh !important;
+	@include add-translucence(before, true);
 }
 
 %messagesPopoutHeader {
-    background-color: transparent;
-    box-shadow: none;
+	background-color: transparent;
+	box-shadow: var(--popout-header-shadow);
 }
 
-%pinnedMessageGroupWrapper {
-    background-color: var(--background-tinted-hover);
-    border-radius: var(--popout-radius);
-    border: none;
-
-	%embed%embedFull {
-		background-color: var(--background-tinted-dark);
-	}
+%messagesPopoutInner {
+	padding: 16px 0 0 8px;
 }
 
 %messagesPopoutFooter {
+    background-color: transparent;
+}
+
+/* MESSAGES POPOUT -> PINNED MESSAGES */
+
+%pinnedMessageGroupWrapper {
+	margin-bottom: 16px;
 	background-color: transparent;
+	border: none;
+
+	%messagesWrapper {
+		margin-left: 56px !important;
+		margin-right: 16px !important;
+		background-color: var(--message-color);
+		border-radius: var(--message-radius);
+
+		%messageContent,
+		%embedContainer {
+			overflow: hidden;
+		}
+	}
+
+    %pinnedActionButtons {
+        right: calc(16px + var(--message-padding-side));
+    }
+
+    %pinnedJumpButton {
+        background-color: var(--card-color);
+        border-radius: var(--button-radius);
+    }
+}
+
+/* MESSAGES POPOUT -> FOR YOU */
+
+%messagesPopoutHeaderFriendRequestButton {
+    background-color: var(--background-modifier-hover);
+
+    &:hover {
+        background-color: var(--background-modifier-active);
+    }
+}
+
+%messagesPopoutContentContainer {
+    background-color: transparent;
+}
+
+%messagesPopoutRow {
+    &:hover {
+        background-color: var(--background-modifier-hover);
+    }
+}
+
+/* MESSAGES POPOUT -> MENTIONS */
+
+%messagesPopoutChannelHeader,
+%recentMentionsMessagesContainer {
+	background-color: transparent;
+}
+
+%messagesPopoutChannelHeader {
+    margin: 4px 0;
+	padding: 12px 16px 12px 28px;
+	background-color: transparent;
+	@include add-translucence(null, true);
+
+	&:before {
+		background-color: var(--message-color);
+		border-radius: var(--message-radius);
+	}
+}
+
+%messagesPopoutChannelHeaderButton {
+	background-color: var(--background-modifier-hover);
+
+	&:hover {
+		background-color: var(--background-modifier-selected) !important;
+	}
+}
+
+%recentMentionsMessagesContainer {
+	padding: 16px 0;
+
+	%messagesWrapper {
+		margin-left: 60px;
+		margin-right: 0;
+        overflow: visible;
+	}
+}
+
+/* MESSAGES POPOUT -> UNREADS */
+
+%recentMentionsPopout {
+    @include add-translucence(before, true);
+
+    %post {
+        background-color: var(--message-color);
+        border-radius: var(--message-radius);
+
+        &:hover {
+            background-color: var(--message-color-hover);
+        }
+    }
+
+    %messagesWrapper {
+        overflow: visible;
+    }
+}
+
+%unreadTutorial {
+    @include card-format;
+}
+
+%unreadCollapseButton {
+	left: 4px;
+}
+
+%unreadMessages {
+    background-color: transparent;
 }

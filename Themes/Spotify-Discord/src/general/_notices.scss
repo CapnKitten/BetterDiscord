@@ -5,30 +5,50 @@
  */
 
 %notice {
-    margin: 0 var(--app-card-margin) var(--app-card-top-margin);
-    border-radius: var(--app-card-radius) !important;
+	box-shadow: none;
+
+	&%noticeColorInfo,
+	&%noticeBrand {
+		background-color: hsla(var(--accent-hsl),var(--accent-opacity));
+		color: var(--accent-text-color);
+
+		%noticeClose {
+			opacity: 0.75;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	&%noticeBrand,
+	&%noticeStreamerMode {
+		border-radius: 0;
+	}
+
+	&%noticeBrand {
+		%noticeBrandButton {
+			&:after {
+				opacity: 0.15;
+			}
+		}
+	}
+
+	%noticeRepoButton {
+		border-radius: var(--button-radius);
+	}
 }
 
-%base {
-    %notice {
-        margin: 0 0 var(--app-card-margin);
-    }
+%pluginNotice {
+	%outdatedPlugins {
+		span {
+			color: var(--accent-text-color);
+		}
+	}
 }
 
 %bdNotice {
-    z-index: 103;
-
     &:first-child {
-        border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
-    }
-
-    &:last-child {
-        margin-bottom: var(--app-card-margin);
-        border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
-    }
-
-    &:only-child {
-        margin-bottom: var(--app-card-margin);
-        border-radius: var(--app-card-radius);
+        border-radius: 0 var(--app-radius) 0 0;
     }
 }

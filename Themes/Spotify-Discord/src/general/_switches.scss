@@ -1,102 +1,66 @@
 /*
  *
- *	SWITCHES
+ *  SWITCHES
  *
  */
 
 %switchContainer {
-	width: 32px;
-	height: 24px;
-	background-color: transparent !important;
-	overflow: visible;
+    background-color: var(--switch-slider-color) !important;
 
-	&:before {
-		position: absolute;
-		content: " ";
-		width: calc(100% + 7px);
-		height: 100%;
-		top: 0;
-		left: -5px;
-		background-color: var(--switch-slider-color);
-		border-radius: 14px;
-		transition: 250ms cubic-bezier(0,0.3,0.7,1) background-color;
-	}
+    %switchSlider {
+        rect {
+            fill: var(--switch-knob-color) !important;
+        }
 
-	&%switchContainerChecked {
-		&:before {
-			background-color: hsl(var(--accent-hsl));
-		}
-	}
+        path {
+            fill: var(--switch-slider-color) !important;
+        }
+    }
 
-	%switchSlider {
-		width: 20px;
-		height: 20px;
-		top: 2px;
-		margin: 0;
-		background-color: var(--switch-knob-color);
-		border-radius: 50%;
+    &%switchContainerChecked {
+        --switch-slider-color: hsla(var(--accent-hsl),var(--accent-opacity));
+        --switch-knob-color: var(--accent-text-color);
+    }
 
-		rect,
-		svg {
-			display: none;
-		}
-	}
+    svg {
+        filter: none;
+    }
 }
 
+/* SWITCHES -> BD SWITCHES */
+
 %bdSwitchContainer {
-	width: 43px;
-	height: 24px;
-	overflow: visible;
+    %bdSwitchBody {
+        --switch-color: var(--switch-slider-color);
 
-	&%bdSwitchDisabled {
-		opacity: 0.35;
-	}
+        %bdSwitchHandle {
+            fill: var(--switch-knob-color);
+        }
+    }
 
-	%bdSwitchBody {
-		--switch-color: var(--switch-slider-color);
+    input {
+        &:active {
+            + %bdSwitchBody {
+    			--switch-color: var(--switch-slider-color);
+    		}
+        }
 
-		width: 100%;
-		height: 100%;
-		overflow: visible;
+        &:checked {
+            + %bdSwitchBody {
+    			--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
+                --switch-knob-color: var(--accent-text-color);
+    		}
 
-		%bdSwitchSlider {
-			height: 20px;
-			top: 2px;
-			left: -2px;
-			margin: 0;
-			overflow: visible;
-
-			%bdSwitchHandle {
-				fill: var(--switch-knob-color);
-			}
-
-			%bdSwitchSymbol {
-				display: none;
-			}
-		}
-	}
-
-	input {
-		&:active {
-			+ %bdSwitchBody {
-				--switch-color: var(--switch-slider-color);
-			}
-		}
-
-		&:checked {
-			+ %bdSwitchBody {
-				--switch-color: hsl(var(--accent-hsl));
-
-				%bdSwitchSlider {
-					left: 17px;
-				}
-			}
-
-			&:active {
+            &:active {
 				+ %bdSwitchBody {
-					--switch-color: hsl(var(--accent-hsl));
+					--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
 				}
 			}
-		}
-	}
+        }
+    }
+}
+
+%bdSwitchDisabled {
+    opacity: 0.3;
+    filter: none;
 }

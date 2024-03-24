@@ -10,26 +10,34 @@
     background: transparent;
 }
 
-%forumCardHeaderRow {
-    padding-bottom: 16px;
+%forumHeader {
+    @include card-format;
+    border: none;
+
+    &%forumHeaderWithMatchingPosts {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+%forumHeaderMatchingPostsRow {
+    background-color: var(--card-color);
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
 }
 
 %forumGuidelinesContainer {
     @include card-format;
+}
 
-    margin-bottom: 0;
-    border: none;
+%forumGuidelinesDescriptionContainer {
+    @extend %forumGuidelinesContainer;
+}
 
-    %forumGuidelinesDescriptionContainer {
-        background-color: var(--card-color-hover);
-        border-radius: var(--card-radius);
-    }
+%forumTagsContainer {
+    padding: 16px 0 0;
 }
 
 %forumSortDropdown {
-    --button-background: hsl(var(--accent-hsl));
-    --button-text-color: var(--accent-text-color);
-
     %buttonContents {
         color: var(--accent-text-color);
     }
@@ -37,20 +45,41 @@
 
 %forumSortDropdownText {
     color: inherit !important;
-    font-weight: inherit;
+}
+
+%forumSortContainer {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+
+    %menuPopout {
+        min-width: unset;
+
+        %menuPopoutGroupLabel {
+            padding-top: 0;
+        }
+    }
 }
 
 %forumTagsButton {
-    --button-background: hsl(var(--accent-hsl));
-    --button-text-color: var(--accent-text-color);
+    --button-padding: 0 8px 0 12px;
+
+    &%forumTagsButtonWithCount {
+        --button-padding: 0 8px;
+    }
 
     %forumTagsButtonInner {
         color: inherit;
     }
 
-    %forumTagsCountContainer {
-        background-color: var(--accent-text-color);
+    svg {
+        color: var(--accent-text-color);
     }
+}
+
+%forumTagsCountContainer {
+    background-color: var(--accent-text-color);
 
     %forumTagsCountText {
         color: hsl(var(--accent-hsl));
@@ -58,12 +87,8 @@
 }
 
 %forumFilterContainer {
-    --card-color-hover: var(--card-color);
-    
     padding: 16px 16px 8px;
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big);
-    box-shadow: var(--default-shadow);
+    @include add-translucence(null, true, true, true);
 
     %forumFilterHeader {
         padding: 0;
@@ -78,31 +103,35 @@
     }
 }
 
-/* FORUM -> TAGS */
+%forumCard {
+    padding-bottom: 16px;
 
-%forumTagsContainer {
-    padding: 16px 0 0;
+    &[style*="height: 558px"] {
+        padding-bottom: 0;
+    }
 }
 
-%forumTagList {
-    height: var(--button-height);
-}
+/* FORUM -> PILLS */
 
 %postPill {
-    height: var(--button-height);
-    background-color: var(--card-color-hover);
-    border-radius: var(--button-radius);
+    background-color: var(--card-color) !important;
+    border: none;
 
     &%postPillClickable {
-        &:not(%postPillDisabled) {
-            &:hover {
-                background-color: var(--card-color-active);
-            }
+        &:hover {
+            background-color: var(--card-color-hover) !important;
         }
     }
 
     &%postPillSelected {
-        background-color: hsla(var(--accent-hsl),0.2) !important;
-        border-color: hsl(var(--accent-hsl)) !important;
+        background-color: hsl(var(--accent-hsl),0.3) !important;
+
+        &:hover {
+            background-color: hsl(var(--accent-hsl),0.4) !important;
+        }
+
+        %postPillText {
+            color: hsl(var(--accent-hsl));
+        }
     }
 }

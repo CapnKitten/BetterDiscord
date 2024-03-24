@@ -8,42 +8,34 @@
 
 %nowPlayingColumn {
     background-color: transparent;
-}
-
-%nowPlayingColumnContainer {
-    background-color: transparent;
 
     %nowPlayingColumnScroller {
         margin-left: 0;
-        border-left-color: var(--app-card-border-color);
     }
-}
-
-%nowPlayingColumnMemberItem {
-    padding: 0;
 }
 
 %activeNowCardInteractive {
-    @include card-format;
-    border: none;
-
-    &:hover,
-    &%activeNowCardActive {
-        %activeNowCardSection {
-            background-color: var(--card-color);
-        }
-    }
-
-    &:hover {
-        background-color: var(--card-color-hover) !important;
-    }
+    @include card-format(true, true);
 
     &%activeNowCardActive {
-        background-color: var(--card-color-active) !important;
+        background-color: var(--card-color-select) !important;
+    }
+
+    %activeNowCardInset {
+        background-color: transparent;
     }
 
     %activeNowCardSection {
-        background-color: var(--card-color-hover);
+        margin-bottom: 2px;
+        background-color: var(--background-modifier-hover);
         border-radius: var(--card-radius);
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    %activeNowCardSeparator {
+        display: none;
     }
 }

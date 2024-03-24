@@ -6,43 +6,39 @@
  *
  */
 
-%appDirectoryRoot {
-    margin: calc(var(--window-title-bar-height) + var(--app-card-top-margin)) var(--app-card-margin) var(--app-card-margin);
-    border-radius: var(--app-card-radius);
-    overflow: hidden;
-    animation: page-open 300ms var(--default-animation);
-}
-
-@keyframes page-open {
-	from { transform: scale(1.1); opacity: 0; }
-}
-
-%appDirectoryModal {
-    background-color: var(--app-foreground) !important;
-    border-radius: var(--app-card-radius);
+%appDirectoryContainer {
+    height: calc(100% - (var(--app-margin) * 1.5));
+    margin: calc(var(--app-margin) / 2) var(--app-margin) var(--app-margin) var(--app-margin);
+    background-color: var(--main-content-color) !important;
+	border-radius: var(--app-radius);
+	backdrop-filter: blur(var(--app-blur));
 }
 
 /* APP DIRECTORY -> SEARCH BAR */
 
 %appDirectorySearch {
-    @include input-format(true, true);
-    box-shadow: none !important;
+    @include input-format(48px, 24px, focus-within, true);
 
     %appDirectorySearchBoxInput {
-        height: var(--input-height);
-        padding: 0;
+        background-color: transparent !important;
+        color: var(--textarea-text-color);
+
+        &::-webkit-input-placeholder {
+            color: var(--textarea-placeholder-color) !important;
+        }
     }
 }
 
 /* APP DIRECTORY -> CATEGORIES */
 
 %appDirectoryCategory {
-    background-color: var(--background-tinted-hover);
+    background-color: var(--background-modifier-hover);
+    color: var(--interactive-hover);
     border-radius: 24px;
-    transition: var(--default-time) var(--default-animation) background-color;
 
     &:hover {
-        background-color: var(--background-tinted-active);
+        background-color: var(--background-modifier-selected);
+        color: var(--interactive-active);
     }
 }
 
@@ -50,8 +46,24 @@
 
 %appDirectoryCard {
     @include card-format(true, true);
+
+    &:hover {
+        box-shadow: none;
+        transform: none;
+    }
 }
 
 %appDirectoryLearnMoreCard {
+    @include card-format;
+}
+
+/* APP DIRECTORY -> BOT INFO */
+
+%botInfoHeaderBanner {
+    border-radius: var(--card-radius);
+}
+
+%botInfoCommandList,
+%botInfoCommandName {
     @include card-format;
 }

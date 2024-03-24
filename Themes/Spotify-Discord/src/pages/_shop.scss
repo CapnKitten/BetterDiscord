@@ -1,70 +1,43 @@
+@use '../mixins' as *;
+
 /*
  *
  *  DISCORD SHOP
  *
  */
 
-%layer {
-    %shopContainer {
-        margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
-        border-radius: var(--app-card-radius);
-        overflow: hidden;
-
-        %shopPage {
-            margin-bottom: 32px;
-        }
-    }
+%shopContainer {
+    background-color: var(--main-content-color);
 }
 
-%contentMain {
-    %shopContainer {
-        margin: 0;
-        border-radius: var(--app-card-radius);
-        overflow: hidden;
-
-        %shopScroll {
-            height: calc(100% - (var(--app-bar-size) - 24px));
-        }
-
-        %shopPage {
-            max-width: unset;
-            margin-bottom: 32px;
-        }
-    }
-}
-
-
-%shopHeroBanner {
-    border-radius: var(--card-radius);
-
-    %buttonInverted {
-        &%buttonBrand {
-            --button-background: hsl(0,0%,100%);
-            --button-text-color: var(--brand-experiment);
-        }
-    }
-}
-
-%shopBannerBackground {
-    border-radius: var(--card-radius);
-}
-
+%shopHeroBanner,
 %shopBanner {
     border-radius: var(--card-radius);
-    outline: none;
 }
 
 %shopCard {
-    border-radius: var(--card-radius);
-    border: none;
+    @include card-format(true, true);
 
-    %buttonFilled {
-        --button-background: hsla(0,0%,0%,0.3);
-        --button-text-color: hsl(0,0%,100%);
+    &:hover {
+        top: unset;
+        box-shadow: none !important;
+    }
 
-        &%buttonGreen {
-            --button-background: var(--button-positive-background);
-            --button-text-color: hsl(0,calc(var(--saturation-factor, 1) * 0%),100%);
-        }
+    %shopCardAvatarContainer {
+        box-shadow: var(--card-header-shadow);
+    }
+
+    %shopCardText {
+        width: 100%;
+        left: 0;
+        bottom: 0;
+    }
+
+    %shopCardTextBlur {
+        border-radius: 0 0 var(--card-radius) var(--card-radius);
+    }
+
+    %shopCardBackground {
+        background-color: transparent !important;
     }
 }
