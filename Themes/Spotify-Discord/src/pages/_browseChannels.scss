@@ -1,35 +1,43 @@
-@use '../mixins' as *;
-
 /*
  *
  *  BROWSE CHANNELS
  *
  */
 
-%browseChannelsChooseContainer {
-    @include card-format;
-}
-
-/* BROWSE CHANNELS -> CHANNELS */
-
 %browseChannelsChannelRow {
-    --button-height: 34px;
-
+    position: relative;
     background-color: var(--card-color);
-    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        &:not(%browseChannelsChannelDisabled) {
+            background-color: var(--card-color);
+
+            &:before {
+                position: absolute;
+                content: " ";
+                width: calc(100% - 8px);
+                height: calc(100% - 8px);
+                top: 4px;
+                left: 4px;
+                background-color: var(--card-color-hover);
+                border-radius: calc(var(--card-radius) - 2px);
+            }
+        }
+    }
 
     &%browseChannelsFirstChannel {
         border-radius: var(--card-radius) var(--card-radius) 0 0;
-        border-top: 1px solid var(--card-border-color);
-    }
-    &%browseChannelsLastChannel {
-        border-radius: 0 0 var(--card-radius) var(--card-radius);
-        border-bottom: 1px solid var(--card-border-color);
     }
 
-    &:not(%browseChannelsChannelDisabled) {
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
+    &%browseChannelsLastChannel {
+        border-radius: 0 0 var(--card-radius) var(--card-radius);
+    }
+
+    %browseChannelsChannelInfo {
+        z-index: 2;
+    }
+
+    %buttonOutlinedPrimary {
+        --button-text-color: var(--accent-text-color);
     }
 }

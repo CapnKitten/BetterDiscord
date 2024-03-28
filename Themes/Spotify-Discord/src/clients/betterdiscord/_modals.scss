@@ -1,0 +1,56 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  BETTERDISCORD MODALS
+ *
+ */
+
+%bdModalRoot {
+    @include modal-format;
+
+    %bdModalFooter {
+        gap: 8px;
+        background-color: transparent;
+        box-shadow: none;
+
+        %bdButton {
+            min-height: var(--button-height);
+            height: var(--button-height);
+            padding: var(--button-padding);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--button-text-color);
+
+            &:not([disabled]) {
+                &:hover {
+        			box-shadow: none;
+                    opacity: 0.95;
+        			transform: scale(1.05);
+
+        			%buttonContents {
+        				background-image: none;
+        			}
+        		}
+
+                &:active {
+                    opacity: 0.75;
+
+        			&:hover {
+        				transform: scale(1);
+        			}
+        		}
+            }
+
+            &%bdButtonLink {
+                --button-background: transparent;
+                --button-text-color: hsl(0,0%,100%);
+                transform: none !important;
+            }
+
+            %bdButtonContent {
+                margin: 0;
+            }
+        }
+    }
+}

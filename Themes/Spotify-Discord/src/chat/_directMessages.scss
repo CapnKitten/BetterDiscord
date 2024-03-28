@@ -4,64 +4,58 @@
  *
  */
 
+%dmChat {
+    background-color: var(--app-foreground);
+    border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
+}
+
+%mobileButtons {
+    --button-padding: 0 12px;
+}
+
+%timeoutBar {
+    background-color: var(--main-textarea-color);
+    border-radius: var(--main-textarea-radius);
+}
+
 %callWrapper {
-    &%callMinimum,
-    &%callWrapperVideo {
-        background-color: transparent;
-        box-shadow: var(--popout-header-shadow);
-    }
-
-    %callContainer {
-        background-color: transparent;
-    }
-
-    %headerBar {
-        box-shadow: none;
-    }
-
-    %callTile {
-        border-radius: var(--card-radius);
-    }
-}
-
-%callControlButton {
-    svg {
-        filter: none;
-    }
-}
-
-%callTileBorder {
-    &%callTileSpeaking {
-        box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-secondary);
+    &%callMinimum {
+        background-color: var(--header-bar-color);
+        border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
     }
 }
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
 %dmProfilePanel {
-    %dmProfileOuterUnthemed {
-        background-color: transparent;
-    }
-
-    %dmUserProfileInner {
-        border-radius: 0;
-
-        &:before {
-            display: none;
-        }
+    %dmUserPanelOuter,
+    %userProfileInner {
+        border-radius: 0 0 var(--app-card-radius) 0;
     }
 
     %userProfileBanner {
-        border-radius: 0;
+        border-radius: 0 !important;
     }
 }
 
-%dmProfilePanelConnections {
+%dmMutualGuildsList,
+%dmMutualFriendsList {
     %button {
-        --button-height: 36px;
-        --button-padding: 0 12px;
-        --button-background: transparent;
-        --button-text-color: var(--text-normal);
-        --button-action-color: transparent;
+        transform: scale(1) !important;
+    }
+
+    %buttonFilled {
+        --button-background: transparent !important;
+        --button-text-color: var(--text-normal) !important;
+    }
+}
+
+%dmConnectionList {
+    %listRow {
+        border-radius: var(--card-radius);
+
+        &:hover {
+            background-color: var(--background-tinted-hover);
+        }
     }
 }

@@ -1,12 +1,17 @@
 @use '../../mixins' as *;
 
+/*
+ *
+ *  USER SETTINGS CONNECTIONS
+ *
+ */
+
 %accountList {
+    margin-bottom: 40px;
     padding: 0;
     @include card-format;
 
     %accountListHeader {
-        padding: 16px;
-        margin-bottom: 0;
         @include card-format--header;
     }
 
@@ -15,19 +20,43 @@
     }
 
     %connectionsContainer {
-        margin-top: 0;
-        padding: 16px;
-    }
-
-    %connectionsAccountsButtonInner {
-        @include card-format(false, true);
+        padding: 0 16px 16px;
     }
 }
 
+%connectionsAccountsButtonInner {
+    background-color: var(--card-color-hover);
+    border-radius: 50%;
+
+    &:hover {
+        background-color: var(--card-color-active);
+    }
+}
+
+%connectionList {
+    grid-gap: 16px;
+}
+
 %connectionCard {
+    margin-bottom: 0;
     @include card-format;
 
     %connectionCardHeader {
         @include card-format--header;
     }
+
+    %connectionCardMetadataContainer {
+        background-color: var(--card-color-hover);
+        border-radius: var(--card-radius);
+    }
+}
+
+%integrationCard,
+%connectionCardUpsellContainer {
+    background-color: var(--card-color-hover);
+    border-radius: var(--card-radius);
+}
+
+%connectionCardUpsellContainer {
+    padding: 16px;
 }

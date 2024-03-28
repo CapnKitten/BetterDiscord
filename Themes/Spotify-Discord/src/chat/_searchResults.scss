@@ -5,47 +5,43 @@
  */
 
 %searchResultsWrap {
-    background-color: rgba( var(--main-rgb), calc( (var(--sidebar-opacity) - var(--main-content-opacity)) / (1 - var(--main-content-opacity)) ));
+    background-color: transparent;
+    border-left: 1px solid var(--card-color-hover);
 }
-
-/* SEARCH RESULTS -> HEADER */
 
 %searchHeader {
-	background-color: transparent;
-	box-shadow: var(--popout-header-shadow);
+    background-color: transparent;
 }
-
-%searchChannelName {
-	background-color: transparent;
-}
-
-/* SEARCH RESULTS -> MESSAGES */
 
 %searchResult {
-	&:before,
-	&:after {
-		display: none;
-	}
-
-	%messagesWrapper {
-		margin-left: 50px;
-		margin-right: 0;
-	}
+    background-color: var(--message-color-hover);
 }
 
-%searchResultsButtonsContainer {
-    top: 16px;
-    right: 8px;
+%pageControl {
+    height: 40px;
+    gap: 8px;
 
-    %searchResultJumpButton {
-        background-color: var(--card-color);
-        border-radius: var(--button-radius);
+    %pageButton {
+        margin: 0;
+
+        &:hover {
+            background-color: var(--background-tinted-hover);
+        }
+
+        &%pageButtonActive {
+            background-color: hsl(var(--accent-hsl));
+            color: var(--accent-text-color);
+        }
     }
-}
 
-/* SEARCH RESULTS -> PAGINATION */
+    %pageEndButton {
+        margin: 0;
+        border-radius: 16px;
 
-%pageButtonActive {
-	background-color: hsla(var(--accent-hsl),var(--accent-opacity)) !important;
-	color: var(--accent-text-color) !important;
+        &[disabled] {
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
 }

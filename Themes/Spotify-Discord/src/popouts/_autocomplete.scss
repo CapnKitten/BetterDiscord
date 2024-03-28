@@ -1,57 +1,42 @@
-@use '../mixins' as *;
-
 /*
  *
- *  AUTOCOMPLETE
+ *  AUTOCOMPLETE POPOUT
  *
  */
 
 %autocomplete {
-    @include add-translucence(null, true, true, true);
+    background-color: var(--popout-color) !important;
+    border-radius: var(--popout-radius);
+    box-shadow: var(--default-shadow);
+}
 
-    %autocompleteListWrapper {
-        background-color: transparent;
+%autocompleteListWrapper {
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background-color: var(--app-foreground);
+
+    %autocompleteList {
+        width: 100%;
     }
 
-    %autocompleteBase {
-        border-radius: var(--popout-radius);
-
-        &%autocompleteBaseSelected {
-            background-color: var(--background-modifier-hover) !important;
-        }
+    %scroller {
+        display: flex;
+        justify-content: center;
+        padding: 8px 0;
     }
 
-    %autocompleteOption {
-        background-color: var(--card-color) !important;
+    %autocompleteListItems {
+        position: relative;
+        width: 32px;
+        inset: unset !important;
     }
 }
 
-%autocompletePopout {
-    @include add-translucence(before, true);
+%autocompleteBase {
+    border-radius: var(--popout-radius);
 
-    %autocompletePopoutShadow {
-        box-shadow: none !important;
-    }
-
-    %autocompletePopoutArrow {
-        background-color: var(--popout-color) !important;
-        box-shadow: none !important;
-    }
-
-    %autocompletePopoutHeader {
-        background-color: transparent;
-        box-shadow: var(--card-header-shadow);
-    }
-
-    %autocompletePopoutSectionTag {
-        background-color: transparent !important;
-    }
-
-    %autocompletePopoutRow {
-        padding-left: 4px;
-
-        %autocompletePopoutRowInner {
-            border-radius: var(--popout-radius);
-        }
+    &:hover {
+        background-color: var(--background-tinted-hover) !important;
     }
 }

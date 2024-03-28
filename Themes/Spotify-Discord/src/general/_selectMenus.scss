@@ -1,43 +1,52 @@
-@use '../mixins' as *;
-
 /*
  *
- *  SELECT MENUS
+ *	SELECT MENUS
  *
  */
 
 %selectMenu {
-    padding: 6px 6px 6px 12px;
+	height: var(--input-height);
+    padding: var(--input-padding) !important;
+	border-radius: var(--input-radius) !important;
+	border: 1px solid transparent !important;
+    transition: var(--default-time) var(--default-animation) border-color;
 
-    &%selectMenuFilled {
-        @include input-format;
+    &%selectMenuOpen {
+        border-color: var(--input-border-color) !important;
     }
 
-    %selectMenuSubtitle {
-        color: var(--text-muted);
-    }
+	&%selectMenuMulti {
+		min-height: var(--input-height);
+		height: auto;
+	}
+
+	&%selectMenuFilled {
+		background-color: var(--input-color);
+	}
 }
 
 %selectMenuPopout {
-    @include add-translucence(null, true);
-    border: none;
+	margin: 4px 0;
+	background-color: var(--popout-color);
+	border-radius: var(--popout-radius) !important;
+	border: none;
+	box-shadow: var(--default-shadow);
 
-    &:not(%selectMenuPopoutPositionTop) {
-        margin-top: 8px;
-    }
+	%selectMenuOption {
+		color: var(--menu-text-color);
 
-    &%selectMenuPopoutPositionTop {
-        margin-bottom: 8px;
-        border-radius: var(--popout-radius);
-    }
+		&:hover {
+			background-color: var(--background-tinted-hover);
+		}
 
-    %selectMenuOption {
-        &:hover {
-            background-color: var(--background-modifier-hover);
-        }
+		&[aria-selected=true] {
+            &:not(%selectMenuOption%selectMenuMulti) {
+    			background-color: var(--background-tinted-active);
 
-        &[aria-selected=true] {
-            background-color: var(--background-modifier-selected) !important;
-        }
-    }
+    			%selectMenuOptionSelectedIcon {
+    				color: hsl(var(--accent-hsl));
+    			}
+            }
+		}
+	}
 }

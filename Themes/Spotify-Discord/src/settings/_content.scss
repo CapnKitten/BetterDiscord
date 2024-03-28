@@ -1,15 +1,26 @@
-@use '../mixins' as *;
-
 /*
  *
- *  SETTINGS CONTENT AREA
+ *  SETTINGS CONTENT
  *
  */
 
-%settingsContentRegion {
-    background-color: var(--main-content-color);
+%standardSidebarView {
+    background-color: var(--app-background);
 }
 
-%settingsNoticeContainer {
-    @include add-translucence(null, true, true, true);
+%settingsContentRegion {
+    margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin) 0;
+    background-color: var(--app-foreground);
+    border-radius: var(--app-card-radius);
+    overflow: hidden;
+
+    %settingsContentScroller {
+        justify-content: center;
+        background-color: transparent;
+    }
+}
+
+%settingsConentColumn,
+%settingsCustomColumn {
+    max-width: 1080px;
 }

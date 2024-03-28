@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  FRIENDS LIST
@@ -5,7 +7,8 @@
  */
 
 %friends {
-    background-color: var(--main-content-color) !important;
+    background-color: var(--app-foreground);
+    border-radius: var(--app-card-radius);
 }
 
 %friendsTabBody {
@@ -15,25 +18,41 @@
 }
 
 %friendsSearchBar {
-    background-color: rgba(var(--textarea-color),var(--textarea-alpha));
-	border-radius: 17px;
+    @include input-format(false, true);
 
-	%friendsSearchBarInput {
-		background-color: transparent !important;
-	}
+    %friendsSearchBarInner {
+        padding: 0;
+    }
+
+    %friendsSearchBarInput {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 %friendsItem {
+    &:hover,
+    &%friendsItemActive {
+        border-radius: var(--menu-item-radius);
+    }
+
     &:hover {
-        background-color: var(--card-color-hover);
-        border-radius: var(--list-item-radius);
+        background-color: var(--background-tinted-hover);
     }
 
     &%friendsItemActive {
-        background-color: var(--card-color-select);
-    }
+        background-color: var(--background-tinted-active);
 
-    %friendActionButton {
-        background-color: var(--background-modifier-active);
+        &:hover {
+            background-color: var(--background-tinted-highlight);
+        }
+    }
+}
+
+%friendActionButton {
+    background-color: var(--background-tinted-hover);
+
+    &%friendActionButtonHighlight {
+        background-color: var(--background-tinted-active);
     }
 }

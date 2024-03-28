@@ -9,40 +9,52 @@
 %settingsAccountProfileCard {
     @include card-format;
 
-    %avatarWrapper {
-        background-color: transparent;
-    	border: none;
-    	box-shadow: var(--popout-shadow);
+    %settingsUserBannerSVGWrapper {
+        circle {
+            display: none;
+        }
+    }
 
-    	svg {
-    		filter: none;
-    	}
+    %settingsUserInfo {
+        position: relative;
+		height: 88px;
+		padding: 16px 16px 16px 130px;
+
+        %avatarWrapper {
+            top: unset;
+            bottom: 21px;
+			background-color: var(--card-color);
+            border: 8px solid var(--card-color);
+		}
     }
 
     %settingsUserBackground {
-        @include card-format;
+        background-color: var(--card-color-hover);
+        border-radius: var(--card-radius);
+    }
 
-        %fieldList {
-            background-color: transparent;
+    %fieldList {
+        background-color: transparent;
+
+        %constrainedRow {
+            %button {
+                margin-left: 8px;
+            }
         }
     }
 }
 
 %settingsCredentialList {
     margin-bottom: 16px;
-    padding: 8px;
+    padding: 4px;
     @include card-format;
-}
 
-%settingsCredentialItem {
-    border-radius: calc(var(--card-radius) / 1.65);
-    border-top: none;
+    %settingsCredentialItem {
+        border-radius: calc(var(--card-radius) - 2px);
+        border: none;
 
-    &:not(:last-child) {
-        margin-bottom: 0;
-    }
-
-    &:hover {
-        background-color: var(--background-modifier-hover);
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
     }
 }

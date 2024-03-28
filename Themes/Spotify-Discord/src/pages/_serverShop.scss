@@ -2,39 +2,51 @@
 
 /*
  *
- *	SERVER SHOP
+ *  SERVER SHOP
  *
  */
 
 %serverShopHeroCard {
     @include card-format;
+    border: none;
+
+    %serverShopHeroCoverImage {
+        border-radius: calc(var(--card-radius) - 2px);
+    }
 }
 
 %serverShopTab {
+    background-color: var(--card-color);
     border-radius: var(--card-radius);
-    border: none;
-    box-shadow: none;
 
     &%serverShopTabSelected {
-        background-color: hsl(var(--accent-hsl));
-        color: var(--accent-text-color);
+        background-color: var(--card-color-active);
+        border: none;
+        box-shadow: none;
 
-        %textSMSemibold,
-        %textXSNormal {
-            color: var(--accent-text-color) !important;
+        %serverShopTabIconContainer {
+            background-color: var(--card-color);
         }
+    }
+
+    %serverShopTabIconContainer {
+        background-color: var(--card-color-hover);
     }
 }
 
 %serverShopSortDropdown {
-    %textSMMedium {
-        color: var(--button-text-color) !important;
+    %serverShopSortDropdownInner {
+        gap: 8px;
+        color: var(--accent-text-color);
+
+        span:not([class]) {
+            display: none !important;
+        }
     }
 
-    %buttonContents {
-        svg:last-child {
-            margin-left: 8px;
-        }
+    %textSMMedium {
+        color: var(--accent-text-color) !important;
+        font-weight: 700;
     }
 }
 
@@ -42,8 +54,8 @@
     &:hover {
         %serverShopCardContent {
             box-shadow: none;
-            outline: none;
             transform: none;
+            outline: none;
         }
     }
 }
@@ -52,8 +64,10 @@
     @include card-format(true, true);
 }
 
+%serverShopProductModalBody {
+    background-color: transparent;
+}
+
 %serverProductRoleTag {
-    padding: 8px 16px;
-    background-color: var(--background-modifier-selected);
-    border-radius: 20px;
+    background-color: var(--card-color);
 }

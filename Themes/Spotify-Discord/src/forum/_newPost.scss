@@ -1,116 +1,85 @@
-@use '../mixins' as *;
-
 /*
  *
- *  FORUM NEW POST
+ *  FORUM NEW POST / SEARCH POSTS
  *
  */
 
-%newPostContainer {
-    &%newPostContainerCollapsed {
-        height: auto;
+%forumHeader {
+    background-color: var(--card-color);
+    border-radius: var(--card-radius);
+    border: none;
 
-        %newPostPrefixElement {
-            position: relative;
-            right: 0;
-
-            svg {
-                padding: 0;
-            }
-        }
-    }
-
-    %newPostTitleContainer {
-        min-height: 0;
-        gap: 8px;
-    }
-
-    %newPostPrefixElement {
-        position: absolute;
-        width: auto;
-        height: var(--button-height);
-        right: 10px;
-        margin: 0;
-        z-index: 2;
-
-        div[role="button"],
-        svg {
-            height: inherit;
-        }
-
-        svg {
-            padding: 0 8px;
-        }
+    &%forumHeaderWithMatchingPosts {
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
     }
 
     %input {
-        margin: 0;
-        height: var(--button-height);
-        padding: 0 10px;
-        line-height: var(--button-height);
-        font-weight: 400;
-        text-shadow: none;
-        cursor: text;
+        &%inputTextArea {
+            --input-height: 36px !important;
+            --input-padding: 0 12px !important;
 
-        &::-webkit-input-placeholder {
-            font-weight: inherit;
-        }
-    }
-
-    %newPostGuidelinesButton {
-        margin: 0;
-        height: var(--button-height);
-    }
-
-    %buttonFilled {
-        height: var(--button-height);
-    }
-
-    %newPostContentContainer {
-        padding-left: 0;
-        padding-right: 86px;
-    }
-
-    %newPostFormContainer {
-        position: relative;
-        display: block;
-    }
-
-    %channelTextArea {
-        margin: 16px 0 0;
-        background-color: transparent;
-    }
-
-    %channelTextAreaInner {
-        --textarea-alpha: 0.1;
-
-        padding: 8px 16px;
-        background-color: rgba(var(--textarea-color),var(--textarea-alpha)) !important;
-    	border-radius: var(--textarea-radius);
-        color: var(--textarea-text-color);
-
-        &::-webkit-input-placeholder {
-            color: var(--textarea-placeholder-color);
+            height: var(--input-height);
+            margin: 0;
+            line-height: calc(var(--input-height) - 2px);
         }
     }
 }
 
+%forumHeaderMatchingPostsRow {
+    background-color: var(--card-color);
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
+
+%newPostContainer {
+    &:not(%newPostContainerCollapsed) {
+        %newPostFormContainer {
+            %newPostForm {
+                margin-right: 16px;
+            }
+        }
+
+        %newPostTitleContainer {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+%newPostFormContainer {
+    %channelTextArea {
+        background-color: transparent;
+    }
+    
+    %channelTextAreaScrollable {
+        --main-textarea-color: var(--input-color);
+
+        padding: 6px 8px;
+        border-radius: var(--input-radius);
+        border: 1px solid transparent;
+        transition: var(--default-time) var(--default-animation) border-color;
+
+        &:focus-within {
+            border-color: var(--input-border-color);
+        }
+    }
+}
+
+%newPostAttachmentUploadInput {
+    background-color: var(--input-color);
+    border-radius: var(--input-radius);
+}
+
+%newPostAttachmentImageSmall {
+    border-radius: var(--input-radius);
+}
+
 %newPostAttachmentPopoutContainer {
-    position: absolute;
-    top: calc(var(--button-height) + 16px);
-    right: 16px;
-
-    %newPostAttachmentUploadInput {
-        @include card-format;
+    %spoilerContainer {
+        border-radius: var(--input-radius);
     }
+}
 
-    %newPostAttachmentImageSmall {
-        border-radius: var(--card-radius);
-    }
-
-    %newPostAttachmentBadge {
-        background-color: hsl(var(--accent-hsl));
-        border-width: 4px;
-        color: var(--accent-text-color);
-    }
+%forumNewPostAttachmentAction {
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
 }

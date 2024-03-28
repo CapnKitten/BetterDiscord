@@ -1,5 +1,3 @@
-@use '../mixins' as *;
-
 /*
  *
  *  TOOLTIP
@@ -7,43 +5,25 @@
  */
 
 %tooltip {
-    background-color: var(--tooltip-color) !important;
-    border-radius: var(--tooltip-radius);
+	border-radius: var(--popout-radius);
 
-    %tooltipPointer {
-        border-top-color: var(--tooltip-color) !important;
-    }
+	&%tooltipPrimary,
+	&%tooltipBrand {
+		background-color: var(--popout-color);
+		box-shadow: var(--default-shadow);
+        color: var(--text-normal);
 
-    %tooltipContent,
-    %tooltipGuildNameText,
-    %tooltipClickCTA {
-		color: var(--tooltip-text-color);
-        text-shadow: none;
-    }
-
-    %anchor {
-        color: var(--tooltip-text-color);
-        text-decoration: underline;
-    }
-
-    %tooltipActivityIcon {
-        color: var(--tooltip-text-color) !important;
-    }
-
-    %tooltipMuteText {
-        color: var(--accent-text-color) !important;
-    }
-
-    %userPopoutBodyInnerWrapper {
-        background-color: transparent;
-    }
+		%tooltipPointer {
+			border-top-color: var(--popout-color);
+		}
+	}
 }
 
 /* TOOLTIP -> UPSELLS */
 
-%reactionTooltip,
 %upsellTooltipWrapper {
-    @include add-translucence(before, true);
+    background-color: var(--popout-color);
+    box-shadow: var(--default-shadow);
 
     &%upsellTooltipCaretTopCenter {
         &:after {

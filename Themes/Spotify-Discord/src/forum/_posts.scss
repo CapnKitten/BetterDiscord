@@ -1,67 +1,97 @@
-@use '../mixins' as *;
-
 /*
  *
  *  FORUM POSTS
  *
  */
 
-%postContainer {
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
-    border: none !important;
+ %postContainer {
+     background-color: var(--card-color);
+     border-radius: var(--card-radius);
+     border: none;
+     transition: none;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-        box-shadow: none;
-        transform: none;
-    }
+     &:hover {
+         background-color: var(--card-color-hover);
+         box-shadow: none;
+         transform: none;
+     }
 
-    &%postContainerIsOpen {
-        background-color: var(--card-color-select) !important;
-    }
+     &%postContainerIsOpen {
+         background-color: var(--card-color-active) !important;
+     }
+
+     %postPinIcon {
+         background-color: hsl(var(--accent-hsl));
+         color: var(--accent-text-color);
+
+         path {
+             fill: currentColor;
+         }
+     }
+ }
+
+ %postContainer {
+     &:hover {
+         %postPill {
+             background-color: var(--card-color-active);
+         }
+     }
+
+     &%postContainerIsOpen {
+         %postPill {
+             background-color: var(--card-color-hover);
+         }
+     }
+ }
+
+/* FORUM POSTS -> POST BUTTON ACTIONS */
+
+%postThreadButtonContainer {
+    background-color: var(--app-foreground);
 }
 
-%postPinIcon {
-    background-color: hsl(var(--accent-hsl));
+%postThreadButtonContainer {
+    %button,
+    %postThreadAddReactButton {
+        --button-height: 26px;
+        --button-padding: 0 10px;
 
-    svg {
-        filter: none;
-    }
+        height: 24px;
+        padding: 0 12px;
+        background-color: transparent;
+        border-radius: var(--button-radius);
+        border: 1px solid hsl(0,0%,80%);
+        font-size: 14px;
+        font-weight: 600;
+        color: hsl(0,0%,80%);
 
-    path {
-        fill: var(--accent-text-color);
-    }
-}
-
-%postContentPreview,
-%postTextContentFooter {
-    background-color: var(--card-color-hover);
-}
-
-%postContentPreview {
-    border-radius: var(--card-radius);
-    border: none;
-}
-
-%postTextContentFooter {
-    background: transparent !important;
-}
-
-%postContainer {
-    &:not(%postContainerIsOpen) {
         &:hover {
-            %postContentPreview {
-                background-color: var(--card-color);
+            background-color: transparent;
+            border-color: hsl(0,0%,100%);
+            color: hsl(0,0%,100%) !important;
+            opacity: 0.95;
+            transform: scale(1.05);
+        }
+
+        &:active {
+            opacity: 0.75;
+
+            &:hover {
+                transform: scale(1);
             }
+        }
+    }
+
+    %button {
+        %buttonContents {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            color: var(--button-text-color);
         }
     }
 }
 
-%postThreadStartConversationBox {
-    @include card-format;
-
-    &:after {
-        left: 50px;
-    }
+%postThreadDivider {
+    background-color: var(--card-color);
 }

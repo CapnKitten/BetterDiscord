@@ -1,53 +1,40 @@
-@use '../../mixins' as *;
-
 /*
  *
- *	SERVER SETTINGS STICKERS
+ *  SERVER SETTINGS STICKERS
  *
  */
 
-%stickersTier {
-	@include card-format;
+%stickersTierHeader {
+    background-color: var(--card-color) !important;
+    border-radius: var(--card-radius) var(--card-radius) 0 0;
+    border-bottom: 1px solid var(--card-border-color);
 
-	%stickersGrid {
-		padding: 0 16px 16px;
-	}
-}
-
-%stickersTierHeaderLocked,
-%stickersTierHeaderUnlocked {
-	background-color: transparent !important;
-	box-shadow: var(--popout-header-shadow);
+    &%stickersTierHeaderWithoutCardBody {
+        border-radius: var(--card-radius);
+        border-bottom: none;
+    }
 }
 
 %stickersTeirBody {
-	background-color: transparent !important;
+    background-color: var(--card-color) !important;
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
 }
 
 %stickersUploadCard {
-	@include card-format(false, true);
+    background-color: var(--card-color);
+    border-radius: var(--card-radius);
 
-	%stickerCardButtons {
-		background-color: var(--card-color);
-	}
+    &:hover {
+        background-color: var(--card-color-hover);
+    }
+
+    %stickersCardButtons {
+        background-color: var(--card-color-active);
+        box-shadow: var(--default-shadow);
+    }
 }
 
-%stickersProgressBackground {
-	color: var(--card-color) !important;
-}
-
-%stickersProgressForground {
-	color: hsla(var(--accent-hsl), var(--accent-opacity));
-}
-
-%themeDark {
-	%stickersTierInProgress {
-		background-color: var(--card-color);
-	}
-
-	%stickersTierAccomplished,
-	%stickersTierCurrent,
-	%stickersTierFirst {
-		background: hsla(var(--accent-hsl), var(--accent-opacity));
-	}
+%stickersPlaceholderCard {
+    border-radius: var(--card-radius);
+    border: 1px solid var(--card-border-color);
 }

@@ -4,16 +4,53 @@
  *
  */
 
-%settingsSidebarScroller {
-    background-color: var(--sidebar-color);
+%settingsSidebarRegion {
+    width: 218px;
+    flex: none;
+    margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
+    background-color: var(--app-foreground);
+    border-radius: var(--app-card-radius);
+    overflow: hidden;
+
+    %settingsSidebarScroller {
+        background-color: transparent;
+    }
 }
 
 %settingsSide {
     %settingsSideItem {
-        border-radius: var(--list-item-radius);
+        border-radius: var(--menu-item-radius);
+
+        &:hover {
+            background-color: var(--background-tinted-hover) !important;
+        }
+
+        &%settingsSideItemSelected {
+            background-color: var(--background-tinted-active) !important;
+
+            &:hover {
+                background-color: var(--background-tinted-highlight) !important;
+            }
+        }
+
+        %premiumBackground {
+            display: none;
+        }
     }
 }
 
-%premiumSelectedBackground {
-    display: none;
+%settingsContentColumnMinimal {
+    padding-right: 0;
+}
+
+%settingsContentSidebarScroller {
+    background-color: transparent;
+}
+
+%settingsCustomScroller {
+    > div {
+        min-width: 460px;
+        max-width: 716px;
+        margin: 0 auto;
+    }
 }
