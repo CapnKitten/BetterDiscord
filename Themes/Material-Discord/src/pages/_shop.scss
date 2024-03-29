@@ -11,7 +11,7 @@
 }
 
 %shopHomeContainer {
-    background-color: var(--chat-color);
+    background-color: var(--main-color);
     overflow: hidden;
 
     %headerBar%headerBarThemed {
@@ -19,8 +19,18 @@
     }
 }
 
+%shopScrollBackgroundPrimary,
 %shopPageWrapperBackgroundPrimary {
-    background-color: var(--chat-color);
+    background-color: var(--main-color);
+}
+
+%shopCountDownWrapper {
+    box-shadow: var(--shadow-3dp) !important;
+}
+
+%shopShyBanner {
+    border-radius: var(--card-radius-big);
+    box-shadow: none;
 }
 
 %shopHeroBanner,
@@ -104,10 +114,46 @@
 
     %shopCollectibleInfoContainer {
         border-radius: var(--popout-radius-big);
+
+        %buttonFilled {
+            background: var(--button-background) !important;
+
+            %buttonContents {
+                svg {
+                    height: 24px;
+                }
+            }
+        }
     }
 
     %shopCollectibleCategoryBanner {
         width: calc(100% + var(--popout-radius-big));
         left: calc(var(--popout-radius-big) * -1);
+    }
+}
+
+%shopChatPreview {
+    background-color: var(--popout-color) !important;
+    box-shadow: var(--shadow-3dp);
+
+    %messagesWrapper {
+        margin-top: 0;
+        margin-left: 46px;
+        border-radius: var(--message-radius);
+
+        &:before,
+        &:after {
+            display: none;
+        }
+
+        %avatarLarge {
+            margin-top: -2px;
+            margin-left: -66px;
+        }
+    }
+
+    %shopMockInput {
+        background-color: var(--input-color);
+        border-radius: 20px;
     }
 }
