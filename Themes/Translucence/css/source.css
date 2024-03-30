@@ -848,6 +848,31 @@ body {
  *  BETTERDISCORD ADDONS
  *
  */
+.bd-modal-root {
+  background-color: transparent;
+  border-radius: var(--popout-radius);
+  box-shadow: none;
+  overflow: hidden;
+}
+.bd-modal-root:before {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--popout-shadow);
+  pointer-events: none;
+  z-index: -1;
+}
+.bd-modal-root .bd-modal-footer {
+  background-color: transparent;
+  box-shadow: none;
+  gap: 8px;
+}
+
 .bd-search-wrapper {
   height: auto;
   border-radius: var(--input-radius);
@@ -1388,7 +1413,10 @@ body {
 .sizeSmall_da7d10,
 .sizeMedium__60c12,
 .sizeLarge_b395a7,
-.sizeXlarge__6885c {
+.sizeXlarge__6885c,
+.bd-button-tiny,
+.bd-button-medium,
+.bd-button-large {
   height: var(--button-height);
   min-height: var(--button-height);
   min-width: var(--button-height);
@@ -1398,7 +1426,9 @@ body {
 .lookFilled__950dd,
 .lookOutlined__014b5,
 .lookLink_a2da25,
-.lookInverted_a299dc {
+.lookInverted_a299dc,
+.bd-button-filled,
+.bd-button-link {
   --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
   --button-text-color: var(--accent-text-color);
   --button-outline: none;
@@ -1410,7 +1440,9 @@ body {
 .lookFilled__950dd:after,
 .lookOutlined__014b5:after,
 .lookLink_a2da25:after,
-.lookInverted_a299dc:after {
+.lookInverted_a299dc:after,
+.bd-button-filled:after,
+.bd-button-link:after {
   position: absolute;
   content: " ";
   width: 100%;
@@ -1426,53 +1458,74 @@ body {
 .lookFilled__950dd:hover:after,
 .lookOutlined__014b5:hover:after,
 .lookLink_a2da25:hover:after,
-.lookInverted_a299dc:hover:after {
+.lookInverted_a299dc:hover:after,
+.bd-button-filled:hover:after,
+.bd-button-link:hover:after {
   opacity: 0.075;
 }
 .lookFilled__950dd:active:after,
 .lookOutlined__014b5:active:after,
 .lookLink_a2da25:active:after,
-.lookInverted_a299dc:active:after {
+.lookInverted_a299dc:active:after,
+.bd-button-filled:active:after,
+.bd-button-link:active:after {
   opacity: 0.15;
 }
 .lookFilled__950dd .contents__322f4,
-.lookFilled__950dd .defaultColor__77578,
-.lookFilled__950dd .defaultColor__8610e,
-.lookFilled__950dd .defaultColor__30336,
+.lookFilled__950dd .bd-button-content .defaultColor__77578,
+.lookFilled__950dd .bd-button-content .defaultColor__8610e,
+.lookFilled__950dd .bd-button-content .defaultColor__30336,
 .lookOutlined__014b5 .contents__322f4,
-.lookOutlined__014b5 .defaultColor__77578,
-.lookOutlined__014b5 .defaultColor__8610e,
-.lookOutlined__014b5 .defaultColor__30336,
+.lookOutlined__014b5 .bd-button-content .defaultColor__77578,
+.lookOutlined__014b5 .bd-button-content .defaultColor__8610e,
+.lookOutlined__014b5 .bd-button-content .defaultColor__30336,
 .lookLink_a2da25 .contents__322f4,
-.lookLink_a2da25 .defaultColor__77578,
-.lookLink_a2da25 .defaultColor__8610e,
-.lookLink_a2da25 .defaultColor__30336,
+.lookLink_a2da25 .bd-button-content .defaultColor__77578,
+.lookLink_a2da25 .bd-button-content .defaultColor__8610e,
+.lookLink_a2da25 .bd-button-content .defaultColor__30336,
 .lookInverted_a299dc .contents__322f4,
-.lookInverted_a299dc .defaultColor__77578,
-.lookInverted_a299dc .defaultColor__8610e,
-.lookInverted_a299dc .defaultColor__30336 {
+.lookInverted_a299dc .bd-button-content .defaultColor__77578,
+.lookInverted_a299dc .bd-button-content .defaultColor__8610e,
+.lookInverted_a299dc .bd-button-content .defaultColor__30336,
+.bd-button-filled .contents__322f4,
+.bd-button-filled .bd-button-content .defaultColor__77578,
+.bd-button-filled .bd-button-content .defaultColor__8610e,
+.bd-button-filled .bd-button-content .defaultColor__30336,
+.bd-button-link .contents__322f4,
+.bd-button-link .bd-button-content .defaultColor__77578,
+.bd-button-link .bd-button-content .defaultColor__8610e,
+.bd-button-link .bd-button-content .defaultColor__30336 {
   color: var(--button-text-color);
 }
 .lookFilled__950dd .contents__322f4 svg,
-.lookFilled__950dd .defaultColor__77578 svg,
-.lookFilled__950dd .defaultColor__8610e svg,
-.lookFilled__950dd .defaultColor__30336 svg,
+.lookFilled__950dd .bd-button-content .defaultColor__77578 svg,
+.lookFilled__950dd .bd-button-content .defaultColor__8610e svg,
+.lookFilled__950dd .bd-button-content .defaultColor__30336 svg,
 .lookOutlined__014b5 .contents__322f4 svg,
-.lookOutlined__014b5 .defaultColor__77578 svg,
-.lookOutlined__014b5 .defaultColor__8610e svg,
-.lookOutlined__014b5 .defaultColor__30336 svg,
+.lookOutlined__014b5 .bd-button-content .defaultColor__77578 svg,
+.lookOutlined__014b5 .bd-button-content .defaultColor__8610e svg,
+.lookOutlined__014b5 .bd-button-content .defaultColor__30336 svg,
 .lookLink_a2da25 .contents__322f4 svg,
-.lookLink_a2da25 .defaultColor__77578 svg,
-.lookLink_a2da25 .defaultColor__8610e svg,
-.lookLink_a2da25 .defaultColor__30336 svg,
+.lookLink_a2da25 .bd-button-content .defaultColor__77578 svg,
+.lookLink_a2da25 .bd-button-content .defaultColor__8610e svg,
+.lookLink_a2da25 .bd-button-content .defaultColor__30336 svg,
 .lookInverted_a299dc .contents__322f4 svg,
-.lookInverted_a299dc .defaultColor__77578 svg,
-.lookInverted_a299dc .defaultColor__8610e svg,
-.lookInverted_a299dc .defaultColor__30336 svg {
+.lookInverted_a299dc .bd-button-content .defaultColor__77578 svg,
+.lookInverted_a299dc .bd-button-content .defaultColor__8610e svg,
+.lookInverted_a299dc .bd-button-content .defaultColor__30336 svg,
+.bd-button-filled .contents__322f4 svg,
+.bd-button-filled .bd-button-content .defaultColor__77578 svg,
+.bd-button-filled .bd-button-content .defaultColor__8610e svg,
+.bd-button-filled .bd-button-content .defaultColor__30336 svg,
+.bd-button-link .contents__322f4 svg,
+.bd-button-link .bd-button-content .defaultColor__77578 svg,
+.bd-button-link .bd-button-content .defaultColor__8610e svg,
+.bd-button-link .bd-button-content .defaultColor__30336 svg {
   filter: none;
 }
 
-.lookLink_a2da25:hover .contents__322f4 {
+.lookLink_a2da25:hover .contents__322f4,
+.bd-button-link:hover .contents__322f4 {
   background-image: linear-gradient(0deg, transparent, transparent 1px, hsl(var(--accent-hsl)) 0, hsl(var(--accent-hsl)) 2px, transparent 0) !important;
 }
 
@@ -1525,13 +1578,15 @@ body {
   color: var(--button-text-color) !important;
 }
 
-.lookLink_a2da25 {
+.lookLink_a2da25,
+.bd-button-link {
   --button-background: transparent;
   --button-text-color: hsla(var(--accent-hsl),var(--accent-opacity));
   --button-action-color: transparent;
 }
 
-.colorRed__5a617 {
+.colorRed__5a617,
+.bd-button-danger {
   --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
   --button-text-color: var(--alert-text-color);
   --button-action-color: var(--alert-action-color);
