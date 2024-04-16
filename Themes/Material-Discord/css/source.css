@@ -2897,25 +2897,82 @@ html:not(.app-focused) .typeWindows_e41dab .winButton_f17fb6.winButtonMinMax_caf
   border-radius: var(--popout-radius-big);
   box-shadow: var(--shadow-3dp);
 }
+.bd-modal-root .paragraph_fc4da9 {
+  color: var(--text-normal);
+}
 .bd-modal-root .bd-modal-footer {
   background-color: transparent;
   box-shadow: none;
+  gap: 8px;
 }
 
 .bd-button {
-  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  --button-background: hsl(var(--accent-hsl--material-you));
+  --button-text-color: var(--accent-text-color--material-you);
+  --button-shadow: none;
+  --button-outline: none;
+  background-color: var(--button-background) !important;
   border-radius: var(--button-radius);
-  color: var(--accent-text-color--material-you) !important;
+  border: var(--button-outline) !important;
+  box-shadow: var(--button-shadow);
+  color: var(--button-text-color) !important;
 }
-.bd-button.bd-button-danger {
-  background-color: hsl(var(--alert-hsl)) !important;
-  color: var(--alert-text-color) !important;
+.bd-button:hover {
+  --button-shadow: none;
 }
-.bd-button.bd-button-color-brand .bd-button-content svg:not([fill]) path[fill] {
+.bd-button:active {
+  --button-shadow: none;
+}
+.bd-button:after {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--button-action-color);
+  border-radius: var(--button-radius);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--default-time) var(--default-animation) opacity;
+}
+.bd-button:hover:after {
+  opacity: var(--button-action-hover);
+}
+.bd-button:active:after {
+  opacity: var(--button-action-active);
+}
+.bd-button:disabled {
+  opacity: 0.5 !important;
+}
+.bd-button:disabled:after {
+  display: none;
+}
+.bd-button .bd-button-content {
+  background-image: none !important;
+}
+.bd-button .bd-button-content svg:not([fill]) path[fill] {
   fill: currentColor;
 }
-.bd-button.bd-button-color-brand .bd-button-content svg[fill] {
+.bd-button .bd-button-content svg[fill] {
   fill: currentColor;
+}
+
+.bd-button-filled.bd-button-danger {
+  --button-background: hsl(var(--alert-hsl));
+  --button-text-color: var(--alert-text-color);
+}
+
+.bd-button-link {
+  --button-padding: 0 12px;
+  --button-background: transparent;
+  --button-shadow: none !important;
+}
+.bd-button-link:after {
+  --button-action-color: hsl(var(--accent-hsl--material-you));
+}
+.bd-button-link.bd-button-color-brand, .bd-button-link.bd-button-color-primary {
+  --button-text-color: hsl(var(--accent-hsl--material-you));
 }
 
 .bd-search-wrapper {
@@ -3064,7 +3121,7 @@ html:not(.app-focused) .typeWindows_e41dab .winButton_f17fb6.winButtonMinMax_caf
   background-color: var(--card-button-color) !important;
   color: var(--text-normal);
 }
-.bd-addon-card .bd-controls .bd-button:hover {
+.bd-addon-card .bd-controls .bd-button:not([disabled]):hover {
   background-color: var(--card-button-color-hover) !important;
 }
 .bd-addon-card .bd-controls .bd-button svg {
