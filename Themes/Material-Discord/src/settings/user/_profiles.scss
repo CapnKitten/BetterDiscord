@@ -164,6 +164,11 @@
 
 %settingsProfileDecorationGridItem {
     @include card-format(false, 0, true, true);
+	transition: var(--default-time) var(--default-animation) box-shadow;
+
+	&%settingsProfileDecorationGridItemSelected {
+		box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you));
+	}
 }
 
 %settingsProfileDecorationPreview {
@@ -174,11 +179,21 @@
     @include card-format(false, 8px, true);
 }
 
+%settingsProfileEffectDescriptionBorderWithGradient {
+    border-radius: var(--card-radius-big);
+
+    %settingsProfileEffectDescriptionContainer {
+        background-color: var(--card-color-filled);
+        border-radius: calc(var(--card-radius-big) - 2px);
+    }
+}
+
 %settingsShopPreviewContainer {
     background: linear-gradient(var(--card-color-filled), var(--card-color-filled)) padding-box, var(--custom-premium-colors-premium-gradient-tier-2-diagonal) border-box;
     border-radius: var(--card-radius-big);
 
     %settingsShopPreviewBanner {
+		background-color: var(--card-color-active);
         border-radius: calc(var(--card-radius-big) - 2px);
     }
 }

@@ -16,8 +16,8 @@
 }
 
 %userProfileOuterThemed {
-	--profile-gradient-button-color: hsl(var(--accent-hsl--material-you)) !important;
-	--profile-gradient-button-text-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%)  !important;
+	//--profile-gradient-button-color: hsl(var(--accent-hsl--material-you)) !important;
+	//--profile-gradient-button-text-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%)  !important;
 
 	%userProfileBanner {
 		border-radius: calc(var(--popout-radius-big) - 4px);
@@ -39,6 +39,14 @@
 			--card-color-filled: var(--profile-body-background-color);
 		}
 	}
+
+	%spoilerContent {
+        --attachment-color: var(--profile-role-pill-background-color);
+
+        &%spoilerHidden {
+            --attachment-color: var(--profile-gradient-secondary-color);
+        }
+    }
 
 	%listRow {
 	    --menu-item-hover: var(--profile-body-background-hover);
@@ -379,4 +387,16 @@ body:active %userProfileStatusMenu:not(:active) {
 	%input {
 		box-shadow: none !important;
 	}
+}
+
+/* USER POPOUT -> QUEST AVAILABLE POPOUT */
+
+%userProfileQuestWrapper {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big) !important;
+    box-shadow: var(--shadow-3dp);
+}
+
+%userProfileQuestContainer {
+    background-color: unset;
 }
