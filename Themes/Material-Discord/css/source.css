@@ -47,6 +47,7 @@
   --stream-color: hsl(262,47%,40%);
   --xbox-color: hsl(120,77%,27%);
   --tooltip-color: hsl(0,0%,38%,0.9);
+  --tooltip-border-color: hsl(0,0%,51%);
   --tooltip-text-color: hsl(0,0%,87%);
   --tooltip-font-size: 12px;
   --tooltip-padding: 8px;
@@ -2948,7 +2949,7 @@ html:not(.app-focused) .typeWindows_e41dab .winButton_f17fb6.winButtonMinMax_caf
 .bd-button .bd-button-content {
   background-image: none !important;
 }
-.bd-button .bd-button-content svg:not([fill]) path[fill] {
+.bd-button .bd-button-content svg:not([fill]) .fill {
   fill: currentColor;
 }
 .bd-button .bd-button-content svg[fill] {
@@ -5710,6 +5711,30 @@ div[role=radiogroup].group__6ae8b {
   color: var(--tooltip-text-color);
 }
 
+.emojiSection_ab054b {
+  padding: 16px 16px 8px;
+}
+
+.guildSection__15ac6 {
+  position: relative;
+  padding: 8px 16px 16px;
+  background-color: transparent;
+}
+.guildSection__15ac6:before {
+  position: absolute;
+  content: " ";
+  width: calc(100% - 32px);
+  height: 1px;
+  top: 0;
+  left: 16px;
+  background-color: var(--tooltip-border-color);
+}
+.guildSection__15ac6 .guildTitle_e577f7,
+.guildSection__15ac6 .text-xs-normal_ccc5fb,
+.guildSection__15ac6 .text-xs-normal__46d75 {
+  color: var(--tooltip-text-color) !important;
+}
+
 /*
  *
  *	ACTIVITY LIST
@@ -7153,6 +7178,59 @@ div[role=radiogroup].group__6ae8b {
   height: 100%;
   top: 0;
   right: 0;
+}
+
+/*
+ *
+ *	MESSAGE POLLS
+ *
+ */
+.container__0bd59 {
+  background-color: var(--attachment-color);
+  border-radius: var(--media-radius);
+}
+.container__0bd59 .answersContainer_d6d472 {
+  padding: 0;
+  background-color: transparent;
+}
+.container__0bd59 .radioBackground__2d774 {
+  fill: hsl(var(--accent-hsl--material-you));
+}
+
+.answer__07489.votedStyles__57019 .answerInner_b97752 {
+  outline-color: hsl(var(--accent-hsl--material-you));
+}
+.answer__07489:not(.votedStyles__57019) .answerInner_b97752 {
+  outline-color: transparent !important;
+}
+
+.answerInner_b97752 {
+  background-color: var(--card-color-filled);
+  border-radius: calc(var(--media-radius) / 1.65);
+}
+.answerInner_b97752.currentlyVoting__54b47:hover {
+  background-color: var(--card-color-hover);
+}
+.answerInner_b97752.currentlyVoting__54b47.selected__93ede {
+  background-color: var(--card-color-active);
+}
+.answerInner_b97752.currentlyVoting__54b47.selected__93ede circle,
+.answerInner_b97752.currentlyVoting__54b47.selected__93ede path {
+  fill: hsl(var(--accent-hsl--material-you));
+}
+.answerInner_b97752.currentlyVoting__54b47 path {
+  fill: var(--text-normal);
+}
+
+.votePercentageBar_ba9103 {
+  background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 1.5) l/0.25);
+}
+
+.answerSelectionIcon__262f4 circle {
+  fill: var(--accent-text-color--material-you);
+}
+.answerSelectionIcon__262f4 path {
+  fill: hsl(var(--accent-hsl--material-you));
 }
 
 /*
@@ -13558,6 +13636,49 @@ body:active .menu-KSaHL1:not(:active) {
   border-radius: 10px;
 }
 
+.notice_b28daf {
+  background-color: var(--card-color-filled);
+  border: none;
+  padding: 16px;
+  border-radius: var(--card-radius-big);
+}
+
+.review_e04a14 {
+  padding: 16px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+}
+
+.onboardingStepContainer__03a55 {
+  position: relative;
+  background-color: var(--card-color-filled);
+}
+.onboardingStepContainer__03a55:after {
+  position: absolute;
+  content: " ";
+  width: calc(100% - 32px);
+  height: 1px;
+  bottom: 0;
+  left: 16px;
+  background-color: var(--card-border-color);
+}
+.onboardingStepContainer__03a55:last-of-type {
+  border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+}
+.onboardingStepContainer__03a55:last-of-type:after {
+  display: none;
+}
+.onboardingStepContainer__03a55 .iconContainer_c175e1 {
+  background-color: var(--card-color-active);
+}
+.onboardingStepContainer__03a55 .lookOutlined__014b5.colorPrimary_ebe632 {
+  border: var(--button-outline) !important;
+}
+
+.divider__0443b {
+  display: none;
+}
+
 /* SERVER COMMUNITY ONBOARDING -> DEFAULT CHANNELS */
 .categoryRow_b920fb .categoryText__4e543 {
   font-size: 14px;
@@ -14507,6 +14628,10 @@ body:active .menu-KSaHL1:not(:active) {
   border: 1px solid var(--card-border-color);
   padding: 0;
   border-radius: var(--card-radius-big);
+}
+
+.background__092a0 {
+  color: var(--main-alt) !important;
 }
 
 /*
@@ -16644,3 +16769,5 @@ body:active .menu-KSaHL1:not(:active) {
     transform: rotate(-2deg);
   }
 }
+
+/*# sourceMappingURL=main.css.map */
