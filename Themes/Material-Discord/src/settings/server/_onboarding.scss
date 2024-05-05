@@ -28,6 +28,53 @@
     border-radius: 10px;
 }
 
+%onboardingNotice {
+    @include card-format(false, 16px, true);
+}
+
+%onboardingReview {
+    padding: 16px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+}
+
+%onboardingStepContainer {
+    position: relative;
+    background-color: var(--card-color-filled);
+
+    &:after {
+        position: absolute;
+        content: " ";
+        width: calc(100% - 32px);
+        height: 1px;
+        bottom: 0;
+        left: 16px;
+        background-color: var(--card-border-color);
+    }
+
+    &:last-of-type {
+        border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+
+        &:after {
+            display: none;
+        }
+    }
+
+    %onboardingStepIconContainer {
+        background-color: var(--card-color-active);
+    }
+
+    %buttonOutlined {
+        &%buttonPrimary {
+            border: var(--button-outline) !important;
+        }
+    }
+}
+
+%onboardingStepDivider {
+    display: none;
+}
+
 /* SERVER COMMUNITY ONBOARDING -> DEFAULT CHANNELS */
 
 %onboardingCategoryRow {

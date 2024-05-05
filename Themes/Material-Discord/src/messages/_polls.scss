@@ -1,0 +1,72 @@
+/*
+ *
+ *	MESSAGE POLLS
+ *
+ */
+
+%pollContainer {
+    background-color: var(--attachment-color);
+    border-radius: var(--media-radius);
+
+    %pollAnswersContainer {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    %pollRadioBackground {
+
+            fill: hsl(var(--accent-hsl--material-you));
+    }
+}
+
+%pollAnswer {
+    &%pollAnswerVotedStyles {
+        %pollAnswerInner {
+            outline-color: hsl(var(--accent-hsl--material-you));
+        }
+    }
+
+    &:not(%pollAnswerVotedStyles) {
+        %pollAnswerInner {
+            outline-color: transparent !important;
+        }
+    }
+}
+
+%pollAnswerInner {
+    background-color: var(--card-color-filled);
+    border-radius: calc(var(--media-radius) / 1.65);
+
+    &%pollCurrentlyVoting {
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
+
+        &%pollAnswerSelected {
+            background-color: var(--card-color-active);
+
+            circle,
+            path {
+                fill: hsl(var(--accent-hsl--material-you));
+            }
+        }
+
+        path {
+            fill: var(--text-normal);
+        }
+    }
+}
+
+%pollVotePercentageBar {
+    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 1.5) l / 0.25);
+}
+
+%pollAnswerSelectionIcon {
+    circle {
+        fill: var(--accent-text-color--material-you);
+    }
+
+    path {
+        fill: hsl(var(--accent-hsl--material-you));
+    }
+}
