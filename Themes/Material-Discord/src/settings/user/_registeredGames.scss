@@ -67,8 +67,27 @@
     border: none;
 
     &:last-of-type {
+        padding-bottom: 24px;
         border-radius: 0 0 var(--card-radius-big) var(--card-radius-big) !important;
         box-shadow: none !important;
+
+        &:before {
+            height: calc(100% - 8px);
+            bottom: 8px;
+        }
+    }
+
+    &:before {
+        width: calc(100% - 16px);
+        height: 100%;
+        left: 8px;
+        right: 4px;
+        bottom: unset;
+        background-color: var(--card-color-hover);
+        border-radius: calc(var(--card-radius-big) / 1.5);
+        border: none;
+        pointer-events: none;
+        transition: var(--default-time) var(--default-animation) opacity;
     }
 
     %settingsGameName {

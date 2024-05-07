@@ -1,0 +1,89 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	CREATE POLL
+ *
+ */
+
+%pollCreateLegend {
+    @include remove-caps(14px);
+}
+
+%pollCreateAnswerRow {
+    display: flex;
+    padding: 16px 8px;
+    gap: 8px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %pollCreateExpressionPickerButton {
+        width: var(--button-height);
+        min-width: var(--button-height);
+        height: var(--button-height);
+    }
+
+    %pollCreateExpressionPickerIcon {
+        margin-left: 0;
+    }
+
+    %pollCreateRemoveAnswerButton {
+        display: flex;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+%pollCreateDefaultTextInputWrapper {
+    width: 100%;
+    gap: 8px;
+    background-color: transparent;
+    border: none;
+
+    > %pollCreateDefaultTextInput {
+        padding: 0;
+    }
+
+    %input {
+        border-radius: var(--input-radius);
+        box-shadow: none;
+    }
+
+    %pollCreateCharacterCount {
+        height: var(--input-height);
+        line-height: var(--input-height);
+        padding: 0;
+    }
+}
+
+%pollCreateAddAnswerButton {
+    height: var(--button-height);
+    line-height: var(--button-height);
+    background-color: transparent;
+    border-radius: var(--button-radius);
+    border: 1px solid hsl(var(--accent-hsl--material-you));
+    align-self: start;
+
+    &:hover {
+        background-color: transparent;
+    }
+
+    %pollCreateAddAnswerIcon,
+    %pollCreateAddAnswerButtonLabel {
+        color: hsl(var(--accent-hsl--material-you)) !important;
+    }
+
+    %pollCreateAddAnswerIcon {
+        height: var(--button-height);
+    }
+
+    %pollCreateAddAnswerButtonLabel {
+        padding: 0;
+        line-height: var(--button-height);
+    }
+
+    &%pollCreateCanRemoveMoreAnswers {
+        margin-right: 0;
+    }
+}
