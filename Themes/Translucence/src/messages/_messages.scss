@@ -8,12 +8,12 @@
 
 %messageBackgroundFlash {
 	&:not([style$="0);"]) {
-		background-color: hsla(var(--accent-hsl),0.3) !important;
+		background-color: hsla(var(--accent-hsl), 0.3) !important;
 		transition: 200ms ease-out background-color;
 	}
 
 	&[style="background-color: rgba(148, 156, 247, 0);"] {
-		background-color: hsla(var(--accent-hsl),0.0) !important;
+		background-color: hsla(var(--accent-hsl), 0.0) !important;
 		transition: 400ms background-color;
 	}
 }
@@ -25,9 +25,9 @@
 	border-radius: var(--message-radius);
 
 	&:not(%messageGroupStart),
-    &%messageCompact {
-    	margin-top: 2px;
-    }
+	&%messageCompact {
+		margin-top: 2px;
+	}
 
 	&%messageCozy,
 	&%messageCompact {
@@ -56,32 +56,32 @@
 	%messageTimestamp {
 		color: var(--text-normal);
 
-		&%messageTimestampAlt  {
+		&%messageTimestampAlt {
 			color: var(--text-normal);
 		}
 	}
 
 	%channelTextArea {
-        margin: 2px 0;
-    }
+		margin: 2px 0;
+	}
 
 	&%mentioned {
-        border-color: hsla(var(--mention-hsl),var(--mention-opacity));
-    	box-shadow: inset 0px 0px 10px 3px hsla(var(--mention-hsl),var(--mention-opacity)), 0px 0px 13px 4px hsla(var(--mention-hsl),var(--mention-opacity));
+		border-color: hsla(var(--mention-hsl), var(--mention-opacity));
+		box-shadow: inset 0px 0px 10px 3px hsla(var(--mention-hsl), var(--mention-opacity)), 0px 0px 13px 4px hsla(var(--mention-hsl), var(--mention-opacity));
 
-        &:before {
-            display: none;
-        }
-    }
+		&:before {
+			display: none;
+		}
+	}
 
-    &%replyingToIndicator {
-        border-color: hsla(var(--reply-hsl),var(--reply-opacity));
-    	box-shadow: inset 0px 0px 10px 3px hsla(var(--reply-hsl),var(--reply-opacity)), 0px 0px 13px 4px hsla(var(--reply-hsl),var(--reply-opacity));
+	&%replyingToIndicator {
+		border-color: hsla(var(--reply-hsl), var(--reply-opacity));
+		box-shadow: inset 0px 0px 10px 3px hsla(var(--reply-hsl), var(--reply-opacity)), 0px 0px 13px 4px hsla(var(--reply-hsl), var(--reply-opacity));
 
-        &:before {
-            display: none;
-        }
-    }
+		&:before {
+			display: none;
+		}
+	}
 
 	%embedContainer {
 		%pollContainer {
@@ -90,34 +90,40 @@
 			border: none;
 
 			%pollAnswer {
-				&%pollAnswerInner {
+				%pollAnswerInner {
 					background-color: var(--card-color);
 					border-radius: var(--card-radius);
 					border: none;
 					outline: unset;
-				}
 
-				&%pollAnswerInnerVotingSelected {
-					outline: unset;
-					background-color: var(--card-color-select);
-
-					%pollSelectionIcon {
-						%pollSelectionCircle {
-							color: var(--text-brand);
+					&%pollVoting {
+						&%pollSelected {
+							outline: unset;
+							background-color: var(--card-color-select);
+	
+							%pollSelectionIcon {
+								%pollSelectionCircle {
+									color: var(--text-brand);
+								}
+							}
 						}
-					}
+					} 
 				}
 
-				&:hover %pollAnswerInnerVoting {
-					outline: unset;
-					background-color: var(--card-color-hover);
+				&:hover %pollAnswerInner {
+					&%pollVoting {
+						&:not(%pollSelected) {
+							outline: unset;
+							background-color: var(--card-color-hover);
+						}
+					} 
 				}
-				
+
 				&%pollVotedStyles {
 					--custom-poll-style-vote-percentage: var(--background-modifier-selected);
 
-					&%pollSelectionIcon {
-						&path {
+					%pollSelectionIcon {
+						path {
 							fill: var(--text-brand);
 						}
 					}
@@ -161,7 +167,7 @@
 
 %messageListItem,
 %divider {
-	+ %messagesWrapper {
+	+%messagesWrapper {
 		margin-top: 2px;
 	}
 }
@@ -198,32 +204,32 @@
 }
 
 %dividerUnread {
-	border-color: hsla(var(--accent-hsl),var(--accent-opacity));
+	border-color: hsla(var(--accent-hsl), var(--accent-opacity));
 
 	%unreadPill {
-		background-color: hsla(var(--accent-hsl),var(--accent-opacity));
+		background-color: hsla(var(--accent-hsl), var(--accent-opacity));
 		color: var(--accent-text-color);
 		text-shadow: none;
 	}
 
 	%unreadPillCapStroke {
-		color: hsla(var(--accent-hsl),var(--accent-opacity));
-		fill: hsla(var(--accent-hsl),var(--accent-opacity));
+		color: hsla(var(--accent-hsl), var(--accent-opacity));
+		fill: hsla(var(--accent-hsl), var(--accent-opacity));
 	}
 }
 
 %messageReplied {
 	&:before {
-        transform: translateX(42px);
-    }
+		transform: translateX(42px);
+	}
 
-    %messageRepliedAvatar,
-    %messageRepliedBadge,
+	%messageRepliedAvatar,
+	%messageRepliedBadge,
 	%executedCommandAvatar {
-        margin-left: 42px;
-    }
+		margin-left: 42px;
+	}
 }
 
 %messageEmojiPopout {
-    @include add-translucence(before, true);
+	@include add-translucence(before, true);
 }
