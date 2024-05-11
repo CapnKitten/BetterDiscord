@@ -82,6 +82,53 @@
             display: none;
         }
     }
+
+	%embedContainer {
+		%pollContainer {
+			background-color: var(--textarea-block-color);
+			border-radius: var(--card-radius);
+			border: none;
+
+			%pollAnswer {
+				&%pollAnswerInner {
+					background-color: var(--card-color);
+					border-radius: var(--card-radius);
+					border: none;
+					outline: unset;
+				}
+
+				&%pollAnswerInnerVotingSelected {
+					outline: unset;
+					background-color: var(--card-color-select);
+
+					%pollSelectionIcon {
+						%pollSelectionCircle {
+							color: var(--text-brand);
+						}
+					}
+				}
+
+				&:hover %pollAnswerInnerVoting {
+					outline: unset;
+					background-color: var(--card-color-hover);
+				}
+				
+				&%pollVotedStyles {
+					--custom-poll-style-vote-percentage: var(--background-modifier-selected);
+
+					&%pollSelectionIcon {
+						&path {
+							fill: var(--text-brand);
+						}
+					}
+				}
+
+				&%pollNormalStyles {
+					--custom-poll-style-vote-percentage: var(--background-modifier-active);
+				}
+			}
+		}
+	}
 }
 
 %messageHasThread {
