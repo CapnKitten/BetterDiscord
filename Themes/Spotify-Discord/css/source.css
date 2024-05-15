@@ -55,6 +55,8 @@
   --main-textarea-text-color: hsl(0,0%,60%);
   --main-textarea-placeholder-color: hsl(0,0%,54%);
   --main-textarea-typing-color: hsla(0,0%,7%,0.9);
+  --textarea-margin: calc( (var(--app-bar-size) - var(--main-textarea-min-height)) / 2);
+  --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin) - 12px);
   --switch-knob-color: hsl(0,0%,100%);
   --switch-slider-color: hsl(0,0%,33%);
   --message-color-hover: hsl(0,0%,9%);
@@ -70,6 +72,9 @@
   --text-link: hsl(var(--accent-hsl));
   --default-shadow: 0 16px 24px hsla(0,0%,0%,0.3), 0 6px 8px hsla(0,0%,0%,0.2);
   --code-font: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace;
+}
+:root:has(#vencord-native-titlebar-style), :root:not(:has(.typeWindows_e41dab)) {
+  --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin));
 }
 
 /*
@@ -155,6 +160,10 @@ body,
 }
 .sidebar_e031be .container__7e23c {
   background-color: transparent;
+}
+
+body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_e031be {
+  height: var(--content-full-height);
 }
 
 .link_ddbb36 {
@@ -547,7 +556,6 @@ body,
  *
  */
 .form_d8a4a1 {
-  --textarea-margin: calc( calc(var(--app-bar-size) - var(--main-textarea-min-height)) / 2 );
   position: relative;
   width: 100%;
   bottom: calc(var(--app-bar-size) * -1);
@@ -2072,6 +2080,7 @@ body,
  *
  */
 .container_bd15da {
+  height: var(--content-full-height);
   background-color: var(--app-foreground);
   border-radius: var(--app-card-radius);
 }
@@ -2151,6 +2160,10 @@ body,
  *  MESSAGE REQUESTS
  *
  */
+.container_d4d35b {
+  height: var(--content-full-height);
+}
+
 .messageRequestItem__9f70d:hover, .messageRequestItem__9f70d.selected__8eaa8, .messageRequestItem__9f70d.selected_febc70 {
   border-radius: var(--card-radius);
 }
@@ -2173,6 +2186,7 @@ body,
  *
  */
 .applicationStore__444b9 {
+  height: var(--content-full-height);
   background-color: var(--app-foreground);
   border-radius: var(--app-card-radius);
 }
@@ -2349,6 +2363,59 @@ pre, pre code, code.inline, .codeBlockText_bcfd01, .codeLine__10acb, .codeBlockL
 }
 .mentioned_fa6fd2:before {
   background-color: hsl(var(--accent-hsl));
+}
+
+/*
+ *
+ *  POLLS
+ *
+ */
+.pollContainer_cfb8c7 {
+  background-color: var(--background-tinted-active);
+  border-radius: var(--card-radius);
+}
+.pollContainer_cfb8c7 .answersContainer_d6d472 {
+  padding: 0;
+  background-color: transparent;
+}
+.pollContainer_cfb8c7 .radioBackground__2d774 {
+  fill: hsl(var(--accent-hsl--material-you));
+}
+
+.answer__07489.votedStyles__57019 .answerInner_b97752 {
+  outline-color: hsl(var(--accent-hsl--material-you));
+}
+.answer__07489:not(.votedStyles__57019) .answerInner_b97752 {
+  outline-color: transparent !important;
+}
+
+.answerInner_b97752 {
+  background-color: var(--background-tinted-hover);
+  border-radius: var(--card-radius);
+}
+.answerInner_b97752.currentlyVoting__54b47:hover {
+  background-color: var(--background-tinted-active);
+}
+.answerInner_b97752.currentlyVoting__54b47.selected__93ede {
+  background-color: var(--background-tinted-highlight);
+}
+.answerInner_b97752.currentlyVoting__54b47.selected__93ede circle,
+.answerInner_b97752.currentlyVoting__54b47.selected__93ede path {
+  fill: hsl(var(--accent-hsl));
+}
+.answerInner_b97752.currentlyVoting__54b47 path {
+  fill: var(--text-normal);
+}
+
+.votePercentageBar_ba9103 {
+  background-color: hsl(from hsl(var(--accent-hsl)) h calc(s * 1.5) l/0.25);
+}
+
+.answerSelectionIcon__262f4 circle {
+  fill: var(--accent-text-color--material-you);
+}
+.answerSelectionIcon__262f4 path {
+  fill: hsl(var(--accent-hsl--material-you));
 }
 
 /*
@@ -3074,6 +3141,7 @@ pre, pre code, code.inline, .codeBlockText_bcfd01, .codeLine__10acb, .codeBlockL
  *
  */
 .layer_f7d46a .shop_b31ed2 {
+  height: var(--content-full-height);
   margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
   border-radius: var(--app-card-radius);
   overflow: hidden;
@@ -3602,6 +3670,10 @@ pre, pre code, code.inline, .codeBlockText_bcfd01, .codeLine__10acb, .codeBlockL
 }
 .wrapper__216eb .tree__7a511:focus {
   outline: none;
+}
+
+body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .wrapper__216eb {
+  height: var(--content-full-height);
 }
 
 .scroller_de945b {
@@ -4243,3 +4315,5 @@ pre, pre code, code.inline, .codeBlockText_bcfd01, .codeLine__10acb, .codeBlockL
   max-width: 716px;
   margin: 0 auto;
 }
+
+/*# sourceMappingURL=main.css.map */

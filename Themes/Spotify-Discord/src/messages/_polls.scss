@@ -1,0 +1,71 @@
+/*
+ *
+ *  POLLS
+ *
+ */
+
+%pollContainer {
+    background-color: var(--background-tinted-active);
+    border-radius: var(--card-radius);
+
+    %pollAnswersContainer {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    %pollRadioBackground {
+            fill: hsl(var(--accent-hsl--material-you));
+    }
+}
+
+%pollAnswer {
+    &%pollAnswerVotedStyles {
+        %pollAnswerInner {
+            outline-color: hsl(var(--accent-hsl--material-you));
+        }
+    }
+
+    &:not(%pollAnswerVotedStyles) {
+        %pollAnswerInner {
+            outline-color: transparent !important;
+        }
+    }
+}
+
+%pollAnswerInner {
+    background-color: var(--background-tinted-hover);
+    border-radius: var(--card-radius);
+
+    &%pollCurrentlyVoting {
+        &:hover {
+            background-color: var(--background-tinted-active);
+        }
+
+        &%pollAnswerSelected {
+            background-color: var(--background-tinted-highlight);
+
+            circle,
+            path {
+                fill: hsl(var(--accent-hsl));
+            }
+        }
+
+        path {
+            fill: var(--text-normal);
+        }
+    }
+}
+
+%pollVotePercentageBar {
+    background-color: hsl(from hsl(var(--accent-hsl)) h calc(s * 1.5) l / 0.25);
+}
+
+%pollAnswerSelectionIcon {
+    circle {
+        fill: var(--accent-text-color--material-you);
+    }
+
+    path {
+        fill: hsl(var(--accent-hsl--material-you));
+    }
+}

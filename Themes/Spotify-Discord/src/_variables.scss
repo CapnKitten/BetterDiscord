@@ -70,6 +70,15 @@
     --main-textarea-text-color: hsl(0,0%,60%);
     --main-textarea-placeholder-color: hsl(0,0%,54%);
     --main-textarea-typing-color: hsla(0,0%,7%,0.9);
+    --textarea-margin: calc( (var(--app-bar-size) - var(--main-textarea-min-height)) / 2);
+
+    // Subtract margins and title bar height unless using native titlebars
+    --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin) - 12px);
+    // Placeholder selectors not supported yet inside :has()
+    &:has(#vencord-native-titlebar-style),
+    &:not(:has(.typeWindows_e41dab)) {
+        --content-full-height: calc(100vh - var(--app-card-top-margin) - var(--textarea-margin));
+    }
 
 	--switch-knob-color: hsl(0,0%,100%);
 	--switch-slider-color: hsl(0,0%,33%);
