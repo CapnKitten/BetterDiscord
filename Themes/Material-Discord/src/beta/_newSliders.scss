@@ -1,0 +1,86 @@
+/*
+ *
+ *  NEW SLIDERS
+ *
+ */
+
+:root {
+    --slider-height: 32px;
+    --slider-radius: calc(var(--slider-height) / 2);
+}
+
+%slider {
+    height: var(--slider-height);
+
+    &:active {
+        %sliderBar {
+            %sliderBarFill {
+                border-radius: var(--slider-radius) calc(var(--slider-radius) / 3) calc(var(--slider-radius) / 3) var(--slider-radius);
+            }
+        }
+    }
+
+    %sliderBar {
+        height: var(--slider-height);
+        top: 0;
+        background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.47) calc(l * 0.425)) !important;
+        border-radius: var(--slider-radius);
+
+        %sliderBarFill {
+            background-color: hsl(var(--accent-hsl--material-you));
+            border-radius: inherit;
+            transition: var(--default-time) var(--default-animation) border-radius;
+
+            &[style*="background: var(--yellow-300)"] {
+                background-color: hsl(var(--accent-hsl--material-you)) !important;
+            }
+        }
+    }
+}
+
+%sliderGrabber {
+    width: var(--slider-height);
+    height: var(--slider-height);
+    top: 0;
+    margin-top: 0;
+    margin-left: calc((var(--slider-height) / 2) * -1);
+    border: none;
+    opacity: 0;
+}
+
+%sliderInputSensitivityBar {
+    height: var(--slider-height);
+    top: 0 !important;
+    border-radius: var(--slider-radius);
+
+    %sliderInputSensitivityFill {
+        height: inherit !important;
+        background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.8) calc(l * 0.8)) !important;
+        border-radius: var(--slider-radius);
+    }
+}
+
+%menuPopoutSliderContainer {
+    --slider-height: 24px;
+
+    height: var(--slider-height);
+    margin-bottom: 0 !important;
+}
+
+%sliderMenuPopout {
+    top: 0;
+}
+
+%sliderMini {
+    %sliderBar {
+        height: var(--slider-height);
+        top: 0;
+    }
+
+    %sliderGrabber {
+        width: var(--slider-height);
+        height: var(--slider-height);
+        margin-top: 0;
+        margin-left: calc((var(--slider-height) / 2) * -1);
+    }
+}
