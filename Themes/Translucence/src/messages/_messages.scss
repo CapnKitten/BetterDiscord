@@ -53,6 +53,16 @@
 		}
 	}
 
+	&%textAreaHasReply {
+        %avatarLarge {
+            top: 28px;
+        }
+
+        %avatarDecoration {
+            top: 26px;
+        }
+    }
+
 	%messageTimestamp {
 		color: var(--text-normal);
 
@@ -72,6 +82,12 @@
         &:before {
             display: none;
         }
+
+		%messageReplied {
+			&:before {
+				border-color: hsl(var(--mention-hsl));
+			}
+		}
     }
 
     &%replyingToIndicator {
@@ -167,13 +183,8 @@
 
 %messageReplied {
 	&:before {
-        transform: translateX(42px);
-    }
-
-    %messageRepliedAvatar,
-    %messageRepliedBadge,
-	%executedCommandAvatar {
-        margin-left: 42px;
+		border-color: var(--message-color);
+		transform: translateX(-6px);
     }
 }
 
