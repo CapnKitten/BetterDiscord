@@ -130,6 +130,12 @@
 
 	&:hover {
 		background-color: var(--message-color-hover) !important;
+
+        %messageReplied {
+            &:before {
+                border-color: var(--message-color-hover) !important;
+            }
+        }
 	}
 
 	&%automodMessage {
@@ -145,34 +151,6 @@
 
 		%markup {
 			overflow: visible;
-		}
-
-		.container-x059i8 {
-			padding: 0;
-		}
-
-		.iconContainer-2rPbqG {
-			position: absolute;
-			width: 40px !important;
-			height: 40px;
-			top: -8px;
-			left: -62px;
-			margin-right: 0;
-			padding-top: 0;
-			background-color: var(--message-color-hover);
-			border-radius: var(--avatar-radius);
-		}
-
-		.container-3i3IzO {
-			width: 100%;
-			padding: 12px;
-			background-color: var(--attachment-color);
-			border-radius: var(--media-radius);
-			box-sizing: border-box;
-		}
-
-		.cta-1XhfrG {
-			color: hsl(var(--accent-hsl));
 		}
 	}
 
@@ -193,11 +171,11 @@
 			left: -54px;
 		}
 
-		&%replyingToIndicator {
+		/*&%replyingToIndicator {
 			&:before {
 				display: none;
 			}
-		}
+		}*/
 	}
 
 	&:not(%messageGroupStart) {
@@ -328,6 +306,13 @@
 				display: none;
 			}
 		}
+
+		&%hasReply {
+            %avatarLarge,
+            %avatarDecoration {
+                top: 28px;
+            }
+        }
 	}
 
 	&%messageGroupStart {
@@ -395,14 +380,11 @@
 
 	%messageReplied {
 		&:before {
-			transform: translateX(42px);
-		}
+			--reply-spacing: var(--message-padding-side);
 
-		%messageRepliedAvatar,
-		%messageRepliedBadge,
-		%executedCommandAvatar,
-		%messageUserJoinSystemMessageIcon {
-			margin-left: 42px;
+			left: calc((0.5 * var(--avatar-size) + var(--gutter) + (var(--reply-spacing) / 2)) * -1);
+			border-color: var(--message-color);
+			transition: var(--default-time) var(--default-animation) border-color;
 		}
 	}
 }
@@ -622,18 +604,32 @@
 		box-shadow: var(--shadow-3dp);
 	}
 
+	%jumpToPresentBarButtonBase {
+		background-color: transparent;
+		color: var(--alert-text-color);
+		box-shadow: none;
+	}
+
 	%jumpToPresentBarButtonMain {
 		min-width: 36px;
-		padding: 0 18px 0 12px;
+		padding: 0 12px 0 12px;
 		flex: 0 1 auto;
+        border-radius: 0;
 
 		&:after {
 			position: absolute;
-			content: "|";
-			width: 4px;
+			content: " ";
+			width: 0.5px;
 			height: 100%;
 			top: 0;
 			right: 0;
+            background-color: var(--alert-text-color);
 		}
+	}
+
+	%jumpToPresentBarButtonAlt {
+        margin-left: 0;
+        font-size: 14px;
+        font-weight: 500;
 	}
 }

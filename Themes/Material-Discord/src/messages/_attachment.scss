@@ -295,47 +295,6 @@
 	}
 }
 
-/* ATTACHMENTS -> EMOJI SELLUP */
-
-.popoutContainer-2wbmiM {
-	@include popout-format(true);
-
-	.emojiSection-3QtaWO,
-	.guildSection-2Zyzy8 {
-		background-color: transparent;
-	}
-
-	.guildSection-2Zyzy8 {
-		border-top: 1px solid var(--card-border-color);
-	}
-}
-
-.container-1ZA19X {
-	z-index: 2;
-
-	.stickerResults-cD_yeI {
-		padding: 16px 16px 8px;
-	}
-
-	.bottomInformationTextContainer-3xmddX {
-		padding: 8px 16px 8px;
-		border-top: 1px solid var(--card-border-color);
-
-		.textDivider-34kVsR {
-			display: none;
-		}
-	}
-
-	.containerBackground-Ang24O {
-		@include popout-format;
-		border: none;
-
-		&:after {
-			border-top-color: var(--popout-color);
-		}
-	}
-}
-
 /* ATTACHMENTS -> IMAGES */
 
 %mediaAttachmentsContainer,
@@ -344,8 +303,12 @@
 	border-radius: 0;
 }
 
+%visualMediaItemContainer {
+    border-radius: var(--media-radius);
+}
+
 %imageWrapper {
-	border-radius: var(--media-radius);
+    border-radius: 4px;
 
 	&%attachmentEmbedWrapper {
 		border-radius: var(--media-radius);
@@ -356,8 +319,10 @@
 	}
 }
 
-.embedMedia-1mdWSP {
-	border-radius: var(--media-radius);
+%oneByOneGridSingle {
+    %imageWrapper {
+        border-radius: var(--media-radius);
+    }
 }
 
 %spoilerContainer {
