@@ -2004,7 +2004,7 @@ html:not(.app-focused) .typeWindows_a934d8 .winButton_a934d8.winButtonMinMax_a93
 }
 
 .mentionButton_b11c5e {
-  --text-link: hsl(var(--accent-hsl));
+  --text-link: hsl(var(--warning-hsl));
 }
 
 .threadSuggestionBar_b11c5e {
@@ -6878,6 +6878,7 @@ div[role=radiogroup].group_e3c4bb {
 .wrapper_ec86aa .buttonContainer_ec86aa {
   margin-top: 8px;
   margin-left: 0;
+  z-index: 3;
 }
 .wrapper_ec86aa .buttonContainer_ec86aa .button_dd4f85 {
   --button-height: 24px;
@@ -6901,6 +6902,21 @@ div[role=radiogroup].group_e3c4bb {
 .wrapper_ec86aa .channelTextArea_d0696b .scrollableContainer_d0696b {
   background-color: var(--input-color-alt);
   border-radius: var(--main-textarea-radius);
+}
+
+.replying_d5deea {
+  z-index: 2;
+}
+.replying_d5deea .contents_ec86aa:before {
+  position: absolute;
+  content: " ";
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  top: 4px;
+  left: 4px;
+  background-color: hsl(var(--warning-hsl), 0.2);
+  border-radius: calc(var(--message-radius) / 1.3);
+  pointer-events: none;
 }
 
 .messageListItem_d5deea:hover + .messageListItem_d5deea .wrapper_ec86aa:not(.groupStart_d5deea):before, .messageListItem_d5deea:hover + .messageListItem_d5deea .wrapper_ec86aa:not(.groupStart_d5deea):after,
