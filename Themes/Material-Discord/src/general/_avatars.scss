@@ -19,8 +19,56 @@
 }
 
 #svg-mask-avatar-default,
-#svg-mask-avatar-status-round-32 {
+#svg-mask-avatar-status-round-32,
+#svg-mask-avatar-status-round-80,
+#svg-mask-avatar-status-round-120 {
     circle[fill="white"] {
         r: 1;
     }
+}
+
+%settingsUserInfo,
+%userProfileHeader,
+%userProfileModalInner {
+    --avatar-radius-80: calc(var(--avatar-radius) * 3.33333);
+
+    %avatarWrapper,
+    %avatarImage {
+        border-radius: var(--avatar-radius-80);
+    }
+
+    %avatarImage {
+        --avatar-radius-80: calc((var(--avatar-radius) * 3.33333) / 2);
+    }
+
+    %avatarWrapper {
+        background-color: var(--popout-color);
+        border: 8px solid var(--popout-color);
+    }
+}
+
+%userProfileModalInner {
+    %avatarImage {
+        --avatar-radius-80: calc((var(--avatar-radius) * 5) / 2);
+    }
+}
+
+%settingsUserBannerSVGWrapper {
+    mask {
+        circle[fill="black"] {
+            display: none;
+        }
+    }
+}
+
+%userProfileHeader,
+%userProfileInner {
+    %avatarWrapper {
+        transform: translate(-6px, -6px);
+    }
+}
+
+
+%userProfileOuterThemed {
+    --popout-color: var(--profile-gradient-primary-color);
 }
