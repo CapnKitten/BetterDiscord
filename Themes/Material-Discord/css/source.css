@@ -4132,8 +4132,57 @@ html:not(.app-focused) .typeWindows_a934d8 .winButton_a934d8.winButtonMinMax_a93
 }
 
 #svg-mask-avatar-default circle[fill=white],
-#svg-mask-avatar-status-round-32 circle[fill=white] {
+#svg-mask-avatar-status-round-32 circle[fill=white],
+#svg-mask-avatar-status-round-80 circle[fill=white],
+#svg-mask-avatar-status-round-120 circle[fill=white] {
   r: 1;
+}
+
+.userInfo_b69b77,
+.header_c6e596,
+.userProfileModalInner_c69a7b {
+  --avatar-radius-80: calc(var(--avatar-radius) * 3.33333);
+}
+.userInfo_b69b77 .wrapper_c51b4e,
+.userInfo_b69b77 .avatar_c51b4e,
+.userInfo_b69b77 .avatar-b5OQ1N,
+.header_c6e596 .wrapper_c51b4e,
+.header_c6e596 .avatar_c51b4e,
+.header_c6e596 .avatar-b5OQ1N,
+.userProfileModalInner_c69a7b .wrapper_c51b4e,
+.userProfileModalInner_c69a7b .avatar_c51b4e,
+.userProfileModalInner_c69a7b .avatar-b5OQ1N {
+  border-radius: var(--avatar-radius-80);
+}
+.userInfo_b69b77 .avatar_c51b4e, .userInfo_b69b77 .avatar-b5OQ1N,
+.header_c6e596 .avatar_c51b4e,
+.header_c6e596 .avatar-b5OQ1N,
+.userProfileModalInner_c69a7b .avatar_c51b4e,
+.userProfileModalInner_c69a7b .avatar-b5OQ1N {
+  --avatar-radius-80: calc((var(--avatar-radius) * 3.33333) / 2);
+}
+.userInfo_b69b77 .wrapper_c51b4e,
+.header_c6e596 .wrapper_c51b4e,
+.userProfileModalInner_c69a7b .wrapper_c51b4e {
+  background-color: var(--popout-color);
+  border: 8px solid var(--popout-color);
+}
+
+.userProfileModalInner_c69a7b .avatar_c51b4e, .userProfileModalInner_c69a7b .avatar-b5OQ1N {
+  --avatar-radius-80: calc((var(--avatar-radius) * 5) / 2);
+}
+
+.bannerSVGWrapper_b32cc2 mask circle[fill=black] {
+  display: none;
+}
+
+.header_c6e596 .wrapper_c51b4e,
+.userProfileInner_c69a7b .wrapper_c51b4e {
+  transform: translate(-6px, -6px);
+}
+
+.userProfileOuterThemed_c69a7b {
+  --popout-color: var(--profile-gradient-primary-color);
 }
 
 /*
@@ -6915,8 +6964,9 @@ div[role=radiogroup].group_e3c4bb {
   top: 4px;
   left: 4px;
   background-color: hsl(var(--warning-hsl), 0.2);
-  border-radius: calc(var(--message-radius) / 1.3);
+  border-radius: calc(var(--message-radius) / 1.25);
   pointer-events: none;
+  animation: var(--default-time) var(--default-animation) opacity;
 }
 
 .messageListItem_d5deea:hover + .messageListItem_d5deea .wrapper_ec86aa:not(.groupStart_d5deea):before, .messageListItem_d5deea:hover + .messageListItem_d5deea .wrapper_ec86aa:not(.groupStart_d5deea):after,
