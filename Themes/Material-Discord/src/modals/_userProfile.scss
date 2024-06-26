@@ -6,57 +6,41 @@
  *
  */
 
-%userProfileModalInner {
-	%userProfileUsername,
-	%userProfileDiscimBase {
-		font-size: 22px;
-		font-weight: 400;
-	}
+%biteSizeIconButton {
+    padding: 0;
+
+    %buttonContents {
+        min-height: var(--button-height);
+        min-width: var(--button-height);
+    }
 }
 
-%userProfileModalBadgeList {
-	height: var(--button-height);
-	padding: 0 6px;
-	background-color: var(--profile-body-background-color);
-	border-radius: var(--button-radius);
-}
+%userProfileModalTabBar {
+    height: 48px;
+    margin: 0;
+    padding: 0 16px;
+    gap: 24px;
 
-%userProfileModalTabBarContainer {
-	margin: 16px 0 0;
-	padding: 0 12px;
-	background-color: transparent !important;
-	border-bottom: 1px solid var(--background-modifier-accent) !important;
-	box-shadow: none !important;
-
-	%userProfileModalTabBar {
-		gap: 24px;
-	}
-
-	%tabBarItem {
-		height: 36px;
+    %tabBarItem {
+		height: inherit;
 		border-bottom: none;
 
 		&%tabBarItemSelected {
 			@include tab-border(90%);
 		}
+
+        %textSmNormal {
+            line-height: 48px;
+        }
 	}
 }
 
-%userProfileModalHeaderContainer {
-	padding: 16px 16px 0;
+%fullSizeOverlayBackground {
+    border-radius: calc(var(--popout-radius-big) / 1.75);
+    border: none;
 }
 
-%userProfileModalHeaderDivider {
-	margin: 16px 16px 0;
-}
-
-%userProfileModalInfoScroller {
-	padding: 0 calc(16px - var(--scrollbar-thin-width)) 0 16px !important;
-}
-
-%activityHeaderText {
-	@include remove-caps(14px);
-}
+/* USER PROFILE -> CONNECTED ACCOUNTS */
 
 %userProfileModalConnectedAccounts {
 	margin-top: -16px;
@@ -71,15 +55,18 @@
 	}
 }
 
+/* USER PROFILE -> NOTE */
+
 %userProfileModalNote {
 	margin: 0;
 
 	textarea {
 		padding: 6px 12px;
 		border-radius: var(--input-radius);
+        box-shadow: none !important;
 
 		&:focus {
-			background-color: transparent;
+			background-color: var(--input-color);
 		}
 	}
 }

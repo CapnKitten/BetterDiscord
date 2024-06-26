@@ -13,18 +13,42 @@
 	--profile-body-background-color: var(--popout-color-alt) !important;
 	--profile-gradient-button-color: hsl(var(--accent-hsl--material-you)) !important;
 	--profile-gradient-button-text-color: var(--accent-text-color--material-you) !important;
+
+	--bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+    --bg-mod-faint: var(--profile-body-background-color) !important;
+
+	--input-color: var(--input-color-alt) !important;
+}
+
+%profileCustomThemeBackground {
+    %menuPopout {
+        border: none;
+    }
 }
 
 %userProfileOuterThemed {
+    --popout-color-alt: var(--profile-gradient-secondary-color) !important;
+    --card-color-filled: var(--profile-body-background-color) !important;
     --menu-item-hover: var(--profile-gradient-secondary-color) !important;
+
+    %userProfileMessageInner {
+        --input-color: rgb(var(--bg-overlay-color)/0.3);
+    }
+
+    %statusBubbleText {
+        color: var(--white-500);
+    }
+
+    %channelTextAreaFontPadding {
+		color: var(--text-normal) !important;
+	}
+
+    %spriteGreyscale {
+        background-color: var(--text-normal);
+    }
 
 	%userProfileBanner {
 		border-radius: calc(var(--popout-radius-big) - 4px);
-	}
-
-	%userProfileNoteTextArea,
-	%inputWrapper %input {
-		--input-color: var(--profile-body-background-color) !important;
 	}
 
 	%buttonFilled {
@@ -47,12 +71,17 @@
         }
     }
 
+    %userProfileNoteTextArea,
+	%inputWrapper %input {
+		--input-color: var(--profile-body-background-color) !important;
+	}
+
 	%listRow {
 	    --menu-item-hover: var(--profile-body-background-hover);
 	}
 
 	%markup a {
-		color: var(--profile-gradient-button-color);
+		color: var(--profile-gradient-secondary-color);
 	}
 
 	%flowerStar {
@@ -68,324 +97,188 @@
 	}
 }
 
-%userProfileOuter {
-	border-radius: var(--popout-radius-big);
-}
-
-%userProfileInner {
-	--input-color: var(--input-color-alt);
-
-	border-radius: calc(var(--popout-radius-big) - 4px);
-
-	&:before {
-		border-radius: inherit;
-	}
-
-	%avatarWrapper {
-		circle {
-			fill: var(--profile-avatar-border-color);
-		}
-	}
-
-	%inputWrapper {
-		border-bottom: none !important;
-
-		&.quickMessage-3jDbBs {
-			margin-top: 0;
-		}
-
-		&:before,
-		&:after {
-			display: none;
-		}
-
-		%input {
-			padding: 0 12px;
-			background-color: var(--input-color);
-			border-radius: var(--input-radius);
-
-			&::-webkit-input-placeholder {
-				font-family: var(--app-font);
-				color: var(--input-placeholder-color);
-			}
-		}
-	}
-
-	%listScroller {
-		padding: 8px 0;
-	}
-
-	%listRow {
-		+ div:empty {
-			height: 8px !important;
-		}
-	}
-}
-
-%userProfileScroller {
-    --scrollbar-width: 0;
-    padding-right: 12px !important;
-
-    &:hover {
-        --scrollbar-width: 6px;
-        padding-right: calc(12px - var(--scrollbar-width)) !important;
-    }
-
-	%userProfileSection {
-        &:first-of-type {
-            padding-top: 0;
-        }
-    }
-}
-
-%userProfileNitroUpsellWrapper,
-%userProfileBannerNitroUpsell,
-%userProfileOverlayBackground {
-	border-radius: calc(var(--popout-radius-big) - 4px);
-}
-
-%userProfileModalNameTag {
-	%userProfileUsername,
-	%userProfileDiscriminator {
-		font-size: 18px;
-		font-weight: 400;
-	}
+%biteSizeOuter {
+    border-radius: var(--popout-radius-big);
+    box-shadow: var(--shadow-3dp);
 }
 
 %userProfileBanner {
-	border-radius: var(--popout-radius-big);
+    border-radius: var(--card-radius-big);
 }
 
-%userProfileBadges {
-	border-radius: 15px;
-}
+%biteSizeInnerThemed {
+    padding-bottom: 0;
+    background-color: var(--popout-color);
 
-%userProfileUserTagNoNickname span,
-%userProfileNickname {
-	font-size: 22px;
-	font-weight: 400;
-}
-
-%userProfileEyebrow {
-	@include remove-caps(14px);
-}
-
-%userProfileGameIcon {
-	border-radius: 50%;
-}
-
-%userProfileAssetsLargeImage {
-	border-radius: var(--card-radius-big);
-
-	&%userProfileAssetsLargeImageSpotify {
-		border-radius: 50%;
-	}
-}
-
-%buttonColor {
-	--button-background: var(--profile-gradient-button-color);
-	--button-text-color: var(--profile-gradient-button-text-color);
-}
-
-%userProfileSection {
-	padding-top: 16px;
-}
-
-%userProfileUsernameSection {
-    padding: 12px 12px 16px;
-}
-
-%userProfileCustomStatusSection {
-    padding-top: 0;
-    padding-bottom: 16px;
-}
-
-%userProfileDivider {
-	display: none;
+    &:before {
+        border-radius: calc(var(--popout-radius-big) / 1.25);
+    }
 }
 
 %userProfileEffectsInner {
     border-radius: var(--popout-radius-big);
 }
 
-%userProfileAvatarDecorationUpsellWrapper {
-    padding: 4px;
-    border-radius: var(--popout-radius-big);
+%userProfileInner {
+    &:before {
+        border-radius: calc(var(--popout-radius-big) / 1.25);
+    }
 }
 
-%userProfileAvatarDecorationUpsellWrapperInner {
-    background-color: var(--popout-color);
-    border-radius: calc(var(--popout-radius-big) - 4px);
-}
+/* USER POPOUT ->  BANNER BUTTONS */
 
-/* USER POPOUT -> STATUS AREA */
+%biteSizeBannerButtonsWrapper {
+    %button {
+        padding: 0;
 
-%accountProfilePopoutWrapper {
-	animation: bottom-pop-out 400ms var(--default-animation);
-}
-
-body:active %accountProfilePopoutWrapper:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
-}
-
-%userProfileStatusMenu {
-	background-color: transparent;
-	box-shadow: none;
-	animation: none;
-
-	%scroller {
-		padding-right: 0 !important;
-
-		&::-webkit-scrollbar {
-			--scrollbar-width: 0;
-		}
-
-		%menuPopoutSeparator {
-			width: calc(100% - 24px);
-			margin: 8px 12px;
-		}
-	}
-
-	%menuPopoutItem {
-		&[id*="account-divider-"] {
-			min-height: unset;
-			padding: 0;
-
-			%menuPopoutDivider {
-				margin: 8px 12px;
-			}
-		}
-	}
-
-	%menuPopoutSeparator {
-		width: calc(100% - 24px);
-		margin: 8px 12px;
-		background-color: var(--separator-color);
-	}
-
-	%contextMenuItemSubMenuAlt {
-		%menuPopoutSeparator {
-			width: 100%;
-			margin: 8px 0;
-		}
-	}
-}
-
-%userProfileConnectionsContainer {
-    background-color: var(--popout-color);
-    border-radius: calc(var(--popout-radius-big) - 4px);
-    border: none;
-
-    %userProfileConnections {
-        transition: var(--default-time) var(--default-animation) background-color;
-
-        &:hover {
-            background-color: var(--menu-item-hover);
+        %buttonContents {
+            min-width: var(--button-height);
+            min-height: var(--button-height);
         }
     }
 }
 
-body:active %userProfileStatusMenu:not(:active) {
-	opacity: 1;
+/* USER POPOUT -> STATUS BUBBLE */
+
+%statusBubbleOuter {
+    background-color: var(--popout-color-alt) !important;
+    border-radius: var(--popout-radius-big);
+    border: none !important;
+    box-shadow: none;
+
+    &:before,
+    &:after {
+        background-color: inherit !important;
+        border: none !important;
+        box-shadow: none;
+    }
+}
+
+%statusBubble {
+    background-color: transparent !important;
+}
+
+%statusBubbleText {
+    color: var(--text-normal);
+}
+
+/* USER POPOUT -> BADGE LIST */
+
+%badgeListContainer {
+    height: 24px;
+    padding: 0 2px;
+    background-color: var(--card-color-filled) !important;
+    border-radius: 12px;
+    border: none;
+}
+
+/* USER POPOUT -> ACTIVITY */
+
+%biteSizeActivity {
+    background-color: var(--popout-color-alt);
+    border-radius: calc(var(--popout-radius-big) / 1.5);
+    border: none;
+}
+
+/* USER POPOUT -> SPOTIFY */
+
+%userProfileSyncButton {
+    --button-padding: 0;
+
+    min-width: var(--button-height);
+
+    %userProfileSyncButtonInner {
+        min-width: var(--button-height);
+        max-width: var(--button-height);
+        min-height: var(--button-height);
+        max-height: var(--button-height);
+    }
+}
+
+%userProfileAssetsLargeImageSpotify {
+    border-radius: 50%;
 }
 
 /* USER POPOUT -> ROLES */
 
 %role {
-	position: relative;
-	min-width: 28px;
-	height: 28px;
-	gap: 6px;
-	padding: 0 12px 0 6px;
-	background-color: transparent;
-	border-radius: 8px;
-	border: 1px solid var(--card-border-color);
+    min-width: 28px;
+    height: 28px;
+    gap: 6px;
+    padding: 0 12px 0 6px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid var(--card-border-color);
 
-	%roleCircle,
-	%permCircle {
-		width: 16px;
-		height: 16px;
-		margin: 0;
-		border-radius: 8px;
-	}
-
-	%permCircle {
-		margin-right: 0 !important;
-	}
-
-	%roleRemoveIcon {
-		display: block;
-		width: 16px;
-		height: 16px;
-		top: 0;
-		left: 0;
-		margin: auto;
-		transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) transform;
-		opacity: 0;
-		cursor: pointer;
-	}
-
-	&:hover {
-		%roleRemoveIcon {
-			opacity: 1;
-		}
-	}
-
-	%roleName,
-	%roleIcon {
-		margin-right: 0;
-	}
-
-	&%roleAddButton {
-		padding: 0 6px;
-		background-color: transparent !important;
-
-		%roleAddButtonIcon {
-			width: 18px;
-			height: 18px;
-		}
-	}
-}
-
-%roleFlowerStar {
-    display: flex;
-    width: 16px !important;
-    height: 16px !important;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-
-    %roleLinkIcon {
-        margin: 0 !important;
+    > :first-child {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
-/* USER POPOUT -> NOTE */
-
-%userProfileNote {
-	margin: 0;
+%roleCircle {
+    width: 16px;
+    height: 16px;
 }
 
-%userProfileInner {
-	%userProfileNoteTextArea {
-		padding: 6px 12px;
-		border-radius: var(--input-radius);
-		box-shadow: none !important;
-		font-size: 14px;
+%roleShowMoreButton {
+    height: 28px;
+    padding: 0 6px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid var(--card-border-color);
+    box-sizing: border-box;
 
-		&:focus {
-			background-color: var(--input-color) !important;
-		}
-	}
+    %textXsMedium {
+        line-height: 26px;
+    }
 }
 
-%userProfileMessageInputContainer {
-	border: none;
+%roleAddButton {
+    width: 28px;
+    height: 28px;
+    padding: 0;
 
-	%input {
-		box-shadow: none !important;
-	}
+    %buttonContents {
+        --button-height: 28px;
+
+        min-width: 28px;
+        max-height: 28px;
+        min-height: 28px;
+        max-height: 28px;
+    }
+}
+
+/* USER POPOUT ->  MESSAGE */
+
+%userProfileMessageInner {
+    background-color: var(--input-color) !important;
+    border-radius: var(--input-radius);
+
+    %textArea {
+        min-height: var(--input-height);
+        height: var(--input-height);
+    }
+
+    %channelTextAreaFontPadding {
+        padding-top: calc((var(--input-height) - 1.57em) / 2);
+        padding-bottom: calc((var(--input-height) - 1.57em) / 2);
+    }
+
+    %channelTextAreaButtonsContainer {
+        height: var(--input-height);
+    }
+}
+
+/* USER POPOUT -> SELF PROFILE */
+
+%userProfileMenus {
+    > %menuPopout {
+        background-color: var(--popout-color-alt);
+        border-radius: calc(var(--popout-radius-big) / 1.5);
+        border: none;
+        box-shadow: none;
+    }
 }
 
 /* USER POPOUT -> QUEST AVAILABLE POPOUT */
