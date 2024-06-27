@@ -12,13 +12,8 @@
 	--profile-avatar-border-color: var(--popout-color) !important;
 	--profile-body-background-color: var(--popout-color) !important;
 
-	* {
-		text-shadow: none;
-	}
-
-	svg {
-    	filter: none;
-    }
+    --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+    --bg-mod-faint: var(--profile-body-background-color) !important;
 
 	&%themeLight {
 		--textarea-color: 0,0,0;
@@ -28,9 +23,27 @@
 	}
 }
 
+%userProfileOuterThemed {
+	--card-color: rgb(var(--bg-overlay-color)/var(--bg-overlay-opacity-6));
+
+	%buttonFilled {
+		--button-background: var(--profile-gradient-button-color);
+        --button-text-color: var(--white-500);
+        --accent-button-action: var(--white-500);
+	}
+}
+
 %userProfileOuter {
 	@include add-translucence(before, true, false);
 	border-radius: var(--popout-radius);
+
+	* {
+		text-shadow: none;
+	}
+
+	svg {
+    	filter: none;
+    }
 
 	%userProfileMenus {
         > %menuPopout {
@@ -74,12 +87,34 @@
 	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
 }
 
-%userProfileBadges {
-	border-radius: 15px;
+%badgeListContainer {
+    padding: 2px;
+    background-color: var(--card-color) !important;
+    border-radius: 12px;
+    border: none;
 }
 
 %userProfileOverlayBackground {
 	border-radius: calc(var(--popout-radius) / 1.25);
+}
+
+%biteSizeInnerThemed {
+    padding-bottom: 0;
+}
+
+%statusBubbleOuter {
+    border: none !important;
+
+    &:before,
+    &:after {
+        border: inherit !important;
+    }
+}
+
+%profileCustomThemeBackground {
+    %menuPopout {
+        border: none;
+    }
 }
 
 %role {
