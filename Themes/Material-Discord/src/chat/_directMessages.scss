@@ -117,7 +117,18 @@
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
 %dmProfilePanel {
-    padding: 12px;
+    width: calc(340px + 24px);
+}
+
+%dmUserPanelOuter {
+    height: calc(100% - 24px);
+    margin: 12px;
+    border-radius: var(--popout-radius-big);
+    overflow: hidden;
+}
+
+%dmUserPanelInner {
+    border-radius: inherit;
 
     %dmProfileScroller {
         &::-webkit-scrollbar {
@@ -125,16 +136,9 @@
         }
     }
 
-    %userProfileInner:before {
-        width: calc(100% - 24px);
-        height: calc(100% - 24px);
-        border-radius: var(--popout-radius-big);
+    %userProfileOverlayBackground {
+        border-radius: var(--card-radius-big);
     }
-}
-
-%dmUserPanelOuter {
-    border-radius: var(--popout-radius-big);
-    overflow: hidden;
 }
 
 %dmUserProfileBadgeList {
@@ -147,12 +151,6 @@
 }
 
 %dmProfilePanelConnections {
-    margin: 6px 16px 16px;
-
-    &:empty {
-        margin: 0;
-    }
-
     %dmMutualFriendsDivider {
         position: relative;
         border-top: none;
@@ -184,11 +182,9 @@
 }
 
 %dmConnectionList {
-    margin-bottom: 8px;
+    --popout-radius: calc(var(--card-radius-big) / 1.55);
 
-    %listRow {
-        border-radius: calc(var(--popout-radius-big) - 8px);
-    }
+    margin-bottom: 8px;
 }
 
 /* DIRECT MESSAGES -> SPAM FILTER */
