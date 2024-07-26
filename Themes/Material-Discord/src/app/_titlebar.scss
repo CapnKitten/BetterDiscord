@@ -1,0 +1,118 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	APP TITLEBAR
+ *
+ */
+
+%titlebarWin {
+	&%titlebarWithFrame {
+		height: var(--app-title-bar-height);
+		margin-top: 0;
+	}
+
+	%titlebarWinButton {
+		height: var(--app-title-bar-height);
+		top: 0;
+
+		&:before {
+			position: absolute;
+			content: " ";
+			width: 12px;
+			height: 12px;
+			background-position: center;
+			-webkit-mask-size: contain;
+			mask-size: contain;
+			filter: brightness(40%);
+			z-index: 2;
+			opacity: 0;
+			transition: var(--default-time) var(--default-animation) opacity;
+			pointer-events: none;
+		}
+
+		&:hover {
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&:after {
+			position: absolute;
+			content: " ";
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			background-color: var(--app-button-active);
+			transition: var(--default-time) var(--default-animation);
+			pointer-events: none;
+		}
+
+		&:active:after {
+			opacity: 0.65;
+		}
+
+		&%titlebarWinButtonMinMax {
+			&:nth-last-of-type(2) {
+				&:hover {
+					&:after {
+						background-color: var(--app-button-max);
+					}
+				}
+
+				&:before {
+					@include add-icon(var(--app-button-max), window_maximize);
+				}
+			}
+
+			&:nth-last-of-type(1) {
+				&:hover {
+					&:after {
+						background-color: var(--app-button-min);
+					}
+				}
+
+				&:before {
+					@include add-icon(var(--app-button-min), window_minimize);
+				}
+			}
+		}
+
+		&%titlebarWinButtonClose {
+			&:hover {
+				&:after {
+					background-color: var(--app-button-close);
+				}
+			}
+
+			&:before {
+				@include add-icon(var(--app-button-close), window_close);
+			}
+		}
+
+		&:hover,
+		&:active {
+			background-color: transparent;
+		}
+
+		svg {
+			display: none;
+		}
+	}
+}
+
+html:not(%appFocused) {
+	%titlebarWin {
+		%titlebarWinButton {
+			&:after {
+				background-color: var(--app-button-inactive);
+			}
+
+			&%titlebarWinButtonMinMax {
+				&:after {
+					background-color: var(--app-button-inactive);
+				}
+			}
+		}
+	}
+}
