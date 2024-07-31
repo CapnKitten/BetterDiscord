@@ -1380,10 +1380,6 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
  *  HEADER BAR SEARCH
  *
  */
-.container_c18ec9 {
-  margin: 0 8px;
-}
-
 .search_a46bef.open_a46bef .searchBar_a46bef, .search_a46bef.focused_a46bef .searchBar_a46bef {
   height: 32px;
   padding: 4px 4px 4px 8px;
@@ -1726,6 +1722,35 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
 }
 .fileUpload-3JzU7g .fileUploadButton-2zOQcO {
   margin: 0;
+}
+
+/* INPUTS -> SEARCH CONTAINERS */
+.container_c18ec9 {
+  height: var(--input-height);
+  padding: var(--input-padding);
+  background-color: var(--input-color);
+  border-radius: var(--input-radius);
+  border: 1px solid transparent;
+  color: var(--input-text-color);
+  font-size: 14px;
+  transition: var(--default-time) var(--default-animation) border-color;
+}
+.container_c18ec9:hover {
+  border-color: transparent;
+}
+.container_c18ec9:focus-within {
+  border-color: var(--input-border-color);
+}
+.container_c18ec9::-webkit-input-placeholder {
+  color: var(--input-placeholder-color);
+}
+.container_c18ec9 .inner_c18ec9 {
+  padding: 0;
+}
+.container_c18ec9 .input_c18ec9 {
+  line-height: var(--input-height);
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -2080,29 +2105,14 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
   border-radius: var(--app-card-radius);
 }
 
+.peopleColumn_c2739c .container_c18ec9 {
+  margin: 24px 24px 0;
+}
+
 .tabBody_c2739c:before {
   display: none;
 }
 
-.searchBar_e0840f {
-  height: var(--input-height);
-  padding: var(--input-padding);
-  background-color: var(--input-color);
-  border-radius: var(--input-radius);
-  border: 1px solid transparent;
-  color: var(--input-text-color);
-  font-size: 14px;
-  transition: var(--default-time) var(--default-animation) border-color;
-}
-.searchBar_e0840f:hover {
-  border-color: transparent;
-}
-.searchBar_e0840f:focus-within {
-  border-color: var(--input-border-color);
-}
-.searchBar_e0840f::-webkit-input-placeholder {
-  color: var(--input-placeholder-color);
-}
 .peopleListItem_d51464:hover, .peopleListItem_d51464.active_d51464 {
   border-radius: var(--menu-item-radius);
 }
@@ -2221,6 +2231,30 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
 }
 .embed_b0068a.embedFull_b0068a {
   background-color: var(--background-tinted-active);
+}
+
+.embedCard_a0eae1 {
+  background-color: var(--background-tinted-active);
+}
+.embedCard_a0eae1.withFooter_a0eae1 {
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+
+.footerContainer_bc2461 {
+  padding: 8px;
+  background-color: var(--background-tinted-hover);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+}
+.footerContainer_bc2461 .buttonContainer_bc2461 {
+  margin-left: 0;
+  gap: 8px;
+}
+.footerContainer_bc2461 .lookLink_dd4f85 {
+  --button-height: 32px;
+  --button-outline: 1px solid hsl(var(--accent-hsl));
+}
+.footerContainer_bc2461 .footerIcon_bc2461 path {
+  fill: hsl(var(--accent-hsl));
 }
 
 .attachment_b52bef {
@@ -2906,6 +2940,24 @@ pre, pre code, code.inline, .codeBlockText_cdb578, .codeLine_cdb578, .codeBlockL
  *  BROWSE CHANNELS
  *
  */
+.header_f1fd9c {
+  background: var(--header-bar-color) !important;
+}
+
+.pageBody_c2efea {
+  background: var(--app-foreground) !important;
+}
+
+.container_f1fd9c {
+  border-radius: var(--app-card-radius);
+}
+.container_f1fd9c .pageBody_c2efea {
+  border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
+}
+.container_f1fd9c .container_c18ec9 {
+  margin: 0;
+}
+
 .channelRow_f04d06 {
   position: relative;
   background-color: var(--card-color);
@@ -2933,7 +2985,7 @@ pre, pre code, code.inline, .codeBlockText_cdb578, .codeLine_cdb578, .codeBlockL
   z-index: 2;
 }
 .channelRow_f04d06 .lookOutlined_dd4f85.colorPrimary_dd4f85 {
-  --button-text-color: var(--accent-text-color);
+  --button-text-color: hsl(0,0%,100%);
 }
 
 /*
@@ -3271,6 +3323,7 @@ pre, pre code, code.inline, .codeBlockText_cdb578, .codeLine_cdb578, .codeBlockL
 
 .header_b56bbc {
   padding-bottom: 16px;
+  background-color: var(--popout-color);
 }
 
 .container_effbe2, .searchBar_b56bbc {
@@ -3325,6 +3378,10 @@ pre, pre code, code.inline, .codeBlockText_cdb578, .codeLine_cdb578, .codeBlockL
 .emojiPickerHasTabWrapper_c6ee36 .wrapper_ba23fe,
 .wrapper_d8cdac .wrapper_ba23fe {
   top: 57px;
+}
+
+.container_b56bbc {
+  background-color: var(--popout-color);
 }
 
 .emojiItem_fbfedd {
