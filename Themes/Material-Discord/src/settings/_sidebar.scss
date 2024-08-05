@@ -7,6 +7,8 @@
  */
 
 %settingsSidebarScroller {
+	--scrollbar-width: var(--scrollbar-thin-width);
+
 	background-color: var(--main-alt);
 }
 
@@ -23,7 +25,29 @@
 
 	%settingsSide {
 		width: inherit;
+
+		> div:not([class])[style="margin-bottom: 8px;"] {
+	        display: flex;
+	        position: fixed;
+	        align-items: flex-end;
+	        width: var(--sidebar-width);
+	        height: calc(60px + var(--input-height));
+	        top: var(--app-title-bar-height);
+	        margin-bottom: 0 !important;
+	        background-color: var(--main-alt);
+	        z-index: 4;
+
+	        + %settingsSideHeader {
+	            margin-top: 56px;
+	        }
+	    }
 	}
+
+	%emojiPickerSearchBar {
+        width: calc(var(--sidebar-width) - 18px);
+        height: var(--input-height);
+        margin: 0 0 8px 12px;
+    }
 }
 
 %settingsSidebar {

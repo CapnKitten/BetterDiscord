@@ -1,0 +1,124 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  APPS AND COMMANDS
+ *
+ */
+
+%appsContentWrapper {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+    box-shadow: var(--shadow-3dp);
+}
+
+%appsSectionRowsContentContainer {
+    padding: 8px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+
+    %appsRowContainer {
+        background-color: transparent;
+        border-radius: calc(var(--card-radius-big) / 1.5);
+
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
+    }
+
+    %appsRowDivider {
+        display: none;
+    }
+}
+
+%appsCardContainerBorderRadius {
+    border-radius: 24px;
+}
+
+%appsCardIcon {
+    border-radius: 50%;
+}
+
+%appsSectionTwoColumnContentContainer {
+    %appsCardContainer {
+        border-radius: var(--card-radius-big);
+    }
+}
+
+%appsCardContainer {
+    background-color: var(--card-color-filled);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--card-color-active);
+    }
+}
+
+%appsCardBannerImageContainer {
+    border-radius: var(--card-radius-big);
+}
+
+%appsQuestionsContainer {
+    @include card-format(false, 16px, true);
+}
+
+/* APPS AND COMMANDS - > APP */
+
+%appContainer {
+    --scrollbar-width: 0;
+
+    background-color: var(--popout-color);
+
+    %appBannerBackground,
+    %appStickyBanner {
+        border-radius: var(--popout-radius-big);
+    }
+}
+
+%appIcon {
+    background-color: var(--popout-color);
+    border-color: var(--popout-color);
+}
+
+%appProfileAndVideoContainer {
+    margin-bottom: 0;
+    border-radius: var(--card-radius-big);
+    border: none;
+
+    %appOverviewContainerNoVideo {
+        background-color: var(--card-color-filled);
+        border-radius: inherit;
+    }
+}
+
+%appVideoCover {
+    border-radius: var(--card-radius-big);
+}
+
+%appOverviewContainerWithVideo {
+    margin-top: calc(var(--card-radius-big) * -1);
+    padding-top: calc(12px + var(--card-radius-big));
+    background-color: var(--card-color-filled);
+    border-bottom-left-radius: var(--card-radius-big);
+    border-bottom-right-radius: var(--card-radius-big);
+
+    %appTagContainer {
+        border-radius: 11px;
+        background-color: var(--card-color-active);
+    }
+}
+
+%appCommandContainer {
+    @include card-format(false, 8px, true);
+
+    %appCommand {
+        background-color: transparent;
+        border-radius: calc(var(--popout-radius-big) / 1.5) !important;
+        border-bottom: none !important;
+        transition: var(--default-time) var(--default-animation) background-color;
+
+        &:hover {
+            background-color: var(--card-color-hover);
+        }
+    }
+}
