@@ -122,31 +122,6 @@ body,
   background-color: var(--app-background);
 }
 
-/* APP ELEMENTS -> FONTS */
-@font-face {
-  font-family: "CircularSp";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/files/fonts/CircularSp-Book.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "CircularSp";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/files/fonts/CircularSp-Book.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "CircularSp";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/files/fonts/CircularSp-Bold.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /*
  *
  *  CHANNELS LIST
@@ -341,6 +316,13 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
   background-color: var(--app-background);
 }
 
+.chatHeaderBar_efb691 {
+  background-color: var(--background-tinted-active);
+}
+.chatHeaderBar_efb691:after {
+  display: none;
+}
+
 /* CHAT AREA -> DIVIDERS */
 .divider_c2654d {
   --divider-color: var(--popout-color);
@@ -377,12 +359,12 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
 
 /* CHAT AREA -> JUMP TO PRESENT BUTTON */
 .jumpToPresentBar_cf58b5 {
-  margin-bottom: 30px;
+  margin-bottom: 8px;
   padding-bottom: 0;
   border-radius: 4px;
 }
 .jumpToPresentBar_cf58b5:active {
-  margin-bottom: 28px;
+  margin-bottom: 6px;
 }
 
 /* CHAT AREA -> PLACEHOLDER */
@@ -2079,6 +2061,13 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
   border-top-color: var(--popout-color);
 }
 
+/* TOOLTIP -> REACTIONS */
+.reactionTooltip_fba897 {
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--default-shadow);
+}
+
 /* TOOLTIP -> UPSELLS */
 .upsellTooltipWrapper_dafa63 {
   background-color: var(--popout-color);
@@ -2231,20 +2220,20 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
  *  MESSAGE ACTIONS
  *
  */
-.wrapper_ef319f {
+.wrapper_f7e168 {
   height: 40px;
   padding: 4px;
   background-color: var(--popout-color);
   border-radius: var(--popout-radius);
   box-shadow: var(--default-shadow) !important;
 }
-.wrapper_ef319f .button_ef319f {
+.wrapper_f7e168 .button_f7e168 {
   border-radius: calc(var(--popout-radius) - 2px);
 }
-.wrapper_ef319f .button_ef319f:hover {
+.wrapper_f7e168 .button_f7e168:hover {
   background-color: var(--background-tinted-hover);
 }
-.wrapper_ef319f .button_ef319f.selected_ef319f {
+.wrapper_f7e168 .button_f7e168.selected_f7e168 {
   background-color: var(--background-tinted-active);
 }
 
@@ -2295,6 +2284,11 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_a4d4d9 {
   background-color: var(--background-tinted-active);
   border-radius: var(--card-radius);
   border: none;
+}
+
+.container_c15230 {
+  background-color: var(--background-tinted-active);
+  border-radius: var(--card-radius);
 }
 
 .wrapper_ce1c1d {
@@ -3095,6 +3089,53 @@ pre, pre code, code.inline, .codeBlockText_cdb578, .codeLine_cdb578, .codeBlockL
 .paginationContainer_cb152b {
   padding: 0;
   border-top: none;
+}
+
+/*
+ *
+ *	SERVER DISCOVERY
+ *
+ */
+.pageWrapper_a3a4ce {
+  margin-bottom: calc((var(--app-bar-size) - var(--app-card-top-margin)) * -1);
+  background: var(--app-foreground);
+  border-radius: var(--app-card-radius);
+  overflow: hidden;
+}
+
+/* SERVER DISCOVERY -> SIDEBAR */
+.sidebarContainer_a3a4ce {
+  background: transparent !important;
+}
+
+.categoryItem_c72b37 .itemInner_c72b37 {
+  border-radius: var(--menu-item-radius);
+}
+.categoryItem_c72b37:hover .itemInner_c72b37 {
+  background-color: var(--background-tinted-hover);
+}
+.categoryItem_c72b37.selectedCategoryItem_c72b37 .itemInner_c72b37 {
+  background-color: var(--background-tinted-active);
+}
+
+/* SERVER DISCOVERY -> CARDS */
+.card_e90879 {
+  background-color: var(--card-color) !important;
+  border-radius: var(--card-radius);
+}
+.card_e90879:hover {
+  background-color: var(--card-color-hover) !important;
+}
+.card_e90879:hover .iconMask_e90879 {
+  background-color: var(--card-color-hover) !important;
+}
+.card_e90879 .iconMask_e90879 {
+  background-color: var(--card-color) !important;
+}
+
+.full-motion .card_e90879:hover {
+  box-shadow: none;
+  transform: none;
 }
 
 /*
