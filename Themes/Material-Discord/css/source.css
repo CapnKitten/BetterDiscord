@@ -1642,6 +1642,14 @@ html:not(.app-focused) .typeWindows_a934d8 .winButton_a934d8.winButtonMinMax_a93
   display: none;
 }
 
+/* DIRECT MESSAGES -> TURN OFF FROM SERVER MODAL */
+.guildContainer_f52e1a {
+  background-color: var(--card-color-filled);
+  border: none;
+  padding: 16px;
+  border-radius: var(--card-radius-big);
+}
+
 /*
  *
  *	DIRECT MESSAGES ICONS
@@ -1772,6 +1780,20 @@ html:not(.app-focused) .typeWindows_a934d8 .winButton_a934d8.winButtonMinMax_a93
 }
 .botTag_a9e77f .botTagVerified_a9e77f path {
   fill: var(--accent-text-color--material-you);
+}
+
+/* MEMBERS LIST -> ACTIVITIES */
+.container_c64476 {
+  padding: 8px 8px 8px 12px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+.container_c64476:hover {
+  background-color: var(--card-color-hover);
+}
+.container_c64476 .thumbnail_c64476 {
+  border-radius: calc(var(--card-radius-big) / 1.6);
 }
 
 /*
@@ -10700,10 +10722,16 @@ body:active .root_f9a4c9 .container_e664f3:not(:active) {
 
 /* QUESTS -> BANNER */
 .bannerContainer_fc867b {
+  position: relative;
+  width: calc(100% - 40px);
   height: 200px;
   min-height: 200px;
   max-height: 200px;
-  padding-top: 80px;
+  margin-top: 80px;
+  margin-left: 20px;
+  padding-top: 0;
+  border-radius: var(--card-radius-big);
+  box-sizing: border-box;
 }
 .bannerContainer_fc867b .button_dd4f85 {
   --button-padding: var(--button-padding-has-icon-right);
@@ -10715,14 +10743,12 @@ body:active .root_f9a4c9 .container_e664f3:not(:active) {
 }
 
 .content_b97772 {
-  width: calc(100% - 40px);
-  max-width: auto;
+  max-width: unset;
 }
 
 .bannerImage_fc867b {
-  width: calc(100% - 40px);
-  height: 200px;
-  border-radius: var(--card-radius-big);
+  height: 100%;
+  border-radius: inherit;
 }
 .bannerImage_fc867b .bannerGradient_fc867b {
   display: none;
@@ -11764,7 +11790,7 @@ body:active .root_f9a4c9 .container_e664f3:not(:active) {
  *  COLOR PICKER
  *
  */
-.customColorPicker_bbc020 {
+.customColorPicker_b91d66 {
   background-color: var(--popout-color) !important;
   border-radius: var(--popout-radius-big) !important;
   box-shadow: var(--shadow-3dp) !important;
@@ -12639,6 +12665,52 @@ body:active .container_ac201b:not(:active) {
 }
 .container__56cd1 .assetsLargeImage_f866f2 {
   border-radius: 50%;
+}
+
+/*
+ *
+ *  MEMBERS LIST ACTIVITY POPOUT
+ *
+ */
+.popout_a35965 {
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--shadow-3dp);
+  filter: none;
+}
+.popout_a35965 .lookFilled_dd4f85 path {
+  fill: currentColor !important;
+  color: currentColor !important;
+}
+
+.popoutContentWrapper_a35965,
+.interactionsContainer_a35965 {
+  background-color: transparent;
+}
+
+.hero_a35965 {
+  border-radius: var(--card-radius-big);
+}
+.hero_a35965 .imageContainer_fa854f {
+  border-radius: calc(var(--card-radius-big) / 1.55);
+}
+
+.interactionsContainerHeader_a35965 {
+  background-color: var(--popout-header-border);
+  border-color: var(--popout-header-border);
+}
+
+.replyInput_d0fc0d {
+  background-color: var(--input-color);
+  border-radius: var(--main-textarea-radius);
+}
+.replyInput_d0fc0d .placeholder_a552a6 {
+  color: var(--input-placeholder-color);
+}
+
+.shareToChannelButton_a35965 {
+  padding-right: 0;
+  border-right: none;
 }
 
 /*
@@ -13572,16 +13644,20 @@ body:active .container_e664f3:not(:active) {
   height: 16px;
 }
 
-.showMoreButton_c83b44 {
+.pill_c83b44 {
   height: 28px;
   padding: 0 6px;
-  background-color: transparent;
+  background-color: var(--card-color-filled);
   border-radius: 8px;
-  border: 1px solid var(--card-border-color);
+  border: none;
   box-sizing: border-box;
+  transition: var(--default-time) var(--default-animation) background-color;
 }
-.showMoreButton_c83b44 .text-xs\/medium_dc00ef {
-  line-height: 26px;
+.pill_c83b44:hover {
+  background-color: var(--card-color-hover);
+}
+.pill_c83b44 .text-xs\/medium_dc00ef {
+  line-height: 28px;
 }
 
 .root_c83b44 > div:only-child .button_edead5, .root_c83b44 > div:only-child .addButton_e4010c {
