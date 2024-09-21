@@ -9,14 +9,61 @@
 %connectionInfo {
     @include popout-format;
 
-	%connectionInfoHeader,
-	section {
-		background-color: transparent !important;
-	}
+    %headingLgBold {
+        margin-bottom: 4px;
+    }
 
-	%connectionInfoHeader {
-		border-bottom: 1px solid var(--popout-header-border);
-		text-transform: none;
-		justify-content: left;
-	}
+    %connectionInfoTabs {
+        height: 40px;
+
+        %tabBarItem {
+            line-height: 40px;
+        }
+    }
+}
+
+%connectionInfoGraphContainer {
+    background-color: var(--popout-color);
+}
+
+%connectionInfoPrivacyContainer {
+    gap: 12px;
+}
+
+%connectionInfoTag {
+    margin-bottom: 0;
+    padding: 4px 8px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+%connectionInfoSubHeader {
+    margin: 0;
+}
+
+%connectionInfoCode {
+    @include card-format(false, 12px, true);
+}
+
+%connectionInfoCodeHeader {
+    padding: 12px 16px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+    border-bottom: 1px solid var(--card-border-color);
+
+    + %connectionInfoCode {
+        border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+    }
+}
+
+%connectionInfoShieldIcon {
+    background-color: var(--popout-color-alt);
+}
+
+/* CONNECTION INFO -> CODE VERIFICATION MODAL */
+
+%modalContent {
+    &%connectionInfoModalContent {
+        padding-top: 68px;
+    }
 }
