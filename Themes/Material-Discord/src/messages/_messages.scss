@@ -131,10 +131,8 @@
 	&:hover {
 		background-color: var(--message-color-hover) !important;
 
-        %messageReplied {
-            &:before {
-                border-color: var(--message-color-hover) !important;
-            }
+        %messageRepliedSpine {
+            border-color: var(--message-color-hover) !important;
         }
 	}
 
@@ -272,6 +270,14 @@
 	}
 }
 
+%messageRepliedSpine {
+	--reply-spacing: var(--message-padding-side);
+
+	left: calc((0.5 * var(--avatar-size) + var(--gutter) + (var(--reply-spacing) / 2)) * -1);
+	border-color: var(--message-color);
+	transition: var(--default-time) var(--default-animation) border-color;
+}
+
 %replyingToIndicator {
     z-index: 2;
 
@@ -397,16 +403,6 @@
 			left: -63px;
 		}
 	}
-
-	%messageReplied {
-		&:before {
-			--reply-spacing: var(--message-padding-side);
-
-			left: calc((0.5 * var(--avatar-size) + var(--gutter) + (var(--reply-spacing) / 2)) * -1);
-			border-color: var(--message-color);
-			transition: var(--default-time) var(--default-animation) border-color;
-		}
-	}
 }
 
 %messageCompact {
@@ -467,20 +463,22 @@
 		color: var(--text-muted);
 	}
 
-	& + %newMessagesDivider {
-		margin-left: 80px;
-
-		&:not(%newMessagesDividerBeforeGroup) {
-			top: -11px;
-		}
-	}
-
 	%messageReplied {
-		margin-left: calc(var(--timestamp-width) + 3.1rem + var(--text-indent));
+		margin-left: 0;
 	}
 
-	& + &:not(%message) {
-		margin: 16px 20px 0 70px;
+	& {
+		+ %newMessagesDivider {
+			margin-left: 80px;
+
+			&:not(%newMessagesDividerBeforeGroup) {
+				top: -11px;
+			}
+		}
+
+		+ &:not(%message) {
+			margin: 16px 20px 0 70px;
+		}
 	}
 }
 
