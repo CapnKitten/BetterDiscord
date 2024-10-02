@@ -6,202 +6,134 @@
  *
  */
 
-%pageWrapper {
-	background-color: var(--chat-color) !important;
+%discoverScroller {
+    background: var(--chat-color);
 }
 
-%discoverHeaderImage {
-	border-radius: var(--card-radius-big);
-}
-
-%discoverSearchBox {
-	padding-right: 8px;
-	border-radius: var(--input-radius);
-	border: none;
-	box-shadow: none;
-
-	%discoverSearchBoxInput {
-		height: var(--input-height);
-		padding: 0 16px !important;
-		box-shadow: none !important;
-	}
+%discoverServerContent {
+    max-width: unset;
 }
 
 /* SERVER DISCOVERY -> SIDEBAR */
 
-%discoverSidebarContainer {
-    background: transparent !important;
+%discoverSidebar {
+    background: none;
 }
 
-%channelsSidebar {
-	%listItem {
-		margin: 0 4px 0 10px;
-		border-radius: 21px;
+%discoverSidebarHeader {
+    height: 48px;
+    padding: 0 16px;
+    box-shadow: var(--shadow-ledge);
+}
 
-		%listItemLayout {
-			border-radius: 21px;
-			transition: var(--default-time) var(--default-animation) background-color;
-		}
+%discoverSidebarNav {
+    padding: 16px 8px;
+}
 
-		&:hover {
-			%listItemLayout {
-				background-color: var(--menu-item-hover);
-			}
-		}
+%discoverSidebarNavItem {
+    border-radius: 24px;
+    transition: var(--default-time) var(--default-animation) background;
 
-		&%listItemSelected {
-			color: var(--menu-item-text-color);
-
-			%listItemLayout {
-				background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-				color: var(--interactive-active);
-			}
-		}
+    &:hover {
+		background: var(--menu-item-hover);
 	}
+
+	&%discoverSidebarNavItemSelected {
+		background: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
+    }
+}
+
+/* SERVER DISCOVERY -> HEADER BAR */
+
+%discoverHeaderBar {
+    --input-height: 32px;
+    position: relative;
+    height: 48px;
+    box-shadow: var(--shadow-ledge);
+
+    &:after {
+        display: none;
+    }
+}
+
+%discoverDragRegion {
+    height: 48px;
+}
+
+/* SERVER DISCOVERY -> BANNER */
+
+%discoverBannerContainer {
+    margin: 32px 32px 0;
+    padding-top: 0;
+    border-radius: var(--card-radius-big);
+
+    %discoverBannerTitle {
+        text-transform: unset;
+    }
 }
 
 /* SERVER DISCOVERY -> CARDS */
 
-%discoverGuildCard {
+%discoverServerCard {
 	@include card-format(true, 0, true, true);
 	box-shadow: none !important;
 
-	%discoverGuildCardIcon {
-		background-color: var(--card-color-filled) !important;
-		border-radius: 50%;
+    &:hover {
+		transform: none !important;
 
-		%discoverGuildAvatar {
-			border-radius: 50%;
-		}
+        %discoverServerIconMask {
+            background-color: var(--card-color-hover) !important;
+        }
 	}
 
-	&:hover {
-		transform: none;
-
-		%discoverGuildCardIcon {
-			background-color: var(--card-color-hover) !important;
-		}
-	}
-
-	%discoverGuildCardHeader {
-		margin-bottom: 0;
-	}
-
-	%discoverCardSplashImage {
-		border-radius: var(--card-radius-big);
-	}
-
-	%discoverGuildInfo {
-		padding-top: 32px;
-		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-		transition: var(--default-time) var(--default-animation) border-color;
-	}
-
-	%discoverGuildIcon {
+    %discoverServerIcon {
 		foreignObject {
 			mask: none !important;
 		}
 	}
-}
 
-%discoverSearchEmptyContainer {
-	@include card-format(false, 80px 0, true);
+    %discoverServerIconMask {
+        background-color: var(--card-color-filled) !important;
+        border-radius: calc(var(--avatar-radius) * 1.2);
+    }
+
+    %discoverServerAvatar {
+        border-radius: var(--avatar-radius);
+    }
 }
 
 /* SERVER DISCOVERY -> SEARCH RESULTS */
 
-%discoverSearchPage,
-%discoverSearchCategories,
-%discoverSearchResults {
-	margin-right: 24px;
+%discoverSearchHeaderBar {
+    padding: 12px 16px;
+    background: var(--chat-color);
 }
 
-%discoverSearchPage,
-%discoverSearchCategories,
-%discoverSearchResults,
-%discoverSearchGuildList {
-	max-width: 1200px;
+%discoverSearchContentContainer {
+    background: var(--chat-color);
 }
 
-%discoverSearchPage {
-	%discoverSearchPageBar {
-		max-width: unset;
-	}
-
-	%discoverSearchBox {
-		padding-right: 8px;
-		background-color: var(--input-color);
-		box-shadow: none !important;
-	}
+%discoverSearchMasonryList {
+    margin-top: 0;
 }
 
-%discoverCategoryPill {
-	border-radius: 8px;
-	background-color: var(--card-button-color);
-	transition: var(--default-time) var(--default-animation) background-color;
+%discoverSearchCategory {
+    border-radius: 17px;
+    transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		&:not(%discoverCategoryPillSelected) {
-			background-color: var(--card-button-color-hover);
-		}
-	}
+    &:hover {
+        background-color: var(--menu-item-hover);
+    }
 
-	%discoverCategoryLabel {
-		color: var(--text-normal);
-		transition: var(--default-time) var(--default-animation) color;
-	}
+    &%discoverSearchCategorySelected {
+        --text-muted: hsl(var(--accent-hsl--material-you));
 
-	&%discoverCategoryPillSelected {
-		background-color: hsl(var(--accent-hsl),0.3);
-
-		%discoverCategoryLabel {
-			color: hsl(var(--accent-hsl--material-you));
-		}
-	}
+        background: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
+    }
 }
 
-%discoverSearchCard {
-	height: 160px;
-	@include card-format(false, 0, true, true);
-
-	%discoverSearchCardContainer {
-		height: 100%;
-	}
-
-	%discoverSearchCardContent {
-		height: 100%;
-		padding: 16px 16px 16px 0;
-		box-sizing: border-box;
-	}
-
-	%discoverSearchCardMemberInfo {
-		margin-top: 8px;
-	}
-
-	%textXsNormal {
-		font-weight: 500;
-	}
-}
-
-%discoverSearchSplashContainer {
-	height: 100%;
-	border-radius: var(--card-radius-big);
-}
-
-%discoverSearchSeparator {
-	display: none;
-}
-
-/* SERVER DISCOVERY -> SCHOOL HUB */
-
-%studentHubsPage {
-	background-color: var(--chat-color);
-}
+/* SERVER DISCOVERY -> SCHOOL HUBS */
 
 %joinHubContainer {
-	@include card-format(false, 16px, true);
-}
-
-%studentHubsSidebarContainer {
-	background-color: transparent;
+    @include card-format(false, 16px, true);
 }
