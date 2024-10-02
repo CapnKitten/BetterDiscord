@@ -6,26 +6,55 @@
  *
  */
 
-%pageWrapper {
-    background-color: var(--main-content-color) !important;
+%discoverContentContainer {
+    background-color: var(--main-content-color);
 }
 
-%discoverSidebarContainer {
-    background: transparent !important;
+/* SERVER DISCOVERY -> SIDEBAR */
+
+%discoverSidebar {
+    background: transparent;
 }
 
-%discoverSidebarCategoryItem {
-    &%discoverSidebarSelectedCategoryItem {
-        %discoverSidebarItemInner {
-            background: var(--bg-overlay-selected,var(--background-modifier-selected));
-        }
+%discoverSidebarNavItem {
+    border-radius: var(--list-item-radius);
+}
+
+/* SERVER DISCOVERY -> HEADER BAR */
+
+%discoverHeaderBar {
+    %settingsSideItem {
+        margin: 8px 0;
+        padding: 0 8px;
+        line-height: 44px;
+    }
+
+    &:after {
+        display: none;
     }
 }
 
-%discoverGuildCard {
+%discoverHeaderBarBackdrop {
+    background: var(--popout-color);
+    backdrop-filter: blur(var(--app-blur));
+}
+
+/* SERVER DISCOVERY -> CARDS */
+
+%discoverServerCard {
     @include card-format(true, true);
 
-    %discoverGuildCardIcon {
-        background-color: var(--card-color) !important;
+    svg {
+        filter: none;
     }
+
+    %discoverServerIconMask {
+        background-color: var(--card-color-hover) !important;
+    }
+}
+
+/* SERVER DISCOVERY -> SEARCH RESULTS */
+
+%discoverSearchCategory {
+    border-radius: var(--list-item-radius);
 }
