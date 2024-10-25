@@ -29,7 +29,7 @@
 		border-radius: var(--main-textarea-radius);
 		opacity: 1;
 
-		&%channelTextAreaReplyBarConnected {
+		&%channelTextAreaHasStackedBar {
 			border-radius: 0 0 var(--main-textarea-radius) var(--main-textarea-radius);
 		}
 	}
@@ -106,6 +106,15 @@
 	}
 }
 
+%channelTextAreaStackedBars {
+    background-color: var(--main-textarea-color);
+    border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+
+    %replyBar {
+        background: transparent;
+    }
+}
+
 %replyMentionButton {
 	--text-link: hsl(var(--warning-hsl));
 }
@@ -115,15 +124,23 @@
 	background-color: transparent;
 	border: none;
 
-	&:before {
+	&:before,
+	&:after {
 		position: absolute;
 		content: " ";
 		width: calc(100% - 24px);
 		height: 1px;
-		top: 0;
 		left: 0;
 		margin: 0 12px;
 		background-color: var(--main-textarea-border);
+	}
+
+	&:before {
+		top: 0;
+	}
+
+	&:after {
+		bottom: 0;
 	}
 
 	%replySuggestionCreateThreadButton {
