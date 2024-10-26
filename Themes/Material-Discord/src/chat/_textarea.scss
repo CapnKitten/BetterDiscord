@@ -107,8 +107,20 @@
 }
 
 %channelTextAreaStackedBars {
-    background-color: var(--main-textarea-color);
+	position: relative;
+    background: var(--main-textarea-color);
     border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: calc(100% - 24px);
+		height: 1px;
+		left: 0;
+		bottom: 0;
+		margin: 0 12px;
+		background-color: var(--main-textarea-border);
+	}
 
     %replyBar {
         background: transparent;
@@ -124,23 +136,15 @@
 	background-color: transparent;
 	border: none;
 
-	&:before,
-	&:after {
+	&:before {
 		position: absolute;
 		content: " ";
 		width: calc(100% - 24px);
 		height: 1px;
+		top: 0;
 		left: 0;
 		margin: 0 12px;
 		background-color: var(--main-textarea-border);
-	}
-
-	&:before {
-		top: 0;
-	}
-
-	&:after {
-		bottom: 0;
 	}
 
 	%replySuggestionCreateThreadButton {
