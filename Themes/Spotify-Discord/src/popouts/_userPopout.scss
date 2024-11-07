@@ -6,18 +6,20 @@
  *
  */
 
-%userProfileOuterUnthemed {
-	--profile-gradient-primary-color: var(--popout-color) !important;
-	--profile-gradient-secondary-color: var(--popout-color) !important;
-	--profile-avatar-border-color: var(--popout-color) !important;
-	--profile-body-background-color: var(--popout-color-alt) !important;
+ %userProfileOuter {
+ 	&:not(%userProfileOuterThemed) {
+		--profile-gradient-primary-color: var(--popout-color) !important;
+		--profile-gradient-secondary-color: var(--popout-color) !important;
+		--profile-avatar-border-color: var(--popout-color) !important;
+		--profile-body-background-color: var(--popout-color-alt) !important;
 
-	--bg-surface-overlay: var(--profile-gradient-primary-color) !important;
-    --bg-mod-faint: var(--profile-body-background-color) !important;
+		--bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+	    --bg-mod-faint: var(--profile-body-background-color) !important;
 
-	%channelTextArea,
-    %channelTextAreaScrollable {
-		background-color: hsl(from var(--main-textarea-color) h s calc(l * 1.6)) !important;
+		%channelTextArea,
+	    %channelTextAreaScrollable {
+			background-color: hsl(from var(--main-textarea-color) h s calc(l * 1.6)) !important;
+		}
 	}
 }
 
@@ -178,6 +180,10 @@
     %statusPickerItem {
         padding: 0;
     }
+}
+
+%biteSizeActivity {
+	border-radius: var(--popout-radius);
 }
 
 /* USER POPOUT -> BOT COMMANDS */
