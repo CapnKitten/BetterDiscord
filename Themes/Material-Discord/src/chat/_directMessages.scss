@@ -116,29 +116,28 @@
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
-%dmProfilePanel {
-    width: calc(340px + 24px);
-}
-
-%dmUserPanelOuter {
-    min-width: 340px;
+%dmProfilePanel[style] {
     height: calc(100% - 24px);
     margin: 12px;
     border-radius: var(--popout-radius-big);
-    overflow: hidden;
-}
+    box-shadow: none;
 
-%dmUserPanelInner {
-    border-radius: inherit;
-
-    %dmProfileScroller {
-        &::-webkit-scrollbar {
-            width: 0 !important;
-        }
+    &:not(%userProfileOuterThemed) {
+        background-color: var(--popout-color);
     }
 
-    %userProfileOverlayBackground {
-        border-radius: var(--card-radius-big);
+    %userProfileInner {
+        border-radius: inherit;
+
+        %dmProfileScroller {
+            &::-webkit-scrollbar {
+                width: 0 !important;
+            }
+        }
+
+        %userProfileOverlayBackground {
+            border-radius: var(--card-radius-big);
+        }
     }
 }
 
