@@ -38,19 +38,27 @@
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
-%dmProfileOuterUnthemed {
-    background-color: transparent;
-}
+%dmProfilePanel[style] {
+    border-radius: 0;
 
-%dmUserPanelInner {
-    border-radius: 0 !important;
-
-    * {
-    	text-shadow: none;
+    &:not(%userProfileOuterThemed) {
+        background-color: var(--sidebar-color);
     }
 
-    svg {
-    	filter: none;
+    %userProfileInner {
+        border-radius: 0;
+
+        %userProfileBanner {
+            border-radius: 0;
+        }
+
+        * {
+        	text-shadow: none;
+        }
+
+        svg {
+        	filter: none;
+        }
     }
 }
 
