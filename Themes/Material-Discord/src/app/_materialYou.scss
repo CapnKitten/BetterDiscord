@@ -317,6 +317,48 @@
                 calc(var(--accent-lightness) * var(--lightness-modifier) * 1.95)
             );
     }
+
+    %buttonFilled {
+        &%buttonPrimary {
+            --button-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.5) calc(l * 0.5));
+            --button-text-color: hsl(from var(--accent-text-color--material-you) h calc(s * 0.5) calc(l * 3.5));
+        }
+
+        &%buttonGreen {
+            --button-background: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+            --button-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 2.6));
+        }
+    }
+
+    %buttonOutlined {
+        &%buttonPrimary {
+            --button-outline: 1px solid hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.5) calc(l * 0.5));
+            --button-text-color: hsl(from var(--accent-text-color--material-you) h calc(s * 0.5) calc(l * 3.5));
+        }
+
+        &%buttonGreen {
+            --button-outline: 1px solid hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+            --button-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 1.3));
+
+            &:after {
+    			--button-action-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+    			--button-action-hover: 0.1;
+    			--button-action-active: 0.2;
+    		}
+        }
+    }
+
+    %buttonLink {
+        &%buttonGreen {
+            --button-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 1.3));
+
+            &:after {
+    			--button-action-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+    			--button-action-hover: 0.1;
+    			--button-action-active: 0.2;
+    		}
+        }
+    }
 }
 
 %themeLight {
@@ -781,5 +823,47 @@
             var(--accent-hue),
             calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
             calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3);
+    }
+
+    %buttonFilled {
+        &%buttonPrimary {
+            --button-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.725) calc(l * 1.175));
+            --button-text-color: hsl(from var(--accent-text-color--material-you) h calc(s * 0.8) l);
+        }
+
+        &%buttonGreen {
+            --button-background: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+            --button-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 2.6));
+        }
+    }
+
+    %buttonOutlined {
+        &%buttonPrimary {
+            --button-outline: 1px solid hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.9) calc(l * 1.3));
+            --button-text-color: hsl(from var(--accent-text-color--material-you) h calc(s * 0.36) calc(l * 0.5));
+        }
+
+        &%buttonGreen {
+            --button-outline: 1px solid hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+            --button-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+
+            &:after {
+    			--button-action-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+    			--button-action-hover: 0.1;
+    			--button-action-active: 0.2;
+    		}
+        }
+    }
+
+    %buttonLink {
+        &%buttonGreen {
+            --button-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+
+            &:after {
+    			--button-action-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+    			--button-action-hover: 0.1;
+    			--button-action-active: 0.2;
+    		}
+        }
     }
 }

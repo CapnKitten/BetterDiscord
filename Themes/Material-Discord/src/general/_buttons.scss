@@ -132,14 +132,28 @@
 		--button-text-color: var(--accent-text-color--material-you);
 	}
 
+	&%buttonBrandInverted {
+	    --button-background: var(--button-filled-white-background);
+	    --button-text-color: hsl(var(--accent-hsl--material-you));
+	}
+
+	&%buttonPrimary {
+        --button-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.8) calc(l * 0.5));
+    }
+
+    &%buttonGreen {
+        --button-background: var(--button-positive-background);
+        --button-text-color: var(--white);
+    }
+
 	&%buttonRed {
 		--button-background: hsl(var(--alert-hsl));
 		--button-text-color: var(--alert-text-color);
 	}
 
 	&%buttonWhite {
-		--button-background: hsl(0,0%,100%,0.15);
-		--button-text-color: hsl(0,0%,100%);
+		--button-background: var(--button-filled-white-background);
+		--button-text-color: var(--button-filled-white-text);
 		box-shadow: none !important;
 	}
 
@@ -165,6 +179,22 @@
 		--button-text-color: var(--button-link-text-color);
 		--button-outline: 1px solid hsl(from var(--button-link-color) h s l / 0.15);
 	}
+
+	&%buttonPrimary {
+        --button-outline: 1px solid hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.8) calc(l * 0.5));
+        --button-text-color: var(--button-outline-primary-text);
+    }
+
+    &%buttonGreen {
+        --button-outline: 1px solid var(--button-positive-background);
+        --button-text-color: var(--button-positive-background);
+
+        &:after {
+			--button-action-color: var(--button-positive-background);
+			--button-action-hover: 0.1;
+			--button-action-active: 0.2;
+		}
+    }
 
 	&%buttonRed {
 		--button-text-color: hsl(var(--alert-hsl));
@@ -223,6 +253,34 @@
 			color: var(--button-text-color) !important;
 			font-size: 1em;
 			font-weight: 500;
+		}
+	}
+
+	&%buttonGreen {
+        --button-text-color: var(--button-positive-background);
+
+        &:after {
+			--button-action-color: var(--button-positive-background);
+			--button-action-hover: 0.1;
+			--button-action-active: 0.2;
+		}
+    }
+
+	&%buttonGreen {
+		&:after {
+			--button-action-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+			--button-action-hover: 0.1;
+			--button-action-active: 0.2;
+		}
+	}
+
+	&%buttonRed {
+		--button-text-color: hsl(var(--alert-hsl));
+
+		&:after {
+			--button-action-color: hsl(var(--alert-hsl));
+			--button-action-hover: 0.1;
+			--button-action-active: 0.2;
 		}
 	}
 }
