@@ -39,7 +39,9 @@
 
 	&:hover,
 	&:active {
-		opacity: 1;
+		&:not(:disabled) {
+			opacity: 1;
+		}
 	}
 
 	&:hover {
@@ -77,11 +79,13 @@
 	}
 
 	&:disabled {
-		opacity: 1 !important;
-
 		&:after {
 			display: none;
 		}
+	}
+
+	&%userProfileSyncButton {
+		--button-padding: 0 !important;
 	}
 
 	%buttonContents {
@@ -121,12 +125,6 @@
 /* BUTTONS -> FILLED */
 
 %buttonFilled {
-	&:disabled {
-		--button-background: hsl(from var(--button-link-color) h s l / 0.15);
-		--button-text-color: var(--button-link-text-color);
-		--button-shadow: none;
-	}
-
 	&%buttonBrand {
 		--button-background: hsl(var(--accent-hsl--material-you));
 		--button-text-color: var(--accent-text-color--material-you);
@@ -172,12 +170,6 @@
 
 	&:after {
 		--button-action-color: hsl(var(--accent-hsl--material-you));
-	}
-
-	&:disabled {
-		--button-background: transparent;
-		--button-text-color: var(--button-link-text-color);
-		--button-outline: 1px solid hsl(from var(--button-link-color) h s l / 0.15);
 	}
 
 	&%buttonPrimary {
@@ -240,11 +232,6 @@
 		%buttonContents {
 			background-image: none !important;
 		}
-	}
-
-	&:disabled {
-		--button-background: transparent;
-		--button-text-color: var(--button-link-text-color);
 	}
 
 	%buttonContents {
