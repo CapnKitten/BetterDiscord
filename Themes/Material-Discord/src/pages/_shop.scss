@@ -15,6 +15,12 @@
 %base {
     %shopContainer {
         background-color: var(--chat-color);
+
+        %headerBar {
+            &%headerBarTransparent {
+                box-shadow: var(--elevation-low);
+            }
+        }
     }
 }
 
@@ -96,6 +102,10 @@
     &:hover {
         background: var(--card-color-active) !important;
         top: unset;
+
+        %shopDarkCardBackground {
+            background-color: var(--card-color-active);
+        }
     }
 
     %textLgBold {
@@ -104,8 +114,10 @@
         color: var(--header-primary) !important;
     }
 
-    %shopCardBackground {
-        background-color: transparent !important;
+    %shopCardBackground,
+    %shopDarkCardBackground {
+        background-color: var(--card-color-filled);
+        transition: var(--default-time) var(--default-animation) background-color;
     }
 
     %shopCardDescription,

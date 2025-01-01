@@ -31,20 +31,20 @@
 
 	&%switchContainerChecked {
 		&:before {
-			background-color: var(--switch-color-checked);
+			background-color: var(--switch-slider-checked);
 			border-color: transparent;
 		}
 
 		%switchSlider {
-			background-color: hsl(var(--accent-hue),calc(var(--accent-saturation) * var(--saturation-factor)),calc(var(--accent-lightness) * var(--switch-color-modifier)));
+			background-color: var(--switch-knob-checked);
 			width: 18px;
 			height: 18px;
 			transform: translate(-1px, -50%);
 		}
 
 		path {
-			fill: hsl(var(--accent-hsl));
-			filter: brightness(40%);
+			fill: var(--switch-slider-checked);
+			//filter: brightness(100%);
 		}
 	}
 
@@ -72,7 +72,7 @@
 	%switchContainer {
 		&%switchContainerChecked {
 			path {
-				fill: var(--switch-color-checked);
+				fill: var(--switch-slider-checked);
 				filter: unset;
 			}
 		}
@@ -87,7 +87,7 @@
 
 		&%switchContainerChecked {
 			&:before {
-				background-color: var(--switch-color-checked);
+				background-color: var(--switch-slider-checked);
 			}
 		}
 	}
@@ -155,7 +155,7 @@
 
 		&:checked {
 			+ %bdSwitchBody {
-				--switch-color: var(--switch-color-checked);
+				--switch-color: var(--switch-slider-checked);
 
 				border-color: transparent;
 
@@ -173,7 +173,7 @@
 
 			&:active {
 				+ %bdSwitchBody {
-					--switch-color: var(--switch-color-checked);
+					--switch-color: var(--switch-slider-checked);
 
 					%bdSwitchHandle {
 						x: -12.5px;
