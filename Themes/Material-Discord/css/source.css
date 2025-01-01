@@ -139,7 +139,7 @@
   --switch-slider-color: hsl(240,1%,20%);
   --switch-slider-color-modal: var(--switch-slider-color);
   --switch-color-modifier: 1.3;
-  --switch-color-checked: hsl(var(--accent-hsl),0.3);
+  --switch-slider-checked: hsl(var(--accent-hsl),0.3);
   --md-ripple-color: 0,100%,100%;
   --scrollbar-color: 255,255,255;
   --text-brand: hsl(var(--accent-hsl));
@@ -203,7 +203,7 @@
   --switch-slider-color: hsl(0,0%,81%);
   --switch-slider-color-modal: var(--switch-slider-color);
   --switch-color-modifier: 1.8;
-  --switch-color-checked: hsl(var(--accent-hsl),0.8);
+  --switch-slider-checked: hsl(var(--accent-hsl),0.8);
   --md-ripple-color: 0,0%,0%;
   --scrollbar-color: 0,0,0;
   --text-brand: hsl(var(--accent-hsl));
@@ -1191,9 +1191,6 @@ html:not(.app-focused) .typeWindows_a934d8 .winButton_a934d8.winButtonMinMax_a93
 }
 .privateChannels_f0963d .content-2a4AW9 {
   margin-bottom: 20px;
-}
-.privateChannels_f0963d .favoriteIcon_c91bad path:last-child {
-  d: path("M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z");
 }
 
 .searchBar_f0963d .searchBarComponent_f0963d {
@@ -3032,6 +3029,7 @@ html:not(.app-focused) .typeWindows_a934d8 .winButton_a934d8.winButtonMinMax_a93
  */
 .coverWrapper_YAplwJ {
   border-radius: 50%;
+  transform: translateY(0) !important;
 }
 
 .container_6sXIoE {
@@ -5740,18 +5738,17 @@ div[role=radiogroup].group_d25d19 {
   transform: scale(1.4) translate(-3px, -3px);
 }
 .container_cebd1c.checked_cebd1c:before {
-  background-color: var(--switch-color-checked);
+  background-color: var(--switch-slider-checked);
   border-color: transparent;
 }
 .container_cebd1c.checked_cebd1c .slider_cebd1c {
-  background-color: hsl(var(--accent-hue), calc(var(--accent-saturation) * var(--saturation-factor)), calc(var(--accent-lightness) * var(--switch-color-modifier)));
+  background-color: var(--switch-knob-checked);
   width: 18px;
   height: 18px;
   transform: translate(-1px, -50%);
 }
 .container_cebd1c.checked_cebd1c path {
-  fill: hsl(var(--accent-hsl));
-  filter: brightness(40%);
+  fill: var(--switch-slider-checked);
 }
 .container_cebd1c .slider_cebd1c {
   width: 14px;
@@ -5772,7 +5769,7 @@ div[role=radiogroup].group_d25d19 {
 }
 
 .theme-light .container_cebd1c.checked_cebd1c path {
-  fill: var(--switch-color-checked);
+  fill: var(--switch-slider-checked);
   filter: unset;
 }
 
@@ -5780,7 +5777,7 @@ div[role=radiogroup].group_d25d19 {
   background-color: var(--switch-slider-color-modal);
 }
 .root_f9a4c9 .container_cebd1c.checked_cebd1c:before {
-  background-color: var(--switch-color-checked);
+  background-color: var(--switch-slider-checked);
 }
 
 .bd-switch {
@@ -5833,7 +5830,7 @@ div[role=radiogroup].group_d25d19 {
   y: -4px;
 }
 .bd-switch input:checked + .bd-switch-body {
-  --switch-color: var(--switch-color-checked);
+  --switch-color: var(--switch-slider-checked);
   border-color: transparent;
 }
 .bd-switch input:checked + .bd-switch-body .bd-switch-slider {
@@ -5846,7 +5843,7 @@ div[role=radiogroup].group_d25d19 {
   fill: hsl(var(--accent-hue), calc(var(--accent-saturation) * var(--saturation-factor)), calc(var(--accent-lightness) * var(--switch-color-modifier)));
 }
 .bd-switch input:checked:active + .bd-switch-body {
-  --switch-color: var(--switch-color-checked);
+  --switch-color: var(--switch-slider-checked);
 }
 .bd-switch input:checked:active + .bd-switch-body .bd-switch-handle {
   x: -12.5px;
@@ -7019,6 +7016,22 @@ div[role=radiogroup].group_d25d19 {
 .spoilerContainer_aa9639 {
   border-radius: var(--media-radius);
   box-shadow: none !important;
+}
+
+.timestamp_f8f345 {
+  background-color: var(--attachment-color);
+}
+
+/* ATTACHMENTS -> FILES */
+.file_f46c86 {
+  background-color: var(--attachment-color);
+  border-radius: var(--media-radius);
+  border: none;
+}
+.file_f46c86 + .hoverButtonGroup_d0395d {
+  background-color: var(--card-color-active);
+  box-shadow: var(--shadow-2dp);
+  outline: none;
 }
 
 /*
@@ -8367,6 +8380,17 @@ body:active .root_f9a4c9 .container_e664f3:not(:active) {
   padding: 24px;
 }
 
+.root_f9a4c9 .authorize_c5a065 {
+  background-color: transparent;
+}
+.root_f9a4c9 .authorize_c5a065 .content_c5a065 {
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+}
+.root_f9a4c9 .authorize_c5a065 .scope_cf14a8 {
+  background-color: var(--card-color-hover);
+}
+
 .content_c5a065 {
   padding: 0 24px;
 }
@@ -9364,6 +9388,9 @@ body:active .root_f9a4c9 .container_e664f3:not(:active) {
   background-color: transparent !important;
   border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
   box-shadow: none !important;
+}
+.root_f9a4c9 .footer_f9a4c9 .footer_c5a065, .root_f9a4c9 .modalFooter_b5918e .footer_c5a065 {
+  padding: 0;
 }
 .root_f9a4c9 .footer_f9a4c9 > .directionRow__65900, .root_f9a4c9 .modalFooter_b5918e > .directionRow__65900 {
   gap: 16px;
@@ -11603,6 +11630,9 @@ body:active .root_f9a4c9 .container_e664f3:not(:active) {
 .base_a4d4d9 .shop_e77fa3, .base_a4d4d9 .shop_ebba41 {
   background-color: var(--chat-color);
 }
+.base_a4d4d9 .shop_e77fa3 .container_fc4f04.transparent_fc4f04, .base_a4d4d9 .shop_ebba41 .container_fc4f04.transparent_fc4f04 {
+  box-shadow: var(--elevation-low);
+}
 
 .sidebar_a4d4d9 + .shop_e77fa3 .shopScroll_e77fa3, .sidebar_a4d4d9 + .shop_ebba41 .shopScroll_e77fa3,
 .sidebar_a4d4d9 + .shop_e77fa3 .pageWrapper_e77fa3,
@@ -11672,13 +11702,18 @@ body:active .root_f9a4c9 .container_e664f3:not(:active) {
   background: var(--card-color-active) !important;
   top: unset;
 }
+.shopCard_c23530:hover .darkCardBackground_c23530 {
+  background-color: var(--card-color-active);
+}
 .shopCard_c23530 .text-lg\/bold_dc00ef {
   font-weight: 400;
   font-size: 24px;
   color: var(--header-primary) !important;
 }
-.shopCard_c23530 .cardBackground_c23530 {
-  background-color: transparent !important;
+.shopCard_c23530 .cardBackground_c23530,
+.shopCard_c23530 .darkCardBackground_c23530 {
+  background-color: var(--card-color-filled);
+  transition: var(--default-time) var(--default-animation) background-color;
 }
 .shopCard_c23530 .description__8d6d2,
 .shopCard_c23530 .priceTag__6412e {
@@ -13530,7 +13565,7 @@ body:active .container_eedf95:not(:active) {
   border-radius: var(--popout-radius-big);
 }
 
-.header_d0dc1d {
+.header_d0dc1d, .soundboardHeader_af5dbb {
   border-bottom: 1px solid var(--separator-color);
   box-shadow: none;
 }
