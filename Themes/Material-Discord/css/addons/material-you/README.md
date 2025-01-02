@@ -29,13 +29,16 @@ You may want to play around with the values below to get your desired look.
 }
 
 .theme-dark {
-    --saturation-modifier: 0.175;
-    --lightness-modifier: 0.2;
+    --saturation-modifier: 0.31;
+    --lightness-modifier: 0.225;
+    --text-lightness-modifier: 1.0;
+    --ui-darkness-modifier: 1.0;
 }
 
 .theme-light {
-    --saturation-modifier: 0.175;
-    --lightness-modifier: 2.175;
+    --saturation-modifier: 0.74;
+    --lightness-modifier: 2.125;
+    --text-lightness-modifier: 1.0;
 }
 ```
 
