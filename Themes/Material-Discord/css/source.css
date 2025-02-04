@@ -3169,27 +3169,9 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 
 /*
  *
- *  BETTERDISCORD ADDONS
+ *  BETTERDISCORD BUTTONS
  *
  */
-.bd-settings-title {
-  color: var(--header-primary);
-}
-
-.bd-modal-root {
-  background-color: var(--popout-color);
-  border-radius: var(--popout-radius-big);
-  box-shadow: var(--shadow-3dp);
-}
-.bd-modal-root .paragraph_d285a6 {
-  color: var(--text-normal);
-}
-.bd-modal-root .bd-modal-footer {
-  background-color: transparent;
-  box-shadow: none;
-  gap: 8px;
-}
-
 .bd-button {
   --button-background: hsl(var(--accent-hsl--material-you));
   --button-text-color: var(--accent-text-color--material-you);
@@ -3242,7 +3224,7 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   fill: currentColor;
 }
 
-.bd-button-filled.bd-button-danger {
+.bd-button-filled.bd-button-color-red, .bd-button-filled.bd-button-danger {
   --button-background: hsl(var(--alert-hsl));
   --button-text-color: var(--alert-text-color);
 }
@@ -3257,6 +3239,51 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 }
 .bd-button-link.bd-button-color-brand, .bd-button-link.bd-button-color-primary {
   --button-text-color: hsl(var(--accent-hsl--material-you));
+}
+
+.bd-button-blank {
+  --button-background: transparent;
+  --button-shadow: none !important;
+  --button-text-color: var(--interactive-normal);
+}
+
+.bd-button-medium,
+.bd-button-large {
+  height: var(--button-height);
+  min-height: var(--button-height);
+}
+
+/*
+ *
+ *  BETTERDISCORD ADDONS
+ *
+ */
+.bd-settings-title {
+  color: var(--header-primary);
+}
+
+.bd-addon-title > span {
+  border-radius: 8px;
+}
+[data-showing-store=true].bd-addon-title > span:first-child {
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+[data-showing-store=true].bd-addon-title > span:first-child:hover {
+  background-color: var(--menu-item-hover);
+}
+
+.bd-modal-root {
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--shadow-3dp);
+}
+.bd-modal-root .paragraph_d285a6 {
+  color: var(--text-normal);
+}
+.bd-modal-root .bd-modal-footer {
+  background-color: transparent;
+  box-shadow: none;
+  gap: 8px;
 }
 
 .bd-search-wrapper {
@@ -3498,6 +3525,90 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 
 /*
  *
+ *  BETTERDISCORD ADDON STORE
+ *
+ */
+.bd-store-card {
+  margin: 16px 0;
+  gap: 12px;
+  background-color: var(--card-color-filled);
+  border: none;
+  padding: 16px;
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+.bd-store-card:hover {
+  background-color: var(--card-color-hover);
+}
+.bd-store-card .bd-store-card-icon {
+  background-color: var(--card-button-color);
+}
+.bd-store-card .bd-store-card-body {
+  margin-left: 0;
+}
+
+.bd-addon-store {
+  margin: 16px 0;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px clamp(8px, 2vw, 16px);
+  justify-content: center;
+}
+
+.bd-addon-store-card {
+  max-width: none;
+  background-color: var(--card-color-filled) !important;
+  border: none !important;
+  padding: 0;
+  border-radius: var(--card-radius-big) !important;
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+.bd-addon-store-card:hover {
+  background-color: var(--card-color-hover) !important;
+}
+.bd-addon-store-card:hover {
+  transform: none !important;
+  box-shadow: var(--shadow-3dp) !important;
+}
+.bd-addon-store-card:hover .bd-addon-store-card-author-mask {
+  background-color: var(--card-color-hover) !important;
+}
+.bd-addon-store-card:hover .bd-addon-store-card-author-mask foreignObject {
+  mask: none;
+}
+.bd-addon-store-card .bd-addon-store-card-preview-img {
+  border-radius: var(--card-radius-big);
+}
+.bd-addon-store-card .bd-addon-store-card-badge {
+  font-size: 0.8em;
+  text-transform: none;
+  background-color: hsl(var(--alert-hsl));
+  color: var(--alert-text-color);
+}
+.bd-addon-store-card .bd-addon-store-card-author-svg foreignObject {
+  mask: none;
+}
+.bd-addon-store-card .bd-addon-store-card-author-mask {
+  background-color: var(--card-color-filled);
+  border-radius: calc(var(--avatar-radius) + 1.6666666667px);
+}
+.bd-addon-store-card .bd-addon-store-card-author-mask .bd-addon-store-card-author-img {
+  border-radius: calc(var(--avatar-radius) / 1.2);
+}
+.bd-addon-store-card .bd-addon-store-card-tag {
+  height: 28px;
+  padding: 0 12px;
+  line-height: 28px;
+  background-color: transparent;
+  border-color: var(--card-border-color);
+  font-size: 0.9em;
+  transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+}
+.bd-addon-store-card .bd-addon-store-card-tag:hover {
+  background-color: var(--card-color-active);
+}
+
+/*
+ *
  *  VENCORD PLUGIN - MemberCount
  *
  */
@@ -3517,6 +3628,15 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 .vc-membercount-online-dot,
 .vc-membercount-total-dot {
   margin: 0;
+}
+
+/*
+ *
+ *  VENCORD PLUGIN - Oneko
+ *
+ */
+#oneko {
+  z-index: 1001;
 }
 
 /*
