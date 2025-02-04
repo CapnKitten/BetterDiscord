@@ -10,6 +10,22 @@
 	color: var(--header-primary);
 }
 
+%bdAddonTitle {
+    > span {
+        border-radius: 8px;
+    }
+
+    &[data-showing-store=true] {
+        > span:first-child {
+            transition: var(--default-time) var(--default-animation) background-color;
+
+            &:hover {
+                background-color: var(--menu-item-hover);
+            }
+        }
+    }
+}
+
 %bdModalRoot {
     @include popout-format;
 
@@ -22,99 +38,6 @@
         box-shadow: none;
 		gap: 8px;
     }
-}
-
-%bdButton {
-	--button-background: hsl(var(--accent-hsl--material-you));
-	--button-text-color: var(--accent-text-color--material-you);
-	--button-shadow: none;
-	--button-outline: none;
-
-	background-color: var(--button-background) !important;
-	border-radius: var(--button-radius);
-	border: var(--button-outline) !important;
-	box-shadow: var(--button-shadow);
-	color: var(--button-text-color) !important;
-
-	&:hover {
-		--button-shadow: none;
-	}
-
-	&:active {
-		--button-shadow: none;
-	}
-
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: var(--button-action-color);
-		border-radius: var(--button-radius);
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
-
-	&:hover {
-		&:after {
-			opacity: var(--button-action-hover);
-		}
-	}
-
-	&:active {
-		&:after {
-			opacity: var(--button-action-active);
-		}
-	}
-
-	&:disabled {
-		opacity: 0.5 !important;
-
-		&:after {
-			display: none;
-		}
-	}
-
-	%bdButtonContent {
-		background-image: none !important;
-	}
-
-	%bdButtonContent {
-		svg:not([fill]) {
-			.fill {
-				fill: currentColor;
-			}
-		}
-
-		svg[fill] {
-			fill: currentColor;
-		}
-	}
-}
-
-%bdButtonFilled {
-	&%bdButtonDanger {
-		--button-background: hsl(var(--alert-hsl));
-		--button-text-color: var(--alert-text-color);
-	}
-}
-
-%bdButtonLink {
-	--button-padding: 0 12px;
-	--button-background: transparent;
-	--button-shadow: none !important;
-
-	&:after {
-		--button-action-color: hsl(var(--accent-hsl--material-you));
-	}
-
-	&%bdButtonColorBrand,
-	&%bdButtonColorPrimary {
-		--button-text-color: hsl(var(--accent-hsl--material-you));
-	}
 }
 
 %bdAddonSearchBar {

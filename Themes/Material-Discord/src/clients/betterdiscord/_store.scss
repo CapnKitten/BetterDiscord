@@ -1,0 +1,86 @@
+@use '../../mixins' as *;
+
+/*
+ *
+ *  BETTERDISCORD ADDON STORE
+ *
+ */
+
+%bdStoreCard {
+    margin: 16px 0;
+    gap: 12px;
+    @include card-format(false, 16px, true, true);
+
+    %bdStoreCardIcon {
+        background-color: var(--card-button-color);
+    }
+
+    %bdStoreCardBody {
+        margin-left: 0;
+    }
+}
+
+%bdAddonStore {
+    margin: 16px 0;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px clamp(8px, 2vw, 16px);
+    justify-content: center;
+}
+
+%bdAddonStoreCard {
+    max-width: none;
+    @include card-format(true, 0, true, true);
+
+    &:hover {
+        transform: none !important;
+        box-shadow: var(--shadow-3dp) !important;
+
+        %bdAddonStoreCardAuthorMask {
+            background-color: var(--card-color-hover) !important;
+
+            foreignObject {
+                mask: none;
+            }
+        }
+    }
+
+    %bdAddonStoreCardPreviewImg {
+        border-radius: var(--card-radius-big);
+    }
+
+    %bdAddonStoreCardBadge {
+        @include remove-caps(0.8em);
+
+        background-color: hsl(var(--alert-hsl));
+        color: var(--alert-text-color);
+    }
+
+    %bdAddonStoreCardAuthorSvg {
+        foreignObject {
+            mask: none;
+        }
+    }
+
+    %bdAddonStoreCardAuthorMask {
+        background-color: var(--card-color-filled);
+        border-radius: calc(var(--avatar-radius) + 2px / 1.2);
+
+        %bdAddonStoreCardAuthorImg {
+            border-radius: calc(var(--avatar-radius) / 1.2);
+        }
+    }
+
+    %bdAddonStoreCardTag {
+        height: 28px;
+        padding: 0 12px;
+        line-height: 28px;
+        background-color: transparent;
+        border-color: var(--card-border-color);
+        font-size: 0.9em;
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+        &:hover {
+            background-color: var(--card-color-active);
+        }
+    }
+}
