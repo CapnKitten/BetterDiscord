@@ -1,0 +1,131 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *  SIDEBAR ICONS
+ *
+ */
+
+%settingsSidebar {
+    %tabBarItem {
+        display: flex;
+        gap: 8px;
+        padding-left: 12px;
+
+        &:before {
+    		position: relative;
+    		content: " ";
+    		width: 20px;
+    		height: 20px;
+    		top: 0;
+    		bottom: 0;
+    		margin: auto 0;
+    		background-repeat: no-repeat;
+    		background-position: center;
+            background-color: var(--text-normal);
+            @include add-icon(null, settings);
+            -webkit-mask-repeat: no-repeat;
+    		opacity: 0.8;
+    	}
+
+        img {
+            display: none;
+        }
+    }
+}
+
+%settingsTabBarItemContainer {
+    width: 100%;
+}
+
+%settingsSidebar {
+    %tabBarItem {
+        $icons: (
+            // USER SETTINGS
+
+            'My Account':                       'person',
+            'Games':                            'gamepad',
+            'Profile Customization':            'person',
+            'Content & Social':                 'people',
+            'Data & Privacy':                   'shield_lock_open',
+            'Family Center':                    'people',
+            'Authorized Apps':                  'apps',
+            'Sessions':                         'devices',
+            'Connections':                      'link',
+
+            'Discord Nitro':                    'nitro',
+            'Nitro Server Boost':               'server_boost',
+            'Subscriptions':                    'subscription',
+            'Library Inventory':                'gift',
+            'Billing':                          'payment',
+
+            'Appearance':                       'chat',
+            'Accessibility':                    'accessibility',
+            'Voice & Video':                    'mic',
+            'Text & Images':                    'keyboard',
+            'Notifications':                    'notifications',
+            'Keybinds':                         'space_bar',
+            'Language':                         'translate',
+            'Windows':                          'windows',
+            'Linux':                            'linux',
+            'Streamer Mode':                    'live_tv',
+            'Advanced':                         'integrations',
+
+            'Settings':                         'settings',
+            'updates':                          'update',
+            'customcss':                        'code',
+            'plugins':                          'plugins',
+            'themes':                           'themes',
+            'pluginrepo':                       'plugins',
+            'themerepo':                        'themes',
+
+            'changelog':                        'list',
+            'merchandise':                      'casino',
+            'Hypesquad Online':                 'hypesquad',
+            'Experiments':                      'experiment',
+            'Developer Options':                'code',
+
+            'logout':                           'exit_to_app',
+
+            // SERVER SETTINGS
+
+            'OVERVIEW':                         'dashboard',
+            'ROLES':                            'person',
+            'EMOJI':                            'emoji',
+            'STICKERS':                         'sticker-emoji',
+            'WIDGET':                           'widgets',
+            'SOUNDBOARD':                       'volume_up',
+            'GUILD_TEMPLATES':                  'template',
+            'VANITY_URL':                       'link',
+
+            'INTEGRATIONS':                     'integrations',
+            'APP_DIRECTORY':                    'apps',
+
+            'SAFETY':                           'shield_lock_open',
+            'AUDIT_LOG':                        'audit_log',
+            'BANS':                             'hardware',
+
+            'COMMUNITY':                        'dashboard',
+            'ONBOARDING':                       'handshake',
+            'ANALYTICS':                        'analytics',
+            'DISCOVERY':                        'discovery',
+            'COMMUNITY_WELCOME':                'partner_program',
+
+            'ROLE_SUBSCRIPTIONS':               'monetization_on',
+            'GUILD_PRODUCTS':                   'inventory',
+            'ROLE_SUBSCRIPTIONS_STORE_PAGE':    'sale',
+
+            'GUILD_PREMIUM':                    'server_boost',
+
+            'MEMBERS':                          'people',
+            'INSTANT_INVITES':                  'person_add',
+            'DELETE':                           'delete'
+        );
+
+        @each $tab, $icon in $icons {
+			&[data-tab-id="#{$tab}"]:before {
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+			}
+		}
+    }
+}
