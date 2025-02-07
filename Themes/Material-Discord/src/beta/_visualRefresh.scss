@@ -10,6 +10,12 @@
 .bar_c38106 {
     @extend %bar !optional;
 }
+.leading_c38106 {
+    @extend %barLeading !optional;
+}
+.title_c38106 {
+    @extend %barTitleContainer !optional;
+}
 .title__85643 {
     @extend %barTitle !optional;
 }
@@ -23,12 +29,14 @@
     @extend %chatPage !optional;
 }
 
-%themeDarker {
-    --ui-darkness-modifier: 0.65;
-}
+%themeDark {
+    &%themeDarker {
+        --ui-darkness-modifier: 0.65;
+    }
 
-%themeMidnight {
-    --ui-darkness-modifier: 0.325;
+    &%themeMidnight {
+        --ui-darkness-modifier: 0.325;
+    }
 }
 
 %visualRefresh {
@@ -37,9 +45,15 @@
     }
 
     %bar {
-        .title_c38106 {
+        padding-left: 0;
+
+        /*%barTitleContainer {
             justify-content: flex-start;
             align-items: flex-start;
+        }*/
+
+        %barLeading {
+            padding-left: 8px;
         }
 
         %barTitle {
@@ -143,6 +157,27 @@
         transition: var(--default-time) var(--default-animation) left;
     }
 
+    %activityPanel {
+        border-radius: var(--sidebar-panel-radius-small);
+    }
+
+    %connectionPanel {
+        margin: 0 0 2px;
+        padding: 8px;
+        background-color: var(--sidebar-panel-color);
+        border-radius: var(--sidebar-panel-radius-small);
+
+        %rtcConnectionStatus {
+            %button {
+                --button-height: 24px;
+            }
+        }
+    }
+
+    %accountPanel {
+        margin-left: 0;
+    }
+
     /* collapsed sidebar */
 
     [data-collapsed="true"] {
@@ -241,6 +276,23 @@
             background-color: var(--main-textarea-color);
             border: none;
             box-shadow: none;
+
+            &%channelTextAreaDisabled {
+                --custom-channel-textarea-text-area-height: 44px;
+
+                %textAreaPlaceholder {
+                    line-height: var(--custom-channel-textarea-text-area-height);
+                    padding: 0;
+                }
+            }
+        }
+
+        %channelInfo {
+            height: 44px;
+            margin: 12px 0;
+            background-color: var(--main-textarea-color);
+            border-radius: var(--main-textarea-radius);
+            border: none;
         }
 
         %channelTextAreaTyping {
