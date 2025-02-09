@@ -1,0 +1,266 @@
+/*
+ *
+ *  BETA - VISUAL REFRESH
+ *
+ */
+
+.visual-refresh {
+    @extend %visualRefresh !optional;
+}
+.bar_c38106 {
+    @extend %bar !optional;
+}
+.leading_c38106 {
+    @extend %barLeading !optional;
+}
+.title_c38106 {
+    @extend %barTitleContainer !optional;
+}
+.title__85643 {
+    @extend %barTitle !optional;
+}
+.guildIcon__85643 {
+    @extend %barGuildIcon !optional;
+}
+.sidebarList_c48ade {
+    @extend %sidebarList !optional;
+}
+.sidebarResizeHandle_c48ade {
+    @extend %sidebarResizeHandle !optional;
+}
+.page_c48ade {
+    @extend %chatPage !optional;
+}
+
+%visualRefresh {
+    %bg {
+        background-color: var(--app-background);
+    }
+
+    %base {
+        margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
+    }
+
+    /* servers */
+
+    %guildsWrapper {
+        height: calc(100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin))) !important;
+        margin: 0 var(--app-card-margin) calc(var(--custom-app-panels-height, 0) + 8px) 0 !important;
+        background-color: var(--app-foreground);
+    }
+
+    /* channels */
+
+    %sidebarList {
+        height: calc(100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin)));
+        border: none;
+
+        %scroller {
+            margin: 0;
+        }
+    }
+
+    %channelsSidebar {
+        overflow: visible;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    %sidebarResizeHandle {
+        width: var(--app-card-margin);
+        right: calc(var(--app-card-margin) * -1);
+
+        &:before {
+            position: absolute;
+            content: " ";
+            width: 1px;
+            height: calc(100% - (var(--app-card-radius) * 2));
+            left: 0;
+            right: 0;
+            margin: var(--app-card-radius) auto;
+            background-color: hsl(from var(--app-foreground) h s calc(l * 4.5));
+            opacity: 0;
+            transition: 200ms ease opacity;
+        }
+
+        &:hover,
+        &:active {
+            background-color: transparent;
+
+            &:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    %channelsContainer,
+    %privateChannels {
+        background-color: var(--app-foreground);
+        border-radius: var(--app-card-radius);
+    }
+
+    %channelsHeaderContainer {
+        border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+    }
+
+    %channelsHeader {
+        padding: 0 16px;
+        border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+        border-bottom: none;
+    }
+
+    %channelsContainer {
+        padding-bottom: 0;
+    }
+
+    %panels {
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-color: var(--app-foreground);
+        border-radius: var(--app-card-radius);
+        border: none;
+    }
+
+    %spotifyPanel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: unset;
+        bottom: unset;
+        padding: 0 8px;
+
+        %spotifyPanelInner {
+            gap: 8px;
+        }
+
+        %spotifyPanelCoverWrapper {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            top: unset;
+            left: unset;
+            bottom: unset;
+            margin: 0;
+            transform: none !important;
+        }
+
+        %spotifyPanelDetails {
+            margin: 0;
+        }
+
+        %spotifyPanelTimeline {
+            margin: 6px 0 4px 0;
+        }
+    }
+
+    /* private channels */
+
+    %privateChannelsSearchBar {
+        border-bottom: none;
+
+        %buttonFilled%buttonPrimary {
+            --button-background: var(--background-tinted-hover);
+            --button-text-color: var(--text-normal);
+
+            &:hover,
+            &:active {
+                transform: none;
+            }
+        }
+    }
+
+    /* chat */
+
+    %chatContent {
+        background: transparent;
+    }
+
+    %headerBar {
+        border-bottom: none;
+    }
+
+    %chatForm {
+        bottom: 0;
+    }
+
+    %channelTextArea {
+        background-color: var(--main-textarea-color);
+        border: none;
+
+        %channelTextAreaFontPadding {
+            padding: calc(var(--custom-channel-textarea-text-area-height) / 2 - var(--chat-markup-line-height) / 2) 0;
+        }
+    }
+
+    %channelTextAreaStackedBars {
+        background-color: transparent;
+    }
+
+    %channelAtachmentArea {
+        padding: 10px;
+        background-color: transparent;
+    }
+
+    %channelTextAreaUpload {
+        background-color: var(--card-color);
+        border-radius: calc(var(--main-textarea-radius) / 1.5);
+        border: none;
+        box-shadow: none;
+    }
+
+    %chatOuterSearchContainer {
+        min-width: var(--space-32);
+        min-height: var(--space-32);
+    }
+
+    %chatSearchBar {
+        width: 24px;
+        padding: 0;
+        border-radius: 12px;
+        border: none;
+
+        %chatSearchRoot {
+            padding: 0;
+        }
+
+        %chatSearchIconWrapper {
+            width: 20px;
+            height: 20px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+    }
+
+    /* members list */
+
+    %memberActivityContainer {
+        background-color: var(--background-tinted-hover);
+        border: none;
+
+        &%memberActivityContainerSelected {
+            background-color: var(--background-tinted-active);
+        }
+    }
+
+    /* friends list */
+
+    %friends {
+        height: 100%;
+        background-color: var(--app-foreground);
+        border-top: none;
+    }
+
+    %friendsTabBody {
+        background-color: transparent;
+    }
+
+    /* active now */
+
+    %activeNowCardInteractive {
+        background-color: var(--card-color);
+    }
+}
