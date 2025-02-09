@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  VISUAL REFRESH
@@ -75,13 +77,14 @@
             &:after {
                 content: var(--app-watermark-two);
             }
-        }
 
-        %barGuildIcon,
-        %textSmMedium {
-            display: none;
+            %barGuildIcon,
+            %textSmMedium,
+            svg {
+                display: none;
+            }
         }
-
+        
         %headerBarIconBadge {
             box-shadow: 0 0 0 4px var(--main-alt);
         }
@@ -271,6 +274,59 @@
         }
     }
 
+    %jumpToPresentBar {
+        height: 56px;
+        min-width: 80px;
+        gap: 8px;
+        left: unset;
+        right: 16px;
+        margin: 0;
+        padding: 16px 16px 16px 12px;
+        border-radius: calc(var(--button-radius) / 1.125);
+        border: none;
+        box-shadow: var(--shadow-1dp);
+        z-index: 3;
+
+        &:active {
+            margin: 0 auto !important;
+        }
+
+        &:before {
+            position: relative;
+            width: 24px;
+    		height: 24px;
+            left: unset;
+            bottom: 0;
+    		right: 0;
+            box-sizing: border-box;
+            @include add-icon(var(--accent-text-color--material-you), expand, solid);
+            mask-size: 150%;
+            transform: none;
+        }
+
+        %jumpToPresentBarButtonBase {
+            display: none;
+        }
+
+        %button {
+            --button-height: 24px;
+
+            padding: 0;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        %spinner {
+            width: 100%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            padding: 0;
+        }
+    }
+
     %chatForm {
         %channelTextArea {
             background-color: var(--main-textarea-color);
@@ -359,13 +415,17 @@
     /* app launcher button in main textbox */
 
     %channelAppLauncher {
-        width: 36px;
+        width: var(--space-32);
         height: auto;
         margin: 0;
         padding: 0;
 
         %channelAppLauncherButton {
-            background-color: var(--button-link-color);
+            background-color: transparent;
+
+            &:hover {
+                background-color: transparent;
+            }
         }
     }
 
@@ -380,10 +440,60 @@
         background-color: var(--main-alt);
     }
 
-    /* settings sidebar */
+    /* modals */
 
-    %settingsSidebarScroller {
+    %modalRoot {
+        border: none;
+    }
+
+    /* search results */
+
+    %searchResultsWrap {
         background-color: var(--main-alt);
+        border: none;
+    }
+
+    %searchHeader {
+        padding: 0 16px;
+        border-bottom: 1px solid var(--separator-color);
+    }
+
+    %searchResult {
+        background-color: transparent;
+        border: none;
+    }
+
+    /* inbox */
+
+    %messagesPopoutChannelHeader {
+        background-color: var(--message-color-alt);
+        border-bottom: none;
+    }
+
+    %recentMentionsMessagesContainer {
+        border: none;
+    }
+
+    /* pinned messages popout */
+
+    %messagesPopoutWrap {
+        background-color: var(--popout-color);
+    }
+
+    %messagesPopoutHeader {
+        background-color: transparent;
+        border-bottom: none;
+    }
+
+    /* threads popouts */
+
+    %threadsPopoutContainer {
+        background-color: var(--popout-color);
+    }
+
+    %threadsPopoutHeader {
+        background-color: transparent;
+        border-bottom: none;
     }
 
     /* inputs */
@@ -448,5 +558,11 @@
                 top: 0;
             }
         }
+    }
+
+    /* settings sidebar */
+
+    %settingsSidebarScroller {
+        background-color: var(--main-alt);
     }
 }
