@@ -121,8 +121,8 @@
     }
 
     %button {
-        --button-height: 30px;
-		margin: 3px;
+        --button-height: calc(var(--input-height) / 1.2);
+		margin: calc((var(--input-height) - var(--button-height)) / 2) !important;
     }
 }
 
@@ -187,6 +187,10 @@
         height: var(--input-height);
         margin: 0;
         padding: 0;
+
+        &::-webkit-input-placeholder {
+            color: var(--input-placeholder-color);
+        }
     }
 }
 

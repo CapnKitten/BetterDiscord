@@ -6,85 +6,27 @@
  *
  */
 
-%inviteScroller {
-    padding-top: 0;
-}
-
 %inviteRow {
     --button-height: 32px;
-    --button-outline: 1px solid hsl(var(--accent-hsl--material-you));
 
-    margin-right: calc(var(--scrollbar-thin-width));
-    padding: 12px;
+    margin-right: 6px;
+    padding: 7px 8px;
     border-radius: var(--card-radius);
     transition: var(--default-time) var(--default-animation) background-color;
 
     &:hover {
-        background-color: var(--menu-item-hover) !important;
+        background-color: var(--menu-item-hover);
     }
 
-    %button {
-        width: auto;
-        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border, var(--default-time) var(--default-animation) color;
-    }
-}
-
-%inviteContent {
-    &:before {
-        display: none;
-    }
-}
-
-%inviteFooter {
-    %input {
-        --button-height: 28px;
-
-        padding: 0 6px 0 12px;
-        border-radius: var(--input-height);
-        box-shadow: none;
-
-        %input {
-            padding: 0;
-            box-shadow: none;
+    %buttonGreen {
+        &%buttonFilled {
+            --button-background: hsl(var(--accent-hsl--material-you)) !important;
+            --button-text-color: var(--accent-text-color--material-you) !important;
         }
-    }
-}
 
-%modalRoot {
-    %modalFooter {
-        %input {
-            %button {
-                width: auto;
-                margin-left: 8px;
-            }
+        &%buttonOutlined {
+            --button-outline: 1px solid hsl(var(--accent-hsl--material-you)) !important;
+            --button-text-color: hsl(var(--accent-hsl--material-you)) !important;
         }
-    }
-}
-
-%inviteBannerUpsell {
-    @include card-format(true, 16px 0, true);
-
-    %inviteBannerUpsellPremiumIcon {
-        margin-left: 16px;
-    }
-}
-
-%input {
-    %copyInput {
-        padding: var(--input-padding);
-    }
-
-    %copyButton  {
-        margin-right: 4px !important;
-    }
-}
-
-%inviteTemporaryMembershipContainerBackground {
-    margin-top: 8px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-
-    &:before {
-        display: none;
     }
 }
