@@ -655,6 +655,56 @@
         }
     }
 
+    /* radio button */
+
+    %radioItem {
+        border-radius: calc(var(--card-radius-big) / 1.65);
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+        %radioBar {
+            &:after {
+                top: 0;
+            }
+        }
+    }
+
+    %radioItem,
+    %menuPopoutItem[role="menuitemradio"] {
+        &[aria-checked="false"] {
+            %radioIndicatorGroup {
+                background-color: var(--interactive-normal);
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_unchecked.svg);
+            }
+        }
+
+        &[aria-checked="true"] {
+            %radioIndicatorGroup {
+                background-color: hsl(var(--accent-hsl--material-you));
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_checked.svg);
+            }
+        }
+    }
+
+    %menuPopoutItem[role="menuitemradio"] {
+        %radioIndicatorGroup {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    %radioIndicatorGroup {
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-mask-repeat: no-repeat;
+        mask-size: 100%;
+
+        %radioIndicator {
+            display: none;
+        }
+    }
+
     /* tab bar */
 
     %tabBar {
