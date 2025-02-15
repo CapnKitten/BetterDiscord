@@ -26,11 +26,6 @@
     %bar {
         padding-left: 0;
 
-        /*%barTitleContainer {
-            justify-content: flex-start;
-            align-items: flex-start;
-        }*/
-
         %barLeading {
             padding-left: 8px;
         }
@@ -127,6 +122,13 @@
         }
     }
 
+    %channelLink {
+        %channelContent,
+        %channelLinkTop {
+            min-height: inherit;
+        }
+    }
+
     %panels {
         width: calc(100% - 94px);
         left: 72px;
@@ -207,10 +209,6 @@
                 border-bottom: none;
             }
         }
-    }
-
-    %chatSearchBar {
-        border: none;
     }
 
     %summaryTopicsPillContainer {
@@ -362,6 +360,11 @@
         }
     }
 
+    %channelAccessoryBar {
+        margin: 0 12px;
+        border-top-color: var(--separator-color);
+    }
+
     %channelAtachmentArea {
         padding: 12px;
         background-color: transparent;
@@ -386,6 +389,36 @@
     %pollContainer {
         background-color: var(--attachment-color);
         border: none;
+    }
+
+    /* chat area search */
+
+    %chatSearch {
+        --input-height: 32px;
+
+        %chatSearchBar {
+            padding: 0;
+            border: none;
+
+            %chatSearchRoot {
+                padding: 0 0 0 8px;
+
+                %chatSearchPlaceholder {
+                    height: var(--input-height);
+                    line-height: var(--input-height);
+                    padding-bottom: 0;
+                }
+
+                %chatSearchContent {
+                    padding-bottom: 0;
+                    line-height: var(--input-height);
+                }
+            }
+        }
+
+        %chatSearchContainer {
+            height: var(--input-height);
+        }
     }
 
     /* forum */
@@ -597,6 +630,8 @@
     /* select menus */
 
     %selectMenu {
+        min-height: var(--input-height);
+
         &%selectMenuFilled {
             border: none;
         }
@@ -617,6 +652,23 @@
 
         %switchSlider {
             transform: translate(8px, -50%);
+        }
+    }
+
+    /* tab bar */
+
+    %tabBar {
+        %tabBarItem {
+            &:after {
+                display: none;
+            }
+
+            &%tabBarItemSelected {
+                &:after {
+                    display: block;
+                    top: unset;
+                }
+            }
         }
     }
 
@@ -654,5 +706,43 @@
 
     %settingsSidebarScroller {
         background-color: var(--main-alt);
+    }
+
+    /* ui density */
+
+    &%densityCozy {
+        %channelLink {
+            min-height: 40px;
+        }
+
+        %accountPanel {
+            height: 56px !important;
+        }
+
+        %members {
+            --channel-radius: 25px;
+
+            %listItem {
+                height: 50px;
+            }
+        }
+    }
+
+    &%densityCompact {
+        %channelLink {
+            min-height: 34px;
+        }
+
+        %accountPanel {
+            height: 44px !important;
+        }
+
+        %members {
+            --channel-radius: 21px;
+
+            %listItem {
+                height: 42px;
+            }
+        }
     }
 }
