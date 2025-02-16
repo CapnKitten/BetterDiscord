@@ -8,13 +8,13 @@
 
 %themeDark {
     &%themeDarker {
-        --text-lightness-modifier: 1.45;
-        --ui-darkness-modifier: 0.65;
+        --text-lightness-modifier: 1.75;
+        --ui-darkness-modifier: 0.55;
     }
 
     &%themeMidnight {
-        --text-lightness-modifier: 2.9;
-        --ui-darkness-modifier: 0.325;
+        --text-lightness-modifier: 9.8;
+        --ui-darkness-modifier: 0.10;
     }
 }
 
@@ -72,10 +72,40 @@
         background-color: transparent;
     }
 
+    %friendsItem {
+        &:hover {
+            background-color: var(--menu-item-hover);
+        }
+
+        &%friendsItemActive {
+            background-color: var(--menu-item-select);
+        }
+    }
+
     /* active now */
 
     %activeNowOuterCard {
         background-color: var(--activity-card-color);
+    }
+
+    /* server list */
+
+    %guildsWrapper {
+        //margin-bottom: 0;
+    }
+
+    %guildExpandedFolderBackground {
+        border-radius: var(--avatar-radius);
+        border: none;
+    }
+
+    %guildFolderExpandedIconWrapper {
+        border-radius: calc(var(--avatar-radius) / 1.2);
+    }
+
+    %guildDiscoverFooter {
+        width: calc(100% - 1px);
+        background-color: var(--main-alt);
     }
 
     /* channels and private sidebar */
@@ -107,6 +137,11 @@
         }
     }
 
+    %bannerAnimatedContainer {
+        background-color: var(--chat-color);
+        border-bottom: none;
+    }
+
     %channelUserLimitWrapper {
         border: none;
 
@@ -119,6 +154,10 @@
             width: auto;
             padding: 0 6px;
             background-color: var(--sidebar-panel-color);
+
+            &:after {
+                display: none;
+            }
         }
     }
 
@@ -129,10 +168,20 @@
         }
     }
 
+    %channelUnreadPillBottom {
+        bottom: calc(var(--custom-app-panels-height,0) + var(--spacing-12));
+    }
+
     %panels {
-        width: calc(100% - 94px);
+        width: calc(100% - 20px);
+        left: var(--spacing-12);
+        bottom: var(--spacing-12);
+        margin: 0;
+
+        /*width: calc(100% - 94px);
         left: 72px;
-        bottom: 0;
+        bottom: 0;*/
+
         border-radius: var(--sidebar-panel-radius-big);
         border: none;
         box-shadow: none;
@@ -198,6 +247,12 @@
     %headerBar {
         border-bottom: none;
         box-shadow: var(--shadow-ledge);
+    }
+
+    %headerBar {
+        &%headerBarTransparent {
+            box-shadow: none;
+        }
     }
 
     %channelsHeaderContainer {
@@ -531,6 +586,10 @@
         border: none;
     }
 
+    %member {
+        max-width: 100%;
+    }
+
     %memberInner {
         height: 100%;
     }
@@ -550,17 +609,6 @@
                 background-color: transparent;
             }
         }
-    }
-
-    /* server list */
-
-    %guildsWrapper {
-        margin-bottom: 0;
-    }
-
-    %guildDiscoverFooter {
-        width: calc(100% - 1px);
-        background-color: var(--main-alt);
     }
 
     /* modals */
@@ -709,6 +757,8 @@
 
     %tabBar {
         %tabBarItem {
+            margin: 0;
+
             &:after {
                 display: none;
             }
@@ -758,6 +808,16 @@
         background-color: var(--main-alt);
     }
 
+    /* voice/video chat */
+
+    %callWrapper {
+        background-color: var(--chat-color);
+    }
+
+    %callGradientContainer {
+        border-radius: calc(var(--card-radius-big) / 1.5);
+    }
+
     /* ui density */
 
     &%densityCozy {
@@ -774,6 +834,12 @@
 
             %listItem {
                 height: 50px;
+            }
+        }
+
+        %settingsSidebar {
+            %settingsSideItem {
+                height: 40px;
             }
         }
     }
