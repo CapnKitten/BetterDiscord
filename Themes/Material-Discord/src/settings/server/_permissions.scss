@@ -64,8 +64,21 @@
         @include remove-caps(14px);
     }
 
-    %permissionsSidebarRoleItem {
-        border-radius: 16px;
+	%permissionsSidebarRoleItem {
+		border-radius: 16px;
+		transition: var(--default-time) var(--default-animation) background-color;
+
+        &%settingsSideItemThemed {
+            &:not(%settingsSideItemDisabled) {
+                &:hover {
+                    background-color: var(--menu-item-hover);
+                }
+
+                &%settingsSideItemSelected {
+        			background-color: var(--menu-item-select);
+        		}
+            }
+        }
 
 		%permissionsSidebarRoleDotBackground {
 			padding: 0;

@@ -92,34 +92,24 @@
 }
 
 %pollVoterContent {
-    flex: 0 1 auto;
-    padding: 0 24px;
-    gap: 12px;
+    %pollVotersScroller {
+        flex: 0 1 auto;
+        width: 200px;
+        padding: 0 8px 24px 24px;
+    }
+
+    %pollVoters {
+        flex: 0 1 auto;
+        width: 400px;
+    }
 
     %pollVotersScroller,
     %pollVoters {
         background-color: transparent;
     }
 
-    %pollVotersScroller {
-        padding: 0;
-    }
-
-    %pollVoters {
-        width: 100%;
-
-        %pollVoter {
-            margin-left: 0;
-            box-shadow: inset 0 -1px 0 var(--separator-color);
-
-            &:last-of-type {
-                box-shadow: none;
-            }
-        }
-    }
-
-    %pollVotersListContainer {
-        flex: 1;
+    %pollVoter {
+        margin-right: calc(24px - var(--scrollbar-thin-width));
     }
 
     %settingsSide {
