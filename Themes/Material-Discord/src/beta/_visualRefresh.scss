@@ -177,7 +177,7 @@
     }
 
     %panels {
-        width: calc(100% - 20px);
+        width: calc(100% - 12px);
         left: var(--spacing-12);
         bottom: var(--spacing-12);
         margin: 0;
@@ -193,7 +193,12 @@
     }
 
     %activityPanel {
+        padding: 0 8px;
         border-radius: var(--sidebar-panel-radius-small);
+
+        %activityPanelBody {
+            height: 100%;
+        }
     }
 
     %connectionPanel {
@@ -875,6 +880,14 @@
         background-color: var(--main-alt);
     }
 
+    %settingsSidebar {
+        %triggerSettingsSearchBox {
+            background-color: var(--input-color);
+            border-radius: var(--input-radius);
+            border: none;
+        }
+    }
+
     /* voice/video chat */
 
     %callWrapper {
@@ -1016,11 +1029,38 @@
         }
     }
 
+    /* server boost */
+
+    %serverBoostStatusCard {
+        border-radius: var(--card-radius-big);
+    }
+
+    /* stickers */
+
+    %stickersTier {
+        border: none;
+        box-shadow: none;
+    }
+
     /* ui density */
 
     &%densityCozy {
         %channelLink {
             min-height: 40px;
+        }
+
+        %spotifyPanel {
+            &%spotifyPanelWithTimeline {
+                padding-top: 4px;
+
+                %spotifyPanelTimeline {
+                    margin: 6px 0 4px 0;
+                }
+            }
+        }
+
+        %activityPanel {
+            height: 56px;
         }
 
         %accountPanel {
@@ -1047,8 +1087,22 @@
             min-height: 34px;
         }
 
+        %spotifyPanel {
+            &%spotifyPanelWithTimeline {
+                padding-top: 2px;
+
+                %spotifyPanelTimeline {
+                    margin: 2px 0;
+                }
+            }
+        }
+
+        %activityPanel {
+            height: 46px;
+        }
+
         %accountPanel {
-            height: 44px !important;
+            height: 48px !important;
         }
 
         %members {
@@ -1056,6 +1110,12 @@
 
             %listItem {
                 height: 42px;
+            }
+        }
+
+        %settingsSidebar {
+            %settingsSideItem {
+                height: 32px;
             }
         }
     }
