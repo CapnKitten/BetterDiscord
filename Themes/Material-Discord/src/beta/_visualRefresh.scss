@@ -129,6 +129,15 @@
     %privateChannelsSearchBar {
         border-bottom:  none;
         box-shadow: var(--shadow-ledge);
+
+        %buttonFilled%buttonPrimary {
+            --button-padding: 0 16px;
+            --button-background: var(--input-color);
+
+            %buttonContents {
+                margin: 0;
+            }
+        }
     }
 
     %channelsContainer {
@@ -177,7 +186,7 @@
     }
 
     %panels {
-        width: calc(100% - 12px);
+        width: calc(100% - 20px);
         left: var(--spacing-12);
         bottom: var(--spacing-12);
         margin: 0;
@@ -221,6 +230,22 @@
     %accountPanelContent {
         min-height: 100%;
         padding: 0 8px;
+    }
+
+    /* quickswitcher */
+
+    %quickswitcher {
+        background-color: var(--popout-color);
+        border: none;
+        box-shadow: var(--shadow-3dp);
+
+        %quickswitcherInput {
+            border: none;
+
+            &::-webkit-input-placeholder {
+                color: var(--input-placeholder-color);
+            }
+        }
     }
 
     /* collapsed sidebar */
@@ -393,18 +418,22 @@
             }
         }
 
-        %channelInfo {
-            height: 44px;
-            margin: 12px 0;
-            background-color: var(--main-textarea-color);
-            border-radius: var(--main-textarea-radius);
-            border: none;
-        }
-
         %channelTextAreaTyping {
             position: static;
             width: unset;
             background-color: transparent;
+        }
+    }
+
+    %channelInfo {
+        //height: 56px;
+        margin: 12px 16px;
+        background-color: var(--main-textarea-color);
+        //border-radius: 28px;
+        border: none;
+
+        %channelInfoButtonContainer {
+            //margin-right: 10px
         }
     }
 
@@ -510,6 +539,24 @@
     %forumHeaderMatchingPostsRow {
         background-color: var(--input-color);
         border: none;
+    }
+
+    %forumGuidelinesContainer {
+        background-color: var(--card-color-filled);
+        border: none;
+    }
+
+    %forumGuidelinesDescriptionContainer {
+        background-color: var(--card-color-filled);
+        border-radius: calc(var(--card-radius-big) / 1.4);
+    }
+
+    %postThreadStartConversationBox {
+        background-color: var(--card-color-filled);
+
+        &:after {
+            border-top-color: var(--card-color-filled);
+        }
     }
 
     %postPill {
@@ -741,6 +788,10 @@
 
     /* inputs */
 
+    %copyInput {
+        border: none;
+    }
+
     /* search bar */
 
     %searchContainer {
@@ -823,6 +874,12 @@
         %radioIndicator {
             display: none;
         }
+    }
+
+    /* tooltips */
+
+    %tooltip {
+        border: none;
     }
 
     /* tab bar */
@@ -1077,6 +1134,15 @@
             height: 56px !important;
         }
 
+        %channelInfo {
+            height: 56px;
+            border-radius: 28px;
+
+            %channelInfoButtonContainer {
+                margin-right: 10px
+            }
+        }
+
         %members {
             --channel-radius: 25px;
 
@@ -1113,6 +1179,15 @@
 
         %accountPanel {
             height: 48px !important;
+        }
+
+        %channelInfo {
+            height: 48px;
+            border-radius: 24px;
+
+            %channelInfoButtonContainer {
+                margin-right: 6px
+            }
         }
 
         %members {
