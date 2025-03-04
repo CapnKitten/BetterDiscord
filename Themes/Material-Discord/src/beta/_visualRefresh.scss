@@ -273,10 +273,26 @@
                 border-radius: var(--sidebar-panel-radius-big);
             }
 
+            %accountPanelAvatarWrapper {
+                justify-content: center;
+            }
+
             %spotifyPanelCoverWrapper {
                 width: 44px;
                 min-width: 44px;
                 min-height: 44px;
+            }
+
+            %accountPanelButtons {
+                display: none;
+            }
+
+            %spotifyPanelTimelineBarText {
+                justify-content: center;
+
+                :last-child {
+                    display: none;
+                }
             }
         }
     }
@@ -1177,6 +1193,16 @@
     /* ui density */
 
     &%densityCozy {
+        [data-collapsed="true"] {
+            &%channelsSidebar {
+                %spotifyPanel {
+                    &%spotifyPanelWithTimeline {
+                        padding-top: 8px;
+                    }
+                }
+            }
+        }
+
         %channelLink {
             min-height: 40px;
         }
@@ -1184,6 +1210,10 @@
         %spotifyPanel {
             &%spotifyPanelWithTimeline {
                 padding-top: 4px;
+
+                &%spotifyPanelMaximized {
+                    padding-top: 0;
+                }
 
                 %spotifyPanelTimeline {
                     margin: 6px 0 4px 0;
@@ -1227,6 +1257,16 @@
     }
 
     &%densityCompact {
+        [data-collapsed="true"] {
+            &%channelsSidebar {
+                %spotifyPanel {
+                    &%spotifyPanelWithTimeline {
+                        padding-top: 6px;
+                    }
+                }
+            }
+        }
+
         %privateChannels {
             --channel-radius: 22px;
         }
