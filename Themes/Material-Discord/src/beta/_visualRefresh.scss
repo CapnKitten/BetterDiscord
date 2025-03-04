@@ -133,6 +133,7 @@
         %buttonFilled%buttonPrimary {
             --button-padding: 0 16px;
             --button-background: var(--input-color);
+            --button-text-color: var(--input-text-color);
 
             %buttonContents {
                 margin: 0;
@@ -1109,6 +1110,56 @@
         box-shadow: none;
     }
 
+    /* betterdiscord notice bar */
+
+    %bdNotices {
+        position: absolute;
+        top: calc(var(--custom-app-top-bar-height) + var(--spacing-8));
+        right: var(--spacing-8);
+        z-index: 1001;
+    }
+
+    %bdNotice {
+        display: flex;
+        max-width: 25vw;
+        height: auto;
+        line-height: normal;
+        flex-direction: column;
+        padding: 16px;
+        gap: 16px;
+        background-color: var(--popout-color);
+        border-radius: var(--popout-radius-big);
+        box-shadow: var(--shadow-3dp);
+
+        %bdNoticeClose {
+            width: 18px;
+            height: 18px;
+            top: 16px;
+            right: 16px;
+            background-color: var(--header-secondary);
+        }
+
+        %bdNoticeContent {
+            margin-right: 30px;
+            font-size: 1.25em;
+            font-weight: 400;
+            color: var(--header-primary) !important;
+            text-align: left;
+        }
+
+        %bdNoticeButton {
+            display: flex;
+            height: var(--button-height);
+            line-height: var(--button-height);
+            top: 0;
+            margin: 0;
+            justify-content: center;
+            background-color: hsl(var(--accent-hsl--material-you)) !important;
+            border-radius: var(--button-radius);
+            font-size: 1em;
+        }
+    }
+
     /* ui density */
 
     &%densityCozy {
@@ -1143,11 +1194,14 @@
             }
         }
 
+        %privateChannels,
         %members {
-            --channel-radius: 25px;
+            --channel-radius: 24px;
+        }
 
+        %members {
             %listItem {
-                height: 50px;
+                height: 48px;
             }
         }
 
@@ -1159,6 +1213,10 @@
     }
 
     &%densityCompact {
+        %privateChannels {
+            --channel-radius: 22px;
+        }
+
         %channelLink {
             min-height: 34px;
         }
@@ -1190,9 +1248,12 @@
             }
         }
 
+        %privateChannels,
         %members {
             --channel-radius: 21px;
+        }
 
+        %members {
             %listItem {
                 height: 42px;
             }
