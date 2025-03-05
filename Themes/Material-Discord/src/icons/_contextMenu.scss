@@ -208,7 +208,7 @@
             'image-context-imageutilities-copy-file':           'file_copy',
 
             'textarea-context-add-to-dictionary':               'library_add',
-            'textarea-context-languages':                       'translate',
+            'textarea-context-languages':                       'language',
 
             'guild-context-mark-guild-read':                    'visibility',
             'guild-context-Permissions':                        'lock_open',
@@ -352,8 +352,10 @@
             %menuPopoutHintContainer {
                 width: 18px;
                 height: 18px;
-                /*margin-left: 0;
-                margin-right: 12px;*/
+                margin: 0;
+                background-color: currentColor;
+                -webkit-mask-repeat: no-repeat;
+                mask-size: 100%;
                 font-size: 0;
             }
         }
@@ -368,7 +370,7 @@
         @each $option, $icon in $icons {
             &##{$option} {
                 %menuPopoutHintContainer {
-                    @include add-icon(null, $icon);
+                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
                 }
             }
         }
