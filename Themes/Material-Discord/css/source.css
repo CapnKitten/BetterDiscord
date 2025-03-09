@@ -1257,6 +1257,50 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 
 /*
  *
+ *	VOICE & VIDEO CALL
+ *
+ */
+.wrapper__1405b .buttonSection__1405b:first-child > .caretButtonContainer_f1ceac > div:first-child .colorable_f1ceac {
+  border-radius: 24px 4px 4px 24px;
+}
+
+.buttonSection__1405b {
+  background-color: hsl(from var(--popout-color) h s l/0.75);
+  border-radius: 28px;
+  border: none;
+}
+.buttonSection__1405b .caretButtonContainer_f1ceac {
+  gap: 2px;
+}
+.buttonSection__1405b .colorable_f1ceac {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 24px;
+}
+.buttonSection__1405b .colorable_f1ceac.contextMenuNubExperiment_f1ceac {
+  width: 36px;
+  border-radius: 4px 24px 24px 4px;
+}
+.buttonSection__1405b .colorable_f1ceac:after {
+  border-radius: inherit;
+}
+
+.caretButtonContainer_f1ceac .disconnect_f1ceac {
+  --button-background: hsl(var(--alert-hsl));
+  --button-text-color: var(--alert-text-color);
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+}
+
+.avSpacing__1405b {
+  display: none;
+}
+
+/*
+ *
  *	CHAT AREA
  *
  */
@@ -3569,6 +3613,68 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 
 /*
  *
+ *  BETTERDISCORD NOTICES
+ *
+ */
+#bd-notices {
+  position: absolute;
+  top: var(--spacing-8);
+  right: var(--spacing-8);
+  z-index: 1001;
+}
+
+.bd-notice {
+  display: flex;
+  max-width: 25vw;
+  height: auto;
+  line-height: normal;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--shadow-3dp);
+}
+.bd-notice:first-child {
+  border-radius: var(--popout-radius-big);
+}
+.bd-notice .bd-notice-close {
+  width: 18px;
+  height: 18px;
+  top: 16px;
+  right: 16px;
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
+  -webkit-mask-repeat: no-repeat;
+  background-color: var(--header-secondary);
+  background-image: none;
+  -webkit-mask-position: center;
+  mask-position: center;
+  opacity: 0.75;
+}
+.bd-notice .bd-notice-content {
+  margin-right: 30px;
+  font-size: 1.25em;
+  font-weight: 400;
+  color: var(--header-primary) !important;
+  text-align: left;
+}
+.bd-notice .bd-notice-button {
+  display: flex;
+  height: var(--button-height);
+  line-height: var(--button-height);
+  top: 0;
+  margin: 0;
+  justify-content: center;
+  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  border-radius: var(--button-radius);
+  border: none;
+  color: var(--accent-text-color--material-you);
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/*
+ *
  *  BETTERDISCORD ADDON STORE
  *
  */
@@ -3659,6 +3765,63 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 }
 .message__5126c .bd-addon-store-card:hover {
   box-shadow: none !important;
+}
+
+/*
+ *
+ *  BETTERDISCORD TOAST
+ *
+ */
+.bd-toast {
+  display: flex;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 20px;
+  background-color: var(--tooltip-color);
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--tooltip-text-color);
+}
+.bd-toast.toast-success, .bd-toast.toast-error {
+  background-color: var(--toast-color);
+  color: var(--toast-text-color);
+}
+.bd-toast.toast-success.icon, .bd-toast.toast-error.icon {
+  gap: 8px;
+  padding-left: 12px;
+  background-image: none;
+  flex-direction: row;
+}
+.bd-toast.toast-success.icon:before, .bd-toast.toast-error.icon:before {
+  display: flex;
+  position: relative;
+  content: " ";
+  width: 18px;
+  height: 18px;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100%;
+  background-color: var(--toast-text-color);
+}
+.bd-toast.toast-success {
+  --toast-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+  --toast-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 2.6));
+}
+.bd-toast.toast-success.icon:before {
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_circle.svg);
+}
+.bd-toast.toast-error {
+  --toast-color: hsl(var(--alert-hsl));
+  --toast-text-color: var(--alert-text-color);
+}
+.bd-toast.toast-error.icon:before {
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/cancel.svg);
+}
+.bd-toast.icon {
+  padding-left: 36px;
+  background-position: 10px 50%;
 }
 
 /*
@@ -5666,53 +5829,18 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   padding: var(--button-padding);
 }
 
-#bd-notices + .notice__5fd4c, #bd-notices + .notice__6e2b9 {
-  border-radius: 0;
-}
-
-.bd-notice {
-  background-color: hsl(var(--accent-hsl--material-you));
-  color: var(--accent-text-color--material-you);
-}
-.bd-notice:first-child {
-  border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-}
-.bd-notice span {
-  color: var(--accent-text-color--material-you) !important;
-}
-
-.button__33db6, .button__6e2b9,
-.bd-notice-button {
+.button__33db6, .button__6e2b9 {
   background-color: hsl(from var(--button-link-color) h s l/0.15) !important;
   border: none;
   color: var(--button-link-text-color) !important;
 }
-.button__33db6:hover, .button__6e2b9:hover,
-.bd-notice-button:hover {
+.button__33db6:hover, .button__6e2b9:hover {
   background-color: hsl(from var(--button-link-color) h s l/0.275) !important;
 }
 
 .button__33db6, .button__6e2b9 {
   --button-height: 24px;
   --button-padding: 0 12px;
-}
-
-.bd-notice-button {
-  height: 24px;
-  padding: 0 12px;
-  border-radius: 12px;
-  font-weight: 500;
-}
-
-.bd-notice-close {
-  right: 8px;
-  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
-  -webkit-mask-repeat: no-repeat;
-  background-color: var(--accent-text-color--material-you);
-  background-image: none;
-  -webkit-mask-position: center;
-  mask-position: center;
-  opacity: 0.75;
 }
 
 .colorDefault__438d3 .button__33db6, .colorDefault__438d3 .button__6e2b9 {
@@ -5760,11 +5888,6 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 .colorStreamerMode__6e2b9 {
   --button-link-color: hsl(0,0%,100%);
   --button-link-text-color: hsl(0,0%,100%);
-}
-
-.bd-notice {
-  --button-link-color: hsl(0,0%,100%);
-  --button-link-text-color: var(--accent-text-color--material-you);
 }
 
 .outdatedNotice_9Q9gJv,
@@ -6424,8 +6547,7 @@ div[role=radiogroup].group__344e6 {
  *	TOASTS
  *
  */
-.toast,
-.bd-toast {
+.toast {
   padding: 12px 16px;
   background-color: rgba(70, 70, 70, 0.8);
   border-radius: 20px;
@@ -18578,6 +18700,9 @@ body:active .container_d9c882:not(:active) {
 .visual-refresh .searchBar__35e86 .lookFilled__201d5.colorPrimary__201d5 .contents__201d5 {
   margin: 0;
 }
+.visual-refresh .channel__972a0:not(.dm__972a0) .link__972a0 {
+  padding: 0 var(--spacing-16);
+}
 .visual-refresh .container__2637a {
   background-color: var(--main-color);
 }
@@ -19271,47 +19396,10 @@ body:active .container_d9c882:not(:active) {
   border: none;
 }
 .visual-refresh #bd-notices {
-  position: absolute;
   top: calc(var(--custom-app-top-bar-height) + var(--spacing-8));
-  right: var(--spacing-8);
-  z-index: 1001;
 }
-.visual-refresh .bd-notice {
-  display: flex;
-  max-width: 25vw;
-  height: auto;
-  line-height: normal;
-  flex-direction: column;
-  padding: 16px;
-  gap: 16px;
-  background-color: var(--popout-color);
-  border-radius: var(--popout-radius-big);
-  box-shadow: var(--shadow-3dp);
-}
-.visual-refresh .bd-notice .bd-notice-close {
-  width: 18px;
-  height: 18px;
-  top: 16px;
-  right: 16px;
-  background-color: var(--header-secondary);
-}
-.visual-refresh .bd-notice .bd-notice-content {
-  margin-right: 30px;
-  font-size: 1.25em;
-  font-weight: 400;
-  color: var(--header-primary) !important;
-  text-align: left;
-}
-.visual-refresh .bd-notice .bd-notice-button {
-  display: flex;
-  height: var(--button-height);
-  line-height: var(--button-height);
-  top: 0;
-  margin: 0;
-  justify-content: center;
-  background-color: hsl(var(--accent-hsl--material-you)) !important;
-  border-radius: var(--button-radius);
-  font-size: 1em;
+.visual-refresh.density-cozy .channel__972a0:not(.dm__972a0) .link__972a0 {
+  height: 48px;
 }
 .visual-refresh.density-cozy [data-collapsed=true].sidebar_c48ade .container_6sXIoE.withTimeline_824fT_ {
   padding-top: 8px;
@@ -19350,6 +19438,9 @@ body:active .container_d9c882:not(:active) {
 }
 .visual-refresh.density-cozy .sidebar__23e6b .item_b3f026 {
   height: 40px;
+}
+.visual-refresh.density-compact .channel__972a0:not(.dm__972a0) .link__972a0 {
+  height: 42px;
 }
 .visual-refresh.density-compact [data-collapsed=true].sidebar_c48ade .container_6sXIoE.withTimeline_824fT_ {
   padding-top: 6px;
