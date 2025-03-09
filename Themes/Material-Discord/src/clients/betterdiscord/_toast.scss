@@ -1,0 +1,70 @@
+/*
+ *
+ *  BETTERDISCORD TOAST
+ *
+ */
+
+%bdToast {
+    display: flex;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 20px;
+    background-color: var(--tooltip-color);
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+	font-size: 1em;
+	font-weight: 400;
+    color: var(--tooltip-text-color);
+
+    &%bdToastSuccess,
+    &%bdToastError {
+        background-color: var(--toast-color);
+        color: var(--toast-text-color);
+
+        &%bdToastIcon {
+            gap: 8px;
+            padding-left: 12px;
+            background-image: none;
+            flex-direction: row;
+
+            &:before {
+                display: flex;
+                position: relative;
+                content: " ";
+                width: 18px;
+                height: 18px;
+            	-webkit-mask-repeat: no-repeat;
+                mask-size: 100%;
+                background-color: var(--toast-text-color);
+            }
+        }
+    }
+
+    &%bdToastSuccess {
+        --toast-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+        --toast-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 2.6));
+
+        &%bdToastIcon {
+            &:before {
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_circle.svg);
+            }
+        }
+    }
+
+    &%bdToastError {
+        --toast-color: hsl(var(--alert-hsl));
+        --toast-text-color: var(--alert-text-color);
+
+        &%bdToastIcon {
+            &:before {
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/cancel.svg);
+            }
+        }
+    }
+
+    &%bdToastIcon {
+        padding-left: 36px;
+        background-position: 10px 50%;
+    }
+}
