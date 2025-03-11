@@ -30,6 +30,8 @@
   --reply-hsl: var(--reply-hue), calc(var(--reply-saturation) * var(--saturation-factor)), var(--reply-lightness);
   --reply-opacity: 0.3;
   --reply-text-color: var(--warning-text-color);
+  --success-color: var(--button-positive-background);
+  --success-text-color: var(--white-500);
   --success-color: hsl(153,46%,49%);
   --sidebar-panel-radius-big: var(--popout-radius-big);
   --sidebar-panel-radius-small: 4px;
@@ -3471,8 +3473,10 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 }
 
 .bd-addon-list.bd-grid-view {
-  column-gap: 16px;
-  row-gap: 16px;
+  margin: 16px 0 32px 0;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px clamp(8px, 2vw, 16px);
+  justify-content: center;
 }
 .bd-addon-list .bd-addon-card {
   margin-bottom: 16px;
@@ -3493,6 +3497,10 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   color: var(--card-header-text-color);
   font-weight: 400;
   opacity: 1;
+  gap: 8px;
+}
+.bd-addon-card .bd-addon-header .bd-icon {
+  margin-right: 0;
 }
 .bd-addon-card .bd-addon-header .bd-link {
   color: hsl(var(--accent-hsl));
@@ -3529,6 +3537,13 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 .bd-addon-card path[d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"] {
   d: path("M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612");
   transform: scale(1.25) translate(2px, 2px);
+}
+
+.bd-links {
+  gap: 10px;
+}
+.bd-links .bd-addon-button + .bd-addon-button {
+  margin: 0;
 }
 
 .bd-description-wrap .banner {
@@ -3698,7 +3713,7 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
 }
 
 .bd-addon-store {
-  margin: 16px 0;
+  margin: 16px 0 32px 0;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px clamp(8px, 2vw, 16px);
   justify-content: center;
@@ -3757,6 +3772,36 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   background-color: var(--card-color-active);
 }
 
+/* BETTERDISCORD ADDON STORE -> PAGINATION */
+.bd-flower-star {
+  color: var(--success-color);
+}
+
+.bd-flower-star-checkmark {
+  color: var(--success-text-color);
+}
+
+.bd-paginator .bd-button {
+  margin: 0 !important;
+}
+
+.bd-paginator-bubbles {
+  gap: 8px;
+}
+
+.bd-paginator-bubble {
+  margin: 0;
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+.bd-paginator-bubble:hover {
+  background-color: var(--card-button-color-hover);
+  color: var(--text-normal);
+}
+[data-selected=true].bd-paginator-bubble {
+  background-color: hsl(var(--accent-hsl--material-you));
+  color: var(--accent-text-color--material-you);
+}
+
 /* BETTERDISCORD ADDON STORE -> MESSAGE EMBED */
 .message__5126c .bd-addon-store-card {
   --card-color-filled: var(--attachment-color);
@@ -3806,8 +3851,8 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   background-color: var(--toast-text-color);
 }
 .bd-toast.toast-success {
-  --toast-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
-  --toast-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 2.6));
+  --toast-color: var(--success-color);
+  --toast-text-color: var(--success-text-color);
 }
 .bd-toast.toast-success.icon:before {
   -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_circle.svg);
@@ -5262,8 +5307,8 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   --button-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.25) calc(l * 0.5));
 }
 .lookFilled__201d5.colorGreen__201d5 {
-  --button-background: var(--button-positive-background);
-  --button-text-color: var(--white);
+  --button-background: var(--success-color);
+  --button-text-color: var(--success-text-color);
 }
 .lookFilled__201d5.colorRed__201d5 {
   --button-background: hsl(var(--alert-hsl));
@@ -5293,11 +5338,11 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   --button-text-color: var(--button-outline-primary-text);
 }
 .lookOutlined__201d5.colorGreen__201d5 {
-  --button-outline: 1px solid var(--button-positive-background);
-  --button-text-color: var(--button-positive-background);
+  --button-outline: 1px solid var(--success-color);
+  --button-text-color: var(--success-color);
 }
 .lookOutlined__201d5.colorGreen__201d5:after {
-  --button-action-color: var(--button-positive-background);
+  --button-action-color: var(--success-color);
   --button-action-hover: 0.1;
   --button-action-active: 0.2;
 }
@@ -5345,15 +5390,15 @@ html:not(.app-focused) .typeWindows__421ed .winButton__421ed.winButtonMinMax__42
   font-weight: 500;
 }
 .lookLink__201d5.colorGreen__201d5 {
-  --button-text-color: var(--button-positive-background);
+  --button-text-color: var(--success-color);
 }
 .lookLink__201d5.colorGreen__201d5:after {
-  --button-action-color: var(--button-positive-background);
+  --button-action-color: var(--success-color);
   --button-action-hover: 0.1;
   --button-action-active: 0.2;
 }
 .lookLink__201d5.colorGreen__201d5:after {
-  --button-action-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
+  --button-action-color: var(--success-color);
   --button-action-hover: 0.1;
   --button-action-active: 0.2;
 }
