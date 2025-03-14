@@ -19,32 +19,53 @@
     & > div {
         background-color: transparent;
     }
-}
 
-%member {
-    background-color: transparent;
+    %memberChildContainer {
+	    height: 100%;
+		padding: 0;
+		background-color: transparent !important;
+	}
 
-    %listItemLayout {
-        border-radius: var(--menu-item-radius);
-    }
+    %listItem {
+        width: 100%;
 
-    &:hover {
+        &,
+		%listItemLayout {
+			border-radius: var(--menu-item-radius);
+		}
+
         %listItemLayout {
-            background-color: var(--background-tinted-hover);
-        }
-    }
-
-    &%listItemSelected {
-        %listItemLayout {
-            background-color: var(--background-tinted-active);
-        }
+			width: 100%;
+		}
 
         &:hover {
             %listItemLayout {
-                background-color: var(--background-tinted-highlight);
+                background-color: var(--background-tinted-hover);
+            }
+        }
+
+        &%listItemSelected {
+            %listItemLayout {
+                background-color: var(--background-tinted-active);
+            }
+
+            &:hover {
+                %listItemLayout {
+                    background-color: var(--background-tinted-highlight);
+                }
             }
         }
     }
+}
+
+%member {
+	background: transparent !important;
+
+	&:hover {
+		%memberChildContainer {
+			background-color: transparent;
+		}
+	}
 }
 
 /* MEMBERS LIST -> ACTIVITIES */
