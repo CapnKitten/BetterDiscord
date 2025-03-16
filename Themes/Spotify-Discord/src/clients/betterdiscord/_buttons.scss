@@ -1,0 +1,119 @@
+/*
+ *
+ *  BETTERDISCORD BUTTONS
+ *
+ */
+
+%bdButton {
+    --button-background: hsl(var(--accent-hsl));
+    --button-text-color: var(--accent-text-color);
+
+    padding: var(--button-padding);
+    background-color: var(--button-background) !important;
+	border-radius: var(--button-radius);
+    border: var(--button-outline) !important;
+    color: var(--button-text-color) !important;
+
+    &%bdButtonTitle {
+        line-height: var(--button-height);
+
+        &:hover {
+            opacity: 0.95;
+			transform: scale(1.05);
+		}
+
+        &:active {
+            opacity: 0.75;
+
+			&:hover {
+				transform: scale(1);
+			}
+		}
+    }
+
+	&:disabled {
+		opacity: 0.5 !important;
+	}
+
+    %bdButtonContent {
+		background-image: none !important;
+	}
+
+    %bdButtonContent {
+        font-size: 14px;
+    	font-weight: 700;
+
+		svg:not([fill]) {
+			.fill {
+				fill: currentColor;
+			}
+		}
+
+		svg[fill] {
+			fill: currentColor;
+		}
+	}
+}
+
+%bdButtonFilled {
+	&%bdButtonColorRed,
+	&%bdButtonDanger {
+		--button-background: hsl(var(--alert-hsl));
+		--button-text-color: var(--alert-text-color);
+	}
+
+    &:not([disabled]) {
+        &:hover {
+			box-shadow: none;
+            opacity: 0.95;
+			transform: scale(1.05);
+
+			%buttonContents {
+				background-image: none;
+			}
+		}
+
+        &:active {
+            opacity: 0.75;
+
+			&:hover {
+				transform: scale(1);
+			}
+		}
+    }
+}
+
+%bdButtonLink {
+	--button-padding: 0 12px;
+	--button-shadow: none !important;
+
+	&:after {
+		--button-action-color: hsl(var(--accent-hsl--material-you));
+	}
+
+	&%bdButtonColorBrand,
+	&%bdButtonColorPrimary {
+		--button-text-color: hsl(var(--accent-hsl--material-you));
+	}
+}
+
+%bdButtonBlank {
+	--button-background: transparent;
+	--button-text-color: var(--interactive-normal);
+
+    &%bdButtonIcon {
+        --button-height: 24px;
+    }
+}
+
+%bdButtonIcon {
+    --button-padding: 0;
+}
+
+%bdButtonMedium,
+%bdButtonLarge,
+%bdButtonIcon {
+    min-width: var(--button-height);
+	height: var(--button-height);
+	min-height: var(--button-height);
+}
