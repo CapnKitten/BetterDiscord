@@ -1057,40 +1057,6 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
   margin-right: 0;
 }
 
-.bd-button {
-  --button-background: hsl(var(--accent-hsl));
-  --button-text-color: var(--accent-text-color);
-  padding: var(--button-padding);
-  background-color: var(--button-background) !important;
-  border-radius: var(--button-radius);
-  border: var(--button-outline) !important;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--button-text-color);
-}
-.bd-button.bd-button-title {
-  line-height: var(--button-height);
-}
-.bd-button.bd-button-title:hover {
-  opacity: 0.95;
-  transform: scale(1.05);
-}
-.bd-button.bd-button-title:active {
-  opacity: 0.75;
-}
-.bd-button.bd-button-title:active:hover {
-  transform: scale(1);
-}
-.bd-button.bd-view-button {
-  --button-background: var(--background-tinted-highlight);
-}
-.bd-button.bd-view-button.selected {
-  --button-background: hsl(var(--accent-hsl));
-}
-.bd-button.bd-view-button.selected svg {
-  fill: var(--accent-text-color);
-}
-
 .bd-addon-list .bd-addon-card {
   background-color: var(--card-color);
   border-radius: var(--card-radius);
@@ -1119,6 +1085,100 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
 }
 .bd-controls > .bd-button:last-of-type {
   border-radius: 0 var(--card-radius) var(--card-radius) 0;
+}
+
+/*
+ *
+ *  BETTERDISCORD BUTTONS
+ *
+ */
+.bd-button {
+  --button-background: hsl(var(--accent-hsl));
+  --button-text-color: var(--accent-text-color);
+  padding: var(--button-padding);
+  background-color: var(--button-background) !important;
+  border-radius: var(--button-radius);
+  border: var(--button-outline) !important;
+  color: var(--button-text-color) !important;
+}
+.bd-button.bd-button-title {
+  line-height: var(--button-height);
+}
+.bd-button.bd-button-title:hover {
+  opacity: 0.95;
+  transform: scale(1.05);
+}
+.bd-button.bd-button-title:active {
+  opacity: 0.75;
+}
+.bd-button.bd-button-title:active:hover {
+  transform: scale(1);
+}
+.bd-button:disabled {
+  opacity: 0.5 !important;
+}
+.bd-button .bd-button-content {
+  background-image: none !important;
+}
+.bd-button .bd-button-content {
+  font-size: 14px;
+  font-weight: 700;
+}
+.bd-button .bd-button-content svg:not([fill]) .fill {
+  fill: currentColor;
+}
+.bd-button .bd-button-content svg[fill] {
+  fill: currentColor;
+}
+
+.bd-button-filled.bd-button-color-red, .bd-button-filled.bd-button-danger {
+  --button-background: hsl(var(--alert-hsl));
+  --button-text-color: var(--alert-text-color);
+}
+.bd-button-filled:not([disabled]):hover {
+  box-shadow: none;
+  opacity: 0.95;
+  transform: scale(1.05);
+}
+.bd-button-filled:not([disabled]):hover .contents__201d5 {
+  background-image: none;
+}
+.bd-button-filled:not([disabled]):active {
+  opacity: 0.75;
+}
+.bd-button-filled:not([disabled]):active:hover {
+  transform: scale(1);
+}
+
+.bd-button-link {
+  --button-padding: 0 12px;
+  --button-shadow: none !important;
+}
+.bd-button-link:after {
+  --button-action-color: hsl(var(--accent-hsl--material-you));
+}
+.bd-button-link.bd-button-color-brand, .bd-button-link.bd-button-color-primary {
+  --button-text-color: hsl(var(--accent-hsl--material-you));
+}
+
+.bd-button-blank {
+  --button-background: transparent;
+  --button-text-color: var(--interactive-normal);
+}
+.bd-button-blank.bd-button-icon {
+  --button-height: 24px;
+}
+
+.bd-button-icon {
+  --button-padding: 0;
+}
+
+.bd-button-medium,
+.bd-button-large,
+.bd-button-icon {
+  min-width: var(--button-height);
+  height: var(--button-height);
+  min-height: var(--button-height);
 }
 
 /*
@@ -1165,6 +1225,97 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
 }
 .bd-modal-root .bd-modal-footer .bd-button .bd-button-content {
   margin: 0;
+}
+
+/*
+ *
+ *  BETTERDISCORD ADDON STORE
+ *
+ */
+.bd-store-card {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
+}
+.bd-store-card:hover {
+  background-color: var(--card-color-hover);
+}
+
+.bd-addon-store-card {
+  background-color: var(--card-color) !important;
+  border-radius: var(--card-radius);
+}
+.bd-addon-store-card:hover {
+  background-color: var(--card-color-hover) !important;
+}
+.bd-addon-store-card:hover .bd-addon-store-card-author-mask {
+  background-color: var(--card-color-hover) !important;
+}
+.bd-addon-store-card .bd-addon-store-card-author-mask {
+  background-color: var(--card-color);
+}
+
+/*
+ *
+ *  BETTERDISCORD TOAST
+ *
+ */
+.bd-toast {
+  display: flex;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 20px;
+  background-color: var(--popout-color);
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--text-normal);
+}
+.bd-toast.toast-success, .bd-toast.toast-error, .bd-toast.toast-info {
+  background-color: var(--popout-color);
+  color: var(--text-normal);
+}
+.bd-toast.toast-success.icon, .bd-toast.toast-error.icon, .bd-toast.toast-info.icon {
+  gap: 8px;
+  padding-left: 12px;
+  background-image: none;
+  flex-direction: row;
+}
+.bd-toast.toast-success.icon:before, .bd-toast.toast-error.icon:before, .bd-toast.toast-info.icon:before {
+  display: flex;
+  position: relative;
+  content: " ";
+  width: 18px;
+  height: 18px;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100%;
+  background-color: var(--text-normal);
+}
+.bd-toast.toast-success {
+  --popout-color: var(--button-positive-background);
+  --text-normal: var(--text-primary);
+}
+.bd-toast.toast-success.icon:before {
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_circle.svg);
+}
+.bd-toast.toast-error {
+  --popout-color: hsl(var(--alert-hsl));
+  --text-normal: var(--alert-text-color);
+}
+.bd-toast.toast-error.icon:before {
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/cancel.svg);
+}
+.bd-toast.toast-info {
+  --popout-color: hsl(var(--accent-hsl));
+  --text-normal: var(--accent-text-color);
+}
+.bd-toast.toast-info.icon:before {
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/info.svg);
+}
+.bd-toast.icon {
+  padding-left: 36px;
+  background-position: 10px 50%;
 }
 
 /*
