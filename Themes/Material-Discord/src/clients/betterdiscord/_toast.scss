@@ -18,9 +18,10 @@
     color: var(--tooltip-text-color);
 
     &%bdToastSuccess,
-    &%bdToastError {
-        background-color: var(--toast-color);
-        color: var(--toast-text-color);
+    &%bdToastError,
+    &%bdToastInfo {
+        background-color: var(--tooltip-color);
+        color: var(--tooltip-text-color);
 
         &%bdToastIcon {
             gap: 8px;
@@ -36,29 +37,29 @@
                 height: 18px;
             	-webkit-mask-repeat: no-repeat;
                 mask-size: 100%;
-                background-color: var(--toast-text-color);
+                background-color: var(--tooltip-text-color);
             }
         }
     }
 
-    &%bdToastSuccess {
-        --toast-color: var(--success-color);
-        --toast-text-color: var(--success-text-color);
+    $toasts: (
+        success:
+            (class: bdToastSuccess, bg: var(--success-color), text: var(--success-text-color), icon: check_circle),
+        error:
+            (class: bdToastError, bg: hsl(var(--alert-hsl)), text: var(--alert-text-color), icon: cancel),
+        info:
+            (class: bdToastInfo, bg: hsl(var(--accent-hsl--material-you)), text: var(--accent-text-color--material-you), icon: info),
+    );
 
-        &%bdToastIcon {
-            &:before {
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/check_circle.svg);
-            }
-        }
-    }
+    @each $toast, $value in $toasts {
+        &%#{map-get($value, class)} {
+            --tooltip-color: #{map-get($value, bg)};
+            --tooltip-text-color: #{map-get($value, text)};
 
-    &%bdToastError {
-        --toast-color: hsl(var(--alert-hsl));
-        --toast-text-color: var(--alert-text-color);
-
-        &%bdToastIcon {
-            &:before {
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/cancel.svg);
+            &%bdToastIcon {
+                &:before {
+                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{map-get($value, icon)}.svg);
+                }
             }
         }
     }

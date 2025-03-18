@@ -316,6 +316,25 @@
             }
         }
 
+        /* CONTEXT MENU ICONS -> REMOVE DUPLICATE ICONS WHERE SAME IDS MAY OR MAY NOT HAVE SVG ICON */
+
+        $icons: (
+            'user-context-user-profile',
+            'user-context-message-user'
+        );
+
+        @each $option, $icon in $icons {
+            &##{$option} {
+                svg {
+                    display: none;
+                }
+
+                %menuPopoutIconContainer {
+                    display: none;
+                }
+            }
+        }
+
         /* CONTEXT MENU ICONS -> DISCORD IS DUMB */
 
         $icons: (

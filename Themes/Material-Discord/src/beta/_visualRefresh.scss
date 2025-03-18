@@ -25,9 +25,10 @@
 
     %bar {
         padding-left: 0;
+        padding-right: var(--spacing-4);
 
         %barLeading {
-            padding-left: 8px;
+            padding-left: var(--spacing-8);
         }
 
         %barTitle {
@@ -60,6 +61,37 @@
         %headerBarIconBadge {
             box-shadow: 0 0 0 4px var(--main-alt);
         }
+    }
+
+	%titlebarWinButton {
+        --app-title-bar-height: var(--custom-app-top-bar-height);
+        width: calc(var(--app-title-bar-height) / 1.325);
+
+		&%titlebarWinButtonMinMax {
+            &:nth-of-type(1) {
+				&:hover {
+					&:after {
+						background-color: var(--app-button-min);
+					}
+				}
+
+				&:before {
+					@include add-icon(var(--app-button-min), window_minimize);
+				}
+			}
+
+			&:nth-of-type(2) {
+				&:hover {
+					&:after {
+						background-color: var(--app-button-max);
+					}
+				}
+
+				&:before {
+					@include add-icon(var(--app-button-max), window_maximize);
+				}
+			}
+		}
     }
 
     /* friends list */
@@ -950,6 +982,10 @@
         %menuPopoutLabel {
             color: inherit;
         }
+    }
+
+    %contextMenuQuickReaction {
+        border-radius: 50%;
     }
 
     /* settings */
