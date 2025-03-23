@@ -961,6 +961,69 @@ body {
 
 /*
  *
+ *  BETTERDISCORD NOTICES
+ *
+ */
+#bd-notices {
+  position: absolute;
+  top: var(--spacing-8);
+  right: var(--spacing-8);
+  z-index: 1001;
+}
+
+.bd-notice {
+  display: flex;
+  max-width: 25vw;
+  height: auto;
+  line-height: normal;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  backdrop-filter: blur(var(--popout-blur));
+  box-shadow: var(--popout-shadow);
+}
+.bd-notice:first-child {
+  border-radius: var(--popout-radius);
+}
+.bd-notice .bd-notice-close {
+  width: 18px;
+  height: 18px;
+  top: 20px;
+  right: 20px;
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
+  -webkit-mask-repeat: no-repeat;
+  background-color: var(--header-secondary);
+  background-image: none;
+  -webkit-mask-position: center;
+  mask-position: center;
+  opacity: 0.75;
+}
+.bd-notice .bd-notice-content {
+  margin-right: 30px;
+  font-size: 1.25em;
+  font-weight: 400;
+  color: var(--header-primary) !important;
+  text-align: left;
+}
+.bd-notice .bd-notice-button {
+  display: flex;
+  height: var(--button-height);
+  line-height: var(--button-height);
+  top: 0;
+  margin: 0;
+  justify-content: center;
+  background-color: hsl(var(--accent-hsl)) !important;
+  border-radius: var(--button-radius);
+  border: none;
+  color: var(--accent-text-color);
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/*
+ *
  *  BETTERDISCORD ADDONS
  *
  */
@@ -1929,14 +1992,6 @@ body {
 .notice__5fd4c.notice-2olXi7 .button-YGmtzG:after, .notice__6e2b9.notice-2olXi7 .button-YGmtzG:after, .notice__5fd4c.colorBrand1-2u_MN9 .button-YGmtzG:after, .notice__6e2b9.colorBrand1-2u_MN9 .button-YGmtzG:after {
   opacity: 0.15;
 }
-#pluginNotice #outdatedPlugins span {
-  color: var(--accent-text-color);
-}
-
-.bd-notice:first-child {
-  border-radius: 0 var(--app-radius) 0 0;
-}
-
 /*
  *
  *  RADIO BUTTONS
@@ -6195,6 +6250,9 @@ body {
 }
 .visual-refresh .contentRegionScroller__23e6b {
   background-color: transparent;
+}
+.visual-refresh #bd-notices {
+  top: calc(var(--custom-app-top-bar-height) + var(--spacing-8));
 }
 
 /*# sourceMappingURL=main.css.map */
