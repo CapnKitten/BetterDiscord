@@ -214,11 +214,21 @@
     }
 
     %channelTextArea {
+        --main-textarea-min-height: 54px;
+        --main-textarea-radius: 27px;
+
         background-color: var(--main-textarea-color);
         border: none;
 
         %channelTextAreaFontPadding {
             padding: calc(var(--custom-channel-textarea-text-area-height) / 2 - var(--chat-markup-line-height) / 2) 0;
+        }
+    }
+
+    %channelBottomBarArea {
+        + %channelTextAreaTyping {
+            width: calc(100% - (var(--scrollbar-width) + var(--spacing-16)));
+            bottom: 1px;
         }
     }
 
@@ -236,6 +246,15 @@
         border-radius: calc(var(--main-textarea-radius) / 1.5);
         border: none;
         box-shadow: none;
+    }
+
+    %channelAppLauncher {
+        width: auto;
+
+        %channelAppLauncherButton {
+            width: auto;
+            background-color: transparent;
+        }
     }
 
     %chatOuterSearchContainer {
@@ -260,6 +279,13 @@
             bottom: 0;
             margin: auto 0;
         }
+    }
+
+    %messageButtonWrapper {
+        padding: 4px 6px;
+        background-color: var(--popout-color);
+        border: none;
+        box-shadow: var(--default-shadow);
     }
 
     /* forum */
@@ -295,6 +321,15 @@
 
     %threadResizeHandle {
         background-color: var(--app-background);
+    }
+
+    /* message attachments */
+
+    %threadEmbed,
+    %inviteWrapper {
+        background-color: var(--background-tinted-active);
+        border-radius: var(--card-radius);
+        border: none;
     }
 
     /* members list */
