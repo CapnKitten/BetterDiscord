@@ -460,7 +460,11 @@
     }
 
     %chatForm {
+        padding: 0;
+        
         %channelTextArea {
+            --main-textarea-radius: 27px;
+
             background-color: var(--main-textarea-color);
             border: none;
             box-shadow: none;
@@ -482,6 +486,10 @@
         }
     }
 
+    %channelTextAreaAttachButton {
+        padding-right: var(--spacing-8);
+    }
+
     %channelInfo {
         //height: 56px;
         margin: 12px 16px;
@@ -497,6 +505,14 @@
     %channelBottomBarArea {
         margin: 0;
         padding: 0 16px;
+
+        + %channelTextAreaTyping {
+            position: absolute;
+            width: calc(100% - (var(--scrollbar-width) + var(--spacing-16)));
+            left: unset;
+            right: var(--spacing-16);
+            background-color: var(--typing-color);
+        }
     }
 
     %messagesErrorBar {
