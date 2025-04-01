@@ -5,9 +5,12 @@
  */
 
 %tabBar {
+    padding: 16px 0;
+    gap: 24px;
+
     %tabBarItem {
         min-width: 40px;
-        margin: 8px;
+        margin: 0;
         padding: 2px 8px;
         background-color: transparent !important;
         border-radius: var(--button-radius);
@@ -20,6 +23,10 @@
             margin-left: 0;
         }
 
+        &:after {
+            display: none;
+        }
+
         &:hover {
             background-color: var(--background-modifier-hover) !important;
             color: var(--interactive-hover) !important;
@@ -28,6 +35,10 @@
         &%tabBarItemSelected {
             background-color: var(--background-modifier-selected) !important;
             color: var(--interactive-active) !important;
+        }
+
+        + %tabBarItem {
+            margin-left: 0;
         }
     }
 }
