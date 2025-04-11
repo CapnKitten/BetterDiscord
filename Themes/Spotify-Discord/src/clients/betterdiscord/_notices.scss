@@ -3,12 +3,23 @@
  *  BETTERDISCORD NOTICES
  *
  */
- 
+
 %bdNotices {
     position: absolute;
     top: var(--spacing-8);
-    right: var(--spacing-8);
+    right: calc(var(--spacing-8) + var(--app-card-margin));
     z-index: 1001;
+
+    &:has(%bdNotice) {
+        width: auto;
+        left: unset;
+    }
+}
+
+%base {
+    &:has(%bdNotices %bdNotice) {
+        margin-top: 0;
+    }
 }
 
 %bdNotice {
