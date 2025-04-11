@@ -1235,8 +1235,16 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
 #bd-notices {
   position: absolute;
   top: var(--spacing-8);
-  right: var(--spacing-8);
+  right: calc(var(--spacing-8) + var(--app-card-margin));
   z-index: 1001;
+}
+#bd-notices:has(.bd-notice) {
+  width: auto;
+  left: unset;
+}
+
+.base_c48ade:has(#bd-notices .bd-notice) {
+  margin-top: 0;
 }
 
 .bd-notice {
@@ -4801,28 +4809,6 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .wrapper_ef3116 {
  *  BETA - VISUAL REFRESH
  *
  */
-.visual-refresh {
-  /* servers */
-  /* channels */
-  /* connection panel */
-  /* spotify panel */
-  /* spotify panel vencord */
-  /* private channels */
-  /* chat */
-  /* markup */
-  /* chat area search */
-  /* search results */
-  /* voice call */
-  /* forum */
-  /* message attachments */
-  /* members list */
-  /* friends list */
-  /* active now */
-  /* modals */
-  /* pinned messages popout */
-  /* settings */
-  /* betterdiscord notice bar */
-}
 .visual-refresh .bg__960e4 {
   background-color: var(--app-background);
 }
@@ -5021,10 +5007,14 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .wrapper_ef3116 {
 .visual-refresh .slateTextArea_ec4baf {
   min-height: var(--main-textarea-min-height);
 }
-.visual-refresh .channelBottomBarArea_f75fb0 + .typing_b88801 {
-  width: calc(100% - (var(--scrollbar-width) + var(--spacing-16)));
-  top: -18px;
+.visual-refresh .typing_b88801 {
+  width: calc(100% - var(--scrollbar-width));
+  top: calc(((var(--app-bar-size) - var(--main-textarea-min-height)) / 2 + 16px) * -1);
+  left: 0;
   bottom: unset;
+  padding: 0 var(--spacing-4) 0 var(--spacing-8);
+  background-color: hsl(from var(--app-foreground) h s l/0.8);
+  border-bottom-left-radius: var(--app-card-radius);
 }
 .visual-refresh .stackedBars__74017 {
   background-color: transparent;
