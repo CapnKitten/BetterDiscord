@@ -5,22 +5,34 @@
  */
 
 %tabBar {
+    padding-bottom: 8px;
+    gap: var(--spacing-16);
+
     %tabBarItem {
-        margin: 0 8px 0 0;
+        margin: 0;
         padding: 8px 16px;
         border-radius: 4px;
         font-weight: 700;
 
+        + %tabBarItem {
+            margin-left: 0;
+        }
+
+        &:after {
+            display: none;
+        }
+
         &:hover {
-            background-color: transparent !important;
+            background-color: var(--background-tinted-hover);
         }
 
         &%tabBarItemSelected {
-            background-color: var(--menu-hover-color) !important;
+            background-color: var(--background-tinted-active);
+            color: var(--text-primary);
         }
 
         &%tabBarItemAddFriend {
-            background-color: var(--status-positive-background) !important;
+            background-color: var(--status-positive-background);
         }
     }
 }

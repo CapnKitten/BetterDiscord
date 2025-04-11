@@ -13,6 +13,10 @@
         margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
     }
 
+    %promptMain {
+        border-radius: var(--app-card-radius);
+    }
+
     /* servers */
 
     %guildsWrapper {
@@ -38,6 +42,21 @@
         &:after {
             display: none;
         }
+
+        &%channelsSidebarChannelListHidden {
+            margin-right: 0;
+        }
+
+        overflow: visible;
+
+        &:has(%spotifyPanel),
+        &:has(%vencordSpotifyPlayer) {
+            margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
+        }
+    }
+
+    %channelMentionsContainerBottom {
+        bottom: 0;
     }
 
     %sidebarResizeHandle {
@@ -94,93 +113,113 @@
         background-color: var(--app-foreground);
         border-radius: var(--app-card-radius);
         border: none;
+        overflow: visible !important;
+    }
+
+    /* connection panel */
+
+    %connectionPanelWrapper {
+        &:not(:empty) {
+            border-bottom: 1px solid var(--sidebar-panel-border);
+        }
     }
 
     /* spotify panel */
 
     %spotifyPanel {
-        position: relative;
-        width: 100%;
-        height: auto;
-        left: unset;
-        bottom: unset;
-        padding: 0 8px;
-
-        %spotifyPanelInner {
-            gap: 8px;
-        }
-
-        %spotifyPanelCoverWrapper {
-            position: relative;
-            width: 32px;
-            height: 32px;
-            top: unset;
-            left: unset;
-            bottom: unset;
-            margin: 0;
-            transform: none !important;
-        }
-
-        %spotifyPanelDetails {
+        %panelButton {
+            width: var(--button-height);
+            height: var(--button-height);
             margin: 0;
         }
 
         %spotifyPanelTimeline {
-            margin: 6px 0 4px 0;
+            height: 16px;
+            margin: 0 0 0 calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
         }
+
+        %spotifyPanelTimelineBar {
+            top: 6px;
+            margin-bottom: 0;
+        }
+
+        %spotifyPanelTimelineBarText {
+            top: 0;
+        }
+    }
+
+    %spotifyPanel,
+    %vencordSpotifyPlayer {
+        --panel-height: calc(var(--app-bar-size) - (var(--app-card-margin) * 2));
+        --button-height: 32px;
+
+        width: 100%;
+        height: var(--panel-height);
+        left: unset;
+        bottom: calc((var(--app-bar-size) - var(--app-card-margin)) * -1);
+        padding: 0;
+        gap: 8px;
+    }
+
+    %spotifyPanelCoverWrapper,
+    %vencordSpotifyAlbumImage {
+        width: calc(var(--panel-height) - 10px);
+        height: calc(var(--panel-height) - 10px);
+        transform: translate(var(--app-card-margin), 0) !important;
+    }
+
+    %spotifyPanelDetails,
+    %vencordSpotifyTitles {
+        margin-left: calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
     }
 
     /* spotify panel vencord */
 
-    %vencordSpotifyPlayer {
-        position: unset;
-        width: 100%;
-        height: auto;
-        left: unset;
-        bottom: unset;
-        padding: var(--space-xs);
-        border-bottom: 1px solid var(--border-faint);
-    }
-
     %vencordSpotifyInfoWrapper {
-        width: auto;
-        height: auto;
-        margin-top: unset;
-        margin-left: unset;
-        gap: 8px;
+        width: calc(100% - (180px + 4px));
+        height: calc(var(--panel-height) - 20px);
+        margin: 0;
     }
 
     %vencordSpotifyAlbumImage {
-        position: unset;
-        width: 52px;
-        height: 52px !important;
-        left: 18px;
-        top: 14px;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto 0;
+    }
+
+    %vencordSpotifyButtonRow {
+        height: calc(var(--panel-height) - 20px);
+        top: 0;
+        margin-top: 0;
+        align-items: center;
     }
 
     %vencordSpotifyProgressBar {
         width: auto;
-        margin: 8px 0 5px;
-
-        %menuPopoutSliderContainer {
-            width: auto;
-            margin: 0 auto;
-        }
-
-        %sliderGrabber {
-            top: 2px;
-        }
+        margin: 0 0 0 calc(var(--panel-height) + var(--app-card-margin) * 1.5);
 
         %vencordSpotifyProgressTime {
-            top: 10px;
+            top: 0;
+            margin-top: 0;
         }
-    }
 
-    %vencordSpotifyButtonRow {
-        position: unset;
-        top: unset;
-        right: 0;
-        background-color: transparent;
+        %vencordSpotifyTimeLeft {
+            margin-left: 2px;
+        }
+
+        %vencordSpotifyTimeRight {
+            margin-right: 4px;
+        }
+
+        %menuPopoutSliderContainer {
+            width: calc(100% - 100px);
+            height: 16px;
+
+            %slider {
+                height: inherit;
+            }
+        }
     }
 
     /* private channels */
@@ -201,6 +240,10 @@
 
     /* chat */
 
+    %chat {
+        height: calc(100% - (var(--app-bar-size) - var(--app-card-margin)));
+    }
+
     %chatContent {
         background: transparent;
     }
@@ -210,25 +253,32 @@
     }
 
     %chatForm {
-        bottom: 0;
+        bottom: calc(((var(--app-bar-size) + var(--main-textarea-min-height)) / 2) * -1);
+        margin-top: calc( var(--main-textarea-min-height) * -1);
+
+        %channelTextArea {
+            margin-bottom: 0;
+        }
     }
 
     %channelTextArea {
-        --main-textarea-min-height: 54px;
-        --main-textarea-radius: 27px;
-
         background-color: var(--main-textarea-color);
         border: none;
 
         %channelTextAreaFontPadding {
-            padding: calc(var(--custom-channel-textarea-text-area-height) / 2 - var(--chat-markup-line-height) / 2) 0;
+            padding: var(--textarea-text-padding) 0;
         }
+    }
+
+    %slateTextArea {
+        min-height: var(--main-textarea-min-height);
     }
 
     %channelBottomBarArea {
         + %channelTextAreaTyping {
             width: calc(100% - (var(--scrollbar-width) + var(--spacing-16)));
-            bottom: 1px;
+            top: -18px;
+            bottom: unset;
         }
     }
 
@@ -288,6 +338,37 @@
         box-shadow: var(--default-shadow);
     }
 
+    /* markup */
+
+    %markup {
+    	code {
+    		background-color: var(--background-tinted-active);
+    		border-radius: var(--card-radius);
+    		border: none;
+    	}
+    }
+
+    /* chat area search */
+
+    %searchPopout {
+        background-color: var(--popout-color);
+        border-radius: var(--popout-radius);
+        border: none;
+        box-shadow: var(--default-shadow);
+    }
+
+    /* search results */
+
+    %searchResultsWrap {
+        background-color: transparent;
+        border-left-color: var(--card-color-hover);
+    }
+
+    %searchResult {
+        background-color: var(--message-color-hover);
+        border: none;
+    }
+
     /* voice call */
 
     %callWrapper {
@@ -340,7 +421,14 @@
     }
 
     %threadContainer {
+        background-color: transparent !important;
         border: none;
+
+        %chatContent {
+            margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
+            background-color: var(--app-foreground);
+            border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
+        }
     }
 
     /* message attachments */
@@ -379,6 +467,24 @@
 
     %activeNowCardInteractive {
         background-color: var(--card-color);
+    }
+
+    /* modals */
+
+    %modalRoot {
+        border: none;
+    }
+
+    /* pinned messages popout */
+
+    %messagesPopoutWrap,
+    %recentMentionsPopout {
+        background-color: var(--popout-color);
+    }
+
+    %messagesPopoutHeader,
+    %messagesPopoutContentContainer {
+        background-color: transparent;
     }
 
     /* settings */
