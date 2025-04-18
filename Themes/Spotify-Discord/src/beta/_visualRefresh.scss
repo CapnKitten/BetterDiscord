@@ -196,29 +196,29 @@
     }
 
     %vencordSpotifyProgressBar {
+        display: flex;
         width: auto;
         margin: 0 0 0 calc(var(--panel-height) + var(--app-card-margin) * 1.5);
+        padding: 0 4px 0 2px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
 
         %vencordSpotifyProgressTime {
+            position: relative;
+            width: 36px;
             top: 0;
             margin-top: 0;
+            text-align: center;
         }
 
-        %vencordSpotifyTimeLeft {
-            margin-left: 2px;
-        }
-
-        %vencordSpotifyTimeRight {
-            margin-right: 4px;
-        }
-
-        %menuPopoutSliderContainer {
+        %slider {
             width: calc(100% - 100px);
-            height: 16px;
+            height: 16px !important;
+        }
 
-            %slider {
-                height: inherit;
-            }
+        %sliderBar {
+            top: calc(12px - 12px / 2 + var(--bar-offset)) !important;
         }
     }
 
@@ -502,6 +502,10 @@
 
     /* members list */
 
+    %membersWrap {
+        background-color: transparent;
+    }
+
     %memberActivityContainer {
         background-color: var(--background-tinted-hover);
         border: none;
@@ -567,5 +571,13 @@
 
     %settingsContentRegion {
         margin: 0;
+    }
+
+    /* vencord notification */
+
+    %vencordNotificationRoot {
+        background-color: var(--popout-color);
+        border-radius: var(--popout-radius);
+        box-shadow: var(--default-shadow);
     }
 }
