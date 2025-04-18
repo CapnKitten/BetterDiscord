@@ -8,6 +8,9 @@
 
 %userProfileOuter {
 	&:not(%userProfileOuterThemed) {
+		--background-surface-high: var(--popout-color) !important;
+		--user-profile-overlay-background: var(--profile-gradient-primary-color) !important;
+
 		--profile-gradient-primary-color: var(--popout-color) !important;
 		--profile-gradient-secondary-color: var(--popout-color) !important;
 		--profile-avatar-border-color: var(--popout-color) !important;
@@ -18,9 +21,13 @@
 
 		&%themeLight {
 			--textarea-color: 0,0,0;
-			--textarea-text-color: #333;
-			--textarea-placeholder-color: #666;
-			--background-modifier-selected: rgba(0,0,0,0.125);
+			--textarea-text-color: hsl(0,0%,30%);
+			--textarea-placeholder-color: hsl(0,0%,40%);
+			--background-modifier-selected: hsl(0,0%,0%,0.125);
+		}
+
+		&:before {
+			background-color: var(--profile-gradient-primary-color);
 		}
 	}
 }
