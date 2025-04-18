@@ -153,6 +153,7 @@ body {
 ::selection {
   background: hsla(var(--accent-hsl), 0.65);
   color: var(--accent-text-color);
+  text-shadow: none;
 }
 
 .layers__160d8 {
@@ -976,6 +977,61 @@ body {
 
 /*
  *
+ *  BETTERDISCORD BUTTONS
+ *
+ */
+.bd-button {
+  --button-background: hsl(var(--accent-hsl));
+  --button-text-color: var(--accent-text-color);
+  background-color: var(--button-background) !important;
+  border-radius: var(--button-radius);
+  color: var(--button-text-color) !important;
+}
+.bd-button .bd-button-content {
+  background-image: none !important;
+}
+.bd-button .bd-button-content svg:not([fill]) .fill {
+  fill: currentColor;
+  filter: none;
+}
+.bd-button .bd-button-content svg[fill] {
+  fill: currentColor;
+  filter: none;
+}
+
+.bd-button-tiny,
+.bd-button-medium,
+.bd-button-large {
+  height: var(--button-height);
+  min-height: var(--button-height);
+  min-width: var(--button-height);
+  padding: var(--button-padding);
+}
+
+.bd-button-filled.bd-button-color-red, .bd-button-filled.bd-button-danger {
+  --button-background: hsl(var(--alert-hsl));
+  --button-text-color: var(--alert-text-color);
+}
+
+.bd-button-blank {
+  --button-background: transparent;
+  --button-text-color: var(--interactive-normal);
+}
+
+.bd-button-link {
+  --button-padding: 0 12px;
+  --button-background: transparent;
+  --button-shadow: none !important;
+}
+.bd-button-link:after {
+  --button-action-color: hsl(var(--accent-hsl--material-you));
+}
+.bd-button-link.bd-button-color-brand, .bd-button-link.bd-button-color-primary {
+  --button-text-color: hsl(var(--accent-hsl--material-you));
+}
+
+/*
+ *
  *  BETTERDISCORD NOTICES
  *
  */
@@ -1093,23 +1149,6 @@ body {
   color: var(--input-placeholder-color);
 }
 
-.bd-button {
-  background-color: hsla(var(--accent-hsl), var(--accent-opacity));
-  border-radius: var(--button-radius);
-  color: var(--accent-text-color);
-  text-shadow: none;
-}
-.bd-button:hover {
-  background-color: hsla(var(--accent-hsl), var(--accent-opacity));
-}
-.selected.bd-button {
-  background-color: hsla(var(--accent-hsl), var(--accent-opacity)) !important;
-}
-.selected.bd-button svg {
-  fill: var(--accent-text-color) !important;
-  filter: none;
-}
-
 .bd-addon-list .bd-addon-card {
   background-color: var(--card-color);
   border-radius: var(--card-radius);
@@ -1127,6 +1166,11 @@ body {
 }
 .bd-addon-list .bd-controls .bd-button-filled {
   --button-background: transparent;
+}
+
+.bd-addon-store-card {
+  background-color: var(--card-color) !important;
+  border-radius: var(--card-radius);
 }
 
 /*
@@ -1635,10 +1679,7 @@ body {
 .sizeSmall__201d5,
 .sizeMedium__201d5,
 .sizeLarge__201d5,
-.sizeXlarge__6885c,
-.bd-button-tiny,
-.bd-button-medium,
-.bd-button-large {
+.sizeXlarge__6885c {
   height: var(--button-height);
   min-height: var(--button-height);
   min-width: var(--button-height);
@@ -1648,9 +1689,7 @@ body {
 .lookFilled__201d5,
 .lookOutlined__201d5,
 .lookLink__201d5,
-.lookInverted_a299dc,
-.bd-button-filled,
-.bd-button-link {
+.lookInverted_a299dc {
   --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
   --button-text-color: var(--accent-text-color);
   --button-outline: none;
@@ -1662,9 +1701,7 @@ body {
 .lookFilled__201d5:after,
 .lookOutlined__201d5:after,
 .lookLink__201d5:after,
-.lookInverted_a299dc:after,
-.bd-button-filled:after,
-.bd-button-link:after {
+.lookInverted_a299dc:after {
   position: absolute;
   content: " ";
   width: 100%;
@@ -1680,74 +1717,58 @@ body {
 .lookFilled__201d5:hover:after,
 .lookOutlined__201d5:hover:after,
 .lookLink__201d5:hover:after,
-.lookInverted_a299dc:hover:after,
-.bd-button-filled:hover:after,
-.bd-button-link:hover:after {
+.lookInverted_a299dc:hover:after {
   opacity: 0.075;
 }
 .lookFilled__201d5:active:after,
 .lookOutlined__201d5:active:after,
 .lookLink__201d5:active:after,
-.lookInverted_a299dc:active:after,
-.bd-button-filled:active:after,
-.bd-button-link:active:after {
+.lookInverted_a299dc:active:after {
   opacity: 0.15;
 }
 .lookFilled__201d5 .contents__201d5,
-.lookFilled__201d5 .bd-button-content .defaultColor__77578,
-.lookFilled__201d5 .bd-button-content .defaultColor_e9e35f,
-.lookFilled__201d5 .bd-button-content .defaultColor__4bd52,
+.lookFilled__201d5 .defaultColor__77578,
+.lookFilled__201d5 .defaultColor_e9e35f,
+.lookFilled__201d5 .defaultColor__4bd52,
 .lookOutlined__201d5 .contents__201d5,
-.lookOutlined__201d5 .bd-button-content .defaultColor__77578,
-.lookOutlined__201d5 .bd-button-content .defaultColor_e9e35f,
-.lookOutlined__201d5 .bd-button-content .defaultColor__4bd52,
+.lookOutlined__201d5 .defaultColor__77578,
+.lookOutlined__201d5 .defaultColor_e9e35f,
+.lookOutlined__201d5 .defaultColor__4bd52,
 .lookLink__201d5 .contents__201d5,
-.lookLink__201d5 .bd-button-content .defaultColor__77578,
-.lookLink__201d5 .bd-button-content .defaultColor_e9e35f,
-.lookLink__201d5 .bd-button-content .defaultColor__4bd52,
+.lookLink__201d5 .defaultColor__77578,
+.lookLink__201d5 .defaultColor_e9e35f,
+.lookLink__201d5 .defaultColor__4bd52,
 .lookInverted_a299dc .contents__201d5,
-.lookInverted_a299dc .bd-button-content .defaultColor__77578,
-.lookInverted_a299dc .bd-button-content .defaultColor_e9e35f,
-.lookInverted_a299dc .bd-button-content .defaultColor__4bd52,
-.bd-button-filled .contents__201d5,
-.bd-button-filled .bd-button-content .defaultColor__77578,
-.bd-button-filled .bd-button-content .defaultColor_e9e35f,
-.bd-button-filled .bd-button-content .defaultColor__4bd52,
-.bd-button-link .contents__201d5,
-.bd-button-link .bd-button-content .defaultColor__77578,
-.bd-button-link .bd-button-content .defaultColor_e9e35f,
-.bd-button-link .bd-button-content .defaultColor__4bd52 {
+.lookInverted_a299dc .defaultColor__77578,
+.lookInverted_a299dc .defaultColor_e9e35f,
+.lookInverted_a299dc .defaultColor__4bd52 {
   color: var(--button-text-color);
 }
 .lookFilled__201d5 .contents__201d5 svg,
-.lookFilled__201d5 .bd-button-content .defaultColor__77578 svg,
-.lookFilled__201d5 .bd-button-content .defaultColor_e9e35f svg,
-.lookFilled__201d5 .bd-button-content .defaultColor__4bd52 svg,
+.lookFilled__201d5 .defaultColor__77578 svg,
+.lookFilled__201d5 .defaultColor_e9e35f svg,
+.lookFilled__201d5 .defaultColor__4bd52 svg,
 .lookOutlined__201d5 .contents__201d5 svg,
-.lookOutlined__201d5 .bd-button-content .defaultColor__77578 svg,
-.lookOutlined__201d5 .bd-button-content .defaultColor_e9e35f svg,
-.lookOutlined__201d5 .bd-button-content .defaultColor__4bd52 svg,
+.lookOutlined__201d5 .defaultColor__77578 svg,
+.lookOutlined__201d5 .defaultColor_e9e35f svg,
+.lookOutlined__201d5 .defaultColor__4bd52 svg,
 .lookLink__201d5 .contents__201d5 svg,
-.lookLink__201d5 .bd-button-content .defaultColor__77578 svg,
-.lookLink__201d5 .bd-button-content .defaultColor_e9e35f svg,
-.lookLink__201d5 .bd-button-content .defaultColor__4bd52 svg,
+.lookLink__201d5 .defaultColor__77578 svg,
+.lookLink__201d5 .defaultColor_e9e35f svg,
+.lookLink__201d5 .defaultColor__4bd52 svg,
 .lookInverted_a299dc .contents__201d5 svg,
-.lookInverted_a299dc .bd-button-content .defaultColor__77578 svg,
-.lookInverted_a299dc .bd-button-content .defaultColor_e9e35f svg,
-.lookInverted_a299dc .bd-button-content .defaultColor__4bd52 svg,
-.bd-button-filled .contents__201d5 svg,
-.bd-button-filled .bd-button-content .defaultColor__77578 svg,
-.bd-button-filled .bd-button-content .defaultColor_e9e35f svg,
-.bd-button-filled .bd-button-content .defaultColor__4bd52 svg,
-.bd-button-link .contents__201d5 svg,
-.bd-button-link .bd-button-content .defaultColor__77578 svg,
-.bd-button-link .bd-button-content .defaultColor_e9e35f svg,
-.bd-button-link .bd-button-content .defaultColor__4bd52 svg {
+.lookInverted_a299dc .defaultColor__77578 svg,
+.lookInverted_a299dc .defaultColor_e9e35f svg,
+.lookInverted_a299dc .defaultColor__4bd52 svg {
   filter: none;
 }
 
-.lookLink__201d5:hover .contents__201d5,
-.bd-button-link:hover .contents__201d5 {
+.lookLink__201d5 {
+  --button-background: transparent;
+  --button-text-color: hsla(var(--accent-hsl),var(--accent-opacity));
+  --button-action-color: transparent;
+}
+.lookLink__201d5:hover .contents__201d5 {
   background-image: linear-gradient(0deg, transparent, transparent 1px, hsl(var(--accent-hsl)) 0, hsl(var(--accent-hsl)) 2px, transparent 0) !important;
 }
 
@@ -1800,15 +1821,7 @@ body {
   color: var(--button-text-color) !important;
 }
 
-.lookLink__201d5,
-.bd-button-link {
-  --button-background: transparent;
-  --button-text-color: hsla(var(--accent-hsl),var(--accent-opacity));
-  --button-action-color: transparent;
-}
-
-.colorRed__201d5,
-.bd-button-danger {
+.colorRed__201d5 {
   --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
   --button-text-color: var(--alert-text-color);
   --button-action-color: var(--alert-action-color);
@@ -2705,7 +2718,7 @@ body {
 }
 .wrapper_c19a55.replying__5126c {
   border-color: hsla(var(--reply-hsl), var(--reply-opacity));
-  box-shadow: inset 0px 0px 10px 3px hsla(var(--reply-hsl), var(--reply-opacity)), 0px 0px 13px 4px hsla(var(--reply-hsl), var(--reply-opacity));
+  box-shadow: 0px 0px 13px 4px hsla(var(--reply-hsl), var(--reply-opacity));
 }
 .wrapper_c19a55.replying__5126c:before {
   display: none;
@@ -4743,6 +4756,8 @@ body {
  *
  */
 .outer_c0bea0:not(.custom-user-profile-theme) {
+  --background-surface-high: var(--popout-color) !important;
+  --user-profile-overlay-background: var(--profile-gradient-primary-color) !important;
   --profile-gradient-primary-color: var(--popout-color) !important;
   --profile-gradient-secondary-color: var(--popout-color) !important;
   --profile-avatar-border-color: var(--popout-color) !important;
@@ -4752,9 +4767,12 @@ body {
 }
 .outer_c0bea0.theme-light:not(.custom-user-profile-theme) {
   --textarea-color: 0,0,0;
-  --textarea-text-color: #333;
-  --textarea-placeholder-color: #666;
-  --background-modifier-selected: rgba(0,0,0,0.125);
+  --textarea-text-color: hsl(0,0%,30%);
+  --textarea-placeholder-color: hsl(0,0%,40%);
+  --background-modifier-selected: hsl(0,0%,0%,0.125);
+}
+.outer_c0bea0:not(.custom-user-profile-theme):before {
+  background-color: var(--profile-gradient-primary-color);
 }
 
 .custom-user-profile-theme {
