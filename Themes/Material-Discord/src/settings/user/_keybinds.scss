@@ -97,6 +97,40 @@
 	}
 }
 
+%keybindRecorderContainer {
+    height: auto;
+
+    &%keybindRecorderContainerRecording {
+        %keybindInput {
+            animation: keybind-edit 2000ms ease-in-out;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    %keybindInput {
+		@include new-input-format(true);
+        padding: 8px 8px 8px 12px;
+
+        &::-webkit-input-placeholder {
+            font-family: var(--app-font);
+        }
+    }
+
+    %keybindEditIcon {
+        background-image: none;
+        @include add-icon(currentColor, keyboard);
+    }
+}
+
+%keybindRecorderLayout {
+    gap: 8px;
+}
+
+%keybindAddButton {
+    margin: 0;
+    transition: var(--default-time) var(--default-animation) width;
+}
+
 /* KEYBINDS -> DEFAULT */
 
 %keybindDefaultGroup {
