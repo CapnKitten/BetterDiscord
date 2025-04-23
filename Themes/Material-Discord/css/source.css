@@ -5814,8 +5814,7 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
   padding-left: 44px !important;
 }
 
-.copyInput_fffc15,
-.container_f89b2c {
+.copyInput_fffc15 {
   height: var(--input-height) !important;
   max-height: var(--input-height) !important;
   padding: var(--input-padding) !important;
@@ -5823,12 +5822,10 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
   border-radius: calc(var(--input-height) / 2) !important;
   border: none;
 }
-.copyInput_fffc15:hover .button__201d5,
-.container_f89b2c:hover .button__201d5 {
+.copyInput_fffc15:hover .button__201d5 {
   width: auto !important;
 }
-.copyInput_fffc15 .button__201d5,
-.container_f89b2c .button__201d5 {
+.copyInput_fffc15 .button__201d5 {
   --button-height: calc(var(--input-height) / 1.2);
   margin: calc((var(--input-height) - var(--button-height)) / 2) !important;
 }
@@ -5838,20 +5835,6 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
 }
 .copyInput_fffc15 .button__201d5 {
   padding: var(--button-padding) !important;
-}
-
-.container_f89b2c .input__72d38 {
-  padding: 8px 8px 8px 12px;
-}
-.container_f89b2c .input__72d38::-webkit-input-placeholder {
-  font-family: var(--app-font);
-}
-.container_f89b2c .editIcon__2636e {
-  background-image: none;
-  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/keyboard.svg);
-  -webkit-mask-repeat: no-repeat;
-  background-color: currentColor;
-  transform: scale(1.335) translate(3px, 3px) translateZ(0) !important;
 }
 
 .fileUpload__8b203 {
@@ -14193,7 +14176,7 @@ body:active .menu_ad5fac:not(:active) {
   text-transform: none;
 }
 
-.statusItem_af7fb7 {
+.statusItem_ce8328 {
   padding: 0;
 }
 
@@ -17451,10 +17434,10 @@ body:active .container_d9c882:not(:active) {
 .row__740f2 .keybindGroup__740f2:before {
   display: none;
 }
-.row__740f2 .removeKeybind-2YVgVG {
+.row__740f2 .removeKeybind__740f2 {
   right: -12px;
 }
-.row__740f2 .container_f89b2c .button__201d5 {
+.row__740f2 .keybindInput__2636e .button__201d5 {
   width: auto;
 }
 
@@ -17470,6 +17453,41 @@ body:active .container_d9c882:not(:active) {
 }
 .key_fcddc1 g {
   fill: var(--text-normal);
+}
+
+.recorderContainer__2636e {
+  height: auto;
+}
+.recorderContainer__2636e.recording__2636e .keybindInput__2636e {
+  animation: keybind-edit 2000ms ease-in-out;
+  animation-iteration-count: infinite;
+}
+.recorderContainer__2636e .keybindInput__2636e {
+  height: var(--input-height) !important;
+  max-height: var(--input-height) !important;
+  padding: var(--input-padding) !important;
+  background-color: var(--input-color) !important;
+  border-radius: calc(var(--input-height) / 2) !important;
+  border: none;
+  padding: 8px 8px 8px 12px;
+}
+.recorderContainer__2636e .keybindInput__2636e::-webkit-input-placeholder {
+  font-family: var(--app-font);
+}
+.recorderContainer__2636e .editIcon__2636e {
+  background-image: none;
+  -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/keyboard.svg);
+  -webkit-mask-repeat: no-repeat;
+  background-color: currentColor;
+}
+
+.recorderLayout__2636e {
+  gap: 8px;
+}
+
+.addKeybindButton__2636e {
+  margin: 0;
+  transition: var(--default-time) var(--default-animation) width;
 }
 
 /* KEYBINDS -> DEFAULT */
@@ -18764,6 +18782,17 @@ body:active .container_d9c882:not(:active) {
     transform: rotate(-2deg);
   }
 }
+@keyframes keybind-edit {
+  0% {
+    box-shadow: 0 0 0 hsl(from hsl(var(--alert-hsl)) h s l/0);
+  }
+  50% {
+    box-shadow: 0 0 16px hsl(from hsl(var(--alert-hsl)) h s l/0.6);
+  }
+  to {
+    box-shadow: 0 0 0 hsl(from hsl(var(--alert-hsl)) h s l/0);
+  }
+}
 /*
  *
  *  BETA - VISUAL REFRESH
@@ -19619,6 +19648,14 @@ body:active .container_d9c882:not(:active) {
   border: none;
 }
 .visual-refresh .row__0624f {
+  border: none;
+}
+.visual-refresh .warning__6436f {
+  border-radius: var(--card-radius-big);
+}
+.visual-refresh .recorderContainer__2636e {
+  min-height: 0;
+  background-color: transparent;
   border: none;
 }
 .visual-refresh .list__5906b {
