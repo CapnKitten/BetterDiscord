@@ -42,7 +42,7 @@ module.exports = (() => {
 					github_username: "CapnKitten"
 				}
 			],
-			version: "1.0.2",
+			version: "1.0.3",
 			description: "Enables Discord experiments",
 			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/DiscordExperiments/DiscordExperiments.plugin.js",
 			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/DiscordExperiments/DiscordExperiments.plugin.js"
@@ -75,7 +75,7 @@ module.exports = (() => {
 			return class DiscordExperiments extends Plugin {
 				onStart() {
 					let c; webpackChunkdiscord_app.push([[Symbol()],{},r=>c=r.c]); webpackChunkdiscord_app.pop();
-					let u = Object.values(c).find(x=>x?.exports?.default?.getUsers).exports.default;
+					let u = Object.values(c).find(x=>!x?.exports?.messagesLoader && x?.exports?.default?.getUsers && x?.exports?.default?.getCurrentUser).exports.default;
 					let m = Object.values(u._dispatcher._actionHandlers._dependencyGraph.nodes);
 
 					u.getCurrentUser().flags |= 1;
