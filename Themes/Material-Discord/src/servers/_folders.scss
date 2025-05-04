@@ -4,28 +4,35 @@
  *
  */
 
-%guildExpandedFolderBackground {
-    --background-secondary: var(--server-folder-color) !important;
-
+%guildFolderGroupBackground {
+    border: none;
     border-radius: var(--avatar-radius);
 }
 
-%guildFolder {
-    --background-secondary: transparent !important;
+%guildFolderIcon {
+    border-radius: var(--avatar-radius);
+}
 
-    &%guildFolderHover {
-        --background-primary: var(--server-folder-color) !important;
+%guildFolderPreviewWrapper {
+    border-radius: var(--avatar-radius);
+}
+
+%guildFolderPreviewIcon {
+    --non-outside-radius: 4px;
+
+    &:nth-child(1) {
+        border-radius: calc(var(--avatar-radius) * 1.5) var(--non-outside-radius) var(--non-outside-radius);
     }
-}
 
-%guildFolderIconWrapper {
-	&[style*="background-color: rgba(88, 101, 242, 0.4)"] {
-		background-color: hsl(var(--accent-hsl),0.4) !important;
-	}
-}
+    &:nth-child(2) {
+        border-radius: var(--non-outside-radius) calc(var(--avatar-radius) * 1.5) var(--non-outside-radius) var(--non-outside-radius);
+    }
 
-%guildFolderExpandedIconWrapper {
-    svg[style*="color: rgb(88, 101, 242);"] {
-        color: hsl(var(--accent-hsl--material-you)) !important;
+    &:nth-child(3) {
+        border-radius: var(--non-outside-radius) var(--non-outside-radius) var(--non-outside-radius) calc(var(--avatar-radius) * 1.5);
+    }
+
+    &:nth-child(4) {
+        border-radius: var(--non-outside-radius) var(--non-outside-radius) calc(var(--avatar-radius) * 1.5);
     }
 }
