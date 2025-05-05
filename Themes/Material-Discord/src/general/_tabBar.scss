@@ -10,7 +10,7 @@
     height: 48px;
     gap: 24px;
 
-	%tabBarItem {
+	%item {
         height: inherit;
         line-height: 48px;
         margin: 0;
@@ -21,21 +21,21 @@
 
         &,
         &:hover,
-        &%tabBarItemSelected {
+        &%itemSelected {
         	background-color: transparent !important;
         }
 
-        &:not(%tabBarItemDisabled) {
+        &:not(%itemDisabled) {
         	&:hover {
         		color: var(--interactive-hover) !important;
         	}
         }
 
-        &%tabBarItemSelected {
+        &%itemSelected {
         	color: var(--interactive-normal) !important;
         }
 
-        &%tabBarItemSelected,
+        &%itemSelected,
         &[aria-selected="true"] {
         	@include tab-border(80%);
         }
@@ -44,7 +44,8 @@
         	margin-right: 0;
         }
 
-        &%tabBarItemDisabled {
+        &%itemDisabled {
+            cursor: not-allowed;
             opacity: 0.5;
         }
 
@@ -61,7 +62,7 @@
 %settingsProfilesTabBar {
     padding-top: 0;
 
-    %tabBarItem {
+    %item {
         height: 47px;
     }
 }
@@ -71,7 +72,7 @@
 	margin-bottom: 0;
 	padding-top: 0;
 
-	%tabBarItem {
+	%item {
 		padding: 0 8px;
 		line-height: 56px;
 	}
@@ -80,7 +81,7 @@
 %serverSubscriptionsTabBar {
     border-bottom-width: 1px;
 
-    %tabBarItem {
+    %item {
         margin-right: 24px !important;
         margin-bottom: 0;
     }
