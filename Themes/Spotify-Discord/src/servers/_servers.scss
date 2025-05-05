@@ -38,7 +38,7 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) {
 /* SERVERS LIST -> HOME BUTTON AND DMS */
 
 %guildsHomeContainer {
-    padding: 8px 0;
+    padding: 12px 0 0;
     background-color: var(--app-foreground);
     border-radius: var(--app-card-radius);
 
@@ -102,10 +102,6 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) {
         }
     }
 
-    %guildSeparator {
-        display: none;
-    }
-
     %guildFolder {
         background-color: var(--popout-color);
     }
@@ -136,55 +132,15 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) {
 
 /* SERVERS LIST -> ADD SERVER AND DISCOVERY */
 
-%guildsAddServerContainer {
-    margin-top: var(--app-card-margin);
-
-    %guild {
-        margin-bottom: 0;
-    }
-
-    &,
-    + %guild {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
-    }
-
-    + %guild {
-        margin-bottom: 0;
-        padding-bottom: 8px;
-
-        &:before,
-        &:after {
-            --app-card-radius-fix: calc(var(--app-card-radius) * 1.75);
-
-            position: absolute;
-            content: " ";
-            width: calc(var(--app-card-radius-fix) / 2);
-            height: var(--app-card-radius-fix);
-            background-color: var(--app-foreground);
-            top: calc((var(--app-card-radius-fix) / 2) * -1);
-            pointer-events: none;
-        }
-
-        &:before {
-            left: 0;
-        }
-
-        &:after {
-            right: 0;
-        }
-    }
-}
-
 %circleIconButton {
     background-color: var(--background-tinted-active);
     color: hsl(var(--accent-hsl));
 
-    &%circleIconButtonSelected {
-        background-color: hsl(var(--accent-hsl));
-        color: var(--accent-text-color);
+    &:not(%circleIconButtonDisabled) {
+        &%circleIconButtonSelected {
+            background-color: hsl(var(--accent-hsl));
+            color: var(--accent-text-color);
+        }
     }
 }
 

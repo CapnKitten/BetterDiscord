@@ -25,6 +25,15 @@
         background-color: var(--app-foreground);
     }
 
+    %circleIconButton {
+        &:not(%circleIconButtonDisabled) {
+            &%circleIconButtonSelected {
+                background-color: hsl(var(--accent-hsl));
+                color: var(--accent-text-color);
+            }
+        }
+    }
+
     /* channels */
 
     %sidebarList {
@@ -274,6 +283,10 @@
         min-height: var(--main-textarea-min-height);
     }
 
+    %channelTextAreaAttachButton {
+        padding: var(--space-12) var(--space-4) var(--space-12) var(--space-md);
+    }
+
     %channelTextAreaTyping {
         width: calc(100% - var(--scrollbar-width));
         top: calc((((var(--app-bar-size) - var(--main-textarea-min-height)) / 2) + 16px) * -1);
@@ -445,6 +458,23 @@
         }
     }
 
+    /* message reactions */
+
+    %reaction {
+    	&%reactionMe {
+    		background-color: hsla(var(--accent-hsl),0.3);
+    		border-color: hsla(var(--accent-hsl),0.2);
+
+    		&:hover {
+    			background-color: hsla(var(--accent-hsl),0.4);
+    		}
+
+    		%reactionCount {
+    			color: hsl(var(--accent-hsl));
+    		}
+    	}
+    }
+
     /* message attachments */
 
     %threadEmbed,
@@ -557,6 +587,38 @@
     %messagesPopoutHeader,
     %messagesPopoutContentContainer {
         background-color: transparent;
+    }
+
+    /* tab bar */
+
+    %tabBar {
+        %item {
+            margin: 0;
+
+            &:hover {
+                background-color: var(--background-tinted-hover);
+            }
+
+            &%itemSelected {
+                background-color: var(--background-tinted-active);
+                color: var(--text-primary);
+            }
+
+            &%itemThemed {
+                &%itemAddFriend {
+                    background-color: transparent;
+
+                    &:hover {
+                        background-color: var(--background-tinted-hover);
+                    }
+
+                    &%itemSelected {
+                        background-color: var(--background-tinted-active);
+                        color: var(--text-primary);
+                    }
+                }
+            }
+        }
     }
 
     /* settings */
