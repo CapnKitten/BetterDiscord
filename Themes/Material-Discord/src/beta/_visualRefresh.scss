@@ -19,6 +19,8 @@
 }
 
 %visualRefresh {
+    --custom-channel-textarea-text-area-height: var(--main-textarea-height);
+    
     &%themeDark {
         --text-brand: hsl(var(--accent-hsl--material-you));
     }
@@ -313,6 +315,7 @@
 
     %accountPanel {
         min-height: unset;
+        height: var(--main-textarea-height);
         margin-left: 0;
         padding: 0 var(--space-xs);
         background-color: var(--status-picker-color);
@@ -526,6 +529,11 @@
                     padding: 0;
                 }
             }
+        }
+
+        %slateTextArea {
+            min-height: var(--main-textarea-height);
+            padding: calc( (var(--main-textarea-height) - var(--chat-markup-line-height)) / 2 ) 0;
         }
 
         %channelTextAreaTyping {
@@ -1458,6 +1466,8 @@
     /* ui density */
 
     &%densityDefault {
+        --main-textarea-height: 48px;
+
         %privateChannel {
             &:not(%privateChannelDm) {
                 %privateChannelLink {
@@ -1498,10 +1508,6 @@
             height: 46px;
         }
 
-        %accountPanel {
-            height: 48px;
-        }
-
         %channelInfo {
             height: 48px;
             border-radius: 24px;
@@ -1534,6 +1540,8 @@
     }
 
     &%densityCozy {
+        --main-textarea-height: 54px;
+
         %privateChannel {
             &:not(%privateChannelDm) {
                 %privateChannelLink {
@@ -1578,10 +1586,6 @@
             height: 54px;
         }
 
-        %accountPanel {
-            height: 54px;
-        }
-
         %channelInfo {
             height: 56px;
             border-radius: 28px;
@@ -1615,6 +1619,8 @@
     }
 
     &%densityCompact {
+        --main-textarea-height: 42px;
+
         %privateChannel {
             &:not(%privateChannelDm) {
                 %privateChannelLink {
@@ -1652,10 +1658,6 @@
         }
 
         %activityPanel {
-            height: 42px;
-        }
-
-        %accountPanel {
             height: 42px;
         }
 
