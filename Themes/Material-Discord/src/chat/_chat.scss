@@ -163,58 +163,57 @@
 /* CHAT AREA -> NEW MESSAGES BAR */
 
 %newMessagesBar {
-	top: 16px;
-	left: 0;
-	right: 0;
-	align-items: center;
-	justify-content: center;
-	background-color: transparent;
-	box-shadow: none;
-	opacity: 1;
-	pointer-events: none;
+    height: auto;
+    top: var(--spacing-16);
+    left: unset;
+    right: unset;
+    gap: var(--spacing-8);
+    padding: var(--spacing-8);
+    background-color: var(--popout-color);
+    border-radius: calc(var(--button-radius) + var(--spacing-8));
+    box-shadow: none;
+    pointer-events: auto;
+    cursor: default;
+    opacity: 1;
 	z-index: 4;
+    transition: var(--default-time) var(--default-animation) box-shadow;
+
+    &:active {
+        padding-top: var(--spacing-8);
+    }
 }
 
 %newMessagesBarButtonBase {
-	height: unset;
-	line-height: 18px;
-	background-color: hsl(var(--accent-hsl--material-you));
-	color: var(--accent-text-color--material-you);
-	box-shadow: var(--shadow-2dp);
-	pointer-events: all;
-}
+    min-width: var(--button-height);
+    height: var(--button-height);
+    line-height: 18px;
+    background-color: hsl(var(--accent-hsl--material-you));
+    border-radius: var(--button-radius);
+    color: var(--accent-text-color--material-you);
+    pointer-events: all;
 
-%newMessagesBarButtonMain {
-	flex: 0 1 auto;
-	padding: 9px 16px;
-	border-radius: 18px;
-}
-
-%newMessagesBarButtonAlt {
-	position: relative;
-	margin-left: 8px;
-	padding: 9px 10px;
-	border-radius: 18px;
-	font-size: 0;
-
-	&:before {
-		position: absolute;
-		content: " ";
-		width: calc( calc(var(--button-radius) * 2) + 8px );
-		height: var(--button-height);
-		top: 0;
-		left: calc( calc(var(--button-radius) + 8px) * -1 );
-		background-color: transparent;
-		z-index: -1;
+	&%newMessagesBarButtonMain {
+	    flex: 0 1 auto;
+	    padding: 0 16px;
+	    background-color: var(--accent-secondary-color);
+	    color: var(--accent-secondary-text-color);
+	    pointer-events: none;
 	}
 
-	%newMessagesBarButtonIcon {
-		top: 0;
-		margin: 0;
+	&%newMessagesBarButtonAlt {
+	    position: relative;
+	    padding: 0;
+	    font-size: 0;
+	    justify-content: center;
 
-		path {
-			d: path('M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z');
-		}
+	    %newMessagesBarButtonIcon {
+	        top: 0;
+	        margin: 0;
+
+	        path {
+	            d: path('M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z');
+	        }
+	    }
 	}
 }
 
@@ -252,11 +251,11 @@
 	height: 48px;
 	border-radius: 30%;
 	left: auto;
-	right: 20px;
-	bottom: 20px;
+	right: 24px;
+	bottom: 24px;
 	padding: 0;
 	background: hsl(var(--accent-hsl--material-you)) !important;
-	box-shadow: var(--shadow-3dp);
+	transition: var(--default-time) var(--default-animation) box-shadow;
 
 	&:active {
 		margin: 0 !important;
