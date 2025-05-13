@@ -27,17 +27,6 @@
 		@include remove-caps(14px);
 	}
 
-	%channelsHeaderContainer {
-		&:not(%channelHasBanner) {
-			%channelsHeader {
-				&,
-				&:hover {
-					background-color: var(--main-color);
-				}
-			}
-		}
-	}
-
 	%channelsUnreadIndicator {
         @include remove-caps(14px);
 
@@ -45,6 +34,42 @@
         box-shadow: var(--shadow-2dp);
         color: var(--text-normal);
     }
+}
+
+%channelsHeaderContainer {
+	&:not(%channelHasBanner) {
+		%channelsHeader {
+			&,
+			&:hover {
+				background-color: var(--main-color);
+			}
+		}
+	}
+}
+
+%channelsHeaderInvitesRefresh {
+	%channelsHeaderInviteButton,
+    %channelsHeaderGuildDropdown {
+        border-radius: calc(var(--card-radius-big) / 1.8);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+        &:hover {
+			background-color: var(--menu-item-hover);
+		}
+
+		&[aria-expanded="true"] {
+			background-color: var(--menu-item-select);
+		}
+    }
+
+	%channelsHeaderGuildDropdown {
+		padding: 0 var(--space-8) 0 var(--space-12);
+        gap: var(--space-xs);
+	}
+}
+
+%channelsHeaderChildren {
+    height: 16px;
 }
 
 %channelLink {
@@ -58,6 +83,12 @@
         min-height: 32px;
 		gap: 8px;
         align-items: center;
+    }
+}
+
+%channelVoiceInfo {
+    %textXsSemibold {
+        color: hsl(var(--accent-hsl--material-you)) !important;
     }
 }
 

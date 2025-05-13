@@ -2,57 +2,16 @@
 
 /*
  *
- *	DISCORD SHOP
+ *	DISCORD SHOP CONTENT
  *
  */
 
 %shopScroll,
-%shopPageWrapper,
 %shopContainer {
-    background-color: var(--main-alt);
+    background-color: transparent;
 }
 
-%base {
-    %shopContainer {
-        background-color: var(--chat-color);
-
-        %headerBar {
-            &%headerBarTransparent {
-                box-shadow: var(--elevation-low);
-            }
-        }
-    }
-}
-
-%channelsSidebar + %shopContainer {
-    %shopScroll,
-    %shopPageWrapper,
-    %shopPage {
-        background-color: var(--chat-color);
-    }
-
-    %shopScroll {
-        border-top-right-radius: var(--card-radius-big);
-    }
-}
-
-%shopHomeContainer {
-    background-color: var(--main-color);
-    overflow: hidden;
-
-    %headerBar%headerBarThemed {
-        background-color: var(--main-color) !important;
-    }
-}
-
-%shopScrollBackgroundPrimary,
-%shopPageWrapperBackgroundPrimary {
-    background-color: var(--main-color);
-}
-
-%shopCountDownWrapper {
-    box-shadow: var(--shadow-3dp) !important;
-}
+/* DISCORD SHOP CONTENT -> BANNERS */
 
 %shopShyBanner {
     border-radius: var(--card-radius-big);
@@ -91,6 +50,8 @@
     @include remove-caps(16px);
     font-weight: 500;
 }
+
+/* DISCORD SHOP CONTENT -> CARDS */
 
 %shopCard {
     background: var(--card-color-filled) !important;
@@ -148,6 +109,8 @@
     }
 }
 
+/* DISCORD SHOP CONTENT -> MODAL */
+
 %shopPreviewModalContent {
     padding: 0 !important;
     border-radius: var(--popout-radius-big) !important;
@@ -175,31 +138,5 @@
     %shopCollectibleCategoryBanner {
         width: calc(100% + var(--popout-radius-big));
         left: calc(var(--popout-radius-big) * -1);
-    }
-}
-
-%shopChatPreview {
-    background-color: var(--popout-color) !important;
-    box-shadow: var(--shadow-3dp);
-
-    %messagesWrapper {
-        margin-top: 0;
-        margin-left: 46px;
-        border-radius: var(--message-radius);
-
-        &:before,
-        &:after {
-            display: none;
-        }
-
-        %avatarLarge {
-            margin-top: -2px;
-            margin-left: -66px;
-        }
-    }
-
-    %shopMockInput {
-        background-color: var(--input-color);
-        border-radius: 20px;
     }
 }

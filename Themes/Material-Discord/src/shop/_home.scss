@@ -1,0 +1,44 @@
+@use '../mixins' as *;
+
+/*
+ *
+ *	DISCORD SHOP HOME VIEW
+ *
+ */
+
+%shopTabs {
+    %shopTab {
+        margin-bottom: 0;
+
+        &:hover {
+            &:not(%shopTabSelected) {
+                border: none;
+            }
+        }
+
+        &%shopTabSelected {
+        	@include tab-border(80%);
+        }
+    }
+}
+
+%shopScroll {
+    height: 100%;
+    overflow: hidden !important;
+}
+
+%shopFullscreen,
+%shopPageWrapper {
+    height: calc(100vh - (124px + var(--space-32)));
+    padding-bottom: var(--space-32);
+    overflow-y: scroll;
+}
+
+%chatPage {
+    %shopContainer,
+    %shopPageWrapper {
+        height: calc(100vh - (var(--custom-channel-header-height) + var(--custom-app-top-bar-height)));
+        padding-bottom: 0;
+        overflow-y: scroll;
+    }
+}
