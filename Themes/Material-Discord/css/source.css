@@ -18911,7 +18911,7 @@ body:active .container_d9c882:not(:active) {
 }
 
 .visual-refresh {
-  --custom-channel-textarea-text-area-height: var(--main-textarea-height);
+  --custom-channel-textarea-text-area-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 }
 .visual-refresh.theme-dark {
   --text-brand: hsl(var(--accent-hsl--material-you));
@@ -19296,21 +19296,26 @@ body:active .container_d9c882:not(:active) {
   padding-left: var(--main-textarea-inner-padding);
   padding-right: calc(var(--main-textarea-inner-padding));
 }
+.visual-refresh .form_f75fb0 .scrollableContainer__74017 {
+  min-height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
+  margin: var(--main-textarea-inner-padding) 0 var(--main-textarea-inner-padding) var(--main-textarea-inner-padding);
+  border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
+}
 .visual-refresh .form_f75fb0 .attachWrapper__0923f {
-  position: absolute;
-  left: calc(var(--main-textarea-inner-padding) * 3);
+  left: calc(var(--main-textarea-inner-padding) * 2);
+  margin-right: calc((32px + var(--main-textarea-inner-padding)) * -1);
   z-index: 2;
 }
 .visual-refresh .form_f75fb0 .textAreaSlate__74017 {
   min-height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
-  margin: var(--main-textarea-inner-padding) var(--main-textarea-inner-padding) var(--main-textarea-inner-padding) 0;
+  margin-right: var(--main-textarea-inner-padding);
   background-color: var(--main-textarea-inner-color);
   border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
 }
 .visual-refresh .form_f75fb0 .slateTextArea_ec4baf {
   min-height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
-  margin-left: calc(var(--main-textarea-inner-padding) * 2.5 + 32px);
-  padding: calc((var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2 - var(--chat-markup-line-height)) / 2) 0;
+  margin-left: calc(var(--main-textarea-inner-padding) * 3 + 32px);
+  padding: calc((var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2 - var(--chat-markup-line-height)) / 2) var(--space-16) calc((var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2 - var(--chat-markup-line-height)) / 2) 0;
 }
 .visual-refresh .form_f75fb0 .typing_b88801 {
   position: static;
