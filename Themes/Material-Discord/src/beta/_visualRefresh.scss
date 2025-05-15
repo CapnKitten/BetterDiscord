@@ -336,7 +336,7 @@
     %quickswitcher {
         background-color: var(--popout-color);
         border: none;
-        box-shadow: var(--shadow-3dp);
+        box-shadow: var(--shadow-medium);
 
         %quickswitcherInput {
             border: none;
@@ -549,9 +549,28 @@
             }
         }
 
+        %channelTextAreaInner {
+            padding-left: var(--main-textarea-inner-padding);
+            padding-right: calc(var(--main-textarea-inner-padding));
+        }
+
+        %channelTextAreaAttachWrapper {
+            position: absolute;
+            left: calc(var(--main-textarea-inner-padding) * 3);
+            z-index: 2;
+        }
+
+        %textAreaSlate {
+            min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+            margin: var(--main-textarea-inner-padding) var(--main-textarea-inner-padding) var(--main-textarea-inner-padding) 0;
+            background-color: var(--main-textarea-inner-color);
+            border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
+        }
+
         %slateTextArea {
-            min-height: var(--main-textarea-height);
-            padding: calc( (var(--main-textarea-height) - var(--chat-markup-line-height)) / 2 ) 0;
+            min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+            margin-left: calc((var(--main-textarea-inner-padding) * 2.5) + 32px);
+            padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
         }
 
         %channelTextAreaTyping {
@@ -559,6 +578,14 @@
             width: unset;
             background-color: transparent;
         }
+    }
+
+    %channelTextAreaButton,
+    %channelAppLauncherButton,
+    %spriteGreyscale {
+        --interactive-normal: var(--main-textarea-button-color);
+        --interactive-hover: var(--main-textarea-button-color);
+        --interactive-active: var(--main-textarea-button-color);
     }
 
     %channelTextAreaAttachButton {
@@ -596,7 +623,7 @@
         border-radius: 22px;
         border: none;
         color: var(--alert-text-color);
-        box-shadow: var(--shadow-3dp);
+        box-shadow: var(--shadow-medium);
     }
 
     %channelTextAreaStackedBars {
@@ -629,12 +656,8 @@
     }
 
     %messageButtonWrapper {
-        background-color: var(--main-textarea-color);
-        box-shadow: var(--shadow-2dp) !important;
-
-        &:hover {
-            box-shadow: var(--shadow-3dp) !important;
-        }
+        background-color: var(--popout-color);
+        box-shadow: var(--shadow-medium) !important;
     }
 
     %pollContainer {
@@ -865,7 +888,7 @@
         background-color: var(--popout-color);
         border-radius: var(--popout-radius-big);
         border: none;
-        box-shadow: var(--shadow-3dp);
+        box-shadow: var(--shadow-medium);
     }
 
     %emojiPicker {
@@ -1489,9 +1512,18 @@
 
     /* shop */
 
+    %shopOuterContainer {
+        background-color: var(--chat-color);
+    }
+
     %chatPage {
         %shopOuterContainer,
         %shopPageWrapper {
+            background-color: transparent;
+            border-top: none;
+        }
+
+        %shopContainer {
             background-color: var(--chat-color);
         }
     }
@@ -1503,11 +1535,6 @@
     %shopFullscreen {
         margin-top: 0;
         background: var(--main-alt);
-    }
-
-    %shopOuterContainer {
-        background-color: var(--main-color);
-        border-top: none;
     }
 
     %shopCard {

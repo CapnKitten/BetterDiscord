@@ -41,14 +41,14 @@
         color: var(--input-placeholder-color);
     }
 
-    &%inputTextArea {
-        --input-height: auto;
-
-        padding: 8px 12px;
-    }
-
     &%inputHidden {
         --input-height: 0;
+    }
+
+    &%inputTextArea {
+        height: 100% !important;
+        min-height: var(--input-height);
+        padding: calc((var(--input-height) - 22px) / 2) 12px !important;
     }
 }
 
@@ -97,13 +97,13 @@
 %inputEmojiContainer {
     height: var(--input-height);
     line-height: var(--input-height);
-    margin: 0 4px;
+    margin: 0 12px;
     padding: 0;
     z-index: 2;
 
     + %inputWrapper {
         %input {
-            padding: 0 36px;
+            padding-left: 42px !important;
         }
     }
 }
