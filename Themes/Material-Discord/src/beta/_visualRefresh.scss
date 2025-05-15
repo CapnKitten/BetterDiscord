@@ -19,7 +19,7 @@
 }
 
 %visualRefresh {
-    --custom-channel-textarea-text-area-height: var(--main-textarea-height);
+    --custom-channel-textarea-text-area-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 
     &%themeDark {
         --text-brand: hsl(var(--accent-hsl--material-you));
@@ -554,23 +554,29 @@
             padding-right: calc(var(--main-textarea-inner-padding));
         }
 
+        %channelTextAreaScrollable {
+            min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+            margin: var(--main-textarea-inner-padding) 0 var(--main-textarea-inner-padding) var(--main-textarea-inner-padding);
+            border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
+        }
+
         %channelTextAreaAttachWrapper {
-            position: absolute;
-            left: calc(var(--main-textarea-inner-padding) * 3);
+            left: calc(var(--main-textarea-inner-padding) * 2);
+            margin-right: calc((32px + var(--main-textarea-inner-padding)) * -1);
             z-index: 2;
         }
 
         %textAreaSlate {
             min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-            margin: var(--main-textarea-inner-padding) var(--main-textarea-inner-padding) var(--main-textarea-inner-padding) 0;
+            margin-right: var(--main-textarea-inner-padding);
             background-color: var(--main-textarea-inner-color);
             border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
         }
 
         %slateTextArea {
             min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-            margin-left: calc((var(--main-textarea-inner-padding) * 2.5) + 32px);
-            padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
+            margin-left: calc((var(--main-textarea-inner-padding) * 3) + 32px);
+            padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) var(--space-16) calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
         }
 
         %channelTextAreaTyping {
