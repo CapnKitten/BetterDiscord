@@ -542,7 +542,20 @@
             box-shadow: none;
 
             &%channelTextAreaDisabled {
-                --custom-channel-textarea-text-area-height: 44px;
+                %channelTextAreaScrollable {
+                    margin-right: var(--main-textarea-inner-padding);
+                    scrollbar-width: none;
+                }
+
+                %channelTextAreaInner {
+                    padding-right: 0;
+                }
+
+                %textAreaSlate {
+                    width: calc(100% + var(--scrollbar-width));
+                    height: var(--custom-channel-textarea-text-area-height) !important;
+                    margin-right: 0;
+                }
 
                 %textAreaPlaceholder {
                     line-height: var(--custom-channel-textarea-text-area-height);
