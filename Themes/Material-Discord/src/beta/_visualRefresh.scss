@@ -438,6 +438,8 @@
     }
 
     %chat {
+        background-color: var(--chat-color);
+
         &[data-has-border=true] {
             border-top: none;
         }
@@ -578,12 +580,6 @@
             margin-left: calc((var(--main-textarea-inner-padding) * 3) + 32px);
             padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) var(--space-16) calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
         }
-
-        %channelTextAreaTyping {
-            position: static;
-            width: unset;
-            background-color: transparent;
-        }
     }
 
     %channelTextAreaButton,
@@ -592,6 +588,14 @@
         --interactive-normal: var(--main-textarea-button-color);
         --interactive-hover: var(--main-textarea-button-color);
         --interactive-active: var(--main-textarea-button-color);
+    }
+
+    %channelTextAreaButton,
+    %channelAppLauncherButton {
+        display: flex;
+        min-height: var(--custom-channel-textarea-text-area-height);
+        justify-content: center;
+        align-items: center;
     }
 
     %channelTextAreaAttachButton {
