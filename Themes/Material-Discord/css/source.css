@@ -5578,6 +5578,11 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
   --button-action-active: 0.2;
 }
 
+/* BUTTONS -> BLANK */
+.lookBlank__201d5.colorBrand__201d5 {
+  color: hsl(var(--accent-hsl--material-you));
+}
+
 /* BUTTONS -> INVERTED */
 .lookInverted_a299dc.colorBrand__201d5 {
   --button-background: hsl(0,0%,100%,0.15);
@@ -9656,6 +9661,10 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
  *	CREATE POLL
  *
  */
+.answerInputsContainer_d97f89 {
+  row-gap: 2px;
+}
+
 .legend_b717a1 {
   font-size: 14px;
   text-transform: none;
@@ -9663,10 +9672,18 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
 
 .answerRow__7b848 {
   display: flex;
-  padding: 16px 8px;
+  padding: 16px;
   gap: 8px;
   background-color: var(--card-color-filled);
-  border-radius: var(--card-radius-big);
+  border-radius: 4px;
+}
+.answerRow__7b848:first-of-type {
+  border-top-left-radius: var(--card-radius-big);
+  border-top-right-radius: var(--card-radius-big);
+}
+.answerRow__7b848:nth-last-child(2) {
+  border-bottom-left-radius: var(--card-radius-big);
+  border-bottom-right-radius: var(--card-radius-big);
 }
 .answerRow__7b848 .expressionPickerButtonDefault__7b848 {
   width: var(--button-height);
@@ -9678,6 +9695,8 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
 }
 .answerRow__7b848 .removeAnswerButtonDefault__7b848 {
   display: flex;
+  width: var(--button-height);
+  height: var(--button-height);
   padding: 0;
   align-items: center;
   justify-content: center;
@@ -9689,22 +9708,33 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
   background-color: transparent;
   border: none;
 }
+.defaultTextInputWrapper__7b848:focus-within .characterCount__7b848 {
+  opacity: 1;
+}
 .defaultTextInputWrapper__7b848 > .defaultTextInput__7b848 {
   padding: 0;
 }
+.defaultTextInputWrapper__7b848 .inputWrapper__0f084 {
+  margin-right: -50px;
+}
 .defaultTextInputWrapper__7b848 .input__0f084 {
+  padding-right: 50px;
   border-radius: var(--input-radius);
   box-shadow: none;
 }
 .defaultTextInputWrapper__7b848 .characterCount__7b848 {
+  display: flex;
   height: var(--input-height);
   line-height: var(--input-height);
-  padding: 0;
+  padding: 0 12px 0 0;
+  opacity: 0;
+  transition: var(--default-time) var(--default-animation) opacity;
 }
 
 .addAnswerButtonDefault_d97f89 {
   height: var(--button-height);
   line-height: var(--button-height);
+  margin-top: 14px;
   background-color: transparent;
   border-radius: var(--button-radius);
   border: 1px solid hsl(var(--accent-hsl--material-you));
@@ -20019,6 +20049,22 @@ body:active .container_d9c882:not(:active) {
 }
 .visual-refresh .shopCard_c3d04b {
   border: none;
+}
+.visual-refresh .questionInput_d97f89 {
+  height: var(--input-height) !important;
+  line-height: var(--input-height);
+  padding: var(--input-padding) !important;
+  border: none;
+}
+.visual-refresh .defaultTextInputWrapper__7b848 {
+  border: none !important;
+}
+.visual-refresh .addAnswerButtonDefault_d97f89 {
+  background-color: var(--button-background);
+  border-radius: var(--button-radius);
+}
+.visual-refresh .addAnswerButtonDefault_d97f89:hover {
+  background-color: var(--button-background);
 }
 .visual-refresh.density-default {
   --main-textarea-height: 48px;
