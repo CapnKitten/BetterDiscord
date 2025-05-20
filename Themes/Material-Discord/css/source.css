@@ -5873,7 +5873,6 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
   --input-height: 0;
 }
 .input__0f084.textArea__7aff3 {
-  height: 100% !important;
   min-height: var(--input-height);
   padding: calc((var(--input-height) - 22px) / 2) 12px !important;
 }
@@ -5984,6 +5983,7 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
   padding: 0;
 }
 .container_a45028 .input_a45028::-webkit-input-placeholder {
+  font-family: var(--app-font);
   color: var(--input-placeholder-color);
 }
 
@@ -9659,13 +9659,17 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
  *	CREATE POLL
  *
  */
-.answerInputsContainer_d97f89 {
-  row-gap: 2px;
+.maxLength__7aff3 {
+  bottom: calc(var(--input-height) / 2 - 2px);
 }
 
 .legend_b717a1 {
   font-size: 14px;
   text-transform: none;
+}
+
+.answerInputsContainer_d97f89 {
+  row-gap: 2px;
 }
 
 .answerRow__7b848 {
@@ -9707,6 +9711,7 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
   border: none;
 }
 .defaultTextInputWrapper__7b848:focus-within .characterCount__7b848 {
+  transform: translateX(0);
   opacity: 1;
 }
 .defaultTextInputWrapper__7b848 > .defaultTextInput__7b848 {
@@ -9725,8 +9730,9 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
   height: var(--input-height);
   line-height: var(--input-height);
   padding: 0 12px 0 0;
+  transform: translateX(12px);
   opacity: 0;
-  transition: var(--default-time) var(--default-animation) opacity;
+  transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) transform;
 }
 
 .addAnswerButtonDefault_d97f89 {
@@ -11783,6 +11789,9 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
 }
 .searchHeaderContainer__98d1c .container__33507 {
   --input-padding: 0 4px 0 12px;
+}
+.searchHeaderContainer__98d1c .container_a45028 {
+  padding: 0;
 }
 .searchHeaderContainer__98d1c .input_a45028 {
   font-size: 1em;
@@ -18961,6 +18970,12 @@ body:active .container_d9c882:not(:active) {
 .visual-refresh {
   --custom-channel-textarea-text-area-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 }
+.visual-refresh.refresh-fast-follow-guild-bg .bg__960e4 {
+  background: transparent;
+}
+.visual-refresh.refresh-fast-follow-guild-bg .wrapper_ef3116 {
+  background: transparent;
+}
 .visual-refresh.theme-dark {
   --text-brand: hsl(var(--accent-hsl--material-you));
 }
@@ -19254,7 +19269,7 @@ body:active .container_d9c882:not(:active) {
   background-color: hsl(var(--accent-hsl--material-you));
 }
 .visual-refresh .chat_f75fb0 {
-  background-color: var(--chat-color);
+  background-color: var(--chat-color) !important;
 }
 .visual-refresh [data-has-border=true].chat_f75fb0 {
   border-top: none;
@@ -19769,6 +19784,9 @@ body:active .container_d9c882:not(:active) {
   border-radius: var(--main-textarea-radius);
   border: none;
 }
+.visual-refresh .footer__5be3e .inlineContainer__74017 {
+  background-color: var(--input-color);
+}
 .visual-refresh .copyInput_fffc15 {
   border: none;
 }
@@ -20049,7 +20067,8 @@ body:active .container_d9c882:not(:active) {
   border: none;
 }
 .visual-refresh .questionInput_d97f89 {
-  height: var(--input-height) !important;
+  min-height: var(--input-height);
+  max-height: calc(var(--input-height) * 5);
   line-height: var(--input-height);
   padding: var(--input-padding) !important;
   border: none;
