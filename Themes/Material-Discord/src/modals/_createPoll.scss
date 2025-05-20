@@ -6,16 +6,30 @@
  *
  */
 
+%pollCreateAnswerInputsContainer {
+    row-gap: 2px;
+}
+
 %pollCreateLegend {
     @include remove-caps(14px);
 }
 
 %pollCreateAnswerRow {
     display: flex;
-    padding: 16px 8px;
+    padding: 16px;
     gap: 8px;
     background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+    border-radius: 4px;
+
+    &:first-of-type {
+        border-top-left-radius: var(--card-radius-big);
+        border-top-right-radius: var(--card-radius-big);
+    }
+
+    &:nth-last-child(2) {
+        border-bottom-left-radius: var(--card-radius-big);
+        border-bottom-right-radius: var(--card-radius-big);
+    }
 
     %pollCreateExpressionPickerButton {
         width: var(--button-height);
@@ -29,6 +43,8 @@
 
     %pollCreateRemoveAnswerButton {
         display: flex;
+        width: var(--button-height);
+        height: var(--button-height);
         padding: 0;
         align-items: center;
         justify-content: center;
@@ -41,25 +57,40 @@
     background-color: transparent;
     border: none;
 
+    &:focus-within {
+        %pollCreateCharacterCount {
+            opacity: 1;
+        }
+    }
+
     > %pollCreateDefaultTextInput {
         padding: 0;
     }
 
+    %inputWrapper {
+        margin-right: -50px;
+    }
+
     %input {
+        padding-right: 50px;
         border-radius: var(--input-radius);
         box-shadow: none;
     }
 
     %pollCreateCharacterCount {
+        display: flex;
         height: var(--input-height);
         line-height: var(--input-height);
-        padding: 0;
+        padding: 0 12px 0 0;
+        opacity: 0;
+        transition: var(--default-time) var(--default-animation) opacity;
     }
 }
 
 %pollCreateAddAnswerButton {
     height: var(--button-height);
     line-height: var(--button-height);
+    margin-top: 14px;
     background-color: transparent;
     border-radius: var(--button-radius);
     border: 1px solid hsl(var(--accent-hsl--material-you));
