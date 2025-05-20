@@ -21,6 +21,16 @@
 %visualRefresh {
     --custom-channel-textarea-text-area-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 
+    &%refreshFastFollowGuildBg {
+        %bg {
+            background: transparent;
+        }
+
+        %guildsWrapper {
+            background: transparent;
+        }
+    }
+
     &%themeDark {
         --text-brand: hsl(var(--accent-hsl--material-you));
     }
@@ -445,7 +455,7 @@
     }
 
     %chat {
-        background-color: var(--chat-color);
+        background-color: var(--chat-color) !important;
 
         &[data-has-border=true] {
             border-top: none;
@@ -1140,6 +1150,12 @@
         }
     }
 
+    %userProfileFooter {
+        %forwardInlineContainer {
+            background-color: var(--input-color);
+        }
+    }
+
     /* inputs */
 
     %copyInput {
@@ -1583,7 +1599,8 @@
     /* create poll */
 
     %pollCreateQuestionInput {
-        height: var(--input-height) !important;
+        min-height: var(--input-height);
+        max-height: calc(var(--input-height) * 5);
         line-height: var(--input-height);
         padding: var(--input-padding) !important;
         border: none;

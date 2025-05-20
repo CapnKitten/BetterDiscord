@@ -6,12 +6,16 @@
  *
  */
 
-%pollCreateAnswerInputsContainer {
-    row-gap: 2px;
+%pollCreateQuestionMaxLength {
+    bottom: calc(var(--input-height) / 2 - 2px);
 }
 
 %pollCreateLegend {
     @include remove-caps(14px);
+}
+
+%pollCreateAnswerInputsContainer {
+    row-gap: 2px;
 }
 
 %pollCreateAnswerRow {
@@ -59,6 +63,7 @@
 
     &:focus-within {
         %pollCreateCharacterCount {
+            transform: translateX(0);
             opacity: 1;
         }
     }
@@ -82,8 +87,9 @@
         height: var(--input-height);
         line-height: var(--input-height);
         padding: 0 12px 0 0;
+        transform: translateX(12px);
         opacity: 0;
-        transition: var(--default-time) var(--default-animation) opacity;
+        transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) transform;
     }
 }
 
