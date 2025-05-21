@@ -162,28 +162,29 @@
 
 /* CHAT AREA -> NEW MESSAGES BAR */
 
-%newMessagesBar {
-    height: auto;
-    top: var(--spacing-16);
-    left: unset;
-    right: unset;
-    gap: var(--spacing-8);
-    padding: var(--spacing-8);
-    background-color: var(--popout-color);
-    border-radius: calc(var(--button-radius) + var(--spacing-8));
-    box-shadow: none;
-    pointer-events: auto;
-    cursor: default;
-    opacity: 1;
-	z-index: 4;
-    transition: var(--default-time) var(--default-animation) box-shadow;
+%barBase {
+	&:not(%jumpToPresentBar) {
+		height: auto;
+	    top: var(--spacing-16);
+	    left: unset;
+	    right: unset;
+	    gap: var(--spacing-8);
+	    padding: var(--spacing-8);
+	    background-color: var(--popout-color);
+	    border-radius: calc(var(--button-radius) + var(--spacing-8));
+	    box-shadow: none;
+	    cursor: default;
+	    opacity: 1;
+		z-index: 4;
+	    transition: var(--default-time) var(--default-animation) box-shadow;
 
-    &:active {
-        padding-top: var(--spacing-8);
-    }
+	    &:active {
+	        padding-top: var(--spacing-8);
+	    }
+	}
 }
 
-%newMessagesBarButtonBase {
+%barButtonBase {
     min-width: var(--button-height);
     height: var(--button-height);
     line-height: 18px;
@@ -191,29 +192,30 @@
     border-radius: var(--button-radius);
     color: var(--accent-text-color--material-you);
     pointer-events: all;
+	cursor: pointer;
 
-	&%newMessagesBarButtonMain {
-	    flex: 0 1 auto;
-	    padding: 0 16px;
-	    background-color: var(--accent-secondary-color);
-	    color: var(--accent-secondary-text-color);
-	    pointer-events: none;
+	&%barButtonMain {
+        flex: 0 1 auto;
+        padding: 0 16px;
+        background-color: var(--accent-secondary-color);
+        color: var(--accent-secondary-text-color);
+        pointer-events: none;
 	}
 
-	&%newMessagesBarButtonAlt {
-	    position: relative;
-	    padding: 0;
-	    font-size: 0;
-	    justify-content: center;
+	&%barButtonAlt {
+        position: relative;
+        padding: 0;
+        font-size: 0;
+        justify-content: center;
 
-	    %newMessagesBarButtonIcon {
-	        top: 0;
-	        margin: 0;
+        %barButtonIcon {
+            top: 0;
+            margin: 0;
 
-	        path {
-	            d: path('M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z');
-	        }
-	    }
+            path {
+                d: path('M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z');
+            }
+        }
 	}
 }
 

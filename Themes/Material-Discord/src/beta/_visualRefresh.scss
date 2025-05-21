@@ -466,26 +466,28 @@
         }
     }
 
-    %newMessagesBar {
-        left: 50%;
-        right: unset;
-        border: none;
-        transform: translateX(-50%);
+    %barBase {
+        &:not(%jumpToPresentBar) {
+            left: 50%;
+            right: unset;
+            border: none;
+            transform: translateX(-50%);
 
-        &:hover {
-            box-shadow: var(--shadow-soft);
+            &:hover {
+                box-shadow: var(--shadow-soft);
+            }
         }
     }
 
-    %newMessagesBarButtonBase {
+    %barButtonBase {
         border-radius: var(--button-radius);
 
-        &%newMessagesBarButtonMain {
+        &%barButtonMain {
             padding: 0 16px;
             color: var(--accent-secondary-text-color);
         }
 
-        &%newMessagesBarButtonAlt {
+        &%barButtonAlt {
             padding: 0;
             background-color: hsl(var(--accent-hsl--material-you));
             color: var(--accent-text-color--material-you);

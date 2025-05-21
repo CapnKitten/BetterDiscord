@@ -4,53 +4,44 @@
  *
  */
 
-%summaryNewTopicsBarContainer {
-	top: 16px;
-	left: 0;
-	right: 0;
-	align-items: center;
-	justify-content: center;
-	background-color: transparent;
-	box-shadow: none;
-	opacity: 1;
-	pointer-events: none;
-	z-index: 4;
 
-	%newMessagesBarButtonBase {
-        margin-left: 8px;
-	}
-
-	%newMessagesBarButtonMain {
-        > div {
-            position: unset !important;
-        }
-	}
-}
-
-%summaryNewTopicsBarTopicSection {
-    padding: 9px 16px;
-    background-color: hsl(var(--accent-hsl--material-you));
-    border-radius: 18px;
-    color: var(--accent-text-color--material-you);
-    box-shadow: var(--shadow-2dp);
+%summaryNewTopicsBarTopicSection,
+%summaryNewTopicsBarInitial {
+    height: var(--button-height);
+    margin: 0;
+    padding: var(--button-padding-icon-both);
+    background-color: var(--accent-secondary-color);
+    color: var(--accent-secondary-text-color);
+    border-radius: var(--button-radius);
     pointer-events: all;
+}
 
-    %summaryNewTopicsBarIcon {
-        margin-left: 0;
-    }
+%summaryNewTopicsBarInitial {
+    cursor: pointer;
+}
 
-    %summaryNewTopicsBarText {
-        color: var(--accent-text-color--material-you);
-    }
+%summaryNewTopicsBarTextClickable {
+    height: inherit;
+    cursor: pointer;
 
-    %summaryNewTopicsBarCaret {
-        margin-right: 0;
+    > div {
+        height: inherit;
+        background-color: transparent;
+        gap: 8px;
     }
 }
 
-%summaryNewTopicsTextSelected {
-    height: auto;
-    background-color: transparent;
+%summaryNewTopicsBarIcon,
+%summaryNewTopicsBarCaret {
+    margin: 0;
+}
+
+%summaryNewTopicsBarText {
+    color: inherit;
+}
+
+%summaryNewTopicsBarCaret {
+    padding: 0;
 }
 
 /* SUMMARIES -> NO NEW MESSAGES */
