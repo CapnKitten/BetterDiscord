@@ -20,7 +20,7 @@
 	}
 
 	%channelsList {
-		margin-bottom: 11px;
+		margin-bottom: var(--space-32);
 	}
 
 	%categoryName {
@@ -70,20 +70,6 @@
 
 %channelsHeaderChildren {
     height: 16px;
-}
-
-%channelLink {
-	margin: 0 8px;
-    padding: 0 !important;
-    background-color: transparent !important;
-	overflow: visible;
-
-	%channelLinkTop,
-	%channelContent {
-        min-height: 32px;
-		gap: 8px;
-        align-items: center;
-    }
 }
 
 %channelVoiceInfo {
@@ -238,16 +224,19 @@
 /* CHANNELS LIST -> CHANNEL */
 
 %channelWrapper {
-	padding: 0 !important;
 	border-radius: var(--channel-radius);
 	transition: var(--default-time) var(--default-animation) background-color !important;
 
 	&:hover {
-		background-color: var(--menu-item-hover);
+        %channelLink {
+            background-color: var(--menu-item-hover);
+        }
 	}
 
 	&%channelWrapperSelected {
-		background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
+        %channelLink {
+            background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
+        }
 
 		%channelIcon,
 		&:hover %channelIcon {
@@ -264,6 +253,21 @@
 	%channelSubtitle {
 		color: hsl(var(--accent-hsl--material-you)) !important;
 	}
+}
+
+%channelLink {
+	margin-right: calc(8px - var(--scrollbar-thin-width));
+    padding: 0 8px;
+    border-radius: var(--channel-radius);
+	overflow: visible;
+    transition: var(--default-time) var(--default-animation) background-color !important;
+
+	%channelLinkTop,
+	%channelContent {
+        min-height: 32px;
+		gap: 8px;
+        align-items: center;
+    }
 }
 
 %channelIcon,
