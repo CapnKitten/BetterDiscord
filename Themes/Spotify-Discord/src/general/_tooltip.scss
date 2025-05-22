@@ -5,16 +5,23 @@
  */
 
 %tooltip {
-	border-radius: var(--popout-radius);
+	border-radius: var(--tooltip-radius);
 
 	&%tooltipPrimary,
 	&%tooltipBrand {
-		background-color: var(--popout-color);
-		box-shadow: var(--default-shadow);
-        color: var(--text-normal);
+		background-color: var(--tooltip-color);
+		box-shadow: var(--tooltip-shadow);
+        color: var(--tooltip-text-color);
 
 		%tooltipPointer {
-			border-top-color: var(--popout-color);
+			border-top-color: var(--tooltip-color);
+		}
+	}
+
+	%tooltipPointer {
+		&:before,
+		&:after {
+			display: none;
 		}
 	}
 }
@@ -22,20 +29,20 @@
 /* TOOLTIP -> REACTIONS */
 
 %reactionTooltip {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+    background-color: var(--tooltip-color);
+    border-radius: var(--tooltip-radius);
+    box-shadow: var(--tooltip-shadow);
 }
 
 /* TOOLTIP -> UPSELLS */
 
 %upsellTooltipWrapper {
-    background-color: var(--popout-color);
-    box-shadow: var(--default-shadow);
+    background-color: var(--tooltip-color);
+    box-shadow: var(--tooltip-shadow);
 
     &%upsellTooltipCaretTopCenter {
         &:after {
-            border-bottom-color: var(--popout-color);
+            border-bottom-color: var(--tooltip-color);
         }
     }
 }
