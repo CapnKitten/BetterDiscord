@@ -5,25 +5,37 @@
  */
 
 :root {
+    --slider-width: 16px;
     --slider-height: 32px;
-    --slider-radius: calc(var(--slider-height) / 2);
+    --slider-radius: calc(var(--slider-height) / 3);
+    --slider-grabber-background: var(--main-color);
+}
+
+%themeDark {
+    --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
+}
+
+%themeLight {
+    --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 2));
+
+    %slider {
+        %sliderBar %sliderBarFill {
+            background-color: hsl(var(--accent-hsl--material-you)) !important;
+        }
+
+        %sliderTrack %sliderGrabber {
+            background-color: var(--slider-grabber-background) !important;
+        }
+    }
 }
 
 %slider {
     height: var(--slider-height);
 
-    &:active {
-        %sliderBar {
-            %sliderBarFill {
-                border-radius: var(--slider-radius) calc(var(--slider-radius) / 3) calc(var(--slider-radius) / 3) var(--slider-radius);
-            }
-        }
-    }
-
     %sliderBar {
         height: var(--slider-height);
         top: 0;
-        background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.47) calc(l * 0.425)) !important;
+        background-color: var(--slider-bar-background) !important;
         border-radius: var(--slider-radius);
 
         %sliderBarFill {
@@ -36,16 +48,37 @@
             }
         }
     }
-}
 
-%sliderGrabber {
-    width: var(--slider-height);
-    height: var(--slider-height);
-    top: 0;
-    margin-top: 0;
-    margin-left: calc((var(--slider-height) / 2) * -1);
-    border: none;
-    opacity: 0;
+    %sliderTrack {
+        %sliderGrabber {
+            display: flex;
+            width: var(--slider-width);
+            height: calc(var(--slider-height) + 16px);
+            top: -8px;
+            margin-top: 0;
+            margin-left: calc((var(--slider-height) / 2) * -1);
+            background-color: var(--slider-grabber-background);
+            border-radius: 0;
+            border: none;
+            transform: translateX(calc(var(--slider-width) / 1.75));
+            justify-content: center;
+            box-shadow: none !important;
+
+            &:before {
+                position: absolute;
+                content: " ";
+                width: calc(var(--slider-width) / 4);
+                height: 100%;
+                top: 0;
+                background-color: hsl(var(--accent-hsl--material-you));
+                border-radius: calc(var(--slider-width) / 8);
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+    }
 }
 
 %sliderInputSensitivityBar {
@@ -62,9 +95,16 @@
 
 %menuPopoutSliderContainer {
     --slider-height: 24px;
+    --slider-radius: calc(var(--slider-height) / 3);
 
     height: var(--slider-height);
     margin-bottom: 0 !important;
+
+    %sliderTrack {
+        %sliderGrabber {
+            transform: translateX(calc(var(--slider-width) / 4));
+        }
+    }
 }
 
 %sliderMenuPopout {
@@ -80,7 +120,15 @@
     %sliderGrabber {
         width: var(--slider-height);
         height: var(--slider-height);
-        margin-top: 0;
-        margin-left: calc((var(--slider-height) / 2) * -1);
+        //margin-top: 0;
+        //margin-left: calc((var(--slider-height) / 2) * -1);
+    }
+}
+
+%visualRefresh {
+    %sliderMini {
+        %sliderBarFill {
+            border: none;
+        }
     }
 }
