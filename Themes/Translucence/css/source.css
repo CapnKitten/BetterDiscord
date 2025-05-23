@@ -449,15 +449,6 @@ body {
   background-color: var(--message-color-hover);
 }
 
-.newMessagesBar__0f481,
-.jumpToPresentBar__0f481 {
-  background-color: hsla(var(--accent-hsl), var(--accent-opacity));
-}
-
-.newMessagesBar__0f481 {
-  border-radius: 0 0 var(--message-radius) var(--message-radius);
-}
-
 .jumpToPresentBar__0f481 {
   bottom: 10px;
   padding-bottom: 0;
@@ -3923,6 +3914,7 @@ body {
   border-radius: var(--popout-radius);
   box-shadow: none;
   overflow: hidden;
+  /* CONTEXT MENU -> NESTED WORKAROUND */
 }
 .menu_c1e9c4:before {
   position: absolute;
@@ -3953,6 +3945,14 @@ body {
 }
 .menu_c1e9c4 .button_f563df:hover {
   background-color: var(--card-color-hover);
+}
+#image-context.menu_c1e9c4 {
+  background-color: var(--popout-color);
+  backdrop-filter: blur(var(--popout-blur));
+  box-shadow: var(--popout-shadow);
+}
+#image-context.menu_c1e9c4:before {
+  display: none;
 }
 
 .layerContainer_da8173 .backdrop__78332 + .layer_bc663c + .layer_da8173 .menu_c1e9c4 {
@@ -5847,7 +5847,7 @@ body {
  *  USER SETTINGS KEYBINDS
  *
  */
-.warning__6436f {
+.warning__35859 {
   border-radius: var(--card-radius);
 }
 
@@ -6420,6 +6420,9 @@ body {
 }
 .visual-refresh .messageGroupWrapper__45690 .wrapper_c19a55 {
   margin-right: 0 !important;
+}
+.visual-refresh .menu_c1e9c4 {
+  border: none;
 }
 .visual-refresh .layer__960e4 {
   background-color: transparent;
