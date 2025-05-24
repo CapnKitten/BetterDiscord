@@ -155,6 +155,11 @@
             calc(var(--accent-saturation) * var(--saturation-modifier) * 0.42 * var(--saturation-factor)),
             calc(var(--accent-lightness) * var(--lightness-modifier) * var(--ui-darkness-modifier) * var(--text-lightness-modifier) * 4.4)
         );
+    --input-pill-color: hsl(
+            var(--accent-hue),
+            calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * var(--ui-darkness-modifier) * 2.6)
+        );
 
     --popout-color: hsl(
             var(--accent-hue),
@@ -382,6 +387,11 @@
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
                 calc(var(--accent-lightness) * var(--lightness-modifier) * var(--ui-darkness-modifier) * 2.3)
             );
+        --input-pill-color: hsl(
+                var(--accent-hue),
+                calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
+                calc(var(--accent-lightness) * var(--lightness-modifier) * var(--ui-darkness-modifier) * 1.7)
+            );
 
         %input {
             --input-color: hsl(
@@ -400,7 +410,7 @@
             );
     }
 
-    %newMessagesBar {
+    %barBase {
         --popout-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -416,12 +426,12 @@
 
     --main-color: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * 0.875 * var(--saturation-factor)),
+            calc(var(--accent-saturation) * calc(var(--saturation-modifier) * 1.2) * 0.875 * var(--saturation-factor)),
             calc(var(--accent-lightness) * var(--lightness-modifier) * 0.725)
         );
 	--main-alt: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
+            calc(var(--accent-saturation) * calc(var(--saturation-modifier) * 1.2) * var(--saturation-factor)),
             calc(var(--accent-lightness) * var(--lightness-modifier) * 0.675)
         );
 
@@ -483,13 +493,13 @@
 
     --status-picker-color: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
-            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.7025)
+            calc(var(--accent-saturation) * calc(var(--saturation-modifier) * 1.9) * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.715)
         );
 	--sidebar-panel-color: hsl(
             var(--accent-hue),
-            calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
-            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.6925)
+            calc(var(--accent-saturation) * calc(var(--saturation-modifier) * 1.3) * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.7)
         );
 
     --message-color: hsl(
@@ -563,6 +573,11 @@
             var(--accent-hue),
             calc(var(--accent-saturation) * var(--saturation-modifier) * 0.41 * var(--saturation-factor)),
             calc(var(--accent-lightness) * var(--lightness-modifier) * var(--text-lightness-modifier) * 0.3)
+        );
+    --input-pill-color: hsl(
+            var(--accent-hue),
+            calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
+            calc(var(--accent-lightness) * var(--lightness-modifier) * 0.7315)
         );
 
     --popout-color: hsl(
@@ -795,8 +810,16 @@
                 calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3);
     }
 
-    &%popoutLayer,
-    &.layer-fP3xEz {
+    %popoutLayer,
+    %modalRoot {
+        --input-pill-color: hsl(
+                var(--accent-hue),
+                calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
+                calc(var(--accent-lightness) * var(--lightness-modifier) * 0.71)
+            );
+    }
+
+    &%popoutLayer {
         %input,
         %reviewDBInput {
             --input-color: hsl(
@@ -859,7 +882,7 @@
             calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3);
     }
 
-    %newMessagesBar {
+    %barBase {
         --popout-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),

@@ -20,10 +20,10 @@
     background-color: hsl(from var(--popout-color) h s l / 0.75);
     border-radius: 28px;
     border: none;
+}
 
-    %voiceCallAttachedCaretButtonContainer {
-        gap: 2px;
-    }
+%voiceCallAttachedCaretButtonContainer {
+    gap: 2px;
 
     %callButtonColorable {
         position: relative;
@@ -33,18 +33,71 @@
         border-radius: 24px;
 
         &%voiceCallActionsContextMenuNub {
-            width: 36px;
+            width: 48px;
+            margin-left: 0;
             border-radius: 4px 24px 24px 4px;
+            transition: calc(var(--default-time) / 1.5) var(--default-animation) border-radius;
+
+            &%callButtonActive {
+                border-radius: 24px;
+            }
+
+            &:before {
+                position: absolute;
+                content: " ";
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: var(--button-text-color);
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_down.svg);
+            	-webkit-mask-repeat: no-repeat;
+                -webkit-mask-size: 50%;
+                -webkit-mask-position: center;
+                transition: calc(var(--default-time) / 1.5) var(--default-animation) transform;
+            }
+
+            &%voiceCallActionsContextMenuNubActive {
+                &:before {
+                    transform: rotate(180deg);
+                }
+            }
+
+            %voiceCallContextMenuCaret {
+                display: none;
+            }
         }
 
         &:after {
             border-radius: inherit;
         }
     }
+
+    &%voiceCallDisconnect {
+        background-color: hsl(from var(--popout-color) h s l / 0.75);
+        border-radius: 28px;
+        border: none;
+
+        %callCenterButton {
+            border-radius: 24px 4px 4px 24px;
+        }
+
+        %voiceCallDisconnect {
+            background-color: hsl(var(--alert-hsl)) !important;
+
+            %callCenterIcon {
+                color: var(--alert-text-color) !important;
+            }
+
+            &:before {
+                background-color: var(--alert-text-color) !important;
+            }
+        }
+    }
 }
 
 %voiceCallAttachedCaretButtonContainer {
-    %voiceCallDisconnect {
+    %voiceCallFullRegionButton%voiceCallDisconnect {
         --button-background: hsl(var(--alert-hsl));
         --button-text-color: var(--alert-text-color);
 

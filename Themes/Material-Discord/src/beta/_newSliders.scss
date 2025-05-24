@@ -6,8 +6,9 @@
 
 :root {
     --slider-width: 16px;
-    --slider-height: 32px;
-    --slider-radius: calc(var(--slider-height) / 3);
+    --slider-height: 16px;
+    --slider-radius: calc(var(--slider-height) / 2);
+    --slider-grabber-height: 44px;
     --slider-grabber-background: var(--main-color);
 }
 
@@ -29,12 +30,48 @@
     }
 }
 
+
+.mark_a562c8 {
+    height: 100% !important;
+    z-index: 2;
+    pointer-events: none;
+
+    .markValue_a562c8 {
+        margin-bottom: 0;
+    }
+
+    .markDash_a562c8 {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        bottom: calc(((var(--slider-grabber-height) / 2) - 3px) + 4px);
+        border-radius: 3px;
+    }
+}
+
 %slider {
-    height: var(--slider-height);
+    height: calc(var(--slider-grabber-height) + var(--bar-offset));
+
+    &%sliderHasMarks {
+        %sliderTrack {
+            left: 8px;
+            right: 8px;
+        }
+
+        %sliderBar {
+            top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2) + 4px));
+        }
+
+        %sliderTrack {
+            %sliderGrabber {
+                top: calc(100% - (var(--slider-grabber-height) + 4px));
+            }
+        }
+    }
 
     %sliderBar {
         height: var(--slider-height);
-        top: 0;
+        top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2)));
         background-color: var(--slider-bar-background) !important;
         border-radius: var(--slider-radius);
 
@@ -53,16 +90,16 @@
         %sliderGrabber {
             display: flex;
             width: var(--slider-width);
-            height: calc(var(--slider-height) + 16px);
-            top: -8px;
+            height: var(--slider-grabber-height);
+            top: 0;
             margin-top: 0;
-            margin-left: calc((var(--slider-height) / 2) * -1);
             background-color: var(--slider-grabber-background);
             border-radius: 0;
             border: none;
-            transform: translateX(calc(var(--slider-width) / 1.75));
+            transform: translateX(0);
             justify-content: center;
             box-shadow: none !important;
+            z-index: 3;
 
             &:before {
                 position: absolute;
@@ -72,22 +109,32 @@
                 top: 0;
                 background-color: hsl(var(--accent-hsl--material-you));
                 border-radius: calc(var(--slider-width) / 8);
+                transition: calc(var(--default-time) / 1.5) var(--default-animation) background-color, calc(var(--default-time) / 1.5) var(--default-animation) transform;
             }
 
             &:after {
                 display: none;
+            }
+
+            &:hover {
+                &:before {
+                    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.6) l);
+                }
+            }
+
+            &:active {
+                &:before {
+                    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.6) l);
+                    transform: scaleX(50%);
+                }
             }
         }
     }
 }
 
 %sliderInputSensitivityBar {
-    height: var(--slider-height);
-    top: 0 !important;
-    border-radius: var(--slider-radius);
-
     %sliderInputSensitivityFill {
-        height: inherit !important;
+        height: var(--slider-height) !important;
         background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.8) calc(l * 0.8)) !important;
         border-radius: var(--slider-radius);
     }

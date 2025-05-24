@@ -6,40 +6,41 @@
 
 %formatToolbar {
 	background-color: var(--popout-color);
-	border-radius: 16px;
-	box-shadow: var(--shadow-medium);
+	border-radius: 22px;
+    box-shadow: var(--shadow-medium);
 	overflow: hidden;
+}
 
-	%formatToolbarButtons {
-		height: 32px;
-		padding: 2px;
-        box-sizing: border-box;
-	}
+%formatToolbarButtons {
+	height: auto;
+	padding: 6px;
+	gap: 4px;
+    box-sizing: border-box;
+}
 
-	%formatToolbarButton {
-		width: 28px;
-		height: 28px;
-        border-radius: 14px;
+%formatToolbarButton {
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	color: var(--menu-item-text-color);
+	transition: var(--default-time) var(--default-animation) background-color !important;
+
+	&:hover {
+		background-color: var(--menu-item-hover);
 		color: var(--menu-item-text-color);
-		transition: var(--default-time) var(--default-animation) background-color !important;
 
-		&:hover {
-			background-color: var(--menu-item-hover);
-
-            %formatToolbarIcon {
-                transform: scale(1.1);
-            }
-		}
-
-		%formatToolbarIcon {
-			transition: var(--default-time) var(--default-animation) transform;
-		}
+        %formatToolbarIcon {
+            transform: scale(1);
+        }
 	}
 
-	%formatToolbarDivider {
-		height: 16px;
-		border-left-color: var(--card-border-color);
+	%formatToolbarIcon {
+		transition: var(--default-time) var(--default-animation) transform;
 	}
+}
+
+%formatToolbarDivider {
+	display: none;
 }
 
 /* FORMAT TOOLBAR -> BF TOOLBAR */
