@@ -16,6 +16,10 @@
     pointer-events: all;
 }
 
+%summaryNewTopicsBarTopicSection {
+    max-width: none;
+}
+
 %summaryNewTopicsBarInitial {
     cursor: pointer;
 }
@@ -48,7 +52,7 @@
 
 %summaryTopicsPillContainer {
 	height: var(--button-height);
-    top: 16px;
+    top: var(--space-16);
 	background-color: transparent;
 	box-shadow: none;
 	pointer-events: none;
@@ -57,24 +61,30 @@
 %summaryTopicsPill {
     align-items: center;
     justify-content: center;
+    gap: var(--space-8);
 }
 
 %summaryTopicsPillText,
 %summaryTopicsPillCarets {
-    background-color: hsl(var(--accent-hsl--material-you));
-    color: var(--accent-text-color--material-you);
+    height: var(--button-height);
     border-radius: var(--button-radius);
-    box-shadow: var(--shadow-2dp);
 	pointer-events: all;
 }
 
 %summaryTopicsPillText {
     flex: 0 1 auto;
-    padding: 9px 16px;
+    padding: var(--button-padding-icon-both);
+    background-color: var(--accent-secondary-color);
+    align-items: center;
+
+    > div {
+        padding-left: 0;
+        gap: 8px;
+    }
 
     &:hover {
         %summaryTopicsPillDropdownCaret {
-            color: var(--accent-text-color--material-you);
+            color: var(--accent-secondary-text-color);
         }
     }
 
@@ -84,33 +94,40 @@
     }
 
     %summaryTopicsPillSummaryIcon {
-        margin-right: 8px;
+        margin-right: 0;
     }
 
     %summaryTopicsPillTextTitle,
     %summaryTopicsPillDropdownCaret {
-        color: var(--accent-text-color--material-you);
+        color: var(--accent-secondary-text-color);
     }
 
     %summaryTopicsPillDropdownCaret {
         margin-right: 0;
+        padding-left: 0;
     }
 }
 
 %summaryTopicsPillCarets {
     height: var(--button-height);
-    margin-left: 8px;
     padding-right: 0;
-    background-color: var(--chat-color);
+    gap: 2px;
+}
+
+%summaryTopicsCaretLeft {
+    border-radius: var(--button-radius) 4px 4px var(--button-radius);
+}
+
+%summaryTopicsCaretRight {
+    border-radius: 4px var(--button-radius) var(--button-radius) 4px;
 }
 
 %summaryTopicsPillCaret {
-    width: var(--button-height);
     background-color: hsl(var(--accent-hsl--material-you));
     color: var(--accent-text-color--material-you) !important;
     border: none;
 
     &%summaryTopicsPillCaretDisabled {
-        opacity: 0.4;
+        opacity: 0.3;
     }
 }

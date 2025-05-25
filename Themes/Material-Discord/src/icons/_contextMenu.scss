@@ -99,6 +99,24 @@
             }
         }
 
+        &[id*="image-context-commands-popout"] {
+            flex-direction: row;
+
+            &:before {
+                display: none;
+            }
+
+            &[aria-haspopup="true"] {
+                &:before {
+                    display: none;
+                }
+
+                %menuPopoutIconContainerLeft {
+                    position: relative;
+                }
+            }
+        }
+
         $icons: (
             'user-context-mark-channel-read':                   'visibility',
             'user-context-user-profile':                        'person',
@@ -391,23 +409,6 @@
             background-color: currentColor;
             -webkit-mask-repeat: no-repeat;
             mask-size: 100%;
-        }
-
-        &[id*="image-context-commands-popout"] {
-            &:before {
-                margin-right: 0;
-                padding-right: 12px;
-            }
-
-            %menuPopoutIconContainerLeft {
-                position: absolute;
-                right: -28px;
-                margin-left: 0;
-            }
-
-            %menuPopoutIconContainer {
-                margin-right: 40px;
-            }
         }
 
         $icons: (

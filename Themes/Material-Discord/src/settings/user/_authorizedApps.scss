@@ -6,41 +6,41 @@
  *
  */
 
-%formNotice {
-    margin-bottom: 32px;
-    padding: 0;
-
-    %formNoticeTitle {
-        @include card-format--header(false, true);
-
-        + %formNoticeBody {
-            @include card-format--body(true);
-        }
-    }
-
-    &%settingsCard {
-        margin-top: 16px;
-    }
-}
-
-%formNoticeBody {
-    padding: 16px;
-}
-
-%authedApp {
+%authedAppV2 {
     margin-bottom: 16px;
-    padding: 16px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
 
-    %marginBottom20 {
-        %textSmSemibold {
-        	font-size: 1.25em;
-        	line-height: normal;
-        	color: var(--card-header-text-color);
-        	font-weight: 400;
+%authedAppHeaderV2 {
+    background-color: transparent;
+}
+
+%authedAppActionMenuButton {
+    background-color: transparent;
+    border-radius: 50%;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+        background-color: var(--card-button-color);
+    }
+
+    &[aria-expanded="true"] {
+        background-color: var(--card-button-color-hover);
+    }
+}
+
+%authedAppDetailsContainer {
+    %authedAppDetailsSection {
+        border-top: none;
+        border-bottom: none;
+
+        + %authedAppDetailsSection {
+            border-top: 1px solid var(--card-border-color);
         }
     }
+}
 
-    %button {
-        font-size: 0.75em;
-    }
+%authedAppFooter {
+    margin-top: 16px;
 }
