@@ -6,52 +6,18 @@
  *
  */
 
-%guildPopout {
-    @include popout-format(true);
-
-    %guildPopoutIconWithSplash {
-        foreignObject {
-            mask: none !important;
-        }
-    }
-
-    %guildPopoutIconMask {
-        background-color: var(--popout-color);
-    }
-
-    %guildPopoutIconMask,
-    %guildPopoutAvatar {
-        border-radius: var(--avatar-radius);
-    }
-}
-
-%guildPopoutFooter {
-    background-color: transparent;
-    border-top: 1px solid var(--popout-header-border);
-
-    %guildPopoutEmojiHeader {
-        @include remove-caps(14px);
-    }
-
-    %guildPopoutEmojiCounter {
-        background-color: var(--popout-color-alt);
-    }
-}
-
-%guildPopoutJoined {
-    @include popout-format;
-}
-
 /* GUILD CHAT POPOUT - PROBABLY A DIFFERENT THING, I DUNNO YET */
 
 %guildChatPopoutContainer {
     @include popout-format;
+    border: none;
 
     %textXsNormal {
         color: var(--text-normal) !important;
     }
 }
 
+%guildChatPopoutBanner,
 %guildChatPopoutBannerImage {
     border-radius: var(--popout-radius-big);
 }
@@ -61,18 +27,28 @@
 }
 
 %guildChatPopoutClanTagChiplet {
-    height: 24px;
-    padding: 0px 8px;
-    background-color: var(--popout-color-alt);
-    border-radius: 12px;
+    height: 20px;
+    padding: 0px 6px;
+    background-color: var(--card-button-color);
+    border-radius: 8px;
     border: none;
+
+    &:hover {
+        background-color: var(--card-button-color-hover);
+    }
+
+    %textXsSemibold {
+        line-height: 20px !important;
+    }
 }
 
+%guildChatPopoutAvatarWrapper,
 %guildChatPopoutClanIconInner {
     background-color: var(--popout-color);
 }
 
 %guildChatPopoutTrait {
+    border-radius: 10px;
     border-color: var(--popout-header-border);
 }
 

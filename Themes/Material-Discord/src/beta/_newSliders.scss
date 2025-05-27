@@ -7,17 +7,25 @@
 :root {
     --slider-width: 16px;
     --slider-height: 16px;
-    --slider-radius: calc(var(--slider-height) / 2);
+    --slider-radius: 8px;
     --slider-grabber-height: 44px;
     --slider-grabber-background: var(--main-color);
 }
 
 %themeDark {
     --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
+
+    %menuPopoutSliderContainer {
+        --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.44));
+    }
 }
 
 %themeLight {
     --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 2));
+
+    %menuPopoutSliderContainer {
+        --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 1.92));
+    }
 
     %slider {
         %sliderBar %sliderBarFill {
@@ -31,16 +39,16 @@
 }
 
 
-.mark_a562c8 {
+%sliderMark {
     height: 100% !important;
     z-index: 2;
     pointer-events: none;
 
-    .markValue_a562c8 {
+    %sliderMarkValue {
         margin-bottom: 0;
     }
 
-    .markDash_a562c8 {
+    %sliderMarkDash {
         position: absolute;
         width: 6px;
         height: 6px;
@@ -141,17 +149,23 @@
 }
 
 %menuPopoutSliderContainer {
-    --slider-height: 24px;
+    --slider-height: 8px;
     --slider-radius: calc(var(--slider-height) / 3);
+    --slider-grabber-height: 28px;
+    --slider-grabber-background: var(--popout-color);
 
     height: var(--slider-height);
     margin-bottom: 0 !important;
 
     %sliderTrack {
         %sliderGrabber {
-            transform: translateX(calc(var(--slider-width) / 4));
+            //transform: translateX(calc(var(--slider-width) / 4));
         }
     }
+}
+
+%menuPopoutSliderContainer {
+    height: var(--slider-grabber-height);
 }
 
 %sliderMenuPopout {
@@ -161,7 +175,7 @@
 %sliderMini {
     %sliderBar {
         height: var(--slider-height);
-        top: 0;
+        top: calc((var(--slider-grabber-height) / 2) - (var(--slider-height) / 2));
     }
 
     %sliderGrabber {

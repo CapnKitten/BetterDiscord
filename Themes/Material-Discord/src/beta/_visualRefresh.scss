@@ -48,10 +48,10 @@
 
     %bar {
         padding-left: 0;
-        padding-right: var(--spacing-4);
+        padding-right: var(--space-4);
 
         %barLeading {
-            padding-left: var(--spacing-8);
+            padding-left: var(--space-8);
         }
 
         %barTitle {
@@ -187,7 +187,7 @@
         box-shadow: var(--shadow-ledge);
 
         %buttonFilled%buttonPrimary {
-            --button-padding: 0 16px;
+            --button-height: 32px;
             --button-background: var(--input-color);
             --button-text-color: var(--input-text-color);
 
@@ -200,7 +200,7 @@
     %privateChannel {
         &:not(%privateChannelDm) {
             %privateChannelLink {
-                padding: 0 var(--spacing-16);
+                padding: 0 var(--space-16);
             }
         }
     }
@@ -293,13 +293,13 @@
     }
 
     %channelUnreadPillBottom {
-        bottom: calc(var(--custom-app-panels-height,0) + var(--spacing-12));
+        bottom: calc(var(--custom-app-panels-height,0) + var(--space-12));
     }
 
     %panels {
         width: calc(100% - 20px);
-        left: var(--spacing-12);
-        bottom: var(--spacing-12);
+        left: var(--space-12);
+        bottom: var(--space-12);
         margin: 0;
 
         /* CODE FOR MOVING STATUS AREA TO ORIGINAL SPOT */
@@ -381,7 +381,7 @@
             }
 
             %panels {
-                width: calc(100% - var(--spacing-16));
+                width: calc(100% - var(--space-16));
                 left: 0;
                 bottom: 0;
                 margin: 8px;
@@ -501,10 +501,10 @@
         min-width: 80px;
         gap: var(--space-8);
         left: unset;
-        right: var(--spacing-24);
-        bottom: var(--spacing-24);
+        right: var(--space-24);
+        bottom: var(--space-24);
         margin: 0;
-        padding: var(--spacing-16) var(--spacing-16) var(--spacing-16) var(--spacing-12);
+        padding: var(--space-16) var(--space-16) var(--space-16) var(--space-12);
         border-radius: calc(var(--button-radius) / 1.125);
         border: none;
         box-shadow: none;
@@ -648,7 +648,7 @@
     }
 
     %channelTextAreaAttachButton {
-        padding-right: var(--spacing-8);
+        padding-right: var(--space-8);
     }
 
     %channelInfo {
@@ -665,14 +665,14 @@
 
     %channelBottomBarArea {
         margin: 0;
-        padding: 0 16px;
+        padding: 0 var(--space-16);
 
         + span + %channelTextAreaTyping,
         + %channelTextAreaTyping {
             position: absolute;
-            width: calc(100% - (var(--scrollbar-width) + var(--spacing-16)));
+            width: calc(100% - (var(--scrollbar-width) + (var(--space-16) * 3)));
             left: unset;
-            right: var(--spacing-16);
+            right: var(--space-16);
             background-color: var(--typing-color);
         }
     }
@@ -1079,8 +1079,11 @@
 
     %searchHeader {
         height: var(--search-header-height);
+        margin: 8px 8px 0;
         padding: 0 16px;
-        border-bottom: 1px solid var(--separator-color);
+        background-color: var(--card-color-filled);
+        border-radius: calc(var(--card-radius-big) - 8px);
+        border-bottom: none;
     }
 
     %searchResult {
