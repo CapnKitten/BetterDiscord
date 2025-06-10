@@ -28,13 +28,10 @@
 %userProfileOuterThemed {
 	--popout-color-alt: var(--profile-gradient-secondary-color) !important;
     --card-color-filled: var(--user-profile-background-hover) !important;
+	--card-border-color: var(--user-profile-border) !important;
     --menu-item-hover: var(--user-profile-background-hover) !important;
 	--user-profile-overlay-background: var(--profile-body-background-color) !important;
 	--input-color: rgb(var(--bg-overlay-color-inverse)/.1) !important;
-
-    %statusBubbleText {
-        color: var(--white-500);
-    }
 
     %channelTextAreaFontPadding {
 		color: var(--text-normal) !important;
@@ -211,7 +208,7 @@
 /* USER POPOUT -> STATUS BUBBLE */
 
 %statusBubbleOuter {
-    background-color: var(--popout-color-alt) !important;
+    background-color: var(--popout-color-alt);
     border-radius: var(--popout-radius-big);
     border: none !important;
     box-shadow: none;
@@ -222,14 +219,29 @@
         border: none !important;
         box-shadow: none;
     }
+
+    &:hover {
+        %statusBubbleInner {
+            color: var(--white-500);
+        }
+    }
+
+    %statusBubbleInner {
+        background-color: inherit;
+        color: var(--white-500);
+    }
 }
 
-%statusBubble {
-    background-color: transparent !important;
+%statusBubbleAddStatusIcon {
+    fill: currentColor;
+
+    path {
+        fill: inherit !important;
+    }
 }
 
-%statusBubbleText {
-    color: var(--text-normal);
+%statusBubbleAddStatusPrompt {
+    color: inherit !important;
 }
 
 /* USER POPOUT -> BADGE LIST */

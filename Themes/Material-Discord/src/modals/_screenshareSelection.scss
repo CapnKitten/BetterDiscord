@@ -6,88 +6,44 @@
  *
  */
 
-%screenshareModalContent {
-	padding: 0 24px;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
+%streamSourceRoot {
+    gap: 16px;
+    grid-template-columns: 368px 368px;
 }
 
-%screenshareSegmentDivider {
-	background-color: var(--popout-header-border);
-	box-shadow: none !important;
-	opacity: 1;
-}
-
-%screenshareSegmentControl {
-	height: 48px;
-	padding: 0 24px;
-}
-
-%screenshareSegmentControlTabItem {
-	height: inherit;
-	margin: 0 24px 0 0;
-	padding: 0 8px;
-	border: none !important;
-	color: var(--interactive-normal) !important;
-
-	&%screenshareSegmentControlSelected {
-		color: var(--interactive-normal) !important;
-		@include tab-border(90%);
-	}
-
-	%textSmMedium {
-		line-height: 48px;
-	}
-
-	&:last-of-type {
-		margin-right: 0;
-	}
-}
-
-%screenshareCard {
-	@include new-input-format;
-
-	%buttonSizeSmall {
-		--button-height: 30px;
-	}
-}
-
-%screenshareSettingsQualitySettingsContainer {
-	@include card-format(false, 16px, true);
-
-	%selectMenu {
-		margin-top: 0;
-	}
-
-    %eventTimeSelect {
-        margin-top: 0;
-    }
-}
-
-%screenshareSettingsUpsellBanner {
-	padding: 8px 12px;
-	border-radius: 20px;
-}
-
-%screenshareSettingsClipsContainer {
-    @include card-format(false, 16px, true);
-}
-
-%screenshareTile {
-    &:hover {
-        %screenshareSourceThumbnail {
-            box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl--material-you));
-        }
-    }
-}
-
-%screenshareSourceThumbnail {
-	background-color: var(--card-color-filled);
+%streamSource {
+    padding: 16px;
+    gap: 12px;
+    background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
+    transition: var(--default-time) var(--default-animation) background-color;
 
-    &%screenshareSourceSelected {
-        box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl--material-you));
+    &:hover {
+        background-color: var(--card-color-active);
     }
+}
+
+%streamSourcePreviewContainer {
+    &:before {
+        display: none;
+    }
+}
+
+%streamSourcePreview {
+    width: auto;
+    height: 190px;
+    border-radius: calc(var(--card-radius-big) / 1.75);
+
+    %streamSourcePreviewImage {
+        border-radius: inherit;
+    }
+}
+
+%streamSourceNameContainer {
+    margin-top: 0;
+}
+
+%streamFooterContent {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
 }
