@@ -219,8 +219,8 @@ module.exports = class MaterialDiscordCustomization {
                             inline: false,
                             children: React.createElement(Slider, {
                                 minValue: 1500,
-                                maxValue: 2200,
-                                markers: markers(1500, 2201, 25),
+                                maxValue: 2500,
+                                markers: markers(1500, 2501, 25),
                                 stickToMarkers: true,
                                 onMarkerRender: v => v % 100 === 0 || v === 25 ? (v / 1000).toFixed(1) : "",
                                 initialValue: this.settings["light"].lightnessModifier,
