@@ -2,6 +2,7 @@
 
 ### Plugins
 
+* [Material Discord Customization](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/MaterialDiscordCustomization)
 * [Discord Experiments](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/DiscordExperiments)
 * [Hide Channels](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/HideChannels)
 
