@@ -462,7 +462,10 @@ module.exports = class MaterialDiscordCustomization {
             React.createElement(Button, {
                 size: Button.Sizes.SMALL,
                 onClick: () => confirm("Reset Settings?", "This will reset your Material Discord customizations back to their default settings.", {
-                    onConfirm: () => { this.settings = this.defaultSettings, this.saveAndRefresh() }
+                    onConfirm: () => {
+                        this.settings = this.defaultSettings,
+                        this.saveAndRefresh()
+                    }
                 })
             }, "Reset settings"));
 
