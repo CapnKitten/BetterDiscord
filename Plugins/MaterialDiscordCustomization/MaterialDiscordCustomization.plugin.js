@@ -461,7 +461,7 @@ module.exports = class MaterialDiscordCustomization {
         const resetButton = React.createElement(Flex, { justify: Flex.Justify.END },
             React.createElement(Button, {
                 size: Button.Sizes.SMALL,
-                onClick: () => confirm("Reset Settings?", "This will reset your MaterialDiscord customizations back to their default settings.", {
+                onClick: () => confirm("Reset Settings?", "This will reset your Material Discord customizations back to their default settings.", {
                     onConfirm: () => { this.settings = this.defaultSettings, this.saveAndRefresh() }
                 })
             }, "Reset settings"));
