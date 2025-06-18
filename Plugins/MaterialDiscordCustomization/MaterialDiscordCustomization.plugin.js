@@ -132,7 +132,7 @@ module.exports = class MaterialDiscordCustomization {
                     type: "color",
                     id: "accent",
                     name: "Accent text color",
-                    note: "This is the color of text for elements such as filled buttons. Note: this does not do anything with Material You enabled.",
+                    note: "The color of text in elements such as accent filled buttons. Note: this does not do anything with Material You enabled.",
                     value: this.settings["accent"].textColor,
                     defaultValue: this.defaultSettings["accent"].textColor,
                     inline: true,
@@ -152,7 +152,7 @@ module.exports = class MaterialDiscordCustomization {
                             type: "custom",
                             id: "saturationModifier",
                             name: "Saturation modifier",
-                            note: "This value is used to calculate the overall saturation of the UI. Default: 0.3",
+                            note: "The modifier number used to calculate the overall saturation of the UI. Default: 0.3",
                             inline: false,
                             children: React.createElement(Slider, {
                                 minValue: 100,
@@ -171,7 +171,7 @@ module.exports = class MaterialDiscordCustomization {
                             type: "custom",
                             id: "lightnessModifier",
                             name: "Lightness modifier",
-                            note: "This value is used to calculate the overall lightness of the UI. Default: 0.225",
+                            note: "The modifier number used to calculate the overall lightness of the UI. Default: 0.225",
                             inline: false,
                             children: React.createElement(Slider, {
                                 minValue: 200,
@@ -190,7 +190,7 @@ module.exports = class MaterialDiscordCustomization {
                             type: "custom",
                             id: "textLightnessModifier",
                             name: "Text lightness modifier",
-                            note: "This value is used to calculate the lightness of text. Default: 1.0",
+                            note: "The modifier number used to calculate the lightness of text. Default: 1.0",
                             inline: false,
                             children: React.createElement(Slider, {
                                 minValue: 500,
@@ -218,7 +218,7 @@ module.exports = class MaterialDiscordCustomization {
                             type: "custom",
                             id: "saturationModifier",
                             name: "Saturation modifier",
-                            note: "This value is used to calculate the overall saturation of the UI. Default: 0.75",
+                            note: "The modifier number used to calculate the overall saturation of the UI. Default: 0.75",
                             inline: false,
                             children: React.createElement(Slider, {
                                 minValue: 100,
@@ -237,7 +237,7 @@ module.exports = class MaterialDiscordCustomization {
                             type: "custom",
                             id: "lightnessModifier",
                             name: "Lightness modifier",
-                            note: "This value is used to calculate the overall lightness of the UI. Default: 2.125",
+                            note: "The modifier number used to calculate the overall lightness of the UI. Default: 2.125",
                             inline: false,
                             children: React.createElement(Slider, {
                                 minValue: 1500,
