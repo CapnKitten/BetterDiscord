@@ -1,7 +1,7 @@
 /**
  * @name MaterialDiscordCustomization
  * @author CapnKitten
- * @version 1.0.1
+ * @version 1.0.1.1
  * @description Implements easy customization of the Material Discord theme.
  * @authorId 405126960902176768
  * @website https://github.com/CapnKitten
@@ -13,7 +13,7 @@
 const config = {
     info: {
         name: "MaterialDiscordCustomization",
-        version: "1.0.1",
+        version: "1.0.1.1",
         description: "Implements easy customization of the Material Discord theme."
     },
     changelog: [
@@ -124,7 +124,9 @@ module.exports = class MaterialDiscordCustomization {
                     defaultValue: ACCENT_HEX_DEFAULT,
                     inline: true,
                     onChange: e => {
-                        this.settings["accent"] = this.hexToHsl(e),
+                        this.settings["accent"].h = this.hexToHsl(e).h,
+                        this.settings["accent"].s = this.hexToHsl(e).s,
+                        this.settings["accent"].l = this.hexToHsl(e).l,
                         this.saveAndRefresh()
                     }
                 },
