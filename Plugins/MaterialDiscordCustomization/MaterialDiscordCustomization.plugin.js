@@ -1,7 +1,7 @@
 /**
  * @name MaterialDiscordCustomization
  * @author CapnKitten
- * @version 1.0.0
+ * @version 1.0.1
  * @description Implements easy customization of the Material Discord theme.
  * @authorId 405126960902176768
  * @website https://github.com/CapnKitten
@@ -13,9 +13,18 @@
 const config = {
     info: {
         name: "MaterialDiscordCustomization",
-        version: "1.0.0",
+        version: "1.0.1",
         description: "Implements easy customization of the Material Discord theme."
-    }
+    },
+    changelog: [
+        {
+            type: "added",
+            title: "Missing variable",
+            items: [
+                "Due to the accent text color variable not being customizable with Material You enabled, it was mistakenly left out. It has now been added for those that use just the base theme."
+            ]
+        }
+    ]
 };
 
 const { DOM, Webpack, UI, React, Patcher, Logger, Utils, Data } = new BdApi(config.info.name);
@@ -116,6 +125,19 @@ module.exports = class MaterialDiscordCustomization {
                     inline: true,
                     onChange: e => {
                         this.settings["accent"] = this.hexToHsl(e),
+                        this.saveAndRefresh()
+                    }
+                },
+                {
+                    type: "color",
+                    id: "accent",
+                    name: "Accent text color",
+                    note: "This is the color of text for elements such as filled buttons. Note: this does not do anything with Material You enabled.",
+                    value: this.settings["accent"].textColor,
+                    defaultValue: this.defaultSettings["accent"].textColor,
+                    inline: true,
+                    onChange: e => {
+                        this.settings["accent"].textColor = e,
                         this.saveAndRefresh()
                     }
                 },
@@ -489,6 +511,7 @@ module.exports = class MaterialDiscordCustomization {
                 --accent-hue: ${this.settings.accent.h} !important;
                 --accent-saturation: ${this.settings.accent.s}% !important;
                 --accent-lightness: ${this.settings.accent.l}% !important;
+                --accent-text-color: ${this.settings.accent.textColor} !important;
 
                 --button-height: ${this.settings.button.height}px !important;
                 --button-radius: ${this.settings.button.radius}px !important;
@@ -537,7 +560,8 @@ module.exports = class MaterialDiscordCustomization {
             accent: {
                 h: 224,
                 s: 71,
-                l: 61
+                l: 61,
+                textColor: "#ffffff"
             },
             dark: {
                 saturationModifier: 300,
