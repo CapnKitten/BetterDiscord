@@ -8,7 +8,7 @@
 	box-shadow: var(--shadow-medium) important($important);
 }
 
-@mixin card-format($important: false, $padding: 0, $filled: false, $hover: false) {
+@mixin card-format($important: false, $padding: 0, $filled: false, $hover: false, $shadow: false) {
 	@if $filled {
 		background-color: var(--card-color-filled) important($important);
 		border: none important($important);
@@ -21,11 +21,23 @@
 	border-radius: var(--card-radius-big) important($important);
 
 	@if $hover {
-		transition: var(--default-time) var(--default-animation) background-color;
+		@if $shadow {
+			box-shadow: none important($important);
+			transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) box-shadow important($important);
 
-		&:hover {
-			background-color: var(--card-color-hover) important($important);
+			&:hover {
+				background-color: var(--card-color-hover) important($important);
+				box-shadow: var(--shadow-soft) important($important);
+			}
+		} @else {
+			transition: var(--default-time) var(--default-animation) background-color important($important);
+
+			&:hover {
+				background-color: var(--card-color-hover) important($important);
+			}
 		}
+	} @else {
+		box-shadow: none important($important);
 	}
 }
 
