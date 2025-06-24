@@ -1,7 +1,7 @@
 /**
  * @name MaterialDiscordCustomization
  * @author CapnKitten
- * @version 1.0.1.1
+ * @version 1.0.2
  * @description Implements easy customization of the Material Discord theme.
  * @authorId 405126960902176768
  * @website https://github.com/CapnKitten
@@ -13,13 +13,20 @@
 const config = {
     info: {
         name: "MaterialDiscordCustomization",
-        version: "1.0.1.1",
+        version: "1.0.2",
         description: "Implements easy customization of the Material Discord theme."
     },
     changelog: [
         {
             type: "added",
-            title: "Missing variable",
+            title: "Slider Legends",
+            items: [
+                "Added the unit type to the slider legends."
+            ]
+        },
+        {
+            type: "added",
+            title: "Missing Variable",
             items: [
                 "Due to the accent text color variable not being customizable with Material You enabled, it was mistakenly left out. It has now been added for those that use just the base theme."
             ]
@@ -27,7 +34,7 @@ const config = {
     ]
 };
 
-const { DOM, Webpack, UI, React, Patcher, Logger, Utils, Data } = new BdApi(config.info.name);
+const { DOM, Webpack, UI, React, Patcher, Utils, Data } = new BdApi(config.info.name);
 const { Filters } = Webpack;
 
 const Slider = Webpack.getModule(m => Filters.byKeys("stickToMarkers", "initialValue")(m?.defaultProps), { searchExports: true });
@@ -161,7 +168,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 1000,
                                 markers: markers(25, 1001, 25),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 200 === 0 || v === 25 ? (v / 1000).toFixed(1) : "",
+                                onMarkerRender: v => v % 200 === 0 || v === 25 ? (v / 1000).toFixed(2) : "",
                                 initialValue: this.settings["dark"].saturationModifier,
                                 onValueChange: e => {
                                     this.settings["dark"].saturationModifier = e,
@@ -180,7 +187,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 1000,
                                 markers: markers(200, 1001, 25),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 200 === 0 || v === 25 ? (v / 1000).toFixed(1) : "",
+                                onMarkerRender: v => v % 200 === 0 || v === 25 ? (v / 1000).toFixed(2) : "",
                                 initialValue: this.settings["dark"].lightnessModifier,
                                 onValueChange: e => {
                                     this.settings["dark"].lightnessModifier = e,
@@ -227,7 +234,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 1000,
                                 markers: markers(25, 1001, 25),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 200 === 0 || v === 25 ? (v / 1000).toFixed(1) : "",
+                                onMarkerRender: v => v % 200 === 0 || v === 25 ? (v / 1000).toFixed(2) : "",
                                 initialValue: this.settings["light"].saturationModifier,
                                 onValueChange: e => {
                                     this.settings["light"].saturationModifier = e,
@@ -246,7 +253,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 2500,
                                 markers: markers(1500, 2501, 25),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 100 === 0 || v === 25 ? (v / 1000).toFixed(1) : "",
+                                onMarkerRender: v => v % 100 === 0 || v === 25 ? (v / 1000).toFixed(2) : "",
                                 initialValue: this.settings["light"].lightnessModifier,
                                 onValueChange: e => {
                                     this.settings["light"].lightnessModifier = e,
@@ -274,6 +281,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 48,
                                 markers: [24, 32, 40, 48],
                                 stickToMarkers: true,
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["button"].height,
                                 onValueChange: e => {
                                     this.settings["button"].height = e,
@@ -292,6 +300,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 24,
                                 markers: [4, 8, 12, 16, 20, 24],
                                 stickToMarkers: true,
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["button"].radius,
                                 onValueChange: e => {
                                     this.settings["button"].radius = e,
@@ -310,6 +319,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 32,
                                 markers: [8, 12, 16, 20, 24, 28, 32],
                                 stickToMarkers: true,
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["button"].padding,
                                 onValueChange: e => {
                                     this.settings["button"].padding = e,
@@ -337,7 +347,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 32,
                                 markers: markers(0, 33, 2),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 4 === 0 || v === 4 ? Math.trunc(v.toFixed(1)) : "",
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["message"].radius,
                                 onValueChange: e => {
                                     this.settings["message"].radius = e,
@@ -356,7 +366,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 24,
                                 markers: markers(0, 25, 2),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 4 === 0 || v === 4 ? Math.trunc(v.toFixed(1)) : "",
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["message"].paddingTop,
                                 onValueChange: e => {
                                     this.settings["message"].paddingTop = e,
@@ -375,7 +385,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 24,
                                 markers: markers(0, 25, 2),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 4 === 0 || v === 4 ? Math.trunc(v.toFixed(1)) : "",
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["message"].paddingSide,
                                 onValueChange: e => {
                                     this.settings["message"].paddingSide = e,
@@ -403,7 +413,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 32,
                                 markers: markers(0, 33, 2),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 4 === 0 || v === 4 ? Math.trunc(v.toFixed(1)) : "",
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["card"].radiusSmall,
                                 onValueChange: e => {
                                     this.settings["card"].radiusSmall = e,
@@ -422,7 +432,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 48,
                                 markers: markers(0, 49, 3),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 4 === 0 || v === 4 ? Math.trunc(v.toFixed(1)) : "",
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["card"].radiusBig,
                                 onValueChange: e => {
                                     this.settings["card"].radiusBig = e,
@@ -450,7 +460,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 32,
                                 markers: markers(0, 33, 1),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 4 === 0 || v === 4 ? Math.trunc(v.toFixed(1)) : "",
+                                onMarkerRender: v => v % 4 === 0 || v === 4 ? v + "px" : "",
                                 initialValue: this.settings["popout"].radiusSmall,
                                 onValueChange: e => {
                                     this.settings["popout"].radiusSmall = e,
@@ -469,7 +479,7 @@ module.exports = class MaterialDiscordCustomization {
                                 maxValue: 48,
                                 markers: markers(0, 49, 2),
                                 stickToMarkers: true,
-                                onMarkerRender: v => v % 4 === 0 || v === 4 ? Math.trunc(v.toFixed(1)) : "",
+                                onMarkerRender: v => v % 6 === 0 || v === 6 ? v + "px" : "",
                                 initialValue: this.settings["popout"].radiusBig,
                                 onValueChange: e => {
                                     this.settings["popout"].radiusBig = e,
@@ -494,7 +504,7 @@ module.exports = class MaterialDiscordCustomization {
             }, "Reset settings"));
 
         return (React.createElement(
-            'div',
+            "div",
             { className: SETTINGS_CLASSNAME },
             element,
             resetButton
@@ -598,10 +608,10 @@ module.exports = class MaterialDiscordCustomization {
     }
 
     loadSettings(defaults = {}) {
-        return Utils.extend({}, defaults, Data.load('settings'));
+        return Utils.extend({}, defaults, Data.load("settings"));
     }
 
     saveSettings(settings = this.settings) {
-        return Data.save('settings', settings);
+        return Data.save("settings", settings);
     }
 }
