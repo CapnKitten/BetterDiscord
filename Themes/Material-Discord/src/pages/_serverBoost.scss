@@ -14,14 +14,28 @@
     background-color: var(--main-color);
 }
 
+/* SERVER BOOST -> SIDEBAR */
+
 %serverBoostSidebarContainer {
+    flex: 0 1 auto;
     margin: var(--spacing-12) var(--spacing-12) var(--spacing-12) var(--spacing-8);
+    padding: var(--spacing-16) calc(var(--spacing-16) - var(--scrollbar-thin-width)) var(--spacing-16) var(--spacing-16);
     background-color: var(--main-alt);
     border-radius: var(--popout-radius-big);
+    overflow-y: scroll;
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+        --scrollbar-width: var(--scrollbar-thin-width);
+    }
 }
 
 %serverBoostSidebarInfoContainer {
-    padding: var(--spacing-24);
+    padding: 0;
+}
+
+%serverBoostSidebarHeader {
+    padding: var(--spacing-24) 0 var(--spacing-8);
 }
 
 %serverBoostStatCard {
@@ -30,6 +44,30 @@
 
 %serverBoostHowBoostsWork {
     border-radius: var(--card-radius-big);
+}
+
+%serverBoostSidebarRecentActivityContainer {
+    flex: 0 1 auto;
+    padding: 0 !important;
+    gap: 2px;
+    overflow: unset !important;
+}
+
+%serverBoostSidebarSystemMessageContainer {
+    padding: var(--spacing-12) var(--spacing-8);
+    background-color: var(--card-color-filled);
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    &:first-child {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    &:nth-last-child(2) {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
 }
 
 /* SERVER BOOST -> CARDS */

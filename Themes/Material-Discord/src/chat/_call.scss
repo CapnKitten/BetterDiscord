@@ -5,20 +5,14 @@
  */
 
 %voiceCallActionsWrapper {
-    %voiceCallActionsButtonSection:first-child {
-        > %voiceCallAttachedCaretButtonContainer {
-            > div:first-child {
-                %callButtonColorable {
-                    border-radius: 24px 4px 4px 24px;
-                }
-            }
-        }
-    }
+    --button-height: 48px;
+    --button-radius: calc(var(--button-height) / 2);
+    --button-small-radius: 4px;
 }
 
 %voiceCallActionsButtonSection {
     background-color: hsl(from var(--popout-color) h s l / 0.75);
-    border-radius: 28px;
+    border-radius: calc(var(--button-height) + 4px);
     border: none;
 }
 
@@ -27,19 +21,23 @@
 
     %callButtonColorable {
         position: relative;
-        width: 48px;
-        height: 48px;
+        width: var(--button-height);
+        height: var(--button-height);
         padding: 0;
-        border-radius: 24px;
+        border-radius: var(--button-radius);
+
+        &%voiceCallAttachedButtonContainer {
+            border-radius: var(--button-radius) var(--button-small-radius) var(--button-small-radius) var(--button-radius);
+        }
 
         &%voiceCallActionsContextMenuNub {
-            width: 48px;
+            width: var(--button-height);
             margin-left: 0;
-            border-radius: 4px 24px 24px 4px;
+            border-radius: var(--button-small-radius) var(--button-radius) var(--button-radius) var(--button-small-radius);
             transition: calc(var(--default-time) / 1.5) var(--default-animation) border-radius;
 
             &%callButtonActive {
-                border-radius: 24px;
+                border-radius: var(--button-radius);
             }
 
             &:before {
@@ -75,11 +73,11 @@
 
     &%voiceCallDisconnect {
         background-color: hsl(from var(--popout-color) h s l / 0.75);
-        border-radius: 28px;
+        border-radius: calc(var(--button-radius) + 4px);
         border: none;
 
         %callCenterButton {
-            border-radius: 24px 4px 4px 24px;
+            border-radius: var(--button-radius) var(--button-small-radius) var(--button-small-radius) var(--button-radius);
         }
 
         %voiceCallDisconnect {
@@ -100,10 +98,11 @@
     %voiceCallFullRegionButton%voiceCallDisconnect {
         --button-background: hsl(var(--alert-hsl));
         --button-text-color: var(--alert-text-color);
+        --button-leave-height: calc(var(--button-height) + 4px);
+        --button-radius: calc(var(--button-leave-height) / 2);
 
-        width: 56px;
-        height: 56px;
-        border-radius: 28px;
+        width: var(--button-leave-height);
+        height: var(--button-leave-height);
     }
 }
 
