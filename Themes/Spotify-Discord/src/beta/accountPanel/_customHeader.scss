@@ -4,6 +4,16 @@
  *
  */
 
+%contentMain {
+    border-radius: var(--app-card-radius);
+    overflow: hidden;
+}
+
+%sidebarList {
+    overflow: visible;
+    z-index: 101;
+}
+
 %headerBar {
     --header-secondary: var(--text-normal);
     --interactive-normal: var(--text-normal);
@@ -55,16 +65,12 @@
 %privateChannels {
     &[aria-label] {
         &:after {
-            --header-bar-xposition: calc(72px + 240px + (var(--app-card-margin) * 3));
-            --header-bar-yposition: calc(var(--window-title-bar-height) + var(--app-card-top-margin));
-            --header-bar-width: calc(100vw - (var(--header-bar-xposition) + var(--app-card-margin)));
-
             position: fixed;
             content: " ";
-            width: var(--header-bar-width);
+            width: 100vw;
             height: var(--header-bar-height);
-            top: var(--header-bar-yposition);
-            left: var(--header-bar-xposition);
+            top: 0;
+            left: calc(100% + var(--app-card-margin));
             background-color: var(--header-bar-color);
             border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
             z-index: 101;
