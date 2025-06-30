@@ -9,9 +9,15 @@
 }
 
 %accountPanelAvatarWrapper {
+    flex-direction: row-reverse;
     min-width: 32px;
+    width: 100%;
     margin: 0;
     padding-left: 0;
+
+    &:hover {
+        background-color: transparent;
+    }
 }
 
 %noticeStreamerMode + %contentMain {
@@ -45,28 +51,37 @@
 }
 
 %accountPanel {
+    --account-panel-height: 44px;
+
     position: fixed;
-    width: 32px;
-    height: var(--header-bar-height);
-    top: calc(var(--window-title-bar-height) + var(--app-card-top-margin));
-    right: var(--app-card-margin);
+    width: var(--account-panel-height);
+    height: var(--account-panel-height);
+    top: calc(var(--custom-app-top-bar-height) + var(--app-card-top-margin) + var(--space-4));
+    right: calc(var(--app-card-margin) + var(--space-4));
     margin-bottom: 0;
-    padding-right: 10px;
+    padding: 0 4px;
+    background-color: var(--app-background) !important;
+    border-radius: 22px;
     justify-content: flex-end;
     transition: var(--default-time) var(--default-animation) width;
 
     %avatarWrapper {
+        width: 32px !important;
+        height: 32px !important;
         z-index: 103;
+
+        %avatarMask {
+            width: 36px !important;
+            height: 36px !important;
+        }
     }
 
     %accountPanelNameTag {
-        position: absolute;
-        width: 38px;
+        width: calc(100% - 32px);
         top: calc( (var(--header-bar-height) / 2) - (38px / 2) );
         right: 7px;
         margin-right: 0;
-        padding: 4px 0;
-        background-color: hsl(0,0%,6%);
+        padding: 0;
         border-radius: 19px;
         transition: var(--default-time) var(--default-animation) width, var(--default-time) var(--default-animation) padding, var(--default-time) var(--default-animation) box-shadow;
 
@@ -89,8 +104,8 @@
         position: absolute;
         flex-direction: column;
         width: auto;
-        top: calc(var(--header-bar-height) + 8px);
-        right: 8px;
+        top: calc(var(--account-panel-height) + var(--space-8));
+        right: var(--space-4);
         padding: 4px;
         pointer-events: none;
         transition: var(--default-time) var(--default-animation) opacity;
@@ -99,8 +114,8 @@
             position: absolute;
             content: " ";
             width: 100%;
-            height: 8px;
-            top: -8px;
+            height: var(--space-8);
+            top: calc(var(--space-8) * -1);
             left: 0;
         }
     }
@@ -112,6 +127,7 @@
         gap: 8px;
         width: 100%;
         height: auto;
+        margin: 0;
         padding: 9px 12px;
         border-radius: calc(var(--popout-radius) - 2px);
         justify-content: left;
@@ -184,11 +200,11 @@
     }
 
     &:hover {
-        width: 132px;
+        width: 176px;
+        padding: 0 4px 0 12px;
 
         %accountPanelNameTag {
             width: calc(100% - 48px);
-            padding: 4px 35px 4px 12px;
             box-shadow: var(--elevation-high);
 
             %accountPanelUsername,
@@ -212,5 +228,12 @@
                 opacity: 1;
             }
         }
+    }
+}
+
+%visualRefresh {
+    %guildsWrapper,
+    %sidebarList {
+        height: calc(100% - var(--custom-app-panels-height, 0)) !important;
     }
 }
