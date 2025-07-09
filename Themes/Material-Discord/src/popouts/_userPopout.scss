@@ -157,6 +157,11 @@
     }
 }
 
+%userProfileCard {
+    border-radius: calc(var(--popout-radius-big) / 1.6);
+    transition: var(--default-time) var(--default-animation) background-color;
+}
+
 %userProfileOverlay {
     background-color: var(--card-color-filled);
 }
@@ -390,6 +395,7 @@
 %userProfileFooter {
 	%textAreaPlaceholder {
         color: var(--input-placeholder-color);
+		font-weight: 500;
     }
 }
 
@@ -414,4 +420,82 @@
 
 %userProfileQuestContainer {
     background-color: unset;
+}
+
+/* USER POPOUT -> V2 PROFILE */
+
+%userProfileModalV2 {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+    border: none;
+    box-shadow: var(--shadow-hard);
+
+    &:not(%userProfileOuterThemed) {
+        %userProfileModalV2Profile {
+            --background-surface-high: var(--popout-color-alt);
+
+            outline: none;
+        }
+    }
+
+    %userProfileInner {
+        padding: 48px 36px;
+    }
+
+    %userProfileModalV2Profile {
+        border-radius: var(--popout-radius-big);
+        border: none;
+        box-shadow: var(--shadow-soft);
+    }
+
+    %userProfileBanner {
+        border-radius: var(--popout-radius-big);
+    }
+
+    %userProfileEffectsInner {
+        border-radius: var(--popout-radius-big);
+    }
+
+    /* recent activity */
+
+    %userProfileModalV2ActivityScroller {
+        padding-bottom: 0;
+        border-radius: var(--card-radius-big);
+
+        %userProfileModalHeadings {
+            padding-top: var(--space-12);
+        }
+    }
+
+    %userProfileModalV2ActivityCards {
+        gap: 2px;
+
+        > li {
+            border-radius: 4px;
+            overflow: hidden;
+
+            &:first-child {
+                border-top-left-radius: var(--card-radius-big);
+                border-top-right-radius: var(--card-radius-big);
+            }
+
+            &:last-child {
+                border-bottom-left-radius: var(--card-radius-big);
+                border-bottom-right-radius: var(--card-radius-big);
+            }
+        }
+
+        %messageButtonWrapper {
+            height: 28px;
+            top: 0 !important;
+            bottom: 0;
+            margin: auto 0;
+            background-color: hsl(from var(--user-profile-toolbar-background) h s l / 0.23);
+            box-shadow: var(--shadow-soft) !important;
+        }
+    }
+
+    %userProfileModalV2ActivityCard {
+        border-radius: 0;
+    }
 }
