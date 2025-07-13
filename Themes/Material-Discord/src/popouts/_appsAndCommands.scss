@@ -108,17 +108,33 @@
     }
 }
 
+%appOverviewContainerNoVideo {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
+%appCommandListHeader {
+    %button {
+        --button-height: 32px;
+        --button-padding: 0 12px;
+    }
+}
+
 %appCommandContainer {
     @include card-format(false, 8px, true);
+}
 
-    %appCommand {
-        background-color: transparent;
-        border-radius: calc(var(--popout-radius-big) / 1.5) !important;
-        border-bottom: none !important;
-        transition: var(--default-time) var(--default-animation) background-color;
+%appCommand {
+    background-color: transparent;
+    border-radius: calc(var(--popout-radius-big) / 1.5) !important;
+    border-bottom: none !important;
+    transition: var(--default-time) var(--default-animation) background-color;
 
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
+    &:hover {
+        background-color: var(--card-color-hover);
+    }
+
+    %button {
+        --button-padding: 0 16px;
     }
 }
