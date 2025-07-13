@@ -2532,11 +2532,13 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
 
 /* MAIN TEXTAREA -> BOT COMMANDS */
 .entryPointButtonContainer_f75fb0 {
-  margin: auto 0 auto 12px;
+  margin: auto;
 }
 .entryPointButtonContainer_f75fb0 .lookFilled__201d5 {
-  --button-height: var(--custom-channel-textarea-text-area-height);
-  --button-radius: calc(var(--custom-channel-textarea-text-area-height) / 2);
+  --button-height: calc(var(--main-textarea-height));
+  --button-padding: 0 24px;
+  --button-radius: calc(var(--main-textarea-height) / 2);
+  min-width: 0;
   margin-left: 0;
 }
 
@@ -12595,6 +12597,16 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
   background-color: var(--card-color-active);
 }
 
+.overviewContainerNoVideo__95856 {
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+}
+
+.commandListHeader_c94584 .button__201d5 {
+  --button-height: 32px;
+  --button-padding: 0 12px;
+}
+
 .commandContainer_c94584 {
   background-color: var(--card-color-filled);
   border: none;
@@ -12602,14 +12614,18 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
   border-radius: var(--card-radius-big);
   box-shadow: none;
 }
-.commandContainer_c94584 .command_c94584 {
+
+.command_c94584 {
   background-color: transparent;
   border-radius: calc(var(--popout-radius-big) / 1.5) !important;
   border-bottom: none !important;
   transition: var(--default-time) var(--default-animation) background-color;
 }
-.commandContainer_c94584 .command_c94584:hover {
+.command_c94584:hover {
   background-color: var(--card-color-hover);
+}
+.command_c94584 .button__201d5 {
+  --button-padding: 0 16px;
 }
 
 /*
@@ -15025,6 +15041,12 @@ body:active .container_d9c882:not(:active) {
 }
 .user-profile-modal-v2 .card__39ec2 {
   border-radius: 0;
+}
+.user-profile-modal-v2 .imageContainer_ef9ae7 {
+  border-radius: 50%;
+}
+.user-profile-modal-v2 .container__37bfc .headings_bf424d .text-xs\/medium_cf4812 {
+  font-size: 14px;
 }
 
 /*
@@ -19806,6 +19828,7 @@ body:active .container_d9c882:not(:active) {
 .visual-refresh .channelBottomBarArea_f75fb0 {
   margin: 0;
   padding: 0 var(--space-16);
+  gap: 12px;
 }
 .visual-refresh .channelBottomBarArea_f75fb0 + span + .typing_b88801,
 .visual-refresh .channelBottomBarArea_f75fb0 + .typing_b88801 {
