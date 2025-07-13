@@ -16,6 +16,8 @@
   --accent-hsl: var(--accent-hue),calc(var(--accent-saturation) * var(--saturation-factor)),var(--accent-lightness);
   --accent-opacity: 1;
   --accent-text-color: hsl(0,0%,0%);
+  --accent-secondary-color: hsl(from hsl(var(--accent-hsl)) h calc(s * 0.1) l / 0.35);
+  --accent-secondary-text-color: hsl(0,0%,94%);
   /* ALERT HSL AND TEXT COLOR SETTINGS */
   --alert-hue: 359;
   --alert-saturation: 66.7%;
@@ -1771,6 +1773,7 @@ body {
   background-image: linear-gradient(0deg, transparent, transparent 1px, hsl(var(--accent-hsl)) 0, hsl(var(--accent-hsl)) 2px, transparent 0) !important;
 }
 
+/* BUTTONS -> CALL BUTTONS */
 .colorable_f1ceac {
   --button-background: var(--background-modifier-hover);
   --button-text-color: #fff;
@@ -1833,6 +1836,85 @@ body {
 .questionMark-3V9mGJ .icon-3JHfo7 {
   color: var(--accent-text-color);
   filter: none;
+}
+
+/* BUTTONS -> BUTTON V2 */
+.button__6af3a {
+  --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
+  --button-text-color: var(--accent-text-color);
+  --button-outline: none;
+  background-color: var(--button-background) !important;
+  border: var(--button-outline) !important;
+  color: var(--button-text-color) !important;
+  border: var(--button-outline) !important;
+}
+.button__6af3a:after {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--button-action-color);
+  border-radius: var(--button-radius);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--default-time) var(--default-animation) opacity;
+}
+.button__6af3a:hover:after {
+  opacity: 0.075;
+}
+.button__6af3a:active:after {
+  opacity: 0.15;
+}
+.button__6af3a .buttonChildrenWrapper__6af3a {
+  min-width: 0 !important;
+  height: var(--button-height);
+  padding: 0 !important;
+  line-height: var(--button-height);
+  color: inherit;
+  overflow: visible;
+}
+.button__6af3a .buttonChildrenWrapper__6af3a svg {
+  height: var(--button-height);
+}
+.button__6af3a .text-sm\/medium_cf4812,
+.button__6af3a .text-md\/medium_cf4812,
+.button__6af3a .text-lg\/medium_cf4812 {
+  text-shadow: none;
+}
+
+/* BUTTONS -> BUTTON V2 -> COLORS */
+.primary__6af3a {
+  --button-background: hsl(var(--accent-hsl));
+  --button-text-color: var(--accent-text-color);
+}
+
+.secondary__6af3a {
+  --button-background: var(--accent-secondary-color);
+  --button-text-color: var(--accent-secondary-text-color);
+}
+
+.critical-primary__6af3a {
+  --button-background: hsl(var(--alert-hsl));
+  --button-text-color: var(--alert-text-color);
+}
+
+.critical-secondary__6af3a {
+  --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
+  --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
+}
+
+/* BUTTONS -> BUTTON V2 -> SIZES */
+.sm__6af3a,
+.md__6af3a,
+.lg__6af3a {
+  min-width: var(--button-height) !important;
+  height: var(--button-height) !important;
+  min-height: var(--button-height) !important;
+  padding: var(--button-padding) !important;
+  line-height: var(--button-height) !important;
+  border-radius: var(--button-radius) !important;
 }
 
 /*
