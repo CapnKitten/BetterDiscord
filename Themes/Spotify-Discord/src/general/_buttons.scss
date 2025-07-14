@@ -183,6 +183,90 @@
     min-width: var(--button-height);
 }
 
+/* BUTTONS -> BUTTON V2 */
+
+%buttonV2 {
+    --button-background: hsl(var(--accent-hsl));
+	--button-text-color: var(--accent-text-color);
+	--button-outline: none;
+
+    background-color: var(--button-background) !important;
+	border-radius: var(--button-radius) !important;
+    border: var(--button-outline) !important;
+    color: var(--button-text-color) !important;
+
+    &:not([disabled]) {
+        &:hover {
+			box-shadow: none;
+            opacity: 0.95;
+			transform: scale(1.05);
+		}
+
+        &:active {
+            opacity: 0.75;
+
+			&:hover {
+				transform: scale(1);
+			}
+		}
+    }
+
+    %buttonV2ChildrenWrapper {
+        min-width: 0 !important;
+        height: var(--button-height);
+		padding: 0 !important;
+		line-height: var(--button-height);
+		color: inherit;
+        font-size: 14px;
+    	font-weight: 700;
+		overflow: visible;
+
+        %textSmMedium {
+            font-size: 14px;
+        	font-weight: 700;
+        }
+
+		svg {
+			height: var(--button-height);
+		}
+    }
+}
+
+/* BUTTONS -> BUTTON V2 -> COLORS */
+
+%buttonV2Primary {
+    --button-background: hsl(var(--accent-hsl));
+    --button-text-color: var(--accent-text-color);
+}
+
+%buttonV2Secondary {
+    --button-background: hsl(0,0%,94%);
+    --button-text-color: hsl(0,0%,0%);
+}
+
+%buttonV2CriticalPrimary {
+    --button-background: hsl(var(--alert-hsl));
+    --button-text-color: var(--alert-text-color);
+}
+
+%buttonV2CriticalSecondary {
+    --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
+    --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
+}
+
+/* BUTTONS -> BUTTON V2 -> SIZES */
+
+%buttonV2Small,
+%buttonV2Medium,
+%buttonV2Large {
+    min-width: var(--button-height) !important;
+	height: var(--button-height) !important;
+	min-height: var(--button-height) !important;
+	padding: var(--button-padding) !important;
+	line-height: var(--button-height) !important;
+	border-radius: var(--button-radius) !important;
+}
+
 /* BUTTONS -> CALL BUTTONS */
 
 %callCenterButton {
