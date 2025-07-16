@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  DISCOVER APPS
@@ -5,14 +7,9 @@
  */
 
 %appCard {
-    background-color: var(--card-color-filled) !important;
-    border-radius: var(--card-radius-big);
+    @include card-format($important: true, $padding: 0, $filled: true, $hover: true, $shadow: true);
 
     &:hover {
-        background-color: var(--card-color-hover) !important;
-        transform: none !important;
-        box-shadow: none !important;
-
         %appCardAvatar {
             background-color: var(--card-color-hover) !important;
             border-color: var(--card-color-hover) !important;

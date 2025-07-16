@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  DISCOVER QUESTS
@@ -7,16 +9,35 @@
 %questsHeaderContainer {
     border-top-right-radius: var(--card-radius-big);
     overflow: hidden;
-
-    %discoverHeaderBar {
-        height: 50px;
-    }
 }
 
 %questsHeaderBackdrop {
     background-color: var(--chat-color);
     border-top-right-radius: var(--card-radius-big);
     opacity: 1 !important;
+}
+
+%questsHeaderOrbsContainer {
+    background-color: var(--card-color-filled);
+    border-radius: 18px;
+    border: none;
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
+
+    &%questsHeaderOrbsContainerHighlighted {
+        background-color: var(--card-color-hover);
+    }
+
+    &%questsHeaderOrbsContainerSelected {
+        background-color: var(--card-color-active);
+        border-radius: 10px;
+    }
+}
+
+%questsHeaderOrbsPopoutContainer {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+    border: none;
+    box-shadow: var(--shadow-hard);
 }
 
 /* QUESTS -> BANNER */
@@ -28,6 +49,7 @@
     min-height: 260px;
     max-height: 260px;
     box-sizing: border-box;
+    overflow: hidden;
 
     %button {
         --button-padding: var(--button-padding-icon-right);
@@ -68,13 +90,12 @@
 /* QUESTS -> CARDS */
 
 %questCard {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+    @include card-format($important: false, $padding: 0, $filled: true, $hover: true, $shadow: true);
 }
 
 %questCardImageContainer {
+    background-color: transparent;
     border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-    background-color: var(--card-color-filled);
 
     %questCardHeroAssetWrapper {
         border-radius: var(--card-radius-big);

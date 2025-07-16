@@ -14,17 +14,29 @@
 
 %themeDark {
     --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
+    --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.33) calc(l * 0.5));
 
+    %layerContainer,
     %menuPopoutSliderContainer {
         --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.44));
+        --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.43) calc(l * 0.34));
+    }
+
+    %bdSettingsGroup {
+        &%bdSettingsGroupCollapsible {
+            --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
+        }
     }
 }
 
 %themeLight {
     --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 2));
+    --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.54) calc(l * 1.5));
 
+    %layerContainer,
     %menuPopoutSliderContainer {
         --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 1.92));
+        --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.87) calc(l * 1.7));
     }
 
     %slider {
@@ -37,7 +49,6 @@
         }
     }
 }
-
 
 %sliderMark {
     height: 100% !important;
@@ -53,6 +64,7 @@
         width: 6px;
         height: 6px;
         bottom: calc(((var(--slider-grabber-height) / 2) - 3px) + 4px);
+        background-color: var(--slider-mark-color);
         border-radius: 3px;
     }
 }
@@ -86,6 +98,7 @@
         %sliderBarFill {
             background-color: hsl(var(--accent-hsl--material-you));
             border-radius: inherit;
+            border: none;
             transition: var(--default-time) var(--default-animation) border-radius;
 
             &[style*="background: var(--yellow-300)"] {
@@ -154,7 +167,7 @@
     --slider-grabber-height: 28px;
     --slider-grabber-background: var(--popout-color);
 
-    height: var(--slider-height);
+    height: var(--slider-grabber-height);
     margin-bottom: 0 !important;
 
     %sliderTrack {
@@ -164,8 +177,14 @@
     }
 }
 
-%menuPopoutSliderContainer {
-    height: var(--slider-grabber-height);
+%layerContainer {
+    --slider-grabber-background: var(--popout-color);
+
+    %bdSettingsGroup {
+        &%bdSettingsGroupCollapsible {
+            --slider-grabber-background: var(--card-color-filled);
+        }
+    }
 }
 
 %sliderMenuPopout {

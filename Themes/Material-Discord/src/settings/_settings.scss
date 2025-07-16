@@ -45,14 +45,10 @@
 }
 
 %settingsNoticeContainer {
-    padding: 8px 8px 8px 16px;
-    background-color: var(--popout-color) !important;
-	border-radius: 4px;
-	box-shadow: var(--shadow-2dp) !important;
-
-    %settingsNoticeActions {
-        flex-direction: row-reverse;
-    }
+    padding: var(--space-8) var(--space-8) var(--space-8) var(--space-16);
+    background-color: var(--popout-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-soft);
 
     %buttonFilled {
         --button-padding: 0 12px;
@@ -66,30 +62,34 @@
             --accent-button-action: hsl(var(--button-link-accent-color));
         }
     }
-
-    %settingsNoticeResetButton {
-        --button-padding: 0;
-
-        min-width: var(--button-height);
-        margin-left: 0;
-        font-size: 0;
-
-        &:before {
-            display: flex;
-            position: absolute;
-            content: " ";
-            width: 18px;
-            height: 18px;
-            @include add-icon(var(--text-normal), close);
-            transform: scale(1.333333);
-        }
-
-        %buttonContents {
-            display: none;
-        }
-    }
 }
 
-.keybind-13vtq8 {
-	color: var(--text-muted) !important;
+%settingsNoticeMessage {
+    color: var(--text-normal) !important;
+}
+
+%settingsNoticeActions {
+    flex-direction: row-reverse;
+}
+
+%settingsNoticeResetButton {
+    --button-padding: 0;
+
+    min-width: var(--button-height);
+    margin-left: 0;
+    font-size: 0;
+
+    &:before {
+        display: flex;
+        position: absolute;
+        content: " ";
+        width: 18px;
+        height: 18px;
+        @include add-icon(var(--text-normal), close);
+        transform: scale(1.333333);
+    }
+
+    %buttonContents {
+        display: none;
+    }
 }
