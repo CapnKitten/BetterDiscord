@@ -11,6 +11,18 @@
     background-color: transparent;
 }
 
+%shopPage {
+    background-color: var(--chat-color);
+}
+
+%shopFilterBar {
+    background-color: transparent;
+}
+
+%shopSearchBar {
+    --input-height: 32px;
+}
+
 /* DISCORD SHOP CONTENT -> BANNERS */
 
 %shopShyBanner {
@@ -54,18 +66,13 @@
 /* DISCORD SHOP CONTENT -> CARDS */
 
 %shopCard {
-    background: var(--card-color-filled) !important;
-    border-radius: var(--card-radius-big);
-    border: none;
-    box-shadow: none !important;
-    transition: var(--default-time) var(--default-animation) background;
+    @include card-format($important: true, $padding: 0, $filled: true, $hover: true, $shadow: true);
 
     &:hover {
-        background: var(--card-color-active) !important;
         top: unset;
 
         %shopDarkCardBackground {
-            background-color: var(--card-color-active);
+            background-color: var(--card-color-hover);
         }
     }
 
