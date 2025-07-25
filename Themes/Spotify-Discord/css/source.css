@@ -189,6 +189,15 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
   --header-bar-color: transparent;
 }
 
+.bar__7aaec {
+  background-color: var(--popout-color);
+  border: none;
+}
+
+.progressContainer__0d0f9 {
+  background-color: var(--card-color-hover);
+}
+
 /*
  *
  *  CHANNELS LIST PANELS
@@ -361,13 +370,17 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
 }
 
 /* CHAT AREA -> NEW MESSAGES BAR */
+.barBase__0f481 {
+  border: none;
+}
 .barBase__0f481:not(.jumpToPresentBar__0f481) {
-  padding: 0 12px;
-  top: 8px;
+  padding: 0 var(--space-12);
+  top: var(--space-8);
+  left: var(--space-16);
   border-radius: 16px;
   background-color: hsl(var(--accent-hsl));
   box-shadow: var(--default-shadow);
-  gap: 12px;
+  gap: var(--space-12);
 }
 .barBase__0f481:not(.jumpToPresentBar__0f481) .barButtonBase__0f481 {
   padding: 0;
@@ -647,8 +660,9 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
 
 .wrapper__44df5 {
   height: var(--main-textarea-min-height);
-  margin-bottom: var(--textarea-margin);
+  margin: 0;
   padding: 0;
+  border: none;
 }
 
 .scrollableContainer__74017 .textArea__74017 {
@@ -663,13 +677,13 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar_c48ade {
 
 /* MAIN TEXTAREA -> APPS AND COMMANDS BUTTON */
 .channelAppLauncher_e6e74f {
-  width: var(--main-textarea-min-height);
-  height: var(--main-textarea-min-height);
-  margin: auto 0 var(--textarea-margin) 12px;
+  width: var(--space-32);
+  height: var(--space-32);
+  margin: auto 0;
 }
 .channelAppLauncher_e6e74f .button_e6e74f {
-  --button-height: var(--main-textarea-min-height);
-  width: var(--main-textarea-min-height);
+  --button-height: var(--space-32);
+  width: var(--space-32);
   background: var(--card-color);
   border-radius: var(--main-textarea-radius);
 }
@@ -3024,6 +3038,42 @@ pre, pre code, code.inline, .codeBlockText_ada32f, .codeLine_ada32f, .codeBlockL
 
 /*
  *
+ *  IMAGE VIEWER
+ *
+ */
+.actionButtons_cc1819 {
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  border: none;
+}
+.actionButtons_cc1819 .icon-only__6af3a {
+  --button-padding: 0;
+  --button-background: transparent;
+  --button-radius: calc(var(--popout-radius) - 2px);
+  --button-text-color: var(--text-default);
+  transform: none !important;
+}
+.actionButtons_cc1819 .icon-only__6af3a:hover {
+  --button-background: var(--card-color-active);
+}
+
+.closeButton__6088c {
+  display: flex;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+}
+.closeButton__6088c .buttonInner_aec7ab {
+  width: var(--button-height);
+  height: var(--button-height);
+  border-radius: calc(var(--popout-radius) - 2px);
+  border: none;
+}
+
+/*
+ *
  *  MODALS
  *
  */
@@ -3613,7 +3663,7 @@ pre, pre code, code.inline, .codeBlockText_ada32f, .codeLine_ada32f, .codeBlockL
   border-radius: var(--app-card-radius);
   overflow: hidden;
 }
-.layer__960e4 .shop__08415 .page__6db1d {
+.layer__960e4 .shop__08415 .page__1feb0 {
   margin-bottom: 32px;
 }
 
@@ -3625,7 +3675,7 @@ pre, pre code, code.inline, .codeBlockText_ada32f, .codeLine_ada32f, .codeBlockL
 .content_c48ade .shop__08415 .shopScroll__6db1d {
   height: calc(100% - (var(--app-bar-size) - 24px));
 }
-.content_c48ade .shop__08415 .page__6db1d {
+.content_c48ade .shop__08415 .page__1feb0 {
   max-width: unset;
   margin-bottom: 32px;
 }
@@ -5094,11 +5144,7 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .wrapper_ef3116 {
   border: none;
   box-shadow: none;
 }
-.visual-refresh .channelAppLauncher_e6e74f {
-  width: auto;
-}
 .visual-refresh .channelAppLauncher_e6e74f .button_e6e74f {
-  width: auto;
   background-color: transparent;
 }
 .visual-refresh .search__49676 {
