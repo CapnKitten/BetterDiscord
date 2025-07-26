@@ -3687,6 +3687,9 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
   font-weight: 400;
   cursor: pointer;
 }
+.bd-settings-group.collapsible .bd-settings-group-title:before {
+  display: none;
+}
 .bd-settings-group.collapsible .bd-settings-container {
   transition: var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) margin-top;
 }
@@ -14330,17 +14333,6 @@ body:active .recentMentionsPopout__95796:not(:active) {
 
 /*
  *
- *  ROLE PREVIEW POPOUT
- *
- */
-.container-3ssFyj {
-  background-color: var(--popout-color);
-  border-radius: var(--popout-radius-big);
-  box-shadow: var(--shadow-medium);
-}
-
-/*
- *
  *  SEARCH POPOUT
  *
  */
@@ -14362,13 +14354,20 @@ body:active .recentMentionsPopout__95796:not(:active) {
 .container__55c99 .resultsGroup__56fec:before {
   display: none;
 }
-.container__55c99 .resultsGroup__56fec .searchLearnMore__56fec a,
-.container__55c99 .resultsGroup__56fec .searchClearHistory__56fec {
-  color: var(--text-normal);
-}
 .container__55c99 .resultsGroup__56fec .searchLearnMore__56fec,
 .container__55c99 .resultsGroup__56fec .searchClearHistory__56fec {
-  top: 16px;
+  width: 32px;
+  height: 32px;
+  top: 8px;
+  right: 4px;
+  margin-top: -40px;
+}
+.container__55c99 .resultsGroup__56fec .searchLearnMore__56fec a,
+.container__55c99 .resultsGroup__56fec .searchClearHistory__56fec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-normal);
 }
 .container__55c99 .header__56fec {
   margin: -40px 0 8px;
@@ -18434,10 +18433,6 @@ body:active .container_d9c882:not(:active) {
   border: none;
   box-shadow: var(--shadow-medium);
 }
-.profileBannerPreview-3mLIdO .avatarUploaderInner_ab876d:focus-within .avatarUploaderHint-2ZdBlc, .profileBannerPreview-3mLIdO .avatarUploaderInner_ab876d:hover .avatarUploaderHint-2ZdBlc {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-}
 .decorationGridItem_dfa67d, .effectGridItem_b4019a {
   background-color: var(--card-color-filled);
   border: none;
@@ -19946,9 +19941,17 @@ body:active .container_d9c882:not(:active) {
   border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
 }
 .visual-refresh .form_f75fb0 .attachWrapper__0923f {
-  left: calc(var(--main-textarea-inner-padding) * 2);
+  width: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
+  height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
   margin-right: calc((42px + var(--main-textarea-inner-padding)) * -1);
+  padding: 0;
   z-index: 2;
+}
+.visual-refresh .form_f75fb0 .attachButton__0923f {
+  width: inherit;
+  height: inherit;
+  margin: 0;
+  padding: 0;
 }
 .visual-refresh .form_f75fb0 .wrapper__4d3a9 {
   margin-left: 0;
@@ -19971,7 +19974,7 @@ body:active .container_d9c882:not(:active) {
 }
 .visual-refresh .form_f75fb0 .slateTextArea_ec4baf {
   min-height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
-  margin-left: calc(var(--main-textarea-inner-padding) * 3 + 32px);
+  margin-left: calc(var(--main-textarea-inner-padding) * 3 + 36px);
   padding: calc((var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2 - var(--chat-markup-line-height)) / 2) var(--space-16) calc((var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2 - var(--chat-markup-line-height)) / 2) 0;
 }
 .visual-refresh .button__74017,
@@ -19987,9 +19990,6 @@ body:active .container_d9c882:not(:active) {
   min-height: var(--custom-channel-textarea-text-area-height);
   justify-content: center;
   align-items: center;
-}
-.visual-refresh .attachButton__0923f {
-  padding-right: var(--space-8);
 }
 .visual-refresh .wrapper__44df5 {
   margin: 12px 16px;
@@ -20836,6 +20836,15 @@ body:active .container_d9c882:not(:active) {
 }
 .visual-refresh.density-compact .navItem__551b0 {
   border-radius: 22px;
+}
+
+.align-chat-input .attachButtonInner__0923f:hover,
+.align-chat-input .emojiButton__04eed:hover,
+.align-chat-input .buttonContainer_e6e74f:hover {
+  background-color: transparent;
+}
+.align-chat-input .button__24af7:not(.noHover__24af7):hover {
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=main.css.map */
