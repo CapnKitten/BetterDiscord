@@ -113,53 +113,56 @@
 	}
 }
 
-%drawerSizingWrapper {
-    %emojiPickerNavList {
-        position: relative;
-        width: 100%;
-        padding: var(--nav-container-padding);
-        background-color: var(--popout-color-alt);
-        border-radius: calc(var(--nav-button-radius) + var(--nav-container-padding));
-        z-index: 0;
-        box-sizing: border-box;
+%emojiPickerNavList {
+    position: relative;
+    width: 100%;
+    padding: var(--nav-container-padding);
+    background-color: var(--popout-color-alt);
+    border-radius: calc(var(--nav-button-radius) + var(--nav-container-padding));
+    z-index: 0;
+    box-sizing: border-box;
 
-        &:after {
-            position: absolute;
-            content: " ";
-            width: calc(33.3333% - (var(--nav-container-padding) / 2));
-            height: var(--nav-button-height);
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-            background: var(--menu-item-select);
-            border-radius: var(--nav-button-radius);
-            z-index: -1;
-            transition: var(--default-time) var(--default-animation) transform;
-        }
-
-        &:has(%emojiPickerNavButtonActive[id="sticker-picker-tab"]):after {
-            transform: translateX(calc(100%));
-        }
-
-        &:has(%emojiPickerNavButtonActive[id="emoji-picker-tab"]):after {
-            transform: translateX(calc(200% - (var(--nav-container-padding) / 2)));
-        }
-
-        %emojiPickerNavItem {
-            flex-grow: 1;
-            flex-basis: 0;
-            margin: 0;
-            padding: 0;
-            line-height: var(--nav-button-height);
-            background-color: transparent !important;
-			color: var(--text-muted);
-
-			&:hover,
-			&%emojiPickerNavButtonActive {
-				color: var(--text-normal);
-			}
-        }
+    &:after {
+        position: absolute;
+        content: " ";
+        width: calc(33.3333% - (var(--nav-container-padding) / 2));
+        height: var(--nav-button-height);
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        background: var(--menu-item-select);
+        border-radius: var(--nav-button-radius);
+        z-index: -1;
+        transition: var(--default-time) var(--default-animation) transform;
     }
+
+    &:has(%emojiPickerNavButtonActive[id="sticker-picker-tab"]):after {
+        transform: translateX(calc(100%));
+    }
+
+    &:has(%emojiPickerNavButtonActive[id="emoji-picker-tab"]):after {
+        transform: translateX(calc(200% - (var(--nav-container-padding) / 2)));
+    }
+}
+
+%emojiPickerNavItem {
+	flex-grow: 1;
+	flex-basis: 0;
+	margin: 0;
+	padding: 0;
+	line-height: var(--nav-button-height);
+	background-color: transparent !important;
+	color: var(--text-muted);
+	text-align: center;
+
+	&:hover,
+	&%emojiPickerNavButtonActive {
+		color: var(--text-normal);
+	}
+}
+
+%emojiPickerStickersNavItem {
+    justify-content: center;
 }
 
 body:active %drawerSizingWrapper:not(:active) {

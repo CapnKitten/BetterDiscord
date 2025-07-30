@@ -14,29 +14,6 @@
     }
 }
 
-%guildSettingsRoleSearchBar {
-    @include new-input-format;
-
-	%guildSettingsRoleSearchBarInner {
-		padding: 0;
-
-		%guildSettingsRoleSearchInput {
-			height: var(--input-height);
-			margin: 0;
-			padding: 0 4px;
-
-            &::-webkit-input-placeholder {
-                font-family: var(--app-font);
-            }
-		}
-
-		%guildSettingsRoleSearchIconLayout {
-			width: var(--input-height);
-			height: var(--input-height);
-		}
-	}
-}
-
 %guildSettingsRolesTable {
 	padding: 16px;
     background-color: var(--card-color-filled);
@@ -277,6 +254,49 @@
 		right: 0;
 		z-index: 2;
 	}
+}
+
+%guildSettingsRoleStylePreviewContainer {
+    @include card-format($important: false, $padding: var(--space-8) var(--space-4), $filled: true, $hover: true, $shadow: true);
+
+    &:hover {
+        %guildSettingsRoleStyleMessageContainer {
+            &:after {
+                background: linear-gradient(to right, transparent, var(--card-color-hover));
+            }
+        }
+    }
+
+    &%guildSettingsRoleStylePreviewContainerSelected {
+        background-color: var(--card-color-active);
+        border-color: hsl(var(--accent-hsl--material-you));
+
+        %guildSettingsRoleStyleLabel {
+            background-color: transparent;
+        }
+
+        %guildSettingsRoleStyleMessageContainer {
+            &:after {
+                background: linear-gradient(to right, transparent, var(--card-color-active));
+            }
+        }
+    }
+
+    %messageHeader,
+    %markup {
+        margin-left: -84px;
+    }
+}
+
+%guildSettingsRoleStyleMessageContainer {
+    &:after {
+        background: linear-gradient(to right, transparent, var(--card-color-filled));
+    }
+}
+
+%guildSettingsRoleStyleMessageContainer,
+%guildSettingsRoleStyleLabel {
+    background-color: transparent;
 }
 
 /* SERVER ROLES -> ADD MEMBER */

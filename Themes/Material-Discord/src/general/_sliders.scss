@@ -10,43 +10,186 @@
     --bar-size: 4px !important;
     --grabber-size: 16px !important;
 
-	%sliderBar {
-		height: 4px;
-		background-color: hsl(var(--accent-hsl),0.3) !important;
-		border-radius: 2px;
+    height: calc(var(--slider-grabber-height) + var(--bar-offset));
 
-		%sliderBarFill {
-			background-color: hsl(var(--accent-hsl--material-you)) !important;
-			border-radius: 2px;
-		}
-	}
+    &%sliderHasMarks {
+        %sliderTrack {
+            left: 8px;
+            right: 8px;
+        }
 
-	%sliderTrack {
-		%sliderGrabber {
-			width: 16px;
-			height: 16px;
-			background-color: hsl(var(--accent-hsl--material-you));
-			border-radius: 50%;
-			border: none;
-			box-shadow: var(--shadow-soft);
-			transform: translate(0, calc(50% - 8px));
-			transition: var(--default-time) var(--default-animation) box-shadow;
+        %sliderBar {
+            top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2) + 4px));
+        }
 
-			@include md-ripple(hover_click, after, 2.5, true);
+        %sliderTrack {
+            %sliderGrabber {
+                top: calc(100% - (var(--slider-grabber-height) + 4px));
+            }
+        }
+    }
 
-			&:hover {
-				box-shadow: var(--shadow-2dp);
-			}
+    %sliderBar {
+        height: var(--slider-height);
+        top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2)));
+        background-color: var(--slider-bar-background) !important;
+        border-radius: var(--slider-radius);
 
-			&:active {
-				box-shadow: var(--shadow-medium);
-			}
-		}
-	}
+        %sliderBarFill {
+            background-color: hsl(var(--accent-hsl--material-you));
+            border-radius: inherit;
+            border: none;
+            transition: var(--default-time) var(--default-animation) border-radius;
+
+            &[style*="background: var(--yellow-300)"] {
+                background-color: hsl(var(--accent-hsl--material-you)) !important;
+            }
+        }
+    }
+
+    %sliderTrack {
+        %sliderGrabber {
+            display: flex;
+            width: var(--slider-width);
+            height: var(--slider-grabber-height);
+            top: 0;
+            margin-top: 0;
+            background-color: var(--slider-grabber-background);
+            border-radius: 0;
+            border: none;
+            transform: translateX(0);
+            justify-content: center;
+            box-shadow: none !important;
+            z-index: 3;
+
+            &:before {
+                position: absolute;
+                content: " ";
+                width: calc(var(--slider-width) / 4);
+                height: 100%;
+                top: 0;
+                background-color: hsl(var(--accent-hsl--material-you));
+                border-radius: calc(var(--slider-width) / 8);
+                transition: calc(var(--default-time) / 1.5) var(--default-animation) background-color, calc(var(--default-time) / 1.5) var(--default-animation) transform;
+            }
+
+            &:after {
+                display: none;
+            }
+
+            &:hover {
+                &:before {
+                    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.6) l);
+                }
+            }
+
+            &:active {
+                &:before {
+                    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.6) l);
+                    transform: scaleX(50%);
+                }
+            }
+        }
+    }
 }
 
-.markValue_e7a6e4 {
-	color: var(--text-muted) !important;
+%sliderMark {
+    height: 100% !important;
+    z-index: 2;
+    pointer-events: none;
+
+    %sliderMarkValue {
+        margin-bottom: 0;
+    }
+
+    %sliderMarkDash {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        bottom: calc(((var(--slider-grabber-height) / 2) - 3px) + 4px);
+        background-color: var(--slider-mark-color);
+        border-radius: 3px;
+    }
+}
+
+%sliderInputSensitivityBar {
+    %sliderInputSensitivityFill {
+        height: var(--slider-height) !important;
+        background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.8) calc(l * 0.8)) !important;
+        border-radius: var(--slider-radius);
+    }
+}
+
+%sliderMini {
+    %sliderBar {
+        height: var(--slider-height);
+        top: calc((var(--slider-grabber-height) / 2) - (var(--slider-height) / 2));
+    }
+
+    %sliderGrabber {
+        width: var(--slider-height);
+        height: var(--slider-height);
+    }
+}
+
+/* SLIDERS -> THEME SPECIFIC CHANGES */
+
+%themeDark {
+    %layerContainer,
+    %menuPopoutSliderContainer {
+        --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.44));
+        --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.43) calc(l * 0.34));
+    }
+
+    %bdSettingsGroup {
+        &%bdSettingsGroupCollapsible {
+            --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
+        }
+    }
+}
+
+%themeLight {
+    %layerContainer,
+    %menuPopoutSliderContainer {
+        --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 1.92));
+        --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.87) calc(l * 1.7));
+    }
+
+    %slider {
+        %sliderBar %sliderBarFill {
+            background-color: hsl(var(--accent-hsl--material-you)) !important;
+        }
+
+        %sliderTrack %sliderGrabber {
+            background-color: var(--slider-grabber-background) !important;
+        }
+    }
+}
+
+/* SLIDERS -> ALT LOCATIONS */
+
+%menuPopoutSliderContainer {
+    --slider-height: 8px;
+    --slider-radius: calc(var(--slider-height) / 3);
+    --slider-grabber-height: 28px;
+    --slider-grabber-background: var(--popout-color);
+
+    height: var(--slider-grabber-height);
+    margin-bottom: 0 !important;
+}
+
+%layerContainer {
+    --slider-grabber-background: var(--popout-color);
+
+    %bdSettingsGroup {
+        &%bdSettingsGroupCollapsible {
+            --slider-grabber-background: var(--card-color-filled);
+        }
+    }
+}
+
+%sliderMenuPopout {
+    top: 0;
 }
 
 /* SLIDERS -> BD SLIDER */

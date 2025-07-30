@@ -8,14 +8,13 @@
 
 %quickswitcher {
 	padding: 0;
-	@include popout-format;
 
 	%quickswitcherInput {
 		height: 42px;
 		line-height: 42px;
-		margin: 24px 24px 16px;
+		margin: calc(24px - var(--custom-modal-padding-top)) 24px 16px;
 		padding: 0 16px;
-		background-color: var(--input-color);
+		background-color: var(--input-color-alt);
 		border-radius: 21px;
 		box-shadow: none;
 		font-size: 18px;
@@ -62,7 +61,10 @@
     }
 
 	%quickswitcherProtip {
-		padding: 16px 24px 24px;
+		margin: 16px 24px calc(24px - var(--custom-modal-padding-md));
+        padding: 16px;
+		background-color: var(--card-color-filled);
+        border-radius: calc(var(--popout-radius-big) / 1.7);
 
 		&%quickswitcherHasContent {
 			border-top: none;
