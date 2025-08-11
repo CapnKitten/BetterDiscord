@@ -29,13 +29,6 @@
         padding: 0;
     }
 
-    &:not(%multiInput) {
-        /*%input {
-            width: calc(100% + 24px);
-            margin-left: -12px;
-        }*/
-    }
-
     &::-webkit-input-placeholder {
         font-family: var(--app-font);
         color: var(--input-placeholder-color);
@@ -46,9 +39,33 @@
     }
 
     &%inputTextArea {
-        //height: 100% !important;
         min-height: var(--input-height);
         padding: calc((var(--input-height) - 22px) / 2) 12px !important;
+    }
+}
+
+%inputContainer {
+    height: var(--input-height);
+	padding: 0 12px;
+	background-color: var(--input-color);
+	border-radius: 4px 4px 0 0;
+    border: none;
+    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
+    color: var(--input-text-color);
+    transition: var(--default-time) var(--default-animation) box-shadow;
+
+    &:focus-within {
+        box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+    }
+
+    &%inputContainerLeading {
+        padding: 0 12px 0 8px;
+    }
+
+    %input {
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
     }
 }
 

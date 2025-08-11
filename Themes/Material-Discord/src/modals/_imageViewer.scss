@@ -38,3 +38,45 @@
         }
     }
 }
+
+%imageViewerNavButton {
+    background-color: var(--popout-color);
+    border-radius: 20px;
+
+    %imageViewerCloseButtonInner {
+        border: none;
+    }
+}
+
+%imageViewerGallery {
+    gap: var(--space-8);
+}
+
+%imageViewerGalleryItem {
+    width: 50px;
+    margin: 0;
+    border-radius: 10px;
+    transition: var(--default-time) var(--default-animation) width;
+
+    &%imageViewerGalleryItemInactive {
+        width: 20px;
+
+        &:after {
+            opacity: 0.65;
+        }
+    }
+
+    &%imageViewerGalleryItemFirst,
+    &%imageViewerGalleryItemLast {
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    %imageWrapper {
+        border-radius: inherit;
+    }
+
+    ~ div:not([class]):empty {
+        display: none;
+    }
+}

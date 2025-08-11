@@ -291,6 +291,10 @@
         padding: 6px 10px;
         background-color: var(--popout-color);
         border: none;
+
+        &%channelMentionsBar {
+            background-color: hsl(var(--alert-hsl));
+        }
     }
 
     %channelUnreadPillBottom {
@@ -357,54 +361,6 @@
 
             &::-webkit-input-placeholder {
                 color: var(--input-placeholder-color);
-            }
-        }
-    }
-
-    /* collapsed sidebar */
-
-    [data-collapsed="true"] {
-        &%chatPage {
-            %chat {
-                border-top-left-radius: var(--card-radius-big);
-                border-bottom-left-radius: var(--card-radius-big);
-                border-left: none;
-            }
-        }
-
-        &%channelsSidebar {
-            %guildsWrapper {
-                margin-bottom: calc(8px + var(--custom-app-panels-height,0));
-            }
-
-            %panels {
-                width: calc(100% - var(--space-16));
-                left: 0;
-                bottom: 0;
-                margin: 8px;
-                border-radius: var(--sidebar-panel-radius-big);
-            }
-
-            %accountPanelAvatarWrapper {
-                justify-content: center;
-            }
-
-            %spotifyPanelCoverWrapper {
-                width: 44px;
-                min-width: 44px;
-                min-height: 44px;
-            }
-
-            %accountPanelButtons {
-                display: none;
-            }
-
-            %spotifyPanelTimelineBarText {
-                justify-content: center;
-
-                :last-child {
-                    display: none;
-                }
             }
         }
     }
@@ -1371,6 +1327,23 @@
         }
     }
 
+    %tabBarVertical {
+        height: unset;
+
+        %item {
+            transition: var(--default-time) var(--default-animation) background-color;
+
+            &%itemSelected {
+                background-color: hsl(var(--accent-hsl), 0.3) !important;
+                border-radius: 12px;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
     /* context menu */
 
     %menuPopout {
@@ -1766,16 +1739,6 @@
             }
         }
 
-        [data-collapsed="true"] {
-            &%channelsSidebar {
-                %spotifyPanel {
-                    &%spotifyPanelWithTimeline {
-                        padding-top: 6px;
-                    }
-                }
-            }
-        }
-
         %privateChannels {
             --channel-radius: 22px;
         }
@@ -1786,8 +1749,6 @@
 
         %spotifyPanel {
             &%spotifyPanelWithTimeline {
-                padding-top: 2px;
-
                 %spotifyPanelTimeline {
                     margin: 2px 0;
                 }
@@ -1841,24 +1802,12 @@
             }
         }
 
-        [data-collapsed="true"] {
-            &%channelsSidebar {
-                %spotifyPanel {
-                    &%spotifyPanelWithTimeline {
-                        padding-top: 8px;
-                    }
-                }
-            }
-        }
-
         %channelLink {
             min-height: 38px;
         }
 
         %spotifyPanel {
             &%spotifyPanelWithTimeline {
-                padding-top: 4px;
-
                 &%spotifyPanelMaximized {
                     padding-top: 0;
                 }
@@ -1927,16 +1876,6 @@
             }
         }
 
-        [data-collapsed="true"] {
-            &%channelsSidebar {
-                %spotifyPanel {
-                    &%spotifyPanelWithTimeline {
-                        padding-top: 6px;
-                    }
-                }
-            }
-        }
-
         %privateChannels {
             --channel-radius: 19px;
         }
@@ -1947,8 +1886,6 @@
 
         %spotifyPanel {
             &%spotifyPanelWithTimeline {
-                padding-top: 2px;
-
                 %spotifyPanelTimeline {
                     margin: 2px 0;
                 }
@@ -2043,5 +1980,9 @@
                 background-color: transparent;
             }
         }
+    }
+
+    %accountPanel {
+        border-radius: var(--sidebar-panel-radius-small);
     }
 }
