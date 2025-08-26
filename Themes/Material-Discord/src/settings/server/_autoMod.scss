@@ -206,3 +206,34 @@
         }
     }
 }
+
+/* SERVER SETTINGS CONTENT MODERATION -> CARD EXPANSION LIST */
+
+%automodClickableContainer,
+%automodCardListContainer {
+    background-color: transparent;
+}
+
+%automodBackgroundModifierContainer {
+    background-color: var(--card-color-hover);
+    border-radius: calc(var(--card-radius-big) / 1.6);
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+
+    &:hover {
+        &:not(%automodBackgroundModifierContainerDisabled) {
+            &:not(%automodBackgroundModifierContainerNoAction) {
+                background-color: var(--card-color-active);
+            }
+        }
+    }
+
+    &%automodBackgroundModifierContainerDisabled {
+        border-left: 3px solid var(--card-color-hover);
+    }
+
+    &%automodBackgroundModifierContainerSelected {
+        background-color: var(--card-color-active);
+    }
+}

@@ -100,6 +100,22 @@
 	}
 }
 
+@mixin card-option-select($selected: null) {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius);
+    border: none;
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) border-radius;
+
+    @if $selected {
+        &#{$selected} {
+            background-color: var(--card-color-hover);
+            border-radius: var(--card-radius-big);
+            border: none;
+            box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--popout-color);
+        }
+    }
+}
+
 @mixin new-input-format($important: false, $height: var(--input-height), $max-height: var(--input-height)) {
 	height: $height important($important);
 	max-height: $max-height important($important);

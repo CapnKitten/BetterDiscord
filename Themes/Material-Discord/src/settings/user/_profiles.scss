@@ -82,6 +82,10 @@
 		}
 	}
 
+	%settingsProfileCard {
+		padding: 0;
+	}
+
 	%settingsProfileHeader {
 		margin: -16px -16px 0;
 		@include card-format--header(false, true);
@@ -166,13 +170,12 @@
 	}
 }
 
-%settingsProfileDecorationGridItem {
-    @include card-format(false, 0, true, true);
-	transition: var(--default-time) var(--default-animation) box-shadow;
+%decorationGridItem {
+	@include card-option-select("%decorationGridItemSelected");
+}
 
-	&%settingsProfileDecorationGridItemSelected {
-		box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you));
-	}
+%effectGridItem {
+	@include card-option-select("%effectGridItemSelected");
 }
 
 %settingsProfileDecorationPreview {
@@ -236,5 +239,67 @@
         padding: 16px;
         background: var(--card-color-filled);
         border-radius: var(--card-radius-big);
+    }
+}
+
+/* USER SETTINGS PROFILES -> DISPLAY NAME STYLE */
+
+%fontZillaSlab {
+    --app-font: "Zilla Slab";
+}
+
+%fontCherryBomb {
+    --app-font: "Cherry Bomb One";
+}
+
+%fontChicle {
+    --app-font: "Chicle";
+}
+
+%fontMuseoModerno {
+    --app-font: "Museo Moderno";
+}
+
+%fontNeoCastel {
+    --app-font: "Neo Castel";
+}
+
+%fontPixelify {
+    --app-font: "Pixelify Sans";
+}
+
+%fontSinistre {
+    --app-font: "Sinistre";
+}
+
+%displayFontButton {
+    @include card-option-select("%displayFontButtonSelected");
+}
+
+%displayEffectContainer {
+    @include card-option-select("%displayEffectContainerSelected");
+}
+
+%settingsProfileSelectionSection {
+    %settingsProfileSelectionSectionHeader {
+        padding: 0;
+        border-radius: 0;
+    }
+}
+
+%settingsProfilePreviewSection {
+    border-radius: var(--popout-radius-big);
+}
+
+%settingsProfilePreviewCards {
+    %settingsProfileChatMessagePreview {
+        background-color: var(--message-color) !important;
+        border: none;
+    }
+
+    %settingsProfileNameplatePreview {
+        margin-top: var(--space-4);
+        background-color: var(--chat-color);
+        border: none;
     }
 }
