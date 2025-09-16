@@ -7,22 +7,7 @@
  */
 
 %input {
-    height: var(--input-height);
-	padding: 0 12px;
-	background-color: var(--input-color);
-	border-radius: 4px 4px 0 0;
-    border: none;
-    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
-    color: var(--input-text-color);
-    transition: var(--default-time) var(--default-animation) box-shadow;
-
-    &:hover {
-        border: none;
-    }
-
-    &:focus {
-        box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
-    }
+    @include input-format(false, false);
 
     &%multiInput,
     &%inputWithInnerInput {
@@ -46,19 +31,7 @@
 
 %inputContainer,
 %nameInputContainer {
-    height: var(--input-height);
-	padding: 0 12px;
-	background-color: var(--input-color);
-	border-radius: 4px 4px 0 0;
-    border: none;
-    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
-    color: var(--input-text-color);
-    transition: var(--default-time) var(--default-animation) box-shadow;
-
-    &:focus-within {
-        border: none;
-        box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
-    }
+    @include input-format(false, true);
 
     &%inputContainerLeading {
         padding: 0 12px 0 8px;
@@ -157,7 +130,7 @@
 }
 
 %copyInput {
-    @include new-input-format(true);
+    @include input-format(true, false, true);
 
     &:hover {
         %button {
@@ -221,6 +194,14 @@
             font-family: var(--app-font);
             color: var(--input-placeholder-color);
         }
+    }
+}
+
+/* INPUTS -> UNIVERSAL SEARCH */
+
+%searchContainer {
+    %inputContainer {
+        @include input-format(false, true, true);
     }
 }
 

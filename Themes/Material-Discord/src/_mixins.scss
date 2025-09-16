@@ -100,65 +100,80 @@
 	}
 }
 
-@mixin card-option-select($selected: null) {
+@mixin card-option-select($radius-unselected: 34px, $filled: true, $selected: null, $text: null) {
     background-color: var(--card-color-filled);
-    border-radius: var(--card-radius);
+    border-radius: $radius-unselected;
     border: none;
     transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) border-radius;
 
     @if $selected {
         &#{$selected} {
-            background-color: var(--card-color-hover);
+            background-color: hsl(var(--accent-hsl--material-you));
             border-radius: var(--card-radius-big);
             border: none;
-            box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--popout-color);
+
+			@if $filled {
+				box-shadow: none;
+			} @else {
+				box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--popout-color);
+			}
+
+			@if $text {
+				#{$text} {
+					color: var(--accent-text-color--material-you) !important;
+				}
+
+				svg {
+					color: var(--accent-text-color--material-you);
+				}
+			}
         }
     }
+
+	@if $text {
+		#{$text},
+		svg {
+			transition: var(--default-time) var(--default-animation) color;
+		}
+	}
 }
 
-@mixin new-input-format($important: false, $height: var(--input-height), $max-height: var(--input-height)) {
-	height: $height important($important);
-	max-height: $max-height important($important);
-	padding: var(--input-padding) important($important);
-	background-color: var(--input-color) important($important);
-	border-radius: calc(#{$height} / 2) important($important);
-	border: none;
-}
+@mixin input-format($important: false, $focus-within: false, $rounded: false, $height: var(--input-height), $max-height: var(--input-height)) {
+	@if $rounded {
+		height: $height important($important);
+		max-height: $max-height important($important);
+		padding: var(--input-padding) important($important);
+		background-color: var(--input-color) important($important);
+		border-radius: calc(#{$height} / 2) important($important);
+		border: none;
+		box-shadow: none;
 
-@mixin input-format($height: var(--input-height), $max-height: var(--input-height)) {
-	position: relative;
-	height: $height;
-	max-height: $max-height;
-	padding: 0;
-	background-color: transparent;
-	border-radius: 0;
-	border: none;
-	border-bottom: 1px solid var(--input-border-color) !important;
+		&:focus-within {
+			box-shadow: none;
+		}
+	} @else {
+		min-height: $height important($important);
+		height: $height important($important);
+		padding: 0 12px important($important);
+		background-color: var(--input-color) important($important);
+		border-radius: 4px 4px 0 0 important($important);
+	    border: none;
+	    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
+	    color: var(--input-text-color);
+	    transition: var(--default-time) var(--default-animation) box-shadow;
 
-	&:before,
-	&:after {
-		position: absolute;
-		content: " ";
-		height: 2px;
-		width: 0;
-		bottom: -1px;
-		background: hsl(var(--accent-hsl--material-you));
-		transition: 300ms ease all;
-		z-index: 2;
-	}
+	    &:hover {
+	        border: none;
+	    }
 
-	&:before {
-		left: 50%;
-	}
-
-	&:after {
-		right: 50%;
-	}
-
-	&:focus-within {
-		&:before,
-		&:after {
-			width: 50%;
+		@if $focus-within {
+			&:focus-within {
+				box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+			}
+		} @else {
+			&:focus {
+				box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+		    }
 		}
 	}
 }

@@ -121,7 +121,7 @@
 %settingsProfileBioTextArea {
 	--input-padding: 0 12px;
 
-	@include new-input-format(true, 136px, 136px);
+	@include input-format(false, false, true, 136px, 136px);
 	border-radius: 19px !important;
 
 	%channelTextAreaWithoutAttachment {
@@ -171,11 +171,16 @@
 }
 
 %decorationGridItem {
-	@include card-option-select("%decorationGridItemSelected");
+	@include card-option-select(40px, true, "%decorationGridItemSelected", "%textXsNormal");
 }
 
 %effectGridItem {
-	@include card-option-select("%effectGridItemSelected");
+	@include card-option-select(34px, false, "%effectGridItemSelected");
+}
+
+%presetEffectBackground,
+%presetEffectImg {
+    border-radius: inherit;
 }
 
 %settingsProfileDecorationPreview {
@@ -242,6 +247,63 @@
     }
 }
 
+/* USER SETTINGS PROFILES -> NAMEPLATES */
+
+%nameplateInventoryControlsButton {
+    @include card-option-select(40px, true, "%nameplateInventoryControlsButtonSelected", "%textXsNormal");
+}
+
+%nameplateInventory {
+    padding-left: 3px;
+}
+
+%nameplateItem {
+    border-radius: 24px;
+    transition: var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) border-radius;
+
+    &:has(%nameplateItemOverlaySelected) {
+        border-radius: var(--card-radius-big);
+    }
+
+    %nameplatePreview,
+    > div[role="img"] {
+        border-radius: inherit;
+    }
+}
+
+%nameplateItemOverlay {
+    border-radius: 0;
+    border-radius: inherit;
+
+    &%nameplateItemOverlaySelected {
+        box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--popout-color);
+    }
+}
+
+%nameplateIconBadge {
+    width: var(--space-32);
+    height: var(--space-32);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto var(--space-8);
+    background-color: var(--card-button-color) !important;
+}
+
+%nameplatePreviewBorder {
+    border-radius: var(--card-radius-big);
+
+    &:before {
+        background-color: var(--card-color-filled);
+        border-radius: calc(var(--card-radius-big) + 2px);
+    }
+}
+
+%nameplatePreviewBox {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+}
+
 /* USER SETTINGS PROFILES -> DISPLAY NAME STYLE */
 
 %fontZillaSlab {
@@ -273,11 +335,40 @@
 }
 
 %displayFontButton {
-    @include card-option-select("%displayFontButtonSelected");
+    @include card-option-select(34px, true, "%displayFontButtonSelected", "%textLgSemibold");
 }
 
 %displayEffectContainer {
-    @include card-option-select("%displayEffectContainerSelected");
+    @include card-option-select(34px, true, "%displayEffectContainerSelected");
+}
+
+%displayEffectContainer {
+    &%displayEffectContainerSelected {
+        %displayEffectTextContainer {
+            &%displayEffectTextShowEffect {
+                %displayEffectPop {
+                    color: var(--accent-text-color--material-you);
+                }
+            }
+
+            %displayEffectSolid {
+                color: var(--accent-text-color--material-you);
+            }
+
+            %displayEffectGradient {
+                background: linear-gradient(to bottom right, var(--accent-text-color--material-you) 10%, hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%);
+                background-clip: text;
+            }
+        }
+    }
+
+    %displayEffectTextContainer {
+        %displayEffectGradient {
+            background: linear-gradient(to bottom right, hsl(var(--accent-hsl--material-you)) 10%, hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%);
+            background-clip: text;
+            transition: var(--default-time) var(--default-animation) background;
+        }
+    }
 }
 
 %settingsProfileSelectionSection {
