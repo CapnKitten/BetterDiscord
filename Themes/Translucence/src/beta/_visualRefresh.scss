@@ -65,8 +65,9 @@
         box-shadow: var(--popout-header-shadow);
     }
 
-    %channelsContainer {
-        padding-bottom: calc(var(--custom-app-panels-height, 0) + 4px);
+    %channelsContainer,
+    %privateChannels {
+        padding-bottom: calc(var(--custom-app-panels-height, 0) + 10px);
     }
 
     %panels {
@@ -444,10 +445,17 @@
 }
 
 %alignChatInput {
+    %channelsContainer,
+    %privateChannels {
+        %scroller {
+            margin-bottom: 0;
+        }
+    }
+
     %messagesScrollerSpacer {
         height: var(--space-24);
     }
-    
+
     %channelTextAreaAttachWrapper {
         padding: 0;
     }
