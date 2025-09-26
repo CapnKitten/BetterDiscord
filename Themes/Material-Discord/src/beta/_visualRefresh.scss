@@ -628,6 +628,7 @@
 
         %textAreaSlate {
             min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+            margin-left: calc(var(--main-textarea-inner-padding) * 2);
             margin-right: var(--main-textarea-inner-padding);
             background-color: var(--main-textarea-inner-color);
             border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
@@ -635,7 +636,7 @@
 
         %slateTextArea {
             min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-            margin-left: calc(var(--main-textarea-inner-padding) * 2 + var(--main-textarea-height));
+            margin-left: var(--main-textarea-height);
             padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) var(--space-16) calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
         }
     }
@@ -976,6 +977,7 @@
 
     %emojiPicker {
         background-color: var(--popout-color);
+        border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
     }
 
     %emojiPickerNavGif,
@@ -1000,7 +1002,7 @@
     }
 
     %emojiCategoryWrapper {
-        top: 54px;
+        top: 57px;
         background-color: var(--attachment-color);
     }
 
@@ -1017,8 +1019,14 @@
     %emojiWrapperChat {
         background-color: var(--popout-color);
 
+        &%emojiPickerHasTabWrapper {
+            %emojiCategoryWrapper {
+                top: 55px;
+            }
+        }
+
         %emojiCategoryWrapper {
-            top: 64px;
+            top: 73px;
         }
     }
 
