@@ -325,3 +325,43 @@
         }
     }
 }
+
+/* MAIN TEXTAREA -> BUTTON RIPPLE */
+
+%channelTextAreaButtonInner,
+%channelTextAreaEmojiButton,
+%channelAppLauncher {
+    @include md-ripple(hover, before, 1.0);
+}
+
+%channelTextAreaButtonInner {
+    &%channelTextAreaAttachButton {
+        &:hover {
+			&:before {
+				transform: scale(0.8);
+			}
+		}
+    }
+}
+
+%channelTextAreaButtonInner:not(%channelTextAreaButtonInnerNoHover),
+%channelTextAreaAttachButtonInner,
+%channelTextAreaEmojiButton,
+%channelAppLauncherButtonContainer {
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+%channelTextAreaButtonsContainer {
+	gap: var(--space-4);
+	align-items: center;
+	justify-content: center;
+
+    %channelTextAreaButtonInner,
+    %channelTextAreaEmojiButton,
+    %channelAppLauncher {
+		height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
+        min-width: calc(var(--custom-channel-textarea-text-area-height) - 6px);
+    }
+}
