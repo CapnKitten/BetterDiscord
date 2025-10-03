@@ -5,13 +5,18 @@
  */
 
 %serverProfileItemContainer {
-    border-radius: var(--card-radius-big);
+    border-radius: 32px;
     border: none;
+    transition: var(--default-time) var(--default-animation) border-radius, var(--default-time) var(--default-animation) box-shadow;
+
+    &:has(%serverProfileItemContainerSelected) {
+        border-radius: var(--card-radius-big);
+        box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--main-color);
+    }
 }
 
 %serverProfileItemContainerSelected {
-    border-radius: calc(var(--card-radius-big) + 4px);
-    border-color: hsl(var(--accent-hsl--material-you));
+    display: none;
 }
 
 %serverProfileTraitContainer {

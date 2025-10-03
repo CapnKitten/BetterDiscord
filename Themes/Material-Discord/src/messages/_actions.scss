@@ -6,16 +6,16 @@
  *
  */
 
-%message {
-	%messageButtons {
-		max-width: 32px;
-		opacity: 0;
-		visibility: visible;
-		pointer-events: none;
-		transition: opacity var(--default-time) var(--default-animation), max-width var(--default-time) var(--default-animation) var(--default-time);
-	}
+%messageButtons {
+	max-width: 32px;
+	top: -36px;
+	opacity: 0;
+	visibility: visible;
+	pointer-events: none;
+	transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) max-width;
+}
 
-	&.selected-2LX7Jy %messageButtons,
+%message {
 	&:hover %messageButtons {
 		max-width: 380px;
 		opacity: 1;
@@ -24,23 +24,32 @@
 }
 
 %messageButtonWrapper {
+	padding: 4px;
 	background-color: var(--main-textarea-color);
-	border-radius: 16px;
+	border-radius: 19px;
 	box-shadow: var(--shadow-2dp);
 	border: none;
 	overflow: hidden;
 	z-index: 2;
 
-	%messageButton {
-		transition: var(--default-time) ease all;
+	&:hover {
+        border: none;
+    }
+}
 
-		&:hover {
-			background-color: var(--menu-item-hover);
-		}
+%messageButton {
+	width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    box-sizing: border-box;
+	transition: var(--default-time) var(--default-animation) background-color;
 
-		%messageButtonSelected {
-			background-color: var(--menu-item-select);
-		}
+	&:hover {
+		background-color: var(--menu-item-hover);
+	}
+
+	%messageButtonSelected {
+		background-color: var(--menu-item-select);
 	}
 }
 

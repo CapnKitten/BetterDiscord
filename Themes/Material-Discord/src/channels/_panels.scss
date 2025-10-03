@@ -15,10 +15,6 @@
             border-top-left-radius: var(--sidebar-panel-radius-big);
             border-top-right-radius: var(--sidebar-panel-radius-big);
 
-            %questPanelContentWrapper {
-                --sidebar-panel-radius-big: var(--popout-radius-big) !important;
-            }
-
             %connectionPanel {
                 border-top-left-radius: inherit;
                 border-top-right-radius: inherit;
@@ -247,11 +243,18 @@
     margin-bottom: 2px;
     background-color: var(--sidebar-panel-color) !important;
     border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+	overflow: hidden;
+
+	&:has(%questPanelContentWrapperExpanded) {
+        overflow: visible;
+
+        %questPanelHeroAsset {
+            opacity: 1;
+        }
+    }
 }
 
 %questPanelContentWrapper {
-    --sidebar-panel-radius-big: var(--sidebar-panel-radius-small);
-
     background-color: var(--sidebar-panel-color) !important;
     border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
     overflow: hidden;
@@ -268,10 +271,7 @@
 
         %questPanelInnerWrapper {
             padding: 4px 8px !important;
-        }
-
-        %questPanelHeaderWrapper {
-            border-radius: calc(var(--popout-radius-big) / 1.5) !important;
+			border-radius: calc(var(--popout-radius-big) / 1.5) !important;
         }
     }
 }
@@ -280,13 +280,44 @@
     padding: 8px !important;
 }
 
+%questPanelInnerWrapper,
+%heroAssetWrapper {
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small) !important;
+}
+
+%questPanelHeroAsset {
+    z-index: 2;
+    opacity: 0;
+    transition: 150ms var(--default-animation) opacity;
+}
+
+%questPanelRewardTile {
+    border-radius: calc(var(--sidebar-panel-radius-big) / 1.5) !important;
+}
+
+%questPanelTitle,
+%questPanelDescription {
+    padding: 8px;
+    border-radius: calc(var(--sidebar-panel-radius-big) / 1.5);
+    backdrop-filter: blur(10px) brightness(0.75);
+}
+
+%questPanelTitle {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+%questPanelDescription {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
 %questPanelBackgroundWrapper {
     display: none;
 }
 
-%questPanelHeaderWrapper,
-%heroAssetWrapper {
-    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small) !important;
+%questPanelOpaqueExpandedBackground {
+    border-radius: calc(var(--sidebar-panel-radius-big) / 1.5);
 }
 
 %heroAssetWrapper {

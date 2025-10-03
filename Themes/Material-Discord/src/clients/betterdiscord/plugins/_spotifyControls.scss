@@ -5,7 +5,7 @@
  */
 
 %spotifyPanelCoverWrapper {
-    border-radius: 50%;
+    border-radius: calc(var(--sidebar-panel-radius-big) / 1.6);
     transform: translateY(0) !important;
 }
 
@@ -21,6 +21,62 @@
             border-radius: var(--card-radius-big);
         }
     }
+}
+
+%spotifyPanelTimeline {
+    margin: 16px 0 8px;
+
+    &:hover {
+        %spotifyBarFill {
+            background-color: hsl(var(--accent-hsl--material-you));
+        }
+
+        %spotifyBarGrabber {
+            display: flex;
+
+            &:before {
+                background-color: hsl(var(--accent-hsl--material-you));
+            }
+        }
+    }
+}
+
+%spotifyBarFill {
+    transition: var(--default-time) ease width, var(--default-time) var(--default-animation) background-color;
+}
+
+%spotifyBarGrabber {
+    --slider-grabber-height: 20px;
+    --slider-grabber-background: var(--sidebar-panel-color);
+
+    display: flex;
+    width: var(--slider-width);
+    height: var(--slider-grabber-height);
+    top: calc((var(--slider-grabber-height) / 2 - 2px) * -1);
+    margin-top: 0;
+    background-color: var(--slider-grabber-background);
+    border-radius: 0;
+    border: none;
+    transform: translateX(0);
+    justify-content: center;
+    box-shadow: none !important;
+    z-index: 3;
+    transition: var(--default-time) ease left;
+
+    &:before {
+        position: absolute;
+        content: " ";
+        width: calc(var(--slider-width) / 4);
+        height: 100%;
+        top: 0;
+        background-color: var(--text-secondary);
+        border-radius: calc(var(--slider-width) / 8);
+        transition: var(--default-time) var(--default-animation) background-color;
+    }
+}
+
+%spotifyPanelTimelineBar {
+    margin-bottom: 16px;
 }
 
 %spotifyPanelBar {
