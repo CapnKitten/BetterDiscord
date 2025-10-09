@@ -16,40 +16,39 @@
 /* SEARCH RESULTS -> HEADER */
 
 %searchHeader {
+	--search-header-padding: 16px;
+
 	height: var(--search-header-height);
-    margin: 8px 8px 0;
-    padding: 0 16px;
+	margin: 8px 8px -8px;
+    padding: 0 calc(var(--search-header-padding) / 2) 0 var(--search-header-padding);
     background-color: var(--card-color-filled);
     border-radius: calc(var(--popout-radius-big) - 8px);
     border-bottom: none;
+	box-shadow: var(--shadow-soft);
 }
 
 %searchHeaderTabList {
-	height: 100%;
+    height: 100%;
+    @include pill-nav(true, calc(var(--search-header-height) - var(--search-header-padding)), "%item", "%itemSelected", true);
 
-	%item {
-		height: 100%;
-		margin: 0;
-		padding: 0 8px;
-		line-height: var(--search-header-height) !important;
-		border-radius: 0;
+    %item {
+        display: flex;
+        height: calc(var(--search-header-height) - var(--search-header-padding));
+        padding: 0 12px;
+        align-items: center;
 
-		&:hover:not(%itemDisabled),
-		&%itemSelected {
-			background-color: transparent;
-		}
-
-		&%itemSelected {
-			@include tab-border(80%);
-			background-color: transparent;
-		}
-	}
+        &%itemSelected {
+            &:after {
+                display: none;
+            }
+        }
+    }
 }
 
 /* SEARCH RESULTS -> MESSAGES */
 
 %searchScroller {
-	padding: 8px;
+	padding: 16px 8px 8px;
 }
 
 %searchChannelName {

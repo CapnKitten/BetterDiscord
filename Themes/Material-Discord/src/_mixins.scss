@@ -138,7 +138,7 @@
 	}
 }
 
-@mixin pill-nav($important: false, $height, $pill-item, $selector) {
+@mixin pill-nav($important: false, $height, $pill-item, $selector, $hover: false) {
     --nav-button-height: #{$height};
     --nav-button-big-radius: calc(var(--nav-button-height) / 2);
     --nav-button-small-radius: calc(var(--nav-button-height) / 5);
@@ -161,6 +161,12 @@
         &:last-of-type {
             border-radius: var(--nav-button-small-radius) var(--nav-button-big-radius) var(--nav-button-big-radius) var(--nav-button-small-radius);
         }
+
+		@if $hover {
+			&:hover {
+	            background-color: var(--card-button-color-hover) important($important);
+	        }
+		}
 
         &#{$selector} {
             background-color: hsl(var(--accent-hsl--material-you)) important($important);
