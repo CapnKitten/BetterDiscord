@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 /*
  *
  *  PILL BAR HEADER
@@ -5,21 +7,17 @@
  */
 
 %pillContainer {
-    background-color: var(--card-color-filled);
-    border-radius: 20px;
+    @include pill-nav(false, 36px, "%pillItem", "%pillItemSelected");
 }
 
 %pillItem {
-    border-radius: 16px;
-    transition: var(--default-time) var(--default-animation) background-color;
-
     &:not(%pillItemSelected) {
         &:hover {
-            background-color: var(--card-color-hover);
+            background-color: var(--card-color-active);
         }
     }
 
-    &%pillItemSelected {
-        background-color: var(--card-color-active);
+    %pillItemIcon path {
+        fill: currentColor;
     }
 }

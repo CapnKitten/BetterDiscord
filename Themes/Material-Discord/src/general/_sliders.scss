@@ -68,7 +68,7 @@
                 width: calc(var(--slider-width) / 4);
                 height: 100%;
                 top: 0;
-                background-color: hsl(var(--accent-hsl--material-you));
+                background-color: var(--slider-grabber-pill);
                 border-radius: calc(var(--slider-width) / 8);
                 transition: calc(var(--default-time) / 1.5) var(--default-animation) background-color, calc(var(--default-time) / 1.5) var(--default-animation) transform;
             }
@@ -79,13 +79,13 @@
 
             &:hover {
                 &:before {
-                    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.6) l);
+                    background-color: hsl(from var(--slider-grabber-pill) h calc(s * 0.6) l);
                 }
             }
 
             &:active {
                 &:before {
-                    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.6) l);
+                    background-color: hsl(from var(--slider-grabber-pill) h calc(s * 0.6) l);
                     transform: scaleX(50%);
                 }
             }
@@ -124,6 +124,10 @@
     %sliderBar {
         height: var(--slider-height);
         top: calc((var(--slider-grabber-height) / 2) - (var(--slider-height) / 2));
+    }
+
+    %sliderBarFill {
+        border: none;
     }
 
     %sliderGrabber {

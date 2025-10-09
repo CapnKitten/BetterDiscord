@@ -4,7 +4,13 @@
  *
  */
 
+%chatOuterSearchContainer {
+	margin-right: 0;
+}
+
 %chatSearch {
+	--input-height: 32px;
+
 	width: 160px;
 	transition: 300ms ease width;
 
@@ -12,21 +18,34 @@
 		width: 100%;
 		height: var(--input-height);
 		background-color: var(--input-color);
+		padding: 0;
 		border-radius: 16px;
+		border: none;
 	}
 
 	%chatSearchRoot {
-		padding: 6px 0;
+		padding: 0 0 0 8px;
 		padding-left: 8px;
 	}
 
 	%chatSearchPlaceholder {
+		height: var(--input-height);
+		line-height: var(--input-height);
 		padding-left: 2px;
+		padding-bottom: 0;
 		color: var(--input-placeholder-color);
 	}
 
 	%chatSearchContent {
+		--scrollbar-width: 0;
+
+		padding-bottom: 0;
+		line-height: var(--input-height);
 		color: var(--input-text-color);
+	}
+
+	%chatSearchContainer {
+		height: var(--input-height);
 	}
 
 	%chatSearchFilter,
@@ -37,9 +56,16 @@
 		color: var(--input-text-color);
     }
 
+	%chatSearchFilter + span[data-offset-key],
+	%chatSearchAnswer span[data-offset-key] {
+		height: 22px;
+		line-height: 22px;
+	}
+
     %chatSearchFilter {
+		line-height: 22px;
         padding: 0 4px 0 8px;
-        border-radius: 11px 0 0 11px;
+		border-radius: 11px 0 0 11px;
 
         &:only-child {
 			padding: 0 8px;
@@ -63,6 +89,11 @@
             background-color: transparent;
         }
     }
+
+	%chatSearchAnswer,
+	%chatSearchFilter {
+		border: none;
+	}
 
 	%chatSearchIconWrapper {
 		width: 32px;

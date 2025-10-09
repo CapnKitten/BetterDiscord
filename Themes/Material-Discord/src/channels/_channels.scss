@@ -10,12 +10,16 @@
 	background-color: transparent;
 	overflow: hidden;
 
+	&:after {
+		display: none;
+	}
+
 	&%channelSidebarHasNotice {
 		border-radius: 0 !important;
 	}
 
 	%channelsContainer {
-		background-color: transparent;
+		background-color: var(--main-color);
 	}
 
 	%channelsList {
@@ -35,6 +39,14 @@
     }
 }
 
+%sidebarList {
+	border-top-left-radius: var(--card-radius-big);
+	border-bottom-left-radius: var(--card-radius-big);
+	border-top: none;
+	border-left: none;
+	border: none;
+}
+
 %sidebarResizeHandle {
     margin: var(--space-4) 0;
     border-radius: 2px;
@@ -46,6 +58,8 @@
 }
 
 %channelsHeaderContainer {
+	background-color: var(--chat-color);
+
 	&:not(%channelHasBanner) {
 		%channelsHeader {
 			&,
@@ -54,6 +68,11 @@
 			}
 		}
 	}
+}
+
+%channelsHeaderGuildBadge,
+%channelsHeaderGuildBadgeV2 {
+	margin-right: 0;
 }
 
 %channelsHeaderInvitesRefresh {
@@ -103,13 +122,52 @@
     }
 }
 
+%channelsHeader {
+	border-bottom: none;
+	box-shadow: var(--shadow-ledge);
+}
+
+%channelHasBanner {
+	%channelsHeader {
+		background-color: var(--chat-color);
+		border-bottom: none;
+	}
+
+	&%bannerVisible {
+		%channelsHeader {
+			background-color: transparent;
+			box-shadow: none;
+		}
+
+		%channelsHeaderGlass {
+			border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+			border-bottom: none;
+		}
+	}
+}
+
+%channelsHeaderEllipseForeground {
+	position: absolute;
+	height: var(--custom-channel-header-height);
+	top: 0;
+	left: 0;
+	right: 0;
+	border-radius: var(--card-radius-big);
+}
+
 %bannerAnimatedContainer {
+	background-color: var(--chat-color);
+	border-bottom: none;
 	box-shadow: none;
 }
 
 %bannerAnimatedContainer,
 %bannerImage {
 	border-radius: var(--card-radius-big);
+}
+
+%bannerImage {
+	overflow: hidden;
 }
 
 %bannerCommunityInfoPill {
@@ -135,8 +193,14 @@
 }
 
 %channelBar {
+	padding: 6px 10px;
 	background-color: var(--popout-color);
-    box-shadow: var(--shadow-medium);
+	border: none;
+	box-shadow: var(--shadow-medium);
+
+	&%channelMentionsBar {
+		background-color: hsl(var(--alert-hsl));
+	}
 }
 
 %channelMentionsBar {
@@ -277,7 +341,7 @@
 
 	%channelLinkTop,
 	%channelContent {
-        min-height: 32px;
+        min-height: inherit;
 		gap: 8px;
         align-items: center;
     }
@@ -302,10 +366,16 @@
 	%channelMain {
 		margin-left: 28px;
 	}
+
+	%channelLink {
+        padding: 0 12px !important;
+    }
 }
 
 %channelUnreadPillBottom {
+	bottom: calc(var(--custom-app-panels-height,0) + var(--space-12));
 	padding: 8px 12px;
+
 }
 
 %channelUnreadBar {
@@ -347,15 +417,22 @@
 	}
 }
 
-%channelUserLimitUsers {
-	background-color: var(--status-picker-color);
-}
+%channelUserLimitWrapper {
+	border: none;
 
-%channelUserLimitTotal {
-	background-color: var(--sidebar-panel-color);
+	%channelUserLimitUsers {
+		padding: 0 6px;
+		background-color: var(--status-picker-color);
+	}
 
-	&:after {
-		border-right-color: var(--sidebar-panel-color);
+	%channelUserLimitTotal {
+		width: auto;
+		padding: 0 6px;
+		background-color: var(--sidebar-panel-color);
+
+		&:after {
+			display: none;
+		}
 	}
 }
 

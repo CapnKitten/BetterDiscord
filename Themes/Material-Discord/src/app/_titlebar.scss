@@ -6,6 +6,48 @@
  *
  */
 
+%bar {
+	padding-left: 0;
+	padding-right: var(--space-4);
+
+	%barLeading {
+		padding-left: var(--space-8);
+	}
+
+	%barTitle {
+		line-height: var(--custom-app-top-bar-height);
+		padding: 0 10px;
+		gap: 0;
+
+		&:before,
+		&:after {
+			font-size: 0.925em;
+			color: var(--text-normal);
+		}
+
+		&:before {
+			content: var(--app-watermark-one);
+			font-weight: 700;
+		}
+
+		&:after {
+			content: var(--app-watermark-two);
+		}
+
+		%barGuildIcon,
+		%textSmMedium,
+		svg {
+			display: none;
+		}
+	}
+
+	%headerBarIconBadge {
+		box-shadow: 0 0 0 4px var(--main-alt);
+	}
+}
+
+/* APP TITLE BAR -> BUTTONS */
+
 %titlebarWin {
 	&%titlebarWithFrame {
 		height: var(--app-title-bar-height);
@@ -14,7 +56,9 @@
 }
 
 %titlebarWinButton {
-	height: var(--app-title-bar-height);
+	--app-title-bar-height: var(--custom-app-top-bar-height);
+
+	width: calc(var(--app-title-bar-height) / 1.325);
 	top: 0;
 
 	&:before {
@@ -54,19 +98,7 @@
 	}
 
 	&%titlebarWinButtonMinMax {
-		&:nth-last-of-type(2) {
-			&:hover {
-				&:after {
-					background-color: var(--app-button-max);
-				}
-			}
-
-			&:before {
-				@include add-icon(var(--app-button-max), window_maximize);
-			}
-		}
-
-		&:nth-last-of-type(1) {
+		&:nth-of-type(1) {
 			&:hover {
 				&:after {
 					background-color: var(--app-button-min);
@@ -75,6 +107,18 @@
 
 			&:before {
 				@include add-icon(var(--app-button-min), window_minimize);
+			}
+		}
+
+		&:nth-of-type(2) {
+			&:hover {
+				&:after {
+					background-color: var(--app-button-max);
+				}
+			}
+
+			&:before {
+				@include add-icon(var(--app-button-max), window_maximize);
 			}
 		}
 	}

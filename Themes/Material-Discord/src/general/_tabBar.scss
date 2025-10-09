@@ -26,6 +26,10 @@
         	background-color: transparent !important;
         }
 
+        &:after {
+            display: none;
+        }
+
         &:not(%itemDisabled) {
         	&:hover {
         		color: var(--interactive-hover) !important;
@@ -34,6 +38,11 @@
 
         &%itemSelected {
         	color: var(--interactive-normal) !important;
+
+            &:after {
+                display: block;
+                top: unset;
+            }
         }
 
         &%itemSelected,
@@ -54,6 +63,23 @@
             line-height: inherit;
         }
 	}
+}
+
+%tabBarVertical {
+    height: unset;
+
+    %item {
+        transition: var(--default-time) var(--default-animation) background-color;
+
+        &%itemSelected {
+            background-color: hsl(var(--accent-hsl), 0.3) !important;
+            border-radius: 12px;
+
+            &:after {
+                display: none;
+            }
+        }
+    }
 }
 
 %userProfileTabBar {

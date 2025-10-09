@@ -19,7 +19,13 @@
 	@include popout-format;
 }
 
+%emojiPicker {
+	background-color: var(--popout-color);
+	border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+}
+
 %emojiWrapperChat {
+	background-color: var(--popout-color);
     border-radius: var(--popout-radius-big);
 
     &%emojiWrapperIsBurstReactionUnlimited {
@@ -31,6 +37,16 @@
             box-shadow: 0 0 100px hsl(var(--accent-hsl--material-you));
         }
     }
+
+	&%emojiPickerHasTabWrapper {
+		%emojiCategoryWrapper {
+			top: 55px;
+		}
+	}
+
+	%emojiCategoryWrapper {
+		top: 73px;
+	}
 
 	%inputContainer {
 		--input-color: var(--input-color-alt);
@@ -57,9 +73,22 @@
 			font-family: var(--app-font);
 		}
 	}
+
+	%searchIconLayout {
+		width: 32px;
+		height: 32px;
+	}
 }
 
 %emojiContentWrapper {
+	--nav-button-height: 36px;
+
+	background-color: var(--popout-color);
+	border-radius: var(--popout-radius-big);
+	border: none;
+	box-shadow: var(--shadow-medium);
+	grid-template-rows: var(--nav-button-height) auto;
+
 	%inputContainer {
 		--input-color: var(--input-color-alt);
 	}
@@ -108,66 +137,21 @@
 	}
 }
 
-%positionContainer {
-	&:not(%positionContainerOnlyEmoji) {
-		%drawerSizingWrapper {
-		    %emojiContentWrapper {
-		        --nav-container-padding: 4px;
-		        --nav-button-height: 24px;
-		        --nav-button-radius: 12px;
-
-		        grid-template-rows: calc(var(--nav-button-height) + (var(--nav-container-padding) * 2)) auto;
-		        grid-row-gap: 16px;
-		    }
-		}
-	}
-}
-
 %emojiPickerNavList {
-    position: relative;
-    width: 100%;
-    padding: var(--nav-container-padding);
-    background-color: var(--popout-color-alt);
-    border-radius: calc(var(--nav-button-radius) + var(--nav-container-padding));
-    z-index: 0;
-    box-sizing: border-box;
-
-    &:after {
-        position: absolute;
-        content: " ";
-        width: calc(33.3333% - (var(--nav-container-padding) / 2));
-        height: var(--nav-button-height);
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-        background: var(--menu-item-select);
-        border-radius: var(--nav-button-radius);
-        z-index: -1;
-        transition: var(--default-time) var(--default-animation) transform;
-    }
-
-    &:has(%emojiPickerNavButtonActive[id="sticker-picker-tab"]):after {
-        transform: translateX(calc(100%));
-    }
-
-    &:has(%emojiPickerNavButtonActive[id="emoji-picker-tab"]):after {
-        transform: translateX(calc(200% - (var(--nav-container-padding) / 2)));
-    }
+    @include pill-nav(true, 36px, "%emojiPickerNavItem", "%emojiPickerNavButtonActive");
+	width: 100%;
 }
 
 %emojiPickerNavItem {
 	flex-grow: 1;
 	flex-basis: 0;
-	margin: 0;
+	margin: 0 !important;
 	padding: 0;
 	line-height: var(--nav-button-height);
-	background-color: transparent !important;
-	color: var(--text-muted);
-	text-align: center;
+    text-align: center;
 
-	&:hover,
-	&%emojiPickerNavButtonActive {
-		color: var(--text-normal);
+	&:hover {
+		background-color: var(--card-color-active) !important;
 	}
 }
 
@@ -178,10 +162,6 @@
 body:active %drawerSizingWrapper:not(:active) {
 	opacity: 0;
 	transition: 150ms ease all;
-}
-
-%emojiPickerNavButtonActive {
-    background: none;
 }
 
 #gif-picker-tab-panel,
@@ -347,12 +327,6 @@ body:active %drawerSizingWrapper:not(:active) {
 	}
 }
 
-%emojiPickerHasTabWrapper {
-	%emojiCategoryWrapper {
-		top: 50px;
-	}
-}
-
 %callReactionContainer {
     %emojiCategoryWrapper {
         top: 66px;
@@ -360,6 +334,7 @@ body:active %drawerSizingWrapper:not(:active) {
 }
 
 %emojiCategoryWrapper {
+	top: 57px;
 	background-color: var(--attachment-color);
 	border-bottom-left-radius: var(--popout-radius-big);
 
@@ -379,6 +354,12 @@ body:active %drawerSizingWrapper:not(:active) {
 		&%stickerCategoryGeneric path {
 			d: path('M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z');
 		}
+	}
+}
+
+%emojiPickerHasTabWrapper {
+	%emojiCategoryWrapper {
+		top: 50px;
 	}
 }
 
@@ -479,6 +460,10 @@ body:active %drawerSizingWrapper:not(:active) {
     %stickerInspectedIndicator {
         background-color: var(--card-color-active);
     }
+}
+
+%emojiStandardStickerShortcut {
+	background-color: var(--popout-color);
 }
 
 /* EMOJI PICKER -> BURST REACTIONS */

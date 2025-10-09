@@ -19,11 +19,25 @@
 }
 
 %privateChannelsSearchBar {
+    border-bottom:  none !important;
+    box-shadow: var(--shadow-ledge);
+
     %privateChannelsSearchBarComponent {
         height: 32px;
         padding: 0 10px;
         background-color: var(--input-color);
         border-radius: 16px;
+    }
+
+    %buttonFilled%buttonPrimary {
+        --button-height: 32px;
+        --button-background: var(--input-color);
+        --button-text-color: var(--input-text-color);
+
+        %buttonContents {
+            margin: 0;
+            overflow: hidden;
+        }
     }
 }
 
@@ -45,6 +59,12 @@
 
         &%privateChannelSelected {
             background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
+        }
+    }
+
+    &:not(%privateChannelDm) {
+        %privateChannelLink {
+            padding: 0 var(--space-16);
         }
     }
 }

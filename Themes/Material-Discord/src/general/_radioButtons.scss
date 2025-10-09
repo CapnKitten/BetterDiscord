@@ -24,7 +24,7 @@ div[role="radiogroup"] {
 	padding: 0 12px;
 	background-color: transparent;
 	border-radius: calc(var(--card-radius-big) / 1.65);
-    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 
     &:hover {
         background-color: var(--card-color-hover) !important;
@@ -46,7 +46,7 @@ div[role="radiogroup"] {
 		&:after {
 			width: 32px;
 			height: 32px;
-			top: -3px;
+			top: 0;
 			left: -4px;
 			bottom: 0;
 			margin: auto 0;
@@ -94,6 +94,36 @@ div[role="radiogroup"] {
 	}
 }
 
+%radioIndicatorGroup {
+	width: 24px;
+	height: 24px;
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-mask-repeat: no-repeat;
+	mask-size: 100%;
+
+	%radioIndicator {
+		display: none;
+	}
+}
+
+%radioItem,
+%menuPopoutItem[role="menuitemradio"] {
+	&[aria-checked="false"] {
+		%radioIndicatorGroup {
+			background-color: var(--interactive-normal);
+			-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_unchecked.svg);
+		}
+	}
+
+	&[aria-checked="true"] {
+		%radioIndicatorGroup {
+			background-color: hsl(var(--accent-hsl--material-you));
+			-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_checked.svg);
+		}
+	}
+}
+
 %radioItemDisabledTooltip {
 	margin: 0;
 	@include card-format--list;
@@ -101,10 +131,6 @@ div[role="radiogroup"] {
 	&:last-child {
 		border-bottom: none;
 	}
-}
-
-.group-LWHoGI {
-	overflow: hidden;
 }
 
 /* RADIO BUTTONS -> PILL */
@@ -165,12 +191,19 @@ div[role="radiogroup"] {
 /* RADIO BUTTONS -> CONTEXT MENU */
 
 %menuPopoutItem {
-	&[role="menuitemradio"][aria-checked="true"] {
-		%menuPopoutIcon {
-			color: hsl(var(--accent-hsl--material-you));
+	&[role="menuitemradio"] {
+		%radioIndicatorGroup {
+            width: 20px;
+            height: 20px;
+        }
 
-			path {
-				fill: currentColor
+		&[aria-checked="true"] {
+			%menuPopoutIcon {
+				color: hsl(var(--accent-hsl--material-you));
+
+				path {
+					fill: currentColor
+				}
 			}
 		}
 	}

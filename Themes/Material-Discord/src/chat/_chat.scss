@@ -17,12 +17,21 @@
 
 	&%threadSidebarOpen {
 		border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
+		border-right: none;
+	}
+
+	&[data-has-border=true] {
+		border-top: none;
 	}
 }
 
 %noChannel {
 	background-color: var(--chat-color);
 	border-top-right-radius: var(--card-radius-big);
+}
+
+%chatNsfwScroller {
+	background-color: transparent;
 }
 
 %notice,
@@ -40,6 +49,7 @@
 
 %chatHeaderBar {
 	background-color: var(--chat-color);
+	border-bottom: none;
 
 	&:after {
 		display: none
@@ -185,17 +195,23 @@
 	&:not(%jumpToPresentBar) {
 		height: auto;
 	    top: var(--space-16);
-	    left: unset;
+	    left: 50%;
 	    right: unset;
 	    gap: var(--space-8);
 	    padding: var(--space-8);
 	    background-color: var(--popout-color);
 	    border-radius: calc(var(--button-radius) + var(--space-8));
 	    box-shadow: none;
+		border: none;
 	    cursor: default;
 	    opacity: 1;
 		z-index: 4;
+		transform: translateX(-50%);
 	    transition: var(--default-time) var(--default-animation) box-shadow;
+
+		&:hover {
+			box-shadow: var(--shadow-soft);
+		}
 
 	    &:active {
 	        padding-top: var(--space-8);
@@ -223,6 +239,8 @@
 	&%barButtonAlt {
         position: relative;
         padding: 0;
+		background-color: hsl(var(--accent-hsl--material-you));
+		color: var(--accent-text-color--material-you);
         font-size: 0;
         justify-content: center;
 
@@ -267,51 +285,86 @@
 /* CHAT AREA -> JUMP TO PRESENT / NAVIGATOR */
 
 %jumpToPresentBar {
+	--button-height: 56px;
+	--button-padding: 0 16px;
+	--button-radius: 20px;
+	--button-font-size: 16px;
+
 	width: auto;
-	height: 48px;
-	border-radius: 30%;
-	left: auto;
-	right: 24px;
-	bottom: 24px;
-	padding: 0;
+	height: var(--button-height);
+	min-width: var(--button-height);
+	gap: var(--space-8);
+	left: unset;
+	right: var(--space-16);
+	bottom: var(--space-16);
+	margin: 0;
+	padding: var(--button-padding);
 	background: hsl(var(--accent-hsl--material-you)) !important;
+	border-radius: var(--button-radius);
+	border: none;
 	box-shadow: var(--shadow-soft);
 	transition: var(--default-time) var(--default-animation) box-shadow;
 	opacity: 1;
+	z-index: 3;
 
 	&:hover {
 		box-shadow: var(--shadow-medium);
+
+		&:after {
+			opacity: var(--button-action-hover);
+		}
 	}
 
 	&:active {
-		margin: 0 !important;
+		margin: 0 auto !important;
+
+		&:after {
+			opacity: var(--button-action-active);
+		}
 	}
 
 	&:before {
 		content: " ";
-		position: absolute;
-		width: inherit;
-		height: inherit;
+		position: relative;
+		width: 24px;
+		height: 24px;
+		left: unset;
 		bottom: 0;
 		right: 0;
+		box-sizing: border-box;
 		@include add-icon(var(--accent-text-color--material-you), expand, solid);
 		-webkit-mask-position: center;
 		mask-position: center;
 		-webkit-mask-origin: content-box;
-		mask-size: 75%;
+		mask-size: 150%;
+		transform: none;
+	}
+
+	&:after {
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: var(--button-action-color);
+		border-radius: var(--button-radius);
+		opacity: 0;
+		pointer-events: none;
+		transition: var(--default-time) var(--default-animation) opacity;
 	}
 
 	%jumpToPresentBarButtonBase {
-		width: inherit;
-		height: inherit;
-		padding: inherit;
+		display: none;
+	}
 
-		&%jumpToPresentBarButtonMain {
-			opacity: 0;
-			z-index: 2;
-		}
+	%button {
+		--button-height: 24px;
 
-		&%jumpToPresentBarButtonAlt {
+		padding: 0;
+		font-weight: 400;
+
+		&:after {
 			display: none;
 		}
 	}
@@ -322,9 +375,11 @@
 
 	%spinner {
 		position: absolute;
-		width: inherit;
-		height: inherit;
-		padding: inherit;
+		width: 100%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		padding: 0;
 		background-color: hsl(var(--accent-hsl--material-you));
 		border-radius: 50%;
 		z-index: 3;

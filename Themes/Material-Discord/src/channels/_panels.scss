@@ -7,8 +7,15 @@
  */
 
 %panels {
-	margin: calc(var(--space-12) * -1) var(--space-8) var(--space-12) var(--space-12);
+	width: calc(100% - 20px);
+	left: var(--space-12);
+	bottom: var(--space-12);
+	margin: 0;
 	background-color: transparent !important;
+	border-radius: var(--sidebar-panel-radius-big);
+	border: none;
+	box-shadow: none;
+	transition: var(--default-time) var(--default-animation) left;
 
     > div:not(:empty) {
         &:first-of-type {
@@ -72,6 +79,11 @@
 /* CHANNEL LIST PANELS -> CONNECTION PANEL */
 
 %connectionPanel {
+	margin: 0 0 2px;
+	padding: 8px;
+	background-color: var(--sidebar-panel-color);
+	border-radius: var(--sidebar-panel-radius-small);
+
     %connectionPanelActionButtons {
         %button {
             --button-padding: 0 12px;
@@ -81,6 +93,12 @@
     %connectionPanelMaskSecondary {
         border-color: var(--sidebar-panel-color);
     }
+
+	%rtcConnectionStatus {
+		%button {
+			--button-height: 24px;
+		}
+	}
 }
 
 %connectionPanelActionButtons {
@@ -131,15 +149,20 @@
 /* CHANNEL LIST PANELS -> ACCOUNT PANEL */
 
 %accountPanelContent {
+	min-height: 100%;
     height: inherit;
+	padding: 0 8px;
     background-color: transparent !important;
 }
 
 %accountPanel {
     width: 100%;
-    height: 44px;
+	min-height: unset;
+    height: var(--main-textarea-height);
     margin-bottom: 0;
-    background: var(--status-picker-color);
+	margin-left: 0;
+	padding: 0 var(--space-xs);
+    background-color: var(--status-picker-color);
     border-radius: var(--sidebar-panel-radius-small);
     box-sizing: border-box;
 
@@ -186,7 +209,13 @@
 /* CHANNEL LIST PANELS -> ACTIVITIES PANEL */
 
 %activityPanel {
-    background: var(--sidebar-panel-color) !important;
+	padding: 0 8px;
+	background: var(--sidebar-panel-color) !important;
+	border-radius: var(--sidebar-panel-radius-small);
+
+	%activityPanelBody {
+		height: 100%;
+	}
 
     %activityPanelGameIcon {
         border-radius: 50%;
@@ -344,8 +373,12 @@
 %questPanelPostEnrollmentBackground {
     background-image: none !important;
     background-color: var(--sidebar-panel-color);
-    border-radius: 0;
+    border-radius: var(--sidebar-panel-radius-small);
     border-top: none;
+
+	&%questPanelPostEnrollmentBackgroundExpanded {
+		border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+	}
 }
 
 %questPanelStepsWrapper {

@@ -8,6 +8,7 @@
 
 %chatForm {
 	margin-top: 0 !important;
+	padding: 0;
 
 	&:before,
 	&:after {
@@ -16,22 +17,66 @@
 
 	%channelTextArea {
 		margin: 12px 0;
-		background-color: transparent;
+		background-color: var(--main-textarea-color);
 		border-radius: var(--main-textarea-radius);
+		border: none;
+		box-shadow: none;
 
 		&%channelTextAreaDisabled {
 			opacity: 0.8;
+
+			%channelTextAreaScrollable {
+				margin-right: var(--main-textarea-inner-padding);
+				scrollbar-width: none;
+			}
+
+			%channelTextAreaInner {
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			%slateTextArea {
+				margin-left: var(--space-16);
+			}
+
+			%textAreaSlate {
+				width: calc(100% + var(--scrollbar-width));
+				height: var(--custom-channel-textarea-text-area-height) !important;
+				margin-right: 0;
+			}
+
+			%textAreaPlaceholder {
+				line-height: var(--custom-channel-textarea-text-area-height);
+				padding: 0;
+			}
 		}
 	}
 
 	%channelTextAreaScrollable {
+		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+		margin: var(--main-textarea-inner-padding) 0 var(--main-textarea-inner-padding) var(--main-textarea-inner-padding);
 		background-color: var(--main-textarea-color);
-		border-radius: var(--main-textarea-radius);
+		border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
 		opacity: 1;
+
 
 		&%channelTextAreaHasStackedBar {
 			border-radius: 0 0 var(--main-textarea-radius) var(--main-textarea-radius);
 		}
+	}
+
+	%textAreaSlate {
+		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+		margin-left: calc(var(--main-textarea-inner-padding) * 2);
+		margin-right: var(--main-textarea-inner-padding);
+		background-color: var(--main-textarea-inner-color);
+		border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
+	}
+
+	%slateTextArea {
+		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+		margin-left: var(--main-textarea-height);
+		padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) var(--space-16) calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
 	}
 
 	%textAreaDisabled {
@@ -41,11 +86,9 @@
     }
 
 	%channelTextAreaInner {
-		padding-right: 10px;
-	}
-
-	%textAreaPlaceholder {
-		color: var(--text-muted);
+		padding-left: var(--main-textarea-inner-padding);
+		padding-right: calc(var(--main-textarea-inner-padding));
+		overflow: hidden;
 	}
 
 	%textAreaEditor {
@@ -87,9 +130,48 @@
 		}
 	}
 
+	%channelTextAreaAttachWrapper {
+		width: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
+		height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
+		margin-right: calc((var(--main-textarea-height) + var(--main-textarea-inner-padding)) * -1);
+		padding: 0;
+		z-index: 2;
+	}
+
+	%channelTextAreaAttachButton {
+		width: inherit;
+		height: inherit;
+		margin: 0;
+		padding: 0;
+	}
+
+	%channelTextAreaAttachButtonInner {
+		display: flex;
+		width: inherit;
+		height: inherit;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+
 	%channelTextAreaAttachButtonPlus {
 		d: path("M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z");
         transform: translate(-12px, 12px) scale(0.025);
+	}
+
+	%channelTextAreaCommandIconWrapper {
+		margin-left: 0;
+		margin-right: calc((32px + var(--main-textarea-inner-padding)) * -1);
+		z-index: 2;
+	}
+
+	%channelTextAreaCommandIcon {
+		display: flex;
+		width: 32px;
+		height: var(--custom-channel-textarea-text-area-height);
+		padding: 0;
+		align-items: center;
+		justify-content: center;
 	}
 
 	%channelTextAreaTyping {
@@ -108,6 +190,10 @@
 	}
 }
 
+%textAreaPlaceholder {
+	color: var(--text-muted);
+}
+
 %channelTextAreaFloatingBars {
     &:empty {
         + %channelTextAreaStackedBars:nth-child(2) {
@@ -119,7 +205,7 @@
 
 %channelTextAreaStackedBars {
 	position: relative;
-    background: var(--main-textarea-color);
+    background-color: var(--main-textarea-color);
     border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
 
 	&:after {
@@ -133,9 +219,28 @@
 		background-color: var(--separator-color);
 	}
 
+	&:first-child {
+		border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+	}
+
+	&:not(:last-child) {
+		border-bottom: none;
+	}
+
     %replyBar {
         background: transparent;
     }
+}
+
+%channelAccessoryBar {
+	margin: 0 12px;
+	padding: 0 4px;
+	border-color: var(--separator-color);
+}
+
+%channelAttachmentArea {
+	padding: 12px;
+	background-color: transparent;
 }
 
 %replyMentionButton {
@@ -188,11 +293,12 @@
 }
 
 %channelInfo {
-	height: 44px;
-	margin: 12px 0;
+	height: var(--main-textarea-height);
+	margin: 12px 16px;
 	padding: 0;
 	background-color: var(--main-textarea-color);
 	border-radius: var(--main-textarea-radius);
+	border: none;
 
 	%channelInfoButtonContainer {
 		margin-right: 4px;
@@ -205,12 +311,16 @@
 
 %channelTextAreaUpload {
 	@include card-format(false, 8px, true);
+	box-shadow: none;
 
 	%channelTextAreaUploadImage {
 		border-radius: var(--card-radius-big);
 	}
 
 	%messageButtonWrapper {
+		background-color: var(--popout-color);
+        box-shadow: var(--shadow-medium) !important;
+
 		&:hover {
 			box-shadow: var(--shadow-medium);
 		}
@@ -225,21 +335,45 @@
 	filter: blur(22px);
 }
 
+%channelBottomBarArea {
+	margin: 0;
+	padding: 0 var(--space-16);
+	gap: 12px;
+
+	+ span + %channelTextAreaTyping,
+	+ %channelTextAreaTyping {
+		position: absolute;
+		width: calc(100% - (var(--scrollbar-width) + (var(--space-16) * 3)));
+		left: unset;
+		right: var(--space-16);
+		background-color: var(--typing-color);
+	}
+}
+
+%messagesErrorBar {
+	background-color: hsl(var(--alert-hsl));
+	border-radius: 22px;
+	border: none;
+	color: var(--alert-text-color);
+	box-shadow: var(--shadow-medium);
+}
+
 /* MAIN TEXTAREA -> APPS AND COMMANDS BUTTON */
 
 %channelAppLauncher {
-    width: var(--custom-channel-textarea-text-area-height);
-    height: var(--custom-channel-textarea-text-area-height);
-    margin: auto 0 auto 12px;
+	width: var(--space-32);
+	height: auto;
+	margin: 0;
+	padding: 0;
 
     %channelAppLauncherButton {
-        background: var(--card-color-hover);
+        background-color: transparent;
         border-radius: 50%;
         transition: var(--default-time) var(--default-animation) background;
 
-        &:hover {
-            background: var(--card-color-active);
-        }
+		&:hover {
+			background-color: transparent;
+		}
     }
 }
 
@@ -247,15 +381,14 @@
 
 %channelEntryPointButtonContainer {
 	margin: auto;
+}
 
-    %buttonFilled {
-        --button-height: calc(var(--main-textarea-height));
-        --button-padding: 0 24px;
-        --button-radius: calc(var(--main-textarea-height) / 2);
+%channelEntryPointAppButtonContainer {
+    --button-height: var(--main-textarea-height);
+	--button-padding: 0;
+    --button-radius: calc(var(--button-height) / 2);
 
-        min-width: 0;
-		margin-left: 0;
-    }
+	margin-left: 0;
 }
 
 /* MAIN TEXTAREA -> INVITE TO GAME */
@@ -324,6 +457,24 @@
 			}
         }
     }
+}
+
+/* MAIN TEXTAREA -> BUTTONS */
+
+%channelTextAreaButton,
+%channelAppLauncherButton,
+%spriteGreyscale {
+	--interactive-normal: var(--main-textarea-button-color);
+	--interactive-hover: var(--main-textarea-button-color);
+	--interactive-active: var(--main-textarea-button-color);
+}
+
+%channelTextAreaButton,
+%channelAppLauncherButton {
+	display: flex;
+	min-height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
+	justify-content: center;
+	align-items: center;
 }
 
 /* MAIN TEXTAREA -> BUTTON RIPPLE */

@@ -10,14 +10,18 @@
 	margin: 12px 12px 12px 8px;
 	background-color: var(--main-alt);
 	border-radius: var(--popout-radius-big);
+    border: none;
 }
 
 /* SEARCH RESULTS -> HEADER */
 
 %searchHeader {
-	padding: 0 16px;
-	background-color: transparent;
-	border-bottom: 1px solid var(--separator-color);
+	height: var(--search-header-height);
+    margin: 8px 8px 0;
+    padding: 0 16px;
+    background-color: var(--card-color-filled);
+    border-radius: calc(var(--popout-radius-big) - 8px);
+    border-bottom: none;
 }
 
 %searchHeaderTabList {
@@ -25,9 +29,9 @@
 
 	%item {
 		height: 100%;
-		margin: 0 0 0 8px;
+		margin: 0;
 		padding: 0 8px;
-		line-height: 55px;
+		line-height: var(--search-header-height) !important;
 		border-radius: 0;
 
 		&:hover:not(%itemDisabled),
@@ -37,6 +41,7 @@
 
 		&%itemSelected {
 			@include tab-border(80%);
+			background-color: transparent;
 		}
 	}
 }
@@ -56,6 +61,7 @@
 %searchResult {
 	background-color: transparent;
 	border-radius: 0;
+	border: none;
 
 	%messagesWrapper {
 		margin: 0 8px 0 60px !important;
