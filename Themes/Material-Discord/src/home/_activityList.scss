@@ -67,26 +67,20 @@
 	border: none;
 	transition: var(--default-time) var(--default-animation) background-color;
 
+	&:first-of-type {
+		border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+	}
+
+	&:nth-last-child(1) {
+		border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+	}
+
 	&:hover {
 		background-color: var(--activity-card-color--hover) !important;
 	}
 
 	&%activeNowCardActive {
 		background-color: var(--activity-card-color--active) !important;
-	}
-
-	&:not(:only-of-type) {
-		&:first-of-type {
-			border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-		}
-
-		&:nth-last-child(2) {
-			border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-
-			&:after {
-				display: none;
-			}
-		}
 	}
 
 	%activeNowCardInset {

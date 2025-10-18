@@ -57,6 +57,16 @@
         --accent-button-action: var(--white-500) !important;
 	}
 
+	%buttonV2Primary {
+        --button-background: var(--control-background-primary-default);
+        --button-text-color: var(--control-text-primary-default);
+    }
+
+    %buttonV2Secondary {
+        --button-background: var(--control-background-secondary-default);
+        --button-text-color: var(--control-text-secondary-default);
+    }
+
 	%userProfileModalConnectedAccounts {
 		%userProfileModalConnectedAccount {
 			--card-color-filled: var(--profile-body-background-color);
@@ -455,7 +465,8 @@
     }
 
     %userProfileInner {
-        padding: 32px;
+        padding: var(--space-32);
+		gap: var(--space-32);
     }
 
     %userProfileModalV2Profile {
@@ -489,7 +500,7 @@
         border-radius: var(--card-radius-big);
 
         %userProfileModalHeadings {
-            padding-top: var(--space-12);
+            //padding-top: var(--space-12);
         }
     }
 
@@ -530,8 +541,13 @@
     }
 
 	%userProfileModalV2SideContainer {
+		--custom-gutter-left: 0;
+
 		height: 100%;
-        padding: 0 4px;
+        gap: var(--space-16);
+        margin: 0;
+        padding: 0;
+        overflow: visible;
 
         %userProfileModalV2SideHeaderScroller {
             margin: 0;
@@ -543,16 +559,27 @@
                 line-height: 48px;
             }
         }
-
-		%userProfileModalHeadings {
-		   %textXsMedium {
-			   font-size: 14px;
-		   }
-	   }
 	}
+
+	%userProfileModalHeadings {
+        padding-top: 0;
+
+		%textXsMedium {
+			font-size: 14px;
+		}
+    }
+}
+
+%userProfileModalV2SaveChangesContainer {
+    padding: var(--space-8) var(--space-8) var(--space-8) var(--space-16);
+    background-color: var(--popout-color);
+    border-radius: 6px;
+    border: none;
+    box-shadow: var(--shadow-soft);
 }
 
 %userProfileModalV2TabPanelScroller {
+	padding-top: 0;
     padding-left: var(--space-12);
     gap: 2px;
 }
@@ -577,4 +604,81 @@
         border-bottom-left-radius: var(--card-radius-big);
         border-bottom-right-radius: var(--card-radius-big);
     }
+}
+
+%userProfileModalV2TabListScroller {
+    margin: 0;
+    padding: 0;
+}
+
+%userProfileModalV2TabBarPanel {
+    padding-left: 0;
+
+    %userProfileModalV2TabBarScroller {
+        margin-left: -16px;
+        padding-left: 28px;
+    }
+}
+
+%userProfileModalV2WidgetDragHandleButton {
+    left: 8px;
+}
+
+%userProfileModalV2DragAndDropHitbox {
+    &:first-of-type {
+        %userProfileModalV2WidgetContainer {
+            border-top-left-radius: var(--card-radius-big);
+            border-top-right-radius: var(--card-radius-big);
+        }
+    }
+
+    &:nth-last-child(3) {
+        %userProfileModalV2WidgetContainer {
+            border-bottom-left-radius: var(--card-radius-big);
+            border-bottom-right-radius: var(--card-radius-big);
+        }
+    }
+}
+
+%userProfileModalV2WidgetContainer {
+	padding: var(--space-16);
+    background-color: var(--card-color-hover);
+    border-radius: 4px;
+    border: none;
+}
+
+%userProfileWidgetAddButtonContainer {
+    background-color: var(--card-color-hover);
+    border-radius: calc(var(--popout-radius-big) / 1.75);
+
+    &:has(%userProfileWidgetAddButtonContent:hover) {
+        background-color: var(--card-color-active);
+    }
+}
+
+%userProfileWidgetCard {
+    &:has(%userProfileWidgetRemoveGameButton) {
+        &:before {
+            inset: 0;
+            border-radius: calc(var(--card-radius-big) / 1.6);
+        }
+
+        &:hover {
+            &:before {
+                background-color: var(--card-color-hover);
+            }
+        }
+    }
+
+    %userProfileWidgetGameCover {
+        border-radius: calc(var(--card-radius-big) / 1.6);
+    }
+}
+
+%userProfileWidgetCoverContainer {
+    box-shadow: var(--shadow-soft);
+}
+
+%userProfileWidgetGameCover {
+    border-radius: calc(var(--card-radius-big) / 2.5);
 }

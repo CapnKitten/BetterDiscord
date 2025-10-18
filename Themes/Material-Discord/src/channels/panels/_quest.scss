@@ -1,0 +1,161 @@
+/*
+ *
+ *  CHANNELS LIST QUEST PANEL
+ *
+ */
+
+%questPanelWrapper {
+    margin-bottom: 2px;
+    background-color: var(--sidebar-panel-color) !important;
+    border-radius: var(--sidebar-panel-radius-small);
+	overflow: hidden;
+
+	&:has(%questPanelContentWrapperExpanded) {
+        overflow: visible;
+
+        %questPanelHeroAsset {
+            opacity: 1;
+        }
+    }
+}
+
+%questPanelMask {
+    &:first-child {
+        %questPanelWrapper {
+            border-top-left-radius: var(--sidebar-panel-radius-big);
+            border-top-right-radius: var(--sidebar-panel-radius-big);
+        }
+    }
+}
+
+%questPanelContentWrapper {
+    background-color: var(--sidebar-panel-color) !important;
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+    overflow: hidden;
+    transition: var(--default-time) var(--default-animation) border-radius;
+
+    &:after {
+        box-shadow: none !important;
+    }
+
+    &%questPanelContentWrapperExpanded {
+        background-image: none !important;
+        border-top-left-radius: var(--popout-radius-big);
+        border-top-right-radius: var(--popout-radius-big);
+
+        %questPanelInnerWrapper {
+            padding: 4px 8px !important;
+			border-radius: calc(var(--popout-radius-big) / 1.5) !important;
+        }
+    }
+}
+
+%questPanelInnerWrapper {
+    padding: 8px !important;
+}
+
+%questPanelInnerWrapper,
+%heroAssetWrapper {
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small) !important;
+}
+
+%questPanelHeroAsset {
+    z-index: 2;
+    opacity: 0;
+    transition: 150ms var(--default-animation) opacity;
+}
+
+%questPanelRewardTile {
+    border-radius: calc(var(--sidebar-panel-radius-big) / 1.5) !important;
+}
+
+%questPanelTitle,
+%questPanelDescription {
+    padding: 8px;
+    border-radius: calc(var(--sidebar-panel-radius-big) / 1.5);
+    backdrop-filter: blur(10px) brightness(0.75);
+}
+
+%questPanelTitle {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+%questPanelDescription {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+%questPanelBackgroundWrapper {
+    display: none;
+}
+
+%questPanelOpaqueExpandedBackground {
+    border-radius: calc(var(--sidebar-panel-radius-big) / 1.5);
+}
+
+%heroAssetWrapper {
+    filter: none !important;
+}
+
+%questLegibilityGradient {
+    background: var(--sidebar-panel-color);
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+}
+
+%heroAssetDarken,
+%heroAssetTint {
+    background-color: var(--sidebar-panel-color) !important;
+    border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+}
+
+/* CHANNELS LIST QUEST PANEL -> QUEST ACCEPTED */
+
+%questPanelPostEnrollmentBackground {
+    background-color: var(--app-foreground);
+    border-top: none;
+}
+
+%questPanelContentCollapsedAccepted {
+    padding: 12px 8px;
+}
+
+%questPanelPostEnrollmentBackground {
+    background-image: none !important;
+    background-color: var(--sidebar-panel-color);
+    border-radius: var(--sidebar-panel-radius-small);
+    border-top: none;
+
+	&%questPanelPostEnrollmentBackgroundExpanded {
+		border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
+	}
+}
+
+%questPanelStepsWrapper {
+    margin-bottom: 0;
+    background-color: var(--card-color-alt);
+    border-radius: var(--card-radius-big);
+    border: none;
+}
+
+%questPanelStepWrapperComplete {
+    %questPanelStepIconWrapper {
+        background-color: hsl(var(--accent-hsl--material-you));
+        border-color: hsl(var(--accent-hsl--material-you));
+    }
+
+    %questPanelStepConnector {
+        &:before {
+            background-color: hsl(var(--accent-hsl--material-you));
+            box-shadow: 0 0 6px hsl(var(--accent-hsl--material-you));
+        }
+    }
+}
+
+%questPanelStepIconWrapper {
+    border-color: var(--card-border-color);
+
+    %questPanelStepIcon path {
+        fill: var(--accent-text-color--material-you);
+    }
+}

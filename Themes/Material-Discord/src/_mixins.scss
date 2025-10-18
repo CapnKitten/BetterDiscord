@@ -149,9 +149,15 @@
     gap: 2px;
 
     #{$pill-item} {
+		display: flex;
+		min-width: calc(var(--button-height) + var(--space-8));
+		height: var(--nav-button-height);
+		padding-top: 0;
+		padding-bottom: 0;
         background-color: var(--accent-secondary-color) important($important);
         border-radius: var(--nav-button-small-radius);
         color: var(--accent-secondary-text-color);
+		justify-content: center;
         transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color, var(--default-time) var(--default-animation) border-radius;
 
         &:first-of-type {
@@ -171,6 +177,7 @@
         &#{$selector} {
             background-color: hsl(var(--accent-hsl--material-you)) important($important);
             border-radius: var(--nav-button-big-radius);
+			border: none;
             color: var(--accent-text-color--material-you);
         }
     }
@@ -180,7 +187,7 @@
 	@if $rounded {
 		height: $height important($important);
 		max-height: $max-height important($important);
-		padding: var(--input-padding) important($important);
+		padding: 0 var(--input-padding) important($important);
 		background-color: var(--input-color) important($important);
 		border-radius: calc(#{$height} / 2) important($important);
 		border: none;
@@ -192,13 +199,14 @@
 	} @else {
 		min-height: $height important($important);
 		height: $height important($important);
-		padding: 0 12px important($important);
+		padding: 0 var(--input-padding) important($important);
 		background-color: var(--input-color) important($important);
 		border-radius: 4px 4px 0 0 important($important);
 	    border: none;
 	    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
 	    color: var(--input-text-color);
 	    transition: var(--default-time) var(--default-animation) box-shadow;
+		box-sizing: border-box;
 
 	    &:hover {
 	        border: none;
@@ -213,6 +221,16 @@
 				box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
 		    }
 		}
+	}
+}
+
+@mixin input-transform($important: false, $height: var(--input-height)) {
+	border-radius: calc(#{$height} / 2) important($important);
+	border: none important($important);
+	box-shadow: none important($important);
+
+	&:focus-within {
+		box-shadow: none important($important);
 	}
 }
 
@@ -231,7 +249,7 @@
 		bottom: 0;
 		margin: 0 auto;
 		background: var(--tab-border-color);
-		border-radius: 3px 3px 0 0;
+		border-radius: 3px;
 		transition: var(--default-time) ease all;
 	}
 }

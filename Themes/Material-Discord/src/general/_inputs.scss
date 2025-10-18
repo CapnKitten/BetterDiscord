@@ -31,11 +31,29 @@
     }
 }
 
-%inputContainer,
-%nameInputContainer {
-    @include input-format(false, true);
+%inputContainer:not(%selectMenuContainer) {
+    @include input-format(false, true, false);
 
-    &%inputContainerLeading {
+    %inputWrapper {
+        background-color: transparent;
+        border: none;
+    }
+
+    %inputWrapperHasLeading {
+        margin-left: calc(var(--input-padding) / -2);
+        padding-left: 0;
+    }
+}
+
+%clickTrapContainer {
+    %inputContainer {
+        --input-color: var(--input-color-alt);
+    }
+}
+
+%inputWrapper,
+%nameInputContainer {
+    &%inputWrapperLeading {
         padding: 0 12px 0 8px;
     }
 
@@ -52,6 +70,12 @@
     }
 }
 
+%inputWrapper {
+    &:has(input:focus, textarea:focus) {
+        outline: none !important;
+    }
+}
+
 %inputPrefixContainer {
     margin-right: 6px;
 
@@ -60,7 +84,7 @@
     }
 }
 
-%textareaV2Wrapper:not(%inputContainer) {
+%textareaV2Wrapper:not(%inputWrapper) {
     background-color: var(--input-color);
     border-radius: var(--input-radius);
     border: none;
@@ -176,8 +200,8 @@
 
 /* INPUTS -> SEARCH BAR */
 
-%searchContainer {
-    --input-padding: 0 6px 0 12px;
+%inputContainer {
+    /*--input-padding: 0 6px 0 12px;
 
     height: var(--input-height);
     background-color: var(--input-color);
@@ -185,7 +209,7 @@
     border: none;
 
     %searchInner {
-        padding: var(--input-padding);
+        padding: 0 var(--input-padding);
     }
 
     %searchInput {
@@ -197,16 +221,16 @@
             font-family: var(--app-font);
             color: var(--input-placeholder-color);
         }
-    }
+    }*/
 }
 
 /* INPUTS -> UNIVERSAL SEARCH */
 
-%searchContainer {
-    %inputContainer {
+/*%inputContainer {
+    %inputWrapper {
         @include input-format(false, true, true);
     }
-}
+}*/
 
 /* INPUTS -> OPTION PILL */
 

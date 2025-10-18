@@ -68,10 +68,9 @@
 	border-bottom: 1px solid var(--card-border-color);
 	box-shadow: none !important;
 
-	%searchInput {
-		&::-webkit-input-placeholder {
-			font-family: var(--app-font);
-		}
+	%inputContainer {
+		@include input-transform;
+		--input-color: var(--input-color-alt);
 	}
 
 	%searchIconLayout {
@@ -89,7 +88,7 @@
 	box-shadow: var(--shadow-medium);
 	grid-template-rows: var(--nav-button-height) auto;
 
-	%inputContainer {
+	%inputWrapper {
 		--input-color: var(--input-color-alt);
 	}
 }
@@ -186,7 +185,7 @@ body:active %drawerSizingWrapper:not(:active) {
 	border-radius: var(--input-radius);
 
 	%emojiPickerSearchInner {
-		padding: var(--input-padding) !important;
+		padding: 0 var(--input-padding) !important;
 
 		&::-webkit-scrollbar {
 			width: 0px !important;

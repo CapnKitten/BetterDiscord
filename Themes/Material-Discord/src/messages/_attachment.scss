@@ -317,31 +317,40 @@
 
 /* ATTACHMENTS -> IMAGES */
 
-%mediaAttachmentsContainer,
-%messageAttachmentMediaMosaic {
-	border-radius: 0;
-}
-
-%visualMediaItemContainer,
-%oneByOneGridSingle {
+%visualMediaItemContainer {
     border-radius: var(--media-radius);
 }
 
-%imageWrapper {
-    border-radius: 4px;
-
-	&%attachmentEmbedWrapper {
-		border-radius: var(--media-radius);
-	}
-
-	&%imageWrapperModal {
-		--media-radius: 0;
-	}
+%oneByOneGrid,
+%oneByTwoGrid {
+    border-radius: var(--media-radius);
+    overflow: hidden;
 }
 
-%embedVideo,
-%oneByOneGridSingle {
-    %imageWrapper {
+%visualMediaItemContainer {
+    %oneByOneGrid,
+    %oneByTwoGrid {
+        &:not(:only-child) {
+            border-radius: calc(var(--media-radius) / 4);
+        }
+    }
+}
+
+%oneByTwoGridItem,
+%oneByTwoSoloItem,
+%twoByOneGridItem {
+    border-radius: calc(var(--media-radius) / 4);
+}
+
+%mosaicItemMediaMosaic,
+%imageItemContentContainer,
+%imageContainer,
+%imageWrapper {
+    border-radius: inherit;
+}
+
+%embedVideo {
+	%imageWrapper {
         border-radius: var(--media-radius);
     }
 }
@@ -388,4 +397,29 @@
 
 %attachmentGuildInviteFooterContent {
     background-color: transparent;
+}
+
+/* ATTACHMENTS -> QUEST CARD */
+
+%attachmentQuestCard {
+    background-color: var(--attachment-color);
+    border-radius: var(--media-radius);
+    box-shadow: none;
+}
+
+%attachmentQuestCardOuterContainer {
+    border-radius: var(--media-radius);
+}
+
+%attachmentQuestCardRoot {
+    background-color: transparent;
+
+    %attachmentQuestRewardTile {
+        border-radius: 50% !important;
+        box-shadow: var(--shadow-soft);
+    }
+}
+
+%attachmentQuestRewardHighlight:after {
+    display: none;
 }

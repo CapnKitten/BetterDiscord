@@ -35,30 +35,6 @@
 }
 
 %friendsColumn {
-	%friendsSearchBar {
-		margin: 16px 16px 8px 16px;
-		@include input-format(false, false, true);
-		padding: 0;
-
-		%friendsSearchBarInner {
-			%friendsSearchBarInput {
-				height: var(--input-height);
-				margin: 0;
-				padding: 0 4px 0 12px;
-				line-height: var(--input-height);
-
-				&::-webkit-input-placeholder {
-					font-family: var(--app-font);
-				}
-			}
-
-			%friendsSearchIconLayout {
-				width: var(--input-height);
-				height: var(--input-height);
-			}
-		}
-	}
-
 	%scroller {
 		margin-top: 0;
 	}
@@ -69,6 +45,18 @@
 		padding: 0 16px;
 		line-height: 40px;
 		@include remove-caps(14px);
+	}
+}
+
+%friendsSearchBar {
+	margin: 16px 16px 8px 16px;
+	@include input-format(false, false, true);
+	padding: 0;
+
+	%inputContainer {
+		&:not(%selectMenuContainer) {
+			@include input-transform;
+		}
 	}
 }
 
