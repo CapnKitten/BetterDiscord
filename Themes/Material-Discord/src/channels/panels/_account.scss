@@ -17,22 +17,18 @@
     height: var(--main-textarea-height);
     margin-bottom: 0;
 	margin-left: 0;
-	padding: 0 var(--space-xs);
+	padding: 0 var(--space-xs) 0 6px;
+	gap: var(--space-8);
     background-color: var(--status-picker-color);
     border-radius: var(--sidebar-panel-radius-small);
     box-sizing: border-box;
 
     %accountPanelAvatarWrapper {
+		flex-grow: 1;
         min-width: 0 !important;
         margin-left: 0;
-        padding-left: 0;
-        flex-grow: 1;
-        margin-right: 0;
-
-        &:hover {
-            background-color: transparent;
-            border-radius: 0;
-        }
+		margin-right: 0;
+        padding: 5px calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) - 6px);
     }
 
     %accountPanelNameTag {
@@ -52,6 +48,53 @@
     }
 }
 
+%accountPanelButtons {
+    gap: var(--space-4);
+}
+
+%accountPanelMicButtonParent {
+    gap: 1px;
+
+    &%accountPanelMicPopoutOpen {
+        %accountPanelMicButtonWithMenu,
+        %accountPanelButtonChevron {
+            background-color: unset;
+        }
+    }
+
+    &:not(%accountPanelMicButtonHasColorGlow) {
+        &:hover {
+            %accountPanelMicButtonWithMenu,
+            %accountPanelButtonChevron {
+                background-color: unset;
+            }
+        }
+    }
+
+    %panelButton {
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
+
+        &:hover {
+            background-color: var(--background-mod-subtle) !important;
+        }
+
+        &%accountPanelMicButtonWithMenu {
+            border-radius: var(--button-radius) 4px 4px var(--button-radius);
+        }
+
+        &%accountPanelButtonChevron {
+            width: 24px;
+            margin-left: 0;
+            border-radius: 4px var(--button-radius) var(--button-radius) 4px;
+
+            &%accountPanelMicPopoutOpen {
+                background-color: var(--background-mod-normal) !important;
+                border-radius: var(--button-radius);
+            }
+        }
+    }
+}
+
 %accountPanelFitInAccount {
 	width: 100%;
 	height: 100%;
@@ -59,5 +102,14 @@
 }
 
 %accountPanelAvatarWrapperPlated {
-	background-color: transparent !important;
+	background-color: transparent;
+	border-radius: calc(var(--sidebar-panel-radius-big) / 1.4);
+
+	&:hover {
+		background-color: var(--background-mod-subtle);
+	}
+
+	&[aria-expanded="true"] {
+		background-color: var(--background-mod-normal) !important;
+	}
 }

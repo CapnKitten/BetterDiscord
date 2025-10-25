@@ -631,13 +631,11 @@
 /* MESSAGES -> ERROR BAR */
 
 %messagesErrorBar {
-	width: auto;
-	height: 36px;
-	left: auto;
-	right: 16px;
-	bottom: 24px;
-	padding: 0;
-	border-radius: 18px;
+    min-width: 180px;
+    min-height: var(--button-height);
+    height: var(--button-height);
+    padding: 0;
+	border-radius: var(--button-radius);
 	box-shadow: var(--shadow-2dp);
 	transition: var(--default-time) var(--default-animation) box-shadow;
 
@@ -652,18 +650,20 @@
 	}
 
 	%jumpToPresentBarButtonMain {
-		min-width: 36px;
-		padding: 0 12px 0 12px;
+        display: flex;
 		flex: 0 1 auto;
         border-radius: 0;
+        justify-content: center;
 
 		&:after {
 			position: absolute;
 			content: " ";
-			width: 0.5px;
-			height: 100%;
+			width: 1px;
+			height: 50%;
 			top: 0;
 			right: 0;
+            bottom: 0;
+            margin: auto 0;
             background-color: var(--alert-text-color);
 		}
 	}
@@ -673,4 +673,10 @@
         font-size: 14px;
         font-weight: 500;
 	}
+
+    %jumpToPresentBarButtonMain,
+    %jumpToPresentBarButtonAlt {
+        min-width: var(--button-height);
+        padding: var(--button-padding);
+    }
 }
