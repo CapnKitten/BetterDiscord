@@ -904,6 +904,12 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
 .container__37e49 .button__67645:hover {
   color: var(--interactive-hover) !important;
 }
+.container__37e49:has(.plated__37e49) .button__67645 {
+  transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius, var(--default-time) var(--default-animation) backdrop-filter;
+}
+.container__37e49:has(.plated__37e49) .button__67645:hover, .container__37e49:has(.plated__37e49) .button__67645.popoutOpen__37e49 {
+  backdrop-filter: blur(4px);
+}
 
 .buttons__37e49 {
   gap: var(--space-4);
@@ -919,9 +925,6 @@ html:not(.app-focused) .winButton_c38106.winButtonMinMax_c38106:after {
 .micButtonParent__37e49:not(.hasColorGlow__37e49):hover .micButtonWithMenu__37e49,
 .micButtonParent__37e49:not(.hasColorGlow__37e49):hover .buttonChevron__37e49 {
   background-color: unset;
-}
-.micButtonParent__37e49 .button__67645 {
-  transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
 }
 .micButtonParent__37e49 .button__67645:hover {
   background-color: var(--background-mod-subtle) !important;
@@ -1997,8 +2000,15 @@ button.button__67645, span.button__67645 {
   border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
   border-right: none;
 }
+.chat_f75fb0:has(.sidebarOpen_cb9592) {
+  background-color: transparent !important;
+}
 [data-has-border=true].chat_f75fb0 {
   border-top: none;
+}
+
+.channelChatWrapper_cb9592 {
+  background: transparent;
 }
 
 .noChannel__01d5c {
@@ -2332,6 +2342,12 @@ button.button__67645, span.button__67645 {
 }
 .wrapper_cb9592.chatSidebarOpen_d880dc .callContainer_cb9592 {
   border-radius: var(--card-radius-big);
+}
+.wrapper_cb9592.sidebarOpen_cb9592 {
+  background-color: transparent !important;
+}
+.wrapper_cb9592.sidebarOpen_cb9592 .callContainer_cb9592 {
+  border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
 }
 
 .content_f75fb0 {
@@ -7438,6 +7454,15 @@ button.button__67645, span.button__67645 {
 .container__3412a:not(.container__3f413) .hasLeading__0f084 {
   margin-left: calc(var(--input-padding) / -2);
   padding-left: 0;
+}
+.container__3412a:not(.container__3f413) .hasLeading__0f084 .icon__0f084 {
+  width: calc(var(--input-height) / 1.5);
+  height: calc(var(--input-height) / 1.5);
+  border: none;
+}
+.container__3412a:not(.container__3f413) .hasLeading__0f084 .icon__0f084 svg {
+  width: 60%;
+  height: 60%;
 }
 
 .clickTrapContainer__59d0d .container__3412a {
@@ -13826,14 +13851,16 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
   font-weight: 400;
   font-size: 1.25em;
 }
-.searchHeaderContainer__98d1c .container__33507 {
-  --input-padding: 0 4px 0 12px;
-}
 .searchHeaderContainer__98d1c .container__3412a {
-  padding: 0;
+  border-radius: calc(var(--input-height) / 2);
+  border: none;
+  box-shadow: none;
 }
-.searchHeaderContainer__98d1c .input__3412a {
-  font-size: 1em;
+.searchHeaderContainer__98d1c .container__3412a:focus-within {
+  box-shadow: none;
+}
+.searchHeaderContainer__98d1c .input__0f084, .searchHeaderContainer__98d1c .input__0ed4f {
+  font-size: 1.1em;
 }
 
 .table_b4ec0b {
@@ -16676,6 +16703,9 @@ body:active .container_d9c882:not(:active) {
 .custom-user-profile-theme .inputWrapper__0f084 .input__0ed4f,
 .custom-user-profile-theme .wrapper__3412a .input__0ed4f {
   --input-color: var(--profile-body-background-color) !important;
+}
+.custom-user-profile-theme .input__0f084, .custom-user-profile-theme .input__0ed4f {
+  --input-color: var(--opacity-white-12) !important;
 }
 .custom-user-profile-theme .listRow__9d78f {
   --menu-item-hover: var(--profile-body-background-hover);
@@ -20862,6 +20892,10 @@ body:active .container_d9c882:not(:active) {
   border: none;
 }
 
+.subscriberButtonContainer__57c71 {
+  width: auto;
+}
+
 /*
  *
  *  USER SETTINGS REGISTERED GAMES
@@ -21916,9 +21950,11 @@ body:active .container_d9c882:not(:active) {
 }
 .visual-refresh .wrapper_ef3116 {
   /* CODE FOR MOVING STATUS AREA TO ORIGINAL SPOT */
+  /*margin-bottom: 0;*/
 }
 .visual-refresh .container__2637a {
   /* CODE FOR MOVING STATUS AREA TO ORIGINAL SPOT */
+  /*padding-bottom: calc(var(--custom-app-panels-height,0) + 12px);*/
 }
 .visual-refresh .panels_c48ade {
   /* CODE FOR MOVING STATUS AREA TO ORIGINAL SPOT */
