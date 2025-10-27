@@ -46,6 +46,17 @@
             color: var(--interactive-hover) !important;
         }
     }
+
+	&:has(%accountPanelAvatarWrapperPlated) {
+        %panelButton {
+            transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius, var(--default-time) var(--default-animation) backdrop-filter;
+
+            &:hover,
+            &%accountPanelMicPopoutOpen {
+                backdrop-filter: blur(4px);
+            }
+        }
+    }
 }
 
 %accountPanelButtons {
@@ -72,8 +83,6 @@
     }
 
     %panelButton {
-        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
-
         &:hover {
             background-color: var(--background-mod-subtle) !important;
         }
