@@ -1,0 +1,54 @@
+/*
+ *
+ *  VENCORD SWITCHES
+ *
+ */
+
+%vencordSwitchContainer {
+    width: 38px;
+    height: 22px;
+    background-color: var(--switch-slider-color);
+    border: 2px solid var(--switch-knob-color);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border;
+
+    &%vencordSwitchChecked {
+        background-color: hsl(var(--accent-hsl--material-you));
+
+        %vencordSwitchSlider {
+            width: 18px;
+            height: 18px;
+            transform: translateX(16px) !important;
+
+            rect {
+                fill: var(--accent-text-color--material-you);
+            }
+
+            path {
+                fill: hsl(var(--accent-hsl--material-you));
+            }
+        }
+    }
+}
+
+%vencordSwitchSlider {
+    width: 14px;
+    height: 14px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    transform: translateX(3px) !important;
+    transition: var(--default-time) var(--default-animation) width, var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) transform;
+
+    rect {
+        fill: var(--switch-knob-color);
+    }
+
+    path {
+        fill: var(--switch-slider-color);
+    }
+
+    path,
+    rect {
+        transform: scale(1.4) translate(-4px, -3px);
+    }
+}
