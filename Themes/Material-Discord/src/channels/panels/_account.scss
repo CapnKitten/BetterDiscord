@@ -33,6 +33,7 @@
 
     %panelButton {
         color: var(--interactive-normal) !important;
+		transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
 
         &:hover {
             color: var(--interactive-hover) !important;
@@ -45,7 +46,7 @@
 
             &:hover,
             &%accountPanelMicPopoutOpen {
-                backdrop-filter: blur(4px);
+                backdrop-filter: blur(3px);
             }
         }
     }
@@ -57,42 +58,58 @@
 
 %accountPanelMicButtonParent {
     gap: 1px;
+}
 
-    &%accountPanelMicPopoutOpen {
-        %accountPanelMicButtonWithMenu,
-        %accountPanelButtonChevron {
-            background-color: unset;
-        }
+%panelButton {
+    --background-mod-invisible: transparent;
+
+    background-color: var(--background-mod-invisible) !important;
+
+    &:hover {
+        background-color: var(--background-mod-subtle) !important;
     }
 
-    &:not(%accountPanelMicButtonHasColorGlow) {
-        &:hover {
-            %accountPanelMicButtonWithMenu,
-            %accountPanelButtonChevron {
-                background-color: unset;
+    &%accountPanelMicButtonWithMenu {
+        border-radius: var(--button-radius) 4px 4px var(--button-radius);
+    }
+
+    &%accountPanelButtonChevron {
+        width: 24px;
+        margin-left: 0;
+        border-radius: 4px var(--button-radius) var(--button-radius) 4px;
+
+        &%accountPanelMicPopoutOpen {
+            background-color: var(--background-mod-normal) !important;
+            border-radius: var(--button-radius);
+        }
+    }
+}
+
+%panelButtonRedGlow {
+    --background-mod-invisible: hsl(from hsl(var(--alert-hsl)) h s l / 0.1);
+    --background-mod-subtle: hsl(from hsl(var(--alert-hsl)) h s l / 0.2);
+    --background-mod-normal: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
+
+    svg {
+        color: hsl(var(--alert-hsl));
+    }
+
+    %panelButtonLottieIcon {
+        path {
+            &[fill="rgb(88,101,242)"] {
+                fill: currentColor;
+            }
+
+            &[stroke="rgb(88,101,242)"] {
+                stroke: currentColor;
             }
         }
     }
+}
 
-    %panelButton {
-        &:hover {
-            background-color: var(--background-mod-subtle) !important;
-        }
-
-        &%accountPanelMicButtonWithMenu {
-            border-radius: var(--button-radius) 4px 4px var(--button-radius);
-        }
-
-        &%accountPanelButtonChevron {
-            width: 24px;
-            margin-left: 0;
-            border-radius: 4px var(--button-radius) var(--button-radius) 4px;
-
-            &%accountPanelMicPopoutOpen {
-                background-color: var(--background-mod-normal) !important;
-                border-radius: var(--button-radius);
-            }
-        }
+%accountPanelButtonChevronIcon {
+    path {
+        fill: currentColor;
     }
 }
 

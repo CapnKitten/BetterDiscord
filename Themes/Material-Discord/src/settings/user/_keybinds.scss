@@ -6,62 +6,26 @@
  *
  */
 
-%settingsHeaderChildren {
-	%marginBottom20 {
-		+ %settingsHeaderDivider {
-			display: none;
-		}
-	}
+%keybindGroup {
+    &:before {
+        background-color: var(--card-color-filled);
+        border-radius: var(--card-radius-big);
+        border: none;
+    }
 }
 
-%keybindRow {
-	--input-color: var(--input-color-alt);
+%removeKeybindFloating {
+    top: 8px;
+    right: -12px;
+}
 
-	padding: 16px;
-	background-color: var(--card-color-filled);
-	border-bottom: 1px solid var(--card-border-color);
-	box-shadow: none !important;
+%keybindRecordContainer {
+    min-height: var(--button-height);
+}
 
-	&:first-child {
-		border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-	}
-
-	&:last-child {
-		margin-bottom: 40px;
-		border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-		border-bottom: none;
-	}
-
-	&:only-child {
-		border-radius: var(--card-radius-big);
-		border-bottom: none;
-	}
-
-	%keybindGroup {
-		margin: 0;
-		padding: 0;
-        border-left: none;
-        border-right: none;
-
-        &:last-of-type {
-            border-radius: 0;
-            border-bottom: none;
-        }
-
-		&:before {
-			display: none;
-		}
-	}
-
-	%removeKeybind {
-		right: -12px
-	}
-
-    %keybindInput {
-		%button {
-			width: auto;
-		}
-    }
+%keybindButtonContainer {
+    max-width: 150px;
+    padding: 0;
 }
 
 %keybindShortcutKey {
@@ -80,14 +44,18 @@
 }
 
 %keybindRecorderContainer {
-	min-height: 0;
-    height: auto;
 	background-color: transparent;
+    border-radius: var(--button-radius);
 	border: none;
 
     &%keybindRecorderContainerRecording {
+        box-shadow: none;
+        animation: none;
+
         %keybindInput {
-            animation: keybind-edit 2000ms ease-in-out;
+            --input-color: hsl(from hsl(var(--alert-hsl)) h s l / 0.1);
+
+            animation: keybind-edit 1200ms ease-in-out;
             animation-iteration-count: infinite;
         }
     }
@@ -95,6 +63,7 @@
     %keybindInput {
 		@include input-format(true, false, true);
         padding: 8px 8px 8px 12px;
+        transition: var(--default-time) var(--default-animation) background-color;
 
         &::-webkit-input-placeholder {
             font-family: var(--app-font);
@@ -122,6 +91,7 @@
     margin: 24px 0 0;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
+	border: none;
 
     %keybindDefault {
         + %keybindDivider {
