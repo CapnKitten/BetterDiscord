@@ -33,6 +33,7 @@
 		background-color: $bg important($important);
 		border-radius: var(--popout-radius) important($important);
 		box-shadow: var(--popout-shadow) important($important);
+		border: none important($important);
 
 		@if $filter == true {
 			backdrop-filter: blur(var(--popout-blur));
@@ -65,7 +66,8 @@
 	}
 }
 
-@mixin input-format($height: var(--input-height), $radius: var(--input-radius), $focusType: focus, $important: false) {
+@mixin input-format($height: var(--input-height), $radius: var(--input-radius), $important: false) {
+	min-height: $height;
 	height: $height;
 	border-radius: $radius;
     background-color: rgba(var(--textarea-color),var(--textarea-alpha)) important($important);
@@ -73,8 +75,9 @@
 	color: var(--textarea-text-color);
 	transition: var(--transition-time) var(--transition-type);
 
-	&:#{$focusType} {
+	&:has(input:focus, textarea:focus) {
 		background-color: rgba(var(--textarea-color),var(--textarea-alpha-focus)) important($important);
+		outline: none !important;
 	}
 }
 

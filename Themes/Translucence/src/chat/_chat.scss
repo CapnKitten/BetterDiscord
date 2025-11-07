@@ -9,6 +9,12 @@
     background-color: var(--main-content-color) !important;
 }
 
+%chat {
+    &%threadSidebarOpen {
+        border-radius: 0 var(--app-radius) var(--app-radius) 0;
+    }
+}
+
 %chatContent {
     background-color: transparent;
 }
@@ -62,8 +68,14 @@
 
 %jumpToPresentBar {
     bottom: 10px;
-	padding-bottom: 0;
-	border-radius: var(--message-radius);
+    background-color: var(--popout-color);
+	border-radius: var(--popout-radius);
+    border: none;
+    backdrop-filter: blur(var(--popout-blur));
+
+    %jumpToPresentBarButtonBase {
+        color: var(--text-normal);
+    }
 
 	%spinner {
 		--spinner-size: auto;
@@ -74,6 +86,11 @@
 	}
 }
 
-%jumpToPresentBarButtonBase {
-	color: var(--accent-text-color);
+%newMessagesBar {
+    background-color: hsl(var(--accent-hsl),var(--accent-opacity));
+    border: none;
+
+    %jumpToPresentBarButtonBase {
+    	color: var(--accent-text-color);
+    }
 }

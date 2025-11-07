@@ -63,6 +63,10 @@
     margin-top: 0;
 	margin-right: 0 !important;
 
+    &%channelTextAreaInTextChannel {
+        top: -12px;
+    }
+
     %channelTextAreaTypingEllipsis {
         margin-left: 0;
     }
@@ -111,6 +115,20 @@
     padding: 0;
 }
 
+%channelTextAreaAttachButton {
+    &:not(%channelTextAreaButtonInnerNoHover) {
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+%channelTextAreaButtonInner:not(%channelTextAreaButtonInnerNoHover),
+%channelTextAreaAttachButtonInner,
+%channelTextAreaEmojiButton {
+    border-radius: 16px;
+}
+
 /* MAIN TEXTAREA -> APPS AND COMMANDS BUTTON */
 
 %channelAppLauncher {
@@ -120,6 +138,10 @@
         background: rgba(var(--textarea-color),var(--textarea-alpha));
     	border-radius: var(--textarea-radius) !important;
     }
+}
+
+%channelAppLauncherButtonContainer {
+    background-color: transparent;
 }
 
 /* MAIN TEXTAREA -> SPAM FILTER */

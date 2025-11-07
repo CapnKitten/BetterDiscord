@@ -6,30 +6,16 @@
  *
  */
 
-%input,
-%copyInput {
-    @include input-format;
+%inputWrapper {
+    @include input-format($height: var(--input-height), $important: false);
 
-    &::-webkit-input-placeholder {
-        color: var(--textarea-placeholder-color);
-    }
-
-    &%multiInput {
-        background-color: transparent;
-    }
-}
-
-%inputContainer,
-%nameInputContainer {
     %input {
         background-color: transparent;
-    }
-}
 
-%inputContainer {
-    min-height: var(--input-height);
-    background-color: transparent;
-    border: none;
+        &::-webkit-input-placeholder {
+            color: var(--input-placeholder-color);
+        }
+    }
 }
 
 %multiInput {
@@ -50,14 +36,6 @@
 
 %fileUploadButton {
     padding: 0 12px;
-}
-
-/* INPUTS -> SEARCH BAR */
-
-%searchContainer {
-    height: var(--input-height);
-    background-color: rgba(var(--textarea-color),var(--textarea-alpha));
-    border-radius: var(--input-radius);
 }
 
 /* INPUTS -> OPTION PILLS */

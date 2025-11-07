@@ -4,50 +4,84 @@
  *
  */
 
-%chatSearchBar {
-    padding: 0 4px;
-    background-color: rgba(var(--textarea-color),var(--textarea-alpha));
-	border-radius: 12px;
-
-	%privateChannelsSearchBarComponent {
-		padding: 0 8px;
-		border-radius: 14px;
-	}
-
-    %chatSearchContainer {
-        %chatSearchFilter,
-        %chatSearchFilter + span[data-offset-key],
-        %chatSearchAnswer span[data-offset-key] {
-            background-color: var(--textarea-block-color) !important;
-            color: var(--textarea-block-text-color);
+%chatSearch {
+    %chatSearchRoot {
+        %chatSearchContainer {
+            height: var(--chat-search-size);
         }
 
-        %chatSearchFilter {
-            margin-right: 2px;
-            padding: 0 4px 0 8px;
-            border-radius: 10px 0 0 10px;
+        %chatSearchContentContainer {
+            display: flex;
+            height: var(--chat-search-size);
+            line-height: var(--chat-search-size);
+            font-size: 15px;
 
-            &:only-child {
-                padding: 0 8px;
-                border-radius: 11px;
+            span {
+                line-height: var(--chat-search-size);
+                font-size: 15px;
             }
         }
+    }
 
-        %chatSearchAnswer {
-            background-color: transparent;
+    %chatSearchPlaceholder {
+        %chatSearchPlaceholderInner {
+            height: var(--chat-search-size);
+            line-height: var(--chat-search-size);
+            font-size: 15px;
         }
+    }
 
-        %chatSearchFilter + span[data-offset-key],
-        %chatSearchAnswer span[data-offset-key] {
-            display: inline-block;
-            height: 20px;
-            margin: 0 2px 0 -2px;
-            padding: 0px 8px 0px 0;
-            border-radius: 0 11px 11px 0;
+    %chatSearchContent {
+        > div[data-contents=true] {
+          height: inherit;
         }
     }
 }
 
-%chatSearchFilter {
-    background-color: var(--attachment-color) !important;
+%chatSearchBar {
+    height: var(--chat-search-size);
+    padding: 0 4px;
+    background-color: rgba(var(--textarea-color), var(--textarea-alpha));
+    border-radius: calc(var(--chat-search-size) / 2);
+    border: none;
+}
+
+%chatSearchContainer {
+    height: var(--chat-search-size);
+}
+
+%chatSearchToken,
+%chatSearchFilter + span[data-offset-key],
+%chatSearchAnswer span[data-offset-key] {
+    --chat-search-size: var(--chat-search-pill-size);
+
+    display: flex;
+    height: var(--chat-search-pill-size);
+    margin: auto 0;
+    background-color: var(--textarea-block-color);
+    border: none;
+    color: var(--textarea-block-text-color);
+}
+
+%chatSearchToken {
+    &%chatSearchFilter {
+        padding: 0 4px 0 8px;
+        border-radius: calc(var(--chat-search-pill-size) / 2) 0 0 calc(var(--chat-search-pill-size) / 2);
+    }
+
+    &%chatSearchAnswer {
+        border-radius: 0 calc(var(--chat-search-pill-size) / 2) calc(var(--chat-search-pill-size) / 2) 0;
+
+        span[data-offset-key] {
+            margin-top: -1px;
+            padding-right: 4px;
+            background-color: transparent;
+        }
+    }
+}
+
+%chatSearchFilter + span[data-offset-key],
+%chatSearchAnswer span[data-offset-key] {
+    padding-right: 4px;
+    border-radius: 0 calc(var(--chat-search-pill-size) / 2) calc(var(--chat-search-pill-size) / 2) 0;
 }
