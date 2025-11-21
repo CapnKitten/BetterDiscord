@@ -14,34 +14,6 @@
 	transform: translate(0, -4px);
 	animation: top-pop-out 400ms var(--default-animation);
 
-	%searchPopoutResultsGroup {
-		margin: 40px 8px 8px;
-        padding: 8px;
-        background-color: var(--message-color-alt);
-        border-radius: calc(var(--popout-radius-big) / 1.5);
-
-		&:before {
-			display: none;
-		}
-
-		%searchPopoutLearnMore,
-		%searchPopoutClearHistory {
-			width: 32px;
-            height: 32px;
-            top: 8px;
-            right: 4px;
-			margin-top: -40px;
-		}
-
-		%searchPopoutLearnMore a,
-		%searchPopoutClearHistory {
-			display: flex;
-            align-items: center;
-            justify-content: center;
-			color: var(--text-normal);
-		}
-	}
-
     %searchPopoutHeader {
 		margin: -40px 0 8px;
         padding: 8px 0;
@@ -49,67 +21,108 @@
 		font-weight: 500;
         @include remove-caps(16px);
     }
+}
 
-    %searchPopoutOption {
-        margin: 0;
-		padding: 0 8px;
-        border-radius: calc(var(--popout-radius-big) / 2.5);
-        text-overflow: ellipsis;
-        overflow: hidden;
-        transition: var(--default-time) var(--default-animation) background-color;
+%searchPopoutResultsGroup {
+	margin: 40px 8px 8px;
+	padding: 8px;
+	background-color: var(--message-color-alt);
+	border-radius: calc(var(--popout-radius-big) / 1.5);
 
-        &:hover {
-            background: var(--menu-item-select);
-        }
+	&:before {
+		display: none;
+	}
 
-		&:after {
-			display: none;
+	%searchPopoutLearnMore,
+	%searchPopoutClearHistory {
+		width: 32px;
+		height: 32px;
+		top: 8px;
+		right: 4px;
+		margin-top: -40px;
+	}
+
+	%searchPopoutLearnMore a,
+	%searchPopoutClearHistory {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-normal);
+	}
+}
+
+%searchPopoutOption {
+	margin: 0;
+	padding: 0 8px;
+	border-radius: calc(var(--popout-radius-big) / 2.5);
+	text-overflow: ellipsis;
+	overflow: hidden;
+	transition: var(--default-time) var(--default-animation) background-color;
+
+	strong,
+	%searchPopoutOptionChannelIcon,
+	%searchPopoutOptionChannelCategory {
+		color: var(--menu-item-text-color);
+		transition: var(--default-time) var(--default-animation) color;
+	}
+
+	&:hover {
+		background: var(--menu-item-select);
+
+		strong,
+		%searchPopoutOptionChannelIcon,
+		%searchPopoutOptionChannelCategory {
+			color: var(--text-normal);
 		}
+	}
 
-		&[aria-selected=true] {
-            background-color: var(--menu-item-select);
-            box-shadow: none;
-        }
+	&:after {
+		display: none;
+	}
 
-        %searchPopoutFilter,
-		%searchPopoutNonText {
-            color: var(--text-normal);
-        }
+	&[aria-selected=true] {
+		background-color: var(--menu-item-select);
+		box-shadow: none;
+	}
 
-		%searchPopoutFilter {
-            margin-left: 0;
-        }
+	%searchPopoutFilter,
+	%searchPopoutNonText {
+		color: var(--text-normal);
+	}
 
-        %searchPopoutAnswer {
-            color: var(--text-muted);
-        }
-    }
+	%searchPopoutFilter {
+		margin-left: 0;
+	}
 
-	%searchPopoutQueryContainer {
-		margin: 8px 8px 0;
-        height: var(--input-height);
-        line-height: var(--input-height);
-        padding: 0 8px 0 12px;
-        background-color: var(--input-color);
-        border-radius: var(--input-radius);
-        border-bottom: none;
-        align-items: center;
+	%searchPopoutAnswer {
+		color: var(--text-muted);
+	}
+}
 
-        &:only-child {
-            margin: 8px;
-        }
+%searchPopoutQueryContainer {
+	margin: 8px 8px 0;
+	height: var(--input-height);
+	line-height: var(--input-height);
+	padding: 0 8px 0 12px;
+	background-color: var(--input-color);
+	border-radius: var(--input-radius);
+	border-bottom: none;
+	align-items: center;
 
-		&%searchPopoutQueryContainerFocused {
-            background-color: var(--input-color) !important;
-        }
+	&:only-child {
+		margin: 8px;
+	}
 
-        %searchPopoutQueryText {
-            @include remove-caps(14px);
-        }
+	&%searchPopoutQueryContainerFocused {
+		background-color: var(--input-color) !important;
+	}
 
-		%keybindShortcutKey {
-            background-color: var(--input-pill-color);
-        }
+	%searchPopoutQueryText {
+		@include remove-caps(14px);
+	}
+
+	%keybindShortcutKey {
+		background-color: var(--input-pill-color);
 	}
 }
 

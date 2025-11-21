@@ -90,11 +90,7 @@
     @include card-format(true, 0, true, true, true);
 
     &:hover {
-        top: unset;
-
-        %shopDarkCardBackground {
-            background-color: var(--card-color-hover);
-        }
+        --card-color-filled: var(--card-color-hover);
     }
 
     %textLgBold {
@@ -129,6 +125,14 @@
         max-width: none;
         max-height: none;
     }
+}
+
+%shopCardWishlistButton {
+    border-radius: calc(var(--card-radius-big) / 1.5);
+}
+
+%shopCardFooterGradient {
+    background: linear-gradient(to top, var(--card-color-filled), color-mix(in oklab, var(--card-color-filled) 80%, transparent) 30%, color-mix(in oklab, var(--card-color-filled) 0%, transparent) 100%) !important;
 }
 
 %shopCardTextProfileEffect {

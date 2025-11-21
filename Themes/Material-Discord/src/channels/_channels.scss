@@ -18,14 +18,6 @@
 		border-radius: 0 !important;
 	}
 
-	%channelsContainer {
-		background-color: var(--main-color);
-	}
-
-	%channelsList {
-		margin-bottom: var(--space-32);
-	}
-
 	%categoryName {
 		@include remove-caps(14px);
 	}
@@ -36,6 +28,16 @@
         background-color: var(--popout-color);
         box-shadow: var(--shadow-2dp);
         color: var(--text-normal);
+    }
+}
+
+%channelsContainer {
+	padding-bottom: calc(var(--custom-app-panels-height, 0) + 12px - var(--sidebar-panel-radius-big));
+	background-color: var(--main-color);
+
+    %scroller {
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 }
 
@@ -55,53 +57,6 @@
     &:active {
         background-color: hsl(from var(--scrollbar-color) h s l / 0.5);
     }
-}
-
-%channelsHeaderContainer {
-	background-color: var(--chat-color);
-
-	&:not(%channelHasBanner) {
-		%channelsHeader {
-			&,
-			&:hover {
-				background-color: var(--main-color);
-			}
-		}
-	}
-}
-
-%channelsHeaderGuildBadge,
-%channelsHeaderGuildBadgeV2 {
-	margin-right: 0;
-}
-
-%channelsHeaderName {
-    margin: 0;
-}
-
-%channelsHeaderInvitesRefresh {
-	%channelsHeaderInviteButton,
-    %channelsHeaderGuildDropdown {
-        border-radius: calc(var(--card-radius-big) / 1.8);
-		transition: var(--default-time) var(--default-animation) background-color;
-
-        &:hover {
-			background-color: var(--menu-item-hover);
-		}
-
-		&[aria-expanded="true"] {
-			background-color: var(--menu-item-select);
-		}
-    }
-
-	%channelsHeaderGuildDropdown {
-		padding: 0 var(--space-8) 0 var(--space-12);
-        gap: var(--space-xs);
-	}
-}
-
-%channelsHeaderChildren {
-    height: 16px;
 }
 
 %guildServerBoostProgressContainer {
@@ -124,60 +79,6 @@
     &:hover {
         background-color: hsl(var(--button-link-accent-color),0.2);
     }
-}
-
-%channelsHeader {
-	padding: 0 var(--space-md);
-	border-bottom: none;
-	box-shadow: var(--shadow-ledge);
-}
-
-%channelHasBanner {
-	%channelsHeader {
-		background-color: var(--chat-color);
-		border-bottom: none;
-	}
-
-	&%bannerVisible {
-		%channelsHeader {
-			background-color: transparent;
-			box-shadow: none;
-		}
-
-		%channelsHeaderGlass {
-			border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-			border-bottom: none;
-		}
-	}
-}
-
-%channelsHeaderEllipseForeground {
-	position: absolute;
-	height: var(--custom-channel-header-height);
-	top: 0;
-	left: 0;
-	right: 0;
-	border-radius: var(--card-radius-big);
-}
-
-%bannerAnimatedContainer {
-	background-color: var(--chat-color);
-	border-bottom: none;
-	box-shadow: none;
-}
-
-%bannerAnimatedContainer,
-%bannerImage {
-	border-radius: var(--card-radius-big);
-}
-
-%bannerImage {
-	overflow: hidden;
-}
-
-%bannerCommunityInfoPill {
-    background-color: var(--card-color-filled);
-    color: var(--text-normal);
 }
 
 %guildLiveEvent {
@@ -399,6 +300,15 @@
 	}
 }
 
+%categoryContainerDefault,
+%channelContainerDefault:not([role="listitem"]) {
+    &:not(:only-child) {
+        &:last-child {
+            padding-bottom: calc(var(--sidebar-panel-radius-big) + var(--space-16));
+        }
+    }
+}
+
 %categoryContainerDefault {
 	%categoryAddButton {
 		background-color: transparent !important;
@@ -452,131 +362,5 @@
 
     %textAreaPlaceholder {
         color: var(--input-placeholder-color);
-    }
-}
-
-/* CHANNELS -> VOICE USERS */
-
-%channelVoiceList {
-    padding: 0 2px 8px 36px;
-}
-
-%voiceUserList {
-	%voiceUserContent {
-		min-height: 30px;
-		margin: 2px 0 0;
-	    padding: 0 3px;
-	    gap: 8px;
-
-	    %voiceUserAvatar {
-	        margin: 0;
-	    }
-
-	    %voiceUserIcons {
-	        margin-right: 0;
-	    }
-	}
-
-	%voiceUserClickable {
-		&:hover {
-			%voiceUserContent {
-				background-color: var(--menu-item-hover);
-			}
-		}
-
-		&%voiceUserSelected {
-			%voiceUserContent {
-				background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-			}
-		}
-	}
-}
-
-%voiceUserName {
-	transition: var(--default-time) var(--default-animation) color;
-}
-
-%voiceUserAvatarImage {
-    border-radius: var(--avatar-radius);
-}
-
-%voiceUserOverlap {
-	%voiceUserAvatarImage {
-		border-color: var(--main-color);
-	}
-}
-
-%voiceUserOptionsButton {
-    border-radius: 50%;
-
-    &:hover {
-        background-color: var(--card-button-color-hover);
-    }
-}
-
-/* CHANNELS -> VOICE USERS -> CUSTOM VC ACTIVITY */
-
-%voiceUserCustomActivityIconSpacing {
-    margin-left: 0;
-}
-
-%voiceUserSelfHangStatus {
-    margin-right: 0;
-    background-color: var(--card-button-color);
-    border-radius: 13px;
-    border: none;
-    transition: var(--default-time) var(--default-animation) background-color;
-}
-
-%voiceUserActivityPopout {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big);
-    box-shadow: var(--shadow-medium);
-
-    %voiceUserActivityIconWidget {
-        background-color: var(--card-button-color) !important;
-        border-radius: 50%;
-        border: none;
-        transition: var(--default-time) var(--default-animation) background-color;
-
-        &:hover {
-            background-color: var(--card-button-color-hover) !important;
-        }
-
-        &%voiceUserActivitySelectedWidget {
-            background-color: var(--card-color-filled) !important;
-        }
-    }
-
-    %voiceUserActivityDivider {
-        margin: 16px 0;
-        background-color: var(--popout-header-border);
-    }
-
-    %voiceUserActivityIconContainer {
-        padding: 0;
-    }
-
-    %voiceUserActivitySetCutomButton {
-        height: var(--button-height);
-        padding: 0 20px;
-        background-color: hsl(var(--accent-hsl--material-you));
-        border-radius: var(--button-radius);
-        border: none;
-        color: var(--accent-text-color--material-you);
-        justify-content: center;
-
-        svg {
-            display: none;
-        }
-
-        %voiceUserActivityEditIconColor {
-            color: inherit;
-        }
-
-        %textXsMedium {
-            color: inherit !important;
-            font-size: var(--button-font-size);
-        }
     }
 }

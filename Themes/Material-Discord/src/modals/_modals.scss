@@ -22,177 +22,17 @@
         max-height: 800px;
     }
 
-    &%modal {
-        %modalContentAlt {
-            max-height: 580px;
-        }
-    }
-
     %modalRootBg {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius-big);
-    }
-
-    %modalHeader {
-        min-height: 24px;
-        margin: 0;
-        padding: 24px 24px 16px;
-		background-color: transparent;
-		border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
-		box-shadow: none !important;
-
-        &%modalHeaderLargePadding {
-            padding-top: 76px;
-        }
-
-        %headingLgSemibold,
-        %headingLgBold,
-        %headlingXlSemibold,
-        %headlingXlExtrabold,
-        %textMdSemibold,
-        %titleH1,
-        %titleH2 {
-            font-size: 22px;
-            font-weight: 400;
-        }
-
-        %headingLgBold {
-            padding-top: 0;
-        }
-
-        %modalTitle {
-            margin-bottom: 0;
-        }
-
-        %modalHeaderTitle {
-            font-weight: 400;
-        }
-
-        %modalCloseButton,
-        %modalHeaderButton {
-            --button-height: 32px;
-
-            width: var(--button-height);
-			height: var(--button-height);
-            top: 20px;
-			right: 20px;
-			margin: 0;
-			padding: 0;
-			background-color: transparent !important;
-			@include md-ripple(hover, after, 1.1);
-			position: absolute;
-        }
-
-        %modalCloseButton {
-            %buttonContents {
-                height: 24px;
-            }
-
-            svg {
-                height: 24px !important;
-				transform: scale(0.85);
-			}
-        }
-
-        %modalHeaderButton {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            %modalHeaderButtonIcon {
-                height: 24px;
-                transform: scale(0.85);
-            }
-        }
     }
 
     %modalConfirmStartHeader {
         padding: 75px 16px 16px;
     }
 
-    %modalContent {
-        padding: 0 24px;
-		background-color: transparent;
-		border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
-
-        &:first-child {
-            padding-top: 24px;
-
-            %headingMdSemibold {
-                line-height: 24px;
-                font-size: 20px;
-                font-weight: 400;
-            }
-        }
-
-        &:last-child {
-            padding-bottom: 24px;
-        }
-
-        %modalContentInner {
-            padding-bottom: 0;
-        }
-
-        %modalContentParagraph {
-            &:last-child {
-                margin-bottom: 2px;
-            }
-        }
-
-        a {
-            color: hsl(var(--accent-hsl--material-you));
-        }
-    }
-
     %modalImageHeader {
         border-radius: var(--card-radius-big);
-    }
-
-    %modalFooter {
-        padding: 24px;
-        gap: 16px;
-		background-color: transparent !important;
-		border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
-		box-shadow: none !important;
-
-        %authorizeFooter {
-            padding: 0;
-        }
-
-        > %flexDirectionRow {
-            gap: 16px;
-        }
-
-        span:not([class])[style*="display: block"]:empty {
-            display: none !important;
-        }
-
-        %button {
-            margin: 0;
-
-            &%buttonPrimary {
-                --button-padding: 0 12px;
-                --button-background: transparent;
-                --button-text-color: var(--button-link-accent-text-color);
-
-                --accent-button-action: hsl(var(--accent-hsl--material-you));
-                --accent-button-action-hover: 0.14;
-            	--accent-button-action-active: 0.21;
-            }
-        }
-
-        %buttonBlank {
-            background-color: transparent !important;
-        	color: var(--button-link-accent-text-color) !important;
-        }
-
-        %modelFooterMinorContainer {
-            margin: 8px 0 0;
-        }
-    }
-
-    %modalFooterButtonsContainer {
-        margin-top: 0;
     }
 
     %textContainerModal,
@@ -212,10 +52,6 @@
                 max-height: 548px;
             }
         }
-    }
-
-    %modalSettingsContainer {
-        //margin-bottom: 0;
     }
 
     %settingsHeaderDivider {
@@ -242,6 +78,160 @@
     %guestBody {
         padding: 0;
     }
+}
+
+%modalHeader {
+    min-height: 24px;
+    margin: 0;
+    padding: 24px 24px 16px;
+    background-color: transparent;
+    border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
+    box-shadow: none !important;
+
+    &%modalHeaderLargePadding {
+        padding-top: 76px;
+    }
+
+    %headingLgSemibold,
+    %headingLgBold,
+    %headlingXlSemibold,
+    %headlingXlExtrabold,
+    %textMdSemibold,
+    %titleH1,
+    %titleH2 {
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    %headingLgBold {
+        padding-top: 0;
+    }
+
+    %modalTitle {
+        margin-bottom: 0;
+    }
+
+    %modalHeaderTitle {
+        font-weight: 400;
+    }
+
+    %modalCloseButton,
+    %modalHeaderButton {
+        --button-height: 32px;
+
+        width: var(--button-height);
+        height: var(--button-height);
+        top: 20px;
+        right: 20px;
+        margin: 0;
+        padding: 0;
+        background-color: transparent !important;
+        @include md-ripple(hover, after, 1.1);
+        position: absolute;
+    }
+
+    %modalCloseButton {
+        %buttonContents {
+            height: 24px;
+        }
+
+        svg {
+            height: 24px !important;
+            transform: scale(0.85);
+        }
+    }
+
+    %modalHeaderButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        %modalHeaderButtonIcon {
+            height: 24px;
+            transform: scale(0.85);
+        }
+    }
+}
+
+%modalContent {
+    padding: 0 24px;
+    background-color: transparent !important;
+    border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+
+    &:first-child {
+        padding-top: 24px;
+
+        %headingMdSemibold {
+            line-height: 24px;
+            font-size: 20px;
+            font-weight: 400;
+        }
+    }
+
+    &:last-child {
+        padding-bottom: 24px;
+    }
+
+    %modalContentInner {
+        padding-bottom: 0;
+    }
+
+    %modalContentParagraph {
+        &:last-child {
+            margin-bottom: 2px;
+        }
+    }
+
+    a {
+        color: hsl(var(--accent-hsl--material-you));
+    }
+}
+
+%modalFooter {
+    padding: 24px;
+    gap: 16px;
+    background-color: transparent !important;
+    border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+    box-shadow: none !important;
+
+    %authorizeFooter {
+        padding: 0;
+    }
+
+    > %flexDirectionRow {
+        gap: 16px;
+    }
+
+    span:not([class])[style*="display: block"]:empty {
+        display: none !important;
+    }
+
+    %button {
+        margin: 0;
+
+        &%buttonPrimary {
+            --button-padding: 0 12px;
+            --button-background: transparent;
+            --button-text-color: var(--button-link-accent-text-color);
+
+            --accent-button-action: hsl(var(--accent-hsl--material-you));
+            --accent-button-action-hover: 0.14;
+            --accent-button-action-active: 0.21;
+        }
+    }
+
+    %buttonBlank {
+        background-color: transparent !important;
+        color: var(--button-link-accent-text-color) !important;
+    }
+
+    %modelFooterMinorContainer {
+        margin: 8px 0 0;
+    }
+}
+
+%modalFooterButtonsContainer {
+    margin-top: 0;
 }
 
 %valuePropContainer {

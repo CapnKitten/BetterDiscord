@@ -145,3 +145,86 @@
 		}
     }
 }
+
+/* SIDEBAR ICONS V2 */
+
+%itemV2 {
+    %itemV2Content:not(:empty) {
+        svg {
+            display: none;
+        }
+
+        &:before {
+            position: relative;
+            content: " ";
+            width: 18px;
+            height: 18px;
+            background-color: currentColor;
+            -webkit-mask-repeat: no-repeat;
+            mask-size: 100%;
+        }
+    }
+
+    $icons: (
+        'settings-sidebar___account_sidebar_item':                      'person',
+        'settings-sidebar___content_and_social_sidebar_item':           'assignment',
+        'settings-sidebar___data_and_privacy_sidebar_item':             'shield_lock',
+        'settings-sidebar___family_center_sidebar_item':                'family',
+        'settings-sidebar___authorized_apps_sidebar_item':              'apps',
+        'settings-sidebar___sessions_sidebar_item':                     'devices',
+        'settings-sidebar___connections_sidebar_item':                  'link',
+        'settings-sidebar___clips_sidebar_item':                        'movie',
+
+        'settings-sidebar___nitro_sidebar_item':                        'nitro',
+        'settings-sidebar___premium_guild_subscriptions_sidebar_item':  'server_boost',
+        'settings-sidebar___subscriptions_sidebar_item':                'subscription',
+        'settings-sidebar___gift_sidebar_item':                         'gift',
+        'settings-sidebar___billing_sidebar_item':                      'payment',
+
+        'settings-sidebar___appearance_sidebar_item':                   'chat',
+        'settings-sidebar___accessibility_sidebar_item':                'accessibility',
+        'settings-sidebar___voice_and_video_sidebar_item':              'mic',
+        'settings-sidebar___chat_sidebar_item':                         'keyboard',
+        'settings-sidebar___legacy_notifications_sidebar_item':         'notifications',
+        'settings-sidebar___keybinds_sidebar_item':                     'space_bar',
+        'settings-sidebar___locale_sidebar_item':                       'language',
+        'settings-sidebar___windows_sidebar_item':                      'windows',
+        'settings-sidebar___linux_sidebar_item':                        'linux',
+        'settings-sidebar___streamer_mode_sidebar_item':                'live_tv',
+        'settings-sidebar___advanced_sidebar_item':                     'integrations',
+
+        'settings-sidebar___activity_privacy_sidebar_item':             'verified_user',
+        'settings-sidebar___registered_games_sidebar_item':             'stadia_controller',
+        'settings-sidebar___overlay_sidebar_item':                      'picture_in_picture',
+
+        'settings-sidebar___openUserSettingssettings_sidebar_item':     'settings',
+        'settings-sidebar___betterdiscord_updates_sidebar_item':        'update',
+        'settings-sidebar___betterdiscord_customcss_sidebar_item':      'code',
+        'settings-sidebar___betterdiscord_plugins_sidebar_item':        'themes',
+        'settings-sidebar___betterdiscord_themes_sidebar_item':         'plugins',
+
+        'settings-sidebar___experiments_sidebar_item':                  'experiment',
+        'settings-sidebar___developer_options_sidebar_item':            'code',
+        'settings-sidebar___legacy_settings_sidebar_item':              'settings',
+
+        'settings-sidebar___logout_sidebar_item':                       'exit_to_app',
+    );
+
+    &[role="listitem"] {
+        %itemV2Content {
+            &:before {
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
+            }
+        }
+    }
+
+    @each $option, $icon in $icons {
+        &[data-list-item-id="#{$option}"] {
+            %itemV2Content {
+                &:before {
+                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+/*
+ *
+ *  CHANNELS LIST HEADER
+ *
+ */
+
+%channelsHeaderContainer {
+	background-color: var(--chat-color);
+
+	&:not(%channelHasBanner) {
+		%channelsHeader {
+			&,
+			&:hover {
+				background-color: var(--main-color);
+			}
+		}
+	}
+}
+
+%channelsHeader {
+	padding: 0 var(--space-md);
+	border-bottom: none;
+	box-shadow: var(--shadow-ledge);
+}
+
+%channelHasBanner {
+	%channelsHeader {
+		background-color: var(--chat-color);
+		border-bottom: none;
+	}
+
+	&%bannerVisible {
+		%channelsHeader {
+			background-color: transparent;
+			box-shadow: none;
+		}
+
+		%channelsHeaderGlass {
+			border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+			border-bottom: none;
+		}
+	}
+}
+
+%channelsHeaderEllipseForeground {
+	position: absolute;
+	height: var(--custom-channel-header-height);
+	top: 0;
+	left: 0;
+	right: 0;
+	border-radius: var(--card-radius-big);
+}
+
+%channelsHeaderContent {
+    justify-content: flex-start;
+    gap: var(--space-8);
+}
+
+%channelsHeaderName {
+    width: 100%;
+    margin: 0;
+}
+
+%channelsHeaderGuildBadge,
+%channelsHeaderGuildBadgeV2 {
+	margin-right: 0;
+}
+
+%channelsHeaderInvitesRefresh {
+	%channelsHeaderInviteButton,
+    %channelsHeaderGuildDropdown {
+        border-radius: calc(var(--card-radius-big) / 1.8);
+		transition: var(--default-time) var(--default-animation) background-color;
+
+        &:hover {
+			background-color: var(--menu-item-hover);
+		}
+
+		&[aria-expanded="true"] {
+			background-color: var(--menu-item-select);
+		}
+    }
+
+	%channelsHeaderGuildDropdown {
+		padding: 0 var(--space-8) 0 var(--space-12);
+        gap: var(--space-xs);
+	}
+}
+
+%channelsHeaderChildren {
+    height: 16px;
+}
+
+%bannerAnimatedContainer {
+	background-color: var(--chat-color);
+	border-bottom: none;
+	box-shadow: none;
+}
+
+%bannerAnimatedContainer,
+%bannerImage {
+	border-radius: var(--card-radius-big);
+}
+
+%bannerImage {
+	overflow: hidden;
+}
+
+%bannerCommunityInfoPill {
+    background-color: var(--card-color-filled);
+    color: var(--text-normal);
+}

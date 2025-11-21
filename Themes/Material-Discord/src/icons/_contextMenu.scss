@@ -291,10 +291,6 @@
             'user-settings-cog-changelog':                      'checklist',
             'user-settings-cog-merchandise':                    'storefront',
             'user-settings-cog-Hypesquad_Online':               'hypesquad',
-            'user-settings-cog-Developer_Options':              'settings',
-            'user-settings-cog-Hotspot_Options':                'settings',
-            'user-settings-cog-Dismissible_Content_Options':    'settings',
-            'user-settings-cog-Payment_Flow_Modals':            'settings',
 
             'user-settings-cog-VencordPlugins':                 'plugins',
             'user-settings-cog-VencordThemes':                  'themes',
@@ -474,7 +470,8 @@
             'user-settings-cog-Voice___Video':                  'mic',
             'user-settings-cog-Text___Images':                  'keyboard',
             'user-settings-cog-Streamer_Mode':                  'live_tv',
-            'user-settings-cog-Experiments':                    'settings',
+            'user-settings-cog-Experiments':                    'experiment',
+            'user-settings-cog-Developer_Options':              'code',
 
             'user-profile-overflow-menu-invite-to-server':      'add_circle',
 
@@ -511,6 +508,22 @@
             &[id="#{$option}"] {
                 &:before {
                     @include add-icon(null, $icon);
+                }
+            }
+        }
+
+        /* CONTEXT MENU ICONS -> SUBMENU WITH ARROW -> REMOVE ICONS DUE TO DUPLICATES */
+
+        $icons: (
+            'set-status-submenu-idle',
+            'set-status-submenu-dnd',
+            'set-status-submenu-invisible'
+        );
+
+        @each $option, $icon in $icons {
+            &[id="#{$option}"] {
+                &:before {
+                    display: none;
                 }
             }
         }

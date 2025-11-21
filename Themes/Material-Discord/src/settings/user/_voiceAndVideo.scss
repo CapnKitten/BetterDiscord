@@ -65,23 +65,27 @@
 }
 
 %cameraBackgroundOption {
-    border-radius: var(--card-radius-big);
+    &:hover {
+        box-shadow: none !important;
+        transform: none !important;
+    }
 }
 
 %cameraBackgroundOptionRing {
     border-radius: var(--card-radius-big);
     border-color: hsl(var(--accent-hsl--material-you));
+    animation: var(--default-time) var(--default-animation) show-ring;
 }
+
+%cameraBackgroundOptionSelected {
+    %cameraBackgroundOptionInner {
+        border-radius: calc(var(--card-radius-big) - 4px);
+    }
+}
+
 
 %cameraBackgroundOptionInner {
     background-color: var(--card-color-filled);
-    border-radius: calc(var(--card-radius-big) - 4px);
-
-    %cameraBackgroundOptionContent {
-        color: var(--text-normal);
-
-        %cameraBackgroundOptionRingText {
-            font-weight: 500;
-        }
-    }
+    border-radius: 45px;
+    transition: var(--default-time) var(--default-animation) border-radius;
 }
