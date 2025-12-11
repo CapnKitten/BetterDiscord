@@ -36,11 +36,11 @@
 	--input-placeholder-color: var(--profile-gradient-primary-color);
 
     %channelTextAreaFontPadding {
-		color: var(--text-normal) !important;
+		color: var(--interactive-text-default) !important;
 	}
 
     %spriteGreyscale {
-        background-color: var(--text-normal);
+        background-color: var(--interactive-text-default);
     }
 
 	%userProfileBanner {
@@ -554,7 +554,6 @@
         gap: var(--space-16);
         margin: 0;
         padding: 0;
-        overflow: visible;
 
         %userProfileModalV2SideHeaderScroller {
             margin: 0;
@@ -589,6 +588,22 @@
 	padding-top: 0;
     padding-left: var(--space-12);
     gap: 2px;
+
+	section {
+        &:first-of-type {
+            %userProfileModalV2WidgetContainer {
+                border-top-left-radius: var(--card-radius-big);
+                border-top-right-radius: var(--card-radius-big);
+            }
+        }
+
+        &:nth-last-of-type(1) {
+            %userProfileModalV2WidgetContainer {
+                border-bottom-left-radius: var(--card-radius-big);
+                border-bottom-right-radius: var(--card-radius-big);
+            }
+        }
+    }
 }
 
 %userProfileModalV2TabPanelRow {
@@ -629,22 +644,6 @@
 
 %userProfileModalV2WidgetDragHandleButton {
     left: 8px;
-}
-
-%userProfileModalV2DragAndDropHitbox {
-    &:first-of-type {
-        %userProfileModalV2WidgetContainer {
-            border-top-left-radius: var(--card-radius-big);
-            border-top-right-radius: var(--card-radius-big);
-        }
-    }
-
-    &:nth-last-child(3) {
-        %userProfileModalV2WidgetContainer {
-            border-bottom-left-radius: var(--card-radius-big);
-            border-bottom-right-radius: var(--card-radius-big);
-        }
-    }
 }
 
 %userProfileModalV2WidgetContainer {

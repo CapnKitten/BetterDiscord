@@ -4,50 +4,28 @@
  *
  */
 
-::-webkit-scrollbar {
-	width: var(--scrollbar-width) !important;
-	height: var(--scrollbar-width) !important;
+%scrollbarThin,
+%scrollbarAuto {
+    &::-webkit-scrollbar {
+        width: var(--scrollbar-width);
+        height: var(--scrollbar-width);
 
-	&-track {
-		margin: 0 !important;
-		background: transparent !important;
-		border-radius: calc(var(--scrollbar-width) / 2) !important;
+        &-track,
+        &-thumb {
+            border: none;
+        }
 
-		&-piece {
-			border: 0 solid transparent !important;
-			background-color: transparent !important;
-			margin: 0;
-		}
-	}
-
-	&-thumb {
-		background-color: hsl(from var(--scrollbar-color) h s l / 0.325) !important;
-		border: 0 solid transparent !important;
-		border-radius: calc(var(--scrollbar-width) / 2) !important;
-
-		&:hover {
-			background-color: hsl(from var(--scrollbar-color) h s l / 0.425) !important;
-		}
-
-		&:active {
-			background-color: hsl(from var(--scrollbar-color) h s l / 0.525) !important;
-		}
-	}
+        &-thumb {
+            background-color: hsl(from var(--scrollbar-color) h s l / 0.325);
+            border-radius: calc(var(--scrollbar-width) / 2);
+        }
+    }
 }
 
-%scrollbarThin,
-%channelTextAreaScrollable {
-	--scrollbar-width: var(--scrollbar-thin-width);
+%scrollbarThin {
+    --scrollbar-width: var(--scrollbar-thin-width);
 }
 
 %scrollbarNone {
 	--scrollbar-width: 0;
-}
-
-%guildsWrapper {
-	[class*="scroller"] {
-		&::-webkit-scrollbar {
-			width: 0px !important;
-		}
-	}
 }

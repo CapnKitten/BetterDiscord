@@ -20,31 +20,35 @@
     &%bdToastSuccess,
     &%bdToastError,
     &%bdToastInfo {
+        gap: var(--space-8);
         background-color: var(--tooltip-color);
         color: var(--tooltip-text-color);
 
-        &%bdToastIcon {
-            gap: 8px;
-            padding-left: 12px;
-            background-image: none;
-            flex-direction: row;
-
-            &:before {
-                display: flex;
-                position: relative;
-                content: " ";
-                width: 18px;
-                height: 18px;
-            	-webkit-mask-repeat: no-repeat;
-                mask-size: 100%;
-                background-color: var(--tooltip-text-color);
-            }
+        &:before {
+            display: flex;
+            position: relative;
+            content: " ";
+            width: 18px;
+            height: 18px;
+            -webkit-mask-repeat: no-repeat;
+            mask-size: 100%;
+            background-color: var(--tooltip-text-color);
         }
+    }
+
+    svg {
+        display: none;
+    }
+
+    span {
+        line-height: 40px;
+        padding: 0;
+
     }
 
     $toasts: (
         success:
-            (class: bdToastSuccess, bg: var(--success-color), text: var(--success-text-color), icon: check_circle),
+            (class: bdToastSuccess, bg: hsl(var(--success-hsl)), text: var(--success-text-color), icon: check_circle),
         error:
             (class: bdToastError, bg: hsl(var(--alert-hsl)), text: var(--alert-text-color), icon: cancel),
         info:
@@ -56,16 +60,9 @@
             --tooltip-color: #{map-get($value, bg)};
             --tooltip-text-color: #{map-get($value, text)};
 
-            &%bdToastIcon {
-                &:before {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{map-get($value, icon)}.svg);
-                }
+            &:before {
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{map-get($value, icon)}.svg);
             }
         }
-    }
-
-    &%bdToastIcon {
-        padding-left: 36px;
-        background-position: 10px 50%;
     }
 }

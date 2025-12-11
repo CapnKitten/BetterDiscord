@@ -60,8 +60,15 @@
             calc(var(--warning-lightness) * 0.31)
         );
 
-    --success-color: hsl(from var(--button-positive-background) h calc(s * 0.3) l);
-    --success-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 2.6));
+    --success-hsl:
+            var(--success-hue),
+            calc(var(--success-saturation) * 0.65 * var(--saturation-factor)),
+            calc(var(--success-lightness) * 1.0);
+    --success-text-color: hsl(
+            var(--success-hue),
+            calc(var(--success-saturation) * 0.8 * var(--saturation-factor)),
+            calc(var(--success-lightness) * 0.33)
+        );
 
     --button-link-color:
             var(--accent-hue),
@@ -475,8 +482,15 @@
             calc(var(--warning-lightness) * 0.47)
         );
 
-    --success-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 1.26));
-    --success-text-color: hsl(from var(--button-positive-background) h calc(s * 0.3) calc(l * 3.1));
+    --success-hsl:
+            var(--success-hue),
+            calc(var(--success-saturation) * 0.65 * var(--saturation-factor)),
+            calc(var(--success-lightness) * 1.2);
+    --success-text-color: hsl(
+            var(--success-hue),
+            calc(var(--success-saturation) * 0.8 * var(--saturation-factor)),
+            calc(var(--success-lightness) * 0.4)
+        );
 
     --button-link-color:
             var(--accent-hue),
@@ -925,7 +939,7 @@
             --channel-icon: var(--text-tertiary);
 
             --interactive-active: var(--text-primary);
-        	--interactive-normal: var(--text-secondary);
+        	--interactive-text-default: var(--text-secondary);
         	--interactive-muted: hsl(
         			var(--accent-hue),
         			calc(var(--accent-saturation) * var(--saturation-modifier) * 0.9 * var(--saturation-factor)),
@@ -984,7 +998,7 @@
             --channel-icon: var(--text-tertiary);
 
             --interactive-active: var(--text-primary);
-            --interactive-normal: var(--text-secondary);
+            --interactive-text-default: var(--text-secondary);
             --interactive-muted: hsl(
         			var(--accent-hue),
         			calc(var(--accent-saturation) * var(--saturation-modifier) * 0.31 * var(--saturation-factor)),

@@ -7,24 +7,10 @@
  */
 
 %deviceSessions {
-    > div:not([class]) {
-        @include card-format(false, 0, true);
-    }
-}
-
-%deviceOtherSessions {
-    margin-top: 32px;
-    @include card-format(false, 0, true);
-}
-
-%deviceSessions,
-%deviceOtherSessions {
-    %deviceSectionTitle {
-        @include card-format--header(false, true);
-
-        %settingsHeaderTitle {
-            margin-bottom: -8px;
-            @include card-format--header-fix;
+    %fieldset {
+        %stack {
+            @include card-format(true, 8px 0 0, true);
+            gap: var(--space-8) !important;
         }
     }
 }
@@ -62,7 +48,9 @@
         }
     }
 
-    > * {
+    %deviceSessionIcon,
+    %deviceSessionInfo,
+    %deviceSessionMoreButton {
         z-index: 2;
     }
 
