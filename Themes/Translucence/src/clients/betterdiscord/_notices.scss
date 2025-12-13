@@ -1,3 +1,5 @@
+@use '../../mixins' as *;
+
 /*
  *
  *  BETTERDISCORD NOTICES
@@ -74,5 +76,19 @@
         color: var(--accent-text-color);
         font-size: 1em;
         font-weight: 500;
+    }
+}
+
+%bdNotification {
+    @include add-translucence(null, true);
+}
+
+%bdNotificationFooter {
+    background-color: transparent;
+}
+
+%bdNotificationProgress {
+    &[style*="background-color: var(--bd-brand)"] {
+        background-color: hsl(var(--accent-hsl)) !important;
     }
 }

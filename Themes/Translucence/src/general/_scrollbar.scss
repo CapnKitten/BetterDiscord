@@ -4,38 +4,28 @@
  *
  */
 
-::-webkit-scrollbar {
-	width: var(--scrollbar-width) !important;
-	height: var(--scrollbar-width) !important;
-    background: transparent !important;
-	border-color: transparent !important;
+%scrollbarThin,
+%scrollbarAuto {
+    &::-webkit-scrollbar {
+        width: var(--scrollbar-width);
+        height: var(--scrollbar-width);
 
-    &-thumb {
-    	background: rgba(var(--scrollbar-color),var(--scrollbar-opacity)) !important;
-    	border-radius: calc(var(--scrollbar-width) / 2) !important;
+        &-track,
+        &-thumb {
+            border: none;
+        }
 
-    	&:hover {
-    		background: rgba(var(--scrollbar-color),var(--scrollbar-opacity-hover)) !important;
-    	}
-    }
-
-    &-track,
-    &-track-piece {
-        background: transparent !important;
-    	border-color: transparent !important;
+        &-thumb {
+            background-color: rgba(var(--scrollbar-color),var(--scrollbar-opacity));
+            border-radius: calc(var(--scrollbar-width) / 2);
+        }
     }
 }
 
 %scrollbarThin {
-	&::-webkit-scrollbar {
-		width: calc(var(--scrollbar-width) / 2) !important;
-		height: calc(var(--scrollbar-width) / 2) !important;
-	}
+    --scrollbar-width: var(--scrollbar-thin-width);
 }
 
 %scrollbarNone {
-	&::-webkit-scrollbar {
-		width: 0 !important;
-		height: 0 !important;
-	}
+	--scrollbar-width: 0;
 }
