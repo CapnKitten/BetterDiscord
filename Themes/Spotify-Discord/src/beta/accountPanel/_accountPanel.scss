@@ -13,7 +13,7 @@
     min-width: 32px;
     width: 100%;
     margin: 0;
-    padding-left: 0;
+    padding: 0;
 
     &:hover {
         background-color: transparent;
@@ -146,14 +146,14 @@
 
         &%panelButtonEnabled {
             &:hover {
-                background-color: var(--background-tinted-hover);
+                background-color: var(--background-tinted-hover) !important;
             }
         }
 
         &[role="switch"] {
             &:before {
                 --icon-xposition: calc(var(--app-card-margin) + 8px);
-                --icon-yposition: calc((var(--app-card-top-margin) + 22px) + ((var(--header-bar-height)  - 34px) / 2));
+                --icon-yposition: calc((var(--app-card-top-margin) + var(--custom-app-top-bar-height)) + ((var(--header-bar-height)  - 34px) / 2));
 
                 position: fixed;
                 content: " ";
@@ -171,6 +171,18 @@
             }
         }
 
+        &%accountPanelButtonChevron {
+            display: flex;
+            min-width: 32px;
+            max-width: 32px;
+            padding: 9px 0;
+            justify-content: center;
+
+            &:after {
+                display: none;
+            }
+        }
+
         &:after {
             position: relative;
             content: attr(aria-label);
@@ -180,20 +192,24 @@
         }
     }
 
-    %panelMicButtonParent {
-        %panelButton[aria-checked="true"] {
-            &:before {
-                background-color: hsla(0,0%,0%,0.6);
-                backdrop-filter: blur(2px);
-                background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuNyAxMUg1QzUgMTIuMTkgNS4zNCAxMy4zIDUuOSAxNC4yOEw3LjEzIDEzLjA1QzYuODYgMTIuNDMgNi43IDExLjc0IDYuNyAxMVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNOS4wMSAxMS4wODVDOS4wMTUgMTEuMTEyNSA5LjAyIDExLjE0IDkuMDIgMTEuMTdMMTUgNS4xOFY1QzE1IDMuMzQgMTMuNjYgMiAxMiAyQzEwLjM0IDIgOSAzLjM0IDkgNVYxMUM5IDExLjAzIDkuMDA1IDExLjA1NzUgOS4wMSAxMS4wODVaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTExLjcyMzcgMTYuMDkyN0wxMC45NjMyIDE2Ljg1MzFMMTAuMjUzMyAxNy41Njg4QzEwLjQ5NzggMTcuNjMzIDEwLjc0NyAxNy42ODM5IDExIDE3LjcyVjIySDEzVjE3LjcyQzE2LjI4IDE3LjIzIDE5IDE0LjQxIDE5IDExSDE3LjNDMTcuMyAxNCAxNC43NiAxNi4xIDEyIDE2LjFDMTEuOTA3NiAxNi4xIDExLjgxNTUgMTYuMDk3NSAxMS43MjM3IDE2LjA5MjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTIxIDQuMjdMMTkuNzMgM0wzIDE5LjczTDQuMjcgMjFMOC40NiAxNi44Mkw5LjY5IDE1LjU4TDExLjM1IDEzLjkyTDE0Ljk5IDEwLjI4TDIxIDQuMjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PC9zdmc+');
+    %accountPanelMicButtonParent {
+        &%accountPanelMicButtonHasColorGlow {
+            %panelButton[aria-checked="true"] {
+                &:before {
+                    background-color: hsla(0,0%,0%,0.6);
+                    backdrop-filter: blur(2px);
+                    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuNyAxMUg1QzUgMTIuMTkgNS4zNCAxMy4zIDUuOSAxNC4yOEw3LjEzIDEzLjA1QzYuODYgMTIuNDMgNi43IDExLjc0IDYuNyAxMVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNOS4wMSAxMS4wODVDOS4wMTUgMTEuMTEyNSA5LjAyIDExLjE0IDkuMDIgMTEuMTdMMTUgNS4xOFY1QzE1IDMuMzQgMTMuNjYgMiAxMiAyQzEwLjM0IDIgOSAzLjM0IDkgNVYxMUM5IDExLjAzIDkuMDA1IDExLjA1NzUgOS4wMSAxMS4wODVaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTExLjcyMzcgMTYuMDkyN0wxMC45NjMyIDE2Ljg1MzFMMTAuMjUzMyAxNy41Njg4QzEwLjQ5NzggMTcuNjMzIDEwLjc0NyAxNy42ODM5IDExIDE3LjcyVjIySDEzVjE3LjcyQzE2LjI4IDE3LjIzIDE5IDE0LjQxIDE5IDExSDE3LjNDMTcuMyAxNCAxNC43NiAxNi4xIDEyIDE2LjFDMTEuOTA3NiAxNi4xIDExLjgxNTUgMTYuMDk3NSAxMS43MjM3IDE2LjA5MjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTIxIDQuMjdMMTkuNzMgM0wzIDE5LjczTDQuMjcgMjFMOC40NiAxNi44Mkw5LjY5IDE1LjU4TDExLjM1IDEzLjkyTDE0Ljk5IDEwLjI4TDIxIDQuMjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PC9zdmc+');
+                }
             }
-        }
 
-        + %panelButton[aria-checked="true"] {
-            &:before {
-                background-color: hsla(0,0%,0%,0.2);
-                backdrop-filter: blur(2px);
-                background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuMTYyMDQgMTUuMDA2NUM2LjEwODU5IDE1LjAwMjIgNi4wNTQ1NSAxNSA2IDE1SDRWMTJDNCA3LjU4OCA3LjU4OSA0IDEyIDRDMTMuNDgwOSA0IDE0Ljg2OTEgNC40MDQzOSAxNi4wNTk5IDUuMTA4NTlMMTcuNTEwMiAzLjY1ODM1QzE1LjkyOTIgMi42MTA2NCAxNC4wMzQ2IDIgMTIgMkM2LjQ4NiAyIDIgNi40ODUgMiAxMlYxOS4xNjg1TDYuMTYyMDQgMTUuMDA2NVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNMTkuNzI1IDkuOTE2ODZDMTkuOTA0MyAxMC41ODEzIDIwIDExLjI3OTYgMjAgMTJWMTVIMThDMTYuODk2IDE1IDE2IDE1Ljg5NiAxNiAxN1YyMEMxNiAyMS4xMDQgMTYuODk2IDIyIDE4IDIySDIwQzIxLjEwNSAyMiAyMiAyMS4xMDQgMjIgMjBWMTJDMjIgMTAuNzA3NSAyMS43NTM2IDkuNDcxNDkgMjEuMzA1MyA4LjMzNjU4TDE5LjcyNSA5LjkxNjg2WiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPjxwYXRoIGQ9Ik0zLjIwMTAxIDIzLjYyNDNMMS43ODY4IDIyLjIxMDFMMjEuNTg1OCAyLjQxMTEzTDIzIDMuODI1MzVMMy4yMDEwMSAyMy42MjQzWiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPj48L3N2Zz4=');
+            + %accountPanelMicButtonHasColorGlow {
+                %panelButton[aria-checked="true"] {
+                    &:before {
+                        background-color: hsla(0,0%,0%,0.2);
+                        backdrop-filter: blur(2px);
+                        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuMTYyMDQgMTUuMDA2NUM2LjEwODU5IDE1LjAwMjIgNi4wNTQ1NSAxNSA2IDE1SDRWMTJDNCA3LjU4OCA3LjU4OSA0IDEyIDRDMTMuNDgwOSA0IDE0Ljg2OTEgNC40MDQzOSAxNi4wNTk5IDUuMTA4NTlMMTcuNTEwMiAzLjY1ODM1QzE1LjkyOTIgMi42MTA2NCAxNC4wMzQ2IDIgMTIgMkM2LjQ4NiAyIDIgNi40ODUgMiAxMlYxOS4xNjg1TDYuMTYyMDQgMTUuMDA2NVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNMTkuNzI1IDkuOTE2ODZDMTkuOTA0MyAxMC41ODEzIDIwIDExLjI3OTYgMjAgMTJWMTVIMThDMTYuODk2IDE1IDE2IDE1Ljg5NiAxNiAxN1YyMEMxNiAyMS4xMDQgMTYuODk2IDIyIDE4IDIySDIwQzIxLjEwNSAyMiAyMiAyMS4xMDQgMjIgMjBWMTJDMjIgMTAuNzA3NSAyMS43NTM2IDkuNDcxNDkgMjEuMzA1MyA4LjMzNjU4TDE5LjcyNSA5LjkxNjg2WiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPjxwYXRoIGQ9Ik0zLjIwMTAxIDIzLjYyNDNMMS43ODY4IDIyLjIxMDFMMjEuNTg1OCAyLjQxMTEzTDIzIDMuODI1MzVMMy4yMDEwMSAyMy42MjQzWiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPj48L3N2Zz4=');
+                    }
+                }
             }
         }
     }
@@ -234,6 +250,23 @@
             }
         }
     }
+}
+
+%accountPanelButtons {
+    gap: 0;
+}
+
+%accountPanelMicButtonParent {
+    gap: var(--space-4);
+}
+
+%panelButtonPlateMuted {
+    background-color: transparent !important;
+}
+
+%panelButtonPlateMuted,
+%panelButtonPlated:hover {
+    backdrop-filter: none;
 }
 
 %visualRefresh {

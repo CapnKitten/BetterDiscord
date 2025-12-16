@@ -20,31 +20,34 @@
     &%bdToastSuccess,
     &%bdToastError,
     &%bdToastInfo {
+        gap: var(--space-8);
         background-color: var(--popout-color);
         color: var(--text-normal);
 
-        &%bdToastIcon {
-            gap: 8px;
-            padding-left: 12px;
-            background-image: none;
-            flex-direction: row;
-
-            &:before {
-                display: flex;
-                position: relative;
-                content: " ";
-                width: 18px;
-                height: 18px;
-            	-webkit-mask-repeat: no-repeat;
-                mask-size: 100%;
-                background-color: var(--text-normal);
-            }
+        &:before {
+            display: flex;
+            position: relative;
+            content: " ";
+            width: 18px;
+            height: 18px;
+        	-webkit-mask-repeat: no-repeat;
+            mask-size: 100%;
+            background-color: var(--text-normal);
         }
+    }
+
+    svg {
+        display: none;
+    }
+
+    span {
+        line-height: 40px;
+        padding: 0;
     }
 
     $toasts: (
         success:
-            (class: bdToastSuccess, bg: var(--button-positive-background), text: var(--text-primary), icon: check_circle),
+            (class: bdToastSuccess, bg: hsl(var(--success-hsl)), text: var(--success-text-color), icon: check_circle),
         error:
             (class: bdToastError, bg: hsl(var(--alert-hsl)), text: var(--alert-text-color), icon: cancel),
         info:
@@ -56,10 +59,8 @@
             --popout-color: #{map-get($value, bg)};
             --text-normal: #{map-get($value, text)};
 
-            &%bdToastIcon {
-                &:before {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{map-get($value, icon)}.svg);
-                }
+            &:before {
+                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{map-get($value, icon)}.svg);
             }
         }
     }
