@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,69 +7,69 @@
  *
  */
 
-%serverShopContent {
+#{ $serverShopContent } {
     background-color: var(--chat-color);
 
-    %serverShopContentContainer {
+    #{ $serverShopContentContainer } {
         width: 100%;
     }
 }
 
-%serverShopHeroCard,
-%serverShopFilters {
+#{ $serverShopHeroCard },
+#{ $serverShopFilters } {
     max-width: unset;
 }
 
-%serverShopHeroCard {
+#{ $serverShopHeroCard } {
     @include card-format(false, 0, true);
     box-shadow: none;
 
-    %serverShopHeroInfoContainer {
+    #{ $serverShopHeroInfoContainer } {
         padding: 0 16px 16px;
     }
 
-    %serverShopHeroCoverImage {
+    #{ $serverShopHeroCoverImage } {
         border-radius: var(--card-radius-big);
     }
 }
 
-%serverShopFilters {
-    %buttonFilled {
-        %buttonContents {
+#{ $serverShopFilters } {
+    #{ $buttonFilled } {
+        #{ $buttonContents } {
             color: var(--accent-text-color--material-you);
         }
 
-        %textSmMedium {
+        #{ $textSmMedium } {
             color: inherit !important;
         }
     }
 }
 
-%serverShopHeader {
+#{ $serverShopHeader } {
     @include remove-caps(14px);
 }
 
-%serverShopTab {
+#{ $serverShopTab } {
     border-radius: var(--card-radius-big);
 
-    &%serverShopTabSelected {
+    &#{ $serverShopTabSelected } {
         background-color: hsl(var(--accent-hsl--material-you),0.3);
         border-color: hsl(var(--accent-hsl--material-you));
         box-shadow: none;
     }
 }
 
-%serverShopProductCard {
+#{ $serverShopProductCard } {
     @include card-format(true, 0, true, true);
 
-    %serverShopProductThumbnail {
+    #{ $serverShopProductThumbnail } {
         border-radius: var(--card-radius-big);
     }
 }
 
-%serverShopCard {
+#{ $serverShopCard } {
     &:hover {
-        %serverShopCardContent {
+        #{ $serverShopCardContent } {
             box-shadow: none;
             outline: none;
             transform: none;
@@ -78,12 +79,12 @@
 
 /* SERVER SHOP -> PRODUCT MODAL */
 
-%serverShopProductModalHeaderImage {
+#{ $serverShopProductModalHeaderImage } {
     width: calc(100% + 48px);
     margin: -24px -24px -16px;
     border-radius: var(--card-radius-big);
 }
 
-%serverShopProductModalBody {
+#{ $serverShopProductModalBody } {
     background-color: transparent;
 }

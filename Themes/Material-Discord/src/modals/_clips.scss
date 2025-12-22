@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,17 +7,17 @@
  *
  */
 
-%clipsSettingsButton {
+#{ $clipsSettingsButton } {
     width: var(--button-height);
     height: var(--button-height);
     margin-right: 32px;
 
-    + %modalCloseButton {
+    + #{ $modalCloseButton } {
         top: 28px !important;
     }
 }
 
-%clipItem {
+#{ $clipItem } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
     filter: none;
@@ -31,25 +32,25 @@
         background-color: var(--card-color-active);
     }
 
-    %input {
+    #{ $input } {
         --input-color: var(--card-color-hover) !important;
     }
 }
 
-%clipThumb {
+#{ $clipThumb } {
     background-color: var(--card-color-alt);
     border-radius: calc(var(--card-radius-big) / 1.8);
 }
 
-%clipBadge {
+#{ $clipBadge } {
     background-color: var(--card-button-color);
     border-radius: calc(var(--card-radius-big) / 3);
 }
 
-%clipItemButtonContainer {
+#{ $clipItemButtonContainer } {
     display: flex;
 
-    %button {
+    #{ $button } {
         width: var(--button-height);
         height: var(--button-height);
         padding: 0;
@@ -63,45 +64,45 @@
 
 /* CLIPS MODALS -> EDIT CLIP */
 
-%timelineCenterWrapper {
+#{ $timelineCenterWrapper } {
     transform: translateY(6px);
 }
 
-%timePillBackground {
+#{ $timePillBackground } {
     background-color: hsl(var(--accent-hsl--material-you));
 
-    %timePillText {
+    #{ $timePillText } {
         font-weight: 500;
         color: var(--accent-text-color--material-you) !important;
     }
 }
 
-%playPauseButtonWrapper {
+#{ $playPauseButtonWrapper } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
 }
 
-%playerTimelineBackground {
+#{ $playerTimelineBackground } {
     border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
 }
 
-%playerDragBox {
+#{ $playerDragBox } {
     border-color: hsl(var(--accent-hsl--material-you));
 }
 
-%playerDragHandle {
+#{ $playerDragHandle } {
     background-color: hsl(var(--accent-hsl--material-you));
 
-    &%playerDragHandleLeft {
+    &#{ $playerDragHandleLeft } {
         border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
     }
 
-    &%playerDragHandleRight {
+    &#{ $playerDragHandleRight } {
         border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
     }
 
-    %playerCropLeftArrow,
-    %playerCropRightArrow {
+    #{ $playerCropLeftArrow },
+    #{ $playerCropRightArrow } {
         width: 20px;
         height: 20px;
         background-image: none;
@@ -109,38 +110,38 @@
         -webkit-mask-repeat: no-repeat;
     }
 
-    %playerCropLeftArrow {
+    #{ $playerCropLeftArrow } {
         -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_left.svg);
     }
 
-    %playerCropRightArrow {
+    #{ $playerCropRightArrow } {
         -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_right.svg);
     }
 }
 
-%playhead {
+#{ $playhead } {
     background-color: hsl(var(--accent-hsl--material-you));
     box-shadow: var(--shadow-2dp);
 }
 
-%clipForm {
+#{ $clipForm } {
     @include card-format(false, 0, true);
 
-    %modalSettingsContainer {
+    #{ $modalSettingsContainer } {
         margin-bottom: 16px !important;
     }
 
-    %clipFormRoot,
-    %clipFormUserList {
+    #{ $clipFormRoot },
+    #{ $clipFormUserList } {
         background-color: var(--card-color-active);
         border-radius: var(--card-radius-big);
     }
 
-    %clipFormNameSection {
+    #{ $clipFormNameSection } {
         border-bottom: none;
     }
 
-    %clipFormTimeContainer {
+    #{ $clipFormTimeContainer } {
         padding: 0 8px 8px;
         gap: 8px;
 
@@ -158,21 +159,21 @@
         }
     }
 
-    %clipFormUserCountPill {
+    #{ $clipFormUserCountPill } {
         background-color: var(--card-color-filled);
     }
 }
 
 /* CLIPS MODAL -> RECENT CLIPS POPOUT */
 
-%recentClipsPopout {
+#{ $recentClipsPopout } {
     @include popout-format;
 
     &:after {
         border-top-color: var(--popout-color);
     }
 
-    %recentClipsThumbnail {
+    #{ $recentClipsThumbnail } {
         border-radius: var(--card-radius);
     }
 }

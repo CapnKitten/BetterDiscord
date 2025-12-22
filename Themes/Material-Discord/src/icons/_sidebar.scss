@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,8 +7,8 @@
  *
  */
 
-%settingsSidebar {
-    %item[data-tab-id] {
+#{ $settingsSidebar } {
+    #{ $item }[data-tab-id] {
         display: flex;
         gap: 12px;
         padding-left: 12px;
@@ -34,12 +35,12 @@
     }
 }
 
-%settingsTabBarItemContainer {
+#{ $settingsTabBarItemContainer } {
     width: 100%;
 }
 
-%settingsSidebar {
-    %item {
+#{ $settingsSidebar } {
+    #{ $item } {
         $icons: (
             // USER SETTINGS
 
@@ -148,8 +149,8 @@
 
 /* SIDEBAR ICONS V2 */
 
-%itemV2 {
-    %itemV2Content:not(:empty) {
+#{ $itemV2 } {
+    #{ $itemV2Content }:not(:empty) {
         svg {
             display: none;
         }
@@ -187,7 +188,7 @@
         'settings-sidebar___chat_sidebar_item':                         'keyboard',
         'settings-sidebar___legacy_notifications_sidebar_item':         'notifications',
         'settings-sidebar___keybinds_sidebar_item':                     'space_bar',
-        'settings-sidebar___locale_sidebar_item':                       'language',
+        'settings-sidebar___language_and_time_sidebar_item':            'language',
         'settings-sidebar___windows_sidebar_item':                      'windows',
         'settings-sidebar___linux_sidebar_item':                        'linux',
         'settings-sidebar___streamer_mode_sidebar_item':                'live_tv',
@@ -197,11 +198,17 @@
         'settings-sidebar___registered_games_sidebar_item':             'stadia_controller',
         'settings-sidebar___overlay_sidebar_item':                      'picture_in_picture',
 
-        'settings-sidebar___betterdiscord_settings_sidebarItem':        'settings',
+        'settings-sidebar___betterdiscord_settings_sidebarItem':        'betterdiscord',
         'settings-sidebar___betterdiscord_updates_sidebarItem':         'update',
         'settings-sidebar___betterdiscord_customcss_tab_sidebarItem':   'code',
         'settings-sidebar___betterdiscord_themes_sidebarItem':          'themes',
         'settings-sidebar___betterdiscord_plugins_sidebarItem':         'plugins',
+
+        'settings-sidebar___vencord_plugins':                           'plugins',
+        'settings-sidebar___vencord_themes':                            'themes',
+        'settings-sidebar___vencord_updater':                           'update',
+        'settings-sidebar___vencord_cloud':                             'cloud',
+        'settings-sidebar___vencord_backup_restore':                    'backup_restore',
 
         'settings-sidebar___experiments_sidebar_item':                  'experiment',
         'settings-sidebar___developer_options_sidebar_item':            'code',
@@ -211,7 +218,7 @@
     );
 
     &[role="listitem"] {
-        %itemV2Content {
+        #{ $itemV2Content } {
             &:before {
                 -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
             }
@@ -220,7 +227,7 @@
 
     @each $option, $icon in $icons {
         &[data-list-item-id="#{$option}"] {
-            %itemV2Content {
+            #{ $itemV2Content } {
                 &:before {
                     -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
                 }

@@ -1,25 +1,27 @@
+@use '../../selectorPlaceholders' as *;
+
 /*
  *
  *  SERVER SETTINGS PROFILE
  *
  */
 
-%serverProfileItemContainer {
+#{ $serverProfileItemContainer } {
     border-radius: 32px;
     border: none;
     transition: var(--default-time) var(--default-animation) border-radius, var(--default-time) var(--default-animation) box-shadow;
 
-    &:has(%serverProfileItemContainerSelected) {
+    &:has(#{ $serverProfileItemContainerSelected }) {
         border-radius: var(--card-radius-big);
         box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--main-color);
     }
 }
 
-%serverProfileItemContainerSelected {
+#{ $serverProfileItemContainerSelected } {
     display: none;
 }
 
-%serverProfileTraitContainer {
+#{ $serverProfileTraitContainer } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
     border: none;

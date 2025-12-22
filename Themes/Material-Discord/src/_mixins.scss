@@ -1,55 +1,59 @@
-@function important($important) {
-	@return #{if($important, '!important', '')};
-}
-
 @mixin popout-format($important: false) {
-	background-color: var(--popout-color) important($important);
-	border-radius: var(--popout-radius-big) important($important);
-	border: none important($important);
-	box-shadow: var(--shadow-medium) important($important);
+	$imp: if($important, !important, null);
+
+	background-color: var(--popout-color) $imp;
+	border-radius: var(--popout-radius-big) $imp;
+	border: none $imp;
+	box-shadow: var(--shadow-medium) $imp;
 }
 
 @mixin card-format($important: false, $padding: 0, $filled: false, $hover: false, $shadow: false) {
+	$imp: if($important, !important, null);
+
 	@if $filled {
-		background-color: var(--card-color-filled) important($important);
-		border: none important($important);
+		background-color: var(--card-color-filled) $imp;
+		border: none $imp;
 	} @else {
-		background-color: var(--card-color-outlined) important($important);
-		border: 1px solid var(--card-border-color) important($important);
+		background-color: var(--card-color-outlined) $imp;
+		border: 1px solid var(--card-border-color) $imp;
 	}
 
-	padding: $padding important($important);
-	border-radius: var(--card-radius-big) important($important);
+	padding: $padding $imp;
+	border-radius: var(--card-radius-big) $imp;
 
 	@if $hover {
+		$transition: var(--default-time) var(--default-animation) background-color;
+
 		@if $shadow {
-			box-shadow: none important($important);
-			transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) box-shadow important($important);
+			$transition: $transition, var(--default-time) var(--default-animation) box-shadow;
 
-			&:hover {
-				background-color: var(--card-color-hover) important($important);
-				box-shadow: var(--shadow-soft) important($important);
-			}
-		} @else {
-			transition: var(--default-time) var(--default-animation) background-color important($important);
+			box-shadow: none $imp;
+		}
 
-			&:hover {
-				background-color: var(--card-color-hover) important($important);
+		&:hover {
+			background-color: var(--card-color-hover) $imp;
+
+			@if $shadow {
+				box-shadow: var(--shadow-soft) $imp;
 			}
 		}
+
+		transition: $transition $imp;
 	} @else {
-		box-shadow: none important($important);
+		box-shadow: none $imp;
 	}
 }
 
 @mixin card-format--header($important: false, $filled: false) {
+	$imp: if($important, !important, null);
+
 	margin-bottom: 0;
-	padding: 16px important($important);
-	background-color: transparent important($important);
-	font-size: 1.25em important($important);
+	padding: 16px $imp;
+	background-color: transparent $imp;
+	font-size: 1.25em $imp;
 	line-height: normal;
-	color: var(--card-header-text-color) important($important);
-	font-weight: 400 important($important);
+	color: var(--card-header-text-color) $imp;
+	font-weight: 400 $imp;
 	opacity: 1;
 
 	@if $filled == false {
@@ -87,7 +91,7 @@
 	&:after {
 		position: absolute;
 		content: " ";
-		width: calc(100% - (#{$margin} * 2));
+		width: calc(100% - (#{ $margin } * 2));
 		height: 1px;
 		right: 0;
 		bottom: 0;
@@ -102,17 +106,19 @@
 	}
 }
 
-@mixin card-option-select($radius-unselected: 34px, $filled: true, $selector: null, $text: null) {
+@mixin card-option-select($radius-unselected: 34px, $filled: true, $selector: null, $text: null, $svg: null) {
+	$transition: var(--default-time) var(--default-animation);
+
     background-color: var(--card-color-filled);
     border-radius: $radius-unselected;
     border: none;
-    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) border-radius;
+    transition: $transition background-color, $transition box-shadow, $transition border-radius;
 
     @if $selector {
-        &#{$selector} {
+        &#{ $selector } {
             background-color: hsl(var(--accent-hsl--material-you));
             border-radius: var(--card-radius-big);
-            border: none;
+			border: none;
 
 			@if $filled {
 				box-shadow: none;
@@ -121,10 +127,12 @@
 			}
 
 			@if $text {
-				#{$text} {
+				#{ $text } {
 					color: var(--accent-text-color--material-you) !important;
 				}
+			}
 
+			@if $svg {
 				svg {
 					color: var(--accent-text-color--material-you);
 				}
@@ -132,15 +140,26 @@
         }
     }
 
+	$transition-targets: ();
+
 	@if $text {
-		#{$text},
-		svg {
-			transition: var(--default-time) var(--default-animation) color;
-		}
-	}
+        $transition-targets: append($transition-targets, $text, comma);
+    }
+
+    @if svg {
+        $transition-targets: append($transition-targets, 'svg', comma);
+    }
+
+	@if length($transition-targets) > 0 {
+        #{ $transition-targets } {
+            transition: $transition color;
+        }
+    }
 }
 
 @mixin pill-nav($important: false, $height, $pill-item, $selector, $hover: false) {
+	$imp: if($important, !important, null);
+
     --nav-button-height: #{$height};
     --nav-button-big-radius: calc(var(--nav-button-height) / 2);
     --nav-button-small-radius: calc(var(--nav-button-height) / 5);
@@ -156,7 +175,7 @@
 		height: var(--nav-button-height);
 		padding-top: 0;
 		padding-bottom: 0;
-        background-color: var(--accent-secondary-color) important($important);
+        background-color: var(--accent-secondary-color) $imp;
         border-radius: var(--nav-button-small-radius);
         color: var(--accent-secondary-text-color);
 		justify-content: center;
@@ -172,12 +191,12 @@
 
 		@if $hover {
 			&:hover {
-	            background-color: var(--card-button-color-hover) important($important);
+	            background-color: var(--card-button-color-hover) $imp;
 	        }
 		}
 
         &#{$selector} {
-            background-color: hsl(var(--accent-hsl--material-you)) important($important);
+            background-color: hsl(var(--accent-hsl--material-you)) $imp;
             border-radius: var(--nav-button-big-radius);
 			border: none;
             color: var(--accent-text-color--material-you);
@@ -186,12 +205,16 @@
 }
 
 @mixin input-format($important: false, $focus-within: false, $rounded: false, $height: var(--input-height), $max-height: var(--input-height)) {
+	$imp: if($important, !important, null);
+	$border-focused: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+
+	height: $height $imp;
+
 	@if $rounded {
-		height: $height important($important);
-		max-height: $max-height important($important);
-		padding: 0 var(--input-padding) important($important);
-		background-color: var(--input-color) important($important);
-		border-radius: calc(#{$height} / 2) important($important);
+		max-height: $max-height $imp;
+		padding: 0 var(--input-padding) $imp;
+		background-color: var(--input-color) $imp;
+		border-radius: calc(#{$height} / 2) $imp;
 		border: none;
 		box-shadow: none;
 
@@ -199,11 +222,10 @@
 			box-shadow: none;
 		}
 	} @else {
-		min-height: $height important($important);
-		height: $height important($important);
-		padding: 0 var(--input-padding) important($important);
-		background-color: var(--input-color) important($important);
-		border-radius: 4px 4px 0 0 important($important);
+		min-height: $height $imp;
+		padding: 0 var(--input-padding) $imp;
+		background-color: var(--input-color) $imp;
+		border-radius: 4px 4px 0 0 $imp;
 	    border: none;
 	    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
 	    color: var(--input-text-color);
@@ -216,23 +238,25 @@
 
 		@if $focus-within {
 			&:focus-within {
-				box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+				box-shadow: $border-focused;
 			}
 		} @else {
 			&:focus {
-				box-shadow: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+				box-shadow: $border-focused;
 		    }
 		}
 	}
 }
 
 @mixin input-transform($important: false, $height: var(--input-height)) {
-	border-radius: calc(#{$height} / 2) important($important);
-	border: none important($important);
-	box-shadow: none important($important);
+	$imp: if($important, !important, null);
+
+	border-radius: calc(#{$height} / 2) $imp;
+	border: none $imp;
+	box-shadow: none $imp;
 
 	&:focus-within {
-		box-shadow: none important($important);
+		box-shadow: none $imp;
 	}
 }
 
@@ -329,6 +353,8 @@
 }
 
 @mixin remove-caps($font-size, $important: false) {
-	font-size: #{$font-size} important($important);
-	text-transform: none important($important);
+	$imp: if($important, !important, null);
+
+	font-size: #{$font-size} $imp;
+	text-transform: none $imp;
 }

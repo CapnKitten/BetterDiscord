@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,29 +7,29 @@
  *
  */
 
-%serverBoostContainer {
+#{ $serverBoostContainer } {
     background-color: transparent;
 }
 
-%serverBoostContentContainer {
+#{ $serverBoostContentContainer } {
     background-color: var(--main-color);
 }
 
-%serverBoostSubscriptionCard {
+#{ $serverBoostSubscriptionCard } {
     @include card-format(false, 16px, true);
 }
 
-%serverBoostSubscriptionTierPill {
+#{ $serverBoostSubscriptionTierPill } {
     background-color: var(--card-button-color);
 }
 
 /* SERVER BOOST -> SIDEBAR */
 
-%serverBoostToolbar {
+#{ $serverBoostToolbar } {
     height: var(--custom-channel-header-height);
 }
 
-%serverBoostSidebarContainer {
+#{ $serverBoostSidebarContainer } {
     flex: 0 1 auto;
     margin: var(--space-12) var(--space-12) var(--space-12) var(--space-8);
     padding: var(--space-16) calc(var(--space-16) - var(--scrollbar-thin-width)) var(--space-16) var(--space-16);
@@ -43,30 +44,30 @@
     }
 }
 
-%serverBoostSidebarInfoContainer {
+#{ $serverBoostSidebarInfoContainer } {
     padding: 0;
 }
 
-%serverBoostSidebarHeader {
+#{ $serverBoostSidebarHeader } {
     padding: var(--space-24) 0 var(--space-8);
 }
 
-%serverBoostStatCard {
+#{ $serverBoostStatCard } {
     @include card-format(false, var(--space-16), true);
 }
 
-%serverBoostHowBoostsWork {
+#{ $serverBoostHowBoostsWork } {
     border-radius: var(--card-radius-big);
 }
 
-%serverBoostSidebarRecentActivityContainer {
+#{ $serverBoostSidebarRecentActivityContainer } {
     flex: 0 1 auto;
     padding: 0 !important;
     gap: 2px;
     overflow: unset !important;
 }
 
-%serverBoostSidebarSystemMessageContainer {
+#{ $serverBoostSidebarSystemMessageContainer } {
     padding: var(--space-12) var(--space-8);
     background-color: var(--card-color-filled);
     border-radius: 4px;
@@ -85,27 +86,27 @@
 
 /* SERVER BOOST -> CARDS */
 
-%serverBoostCardParentContainer {
+#{ $serverBoostCardParentContainer } {
     &:hover {
-        %serverBoostCard {
+        #{ $serverBoostCard } {
             transform: none;
         }
     }
 }
 
-%serverBoostCard {
+#{ $serverBoostCard } {
     @include card-format(true, 0, true, true, true);
 
-    &%serverBoostCardActive {
+    &#{ $serverBoostCardActive } {
         --card-color-filled: var(--card-color-active);
         --card-color-hover: var(--card-color-active);
     }
 
-    %serverBoostCardIconBoostContainer {
+    #{ $serverBoostCardIconBoostContainer } {
         border-color: var(--card-color-filled);
     }
 }
 
-%serverBoostCardImageBackground {
+#{ $serverBoostCardImageBackground } {
     border-radius: var(--card-radius-big);
 }

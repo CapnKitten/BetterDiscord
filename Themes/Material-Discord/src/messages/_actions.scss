@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%messageButtons {
+#{ $messageButtons } {
 	max-width: 32px;
 	top: -36px;
 	opacity: 0;
@@ -15,15 +16,15 @@
 	transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) max-width;
 }
 
-%message {
-	&:hover %messageButtons {
+#{ $message } {
+	&:hover #{ $messageButtons } {
 		max-width: 380px;
 		opacity: 1;
 		pointer-events: all;
 	}
 }
 
-%messageButtonWrapper {
+#{ $messageButtonWrapper } {
 	padding: 4px;
 	background-color: var(--main-textarea-color);
 	border-radius: 19px;
@@ -37,7 +38,7 @@
     }
 }
 
-%messageButton {
+#{ $messageButton } {
 	width: 30px;
     height: 30px;
     border-radius: 15px;
@@ -48,41 +49,41 @@
 		background-color: var(--menu-item-hover);
 	}
 
-	%messageButtonSelected {
+	#{ $messageButtonSelected } {
 		background-color: var(--menu-item-select);
 	}
 }
 
-%fullMotion {
-	%messageButtonWrapper {
+#{ $fullMotion } {
+	#{ $messageButtonWrapper } {
 		&:hover {
 			box-shadow: var(--shadow-2dp);
 		}
 	}
 }
 
-%messagePopoverReactionHoverBar {
+#{ $messagePopoverReactionHoverBar } {
     &:hover {
         border: none;
     }
 
-    %messageHoverBarButton {
+    #{ $messageHoverBarButton } {
         border-radius: 28px;
     }
 }
 
 /* MESSAGES -> ACTIONS -> DELETE MESSAGE */
 
-%messageAlt {
+#{ $messageAlt } {
 	padding: 0;
 	background-color: transparent !important;
 	box-shadow: none !important;
 
-	%messagesWrapper {
+	#{ $messagesWrapper } {
 		margin: 0 0 0 52px !important;
 		background-color: var(--message-color-alt) !important;
 
-		%avatarLarge {
+		#{ $avatarLarge } {
 			left: -52px !important;
 		}
 	}

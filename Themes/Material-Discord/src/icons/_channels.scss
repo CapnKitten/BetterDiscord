@@ -1,13 +1,11 @@
+@use 'sass:map';
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *  CHANNEL ICONS
  *
  */
-
-
-%channelIcon {
-
-}
 
 path {
     $icons: (
@@ -79,13 +77,17 @@ path {
     /* CHANNEL ICONS RECOLORS */
 
     @each $key, $value in $icons {
-        &[d="#{$key}"] {
-            $transform: if(map-get($value, cutout), translate(2px, 3px) scale(0.02), translate(0, 24px) scale(0.025));
+        $icon:      map.get($value, icon);
+        $remove:    map.get($value, remove);
+        $cutout:    map.get($value, cutout);
 
-            d: path(map-get($value, icon));
+        &[d="#{$key}"] {
+            $transform: if($cutout, translate(2px, 3px) scale(0.02), translate(0, 24px) scale(0.025));
+
+            d: path($icon);
             transform: $transform;
 
-            @if map-get($value, remove) == true {
+            @if $remove == true {
                 ~ path {
                     display: none;
                 }
@@ -109,7 +111,7 @@ path {
 
     @each $key, $value in $icons {
         &[d="#{$key}"] {
-            fill: map-get($value, color);
+            fill: map.get($value, color);
         }
     }
 }

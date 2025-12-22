@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,28 +7,28 @@
  *
  */
 
-%soundButtonSettingContainer {
+#{ $soundButtonSettingContainer } {
     background-color: var(--card-color-hover);
     border-radius: calc(var(--card-radius-big) / 1.65);
 }
 
-%deviceOptionCertified {
+#{ $deviceOptionCertified } {
     width: 18px;
     height: 18px;
     @include add-icon(hsl(var(--accent-hsl--material-you)), verified_check);
     object-position: -99999px 99999px;
 }
 
-%settingsMicTestButton {
+#{ $settingsMicTestButton } {
     width: auto;
 }
 
-%micTestWrapper {
+#{ $micTestWrapper } {
 	height: 4px;
 	border-radius: 2px;
 	overflow: hidden;
 
-	%micTestContainer {
+	#{ $micTestContainer } {
 		width: 100% !important;
 
 		&[style*="background: linear-gradient(to right, var(--yellow-260), var(--green-360))"] {
@@ -35,28 +36,28 @@
 		}
 	}
 
-	%micTestProgress {
+	#{ $micTestProgress } {
         background-color: var(--card-color-hover);
     }
 
-	%micTestNotches {
+	#{ $micTestNotches } {
 		display: none;
 	}
 }
 
-%settingsMicTestCaption {
+#{ $settingsMicTestCaption } {
     top: 22px;
     left: 148px;
 }
 
-%sliderInputSensitivityBar %sliderInputSensitivityFill {
+#{ $sliderInputSensitivityBar } #{ $sliderInputSensitivityFill } {
     height: 4px !important;
     background-color: var(--accent-text-color--material-you) !important;
     border-radius: 2px;
     transition: var(--default-time) var(--default-animation) width !important;
 }
 
-%cameraWrapper {
+#{ $cameraWrapper } {
     @include card-format(false, 0, true);
 
     video {
@@ -64,27 +65,27 @@
     }
 }
 
-%cameraBackgroundOption {
+#{ $cameraBackgroundOption } {
     &:hover {
         box-shadow: none !important;
         transform: none !important;
     }
 }
 
-%cameraBackgroundOptionRing {
+#{ $cameraBackgroundOptionRing } {
     border-radius: var(--card-radius-big);
     border-color: hsl(var(--accent-hsl--material-you));
     animation: var(--default-time) var(--default-animation) show-ring;
 }
 
-%cameraBackgroundOptionSelected {
-    %cameraBackgroundOptionInner {
+#{ $cameraBackgroundOptionSelected } {
+    #{ $cameraBackgroundOptionInner } {
         border-radius: calc(var(--card-radius-big) - 4px);
     }
 }
 
 
-%cameraBackgroundOptionInner {
+#{ $cameraBackgroundOptionInner } {
     background-color: var(--card-color-filled);
     border-radius: 45px;
     transition: var(--default-time) var(--default-animation) border-radius;

@@ -1,10 +1,12 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *  AVATARS
  *
  */
 
-%avatarWrapper {
+#{ $avatarWrapper } {
     border-radius: var(--avatar-radius);
 
     mask {
@@ -13,7 +15,7 @@
         }
     }
 
-    %avatarImage {
+    #{ $avatarImage } {
         border-radius: var(--avatar-radius);
     }
 }
@@ -27,44 +29,44 @@
     }
 }
 
-%settingsUserInfo,
-%userProfileHeader,
-%userProfileModalInner {
-    %avatarWrapper,
-    %avatarImage {
+#{ $settingsUserInfo },
+#{ $userProfileHeader },
+#{ $userProfileModalInner } {
+    #{ $avatarWrapper },
+    #{ $avatarImage } {
         border-radius: var(--avatar-radius-large);
     }
 
-    %avatarWrapper {
+    #{ $avatarWrapper } {
         --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 1.6);
 
         background-color: var(--popout-color);
         border: 8px solid var(--popout-color);
     }
 
-    %avatarImage {
+    #{ $avatarImage } {
         --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 2);
     }
 }
 
-%settingsUserInfo {
-    %avatarWrapper {
+#{ $settingsUserInfo } {
+    #{ $avatarWrapper } {
         background-color: var(--card-color-filled);
         border-color: var(--card-color-filled);
     }
 }
 
-%userProfileModalInner {
-    %avatarWrapper {
+#{ $userProfileModalInner } {
+    #{ $avatarWrapper } {
         --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 1.15);
     }
 
-    %avatarImage {
+    #{ $avatarImage } {
         --avatar-radius-large: calc((var(--avatar-radius) * 5) / 2);
     }
 }
 
-%settingsUserBannerSVGWrapper {
+#{ $settingsUserBannerSVGWrapper } {
     mask {
         circle[fill="black"] {
             display: none;
@@ -72,14 +74,14 @@
     }
 }
 
-%userProfileHeader,
-%userProfileInner {
-    %avatarWrapper {
+#{ $userProfileHeader },
+#{ $userProfileInner } {
+    #{ $avatarWrapper } {
         transform: translate(-6px, -6px);
     }
 }
 
 
-%userProfileOuterThemed {
+#{ $userProfileOuterThemed } {
     --popout-color: var(--profile-gradient-primary-color);
 }

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,22 +7,22 @@
  *
  */
 
-%layer,
-%standardSidebarView,
-%settingsContentRegion {
+#{ $layer },
+#{ $standardSidebarView },
+#{ $settingsContentRegion } {
     background-color: var(--main-alt);
 }
 
-%settingsContentRegion {
+#{ $settingsContentRegion } {
 	border-radius: var(--card-radius-big) var(--card-radius-big) 0 var(--card-radius-big);
 }
 
-%settingsContentScroller {
+#{ $settingsContentScroller } {
     background-color: var(--main-color);
     border-radius: var(--card-radius-big) var(--card-radius-big) 0 var(--card-radius-big);
 }
 
-%settingsCloseButton {
+#{ $settingsCloseButton } {
 	@include md-ripple(hover, after, 1.2);
 	border: none;
 
@@ -34,25 +35,25 @@
 	}
 }
 
-%settingsNoticeRegion,
-%settingsSaveNoticeContainer {
+#{ $settingsNoticeRegion },
+#{ $settingsSaveNoticeContainer } {
     left: 0;
     right: 0;
     margin: 0 auto;
 }
 
-%settingsSaveNoticeContainer {
+#{ $settingsSaveNoticeContainer } {
     left: 252px;
 }
 
-%settingsNoticeContainer {
+#{ $settingsNoticeContainer } {
     padding: var(--space-8) var(--space-8) var(--space-8) var(--space-16);
     background-color: var(--popout-color);
     border-radius: 6px;
     box-shadow: var(--shadow-soft);
     border: none;
 
-    %buttonFilled {
+    #{ $buttonFilled } {
         --button-padding: 0 12px;
         --button-background: transparent;
         --button-text-color: hsl(var(--accent-hsl--material-you));
@@ -66,15 +67,15 @@
     }
 }
 
-%settingsNoticeMessage {
+#{ $settingsNoticeMessage } {
     color: var(--interactive-text-default) !important;
 }
 
-%settingsNoticeActions {
+#{ $settingsNoticeActions } {
     flex-direction: row-reverse;
 }
 
-%settingsNoticeResetButton {
+#{ $settingsNoticeResetButton } {
     --button-padding: 0;
 
     min-width: var(--button-height);
@@ -91,30 +92,30 @@
         transform: scale(1.333333);
     }
 
-    %buttonContents {
+    #{ $buttonContents } {
         display: none;
     }
 }
 
 /* USER SETTINGS V2 */
 
-%settingsModalContent {
+#{ $settingsModalContent } {
     background-color: var(--main-alt);
 
-    %slider {
-        %sliderTrack {
-            %sliderGrabber {
+    #{ $slider } {
+        #{ $sliderTrack } {
+            #{ $sliderGrabber } {
                 --slider-grabber-background: var(--main-color);
             }
         }
     }
 }
 
-%settingsV2Container {
+#{ $settingsV2Container } {
     background-color: var(--main-alt);
 }
 
-%settingsV2SaveNoticeContainer {
+#{ $settingsV2SaveNoticeContainer } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius);
     border: none;

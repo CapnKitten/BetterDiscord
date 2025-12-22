@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,10 +7,10 @@
  *
  */
 
-%biteSizeIconButton {
+#{ $biteSizeIconButton } {
     padding: 0;
 
-    %buttonContents {
+    #{ $buttonContents } {
         min-height: var(--button-height);
         min-width: var(--button-height);
         max-height: var(--button-height);
@@ -21,38 +22,38 @@
     }
 }
 
-%userProfileModalTabBar {
+#{ $userProfileModalTabBar } {
     height: 48px;
     margin: 0;
     padding: 0 16px;
     gap: 24px;
 
-    %item {
+    #{ $item } {
 		height: inherit;
 		border-bottom: none;
 
-		&%itemSelected {
+		&#{ $itemSelected } {
 			@include tab-border(90%);
 		}
 
-        %textSmNormal {
+        #{ $textSmNormal } {
             line-height: 48px;
         }
 	}
 }
 
-%fullSizeOverlayBackground {
+#{ $fullSizeOverlayBackground } {
     border-radius: calc(var(--popout-radius-big) / 1.75);
     border: none;
 }
 
 /* USER PROFILE -> CONNECTED ACCOUNTS */
 
-%userProfileModalConnectedAccounts {
+#{ $userProfileModalConnectedAccounts } {
 	margin-top: -16px;
 	border-top: none !important;
 
-	%userProfileModalConnectedAccount {
+	#{ $userProfileModalConnectedAccount } {
 		--card-color-filled: var(--card-color-hover);
 		--card-radius-big: var(--card-radius);
 
@@ -63,7 +64,7 @@
 
 /* USER PROFILE -> NOTE */
 
-%userProfileModalNote {
+#{ $userProfileModalNote } {
 	margin: 0;
 
 	textarea {
@@ -79,7 +80,7 @@
 
 /* USER PROFILE -> LISTS */
 
-%listRow {
+#{ $listRow } {
 	border-radius: var(--popout-radius);
 	transition: var(--default-time) var(--default-animation) background-color;
 
@@ -88,20 +89,20 @@
 	}
 }
 
-%listRowIconActiveMedium {
+#{ $listRowIconActiveMedium } {
 	border-radius: 50%;
 }
 
 /* USER PROFILE -> ACTIVITIES */
 
-%userProfileModalSection {
+#{ $userProfileModalSection } {
     gap: 2px;
 
-    %userProfileModalHeadings {
+    #{ $userProfileModalHeadings } {
         margin-bottom: 6px;
     }
 
-    %userProfileOverlayBackground {
+    #{ $userProfileOverlayBackground } {
         background-color: var(--card-color-alt);
         border-radius: 4px;
 
@@ -123,6 +124,6 @@
     }
 }
 
-%memberActivityImageContainer {
+#{ $memberActivityImageContainer } {
     border-radius: calc(var(--avatar-radius) * 1.25);
 }

@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,39 +7,39 @@
  *
  */
 
-%onboardingChannelRowRecommended {
+#{ $onboardingChannelRowRecommended } {
     @include card-format(false, 12px 16px, true);
 }
 
-%onboardingQuestionContainer {
+#{ $onboardingQuestionContainer } {
     @include card-format(false, 16px, true);
 }
 
-%onboardingChannelCoverage {
+#{ $onboardingChannelCoverage } {
     @include card-format(false, 0, true);
 
-    %onboardingChannelCoverageDetails {
+    #{ $onboardingChannelCoverageDetails } {
         background-color: transparent;
     }
 }
 
-%onboardingChannelPill {
+#{ $onboardingChannelPill } {
     height: 20px;
     background-color: var(--card-color-active);
     border-radius: 10px;
 }
 
-%onboardingNotice {
+#{ $onboardingNotice } {
     @include card-format(false, 16px, true);
 }
 
-%onboardingReview {
+#{ $onboardingReview } {
     padding: 16px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 }
 
-%onboardingStepContainer {
+#{ $onboardingStepContainer } {
     position: relative;
     background-color: var(--card-color-filled);
 
@@ -60,155 +61,155 @@
         }
     }
 
-    %onboardingStepIconContainer {
+    #{ $onboardingStepIconContainer } {
         background-color: var(--card-color-active);
     }
 
-    %buttonOutlined {
-        &%buttonPrimary {
+    #{ $buttonOutlined } {
+        &#{ $buttonPrimary } {
             border: var(--button-outline) !important;
         }
     }
 }
 
-%onboardingStepDivider {
+#{ $onboardingStepDivider } {
     display: none;
 }
 
 /* SERVER COMMUNITY ONBOARDING -> DEFAULT CHANNELS */
 
-%onboardingCategoryRow {
-    %onboardingCategoryText {
+#{ $onboardingCategoryRow } {
+    #{ $onboardingCategoryText } {
         @include remove-caps(14px);
     }
 }
 
-%onboardingChannelRow {
+#{ $onboardingChannelRow } {
     background-color: var(--card-color-filled);
     transition: var(--default-time) var(--default-animation) background-color;
 
-    &%onboardingChannelRowFirst {
+    &#{ $onboardingChannelRowFirst } {
         border-top-left-radius: var(--card-radius-big);
         border-top-right-radius: var(--card-radius-big);
     }
 
-    &%onboardingChannelRowLast {
+    &#{ $onboardingChannelRowLast } {
         border-bottom-left-radius: var(--card-radius-big);
         border-bottom-right-radius: var(--card-radius-big);
     }
 
     &:hover {
-        &:not(%onboardingChannelRowDisabled) {
+        &:not(#{ $onboardingChannelRowDisabled }) {
             background-color: var(--card-color-hover);
         }
     }
 
-    %onboardingChannelLockedPill {
+    #{ $onboardingChannelLockedPill } {
         --button-padding: 0 24px 0 16px;
     }
 }
 
-%onboardingChannelSeparator {
+#{ $onboardingChannelSeparator } {
     background-color: var(--card-border-color);
 }
 
-%onboardingChannelSelectionContainer {
+#{ $onboardingChannelSelectionContainer } {
     @include card-format(false, 0, true);
 
-    %onboardingChannelSelectionHeader,
-    %onboardingChannelSelectionHeaderContainer,
-    %onboardingChannelSelectionList {
+    #{ $onboardingChannelSelectionHeader },
+    #{ $onboardingChannelSelectionHeaderContainer },
+    #{ $onboardingChannelSelectionList } {
         background-color: transparent;
     }
 }
 
 /* SERVER COMMUNITY ONBOARDING -> NAVIGATION BANNER */
 
-%onboardingNavigationBarContainer {
+#{ $onboardingNavigationBarContainer } {
     background-color: var(--popout-color) !important;
     border-radius: 4px;
     box-shadow: var(--shadow-2dp);
 
-    %button {
-        &%buttonOutlined {
+    #{ $button } {
+        &#{ $buttonOutlined } {
             --button-padding: 0 24px 0 16px;
         }
 
-        &%buttonFilled {
+        &#{ $buttonFilled } {
             --button-padding: 0 16px 0 24px;
 
-            %onboardingNavigationBarInnerButton {
+            #{ $onboardingNavigationBarInnerButton } {
                 color: var(--accent-text-color--material-you) !important;
             }
         }
     }
 }
 
-%onboardingNavigationEducationUpsell {
+#{ $onboardingNavigationEducationUpsell } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius-big);
 
-    %onboardingNavigationEducationUpsellArrow {
+    #{ $onboardingNavigationEducationUpsellArrow } {
         border-bottom-color: var(--popout-color);
     }
 }
 
 /* SERVER COMMUNITY ONBOARDING -> PREVIEW */
 
-%onboardingTestimonialHeroContainer {
+#{ $onboardingTestimonialHeroContainer } {
     @include card-format(false, 32px, true);
 
-    %onboardingQuotes {
+    #{ $onboardingQuotes } {
         top: 40px;
         color: var(--card-header-text-color);
     }
 
-    %onboardingTestimonialsControls {
+    #{ $onboardingTestimonialsControls } {
         margin: 0;
     }
 
-    %button {
+    #{ $button } {
         --button-padding: 0 10px;
     }
 }
 
-%onboardingUpsellPreview {
+#{ $onboardingUpsellPreview } {
     gap: 16px;
     @include card-format(false, 16px, true);
 
-    &%onboardingSpacingLarge {
+    &#{ $onboardingSpacingLarge } {
         gap: 2px;
 
-        %headingMdSemibold {
+        #{ $headingMdSemibold } {
             padding-bottom: 14px;
         }
 
-        %onboardingWelcomeMessageContainer {
+        #{ $onboardingWelcomeMessageContainer } {
             margin-bottom: 14px;
         }
     }
 
-    %headingMdSemibold {
+    #{ $headingMdSemibold } {
         line-height: normal;
     	font-size: 1.25em;
     	color: var(--card-header-text-color);
     	font-weight: 400;
     }
 
-    %onboardingSpacingSmall {
+    #{ $onboardingSpacingSmall } {
         gap: 2px;
     }
 
-    %onboardingPreviewListItem {
+    #{ $onboardingPreviewListItem } {
         padding: 12px;
 
-        &%onboardingPreviewListItemSelected {
+        &#{ $onboardingPreviewListItemSelected } {
             background-color: var(--card-color-alt-hover);
         }
     }
 
-    %onboardingPreviewListItem,
-    %onboardingPreviewAction {
+    #{ $onboardingPreviewListItem },
+    #{ $onboardingPreviewAction } {
         background-color: var(--card-color-alt);
         border-radius: 4px;
 

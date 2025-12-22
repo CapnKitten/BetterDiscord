@@ -1,10 +1,12 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	SWITCHES
  *
  */
 
-%switchContainer {
+#{ $switchContainer } {
 	width: 39px;
 	height: 24px;
 	background-color: transparent !important;
@@ -29,13 +31,13 @@
 		transform: scale(1.4) translate(-3px, -3px);
 	}
 
-	&%switchContainerChecked {
+	&#{ $switchContainerChecked } {
 		&:before {
 			background-color: var(--switch-slider-checked);
 			border-color: transparent;
 		}
 
-		%switchSlider {
+		#{ $switchSlider } {
 			background-color: var(--switch-knob-checked);
 			width: 18px;
 			height: 18px;
@@ -47,7 +49,7 @@
 		}
 	}
 
-	%switchSlider {
+	#{ $switchSlider } {
 		width: 14px;
 		height: 14px;
 		top: 50%;
@@ -61,7 +63,7 @@
 			display: none;
 		}
 
-		&%vencordSwitchSlider {
+		&#{ $vencordSwitchSlider } {
             transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) transform;
 
             &[style="transform: translateX(-3px);"] {
@@ -75,13 +77,9 @@
 	}
 }
 
-%switchIcon {
-	opacity: 1;
-}
-
-%themeLight {
-	%switchContainer {
-		&%switchContainerChecked {
+#{ $themeLight } {
+	#{ $switchContainer } {
+		&#{ $switchContainerChecked } {
 			path {
 				fill: var(--switch-slider-checked);
 				filter: unset;
@@ -90,13 +88,13 @@
 	}
 }
 
-%modalRoot {
-	%switchContainer {
+#{ $modalRoot } {
+	#{ $switchContainer } {
 		&:before {
 			background-color: var(--switch-slider-color-modal);
 		}
 
-		&%switchContainerChecked {
+		&#{ $switchContainerChecked } {
 			&:before {
 				background-color: var(--switch-slider-checked);
 			}
@@ -104,16 +102,16 @@
 	}
 }
 
-%bdSwitchContainer {
+#{ $bdSwitchContainer } {
 	width: 39px;
 	height: 24px;
 	overflow: visible;
 
-	&%bdSwitchDisabled {
+	&#{ $bdSwitchDisabled } {
 		opacity: 0.35;
 	}
 
-	%bdSwitchBody {
+	#{ $bdSwitchBody } {
 		--switch-color: var(--switch-slider-color);
 		--switch-animation: 250ms cubic-bezier(0,0.3,0.7,1) all;
 
@@ -124,7 +122,7 @@
 		box-sizing: border-box;
 		overflow: visible;
 
-		%bdSwitchSlider {
+		#{ $bdSwitchSlider } {
 			width: 14px;
 			height: 14px;
 			top: 50%;
@@ -134,7 +132,7 @@
 			overflow: visible;
 			transition: var(--switch-animation);
 
-			%bdSwitchHandle {
+			#{ $bdSwitchHandle } {
 				width: 28px;
 				height: 28px;
 				x: 0;
@@ -144,7 +142,7 @@
 				transition: var(--switch-animation);
 			}
 
-			%bdSwitchSymbol {
+			#{ $bdSwitchSymbol } {
 				display: none;
 			}
 		}
@@ -152,10 +150,10 @@
 
 	input {
 		&:active {
-			+ %bdSwitchBody {
+			+ #{ $bdSwitchBody } {
 				--switch-color: var(--switch-slider-color);
 
-				%bdSwitchHandle {
+				#{ $bdSwitchHandle } {
 					width: 28px;
 					height: 28px;
 					x: 4px;
@@ -165,28 +163,28 @@
 		}
 
 		&:checked {
-			+ %bdSwitchBody {
+			+ #{ $bdSwitchBody } {
 				--switch-color: var(--switch-slider-checked);
 
 				border-color: transparent;
 
-				%bdSwitchSlider {
+				#{ $bdSwitchSlider } {
 					width: 18px;
 					height: 18px;
 					left: 0;
 					transform: translate(16px, -50%);
 
-					%bdSwitchHandle {
+					#{ $bdSwitchHandle } {
 						fill: var(--switch-knob-checked);
 					}
 				}
 			}
 
 			&:active {
-				+ %bdSwitchBody {
+				+ #{ $bdSwitchBody } {
 					--switch-color: var(--switch-slider-checked);
 
-					%bdSwitchHandle {
+					#{ $bdSwitchHandle } {
 						x: -12.5px;
 					}
 				}

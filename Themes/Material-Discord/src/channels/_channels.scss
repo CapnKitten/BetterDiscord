@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%channelsSidebar {
+#{ $channelsSidebar } {
 	background-color: transparent;
 	overflow: hidden;
 
@@ -14,15 +15,15 @@
 		display: none;
 	}
 
-	&%channelSidebarHasNotice {
+	&#{ $channelSidebarHasNotice } {
 		border-radius: 0 !important;
 	}
 
-	%categoryName {
+	#{ $categoryName } {
 		@include remove-caps(14px);
 	}
 
-	%channelsUnreadIndicator {
+	#{ $channelsUnreadIndicator } {
         @include remove-caps(14px);
 
         background-color: var(--popout-color);
@@ -31,17 +32,17 @@
     }
 }
 
-%channelsContainer {
+#{ $channelsContainer } {
 	padding-bottom: calc(var(--custom-app-panels-height, 0) + 12px - var(--sidebar-panel-radius-big));
 	background-color: var(--main-color);
 
-    %scroller {
+    #{ $scroller } {
         margin-bottom: 0;
         padding-bottom: 0;
     }
 }
 
-%sidebarList {
+#{ $sidebarList } {
 	border-top-left-radius: var(--card-radius-big);
 	border-bottom-left-radius: var(--card-radius-big);
 	border-top: none;
@@ -49,7 +50,7 @@
 	border: none;
 }
 
-%sidebarResizeHandle {
+#{ $sidebarResizeHandle } {
     margin: var(--space-4) 0;
     border-radius: 2px;
 
@@ -59,17 +60,17 @@
     }
 }
 
-%guildServerBoostProgressContainer {
+#{ $guildServerBoostProgressContainer } {
 	background-color: var(--card-color-hover);
 }
 
-%channelVoiceInfo {
-    %textXsSemibold {
+#{ $channelVoiceInfo } {
+    #{ $textXsSemibold } {
         color: hsl(var(--accent-hsl--material-you)) !important;
     }
 }
 
-%voiceChannelsButton {
+#{ $voiceChannelsButton } {
     background-color: hsl(var(--button-link-accent-color),0.15);
     border-radius: 16px;
     border: none;
@@ -81,50 +82,50 @@
     }
 }
 
-%guildLiveEvent {
+#{ $guildLiveEvent } {
 	margin: 8px;
 	@include card-format(false, 12px, true);
 	box-shadow: none;
 }
 
-%channelMentionsContainer {
-	&%channelMentionsContainerTop {
+#{ $channelMentionsContainer } {
+	&#{ $channelMentionsContainerTop } {
 		padding-top: 4px;
 	}
 
-	&%channelMentionsContainerBottom {
+	&#{ $channelMentionsContainerBottom } {
 		bottom: 12px;
 		padding-bottom: 4px;
 	}
 }
 
-%channelBar {
+#{ $channelBar } {
 	padding: 6px 10px;
 	background-color: var(--popout-color);
 	border: none;
 	box-shadow: var(--shadow-medium);
 
-	&%channelMentionsBar {
+	&#{ $channelMentionsBar } {
 		background-color: hsl(var(--alert-hsl));
 	}
 }
 
-%channelMentionsBar {
+#{ $channelMentionsBar } {
 	background-color: hsl(var(--alert-hsl));
 
-	%channelMentionsBarText {
+	#{ $channelMentionsBarText } {
 		color: var(--alert-text-color) !important;
 	}
 }
 
-%channelMentionsBarText {
+#{ $channelMentionsBarText } {
 	@include remove-caps(14px);
 	font-weight: 500;
 }
 
-%bdNotices {
-	+ %contentMain {
-		%channelsSidebar {
+#{ $bdNotices } {
+	+ #{ $contentMain } {
+		#{ $channelsSidebar } {
 			border-radius: 0 !important;
 		}
 	}
@@ -132,7 +133,7 @@
 
 /* CHANNELS LIST -> SERVER SHOP */
 
-%previewChannelRow {
+#{ $previewChannelRow } {
     margin: 2px 2px 0 8px;
     padding: 0;
     border-radius: var(--channel-radius);
@@ -144,30 +145,30 @@
         color: var(--interactive-text-hover);
     }
 
-    &%previewChannelRowSelected {
+    &#{ $previewChannelRowSelected } {
         background-color: hsl(var(--accent-hsl), var(--menu-item-select-accent-opacity));
         color: var(--interactive-active);
     }
 }
 
-%previewChannelRowContent {
+#{ $previewChannelRowContent } {
     background-color: transparent !important;
 }
 
-%channelShopIcon,
-%channelLabel {
+#{ $channelShopIcon },
+#{ $channelLabel } {
     color: inherit !important;
     transition: var(--default-time) var(--default-animation) color;
 }
 
 /* CHANNELS LIST -> ACTION BUTTONS */
 
-%channelActionContainer {
+#{ $channelActionContainer } {
 	margin-left: 8px;
 	margin-right: 2px;
 }
 
-%channelActionButton {
+#{ $channelActionButton } {
 	background-color: transparent;
 	border-radius: 17px;
 	border: 1px solid var(--card-border-color);
@@ -177,13 +178,13 @@
 		background-color: var(--menu-item-hover);
 	}
 
-	&%channelActionButtonSelected {
+	&#{ $channelActionButtonSelected } {
 		background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
 		border-color: transparent;
 	}
 }
 
-%channelActionButtonIcon {
+#{ $channelActionButtonIcon } {
 	path {
 		&[d="M12.3345 2.71469L21.0315 10.542C21.3721 10.8486 21.1553 11.4137 20.697 11.4137H19V18.4137C19 18.9659 18.5523 19.4137 18 19.4137H15C14.4477 19.4137 14 18.9659 14 18.4137V13.4137H10V18.4137C10 18.9659 9.55228 19.4137 9 19.4137H6C5.44771 19.4137 5 18.9659 5 18.4137V11.4137H3.30298C2.84473 11.4137 2.62789 10.8486 2.96849 10.542L11.6655 2.71469C11.8557 2.54356 12.1443 2.54356 12.3345 2.71469Z"] {
 			d: path('M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z');
@@ -206,59 +207,59 @@
 
 /* CHANNELS LIST -> CHANNEL */
 
-%channelWrapper {
+#{ $channelWrapper } {
 	border-radius: var(--channel-radius);
 	transition: var(--default-time) var(--default-animation) background-color !important;
 
 	&:hover {
-        %channelLink {
+        #{ $channelLink } {
             background-color: var(--menu-item-hover);
         }
 	}
 
-	&%channelWrapperSelected {
-        %channelLink {
+	&#{ $channelWrapperSelected } {
+        #{ $channelLink } {
             background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
         }
 
-		%channelIcon,
-		&:hover %channelIcon {
+		#{ $channelIcon },
+		&:hover #{ $channelIcon } {
 			color: var(--interactive-text-hover);
 		}
 	}
 
-	%channelContent {
+	#{ $channelContent } {
 		margin-left: 0;
 		background-color: transparent !important;
 		border-radius: var(--channel-radius);
 	}
 
-	%channelSubtitle {
+	#{ $channelSubtitle } {
 		color: hsl(var(--accent-hsl--material-you)) !important;
 	}
 }
 
-%channelLink {
+#{ $channelLink } {
 	margin-right: calc(8px - var(--scrollbar-thin-width));
     padding: 0 8px;
     border-radius: var(--channel-radius);
 	overflow: visible;
     transition: var(--default-time) var(--default-animation) background-color !important;
 
-	%channelLinkTop,
-	%channelContent {
+	#{ $channelLinkTop },
+	#{ $channelContent } {
         min-height: inherit;
 		gap: 8px;
         align-items: center;
     }
 }
 
-%channelIcon,
-%channelName {
+#{ $channelIcon },
+#{ $channelName } {
 	transition: var(--default-time) var(--default-animation) color;
 }
 
-%channelNewChannel {
+#{ $channelNewChannel } {
 	color: hsl(var(--accent-hsl--material-you));
 	text-transform: capitalize;
 
@@ -268,40 +269,40 @@
 	}
 }
 
-%channelThread {
-	%channelMain {
+#{ $channelThread } {
+	#{ $channelMain } {
 		margin-left: 28px;
 	}
 
-	%channelLink {
+	#{ $channelLink } {
         padding: 0 12px !important;
     }
 }
 
-%channelUnreadPillBottom {
+#{ $channelUnreadPillBottom } {
 	bottom: calc(var(--custom-app-panels-height,0) + var(--space-12));
 	padding: 8px 12px;
 
 }
 
-%channelUnreadBar {
+#{ $channelUnreadBar } {
     @include remove-caps(0.815em);
     font-weight: 500;
 	text-transform: capitalize;
 
-    &%channelUnreadPill {
+    &#{ $channelUnreadPill } {
         background-color: var(--status-picker-color);
         transition: var(--default-time) var(--default-animation) opacity;
     }
 
-	&%channelMentionPill {
+	&#{ $channelMentionPill } {
 		background-color: hsl(var(--alert-hsl));
 		color: var(--alert-text-color);
 	}
 }
 
-%categoryContainerDefault,
-%channelContainerDefault:not([role="listitem"]) {
+#{ $categoryContainerDefault },
+#{ $channelContainerDefault }:not([role="listitem"]) {
     &:not(:only-child) {
         &:last-child {
             padding-bottom: calc(var(--sidebar-panel-radius-big) + var(--space-16));
@@ -309,25 +310,25 @@
     }
 }
 
-%categoryContainerDefault {
-	%categoryAddButton {
+#{ $categoryContainerDefault } {
+	#{ $categoryAddButton } {
 		background-color: transparent !important;
 
 		@include md-ripple(hover, after, 1.5);
 	}
 }
 
-%channelsRefreshVoiceChannelsButton {
+#{ $channelsRefreshVoiceChannelsButton } {
     padding-bottom: calc(var(--sidebar-panel-radius-big) + var(--space-16));
 }
 
-%channelContainerDragBefore:before,
-%channelContainerDragAfter:after {
+#{ $channelContainerDragBefore }:before,
+#{ $channelContainerDragAfter }:after {
 	left: 0;
 	background-color: hsl(var(--accent-hsl--material-you));
 }
 
-%channelContainerUserOver {
+#{ $channelContainerUserOver } {
 	&:after {
 		right: 4px;
 		background-color: hsl(var(--accent-hsl),0.1);
@@ -336,15 +337,15 @@
 	}
 }
 
-%channelUserLimitWrapper {
+#{ $channelUserLimitWrapper } {
 	border: none;
 
-	%channelUserLimitUsers {
+	#{ $channelUserLimitUsers } {
 		padding: 0 6px;
 		background-color: var(--status-picker-color);
 	}
 
-	%channelUserLimitTotal {
+	#{ $channelUserLimitTotal } {
 		width: auto;
 		padding: 0 6px;
 		background-color: var(--sidebar-panel-color);
@@ -355,16 +356,16 @@
 	}
 }
 
-%channelStatusDiv,
-%channelSubtitle %channelActivityOverflow {
+#{ $channelStatusDiv },
+#{ $channelSubtitle } #{ $channelActivityOverflow } {
     margin-bottom: 4px;
 }
 
-%channelStatusTextArea {
+#{ $channelStatusTextArea } {
     background-color: var(--input-color);
     border-radius: 22px;
 
-    %textAreaPlaceholder {
+    #{ $textAreaPlaceholder } {
         color: var(--input-placeholder-color);
     }
 }

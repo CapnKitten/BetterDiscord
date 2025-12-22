@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,13 +7,13 @@
  *
  */
 
-%friends {
+#{ $friends } {
 	background-color: var(--chat-color) !important;
 	border-top-right-radius: var(--card-radius-big);
 	border-top: none;
 }
 
-%friendsTabBody {
+#{ $friendsTabBody } {
 	background-color: transparent;
 
 	&:before {
@@ -20,26 +21,26 @@
 	}
 }
 
-%friendsBlockedIgnoredSettingsNotice {
+#{ $friendsBlockedIgnoredSettingsNotice } {
     margin: 16px 16px 4px 16px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 }
 
-%friendsSectionTitle {
+#{ $friendsSectionTitle } {
 	@include remove-caps(12px);
 }
 
-%friendsList {
+#{ $friendsList } {
 	padding-bottom: 12px;
 }
 
-%friendsColumn {
-	%scroller {
+#{ $friendsColumn } {
+	#{ $scroller } {
 		margin-top: 0;
 	}
 
-	%friendsOnlineTitle {
+	#{ $friendsOnlineTitle } {
 		height: 40px;
 		margin: 0;
 		padding: 0 16px;
@@ -48,19 +49,19 @@
 	}
 }
 
-%friendsSearchBar {
+#{ $friendsSearchBar } {
 	margin: 16px 16px 8px 16px;
 	@include input-format(false, false, true);
 	padding: 0;
 
-	%inputContainer {
-		&:not(%selectMenuContainer) {
+	#{ $inputContainer } {
+		&:not(#{ $selectMenuContainer }) {
 			@include input-transform;
 		}
 	}
 }
 
-%friendsItem {
+#{ $friendsItem } {
 	margin: 0 8px !important;
 	padding: 0 16px !important;
 	border-radius: var(--card-radius-big) !important;
@@ -71,15 +72,15 @@
 		background-color: var(--menu-item-hover);
 	}
 
-	&%friendsItemActive {
+	&#{ $friendsItemActive } {
 		background-color: var(--menu-item-select);
 	}
 
-	%friendActionButton {
+	#{ $friendActionButton } {
 		background-color: transparent;
 		@include md-ripple(hover, after, 1.0);
 
-		%friendActionButtonIcon {
+		#{ $friendActionButtonIcon } {
 			transform: scale(1.2);
 
 			path {
@@ -91,14 +92,14 @@
 	}
 }
 
-%friendDiscriminator {
+#{ $friendDiscriminator } {
     opacity: 0;
     transition: var(--default-time) var(--default-animation) opacity;
 }
 
-%friendUserInfo {
-    &%friendUserInfoHovered {
-        %friendDiscriminator {
+#{ $friendUserInfo } {
+    &#{ $friendUserInfoHovered } {
+        #{ $friendDiscriminator } {
             opacity: 1;
         }
     }
@@ -106,12 +107,12 @@
 
 /* FRIENDS LIST -> SPAM REQUESTS */
 
-%spamRequest {
+#{ $spamRequest } {
     &:not(:nth-last-of-type(2)) {
         border-bottom: none;
     }
 
-    %friendsItem {
+    #{ $friendsItem } {
         margin: 0 !important;
     }
 }

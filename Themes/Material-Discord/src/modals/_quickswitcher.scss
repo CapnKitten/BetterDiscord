@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,10 +7,10 @@
  *
  */
 
-%quickswitcher {
+#{ $quickswitcher } {
 	padding: 0;
 
-	%quickswitcherInput {
+	#{ $quickswitcherInput } {
 		height: 42px;
 		line-height: 42px;
 		margin: calc(24px - var(--custom-modal-padding-top)) 24px 16px;
@@ -26,7 +27,7 @@
 		}
 	}
 
-	%quickswitcherScroller {
+	#{ $quickswitcherScroller } {
 		margin-top: 0;
 		margin-right: 0;
 		background-color: transparent;
@@ -36,11 +37,11 @@
 		}
 	}
 
-	%quickswitcherHeader {
+	#{ $quickswitcherHeader } {
 		@include remove-caps(14px);
 	}
 
-	%quickswitcherResult {
+	#{ $quickswitcherResult } {
 		margin: 0 calc(16px - var(--scrollbar-width)) 0 16px;
         border-radius: var(--card-radius);
 		transition: var(--default-time) var(--default-animation) background-color;
@@ -49,26 +50,26 @@
 			background-color: var(--menu-item-hover);
 		}
 
-		%quickswitcherContent {
+		#{ $quickswitcherContent } {
             padding: 0 8px;
         }
 
-		%quickswitcherResultNote {
+		#{ $quickswitcherResultNote } {
 			@include remove-caps(11px);
 		}
 	}
 
-	%quickswitcherContent {
+	#{ $quickswitcherContent } {
         padding: 0 24px;
     }
 
-	%quickswitcherProtip {
+	#{ $quickswitcherProtip } {
 		margin: 16px 24px calc(24px - var(--custom-modal-padding-md));
         padding: 16px;
 		background-color: var(--card-color-filled);
         border-radius: calc(var(--popout-radius-big) / 1.7);
 
-		&%quickswitcherHasContent {
+		&#{ $quickswitcherHasContent } {
 			border-top: none;
 		}
 	}

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,11 +7,10 @@
  *
  */
 
-%input {
+#{ $input } {
     @include input-format(false, false);
 
-    &%multiInput,
-    &%inputWithInnerInput {
+    &#{ $multiInput } {
         padding: 0;
     }
 
@@ -19,11 +19,11 @@
         color: var(--input-placeholder-color);
     }
 
-    &%inputHidden {
+    &#{ $inputHidden } {
         --input-height: 0;
     }
 
-    &%inputTextArea {
+    &#{ $inputTextArea } {
         height: auto;
         min-height: var(--input-height);
         max-height: calc(var(--input-height) * 10);
@@ -31,20 +31,20 @@
     }
 }
 
-%inputContainer {
-    &:not(%selectMenuContainer) {
+#{ $inputContainer } {
+    &:not(#{ $selectMenuContainer }) {
         @include input-format(false, true, false);
 
-        %inputWrapper {
+        #{ $inputWrapper } {
             background-color: transparent;
             border: none;
         }
 
-        %inputWrapperHasLeading {
+        #{ $inputWrapperHasLeading } {
             margin-left: calc(var(--input-padding) / -2);
             padding-left: 0;
 
-            %inputIcon {
+            #{ $inputIcon } {
                 width: calc(var(--input-height) / 1.5);
                 height: calc(var(--input-height) / 1.5);
                 border: none;
@@ -58,51 +58,51 @@
     }
 }
 
-%clickTrapContainer {
-    %inputContainer {
+#{ $clickTrapContainer } {
+    #{ $inputContainer } {
         --input-color: var(--input-color-alt);
     }
 }
 
-%inputWrapper,
-%nameInputContainer {
-    &%inputWrapperLeading {
+#{ $inputWrapper },
+#{ $nameInputContainer } {
+    &#{ $inputWrapperLeading } {
         padding: 0 12px 0 8px;
     }
 
-    %input {
+    #{ $input } {
         padding: 0;
         background-color: transparent;
         box-shadow: none;
     }
 
-    %inputEmojiButton {
+    #{ $inputEmojiButton } {
         margin: 0;
         padding: 0 0 0 var(--space-8);
         background-color: transparent;
     }
 }
 
-%inputWrapper {
+#{ $inputWrapper } {
     &:has(input:focus, textarea:focus) {
         outline: none !important;
     }
 }
 
-%inputPrefixContainer {
+#{ $inputPrefixContainer } {
     margin-right: 6px;
 
-    %inputPrefixContainerSeparator {
+    #{ $inputPrefixContainerSeparator } {
         background-color: var(--input-border-color);
     }
 }
 
-%textareaV2Wrapper:not(%inputWrapper) {
+#{ $textareaV2Wrapper }:not(#{ $inputWrapper }) {
     background-color: var(--input-color);
     border-radius: var(--input-radius);
     border: none;
 
-    %textareaV2 {
+    #{ $textareaV2 } {
         color: var(--input-text-color);
 
         &::-webkit-input-placeholder {
@@ -111,15 +111,15 @@
     }
 }
 
-%multiInputLast {
+#{ $multiInputLast } {
     &:before {
         display: none;
     }
 }
 
-%eyebrowError {
-    + %inputWrapper {
-        %input {
+#{ $eyebrowError } {
+    + #{ $inputWrapper } {
+        #{ $input } {
             box-shadow: inset 0 -1px 0 0 hsl(var(--alert-hsl));
 
             &:focus {
@@ -129,74 +129,74 @@
     }
 }
 
-%inputLabel {
+#{ $inputLabel } {
     @include remove-caps(14px);
 }
 
-%inputPrefix {
+#{ $inputPrefix } {
     top: 0;
     left: 0;
     bottom: 0;
     margin: auto 0;
 
-    + %input {
+    + #{ $input } {
         padding-left: 28px;
     }
 }
 
-%inputEmojiContainer {
+#{ $inputEmojiContainer } {
     height: var(--input-height);
     line-height: var(--input-height);
     margin: 0 12px;
     padding: 0;
     z-index: 2;
 
-    + %inputWrapper {
-        %input {
+    + #{ $inputWrapper } {
+        #{ $input } {
             padding-left: 42px !important;
         }
     }
 }
 
-%inputEmojiButton {
+#{ $inputEmojiButton } {
     margin: 0 12px;
 }
 
-%input {
-    &%inputEmojiButtonText {
+#{ $input } {
+    &#{ $inputEmojiButtonText } {
         padding-left: 44px !important;
     }
 }
 
-%copyInput {
+#{ $copyInput } {
     @include input-format(true, false, true);
 
     &:hover {
-        %button {
+        #{ $button } {
             width: auto !important;
         }
     }
 
-    %button {
+    #{ $button } {
         --button-height: calc(var(--input-height) / 1.2);
 		margin: calc((var(--input-height) - var(--button-height)) / 2) !important;
     }
 }
 
-%copyInput {
-    %copyInputInner {
+#{ $copyInput } {
+    #{ $copyInputInner } {
         padding: 8px 8px 8px 12px;
     }
 
-    %button {
+    #{ $button } {
         padding: var(--button-padding) !important;
     }
 }
 
-%fileUploadContainer {
+#{ $fileUploadContainer } {
     --input-padding: 0;
 
-    %fileUploadInput {
+    #{ $fileUploadInput } {
         padding: 0 0 0 12px;
 
         &::-webkit-input-placeholder {
@@ -205,7 +205,7 @@
     }
 }
 
-%fakeInput {
+#{ $fakeInput } {
     background-color: var(--card-color-filled);
     border-radius: var(--input-radius);
     border: none;
@@ -213,7 +213,7 @@
 
 /* INPUTS -> SEARCH BAR */
 
-%inputContainer {
+#{ $inputContainer } {
     /*--input-padding: 0 6px 0 12px;
 
     height: var(--input-height);
@@ -221,11 +221,11 @@
     border-radius: var(--input-radius);
     border: none;
 
-    %searchInner {
+    #{ $searchInner } {
         padding: 0 var(--input-padding);
     }
 
-    %searchInput {
+    #{ $searchInput } {
         height: var(--input-height);
         margin: 0;
         padding: 0;
@@ -239,39 +239,39 @@
 
 /* INPUTS -> UNIVERSAL SEARCH */
 
-/*%inputContainer {
-    %inputWrapper {
+/*#{ $inputContainer } {
+    #{ $inputWrapper } {
         @include input-format(false, true, true);
     }
 }*/
 
 /* INPUTS -> OPTION PILL */
 
-%optionPill {
+#{ $optionPill } {
     background-color: transparent !important;
     border-radius: 13px;
     border-color: var(--main-textarea-border) !important;
 
-    &%optionPillSelected {
+    &#{ $optionPillSelected } {
         border-color: hsl(var(--accent-hsl--material-you)) !important;
     }
 
-    &%optionPillErrored {
+    &#{ $optionPillErrored } {
         border-color: hsl(var(--alert-hsl)) !important;
     }
 
-    %optionPillKey {
+    #{ $optionPillKey } {
         background-color: var(--input-pill-color) !important;
         border-top-left-radius: inherit;
         border-bottom-left-radius: inherit;
     }
 }
 
-%input {
-    &%inputError {
+#{ $input } {
+    &#{ $inputError } {
         border-radius: 4px;
 
-        + %inputColorStatusRed {
+        + #{ $inputColorStatusRed } {
             position: absolute;
             width: 100%;
             margin-top: -24px;

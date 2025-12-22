@@ -1,21 +1,23 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	CHECKBOXES
  *
  */
 
-%checkbox {
+#{ $checkbox } {
 	border-width: 2px;
     border-radius: 4px;
 	transition: var(--default-time) var(--default-animation) border-color, var(--default-time) var(--default-animation) background-color;
 
-	&:not(%checkboxChecked) {
+	&:not(#{ $checkboxChecked }) {
 		path {
 			transition: var(--default-time) var(--default-animation) fill;
 		}
 	}
 
-	&%checkboxChecked {
+	&#{ $checkboxChecked } {
 		background-color: hsl(var(--accent-hsl--material-you)) !important;
 		border-color: hsl(var(--accent-hsl--material-you)) !important;
 
@@ -28,22 +30,22 @@
 
 /* CHECKBOXES -> CONTEXT MENU */
 
-%menuPopoutColorDefault {
-    %menuPopoutCheckbox {
+#{ $menuPopoutColorDefault } {
+    #{ $menuPopoutCheckbox } {
         color: hsl(var(--accent-hsl--material-you));
     }
 
-    %menuPopoutCheck {
+    #{ $menuPopoutCheck } {
         color: var(--accent-text-color--material-you);
     }
 
-    &%menuPopoutItemHover {
-        %menuPopoutCheckbox {
+    &#{ $menuPopoutItemHover } {
+        #{ $menuPopoutCheckbox } {
             color: hsl(var(--accent-hsl--material-you));
             fill: currentColor;
         }
 
-        %menuPopoutCheck {
+        #{ $menuPopoutCheck } {
             color: var(--accent-text-color--material-you);
             fill: currentColor;
         }

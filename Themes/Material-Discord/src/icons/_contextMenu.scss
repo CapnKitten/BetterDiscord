@@ -1,3 +1,5 @@
+@use 'sass:map';
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,9 +8,9 @@
  *
  */
 
-%menuPopout {
-    %menuPopoutItem {
-        %menuPopoutLabel {
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+        #{ $menuPopoutLabel } {
             flex: 1 18 auto;
         }
 
@@ -86,12 +88,12 @@
         &#gdm-context-change-icon {
             min-height: 36px;
 
-            %menuPopoutLabelContainer,
+            #{ $menuPopoutLabelContainer },
             &:after {
                 position: absolute;
             }
 
-            %menuPopoutLabelContainer {
+            #{ $menuPopoutLabelContainer } {
                 left: 42px;
             }
 
@@ -112,7 +114,7 @@
                     display: none;
                 }
 
-                %menuPopoutIconContainerLeft {
+                #{ $menuPopoutIconContainerLeft } {
                     position: relative;
                 }
             }
@@ -329,7 +331,7 @@
                     display: none;
                 }
 
-                %menuPopoutIconContainer {
+                #{ $menuPopoutIconContainer } {
                     display: none;
                 }
             }
@@ -369,7 +371,7 @@
 
         &#message-copy,
         &[id*="textarea-context-"] {
-            %menuPopoutHintContainer {
+            #{ $menuPopoutHintContainer } {
                 width: 18px;
                 height: 18px;
                 margin: 0;
@@ -389,7 +391,7 @@
 
         @each $option, $icon in $icons {
             &##{$option} {
-                %menuPopoutHintContainer {
+                #{ $menuPopoutHintContainer } {
                     -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
                 }
             }
@@ -398,7 +400,7 @@
 
     /* CONTEXT MENU ICONS -> SUBMENU WITH ARROW */
 
-    %menuPopoutItem[aria-haspopup="true"] {
+    #{ $menuPopoutItem }[aria-haspopup="true"] {
         flex-direction: row;
 
         &:before {
@@ -529,8 +531,8 @@
         }
     }
 
-    %submenuItemSubMenuAlt {
-        %menuPopoutItem {
+    #{ $submenuItemSubMenuAlt } {
+        #{ $menuPopoutItem } {
             &:before,
             &:after {
                 display: none;
@@ -541,8 +543,8 @@
 
 /* CONTEXT MENU ICONS -> SERVER OPTIONS */
 
-%menuPopout#guild-header-popout {
-    %menuPopoutItem {
+#{ $menuPopout }#guild-header-popout {
+    #{ $menuPopoutItem } {
         $icons: (
             insights:
                 (icon: 'M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z', remove: false),
@@ -563,11 +565,14 @@
         );
 
         @each $key, $value in $icons {
+            $icon:      map.get($value, icon);
+            $remove:    map.get($value, remove);
+
             &#guild-header-popout-#{$key} path {
-                d: path(map-get($value, icon));
+                d: path($icon);
                 transform: translate(0, 24px) scale(0.025);
 
-                @if map-get($value, remove) == true {
+                @if $remove == true {
                     ~ path {
                         display: none;
                     }

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,13 +7,13 @@
  *
  */
 
-%nowPlayingColumn {
+#{ $nowPlayingColumn } {
 	background-color: var(--main-color);
 
-	%nowPlayingColumnContainer {
+	#{ $nowPlayingColumnContainer } {
 		background-color: transparent;
 
-		%nowPlayingColumnScroller {
+		#{ $nowPlayingColumnScroller } {
 			margin-left: 0;
 			padding: 16px 16px 12px;
 			border-left: none;
@@ -20,47 +21,47 @@
 	}
 }
 
-%nowPlayingColumnMemberItem {
+#{ $nowPlayingColumnMemberItem } {
 	padding: 0;
 }
 
-%activeNowPrivacyCard {
+#{ $activeNowPrivacyCard } {
 	margin-bottom: 16px;
 	@include card-format;
 
-	%activeNowPrivacyCardHeader {
+	#{ $activeNowPrivacyCardHeader } {
 		@include card-format--header;
 		text-align: left;
 	}
 
-	%size14 {
+	#{ $size14 } {
 		padding: 16px 16px 0;
 	}
 
-	%activeNowPrivacyCardButtonContainer {
+	#{ $activeNowPrivacyCardButtonContainer } {
 		padding: 0 16px 16px;
 	}
 }
 
-%emptyActiveNowCard {
+#{ $emptyActiveNowCard } {
 	padding: 0;
 	background-color: var(--activity-card-color);
 	border-radius: var(--card-radius-big);
 
-	%emptyActiveNowHeader {
+	#{ $emptyActiveNowHeader } {
 		width: 100%;
 		@include card-format--header(false, true);
 		box-sizing: border-box;
 		text-align: left;
 	}
 
-	%emptyActiveNowText {
+	#{ $emptyActiveNowText } {
 		padding: 0 16px 16px;
 		text-align: left;
 	}
 }
 
-%activeNowCardInteractive {
+#{ $activeNowCardInteractive } {
 	margin: 0 0 2px;
 	background-color: var(--activity-card-color);
 	border-radius: 4px;
@@ -79,20 +80,16 @@
 		background-color: var(--activity-card-color--hover) !important;
 	}
 
-	&%activeNowCardActive {
-		background-color: var(--activity-card-color--active) !important;
-	}
-
-	%activeNowCardInset {
+	#{ $activeNowCardInset } {
 		margin-left: 44px;
 		background-color: transparent;
 	}
 
-	%activeNowOuterCard {
+	#{ $activeNowOuterCard } {
         background-color: var(--activity-card-color);
     }
 
-	%activeNowCardSection {
+	#{ $activeNowCardSection } {
 		margin-bottom: 2px;
         background-color: var(--activity-card-color--inset);
         border-radius: 4px;
@@ -112,30 +109,30 @@
         }
 	}
 
-	%activeNowCardSeparator {
+	#{ $activeNowCardSeparator } {
 		display: none;
 	}
 
-	%activeNowCardHeaderIcon {
+	#{ $activeNowCardHeaderIcon } {
 		border-radius: 50%;
 	}
 
-	%activeNowStreamingPreviewWrapper {
+	#{ $activeNowStreamingPreviewWrapper } {
 		background-color: var(--card-color-alt);
 		border-radius: calc(var(--card-radius-big) / 1.25);
 		overflow: hidden;
 	}
 
-	%activeNowCardStreamImage {
+	#{ $activeNowCardStreamImage } {
 		border-radius: calc(var(--card-radius-big) / 1.25);
 	}
 
-	%activeNowCardImageBorderRadius0 {
+	#{ $activeNowCardImageBorderRadius0 } {
 		border-radius: 50%;
 	}
 }
 
-%activeNowQuestWrapper {
+#{ $activeNowQuestWrapper } {
     background-color: var(--activity-card-color--inset);
     border-radius: 4px;
 
@@ -143,34 +140,34 @@
         border-radius: var(--card-radius-big);
     }
 
-    %activeNowQuestPromotedTag {
+    #{ $activeNowQuestPromotedTag } {
         padding: 3px 6px 2px;
     }
 
-    %activeNowQuestPromotedTagBackground {
+    #{ $activeNowQuestPromotedTagBackground } {
         background-color: var(--card-color-filled) !important;
         border-radius: 9px;
     }
 }
 
-%activeNowQuestRewardTileWithInstructions {
+#{ $activeNowQuestRewardTileWithInstructions } {
     margin-inline: 0;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 }
 
-%activeNowCardSeparator {
-    + %activeNowQuestWrapper {
+#{ $activeNowCardSeparator } {
+    + #{ $activeNowQuestWrapper } {
         border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
     }
 }
 
-%nowPlayingColumn {
-	%nowPlayingColumnHeader {
+#{ $nowPlayingColumn } {
+	#{ $nowPlayingColumnHeader } {
 		margin-top: 0;
 		font-weight: 400;
 
-		+ %activeNowCardInteractive {
+		+ #{ $activeNowCardInteractive } {
 			&:nth-last-child(2) {
 				border-radius: var(--card-radius-big);
 			}

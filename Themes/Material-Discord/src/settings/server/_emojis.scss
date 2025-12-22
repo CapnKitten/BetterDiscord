@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,24 +7,24 @@
  *
  */
 
-%emojiContent {
+#{ $emojiContent } {
     padding: 8px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 }
 
-%emojiTable {
+#{ $emojiTable } {
 	margin-bottom: 0;
 	padding: 8px 12px;
 	background-color: var(--card-color-filled);
 	border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
-	%formText {
+	#{ $formText } {
 		@include remove-caps(14px);
 	}
 }
 
-%emojiRow {
+#{ $emojiRow } {
     position: relative;
     padding: 0 16px;
     box-shadow: none !important;
@@ -53,7 +54,7 @@
         border: none;
     }
 
-    %emojiAliasInput {
+    #{ $emojiAliasInput } {
         margin-top: 0;
 		border-bottom: none !important;
 
@@ -63,12 +64,12 @@
 		}
 
 		&:focus-within {
-			+ %emojiAliasPlaceholder {
+			+ #{ $emojiAliasPlaceholder } {
 				opacity: 0;
 			}
 		}
 
-		%emojiInput {
+		#{ $emojiInput } {
 			padding: 0 8px;
 			font-size: 16px;
 			background-color: var(--input-color-alt);
@@ -76,7 +77,7 @@
 		}
 	}
 
-    %emojiAliasPlaceholder {
+    #{ $emojiAliasPlaceholder } {
 		height: auto;
 		margin-left: 8px;
 		padding: 0;
@@ -86,7 +87,7 @@
 		overflow: visible;
 	}
 
-	%emojiRemove {
+	#{ $emojiRemove } {
         top: 0;
 		right: 12px;
         bottom: 0;

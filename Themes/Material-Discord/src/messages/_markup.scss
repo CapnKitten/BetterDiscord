@@ -1,15 +1,17 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	MARKUP
  *
  */
 
-%markup {
+#{ $markup } {
 	a {
 		color: hsl(var(--accent-hsl));
 	}
 
-	pre, pre *, pre code, pre code *, code.inline, %codeBlockText, %codeBlockText *, %codeLine, %codeLine *, %codeBlockLang, %codeBlockLang *, %codeBlockSyntax, %codeBlockSyntax *,  %syntaxAfter, %syntaxAfter *, %syntaxBefore, %syntaxBefore * {
+	pre, pre *, pre code, pre code *, code.inline, #{ $codeBlockText }, #{ $codeBlockText } *, #{ $codeLine }, #{ $codeLine } *, #{ $codeBlockLang }, #{ $codeBlockLang } *, #{ $codeBlockSyntax }, #{ $codeBlockSyntax } *,  #{ $syntaxAfter }, #{ $syntaxAfter } *, #{ $syntaxBefore }, #{ $syntaxBefore } * {
 		--app-font: var(--code-font), monospace;
 
 		font-optical-sizing: auto;
@@ -34,14 +36,14 @@
 		margin: 4px 0;
 	}
 
-	%codeContainer {
+	#{ $codeContainer } {
 		max-width: none;
 	}
 }
 
-%channelTextAreaInlineCode,
-%channelTextAreaInlineCodeBefore,
-%channelTextAreaInlineCodeAfter {
+#{ $channelTextAreaInlineCode },
+#{ $channelTextAreaInlineCodeBefore },
+#{ $channelTextAreaInlineCodeAfter } {
 	--app-font: var(--code-font), monospace;
 
 	background-color: var(--attachment-color);
@@ -51,15 +53,15 @@
 	font-style: normal;
 }
 
-%channelTextAreaInlineCodeBefore {
+#{ $channelTextAreaInlineCodeBefore } {
 	border-radius: var(--media-radius) 0 0 var(--media-radius);
 }
 
-%channelTextAreaInlineCodeAfter {
+#{ $channelTextAreaInlineCodeAfter } {
 	border-radius: 0 var(--media-radius) var(--media-radius) 0;
 }
 
-%mentionWrapper {
+#{ $mentionWrapper } {
     background-color: hsl(var(--accent-hsl),0.15);
 	border-radius: var(--media-radius);
     color: hsl(var(--accent-hsl));
@@ -71,8 +73,8 @@
     }
 }
 
-%themeDark {
-	%mentionWrapper {
+#{ $themeDark } {
+	#{ $mentionWrapper } {
 	    background-color: hsl(var(--accent-hsl),0.15);
 	    color: hsl(var(--accent-hsl));
 
@@ -82,30 +84,30 @@
 	}
 }
 
-%textContainer,
-%textContainerFooter {
+#{ $textContainer },
+#{ $textContainerFooter } {
 	background-color: var(--attachment-color);
 	border: none;
 }
 
-%textContainer {
-	%codeHLJS {
+#{ $textContainer } {
+	#{ $codeHLJS } {
 		background-color: transparent;
 	}
 }
 
-%attachmentNewMosaicStyle {
-	%textContainer {
+#{ $attachmentNewMosaicStyle } {
+	#{ $textContainer } {
 		border-radius: var(--media-radius) var(--media-radius) 0 0;
 	}
 
-	%textContainerFooter {
+	#{ $textContainerFooter } {
 		border-radius: 0 0 var(--media-radius) var(--media-radius);
 		border-top: 1px solid var(--separator-color);
 	}
 }
 
-%codeView {
+#{ $codeView } {
 	&,
 	& * {
 		--app-font: var(--code-font), monospace;

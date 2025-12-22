@@ -1,16 +1,18 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	IMAGE VIEWER
  *
  */
 
-%imageViewerActionButtons {
+#{ $imageViewerActionButtons } {
     background-color: var(--popout-color);
     border-radius: calc(var(--button-height) + 4px);
     box-shadow: var(--shadow-medium);
     border: none;
 
-    %imageViewerActionButton {
+    #{ $imageViewerActionButton } {
         width: var(--button-height);
         transition: var(--default-time) var(--default-animation) background-color;
 
@@ -20,7 +22,7 @@
     }
 }
 
-%imageViewerCloseButton {
+#{ $imageViewerCloseButton } {
     width: var(--button-height);
     height: var(--button-height);
     padding: 3px;
@@ -28,7 +30,7 @@
     border-radius: calc(var(--button-height) + 4px);
     box-shadow: var(--shadow-medium);
 
-    %imageViewerCloseButtonInner {
+    #{ $imageViewerCloseButtonInner } {
         width: inherit;
         height: inherit;
         border: none;
@@ -39,26 +41,26 @@
     }
 }
 
-%imageViewerNavButton {
+#{ $imageViewerNavButton } {
     background-color: var(--popout-color);
     border-radius: 20px;
 
-    %imageViewerCloseButtonInner {
+    #{ $imageViewerCloseButtonInner } {
         border: none;
     }
 }
 
-%imageViewerGallery {
+#{ $imageViewerGallery } {
     gap: var(--space-8);
 }
 
-%imageViewerGalleryItem {
+#{ $imageViewerGalleryItem } {
     width: 50px;
     margin: 0;
     border-radius: 10px;
     transition: var(--default-time) var(--default-animation) width;
 
-    &%imageViewerGalleryItemInactive {
+    &#{ $imageViewerGalleryItemInactive } {
         width: 20px;
 
         &:after {
@@ -66,13 +68,13 @@
         }
     }
 
-    &%imageViewerGalleryItemFirst,
-    &%imageViewerGalleryItemLast {
+    &#{ $imageViewerGalleryItemFirst },
+    &#{ $imageViewerGalleryItemLast } {
         margin: 0;
         border-radius: 10px;
     }
 
-    %imageWrapper {
+    #{ $imageWrapper } {
         border-radius: inherit;
     }
 

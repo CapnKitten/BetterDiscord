@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,15 +7,15 @@
  *
  */
 
-%bar {
+#{ $bar } {
 	padding-left: 0;
 	padding-right: var(--space-4);
 
-	%barLeading {
+	#{ $barLeading } {
 		padding-left: var(--space-8);
 	}
 
-	%barTitle {
+	#{ $barTitle } {
 		line-height: var(--custom-app-top-bar-height);
 		padding: 0 10px;
 		gap: 0;
@@ -34,32 +35,32 @@
 			content: var(--app-watermark-two);
 		}
 
-		%barGuildIcon,
-		%textSmMedium,
+		#{ $barGuildIcon },
+		#{ $textSmMedium },
 		svg {
 			display: none;
 		}
 	}
 
-	%headerBarIconBadge {
+	#{ $headerBarIconBadge } {
 		box-shadow: 0 0 0 4px var(--main-alt);
 	}
 }
 
 /* APP TITLE BAR -> BUTTONS */
 
-%titlebarWin {
-	&%titlebarWithFrame {
+#{ $titlebarWin } {
+	&#{ $titlebarWithFrame } {
 		height: var(--app-title-bar-height);
 		margin-top: 0;
 	}
 }
 
-%titlebarWinButtons {
+#{ $titlebarWinButtons } {
     padding-right: var(--space-xxs);
 }
 
-%titlebarWinButton {
+#{ $titlebarWinButton } {
 	--app-title-bar-height: var(--custom-app-top-bar-height);
 
 	width: calc(var(--app-title-bar-height) / 1.325);
@@ -101,7 +102,7 @@
 		opacity: 0.65;
 	}
 
-	&%titlebarWinButtonMinMax {
+	&#{ $titlebarWinButtonMinMax } {
 		&:nth-of-type(1) {
 			&:hover {
 				&:after {
@@ -127,7 +128,7 @@
 		}
 	}
 
-	&%titlebarWinButtonClose {
+	&#{ $titlebarWinButtonClose } {
 		&:hover {
 			&:after {
 				background-color: var(--app-button-close);
@@ -149,13 +150,13 @@
 	}
 }
 
-html:not(%appFocused) {
-	%titlebarWinButton {
+html:not(#{ $appFocused }) {
+	#{ $titlebarWinButton } {
 		&:after {
 			background-color: var(--app-button-inactive);
 		}
 
-		&%titlebarWinButtonMinMax {
+		&#{ $titlebarWinButtonMinMax } {
 			&:after {
 				background-color: var(--app-button-inactive);
 			}

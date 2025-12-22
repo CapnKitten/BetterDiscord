@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *  HEADER BAR ICONS
@@ -50,11 +53,13 @@ path {
     );
 
     @each $key, $value in $icons {
+        $icon:      map.get($value, icon);
+        $remove:    map.get($value, icon);
         &[d="#{$key}"] {
-            d: path(map-get($value, icon));
+            d: path($icon);
             transform: translate(0, 24px) scale(0.025);
 
-            @if map-get($value, remove) == true {
+            @if $remove == true {
                 ~ path {
                     display: none;
                 }

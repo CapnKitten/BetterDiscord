@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,16 +7,16 @@
  *
  */
 
-%deviceSessions {
-    %fieldset {
-        %stack {
+#{ $deviceSessions } {
+    #{ $fieldset } {
+        #{ $stack } {
             @include card-format(true, 8px 0 0, true);
             gap: var(--space-8) !important;
         }
     }
 }
 
-%deviceSession {
+#{ $deviceSession } {
     position: relative;
     padding: 16px;
     gap: 16px;
@@ -48,29 +49,29 @@
         }
     }
 
-    %deviceSessionIcon,
-    %deviceSessionInfo,
-    %deviceSessionMoreButton {
+    #{ $deviceSessionIcon },
+    #{ $deviceSessionInfo },
+    #{ $deviceSessionMoreButton } {
         z-index: 2;
     }
 
-    %deviceSessionIcon {
+    #{ $deviceSessionIcon } {
         background-color: hsl(var(--accent-hsl--material-you));
         color: var(--accent-text-color--material-you);
     }
 
-    %deviceSessionInfoRow {
-        &:not(%deviceSessionInfoEyebrow) {
+    #{ $deviceSessionInfoRow } {
+        &:not(#{ $deviceSessionInfoEyebrow }) {
             color: var(--text-muted);
         }
 
-        %buttonLink {
+        #{ $buttonLink } {
             --button-height: 20px;
             padding: 0 4px;
         }
     }
 
-    %deviceSessionInfoEyebrow {
+    #{ $deviceSessionInfoEyebrow } {
         @include remove-caps(14px);
     }
 }

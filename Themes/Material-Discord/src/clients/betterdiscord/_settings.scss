@@ -1,27 +1,29 @@
+@use '../../selectorPlaceholders' as *;
+
 /*
  *
  *  BETTERDISCORD SETTINGS
  *
  */
 
-%bdSettingsTitle {
+#{ $bdSettingsTitle } {
 	color: var(--header-primary);
 }
 
-%bdSettingsGroup {
-    &%bdSettingsGroupCollapsible {
+#{ $bdSettingsGroup } {
+    &#{ $bdSettingsGroupCollapsible } {
         margin-bottom: var(--space-8);
         padding: var(--space-16);
         background-color: var(--card-color-filled);
         border-radius: var(--card-radius-big);
 
-        &%bdSettingsGroupExpanded {
-            %bdSettingsContainer {
+        &#{ $bdSettingsGroupExpanded } {
+            #{ $bdSettingsContainer } {
                 margin-top: var(--space-24);
             }
         }
 
-        %bdSettingsGroupTitle {
+        #{ $bdSettingsGroupTitle } {
             margin-bottom: 0;
             font-size: 18px;
             font-weight: 400;
@@ -32,34 +34,34 @@
 			}
         }
 
-        %bdSettingsContainer {
+        #{ $bdSettingsContainer } {
             transition: var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) margin-top;
         }
 
-        %bdSettingItem {
+        #{ $bdSettingItem } {
             &:last-of-type {
                 margin-bottom: 0;
 
-                %bdDivider {
+                #{ $bdDivider } {
                     display: none;
                 }
             }
         }
     }
 
-    ~ %bdSettingsGroup {
-        %bdSettingsTitle {
+    ~ #{ $bdSettingsGroup } {
+        #{ $bdSettingsTitle } {
             margin-top: 0;
         }
     }
 }
 
-%bdSettingsTitle {
-    &%bdSettingsGroupTitle {
+#{ $bdSettingsTitle } {
+    &#{ $bdSettingsGroupTitle } {
         text-transform: none;
     }
 }
 
-%bdDivider {
+#{ $bdDivider } {
     border-top: thin solid var(--card-border-color);
 }

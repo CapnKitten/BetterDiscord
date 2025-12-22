@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,11 +7,11 @@
  *
  */
 
-%auditLogList {
+#{ $auditLogList } {
     gap: 0;
 }
 
-%auditLog {
+#{ $auditLog } {
     position: relative;
     margin: 0;
     background-color: var(--card-color-filled);
@@ -26,25 +27,25 @@
         border-bottom-left-radius: var(--card-radius-big);
         border-bottom-right-radius: var(--card-radius-big);
 
-        %auditLogHeader {
+        #{ $auditLogHeader } {
             margin: 8px;
 
             &:after {
                 height: calc(100% - 16px);
             }
 
-            &%auditLogHeaderExpanded {
+            &#{ $auditLogHeaderExpanded } {
                 margin: 8px 8px 0;
             }
         }
 
-        %auditLogChangeDetails {
+        #{ $auditLogChangeDetails } {
             margin-bottom: 8px;
         }
     }
 
     &:hover {
-        %auditLogHeader {
+        #{ $auditLogHeader } {
             &:after {
                 background-color: var(--card-color-hover);
             }
@@ -52,7 +53,7 @@
     }
 }
 
-%auditLogHeader {
+#{ $auditLogHeader } {
     width: calc(100% - 16px);
     margin: 8px 8px 0;
     border-radius: calc(var(--card-radius-big) / 1.5);
@@ -72,31 +73,31 @@
         pointer-events: none;
     }
 
-    &%auditLogHeaderExpanded {
+    &#{ $auditLogHeaderExpanded } {
         &:after {
             background-color: var(--card-color-active) !important;
         }
     }
 }
 
-%auditLogDivider {
+#{ $auditLogDivider } {
     display: none;
 }
 
-%auditLogChangeDetails {
+#{ $auditLogChangeDetails } {
     width: calc(100% - 16px);
     margin: 0 8px;
     background-color: transparent !important;
     z-index: 2;
 
-    %auditLogDetail {
+    #{ $auditLogDetail } {
         &:first-of-type {
             margin-top: 0;
         }
     }
 }
 
-%auditLogIcon {
+#{ $auditLogIcon } {
 	&:after {
 		width: 9px;
 		height: 9px;
@@ -107,19 +108,19 @@
 		border-radius: 50%;
 	}
 
-	&%auditLogTypeCreate {
+	&#{ $auditLogTypeCreate } {
 		&:after {
 			background: #389c59;
 		}
 	}
 
-	&%auditLogTypeUpdate {
+	&#{ $auditLogTypeUpdate } {
 		&:after {
 			background: #ec9d1a;
 		}
 	}
 
-	&%auditLogTypeDelete {
+	&#{ $auditLogTypeDelete } {
 		&:after {
 			background: #9d3235;
 		}

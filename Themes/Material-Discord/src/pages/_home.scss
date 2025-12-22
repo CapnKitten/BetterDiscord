@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,38 +7,38 @@
  *
  */
 
-%homeIntroCard {
+#{ $homeIntroCard } {
     @include card-format(false, 16px, true);
 
-    %homeIntroCardIcon {
+    #{ $homeIntroCardIcon } {
         border: 6px solid var(--card-color-filled);
     }
 }
 
 /* HOME TAB -> ACTIVE NOW */
 
-%homeActiveNowContainer {
+#{ $homeActiveNowContainer } {
     @include card-format(false, 0, true);
 
-    %homeActiveNowContainerHeader {
+    #{ $homeActiveNowContainerHeader } {
         @include card-format--header(false, true);
 
-        %headingMdSemibold {
+        #{ $headingMdSemibold } {
             @include card-format--header-fix;
         }
     }
 
-    %homeActiveNowEmptyContainer {
+    #{ $homeActiveNowEmptyContainer } {
         margin-top: 0;
         background-color: transparent;
     }
 }
 
-%homeActiveNowChannelList {
+#{ $homeActiveNowChannelList } {
     padding: 12px 12px 0;
 }
 
-%homeActiveNowChannelContainer {
+#{ $homeActiveNowChannelContainer } {
     border-radius: var(--card-radius-big);
     transition: var(--default-time) var(--default-animation) background-color;
 
@@ -45,13 +46,13 @@
         background-color: var(--card-color-hover);
     }
 
-    %homeActiveNowChannelIconContainer,
-    %homeActiveNowChannelMoreUsers {
+    #{ $homeActiveNowChannelIconContainer },
+    #{ $homeActiveNowChannelMoreUsers } {
         background-color: var(--card-color-hover);
     }
 }
 
-%homeActiveNowSmallCard {
+#{ $homeActiveNowSmallCard } {
     @include card-format(false, 8px);
     transition: var(--default-time) var(--default-animation) background-color;
 
@@ -59,18 +60,18 @@
         background-color: var(--card-color-hover);
     }
 
-    &%homeActiveNowSmallCardFiller {
+    &#{ $homeActiveNowSmallCardFiller } {
         padding: 0;
         overflow: hidden;
     }
 
-    %homeActiveNowTypingIndicator {
+    #{ $homeActiveNowTypingIndicator } {
         background-color: var(--card-color-hover);
     }
 }
 
 @media (max-width: 1300px) {
-    %homeActiveNowSmallScrollIcon {
+    #{ $homeActiveNowSmallScrollIcon } {
         background-color: var(--chat-color);
         border: 1px solid var(--card-border-color);
     }
@@ -78,19 +79,19 @@
 
 /* HOME TAB -> UPCOMING */
 
-%homeUpcomingContainer {
+#{ $homeUpcomingContainer } {
     @include card-format(false, 0, true);
 
-    %homeUpcomingHeader {
+    #{ $homeUpcomingHeader } {
         @include card-format--header(false, true);
 
-        %headingMdSemibold {
+        #{ $headingMdSemibold } {
             @include card-format--header-fix;
         }
     }
 }
 
-%homeUpcomingEventContainer {
+#{ $homeUpcomingEventContainer } {
     margin: 0 16px;
 
     &:last-of-type,
@@ -101,22 +102,22 @@
 
 /* HOME TAB -> YOUR HIGHLIGHTS */
 
-%homeBrandCard {
+#{ $homeBrandCard } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 
-    %homeBrandCardTextContainer {
+    #{ $homeBrandCardTextContainer } {
         margin: 16px 0 16px 16px;
     }
 }
 
-%homeHighlightsCard {
-    &%homeHighlightsCardBackground {
+#{ $homeHighlightsCard } {
+    &#{ $homeHighlightsCardBackground } {
         @include card-format(false, 16px, true);
     }
 }
 
-%homeHighlightsInteractiveCard {
+#{ $homeHighlightsInteractiveCard } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
     border: none !important;
@@ -125,30 +126,30 @@
         box-shadow: none;
     }
 
-    %messagesWrapper {
-        %messageContentInner {
+    #{ $messagesWrapper } {
+        #{ $messageContentInner } {
             overflow: hidden;
         }
 
-        &%messageCozy {
+        &#{ $messageCozy } {
             --message-color: var(--message-color-hover);
 
-            &:not(%message) {
+            &:not(#{ $message }) {
                 margin: 16px 16px 0 79px;
             }
         }
     }
 
-    %avatarDecoration {
+    #{ $avatarDecoration } {
         left: -65px;
     }
 }
 
-%homeHighlightsFeedItemHeader {
+#{ $homeHighlightsFeedItemHeader } {
     padding: 16px;
     border-bottom: none;
 
-    %headingSmSemibold {
+    #{ $headingSmSemibold } {
         font-size: 1.25em;
     }
 }

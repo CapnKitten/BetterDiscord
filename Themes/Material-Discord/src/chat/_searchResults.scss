@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%searchResultsWrap {
+#{ $searchResultsWrap } {
 	margin: 12px 12px 12px 8px;
 	background-color: var(--main-alt);
 	border-radius: var(--popout-radius-big);
@@ -15,7 +16,7 @@
 
 /* SEARCH RESULTS -> HEADER */
 
-%searchHeader {
+#{ $searchHeader } {
 	--search-header-padding: 16px;
 
 	height: var(--search-header-height);
@@ -27,17 +28,17 @@
 	box-shadow: var(--shadow-soft);
 }
 
-%searchHeaderTabList {
+#{ $searchHeaderTabList } {
     height: 100%;
-    @include pill-nav(true, calc(var(--search-header-height) - var(--search-header-padding)), "%item", "%itemSelected", true);
+    @include pill-nav(true, calc(var(--search-header-height) - var(--search-header-padding)), "#{ $item }", "#{ $itemSelected }", true);
 
-    %item {
+    #{ $item } {
         display: flex;
         height: calc(var(--search-header-height) - var(--search-header-padding));
         padding: 0 12px;
         align-items: center;
 
-        &%itemSelected {
+        &#{ $itemSelected } {
             &:after {
                 display: none;
             }
@@ -47,22 +48,22 @@
 
 /* SEARCH RESULTS -> MESSAGES */
 
-%searchScroller {
+#{ $searchScroller } {
 	padding: 16px 8px 8px;
 }
 
-%searchChannelName {
+#{ $searchChannelName } {
 	padding: 8px 8px 8px 12px;
 	background-color: transparent;
 	color: var(--card-header-text-color);
 }
 
-%searchResult {
+#{ $searchResult } {
 	background-color: transparent;
 	border-radius: 0;
 	border: none;
 
-	%messagesWrapper {
+	#{ $messagesWrapper } {
 		margin: 0 8px 0 60px !important;
 		padding: 12px !important;
 		border-radius: var(--message-radius);
@@ -72,22 +73,22 @@
 			display: none;
 		}
 
-		%avatarLarge {
+		#{ $avatarLarge } {
 			top: 0 !important;
 			left: -50px !important;
 		}
 
-		&%hasReply {
-			%avatarLarge {
+		&#{ $hasReply } {
+			#{ $avatarLarge } {
 				top: 28px !important;
 			}
 
-            %avatarDecoration {
+            #{ $avatarDecoration } {
 				top: 28px;
 			}
 		}
 
-		%messageReplied {
+		#{ $messageReplied } {
             &:before {
 			left: calc((var(--chat-avatar-size) / 2 + var(--message-padding-side) + var(--gutter) / 2) * -1);
 			border-color: var(--message-color);
@@ -96,17 +97,17 @@
 	}
 }
 
-%searchResultsButtonsContainer {
+#{ $searchResultsButtonsContainer } {
 	top: 16px;
 	right: 18px;
 
-	%searchResultJumpButton {
+	#{ $searchResultJumpButton } {
 		padding: 4px 8px;
 		border-radius: 12px;
 	}
 }
 
-%pageButton {
+#{ $pageButton } {
 	transition: var(--default-time) var(--default-animation) background-color;
 
 	&:hover {
@@ -120,12 +121,12 @@
 	}
 }
 
-%pageButtonActive {
+#{ $pageButtonActive } {
 	background-color: hsl(var(--accent-hsl--material-you)) !important;
 	color: var(--accent-text-color--material-you) !important;
 }
 
-%pageEndButton {
+#{ $pageEndButton } {
 	&:first-child,
 	&:last-child {
 		padding: var(--button-padding);
@@ -134,7 +135,7 @@
 	&:first-child {
 		--button-padding: 0 16px 0 12px;
 
-		%pageEndButtonIconCaret {
+		#{ $pageEndButtonIconCaret } {
 			margin-right: 8px;
 		}
 	}
@@ -142,7 +143,7 @@
 	&:last-child {
 		--button-padding: 0 12px 0 16px;
 
-		%pageEndButtonIconCaret {
+		#{ $pageEndButtonIconCaret } {
 			margin-left: 8px;
 		}
 	}

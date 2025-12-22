@@ -1,54 +1,56 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	MESSAGE POLLS
  *
  */
 
-%pollContainer {
+#{ $pollContainer } {
     background-color: var(--attachment-color);
     border-radius: var(--media-radius);
     border: none;
 
-    %pollAnswersContainer {
+    #{ $pollAnswersContainer } {
         padding: 0;
         background-color: transparent;
     }
 
-    %pollRadioBackground {
+    #{ $pollRadioBackground } {
         fill: hsl(var(--accent-hsl--material-you));
     }
 
-    %buttonBlank {
-    	&%buttonBrand {
+    #{ $buttonBlank } {
+    	&#{ $buttonBrand } {
     		color: hsl(var(--accent-hsl--material-you));
     	}
     }
 }
 
-%pollAnswer {
-    &%pollAnswerVotedStyles {
-        %pollAnswerInner {
+#{ $pollAnswer } {
+    &#{ $pollAnswerVotedStyles } {
+        #{ $pollAnswerInner } {
             outline-color: hsl(var(--accent-hsl--material-you));
         }
     }
 
-    &:not(%pollAnswerVotedStyles) {
-        %pollAnswerInner {
+    &:not(#{ $pollAnswerVotedStyles }) {
+        #{ $pollAnswerInner } {
             outline-color: transparent !important;
         }
     }
 }
 
-%pollAnswerInner {
+#{ $pollAnswerInner } {
     background-color: var(--card-color-filled);
     border-radius: calc(var(--media-radius) / 1.65);
 
-    &%pollCurrentlyVoting {
+    &#{ $pollCurrentlyVoting } {
         &:hover {
             background-color: var(--card-color-hover);
         }
 
-        &%pollAnswerSelected {
+        &#{ $pollAnswerSelected } {
             background-color: var(--card-color-active);
 
             circle,
@@ -63,11 +65,11 @@
     }
 }
 
-%pollVotePercentageBar {
+#{ $pollVotePercentageBar } {
     background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 1.5) l / 0.25);
 }
 
-%pollAnswerSelectionIcon {
+#{ $pollAnswerSelectionIcon } {
     circle {
         fill: var(--accent-text-color--material-you);
     }
@@ -77,12 +79,12 @@
     }
 }
 
-%pollEndedContainer {
+#{ $pollEndedContainer } {
     background-color: var(--attachment-color);
     border-radius: var(--media-radius);
     border: none;
 
-    %pollEndedImageContainer {
+    #{ $pollEndedImageContainer } {
         background-color: var(--card-color-active);
         border-radius: calc(var(--media-radius) - 4px);
     }
@@ -90,37 +92,37 @@
 
 /* POLLS -> VOTES */
 
-%pollVoterQuestion {
+#{ $pollVoterQuestion } {
     margin-right: 36px;
 
-    + %textMdMedium {
+    + #{ $textMdMedium } {
         color: hsl(var(--accent-hsl--material-you)) !important;
     }
 }
 
-%pollVoterContent {
-    %pollVotersScroller {
+#{ $pollVoterContent } {
+    #{ $pollVotersScroller } {
         flex: 0 1 auto;
         width: 200px;
         padding: 0 8px 24px 24px;
     }
 
-    %pollVoters {
+    #{ $pollVoters } {
         flex: 0 1 auto;
         width: 400px;
     }
 
-    %pollVotersScroller,
-    %pollVoters {
+    #{ $pollVotersScroller },
+    #{ $pollVoters } {
         background-color: transparent;
     }
 
-    %pollVoter {
+    #{ $pollVoter } {
         margin-right: calc(24px - var(--scrollbar-thin-width));
     }
 
-    %settingsSide {
-        %item {
+    #{ $settingsSide } {
+        #{ $item } {
             padding: 6px 10px;
             border-radius: 22px;
 
@@ -129,7 +131,7 @@
                 transition: var(--default-time) var(--default-animation) background-color;
             }
 
-            &%itemSelected {
+            &#{ $itemSelected } {
                 background-color: var(--menu-item-select);
             }
         }

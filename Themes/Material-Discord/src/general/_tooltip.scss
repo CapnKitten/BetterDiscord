@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%tooltip {
+#{ $tooltip } {
     padding: var(--tooltip-padding);
 	background-color: var(--tooltip-color) !important;
 	border-radius: var(--popout-radius);
@@ -17,100 +18,84 @@
     z-index: 99999999999999;
     animation: opacity var(--default-time) ease;
 
-    %tooltipPointer {
+    #{ $tooltipPointer } {
         display: none;
     }
 
-    %tooltipContent,
-    %tooltipGuildNameText {
+    #{ $tooltipContent },
+    #{ $tooltipGuildNameText } {
         padding: 0;
 		font-size: var(--tooltip-font-size);
 		color: var(--tooltip-text-color);
     }
 
-    %tooltipText,
-    %textSmMedium {
+    #{ $tooltipText },
+    #{ $textSmMedium } {
         font-size: var(--tooltip-font-size);
         color: var(--tooltip-text-color) !important;
     }
 
-    %textXsNormal {
+    #{ $textXsNormal } {
         color: var(--tooltip-text-color) !important;
     }
 
-    %tooltipActivityIcon {
+    #{ $tooltipActivityIcon } {
         color: var(--tooltip-text-color);
     }
 
-    %tooltipClickCTA {
+    #{ $tooltipClickCTA } {
         color: var(--tooltip-text-color) !important;
     }
-
-    %userPopoutBodyInnerWrapper {
-        background-color: transparent;
-    }
 }
 
-%tooltipV2 {
-    @extend %tooltip;
+#{ $tooltipV2 } {
+    @extend #{ $tooltip };
 }
 
-%tooltipV2CaretIcon {
+#{ $tooltipV2CaretIcon } {
     display: none;
 }
 
-%subscribeTooltipWrapper,
-%upsellTooltipWrapper,
-%accountSwitcherTooltipWrapper {
+#{ $upsellTooltipWrapper } {
     @include popout-format;
 
-    &%upsellTooltipCaretTopCenter {
+    &#{ $upsellTooltipCaretTopCenter } {
         &:after {
     		border-bottom-color: var(--popout-color);
     	}
     }
 
-    &%upsellTooltipCaretLeftCenter {
+    &#{ $upsellTooltipCaretLeftCenter } {
         &:after {
             border-right-color: var(--popout-color);
         }
     }
 }
 
-%subscribeTooltipWrapper {
-    %subscribeTooltipHeader {
-        color: var(--header-primary);
-    }
-
-    %subscribeTooltipText {
-        color: var(--header-secondary);
-    }
-}
-
-%upsellTooltipWrapper {
-    &%upsellTooltipCaretTopCenter {
+#{ $upsellTooltipWrapper } {
+    &#{ $upsellTooltipCaretTopCenter } {
         &:after {
             border-bottom-color: var(--popout-color);
         }
     }
 
-    &%upsellTooltipCaretLefTop {
+    &#{ $upsellTooltipCaretLefTop } {
         &:after {
             top: var(--popout-radius-big);
             border-right-color: var(--popout-color);
         }
     }
 
-    %upsellTooltipHeader {
+    #{ $upsellTooltipHeader } {
         color: var(--header-primary);
     }
 
-    %upsellTooltipText {
+    #{ $upsellTooltipText } {
         color: var(--header-secondary) !important;
     }
 
-    %buttonInverted {
-        &%buttonBrand {
+    #{ $buttonInverted } {
+        &#{ $buttonBrand } {
             --button-padding: 0 12px;
             --button-background: transparent;
             --button-text-color: hsl(var(--accent-hsl--material-you));
@@ -124,25 +109,11 @@
     }
 }
 
-%accountSwitcherTooltipWrapper {
-    %accountSwitcherTooltipTitle {
-        color: var(--header-primary);
-    }
-
-    %accountSwitcherTooltipSubTitle {
-        color: var(--header-secondary);
-    }
-
-    %accountSwitcherTooltipPointer {
-        border-top-color: var(--popout-color);
-    }
-}
-
-%tooltipPremiumFooterContainer {
+#{ $tooltipPremiumFooterContainer } {
     border-radius: 14px;
 }
 
-%reactionTooltip {
+#{ $reactionTooltip } {
     padding: 8px;
     background-color: var(--tooltip-color);
     border-radius: var(--tooltip-radius);
@@ -150,40 +121,40 @@
     font-size: var(--tooltip-font-size);
     color: var(--tooltip-text-color);
 
-    %reactionTooltipText {
+    #{ $reactionTooltipText } {
         color: inherit;
     }
 }
 
-%burstReactionTooltipMessage {
+#{ $burstReactionTooltipMessage } {
     border-bottom-color: var(--text-disabled);
 }
 
-%burstReactionTooltipPrompt {
+#{ $burstReactionTooltipPrompt } {
     margin: 8px 0 0;
 
-    %reactionTooltipText {
+    #{ $reactionTooltipText } {
         margin-left: 0;
     }
 }
 
 /* TOOLTIP -> EMOJI INFO */
 
-%messageEmojiPopout {
+#{ $messageEmojiPopout } {
     background-color: var(--tooltip-color) !important;
     border-radius: var(--tooltip-radius);
     box-shadow: var(--tooltip-shadow) !important;
 
-    %defaultColor {
+    #{ $defaultColor } {
         color: var(--tooltip-text-color);
     }
 }
 
-%messageEmojiPopoutEmojiSection {
+#{ $messageEmojiPopoutEmojiSection } {
     padding: 16px 16px 8px;
 }
 
-%messageEmojiPopoutGuildSection {
+#{ $messageEmojiPopoutGuildSection } {
     position: relative;
     padding: 8px 16px 16px;
     background-color: transparent;
@@ -198,8 +169,8 @@
         background-color: var(--tooltip-border-color);
     }
 
-    %messageEmojiPopoutGuildTitle,
-    %textXsNormal {
+    #{ $messageEmojiPopoutGuildTitle },
+    #{ $textXsNormal } {
         color: var(--tooltip-text-color) !important;
     }
 }

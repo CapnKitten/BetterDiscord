@@ -1,35 +1,37 @@
+@use '../../selectorPlaceholders' as *;
+
 /*
  *
  *  CHANNELS LIST CONNECTION PANEL
  *
  */
 
-%connectionPanel {
+#{ $connectionPanel } {
 	margin: 0 0 2px;
 	padding: 8px;
 	background-color: var(--sidebar-panel-color);
 	border-radius: var(--sidebar-panel-radius-small);
     border-bottom: none !important;
 
-    %connectionPanelActionButtons {
-        %button {
+    #{ $connectionPanelActionButtons } {
+        #{ $button } {
             --button-padding: 0 12px;
         }
     }
 
-    %connectionPanelMaskSecondary {
+    #{ $connectionPanelMaskSecondary } {
         border-color: var(--sidebar-panel-color);
     }
 
-	%rtcConnectionStatus {
-		%button {
+	#{ $rtcConnectionStatus } {
+		#{ $button } {
 			--button-height: 24px;
 		}
 	}
 }
 
-%connectionPanelActionButtons {
-    %button {
+#{ $connectionPanelActionButtons } {
+    #{ $button } {
         path {
             &[fill] {
                 fill: currentColor !important;
@@ -42,34 +44,34 @@
     }
 }
 
-%rtcPing {
-    &%rtcLargePing {
+#{ $rtcPing } {
+    &#{ $rtcLargePing } {
         border-radius: calc(var(--sidebar-panel-radius-big) - 8px);
         box-shadow: none;
     }
 }
 
-%alignChatInput {
-    %rtcConnectionQualityFine {
-        %rtcLargePing {
+#{ $alignChatInput } {
+    #{ $rtcConnectionQualityFine } {
+        #{ $rtcLargePing } {
             background-color: hsl(from var(--background-feedback-positive) h s l / 0.2);
         }
     }
 
-    %rtcConnectionQualityAverage {
-        %rtcLargePing {
+    #{ $rtcConnectionQualityAverage } {
+        #{ $rtcLargePing } {
             background-color: hsl(from var(--background-feedback-warning) h s l / 0.18);
         }
     }
 
-    %rtcConnectionQualityBad {
-        %rtcLargePing {
+    #{ $rtcConnectionQualityBad } {
+        #{ $rtcLargePing } {
             background-color: hsl(from var(--background-feedback-critical) h s l / 0.19);
         }
     }
 }
 
-%voiceUserAvatar {
+#{ $voiceUserAvatar } {
     &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower)"] {
         box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-base-lower) !important;
     }

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,36 +7,32 @@
  *
  */
 
-%discoverScroller {
+#{ $discoverScroller } {
     background-color: var(--chat-color);
 }
 
-%discoverServerContent {
-    max-width: unset;
-}
-
-%discoverContentContainer {
+#{ $discoverContentContainer } {
     border-top: none;
 }
 
 /* DISCOVER -> SIDEBAR */
 
-%discoverSidebar {
+#{ $discoverSidebar } {
     background-color: var(--chat-color);
 }
 
-%discoverSidebarHeader {
+#{ $discoverSidebarHeader } {
     height: 48px;
     padding: 0 16px;
     border-bottom: none;
     box-shadow: var(--shadow-ledge);
 }
 
-%discoverSidebarNav {
+#{ $discoverSidebarNav } {
     padding: 16px 8px;
 }
 
-%discoverSidebarNavItem {
+#{ $discoverSidebarNavItem } {
     padding: var(--space-sm);
     border-radius: 24px;
     transition: var(--default-time) var(--default-animation) background;
@@ -44,14 +41,14 @@
 		background: var(--menu-item-hover);
 	}
 
-	&%discoverSidebarNavItemSelected {
+	&#{ $discoverSidebarNavItemSelected } {
 		background: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
     }
 }
 
 /* DISCOVER -> HEADER BAR */
 
-%discoverHeaderBar {
+#{ $discoverHeaderBar } {
     --input-height: 32px;
     position: relative;
     height: 48px;
@@ -61,11 +58,11 @@
         display: none;
     }
 
-    &%discoverHeaderBarRelative {
+    &#{ $discoverHeaderBarRelative } {
         background-color: var(--chat-color);
     }
 
-    %discoverHeaderBarIconButton {
+    #{ $discoverHeaderBarIconButton } {
         background-color: var(--card-button-color);
         border-radius: 16px;
         transition: var(--default-time) var(--default-animation) background-color;
@@ -75,37 +72,37 @@
         }
     }
 
-    %inputContainer {
+    #{ $inputContainer } {
         @include input-transform(true);
     }
 }
 
-%discoverHeaderTopBar {
+#{ $discoverHeaderTopBar } {
     height: 48px;
     gap: 24px;
 
-    %item {
+    #{ $item } {
         height: 48px;
         padding: 0 8px;
         border-bottom: none;
 
-        + %item {
+        + #{ $item } {
             margin-left: 0;
         }
 
-        &%itemBrand {
+        &#{ $itemBrand } {
             --selected-tab-item-color: var(--interactive-active);
         }
 
         &:hover {
-            &:not(%itemSelected) {
+            &:not(#{ $itemSelected }) {
                 &:after {
                     display: none;
                 }
             }
         }
 
-        &%itemSelected {
+        &#{ $itemSelected } {
         	@include tab-border(80%);
 
             &:after {
@@ -115,88 +112,88 @@
     }
 }
 
-%discoverHeaderBarTabsContainer {
+#{ $discoverHeaderBarTabsContainer } {
     height: inherit;
 
-    %tabs {
+    #{ $tabs } {
         height: inherit;
         border-bottom: none;
     }
 }
 
-%discoverDragRegion {
+#{ $discoverDragRegion } {
     height: 48px;
 }
 
 /* DISCOVER -> BANNER */
 
-%discoverBannerContainer {
+#{ $discoverBannerContainer } {
     margin: 16px 32px 0;
     padding-top: 0;
     border-radius: var(--card-radius-big);
 
-    %discoverBannerTitle {
+    #{ $discoverBannerTitle } {
         text-transform: unset;
     }
 }
 
-%discoverBannerContent {
+#{ $discoverBannerContent } {
     margin-top: 0;
 }
 
-%discoverBannerGradient {
+#{ $discoverBannerGradient } {
     border-radius: var(--card-radius-big);
 }
 
 /* DISCOVER -> CARDS */
 
-%discoverServersContent {
+#{ $discoverServersContent } {
     max-width: unset;
 }
 
-%discoverServerCard {
+#{ $discoverServerCard } {
 	@include card-format(true, 0, true, true, true);
 	box-shadow: none !important;
 
     &:hover {
 		transform: none !important;
 
-        %discoverServerIconMask {
+        #{ $discoverServerIconMask } {
             background-color: var(--card-color-hover) !important;
         }
 	}
 
-    %discoverServerIcon {
+    #{ $discoverServerIcon } {
 		foreignObject {
 			mask: none !important;
 		}
 	}
 
-    %discoverServerIconMask {
+    #{ $discoverServerIconMask } {
         background-color: var(--card-color-filled) !important;
         border-radius: calc(var(--avatar-radius) * 1.2);
     }
 
-    %discoverServerAvatar {
+    #{ $discoverServerAvatar } {
         border-radius: var(--avatar-radius);
     }
 }
 
 /* DISCOVER -> SEARCH RESULTS */
 
-%discoverSearchHeaderBar {
+#{ $discoverSearchHeaderBar } {
     padding: 12px 16px;
     background: var(--chat-color);
 }
 
-%discoverSearchContentContainer {
+#{ $discoverSearchContentContainer } {
     background: var(--chat-color);
 }
 
-%discoverSearchMasonryList {
+#{ $discoverSearchMasonryList } {
     margin-top: 0;
 
-    %channelsList {
+    #{ $channelsList } {
         > div {
             > div[style*="top: 32px"] {
                 top: 16px !important;
@@ -205,11 +202,11 @@
     }
 }
 
-%discoverSearchSiderbarLanguageSelect {
+#{ $discoverSearchSiderbarLanguageSelect } {
     height: 34px;
 }
 
-%discoverSearchCategory {
+#{ $discoverSearchCategory } {
     border-radius: 17px;
     transition: var(--default-time) var(--default-animation) background-color;
 
@@ -217,7 +214,7 @@
         background-color: var(--menu-item-hover);
     }
 
-    &%discoverSearchCategorySelected {
+    &#{ $discoverSearchCategorySelected } {
         --text-muted: hsl(var(--accent-hsl--material-you));
 
         background: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
@@ -226,6 +223,6 @@
 
 /* DISCOVER -> SCHOOL HUBS */
 
-%joinHubContainer {
+#{ $joinHubContainer } {
     @include card-format(false, 16px, true);
 }

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,23 +7,23 @@
  *
  */
 
-%forumHeader {
+#{ $forumHeader } {
     position: relative;
     min-height: 52px;
     background-color: var(--input-color);
     border-radius: 26px;
     border: none;
 
-    &%forumHeaderWithMatchingPosts {
+    &#{ $forumHeaderWithMatchingPosts } {
         box-shadow: var(--shadow-medium);
     }
 
-    %buttonFilled {
+    #{ $buttonFilled } {
         --button-padding: 0 24px 0 16px;
     }
 }
 
-%forumHeaderMatchingPostsRow {
+#{ $forumHeaderMatchingPostsRow } {
     margin-top: -24px;
     padding-top: 24px;
     background-color: var(--input-color);
@@ -30,26 +31,26 @@
     border: none;
 }
 
-%newPostForm {
+#{ $newPostForm } {
     margin-right: 0;
 }
 
-%newPostContainer {
+#{ $newPostContainer } {
     padding: 16px;
 
-    &%newPostContainerCollapsed {
+    &#{ $newPostContainerCollapsed } {
         padding: 0;
 
-        %newPostFormContainer {
+        #{ $newPostFormContainer } {
             padding: 0 8px 0 16px;
             gap: 12px;
         }
 
-        %newPostTitleContainer {
+        #{ $newPostTitleContainer } {
             gap: 12px;
         }
 
-        %newPostPrefixElement {
+        #{ $newPostPrefixElement } {
             position: relative;
             right: unset;
 
@@ -58,20 +59,20 @@
             }
         }
 
-        %input%inputTextArea {
+        #{ $input }#{ $inputTextArea } {
             --input-color: transparent;
             --input-padding: 0;
 
             border-radius: 0;
         }
 
-        %newPostGuidelinesButton {
+        #{ $newPostGuidelinesButton } {
             height: var(--button-height);
             margin: 0;
         }
     }
 
-    %newPostPrefixElement {
+    #{ $newPostPrefixElement } {
         position: absolute;
         width: auto;
         height: var(--button-height);
@@ -89,18 +90,18 @@
         }
     }
 
-    %newPostFormContainer {
+    #{ $newPostFormContainer } {
         padding: 0;
 
-        + %newPostForm > div {
+        + #{ $newPostForm } > div {
             padding: 0;
         }
     }
 
-    %newPostTitleContainer {
+    #{ $newPostTitleContainer } {
         position: relative;
 
-        %newPostTitle {
+        #{ $newPostTitle } {
             padding: 8px 0;
             font-weight: 400;
 
@@ -111,11 +112,11 @@
         }
     }
 
-    %newPostBodyContainer {
+    #{ $newPostBodyContainer } {
         margin-right: 94px !important;
     }
 
-    %input%inputTextArea {
+    #{ $input }#{ $inputTextArea } {
         --input-color: var(--card-color-filled);
 
         height: var(--button-height);
@@ -132,32 +133,32 @@
         }
     }
 
-    %buttonFilled:disabled {
+    #{ $buttonFilled }:disabled {
         opacity: 0.5 !important;
     }
 }
 
-%newPostPreviewForm {
+#{ $newPostPreviewForm } {
     margin-right: 94px;
     background-color: var(--card-color-active);
     border-radius: calc(var(--card-radius-big) / 1.6);
     border: none;
 }
 
-%newPostTagsDivider {
+#{ $newPostTagsDivider } {
     width: 100%;
     left: 0;
 }
 
-%newPostContentContainer {
+#{ $newPostContentContainer } {
     padding-left: 0;
 
-    %channelTextArea {
+    #{ $channelTextArea } {
         min-height: 68px;
         margin-top: 16px;
     }
 
-    %channelTextAreaScrollable {
+    #{ $channelTextAreaScrollable } {
         min-height: 68px;
         padding: 6px 12px;
         background-color: var(--card-color-filled);
@@ -170,24 +171,24 @@
     }
 }
 
-%newPostAttachmentPopoutContainer {
+#{ $newPostAttachmentPopoutContainer } {
     position: absolute;
     top: calc(var(--button-height) + (16px * 2));
     right: 16px;
     z-index: 3;
 
-    %newPostAttachmentUploadInput {
+    #{ $newPostAttachmentUploadInput } {
         background-color: transparent;
         border: 1px solid var(--card-border-color);
     }
 
-    %newPostAttachmentUploadInput,
-    %spoilerContainer,
-    %newPostAttachmentImageSmall {
+    #{ $newPostAttachmentUploadInput },
+    #{ $spoilerContainer },
+    #{ $newPostAttachmentImageSmall } {
         border-radius: var(--card-radius-big);
     }
 
-    %newPostAttachmentBadge {
+    #{ $newPostAttachmentBadge } {
         background-color: hsl(var(--accent-hsl--material-you));
         color: var(--accent-text-color--material-you);
         border-color: var(--input-color);

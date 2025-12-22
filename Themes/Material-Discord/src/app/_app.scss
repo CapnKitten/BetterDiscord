@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -16,62 +17,62 @@
 }
 
 body,
-%app {
+#{ $app } {
 	background-color: transparent;
 }
 
-%bg,
-%appMount,
-%loadingScreen {
+#{ $bg },
+#{ $appMount },
+#{ $loadingScreen } {
 	background: var(--app-bg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
 
-%bg {
+#{ $bg } {
 	background-color: var(--main-alt);
 
-	&%themeDark {
+	&#{ $themeDark } {
 		background-color: var(--main-alt);
 	}
 }
 
-%appMount {
+#{ $appMount } {
 	--custom-channel-textarea-text-area-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 }
 
-%shakeable {
+#{ $shakeable } {
     background-color: transparent;
 }
 
-%platformWin {
-	%bg {
+#{ $platformWin } {
+	#{ $bg } {
 		top: calc((var(--app-title-bar-height) + 4px) * -1);
 	}
 }
 
-%layers {
+#{ $layers } {
     //z-index: 1000;
 }
 
-%anchor,
-%anchorIcon,
-%lowSaturation %anchor,
-%textColorBrand {
+#{ $anchor },
+#{ $anchorIcon },
+#{ $lowSaturation } #{ $anchor },
+#{ $textColorBrand } {
 	color: hsl(var(--accent-hsl));
 }
 
 /* APP ELEMENTS -> LIGHT THEME WITH DARK SIDEBAR */
 
-%channelsSidebar {
-    &%themeDark {
-        + %chat,
-        + %friends,
-        + %libraryContainer,
-        + %nitroHomePage,
-        + %shopContainer,
-        + %familyCenterContent {
+#{ $channelsSidebar } {
+    &#{ $themeDark } {
+        + #{ $chat },
+        + #{ $friends },
+        + #{ $libraryContainer },
+        + #{ $nitroHomePage },
+        + #{ $shopContainer },
+        + #{ $familyCenterContent } {
             border-radius: var(--card-radius-big);
             border-bottom-right-radius: 0;
         }

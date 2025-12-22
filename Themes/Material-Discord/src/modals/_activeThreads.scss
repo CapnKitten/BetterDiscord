@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,28 +7,28 @@
  *
  */
 
-%activeThreadsModal {
+#{ $activeThreadsModal } {
     background-color: transparent;
 
-	%activeThreadsModalHeader {
+	#{ $activeThreadsModalHeader } {
 		padding: 4px 16px;
 		background-color: transparent;
 		border-bottom: 1px solid var(--popout-header-border);
 	}
 }
 
-%threadPreview {
+#{ $threadPreview } {
 	@include card-format(false, 16px, true, true);
 }
 
-%modalRoot {
-    %threadsPopoutContainer {
+#{ $modalRoot } {
+    #{ $threadsPopoutContainer } {
         background-color: transparent;
         border-radius: 0;
         box-shadow: none;
     }
 }
 
-body:active %modalRoot %threadsPopoutContainer:not(:active) {
+body:active #{ $modalRoot } #{ $threadsPopoutContainer }:not(:active) {
 	opacity: 1;
 }

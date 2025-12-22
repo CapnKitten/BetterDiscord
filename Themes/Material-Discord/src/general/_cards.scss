@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%settingsCard {
+#{ $settingsCard } {
 	@include card-format(false, 16px, true);
 
 	&[style*="padding"] {
@@ -17,31 +18,31 @@
 		color: hsl(var(--accent-hsl--material-you));
 	}
 
-	%settingsCardIcon {
+	#{ $settingsCardIcon } {
 		margin: 16px !important;
 
-		+ %settingsCardIconDescriptor {
+		+ #{ $settingsCardIconDescriptor } {
 			margin-left: 0;
 		}
 	}
 }
 
-%settingsCardPrimary {
+#{ $settingsCardPrimary } {
 	@include card-format(true, 16px, true);
 
-	%settingsCardLargeIcon {
+	#{ $settingsCardLargeIcon } {
 		padding: 8px;
 	}
 }
 
-%promotionCard,
-%settingsDetailBlock,
-%settingsCardDescriptionBox,
-%dropsHelpText {
+#{ $promotionCard },
+#{ $settingsDetailBlock },
+#{ $settingsCardDescriptionBox },
+#{ $dropsHelpText } {
 	@include card-format(false, 16px, true);
 }
 
-%dropsHelpText {
+#{ $dropsHelpText } {
 	p {
 		margin: 0 0 8px;
 
@@ -51,31 +52,31 @@
 	}
 }
 
-%settingsSubscriptionBanner {
+#{ $settingsSubscriptionBanner } {
 	max-width: none;
 	border-radius: var(--card-radius-big);
 
-	%button {
+	#{ $button } {
 		--button-padding: 0 20px;
 
 		margin-left: 8px;
 	}
 }
 
-%settingsCardInfo {
+#{ $settingsCardInfo } {
 	background-color: hsl(var(--accent-hsl),0.1);
 	border-radius: var(--card-radius-big);
 	border-color: hsl(var(--accent-hsl--material-you));
 
-	%settingsCardInfoIcon {
+	#{ $settingsCardInfoIcon } {
 		color: hsl(var(--accent-hsl--material-you));
 	}
 }
 
-%communityUpsellContainer {
+#{ $communityUpsellContainer } {
 	@include card-format(false, 0, true);
 
-	%communityUpsellFooter {
+	#{ $communityUpsellFooter } {
 		padding: 0 16px 16px;
 		background-color: transparent;
 	}
@@ -83,26 +84,26 @@
 
 /* CARDS -> SETTINGS V2 */
 
-/*%settingsV2Card {
+/*#{ $settingsV2Card } {
     @include card-format(false, 0, true);
 
     &[data-layout="horizontal"] {
-        %settingsV2CardControl {
+        #{ $settingsV2CardControl } {
             &:not(:only-child) {
                 padding-top: var(--space-16);
             }
         }
     }
 
-    %settingsV2CardLabelContainer {
+    #{ $settingsV2CardLabelContainer } {
         @include card-format--header(false, true);
 
-        %textMdMedium {
+        #{ $textMdMedium } {
             margin-bottom: var(--space-8);
         }
     }
 
-    %settingsV2CardControl {
+    #{ $settingsV2CardControl } {
         &:not(:only-child) {
             padding: 0 var(--space-16) var(--space-16);
         }
@@ -111,7 +112,7 @@
 
 /* CARDS -> TRIGGER CARDS */
 
-%triggerCollapseable {
+#{ $triggerCollapseable } {
 	padding: 8px;
 	background-color: var(--card-color-filled);
 	border-radius: var(--card-radius-big);
@@ -121,19 +122,19 @@
 		background-color: var(--card-color-filled) !important;
 	}
 
-	&%triggerCollapseableToggled {
+	&#{ $triggerCollapseableToggled } {
 		padding-bottom: 16px;
 	}
 }
 
 /* CARDS -> HELP MESSAGES */
 
-%helpMessage {
+#{ $helpMessage } {
     border-radius: var(--card-radius-big);
     background-color: hsl(from var(--help-message-color) h s l / 0.3);
 	border: none;
 
-    %helpMessageIcon {
+    #{ $helpMessageIcon } {
         color: var(--help-message-color);
 
         path {
@@ -141,23 +142,23 @@
 		}
     }
 
-    %textSmMedium {
+    #{ $textSmMedium } {
 		color: var(--help-message-color) !important;
 	}
 }
 
-%helpMessageWarning {
+#{ $helpMessageWarning } {
 	--help-message-color: hsl(var(--warning-hsl));
 }
 
-%helpMessageInfo {
+#{ $helpMessageInfo } {
     --help-message-color: hsl(var(--accent-hsl));
 }
 
-%helpMessageError {
+#{ $helpMessageError } {
     --help-message-color: hsl(var(--alert-hsl));
 }
 
-%helpMessagePositive {
+#{ $helpMessagePositive } {
     --help-message-color: var(--info-positive-foreground);
 }

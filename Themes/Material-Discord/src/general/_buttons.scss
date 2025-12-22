@@ -1,18 +1,20 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	BUTTONS
  *
  */
 
-%button {
+#{ $button } {
 	font-size: var(--button-font-size) !important;
 
-	%textSmMedium,
-	%textSmSemibold,
-	%textSmBold,
-	%textMdMedium,
-	%textMdSemibold,
-	%textMdBold {
+	#{ $textSmMedium },
+	#{ $textSmSemibold },
+	#{ $textSmBold },
+	#{ $textMdMedium },
+	#{ $textMdSemibold },
+	#{ $textMdBold } {
 		height: var(--button-height);
 		line-height: var(--button-height);
 		font-size: unset;
@@ -21,10 +23,10 @@
 	}
 }
 
-%buttonFilled,
-%buttonOutlined,
-%buttonLink,
-%buttonInverted {
+#{ $buttonFilled },
+#{ $buttonOutlined },
+#{ $buttonLink },
+#{ $buttonInverted } {
 	--button-background: hsl(var(--accent-hsl--material-you));
 	--button-text-color: var(--accent-text-color--material-you);
 	--button-shadow: none;
@@ -84,11 +86,11 @@
 		}
 	}
 
-	&%userProfileSyncButton {
+	&#{ $userProfileSyncButton } {
 		--button-padding: 0 !important;
 	}
 
-	%buttonContents {
+	#{ $buttonContents } {
 		height: var(--button-height);
 		padding: 0;
 		line-height: var(--button-height);
@@ -100,11 +102,11 @@
 		}
 	}
 
-	%defaultColor {
+	#{ $defaultColor } {
 		color: inherit;
 	}
 
-	%buttonLoading {
+	#{ $buttonLoading } {
 		height: var(--button-height);
 		line-height: var(--button-height);
 
@@ -113,9 +115,9 @@
 		}
 	}
 
-	%buttonContentsInner,
-	%size16,
-	%size14 {
+	#{ $buttonContentsInner },
+	#{ $size16 },
+	#{ $size14 } {
 		height: var(--button-height);
 		line-height: var(--button-height);
 		font-weight: 500;
@@ -124,46 +126,46 @@
 
 /* BUTTONS -> FILLED */
 
-%buttonFilled {
-	&%buttonPrimary {
+#{ $buttonFilled } {
+	&#{ $buttonPrimary } {
 		--button-background: var(--accent-secondary-color);
 		--button-text-color: var(--accent-secondary-text-color);
 	}
 
-	&%buttonBrand {
+	&#{ $buttonBrand } {
 		--button-background: hsl(var(--accent-hsl--material-you));
 		--button-text-color: var(--accent-text-color--material-you);
 	}
 
-	&%buttonBrandInverted {
+	&#{ $buttonBrandInverted } {
 	    --button-background: var(--button-filled-white-background);
 	    --button-text-color: hsl(var(--accent-hsl--material-you));
 	}
 
-    &%buttonGreen {
+    &#{ $buttonGreen } {
 		--button-background: hsl(var(--success-hsl));
         --button-text-color: var(--success-text-color);
     }
 
-	&%buttonRed {
+	&#{ $buttonRed } {
 		--button-background: hsl(var(--alert-hsl));
 		--button-text-color: var(--alert-text-color);
 	}
 
-	&%buttonWhite {
+	&#{ $buttonWhite } {
 		--button-background: var(--button-filled-white-background);
 		--button-text-color: var(--button-filled-white-text);
 		box-shadow: none !important;
 	}
 
-	&%buttonUpsell {
+	&#{ $buttonUpsell } {
 		--button-text-color: hsl(0,0%,100%);
 	}
 }
 
 /* BUTTONS -> OUTLINED */
 
-%buttonOutlined {
+#{ $buttonOutlined } {
 	--button-background: transparent;
 	--button-text-color: hsl(var(--accent-hsl--material-you));
 	--button-shadow: none !important;
@@ -173,12 +175,12 @@
 		--button-action-color: hsl(var(--accent-hsl--material-you));
 	}
 
-	&%buttonPrimary {
+	&#{ $buttonPrimary } {
         --button-outline: 1px solid var(--accent-secondary-color);
         --button-text-color: var(--accent-secondary-color);
     }
 
-    &%buttonGreen {
+    &#{ $buttonGreen } {
         --button-outline: 1px solid hsl(var(--success-hsl));
         --button-text-color: hsl(var(--success-hsl));
 
@@ -189,7 +191,7 @@
 		}
     }
 
-	&%buttonRed {
+	&#{ $buttonRed } {
 		--button-text-color: hsl(var(--alert-hsl));
 		--button-outline: 1px solid hsl(var(--alert-hsl));
 
@@ -200,7 +202,7 @@
 		}
 	}
 
-	&%buttonWhite {
+	&#{ $buttonWhite } {
 		--button-background: transparent;
 		--button-text-color: hsl(0,0%,100%);
 		--button-outline: 1px solid hsl(0,0%,100%);
@@ -214,7 +216,7 @@
 
 /* BUTTONS -> LINKS */
 
-%buttonLink {
+#{ $buttonLink } {
 	--button-padding: 0 12px;
 	--button-background: transparent;
 	--button-text-color: var(--button-link-accent-text-color);
@@ -230,12 +232,12 @@
 	&:hover {
 		text-decoration: none !important;
 
-		%buttonContents {
+		#{ $buttonContents } {
 			background-image: none !important;
 		}
 	}
 
-	%buttonContents {
+	#{ $buttonContents } {
 		> div {
 			line-height: var(--button-height);
 			color: var(--button-text-color) !important;
@@ -244,7 +246,7 @@
 		}
 	}
 
-	&%buttonGreen {
+	&#{ $buttonGreen } {
         --button-text-color: hsl(var(--success-hsl));
 
         &:after {
@@ -254,7 +256,7 @@
 		}
     }
 
-	&%buttonGreen {
+	&#{ $buttonGreen } {
 		&:after {
 			--button-action-color: hsl(var(--success-hsl));
 			--button-action-hover: 0.1;
@@ -262,7 +264,7 @@
 		}
 	}
 
-	&%buttonRed {
+	&#{ $buttonRed } {
 		--button-text-color: hsl(var(--alert-hsl));
 
 		&:after {
@@ -275,8 +277,8 @@
 
 /* BUTTONS -> INVERTED */
 
-%buttonInverted {
-	&%buttonBrand {
+#{ $buttonInverted } {
+	&#{ $buttonBrand } {
 		--button-background: hsl(0,0%,100%,0.15);
 		--button-text-color: hsl(0,0%,100%);
 		--button-shadow: none !important;
@@ -285,17 +287,17 @@
 
 /* BUTTONS -> SIZES */
 
-%buttonSizeTiny,
-%buttonSizeMin,
-%buttonSizeSmall,
-%buttonSizeMedium,
-%buttonSizeLarge,
-%buttonSizeXlarge,
-%buttonSizeMax,
-%buttonSize,
-%buttonSizeAlt,
-%noticeButton,
-%buttonSizeIcon {
+#{ $buttonSizeTiny },
+#{ $buttonSizeMin },
+#{ $buttonSizeSmall },
+#{ $buttonSizeMedium },
+#{ $buttonSizeLarge },
+#{ $buttonSizeXlarge },
+#{ $buttonSizeMax },
+#{ $buttonSize },
+#{ $buttonSizeAlt },
+#{ $noticeButton },
+#{ $buttonSizeIcon } {
 	//min-width: var(--button-height);
 	height: var(--button-height) !important;
 	min-height: var(--button-height) !important;
@@ -304,60 +306,56 @@
 	border-radius: var(--button-radius) !important;
 }
 
-%buttonSizeMedium,
-%buttonSizeLarge,
-%buttonSizeXlarge,
-%buttonSizeMax {
+#{ $buttonSizeMedium },
+#{ $buttonSizeLarge },
+#{ $buttonSizeXlarge },
+#{ $buttonSizeMax } {
 	min-width: var(--button-height) !important;
 }
 
-%buttonSizeAlt {
+#{ $buttonSizeAlt } {
 	height: var(--button-height) !important;
 }
 
-%buttonSizeIcon {
+#{ $buttonSizeIcon } {
 	--button-padding: 0;
 
 	min-width: var(--button-height);
 }
 
-%inviteButton%buttongSizeAlt {
-	height: var(--button-height);
-}
-
-%disabledButtonWrapper {
+#{ $disabledButtonWrapper } {
 	--button-padding: 0;
 
 	background-color: transparent !important;
 
-	%buttonFilled {
+	#{ $buttonFilled } {
 		--button-padding: 0 20px;
 	}
 
-	%buttonOutlined {
+	#{ $buttonOutlined } {
 		--button-padding: 0 24px;
 
 		opacity: 0.5 !important;
 	}
 
 
-	%iconButton {
+	#{ $iconButton } {
 		--button-padding: 0;
 	}
 }
 
-%buttonIconSize {
+#{ $buttonIconSize } {
 	min-width: var(--button-height);
 	max-width: var(--button-height);
 }
 
-%iconButton {
+#{ $iconButton } {
 	--button-padding: 0;
 }
 
 /* BUTTONS -> BUTTON V2 */
 
-%buttonV2 {
+#{ $buttonV2 } {
     --button-background: hsl(var(--accent-hsl--material-you));
 	--button-text-color: var(--accent-text-color--material-you);
 	--button-shadow: none;
@@ -417,7 +415,7 @@
 		}
 	}
 
-    %buttonV2ChildrenWrapper {
+    #{ $buttonV2ChildrenWrapper } {
         min-width: 0 !important;
         height: var(--button-height);
 		padding: 0 !important;
@@ -435,54 +433,54 @@
 		}
     }
 
-    %textSmMedium,
-    %textMdMedium,
-    %textLgMedium {
+    #{ $textSmMedium },
+    #{ $textMdMedium },
+    #{ $textLgMedium } {
 		height: var(--button-height);
 		line-height: var(--button-height);
         font-size: var(--button-font-size);
     }
 }
 
-%buttonV2Expressive {
-    %buttonV2ExpressiveFill {
+#{ $buttonV2Expressive } {
+    #{ $buttonV2ExpressiveFill } {
         border-radius: var(--button-radius);
     }
 }
 
 /* BUTTONS -> BUTTON V2 -> COLORS */
 
-%buttonV2Primary {
+#{ $buttonV2Primary } {
     --button-background: hsl(var(--accent-hsl--material-you));
     --button-text-color: var(--accent-text-color--material-you);
 }
 
-%buttonV2Secondary {
+#{ $buttonV2Secondary } {
     --button-background: var(--accent-secondary-color);
     --button-text-color: var(--accent-secondary-text-color);
 }
 
-%buttonV2CriticalPrimary {
+#{ $buttonV2CriticalPrimary } {
     --button-background: hsl(var(--alert-hsl));
     --button-text-color: var(--alert-text-color);
 }
 
-%buttonV2CriticalSecondary {
+#{ $buttonV2CriticalSecondary } {
     --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
     --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
 	--button-action-color: hsl(var(--alert-hsl));
 }
 
-%buttonV2IconOnly {
+#{ $buttonV2IconOnly } {
     --button-background: transparent;
     --button-text-color: var(--text-primary);
 }
 
 /* BUTTONS -> BUTTON V2 -> SIZES */
 
-%buttonV2Small,
-%buttonV2Medium,
-%buttonV2Large {
+#{ $buttonV2Small },
+#{ $buttonV2Medium },
+#{ $buttonV2Large } {
     min-width: var(--button-height) !important;
 	height: var(--button-height) !important;
 	min-height: var(--button-height) !important;
@@ -493,7 +491,7 @@
 
 /* BUTTONS -> CALL BUTTONS */
 
-%callButtonColorable {
+#{ $callButtonColorable } {
 	--button-background: var(--menu-item-hover);
 	--button-text-color: hsl(0,0%,100%);
 
@@ -526,42 +524,42 @@
 		}
 	}
 
-	&%callButtonRed {
+	&#{ $callButtonRed } {
 		--button-background: hsl(var(--alert-hsl));
 		--button-text-color: var(--alert-text-color);
 	}
 
-	&%callButtonWhite {
+	&#{ $callButtonWhite } {
 		--button-background: hsl(0,0%,100%);
 		--button-text-color: hsl(240,8%,3%);
 	}
 
-	&%callButtonLight {
+	&#{ $callButtonLight } {
 		--button-text-color: hsl(240,8%,3%);
 	}
 
-	&%callButtonLightActive {
+	&#{ $callButtonLightActive } {
 		--button-background: var(--menu-item-select);
 		--button-text-color: hsl(240,8%,3%);
 	}
 
-	%callCenterIcon {
+	#{ $callCenterIcon } {
 		color: var(--button-text-color) !important;
 	}
 }
 
-%buttonQuestionMark {
+#{ $buttonQuestionMark } {
 	background-color: hsl(var(--accent-hsl--material-you));
 	border-radius: 50%;
 
-	%buttongQuestionMarkIcon {
+	#{ $buttongQuestionMarkIcon } {
 		color: var(--accent-text-color--material-you);
 	}
 }
 
 /* BUTTONS -> SEGMENTED BUTTONS */
 
-%segmentedButton {
+#{ $segmentedButton } {
 	padding: 11px 0;
 	background-color: transparent;
 	border-color: var(--separator-color) !important;
@@ -575,12 +573,12 @@
 		border-radius: 0 20px 20px 0;
 	}
 
-	&:not(%segmentedButtonPremiumRequired) {
+	&:not(#{ $segmentedButtonPremiumRequired }) {
 		&:hover {
 			background-color: var(--menu-item-hover) !important;
 		}
 
-		&%segmentedButtonSelected {
+		&#{ $segmentedButtonSelected } {
 			background-color: var(--menu-item-select) !important;
 		}
 	}

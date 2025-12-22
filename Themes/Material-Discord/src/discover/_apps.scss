@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,24 +7,24 @@
  *
  */
 
-%appCard {
+#{ $appCard } {
     @include card-format(true, 0, true, true, true);
 
     &:hover {
-        %appCardAvatar {
+        #{ $appCardAvatar } {
             background-color: var(--card-color-hover) !important;
             border-color: var(--card-color-hover) !important;
         }
     }
 
-    %appCardAvatar {
+    #{ $appCardAvatar } {
         background-color: var(--card-color-filled) !important;
         border-radius: calc(var(--avatar-radius) * 1.166667);
         border-color: var(--card-color-filled) !important;
     }
 
-    %appCardBannerImage,
-    %appCardBannerContent {
+    #{ $appCardBannerImage },
+    #{ $appCardBannerContent } {
         border-radius: var(--card-radius-big);
     }
 }

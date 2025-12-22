@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,80 +7,80 @@
  *
  */
 
-%membersWrap,
-%membersContainer {
+#{ $membersWrap },
+#{ $membersContainer } {
 	background-color: transparent;
 	border-left: none;
 }
 
-%members {
+#{ $members } {
 	&,
 	& > div {
 		background: transparent;
 	}
 
-	%memberChildContainer {
+	#{ $memberChildContainer } {
 	    height: 100%;
 		padding: 0;
 		background-color: transparent !important;
 	}
 
-    %listItem {
+    #{ $listItem } {
 		width: 100%;
 		height: 42px;
 		margin: 0 0 2px 0;
 		padding: 0;
 
 		&,
-		%listItemLayout {
+		#{ $listItemLayout } {
 			border-radius: var(--channel-radius);
 		}
 
-		%listItemLayout {
+		#{ $listItemLayout } {
 			width: calc(100% - (var(--scrollbar-width) + 2px));
 			margin-left: 8px;
 			padding: 0 8px 0 8px;
 			transition: 200ms ease all;
 		}
 
-		&:hover %listItemLayout {
+		&:hover #{ $listItemLayout } {
 			background-color: var(--menu-item-hover);
 		}
 
-		&%listItemSelected %listItemLayout {
+		&#{ $listItemSelected } #{ $listItemLayout } {
 			background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
 		}
 	}
 }
 
-%member {
+#{ $member } {
 	max-width: 100%;
 	background: transparent !important;
 
 	&:hover {
-		%memberChildContainer {
+		#{ $memberChildContainer } {
 			background-color: transparent;
 		}
 	}
 }
 
-%memberInner {
+#{ $memberInner } {
 	height: 100%;
 }
 
-%membersGroup {
+#{ $membersGroup } {
     @include remove-caps(14px, true);
 }
 
-%botTag {
+#{ $botTag } {
 	border-radius: 8px !important;
 
-	&%botTagRegular {
+	&#{ $botTagRegular } {
 		background-color: hsl(var(--accent-hsl--material-you));
 		color: var(--accent-text-color--material-you);
 	}
 
-	%botTagVerified {
+	#{ $botTagVerified } {
 		path {
 			fill: var(--accent-text-color--material-you);
 		}
@@ -88,7 +89,7 @@
 
 /* MEMBERS LIST -> ACTIVITIES */
 
-%memberActivityContainer {
+#{ $memberActivityContainer } {
     padding: 8px 8px 8px 12px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
@@ -99,7 +100,7 @@
         background-color: var(--card-color-hover);
     }
 
-    %memberActivityThumbnail {
+    #{ $memberActivityThumbnail } {
         border-radius: calc(var(--card-radius-big) / 1.6);
     }
 }

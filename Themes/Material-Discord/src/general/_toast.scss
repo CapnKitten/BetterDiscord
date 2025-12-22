@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,8 +7,8 @@
  *
  */
 
-%toast,
-%newToast {
+#{ $toast },
+#{ $newToast } {
 	height: 40px;
 	padding: 0 16px;
 	background-color: var(--tooltip-color);
@@ -19,8 +20,8 @@
 	color: var(--tooltip-text-color);
 }
 
-%notificationToast,
-%qwertToast {
+#{ $notificationToast },
+#{ $qwertToast } {
 	margin-top: 30px !important;
 	padding: 16px !important;
 	border-radius: 4px;
@@ -39,43 +40,43 @@
 	}
 }
 
-%notificationToast {
+#{ $notificationToast } {
 	@include popout-format(true);
 
-	+ %notificationToast {
+	+ #{ $notificationToast } {
 		margin-top: 2px !important;
 	}
 }
 
-%qwertToast {
+#{ $qwertToast } {
 	width: 30vw;
 	max-width: 30vw;
 	background-color: var(--popout-color) !important;
 	backdrop-filter: none;
 
-	+ %qwertToast {
+	+ #{ $qwertToast } {
 		margin-top: 2px !important;
 	}
 
-	%qwertToastIconContainer {
+	#{ $qwertToastIconContainer } {
 		margin-top: 0;
 		margin-right: 8px;
 		padding: 0;
 	}
 
-	%qwertToastAuthor {
+	#{ $qwertToastAuthor } {
 		display: flex;
 		width: calc(30vw - 72px);
 		max-width: calc(30vw - 72px);
 		overflow: hidden;
 	}
 
-	%qwertToastText {
+	#{ $qwertToastText } {
 		width: calc(30vw - 60px);
 		max-width: calc(30vw - 60px);
 	}
 }
 
-%notificationToastBg {
+#{ $notificationToastBg } {
 	background-color: transparent !important;
 }

@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,12 +7,12 @@
  *
  */
 
-%bdAddonSearchBar {
+#{ $bdAddonSearchBar } {
 	padding: 0 8px;
 	background-color: var(--input-color);
 	border-radius: 13px;
 
-	%bdAddonSearchInput {
+	#{ $bdAddonSearchInput } {
 		padding: 0;
 		line-height: 26px;
 		color: var(--interactive-text-default);
@@ -22,7 +23,7 @@
 	}
 }
 
-%bdAddonTitle {
+#{ $bdAddonTitle } {
     > span {
         border-radius: 8px;
     }
@@ -38,17 +39,17 @@
     }
 }
 
-%bdAddonViews {
-	%bdAddonViewsButton {
+#{ $bdAddonViews } {
+	#{ $bdAddonViewsButton } {
 		background-color: transparent !important;
 
-		&:not(%bdAddonViewsButtonSelected) {
+		&:not(#{ $bdAddonViewsButtonSelected }) {
             svg[fill] {
                 fill: var(--interactive-text-default);
             }
         }
 
-		&%bdAddonViewsButtonSelected {
+		&#{ $bdAddonViewsButtonSelected } {
 			background-color: hsl(var(--accent-hsl--material-you)) !important;
 
 			svg {
@@ -58,14 +59,14 @@
 	}
 }
 
-%bdAddonControls {
-	+ %bdAddonList {
+#{ $bdAddonControls } {
+	+ #{ $bdAddonList } {
 		margin-top: 16px;
 	}
 }
 
-%bdThemesTab {
-	%bdAddonControls {
+#{ $bdThemesTab } {
+	#{ $bdAddonControls } {
 		&:after {
 			position: relative;
 			display: flex;
@@ -83,63 +84,63 @@
 	}
 }
 
-%bdEmptyImageContainer {
+#{ $bdEmptyImageContainer } {
 	margin-top: 24px;
 	max-width: unset;
 }
 
-%bdAddonList {
-    &%bdAddonListGridView {
+#{ $bdAddonList } {
+    &#{ $bdAddonListGridView } {
         margin: 16px 0 32px 0;
         grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
         gap: 16px clamp(8px, 2vw, 16px);
         justify-content: center;
     }
 
-	%bdAddonCard {
+	#{ $bdAddonCard } {
 		margin-bottom: 16px;
 	}
 }
 
-%bdAddonCard {
+#{ $bdAddonCard } {
 	@include card-format(true, 0, true);
 
-	%bdAddonCardHeader {
+	#{ $bdAddonCardHeader } {
 		@include card-format--header(false, true);
 		gap: 8px;
 
-		%bdAddonCardHeaderIcon {
+		#{ $bdAddonCardHeaderIcon } {
 	        margin-right: 0;
 	    }
 
-		%bdAddonCardLink {
+		#{ $bdAddonCardLink } {
 			color: hsl(var(--accent-hsl));
 		}
 
-		%bdAddonCardHeaderMeta {
+		#{ $bdAddonCardHeaderMeta } {
 			display: block;
 			font-size: 12px;
 		}
 	}
 
-	%bdAddonCardDescriptionWrap {
+	#{ $bdAddonCardDescriptionWrap } {
 		padding: 0 16px;
 	}
 
-	%bdAddonCardDescription {
+	#{ $bdAddonCardDescription } {
 		padding: 0;
 	}
 
-	%bdAddonCardFooter {
+	#{ $bdAddonCardFooter } {
 		background-color: transparent;
 	}
 
-	%bdAddonCardControls {
+	#{ $bdAddonCardControls } {
 		background-color: transparent;
 		border-radius: 14px;
 		overflow: hidden;
 
-		%bdButton {
+		#{ $bdButton } {
 			padding: 3px 8px;
 			background-color: var(--card-button-color) !important;
 			color: var(--interactive-text-default);
@@ -158,15 +159,15 @@
 	}
 }
 
-%bdAddonCardLinks {
+#{ $bdAddonCardLinks } {
     gap: 10px;
 
-    %bdAddonCardLinkButton + %bdAddonCardLinkButton {
+    #{ $bdAddonCardLinkButton } + #{ $bdAddonCardLinkButton } {
         margin: 0;
     }
 }
 
-%bdAddonCardDescriptionWrap %bdAddonBanner {
+#{ $bdAddonCardDescriptionWrap } #{ $bdAddonBanner } {
     margin-bottom: 16px;
     padding: 8px;
     border-radius: calc(var(--card-radius-big) / 1.5);
@@ -174,11 +175,11 @@
 	color: var(--interactive-text-default);
 }
 
-%bdAddonBanner {
-    &%bdAddonBannerDanger {
+#{ $bdAddonBanner } {
+    &#{ $bdAddonBannerDanger } {
         background-color: hsl(var(--alert-hsl),0.3);
 
-        %bdAddonBannerIcon {
+        #{ $bdAddonBannerIcon } {
             fill: hsl(var(--alert-hsl));
         }
     }
@@ -186,15 +187,15 @@
 
 /* BETTERDISCORD ADDONS -> BD ADDON MODAL */
 
-%bdAddonModal {
-    %bdAddonModalHeader {
+#{ $bdAddonModal } {
+    #{ $bdAddonModalHeader } {
         h1 {
             font-size: 22px;
             font-weight: 400;
         }
     }
 
-    %bdSelect {
+    #{ $bdSelect } {
         @include input-format(false, false, true);
         font-size: 1em;
     }

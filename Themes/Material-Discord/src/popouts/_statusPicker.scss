@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,19 +7,19 @@
  *
  */
 
-%popoutLayer {
+#{ $popoutLayer } {
 	&[style*="bottom: 68px; left: 88px"] {
 		left: 80px !important;
 	}
 }
 
-%statusMenu {
+#{ $statusMenu } {
 	--popout-color: transparent;
 
 	box-shadow: none;
 	animation: none;
 
-	%scroller {
+	#{ $scroller } {
 		padding-right: 0 !important;
 
 		&::-webkit-scrollbar {
@@ -26,25 +27,25 @@
         }
 	}
 
-	%menuPopoutSeparator {
+	#{ $menuPopoutSeparator } {
 		width: calc(100% - 24px);
 		margin: 8px 12px !important;
         border-color: var(--separator-color) !important;
 	}
 
-	%submenuItemSubMenuAlt {
-        %menuPopoutSeparator {
+	#{ $submenuItemSubMenuAlt } {
+        #{ $menuPopoutSeparator } {
             width: 100%;
     		margin: 8px 0 !important;
     	}
     }
 }
 
-body:active %statusMenu:not(:active) {
+body:active #{ $statusMenu }:not(:active) {
 	opacity: 1;
 }
 
-%statusPickerScroller {
+#{ $statusPickerScroller } {
 	padding: 8px 0 !important;
 
 	&::-webkit-scrollbar {
@@ -52,53 +53,6 @@ body:active %statusMenu:not(:active) {
 	}
 }
 
-%statusMenuProfileGroup {
-	margin: -8px 0 0;
-
-	%menuPopoutItem {
-		padding: 0;
-	}
-
-	%userPopoutBodyInnerWrapper {
-		margin-top: 12px;
-		background-color: transparent;
-
-		%userPopoutDivider {
-			display: none;
-		}
-
-		%userPopoutInfoSection {
-			margin-bottom: 12px;
-		}
-	}
-
-	%statusMenuUserInfoTitle {
-		@include remove-caps(14px);
-	}
-}
-
-%statusPickerItem {
+#{ $statusPickerItem } {
 	padding: 0;
-}
-
-/* STATUS PICKER -> NEW */
-
-%userPopoutInner {
-	%menuPopout#account {
-		background-color: transparent;
-		box-shadow: none;
-		animation: unset;
-		transform-origin: unset;
-
-		%menuPopoutItem {
-			&[id*="account-divider-"] {
-				min-height: unset;
-				padding: 0;
-			}
-
-			%menuPopoutDivider {
-				margin: 8px 12px;
-			}
-		}
-	}
 }

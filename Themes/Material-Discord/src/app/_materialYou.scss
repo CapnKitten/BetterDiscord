@@ -1,10 +1,12 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *  MATERIAL YOU
  *
  */
 
-%themeDark {
+#{ $themeDark } {
     --saturation-modifier: 0.31;
     --lightness-modifier: 0.225;
     --text-lightness-modifier: 1.0;
@@ -320,7 +322,7 @@
             calc(var(--accent-lightness) * var(--lightness-modifier) * var(--ui-darkness-modifier) * 5)
         );
 
-    &%themeMidnight {
+    &#{ $themeMidnight } {
         --midnight-modifier: 4.0;
 
         --accent-secondary-color: hsl(
@@ -387,9 +389,9 @@
             );
     }
 
-    %popoutLayer,
-    %modalRoot,
-    %bdModalRoot {
+    #{ $popoutLayer },
+    #{ $modalRoot },
+    #{ $bdModalRoot } {
         --input-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -401,7 +403,7 @@
                 calc(var(--accent-lightness) * var(--lightness-modifier) * var(--ui-darkness-modifier) * 1.7)
             );
 
-        %input {
+        #{ $input } {
             --input-color: hsl(
                     var(--accent-hue),
                     calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -410,7 +412,7 @@
         }
     }
 
-    %triggerMainContainer {
+    #{ $triggerMainContainer } {
         --input-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -418,7 +420,7 @@
             );
     }
 
-    %barBase {
+    #{ $barBase } {
         --popout-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -427,7 +429,7 @@
     }
 }
 
-%themeLight {
+#{ $themeLight } {
     --saturation-modifier: 0.74;
     --lightness-modifier: 2.125;
     --text-lightness-modifier: 1.0;
@@ -733,9 +735,9 @@
             calc(var(--accent-lightness) * var(--lightness-modifier) * 0.385)
         );
 
-    %buttonOutlined {
-        &%buttonBrand,
-        &%buttonPrimary {
+    #{ $buttonOutlined } {
+        &#{ $buttonBrand },
+        &#{ $buttonPrimary } {
             --button-text-color: hsl(
                     var(--accent-hue),
                     calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
@@ -757,10 +759,10 @@
         }
     }
 
-    %buttonLink {
-        &%buttonBrand,
-        &%buttonPrimary,
-		&%colorLink {
+    #{ $buttonLink } {
+        &#{ $buttonBrand },
+        &#{ $buttonPrimary },
+		&#{ $colorLink } {
             --button-text-color: hsl(
 					var(--accent-hue),
 					calc(var(--accent-saturation) * var(--saturation-modifier) * 0.84 * var(--saturation-factor)),
@@ -769,9 +771,9 @@
         }
     }
 
-    %radioItem {
+    #{ $radioItem } {
         &[aria-checked=true] {
-            %radioBar svg {
+            #{ $radioBar } svg {
                 color: hsl(
                         var(--accent-hue),
                         calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
@@ -781,9 +783,9 @@
         }
     }
 
-    %menuPopoutItem {
+    #{ $menuPopoutItem } {
         &[role=menuitemradio][aria-checked=true] {
-            %menuPopoutIcon {
+            #{ $menuPopoutIcon } {
                 color: hsl(
                         var(--accent-hue),
                         calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
@@ -793,8 +795,8 @@
         }
     }
 
-    %menuPopoutColorDefault {
-        %menuPopoutCheckbox {
+    #{ $menuPopoutColorDefault } {
+        #{ $menuPopoutCheckbox } {
             color: hsl(
                     var(--accent-hue),
                     calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
@@ -802,20 +804,20 @@
                 );
         }
 
-        %menuPopoutCheck {
+        #{ $menuPopoutCheck } {
             color: hsl(var(--accent-hsl--material-you));
         }
     }
 
-    %input:focus {
+    #{ $input }:focus {
         --accent-hsl--material-you:
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
                 calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3);
     }
 
-    %popoutLayer,
-    %modalRoot {
+    #{ $popoutLayer },
+    #{ $modalRoot } {
         --input-pill-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -823,9 +825,9 @@
             );
     }
 
-    &%popoutLayer {
-        %input,
-        %reviewDBInput {
+    &#{ $popoutLayer } {
+        #{ $input },
+        #{ $reviewDBInput } {
             --input-color: hsl(
                     var(--accent-hue),
                     calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -834,8 +836,8 @@
         }
     }
 
-    %modalRoot {
-        %modalContent {
+    #{ $modalRoot } {
+        #{ $modalContent } {
             a {
                 color: hsl(
                         var(--accent-hue),
@@ -845,7 +847,7 @@
             }
         }
 
-        %input {
+        #{ $input } {
             --input-color: hsl(
                     var(--accent-hue),
                     calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -854,8 +856,8 @@
         }
     }
 
-    %browseChannelsHeader {
-        %listPopoutSearchBar {
+    #{ $browseChannelsHeader } {
+        #{ $listPopoutSearchBar } {
             --input-color: hsl(
                     var(--accent-hue),
                     calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -864,7 +866,7 @@
         }
     }
 
-    %triggerMainContainer {
+    #{ $triggerMainContainer } {
         --input-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -872,21 +874,21 @@
             );
     }
 
-    %headerBarIconBadge {
+    #{ $headerBarIconBadge } {
         --accent-hsl--material-you:
             var(--accent-hue),
             calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
             calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3);
     }
 
-    %postThreadButtonContainer {
+    #{ $postThreadButtonContainer } {
         --accent-hsl--material-you:
             var(--accent-hue),
             calc(var(--accent-saturation) * var(--saturation-modifier) * 1.2 * var(--saturation-factor)),
             calc(var(--accent-lightness) * var(--lightness-modifier) * 0.3);
     }
 
-    %barBase {
+    #{ $barBase } {
         --popout-color: hsl(
                 var(--accent-hue),
                 calc(var(--accent-saturation) * var(--saturation-modifier) * var(--saturation-factor)),
@@ -909,9 +911,9 @@
 /* MATERIAL YOU - VISUAL REFRESH QUICK FIX */
 
 @supports (color:color-mix(in lch,red,blue)) {
-    %visualRefresh {
-        &%themeDark,
-        %themeDark {
+    #{ $visualRefresh } {
+        &#{ $themeDark },
+        #{ $themeDark } {
             --text-primary: hsl(
         			var(--accent-hue),
         			calc(var(--accent-saturation) * var(--saturation-modifier) * 1.84 * var(--saturation-factor)),
@@ -969,8 +971,8 @@
         		);
         }
 
-        &%themeLight,
-        %themeLight {
+        &#{ $themeLight },
+        #{ $themeLight } {
             --text-primary: hsl(
         			var(--accent-hue),
         			calc(var(--accent-saturation) * var(--saturation-modifier) * 0.32 * var(--saturation-factor)),

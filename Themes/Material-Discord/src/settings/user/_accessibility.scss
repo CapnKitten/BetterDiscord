@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,16 +7,16 @@
  *
  */
 
-%accessibilityPreview {
+#{ $accessibilityPreview } {
     @include card-format(true, 16px);
 }
 
-%accessibilityMessagePreview {
+#{ $accessibilityMessagePreview } {
     padding: 0;
     background-color: var(--chat-color);
     border-radius: calc(var(--card-radius-big) / 1.25);
 
-    %message {
+    #{ $message } {
         margin-top: 0 !important;
         margin-left: 52px;
         margin-right: 0;
@@ -26,7 +27,7 @@
             display: none;
         }
 
-        %avatarLarge {
+        #{ $avatarLarge } {
             left: -50px;
         }
     }

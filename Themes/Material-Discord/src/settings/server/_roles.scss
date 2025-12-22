@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,41 +7,41 @@
  *
  */
 
-%guildSettingsRoleDefaultPermissions {
+#{ $guildSettingsRoleDefaultPermissions } {
     @include card-format(false, 16px, true, true);
 
-    %guildSettingsRoleDefaultPermissionsIcon {
+    #{ $guildSettingsRoleDefaultPermissionsIcon } {
         background-color: var(--card-button-color);
     }
 }
 
-%guildSettingsRolesTable {
+#{ $guildSettingsRolesTable } {
 	padding: 16px;
     background-color: var(--card-color-filled);
 	border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
-    %guildSettingsRolesTableHeader {
+    #{ $guildSettingsRolesTableHeader } {
 		margin-left: 0;
 		margin-bottom: 0;
 
-        %dragSpacing {
+        #{ $dragSpacing } {
 			display: none;
 		}
     }
 
-    %guildSettingsRolesTableTitle {
+    #{ $guildSettingsRolesTableTitle } {
 		font-size: 1em;
 		color: var(--card-header-text-color);
 		font-weight: 500;
 		text-transform: none;
 
-		&%memberSpacing {
+		&#{ $memberSpacing } {
 			margin-left: 64px;
 		}
 	}
 }
 
-%guildSettingsRoleRow {
+#{ $guildSettingsRoleRow } {
     height: auto;
     margin: 0;
     padding: 12px 16px;
@@ -61,21 +62,21 @@
     }
 
     &:hover {
-        &:not(%guildSettingsRoleRowDisabledHover) {
+        &:not(#{ $guildSettingsRoleRowDisabledHover }) {
             background-color: var(--card-color-filled);
 
             &:before {
                 background-color: var(--card-color-hover);
             }
 
-            %guildSettingsRoleDragIcon {
+            #{ $guildSettingsRoleDragIcon } {
                 opacity: 1;
             }
 
-            %guildSettingsRoleCircleButton {
+            #{ $guildSettingsRoleCircleButton } {
                 background-color: var(--card-button-color-hover);
 
-                &%guildSettingsRoleEditButton {
+                &#{ $guildSettingsRoleEditButton } {
                     opacity: 1;
                 }
             }
@@ -98,7 +99,7 @@
     }
 }
 
-%guildSettingsRoleDragIcon {
+#{ $guildSettingsRoleDragIcon } {
     position: absolute;
     left: 8px;
     padding: 12px;
@@ -111,10 +112,10 @@
     line-height: 10px;
 }
 
-%guildSettingsRoleCircleButton {
+#{ $guildSettingsRoleCircleButton } {
     background-color: var(--card-button-color);
 
-    &%guildSettingsRoleEditButton {
+    &#{ $guildSettingsRoleEditButton } {
         opacity: 0;
         visibility: visible;
         transition: var(--default-time) var(--default-animation) opacity;
@@ -123,41 +124,41 @@
 
 /* SERVER ROLES -> EDIT/NEW */
 
-%guildSettingsRolePage {
+#{ $guildSettingsRolePage } {
 	width: 100%;
 	min-width: 100%;
 
-	%guildSettingsRoleSidebar,
-	%guildSettingsRoleContentContainer {
+	#{ $guildSettingsRoleSidebar },
+	#{ $guildSettingsRoleContentContainer } {
 		position: relative;
 	}
 
-	%guildSettingsRoleSidebar {
+	#{ $guildSettingsRoleSidebar } {
 		margin-left: 40px;
 		border-right-color: var(--card-border-color);
 
-		%guildSettingsRoleSidebarList {
+		#{ $guildSettingsRoleSidebarList } {
 			padding: 0 16px 96px 16px;
 			background-color: transparent;
 			border: none;
 		}
 
-		%guildSettingsRoleSidebarTitleContainer {
+		#{ $guildSettingsRoleSidebarTitleContainer } {
 			margin: 0;
 			padding: 0 8px 16px;
 			background-color: var(--main-color);
 
-            &%guildSettingsRoleSidebarTitleElevated {
+            &#{ $guildSettingsRoleSidebarTitleElevated } {
                 border-bottom: 1px solid var(--card-border-color);
                 box-shadow: none;
             }
 
-			%guildSettingsRoleSidebarTitleText {
+			#{ $guildSettingsRoleSidebarTitleText } {
 				@include remove-caps(16px);
 			}
 		}
 
-		%item {
+		#{ $item } {
 			width: auto;
 			padding: 0 12px;
 			border-radius: 16px;
@@ -171,41 +172,41 @@
                 background-color: var(--menu-item-hover) !important;
             }
 
-            &%itemSelected {
+            &#{ $itemSelected } {
                 background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity)) !important;
             }
 		}
 
-		%guildSettingsRoleDot {
+		#{ $guildSettingsRoleDot } {
 			border: none;
 		}
 	}
 
-	%guildSettingsRoleContentContainer {
+	#{ $guildSettingsRoleContentContainer } {
 		left: 0;
 		flex: 1;
 	}
 
-	%guildSettingsRoleContentWidth {
+	#{ $guildSettingsRoleContentWidth } {
 		width: auto;
 		min-width: auto;
 		max-width: none;
 		padding-right: 82px;
 
-        %buttonSizeTiny {
+        #{ $buttonSizeTiny } {
             --button-height: 24px;
             --button-padding: 0 8px;
         }
 	}
 
-	%guildSettingsRoleHeader {
+	#{ $guildSettingsRoleHeader } {
 		margin-left: 0;
 		margin-right: 0;
 		padding: 0;
 		background-color: var(--main-color);
 		transition: var(--default-time) var(--default-animation) border-bottom-color;
 
-		&%guildSettingsRoleStickyHeader {
+		&#{ $guildSettingsRoleStickyHeader } {
 			box-shadow: none;
 		}
 
@@ -218,27 +219,22 @@
 		}
 	}
 
-	%guildSettingsRoleTabBar {
-		margin-left: 0;
-		border-bottom: 1px solid var(--card-border-color);
-	}
-
-	%guildSettingsRoleSearchContainer {
+	#{ $guildSettingsRoleSearchContainer } {
 		margin-top: 16px;
 		padding-bottom: 16px;
 		border-bottom: 1px solid var(--card-border-color);
 	}
 
-    %guildSettingsRoleIconPreviewContainer {
+    #{ $guildSettingsRoleIconPreviewContainer } {
         border-radius: var(--card-radius-big);
     }
 
-	%guildSettingsRolePreviewContainer {
+	#{ $guildSettingsRolePreviewContainer } {
 		background-color: transparent;
 		border-radius: var(--card-radius-big);
 		border: none;
 
-		%guildSettingsRoleMessageContainer {
+		#{ $guildSettingsRoleMessageContainer } {
             padding: 16px 16px 16px 66px;
 			background-color: var(--chat-color);
 		}
@@ -248,7 +244,7 @@
 		margin-bottom: 20px;
 	}
 
-	+ %settingsToolsContainer {
+	+ #{ $settingsToolsContainer } {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -256,59 +252,59 @@
 	}
 }
 
-%guildSettingsRoleStylePreviewContainer {
+#{ $guildSettingsRoleStylePreviewContainer } {
     @include card-format(false, var(--space-8) var(--space-4), true, true, true);
 
     &:hover {
-        %guildSettingsRoleStyleMessageContainer {
+        #{ $guildSettingsRoleStyleMessageContainer } {
             &:after {
                 background: linear-gradient(to right, transparent, var(--card-color-hover));
             }
         }
     }
 
-    &%guildSettingsRoleStylePreviewContainerSelected {
+    &#{ $guildSettingsRoleStylePreviewContainerSelected } {
         background-color: var(--card-color-active);
         border-color: hsl(var(--accent-hsl--material-you));
 
-        %guildSettingsRoleStyleLabel {
+        #{ $guildSettingsRoleStyleLabel } {
             background-color: transparent;
         }
 
-        %guildSettingsRoleStyleMessageContainer {
+        #{ $guildSettingsRoleStyleMessageContainer } {
             &:after {
                 background: linear-gradient(to right, transparent, var(--card-color-active));
             }
         }
     }
 
-    %messageHeader,
-    %markup {
+    #{ $messageHeader },
+    #{ $markup } {
         margin-left: -84px;
     }
 }
 
-%guildSettingsRoleStyleMessageContainer {
+#{ $guildSettingsRoleStyleMessageContainer } {
     &:after {
         background: linear-gradient(to right, transparent, var(--card-color-filled));
     }
 }
 
-%guildSettingsRoleStyleMessageContainer,
-%guildSettingsRoleStyleLabel {
+#{ $guildSettingsRoleStyleMessageContainer },
+#{ $guildSettingsRoleStyleLabel } {
     background-color: transparent;
 }
 
 /* SERVER ROLES -> ADD MEMBER */
 
-%guildSettingsRoleAddMemberSearchBox {
+#{ $guildSettingsRoleAddMemberSearchBox } {
     padding: 16px;
 
-    &%guildSettingsRoleAddMemberScrollSeparator {
+    &#{ $guildSettingsRoleAddMemberScrollSeparator } {
         box-shadow: none !important;
     }
 
-    %guildSettingsRoleAddMemberSearchBar {
+    #{ $guildSettingsRoleAddMemberSearchBar } {
         margin-bottom: 0;
         border: none;
     }

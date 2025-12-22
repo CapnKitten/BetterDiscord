@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,51 +7,51 @@
  *
  */
 
-%uploadModalIn {
-    %uploadDropModal {
-    	%uploadDropModalBgScale {
+#{ $uploadModalIn } {
+    #{ $uploadDropModal } {
+    	#{ $uploadDropModalBgScale } {
     		@include popout-format;
     	}
 
-    	%uploadDropModalInner {
+    	#{ $uploadDropModalInner } {
     		border: none;
     	}
 
-    	%uploadDropModalTitle {
+    	#{ $uploadDropModalTitle } {
     		&,
     		strong {
     			color: var(--interactive-text-default) !important;
     		}
     	}
 
-    	%uploadDropModalInstructions {
+    	#{ $uploadDropModalInstructions } {
     		color: var(--interactive-text-default) !important;
     	}
 
-    	&%uploadDropModalError {
-    		%uploadDropModalTitle {
+    	&#{ $uploadDropModalError } {
+    		#{ $uploadDropModalTitle } {
     			&,
     			strong {
     				color: #eee !important;
     			}
     		}
 
-    		%uploadDropModalInstructions {
+    		#{ $uploadDropModalInstructions } {
     			color: #eee !important;
     		}
     	}
     }
 }
 
-%uploadModal {
-    %uploadModalFooter {
+#{ $uploadModal } {
+    #{ $uploadModalFooter } {
         padding: 8px;
 		background-color: transparent !important;
 		border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
 		border-top: 1px solid var(--popout-header-border);
 		box-shadow: none !important;
 
-        %button%buttonLink {
+        #{ $button }#{ $buttonLink } {
 			margin-right: 8px;
 		}
     }
@@ -62,18 +63,18 @@
 
 /* UPLOAD -> SOUNDBOARD */
 
-%uploadSoundboardMultiInput + %uploadSoundboardSection {
+#{ $uploadSoundboardMultiInput } + #{ $uploadSoundboardSection } {
     &:nth-last-of-type(2) {
         margin-bottom: 0;
     }
 }
 
-%uploadSoundboardFakeInput {
+#{ $uploadSoundboardFakeInput } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
     border: none;
 
-    %uploadSoundboardFakeInputPlayButton {
+    #{ $uploadSoundboardFakeInputPlayButton } {
         background-color: var(--card-button-color);
         transition: var(--default-time) var(--default-animation) background-color;
 
@@ -83,7 +84,7 @@
     }
 }
 
-%uploadSoundboardHandleFrame {
+#{ $uploadSoundboardHandleFrame } {
     &:before,
     &:after {
         background-color: var(--card-color-filled);

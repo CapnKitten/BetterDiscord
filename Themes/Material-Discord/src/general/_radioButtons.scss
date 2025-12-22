@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -19,7 +20,7 @@ div[role="radiogroup"] {
     }
 }
 
-%radioItem {
+#{ $radioItem } {
 	margin: 0;
 	padding: 0 12px;
 	background-color: transparent;
@@ -35,7 +36,7 @@ div[role="radiogroup"] {
         background-color: var(--card-color-active) !important;
     }
 
-	%radioBar {
+	#{ $radioBar } {
 		grid-gap: 12px;
 		margin-bottom: 0;
 		padding: 12px 0 !important;
@@ -51,18 +52,10 @@ div[role="radiogroup"] {
 			bottom: 0;
 			margin: auto 0;
 		}
-
-		&%radioBarAlt {
-			&:after {
-				top: 0;
-				left: unset;
-				right: -4px;
-			}
-		}
 	}
 
 	&[aria-checked=true] {
-		%radioBar {
+		#{ $radioBar } {
 			&:after {
 				--md-ripple-color: var(--accent-hsl--material-you);
 			}
@@ -76,15 +69,15 @@ div[role="radiogroup"] {
 			}
 		}
 
-		%radioIconChecked {
+		#{ $radioIconChecked } {
 			color: currentColor !important;
 		}
 	}
 
-	&%radioItemDisabled {
+	&#{ $radioItemDisabled } {
 		opacity: 1;
 
-		%radioBar {
+		#{ $radioBar } {
 			opacity: 0.3;
 
 			&:after {
@@ -94,7 +87,7 @@ div[role="radiogroup"] {
 	}
 }
 
-%radioIndicatorGroup {
+#{ $radioIndicatorGroup } {
 	width: 24px;
 	height: 24px;
 	background-repeat: no-repeat;
@@ -102,29 +95,29 @@ div[role="radiogroup"] {
 	-webkit-mask-repeat: no-repeat;
 	mask-size: 100%;
 
-	%radioIndicator {
+	#{ $radioIndicator } {
 		display: none;
 	}
 }
 
-%radioItem,
-%menuPopoutItem[role="menuitemradio"] {
+#{ $radioItem },
+#{ $menuPopoutItem }[role="menuitemradio"] {
 	&[aria-checked="false"] {
-		%radioIndicatorGroup {
+		#{ $radioIndicatorGroup } {
 			background-color: var(--interactive-text-default);
 			-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_unchecked.svg);
 		}
 	}
 
 	&[aria-checked="true"] {
-		%radioIndicatorGroup {
+		#{ $radioIndicatorGroup } {
 			background-color: hsl(var(--accent-hsl--material-you));
 			-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_checked.svg);
 		}
 	}
 }
 
-%radioItemDisabledTooltip {
+#{ $radioItemDisabledTooltip } {
 	margin: 0;
 	@include card-format--list;
 
@@ -136,13 +129,13 @@ div[role="radiogroup"] {
 /* RADIO BUTTONS -> PILL */
 
 div[role="radiogroup"] {
-	&%radioPillGroup {
+	&#{ $radioPillGroup } {
         height: 30px;
 		@include card-format(false, 0, false);
 	}
 }
 
-%radioPillItem {
+#{ $radioPillItem } {
 	height: 28px;
 	background-color: transparent;
 	cursor: pointer;
@@ -158,30 +151,30 @@ div[role="radiogroup"] {
 		background-color: var(--menu-item-hover);
 	}
 
-	&%radioPillItemSelected {
+	&#{ $radioPillItemSelected } {
 		background-color: var(--menu-item-select);
 		color: var(--menu-item-text-color);
 	}
 
-	&%radioPillItemDeny {
+	&#{ $radioPillItemDeny } {
 		border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
 
-		&%radioPillItemSelected {
+		&#{ $radioPillItemSelected } {
 			background-color: hsl(var(--alert-hsl));
 			color: var(--alert-text-color);
 		}
 	}
 
-	&%radioPillItemPassthrough {
-		&%radioPillItemSelected {
+	&#{ $radioPillItemPassthrough } {
+		&#{ $radioPillItemSelected } {
 			background-color: var(--menu-item-select);
 		}
 	}
 
-	&%radioPillItemAllow {
+	&#{ $radioPillItemAllow } {
 		border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
 
-		&%radioPillItemSelected {
+		&#{ $radioPillItemSelected } {
 			background-color: hsl(var(--success-hsl));
 			color: #fff;
 		}
@@ -190,15 +183,15 @@ div[role="radiogroup"] {
 
 /* RADIO BUTTONS -> CONTEXT MENU */
 
-%menuPopoutItem {
+#{ $menuPopoutItem } {
 	&[role="menuitemradio"] {
-		%radioIndicatorGroup {
+		#{ $radioIndicatorGroup } {
             width: 20px;
             height: 20px;
         }
 
 		&[aria-checked="true"] {
-			%menuPopoutIcon {
+			#{ $menuPopoutIcon } {
 				color: hsl(var(--accent-hsl--material-you));
 
 				path {
@@ -209,7 +202,7 @@ div[role="radiogroup"] {
 	}
 
 	&[id*="account-switch"] {
-		%menuPopoutActiveIcon {
+		#{ $menuPopoutActiveIcon } {
 			circle {
 				fill: var(--accent-text-color--material-you);
 			}
@@ -221,8 +214,8 @@ div[role="radiogroup"] {
 	}
 }
 
-%menuPopoutIcon {
-    %menuPopoutRadio {
+#{ $menuPopoutIcon } {
+    #{ $menuPopoutRadio } {
         color: currentColor !important;
     }
 }

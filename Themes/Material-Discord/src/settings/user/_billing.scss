@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,59 +7,59 @@
  *
  */
 
-%paymentSourceRow {
+#{ $paymentSourceRow } {
     @include card-format(false, 16px, true);
 }
 
-%paymentPane {
+#{ $paymentPane } {
     @include card-format(true, 0, true);
 
-    %paymentRowHeader {
+    #{ $paymentRowHeader } {
         padding: 16px;
     }
 
-    %paymentBottomDivider {
+    #{ $paymentBottomDivider } {
         border: none;
     }
 
-    %paymentPageActions {
+    #{ $paymentPageActions } {
         padding: 16px 0;
     }
 }
 
-%paymentRow {
-    &:not(%payment) {
+#{ $paymentRow } {
+    &:not(#{ $payment }) {
         border-bottom: none;
     }
 }
 
-%payment {
+#{ $payment } {
     background-color: var(--card-color-filled) !important;
 
-    &:not(%paymentHoverable) {
+    &:not(#{ $paymentHoverable }) {
         padding-bottom: 1px;
     }
 }
 
-%paymentPaginator {
+#{ $paymentPaginator } {
     background-color: transparent !important;
 
-    %paymentDescriptionIcon {
+    #{ $paymentDescriptionIcon } {
         border-radius: 50%;
     }
 
-    %paymentExpandedInfo {
+    #{ $paymentExpandedInfo } {
         --card-color-filled: var(--card-color-alt);
         @include card-format(false, 16px, true);
 
-        %paymentHeader {
+        #{ $paymentHeader } {
             border-color: var(--card-border-color);
         }
     }
 }
 
-%paymentPageButtonPrev,
-%paymentPageButtonNext {
+#{ $paymentPageButtonPrev },
+#{ $paymentPageButtonNext } {
     width: var(--button-height);
     height: var(--button-height);
     padding: 0;
@@ -66,24 +67,24 @@
     border-color: var(--card-border-color);
     text-align: center;
 
-    &%paymentPageButtonDisabled {
+    &#{ $paymentPageButtonDisabled } {
         border-color: var(--card-border-color);
     }
 }
 
-%paymentPageButtonPrev {
+#{ $paymentPageButtonPrev } {
     border-radius: var(--button-radius) 0 0 var(--button-radius);
 }
 
-%paymentPageButtonNext {
+#{ $paymentPageButtonNext } {
     border-radius: 0 var(--button-radius) var(--button-radius) 0;
 }
 
-%paymentPageIndicator {
+#{ $paymentPageIndicator } {
     height: var(--button-height);
     border-color: var(--card-border-color);
 }
 
-%codeRedemptionRedirect {
+#{ $codeRedemptionRedirect } {
     @include card-format(true, 16px);
 }

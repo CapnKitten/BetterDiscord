@@ -1,10 +1,12 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	MESSAGE REACTIONS
  *
  */
 
-%reactions {
+#{ $reactions } {
 	margin: 8px 0 0 0;
 	padding-bottom: 0;
 	gap: 4px;
@@ -13,7 +15,7 @@
 		margin-left: -4px;
     }
 
-	%reactionBtn {
+	#{ $reactionBtn } {
 		margin-bottom: 0;
         background-color: transparent;
         border: none;
@@ -24,7 +26,7 @@
 	}
 }
 
-%reaction {
+#{ $reaction } {
 	margin: 0;
 	background-color: transparent;
 	border-radius: 8px;
@@ -35,11 +37,11 @@
 		border-color: transparent;
 	}
 
-	&%reactionMe {
+	&#{ $reactionMe } {
 		background-color: hsl(var(--accent-hsl--material-you),0.2);
 		border-color: hsl(var(--accent-hsl--material-you));
 
-		%reactionCount {
+		#{ $reactionCount } {
 			color: hsl(var(--accent-hsl--material-you));
 		}
 	}
@@ -47,19 +49,19 @@
 
 /* MESSAGE REACTIONS -> REVERT BUTTONS TO REACTION STYLE */
 
-%embedComponent {
-	&%buttonFilled {
+#{ $embedComponent } {
+	&#{ $buttonFilled } {
 		--button-height: 28px;
 		--button-padding: 0 8px;
         --button-background: var(--input-color-alt);
 		--button-text-color: var(--input-text-color);
 
-		%embedEmoji {
+		#{ $embedEmoji } {
 			width: calc(var(--button-height) - 8px);
 			height: calc(var(--button-height) - 8px);
 		}
 
-        &%buttonBrand {
+        &#{ $buttonBrand } {
             --button-background: hsl(var(--accent-hsl--material-you));
 			--button-text-color: var(--accent-text-color--material-you);
         }
@@ -72,7 +74,7 @@
  *
  */
 
-%contextMenuQuickReaction {
+#{ $contextMenuQuickReaction } {
 	background-color: var(--menu-item-hover);
 
 	&:hover {

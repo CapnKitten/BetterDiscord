@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,21 +7,21 @@
  *
  */
 
-%chat,
-%threadSidebar {
+#{ $chat },
+#{ $threadSidebar } {
 	background-color: var(--chat-color) !important;
 }
 
-%chat {
+#{ $chat } {
 	border-top-right-radius: var(--card-radius-big);
 	border-top: none;
 
-	&%threadSidebarOpen {
+	&#{ $threadSidebarOpen } {
 		border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
 		border-right: none;
 	}
 
-	&:has(%callWrapperSidebarOpen) {
+	&:has(#{ $callWrapperSidebarOpen }) {
         background-color: transparent !important;
     }
 
@@ -29,24 +30,24 @@
 	}
 }
 
-%channelChatWrapper {
+#{ $channelChatWrapper } {
     background: transparent;
 }
 
-%noChannel {
+#{ $noChannel } {
 	background-color: var(--chat-color);
 	border-top-right-radius: var(--card-radius-big);
 }
 
-%chatNsfwScroller {
+#{ $chatNsfwScroller } {
 	background-color: transparent;
 }
 
-%chatContent {
+#{ $chatContent } {
 	background: transparent !important;
 }
 
-%chatHeaderBar {
+#{ $chatHeaderBar } {
 	background-color: var(--chat-color);
 	border-bottom: none;
 
@@ -55,44 +56,44 @@
 	}
 }
 
-%chatGradientBase {
+#{ $chatGradientBase } {
     transition: var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) background;
 }
 
-%chatGradient {
+#{ $chatGradient } {
     background: linear-gradient(to bottom, transparent, var(--chat-color));
 }
 
-%chatTypingGradientAtBottom {
+#{ $chatTypingGradientAtBottom } {
     height: var(--space-16);
     background: linear-gradient(to bottom, transparent, var(--chat-color) var(--space-8), var(--chat-color) 100%);
 }
 
-%chatTypingGradientNotAtBottom {
+#{ $chatTypingGradientNotAtBottom } {
     height: var(--space-32);
     background: linear-gradient(to bottom, transparent, var(--chat-color) var(--space-16), var(--chat-color) 100%);
 }
 
-%threadSidebar {
+#{ $threadSidebar } {
 	border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
 }
 
-%chatOptionButton {
+#{ $chatOptionButton } {
 	--button-padding: 0 12px;
 
 	color: var(--button-link-text-color);
 }
 
-%channelroles {
+#{ $channelroles } {
 	background-color: var(--message-color);
 	border-radius: 12px;
 }
 
-%chatStartIconWrapper {
+#{ $chatStartIconWrapper } {
     background-color: var(--card-color-filled);
 }
 
-%chatRole {
+#{ $chatRole } {
     background-color: var(--card-button-color);
     border-radius: 12px;
     transition: var(--default-time) var(--default-animation) background-color;
@@ -104,25 +105,25 @@
 
 /* CHAT AREA -> WELCOME SERVER OPTIONS */
 
-%chatWelcomeOptionsInner {
+#{ $chatWelcomeOptionsInner } {
     gap: 2px;
 }
 
-%chatWelcomeOptionsCardWrapper {
+#{ $chatWelcomeOptionsCardWrapper } {
     &:nth-of-type(2) {
-        %chatWelcomeOptionsCard {
+        #{ $chatWelcomeOptionsCard } {
             border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
         }
     }
 
     &:last-of-type {
-        %chatWelcomeOptionsCard {
+        #{ $chatWelcomeOptionsCard } {
             border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
         }
     }
 }
 
-%chatWelcomeOptionsCard {
+#{ $chatWelcomeOptionsCard } {
     margin-top: 0;
     background-color: var(--card-color-filled);
     border-radius: 4px;
@@ -135,29 +136,29 @@
 
 /* CHAT AREA -> PLACEHOLDER */
 
-%chatLoadingWrapper {
+#{ $chatLoadingWrapper } {
 	background: var(--chat-color) !important;
 }
 
-%chatLoadingMessageWrapper {
+#{ $chatLoadingMessageWrapper } {
 	background: transparent !important;
 }
 
-%chatLoadingAttachment,
-%chatLoadingAvatar,
-%chatLoadingBlob {
+#{ $chatLoadingAttachment },
+#{ $chatLoadingAvatar },
+#{ $chatLoadingBlob } {
 	background: hsl(0,0%,100%) !important;
 }
 
 /* CHAT AREA -> NEW MESSAGES PILL */
 
-%newMessagesPill,
-%newMessagesClear {
+#{ $newMessagesPill },
+#{ $newMessagesClear } {
 	background-color: hsl(var(--accent-hsl--material-you)) !important;
 	box-shadow: var(--shadow-medium);
 }
 
-%newMessagesPill {
+#{ $newMessagesPill } {
 	position: relative;
 	padding: 9px 16px;
 	border-radius: 18px;
@@ -172,26 +173,26 @@
 		z-index: -1;
 	}
 
-	%defaultColor {
+	#{ $defaultColor } {
 		color: var(--accent-text-color--material-you);
 	}
 }
 
-%newMessagesClear {
+#{ $newMessagesClear } {
 	margin-left: 8px;
 	padding: 10px;
 	border-radius: 18px;
 	border-left: none;
 
-	%newMessagesClearIcon {
+	#{ $newMessagesClearIcon } {
 		color: var(--accent-text-color--material-you);
 	}
 }
 
 /* CHAT AREA -> NEW MESSAGES BAR */
 
-%barBase {
-	&:not(%jumpToPresentBar, %messagesErrorBar) {
+#{ $barBase } {
+	&:not(#{ $jumpToPresentBar }, #{ $messagesErrorBar }) {
 		height: auto;
 	    top: var(--space-16);
 	    left: 50%;
@@ -218,7 +219,7 @@
 	}
 }
 
-%barButtonBase {
+#{ $barButtonBase } {
     min-width: var(--button-height);
     height: var(--button-height);
     line-height: 18px;
@@ -228,14 +229,14 @@
     pointer-events: all;
 	cursor: pointer;
 
-	&%barButtonMain {
+	&#{ $barButtonMain } {
         flex: 0 1 auto;
         padding: 0 16px;
         background-color: var(--accent-secondary-color);
         color: var(--accent-secondary-text-color);
 	}
 
-	&%barButtonAlt {
+	&#{ $barButtonAlt } {
         position: relative;
         padding: 0;
 		background-color: hsl(var(--accent-hsl--material-you));
@@ -243,7 +244,7 @@
         font-size: 0;
         justify-content: center;
 
-        %barButtonIcon {
+        #{ $barButtonIcon } {
             top: 0;
             margin: 0;
 
@@ -256,17 +257,17 @@
 
 /* CHAT AREA -> NAVIGATOR */
 
-%highlightContainer {
+#{ $highlightContainer } {
 	right: 20px;
 	justify-content: flex-end;
 }
 
-%highlightNavigator {
+#{ $highlightNavigator } {
 	background: hsl(var(--accent-hsl--material-you)) !important;
 	border-radius: 30%;
 	box-shadow: var(--shadow-medium);
 
-	%highlightNavigatorButton {
+	#{ $highlightNavigatorButton } {
 		width: 48px;
 		height: 48px;
 		padding: 0;
@@ -275,7 +276,7 @@
 		color: var(--accent-text-color--material-you) !important;
 	}
 
-	%highlightNavigatorIcon {
+	#{ $highlightNavigatorIcon } {
 		width: 100%;
 		height: 100%;
 	}
@@ -283,7 +284,7 @@
 
 /* CHAT AREA -> JUMP TO PRESENT / NAVIGATOR */
 
-%jumpToPresentBar {
+#{ $jumpToPresentBar } {
 	--button-height: 56px;
 	--button-padding: 0 16px;
 	--button-radius: 20px;
@@ -353,11 +354,11 @@
 		transition: var(--default-time) var(--default-animation) opacity;
 	}
 
-	%jumpToPresentBarButtonBase {
+	#{ $jumpToPresentBarButtonBase } {
 		display: none;
 	}
 
-	%button {
+	#{ $button } {
 		--button-height: 24px;
 
 		padding: 0;
@@ -368,11 +369,11 @@
 		}
 	}
 
-	%buttonV2 {
+	#{ $buttonV2 } {
         --button-padding: 0;
     }
 
-	%spinner {
+	#{ $spinner } {
 		position: absolute;
 		width: 100%;
 		left: 0;
@@ -383,7 +384,7 @@
 		border-radius: 50%;
 		z-index: 3;
 
-		%spinnerPulsingEllipsis {
+		#{ $spinnerPulsingEllipsis } {
 			vertical-align: middle;
 		}
 	}

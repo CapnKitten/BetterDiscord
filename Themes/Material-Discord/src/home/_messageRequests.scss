@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,10 +7,10 @@
  *
  */
 
-%messageRequestContainer {
+#{ $messageRequestContainer } {
     padding: 0 8px;
 
-    %messageRequestsContent {
+    #{ $messageRequestsContent } {
         height: auto !important;
         margin-top: 24px;
         @include card-format(false, 0, true);
@@ -20,7 +21,7 @@
         }
     }
 
-    %messageRequestsSectionTitle {
+    #{ $messageRequestsSectionTitle } {
         margin: 0;
         padding: 0 16px 16px;
     	line-height: normal;
@@ -30,32 +31,32 @@
     }
 }
 
-%messageRequestItem {
+#{ $messageRequestItem } {
     padding: 16px;
     @include card-format--list;
     border-radius: var(--card-radius-big);
     transition: var(--default-time) var(--default-animation) background-color;
 
-    &:not(%messageRequestFirstItem) {
+    &:not(#{ $messageRequestFirstItem }) {
         border-top: none;
     }
 
     &:hover,
-    &%messageRequestItemActive,
-    &%messageRequestItemSelected {
+    &#{ $messageRequestItemActive },
+    &#{ $messageRequestItemSelected } {
         border-radius: var(--card-radius-big);
 
-        %messageRequestItemActionButton {
+        #{ $messageRequestItemActionButton } {
             background-color: var(--card-color-alt);
         }
     }
 
     &:hover,
-    &%messageRequestItemActive {
+    &#{ $messageRequestItemActive } {
         background-color: var(--card-color-hover);
     }
 
-    &%messageRequestItemSelected {
+    &#{ $messageRequestItemSelected } {
         background-color: var(--card-color-active);
     }
 
@@ -63,12 +64,12 @@
         display: none;
     }
 
-    %messageRequestItemActionButton {
+    #{ $messageRequestItemActionButton } {
         background-color: var(--card-color-hover);
     }
 
-    %button {
-        &%buttonPrimary {
+    #{ $button } {
+        &#{ $buttonPrimary } {
             --button-padding: 0 12px;
             --button-background: transparent;
             --button-text-color: hsl(var(--accent-hsl--material-you));
@@ -84,7 +85,7 @@
 
 /* MESSAGE REQUESTS -> PREVIEW */
 
-%dmChat {
+#{ $dmChat } {
     &:before {
         display: none;
     }

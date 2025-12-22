@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,28 +7,28 @@
  *
  */
 
-%headerBar {
+#{ $headerBar } {
 	padding: 0 9px 0 16px;
 	border-top-right-radius: var(--card-radius-big);
 	border-bottom: none;
 	box-shadow: var(--shadow-ledge);
 
-	&%headerBarTransparent {
+	&#{ $headerBarTransparent } {
 		box-shadow: none;
 	}
 
-	&%headerBarThemed {
+	&#{ $headerBarThemed } {
 		background: var(--main-color);
 	}
 
-	&%headerBarAlt {
+	&#{ $headerBarAlt } {
 		background: var(--main-color) !important;
 
-        &%headerBarAltFullscreen {
+        &#{ $headerBarAltFullscreen } {
             background: var(--main-alt) !important;
             box-shadow: none;
 
-            %headerBarChildren {
+            #{ $headerBarChildren } {
                 &:after {
                     background: linear-gradient(90deg, transparent 0, var(--main-alt)) !important;
                 }
@@ -35,39 +36,30 @@
         }
 	}
 
-	%headerBarFollowButton {
+	#{ $headerBarFollowButton } {
 		--button-height: 32px;
 		--button-padding: 0 16px;
 	}
 
-	%tabBar {
+	#{ $tabBar } {
 		border-bottom: none;
 	}
 }
 
-%headerBarAltFullscreen {
+#{ $headerBarAltFullscreen } {
     background-color: transparent !important;
 }
 
-%headerBarChildren {
+#{ $headerBarChildren } {
     //overflow: visible;
 
 	&:after {
 		background: linear-gradient(90deg, transparent 0, var(--main-color)) !important;
 	}
-
-	%topPill {
-		height: 100%;
-	}
-
-	%topPillItem {
-		height: 48px;
-		line-height: 48px;
-	}
 }
 
-%headerBarIconWrapper {
-	&%headerBarIconClickable {
+#{ $headerBarIconWrapper } {
+	&#{ $headerBarIconClickable } {
 		@include md-ripple(hover, after, 1.5);
 	}
 
@@ -76,18 +68,18 @@
 	}
 }
 
-%headerBarTopic a {
+#{ $headerBarTopic } a {
     color: hsl(var(--accent-hsl--material-you));
 }
 
-%headerBarReturnButton {
+#{ $headerBarReturnButton } {
 	--button-height: 32px;
 
 	max-width: 250px;
 	margin-right: 8px;
 }
 
-%headerBarReturnButtonText {
+#{ $headerBarReturnButtonText } {
 	font-size: 1em;
 
 	&,
@@ -96,12 +88,12 @@
 		color: hsl(var(--accent-hsl--material-you)) !important;
 	}
 
-	%textXsMedium {
+	#{ $textXsMedium } {
 		font-size: 1em;
 	}
 }
 
-%headerBarIconBadge {
+#{ $headerBarIconBadge } {
 	top: 0;
 	right: 0;
 	background-color: hsl(var(--accent-hsl--material-you));

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,11 +7,11 @@
  *
  */
 
-%libraryHeader {
+#{ $libraryHeader } {
 	--input-height: 32px;
 	--input-padding: 0 2px 0 6px;
 
-	%searchInner %searchInput {
+	#{ $searchInner } #{ $searchInput } {
 		padding: 0;
 
 		&,
@@ -20,40 +21,40 @@
 	}
 }
 
-%libraryFilter {
+#{ $libraryFilter } {
 	width: 160px;
 	transition: 300ms ease width;
 
-	&%libraryFilterFocused {
+	&#{ $libraryFilterFocused } {
 		width: 240px;
 	}
 }
 
-%libraryScroller,
-%librarySettingsScroller {
+#{ $libraryScroller },
+#{ $librarySettingsScroller } {
 	background-color: var(--chat-color);
 }
 
-%libraryTable {
+#{ $libraryTable } {
 	padding-bottom: 8px;
 
-	%libraryTableHeader {
+	#{ $libraryTableHeader } {
 		height: 42px;
 		padding: 0 16px;
 		line-height: 42px;
 		background-color: var(--chat-color);
 		border-bottom: 1px solid var(--card-border-color);
 
-		&%libraryTableStickyHeader {
+		&#{ $libraryTableStickyHeader } {
 			width: 100%;
 		}
 
-		%libraryTableHeaderCell {
+		#{ $libraryTableHeaderCell } {
 			border: none;
 			@include remove-caps(14px);
 
-			&%libraryTableHeaderCellSorted {
-				%libraryTableHeaderCellContent {
+			&#{ $libraryTableHeaderCellSorted } {
+				#{ $libraryTableHeaderCellContent } {
 					@include tab-border(100%);
 
 					&:after {
@@ -67,35 +68,35 @@
 	}
 }
 
-%libraryTableRowWrapper {
+#{ $libraryTableRowWrapper } {
 	margin: 0 8px;
 	padding: 0;
 	border-radius: var(--card-radius-big);
 	border: none;
 	transition: var(--default-time) var(--default-animation) background-color;
 
-	&%libraryTableRowWrapperActive {
+	&#{ $libraryTableRowWrapperActive } {
 		background-color: var(--menu-item-hover);
 	}
 
-	%libraryTableRow {
+	#{ $libraryTableRow } {
 		margin: 0;
 		padding: 0 16px;
 		border-top: none !important;
 	}
 
-	%libraryTableNameCell,
-	%libraryTableSettingIcon,
-	%libraryTableTextCell {
+	#{ $libraryTableNameCell },
+	#{ $libraryTableSettingIcon },
+	#{ $libraryTableTextCell } {
 		transition: var(--default-time) var(--default-animation) opacity;
 	}
 
-	%libraryTableNameCell {
+	#{ $libraryTableNameCell } {
 		padding-left: 0;
 	}
 }
 
-%librarySettingsBody {
+#{ $librarySettingsBody } {
 	min-width: 350px;
 	max-width: 1200px;
 	padding: 60px 40px 80px;

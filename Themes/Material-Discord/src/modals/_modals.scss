@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,41 +7,37 @@
  *
  */
 
-%modalRoot {
+#{ $modalRoot } {
     @include popout-format(true);
     border: none;
 
-    &%modalRootNoBg,
-    &%modalRootTransparent,
-    &%carouselModal {
+    &#{ $modalRootNoBg },
+    &#{ $modalRootTransparent },
+    &#{ $carouselModal } {
         background-color: transparent !important;
         box-shadow: none !important;
     }
 
-    &%modalSmall {
+    &#{ $modalSmall } {
         min-height: 75px;
         max-height: 800px;
     }
 
-    %modalRootBg {
+    #{ $modalRootBg } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius-big);
     }
 
-    %modalConfirmStartHeader {
+    #{ $modalConfirmStartHeader } {
         padding: 75px 16px 16px;
     }
 
-    %modalImageHeader {
-        border-radius: var(--card-radius-big);
-    }
-
-    %textContainerModal,
-    %textContainerFooter {
+    #{ $textContainerModal },
+    #{ $textContainerFooter } {
         background-color: transparent;
     }
 
-    %textContainerModal {
+    #{ $textContainerModal } {
         border: none;
     }
 
@@ -54,33 +51,33 @@
         }
     }
 
-    %settingsHeaderDivider {
+    #{ $settingsHeaderDivider } {
         margin: 16px 0;
         padding-bottom: 0;
         border-top-color: var(--popout-header-border);
     }
 
-    %input {
-        &%flex {
+    #{ $input } {
+        &#{ $flex } {
             --button-height: 28px;
 
             padding: 0;
             border-radius: var(--input-radius);
             box-shadow: none;
 
-            %input {
+            #{ $input } {
                 border-radius: var(--input-radius);
                 box-shadow: none;
             }
         }
     }
 
-    %guestBody {
+    #{ $guestBody } {
         padding: 0;
     }
 }
 
-%modalHeader {
+#{ $modalHeader } {
     min-height: 24px;
     margin: 0;
     padding: 24px 24px 16px;
@@ -88,35 +85,35 @@
     border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
     box-shadow: none !important;
 
-    &%modalHeaderLargePadding {
+    &#{ $modalHeaderLargePadding } {
         padding-top: 76px;
     }
 
-    %headingLgSemibold,
-    %headingLgBold,
-    %headlingXlSemibold,
-    %headlingXlExtrabold,
-    %textMdSemibold,
-    %titleH1,
-    %titleH2 {
+    #{ $headingLgSemibold },
+    #{ $headingLgBold },
+    #{ $headlingXlSemibold },
+    #{ $headlingXlExtrabold },
+    #{ $textMdSemibold },
+    #{ $titleH1 },
+    #{ $titleH2 } {
         font-size: 22px;
         font-weight: 400;
     }
 
-    %headingLgBold {
+    #{ $headingLgBold } {
         padding-top: 0;
     }
 
-    %modalTitle {
+    #{ $modalTitle } {
         margin-bottom: 0;
     }
 
-    %modalHeaderTitle {
+    #{ $modalHeaderTitle } {
         font-weight: 400;
     }
 
-    %modalCloseButton,
-    %modalHeaderButton {
+    #{ $modalCloseButton },
+    #{ $modalHeaderButton } {
         --button-height: 32px;
 
         width: var(--button-height);
@@ -130,8 +127,8 @@
         position: absolute;
     }
 
-    %modalCloseButton {
-        %buttonContents {
+    #{ $modalCloseButton } {
+        #{ $buttonContents } {
             height: 24px;
         }
 
@@ -141,19 +138,19 @@
         }
     }
 
-    %modalHeaderButton {
+    #{ $modalHeaderButton } {
         display: flex;
         justify-content: center;
         align-items: center;
 
-        %modalHeaderButtonIcon {
+        #{ $modalHeaderButtonIcon } {
             height: 24px;
             transform: scale(0.85);
         }
     }
 }
 
-%modalContent {
+#{ $modalContent } {
     padding: 0 24px;
     background-color: transparent !important;
     border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
@@ -161,7 +158,7 @@
     &:first-child {
         padding-top: 24px;
 
-        %headingMdSemibold {
+        #{ $headingMdSemibold } {
             line-height: 24px;
             font-size: 20px;
             font-weight: 400;
@@ -172,11 +169,11 @@
         padding-bottom: 24px;
     }
 
-    %modalContentInner {
+    #{ $modalContentInner } {
         padding-bottom: 0;
     }
 
-    %modalContentParagraph {
+    #{ $modalContentParagraph } {
         &:last-child {
             margin-bottom: 2px;
         }
@@ -187,18 +184,18 @@
     }
 }
 
-%modalFooter {
+#{ $modalFooter } {
     padding: 24px;
     gap: 16px;
     background-color: transparent !important;
     border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
     box-shadow: none !important;
 
-    %authorizeFooter {
+    #{ $authorizeFooter } {
         padding: 0;
     }
 
-    > %flexDirectionRow {
+    > #{ $flexDirectionRow } {
         gap: 16px;
     }
 
@@ -206,10 +203,10 @@
         display: none !important;
     }
 
-    %button {
+    #{ $button } {
         margin: 0;
 
-        &%buttonPrimary {
+        &#{ $buttonPrimary } {
             --button-padding: 0 12px;
             --button-background: transparent;
             --button-text-color: var(--button-link-accent-text-color);
@@ -220,83 +217,75 @@
         }
     }
 
-    %buttonBlank {
+    #{ $buttonBlank } {
         background-color: transparent !important;
         color: var(--button-link-accent-text-color) !important;
     }
-
-    %modelFooterMinorContainer {
-        margin: 8px 0 0;
-    }
 }
 
-%modalFooterButtonsContainer {
-    margin-top: 0;
-}
-
-%valuePropContainer {
+#{ $valuePropContainer } {
     @include card-format(false, 16px, true);
 
-    %bulletedValueProp {
+    #{ $bulletedValueProp } {
         padding: 0;
     }
 
-    %valuePropIconContainer {
+    #{ $valuePropIconContainer } {
         background-color: var(--card-button-color);
         color: var(--interactive-text-default);
     }
 }
 
-%welcomeModalLargeContent {
+#{ $welcomeModalLargeContent } {
     @include popout-format;
 }
 
 /* MODALS -> V2 MODALS */
 
-%modalV2Container {
+#{ $modalV2Container } {
     --input-color: var(--input-color-alt);
     --slider-bar-background: var(--popout-color-alt);
     --slider-grabber-background: var(--popout-color);
 
     @include popout-format;
 
-    &%modalV2ContainerPaddingSizeSm {
+    &#{ $modalV2ContainerPaddingSizeSm } {
         padding-top: 0;
         padding-bottom: 0
     }
 
-    %modalFooter {
+    #{ $modalFooter } {
         background-color: transparent;
     }
 }
 
-%modalV2Header {
+#{ $modalV2Header } {
     padding: 24px 24px 16px;
 }
 
-%modalV2Body {
+#{ $modalV2Body } {
     padding: 0 24px 24px;
 
-    &%scroller {
+    &#{ $scroller } {
         padding-right: calc(24px - var(--scrollbar-width)) !important;
     }
 }
 
-%modalV2BodyInner {
+#{ $modalV2BodyInner } {
     padding-left: 0;
 }
 
-%modalV2ActionBar {
+#{ $modalV2ActionBar } {
     padding: 24px;
 }
 
-%modalV2BodySpacerTop,
-%modalV2BodySpacerBottom {
+#{ $modalV2BodySpacerTop },
+#{ $modalV2BodySpacerBottom } {
     display: none;
 }
 
-%hasWebkitScrollbar {
-    %modalV2BodyInner {
+#{ $hasWebkitScrollbar } {
+    #{ $modalV2BodyInner } {
         padding-right: 0;
     }
 }

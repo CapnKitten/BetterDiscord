@@ -1,11 +1,13 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	SELECT MENUS
  *
  */
 
-%selectMenuWrapper {
-	&%selectMenuWrapperWithBg {
+#{ $selectMenuWrapper } {
+	&#{ $selectMenuWrapperWithBg } {
         min-height: var(--input-height);
         height: var(--input-height);
     	padding: 0 var(--input-padding);
@@ -13,25 +15,25 @@
     	border-radius: var(--input-radius);
     	border: none;
 
-        %selectMenu {
+        #{ $selectMenu } {
         	padding: 0;
         }
 
-        %selectMenuIconsContainer {
+        #{ $selectMenuIconsContainer } {
             margin-inline-end: 0;
         }
     }
 
-	%selectMenu {
+	#{ $selectMenu } {
 		padding-right: calc(var(--icons-width) + 12px);
 
-		&%selectMenuMulti {
+		&#{ $selectMenuMulti } {
 			padding-bottom: 0;
 		}
 	}
 }
 
-%selectMenu {
+#{ $selectMenu } {
 	min-height: var(--input-height);
 	height: var(--input-height);
 	padding: 0 var(--input-padding);
@@ -39,33 +41,29 @@
 	border-radius: var(--input-radius) !important;
 	border: none;
 
-	&%selectMenuMulti {
+	&#{ $selectMenuMulti } {
 		min-height: var(--input-height);
 		height: auto;
 
-		> %selectMenuMulti {
+		> #{ $selectMenuMulti } {
 			min-height: inherit;
 		}
 	}
 
-	&%selectMenuFilled {
-		border: none;
-	}
-
-	%selectMenuSearchInput {
+	#{ $selectMenuSearchInput } {
 		&::-webkit-input-placeholder {
 			font-family: var(--app-font);
 			color: var(--input-placeholder-color);
 		}
 
-		&%selectMenuMulti {
+		&#{ $selectMenuMulti } {
 			height: 28px;
 			margin-top: 2px;
 		}
 	}
 }
 
-%selectMenuIconsContainer {
+#{ $selectMenuIconsContainer } {
 	height: var(--input-height);
 
 	> div {
@@ -73,21 +71,21 @@
 	}
 }
 
-%selectMenuPopout {
+#{ $selectMenuPopout } {
 	margin: 4px 0;
 	background-color: var(--popout-color);
     border-radius: var(--popout-radius);
     border: none;
     box-shadow: var(--shadow-soft);
 
-    &%selectMenuPopoutPositionTop {
+    &#{ $selectMenuPopoutPositionTop } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius);
         border: none;
         box-shadow: var(--shadow-soft);
     }
 
-	%selectMenuOption {
+	#{ $selectMenuOption } {
 		gap: 8px;
 		color: var(--menu-item-text-color);
 		transition: var(--default-time) var(--default-animation) background-color;
@@ -99,7 +97,7 @@
 		&[aria-selected=true] {
 			background-color: var(--menu-item-select) !important;
 
-			%selectMenuOptionSelectedIcon {
+			#{ $selectMenuOptionSelectedIcon } {
 				color: hsl(var(--accent-hsl--material-you));
 
 				circle {
@@ -108,11 +106,11 @@
 			}
 		}
 
-		%selectMenuDeviceOption {
+		#{ $selectMenuDeviceOption } {
 			gap: 8px;
 		}
 
-		%selectMenuDeviceOptionLabel {
+		#{ $selectMenuDeviceOptionLabel } {
 			margin-right: 0;
 		}
 	}
@@ -120,11 +118,11 @@
 
 /* SELECT MENUS -> PILLS */
 
-%optionPillButton {
+#{ $optionPillButton } {
     --button-height: 28px;
     --button-padding: 0 8px;
 
-    &%buttonFilled {
+    &#{ $buttonFilled } {
         --button-background: transparent;
         --button-outline: 1px solid var(--text-muted);
     }
@@ -133,7 +131,7 @@
         display: none;
     }
 
-    %optionPill {
+    #{ $optionPill } {
         background-color: transparent;
     }
 }

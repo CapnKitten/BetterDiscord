@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%menuPopout {
+#{ $menuPopout } {
     background-color: var(--popout-color);
 	border-radius: var(--popout-radius);
     box-shadow: var(--shadow-medium);
@@ -14,7 +15,7 @@
     animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
 	transform-origin: top;
 
-    %scroller {
+    #{ $scroller } {
         padding: 8px 0;
 
         &::-webkit-scrollbar {
@@ -22,11 +23,11 @@
         }
     }
 
-    %menuPopoutGroupLabel {
+    #{ $menuPopoutGroupLabel } {
         @include remove-caps(14px);
     }
 
-    %menuPopoutItem {
+    #{ $menuPopoutItem } {
         min-height: 32px;
 		margin: 0;
 		padding: 9px 12px;
@@ -37,14 +38,14 @@
 		transition: var(--default-time) var(--default-animation) background-color;
         flex-direction: row-reverse;
 
-        &%menuPopoutColorDanger {
+        &#{ $menuPopoutColorDanger } {
             --menu-item-text-color: hsl(var(--alert-hsl));
         }
 
-        &%menuPopoutItemHover {
+        &#{ $menuPopoutItemHover } {
             background-color: var(--menu-item-hover);
 
-            %menuPopoutCaret {
+            #{ $menuPopoutCaret } {
                 color: var(--menu-item-text-color);
 
                 path {
@@ -53,91 +54,91 @@
             }
         }
 
-        &%menuPopoutItemPremium {
+        &#{ $menuPopoutItemPremium } {
             transition: var(--default-time) var(--default-animation) background;
 
-            &%menuPopoutItemHover {
+            &#{ $menuPopoutItemHover } {
                 background: var(--menu-item-hover);
             }
         }
 
-        &:active:not(%menuPopoutHideInteraction) {
+        &:active:not(#{ $menuPopoutHideInteraction }) {
             background-color: var(--menu-item-select);
         }
 
-        &%menuPopoutHideInteraction {
-            %menuPopoutLabelContainer {
+        &#{ $menuPopoutHideInteraction } {
+            #{ $menuPopoutLabelContainer } {
                 padding: 0 0 8px;
             }
 
-            %menuPopoutSliderContainer {
+            #{ $menuPopoutSliderContainer } {
                 margin-bottom: -6px;
                 padding: 0;
             }
         }
 
-        %menuPopoutLabelContainer {
+        #{ $menuPopoutLabelContainer } {
             min-height: unset;
             padding: 0;
         }
 
-        %menuPopoutIconContainer,
-        %menuPopoutImageContainer {
+        #{ $menuPopoutIconContainer },
+        #{ $menuPopoutImageContainer } {
             margin: 0;
         }
 
-        %menuPopoutIcon {
+        #{ $menuPopoutIcon } {
             path {
                 fill: currentColor;
             }
         }
 
-        %accountSwitcherUserMenuText {
+        #{ $accountSwitcherUserMenuText } {
             color: inherit;
         }
     }
 
-    %menuPopoutLabel {
+    #{ $menuPopoutLabel } {
         color: inherit;
     }
 
-    %menuPopoutCustomItem {
-        %textMdBold {
+    #{ $menuPopoutCustomItem } {
+        #{ $textMdBold } {
             padding: 12px;
             font-weight: 500;
         }
     }
 
-	%submenuPaddingContainer {
+	#{ $submenuPaddingContainer } {
 		margin-left: -4px;
 		margin-right: -4px;
 		animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
 		transform-origin: top;
 	}
 
-    %menuPopoutSeparator {
+    #{ $menuPopoutSeparator } {
         width: 100%;
 		margin: 8px 0;
 		border-color: var(--separator-color);
     }
 
-    %menuPopoutInnerLabel {
+    #{ $menuPopoutInnerLabel } {
         gap: 8px;
     }
 }
 
-%contextMenuQuickReaction {
+#{ $contextMenuQuickReaction } {
     border-radius: 50%;
 }
 
-body:active %menuPopout:not(:active) {
+body:active #{ $menuPopout }:not(:active) {
 	opacity: 0;
 	transition: 150ms ease all;
 }
 
 /* CONTEXT MENU -> SERVER OPTIONS */
 
-%menuPopout#guild-header-popout {
+#{ $menuPopout }#guild-header-popout {
 	animation: top-pop-out 400ms var(--default-animation);
 	overflow: hidden;
 }

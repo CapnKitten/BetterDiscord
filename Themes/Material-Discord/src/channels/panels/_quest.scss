@@ -1,34 +1,36 @@
+@use '../../selectorPlaceholders' as *;
+
 /*
  *
  *  CHANNELS LIST QUEST PANEL
  *
  */
 
-%questPanelWrapper {
+#{ $questPanelWrapper } {
     margin-bottom: 2px;
     background-color: var(--sidebar-panel-color) !important;
     border-radius: var(--sidebar-panel-radius-small);
 	overflow: hidden;
 
-	&:has(%questPanelContentWrapperExpanded) {
+	&:has(#{ $questPanelContentWrapperExpanded }) {
         overflow: visible;
 
-        %questPanelHeroAsset {
+        #{ $questPanelHeroAsset } {
             opacity: 1;
         }
     }
 }
 
-%questPanelMask {
+#{ $questPanelMask } {
     &:first-child {
-        %questPanelWrapper {
+        #{ $questPanelWrapper } {
             border-top-left-radius: var(--sidebar-panel-radius-big);
             border-top-right-radius: var(--sidebar-panel-radius-big);
         }
     }
 }
 
-%questPanelContentWrapper {
+#{ $questPanelContentWrapper } {
     background-color: var(--sidebar-panel-color) !important;
     border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
     overflow: hidden;
@@ -38,113 +40,113 @@
         box-shadow: none !important;
     }
 
-    &%questPanelContentWrapperExpanded {
+    &#{ $questPanelContentWrapperExpanded } {
         background-image: none !important;
         border-top-left-radius: var(--popout-radius-big);
         border-top-right-radius: var(--popout-radius-big);
 
-        %questPanelInnerWrapper {
+        #{ $questPanelInnerWrapper } {
             padding: 4px 8px !important;
 			border-radius: calc(var(--popout-radius-big) / 1.5) !important;
         }
     }
 }
 
-%questPanelInnerWrapper {
+#{ $questPanelInnerWrapper } {
     padding: 8px !important;
 }
 
-%questPanelInnerWrapper,
-%heroAssetWrapper {
+#{ $questPanelInnerWrapper },
+#{ $heroAssetWrapper } {
     border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small) !important;
 }
 
-%questPanelHeroAsset {
+#{ $questPanelHeroAsset } {
     z-index: 2;
     opacity: 0;
     transition: 150ms var(--default-animation) opacity;
 }
 
-%questPanelRewardTile {
+#{ $questPanelRewardTile } {
     border-radius: calc(var(--sidebar-panel-radius-big) / 1.5) !important;
 }
 
-%questPanelTitle,
-%questPanelDescription {
+#{ $questPanelTitle },
+#{ $questPanelDescription } {
     padding: 8px;
     border-radius: calc(var(--sidebar-panel-radius-big) / 1.5);
     backdrop-filter: blur(10px) brightness(0.75);
 }
 
-%questPanelTitle {
+#{ $questPanelTitle } {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 }
 
-%questPanelDescription {
+#{ $questPanelDescription } {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
 
-%questPanelBackgroundWrapper {
+#{ $questPanelBackgroundWrapper } {
     display: none;
 }
 
-%questPanelOpaqueExpandedBackground {
+#{ $questPanelOpaqueExpandedBackground } {
     border-radius: calc(var(--sidebar-panel-radius-big) / 1.5);
 }
 
-%heroAssetWrapper {
+#{ $heroAssetWrapper } {
     filter: none !important;
 }
 
-%questLegibilityGradient {
+#{ $questLegibilityGradient } {
     background: var(--sidebar-panel-color);
     border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
 }
 
-%heroAssetDarken,
-%heroAssetTint {
+#{ $heroAssetDarken },
+#{ $heroAssetTint } {
     background-color: var(--sidebar-panel-color) !important;
     border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
 }
 
 /* CHANNELS LIST QUEST PANEL -> QUEST ACCEPTED */
 
-%questPanelPostEnrollmentBackground {
+#{ $questPanelPostEnrollmentBackground } {
     background-color: var(--app-foreground);
     border-top: none;
 }
 
-%questPanelContentCollapsedAccepted {
+#{ $questPanelContentCollapsedAccepted } {
     padding: 12px 8px;
 }
 
-%questPanelPostEnrollmentBackground {
+#{ $questPanelPostEnrollmentBackground } {
     background-image: none !important;
     background-color: var(--sidebar-panel-color);
     border-radius: var(--sidebar-panel-radius-small);
     border-top: none;
 
-	&%questPanelPostEnrollmentBackgroundExpanded {
+	&#{ $questPanelPostEnrollmentBackgroundExpanded } {
 		border-radius: var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-big) var(--sidebar-panel-radius-small) var(--sidebar-panel-radius-small);
 	}
 }
 
-%questPanelStepsWrapper {
+#{ $questPanelStepsWrapper } {
     margin-bottom: 0;
     background-color: var(--card-color-alt);
     border-radius: var(--card-radius-big);
     border: none;
 }
 
-%questPanelStepWrapperComplete {
-    %questPanelStepIconWrapper {
+#{ $questPanelStepWrapperComplete } {
+    #{ $questPanelStepIconWrapper } {
         background-color: hsl(var(--accent-hsl--material-you));
         border-color: hsl(var(--accent-hsl--material-you));
     }
 
-    %questPanelStepConnector {
+    #{ $questPanelStepConnector } {
         &:before {
             background-color: hsl(var(--accent-hsl--material-you));
             box-shadow: 0 0 6px hsl(var(--accent-hsl--material-you));
@@ -152,10 +154,10 @@
     }
 }
 
-%questPanelStepIconWrapper {
+#{ $questPanelStepIconWrapper } {
     border-color: var(--card-border-color);
 
-    %questPanelStepIcon path {
+    #{ $questPanelStepIcon } path {
         fill: var(--accent-text-color--material-you);
     }
 }

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,45 +7,45 @@
  *
  */
 
-%shopTabs {
-    %shopTab {
+#{ $shopTabs } {
+    #{ $shopTab } {
         margin-bottom: 0;
 
         &:hover {
-            &:not(%shopTabSelected) {
+            &:not(#{ $shopTabSelected }) {
                 border: none;
             }
         }
 
-        &%shopTabSelected {
+        &#{ $shopTabSelected } {
         	@include tab-border(80%);
         }
     }
 }
 
-%shopScroll {
+#{ $shopScroll } {
     height: 100%;
     //overflow: hidden !important;
 }
 
-%shopFullscreen,
-%shopPageWrapper {
+#{ $shopFullscreen },
+#{ $shopPageWrapper } {
     height: calc(100vh - (124px + var(--space-32)));
     padding-bottom: var(--space-32);
     overflow-y: scroll;
 }
 
-/*%shopViewWrapper {
-    %headerBarAlt {
-        &:not(%headerBarAltFullscreen) {
+/*#{ $shopViewWrapper } {
+    #{ $headerBarAlt } {
+        &:not(#{ $headerBarAltFullscreen }) {
             border-top-right-radius: var(--card-radius-big);
         }
     }
 }*/
 
-%chatPage {
-    %shopContainer,
-    %shopPageWrapper {
+#{ $chatPage } {
+    #{ $shopContainer },
+    #{ $shopPageWrapper } {
         height: calc(100vh - (var(--custom-channel-header-height) + var(--custom-app-top-bar-height)));
         padding-bottom: 0;
         overflow-y: scroll;

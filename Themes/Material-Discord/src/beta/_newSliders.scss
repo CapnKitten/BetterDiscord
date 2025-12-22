@@ -1,3 +1,5 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *  BETA - NEW SLIDERS
@@ -12,54 +14,54 @@
     --slider-grabber-background: var(--main-color);
 }
 
-%themeDark {
+#{ $themeDark } {
     --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
     --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.33) calc(l * 0.5));
 
-    %layerContainer,
-    %menuPopoutSliderContainer {
+    #{ $layerContainer },
+    #{ $menuPopoutSliderContainer } {
         --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.44));
         --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.43) calc(l * 0.34));
     }
 
-    %bdSettingsGroup {
-        &%bdSettingsGroupCollapsible {
+    #{ $bdSettingsGroup } {
+        &#{ $bdSettingsGroupCollapsible } {
             --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
         }
     }
 }
 
-%themeLight {
+#{ $themeLight } {
     --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 2));
     --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.54) calc(l * 1.5));
 
-    %layerContainer,
-    %menuPopoutSliderContainer {
+    #{ $layerContainer },
+    #{ $menuPopoutSliderContainer } {
         --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 1.92));
         --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.87) calc(l * 1.7));
     }
 
-    %slider {
-        %sliderBar %sliderBarFill {
+    #{ $slider } {
+        #{ $sliderBar } #{ $sliderBarFill } {
             background-color: hsl(var(--accent-hsl--material-you)) !important;
         }
 
-        %sliderTrack %sliderGrabber {
+        #{ $sliderTrack } #{ $sliderGrabber } {
             background-color: var(--slider-grabber-background) !important;
         }
     }
 }
 
-%sliderMark {
+#{ $sliderMark } {
     height: 100% !important;
     z-index: 2;
     pointer-events: none;
 
-    %sliderMarkValue {
+    #{ $sliderMarkValue } {
         margin-bottom: 0;
     }
 
-    %sliderMarkDash {
+    #{ $sliderMarkDash } {
         position: absolute;
         width: 6px;
         height: 6px;
@@ -69,33 +71,33 @@
     }
 }
 
-%slider {
+#{ $slider } {
     height: calc(var(--slider-grabber-height) + var(--bar-offset));
 
-    &%sliderHasMarks {
-        %sliderTrack {
+    &#{ $sliderHasMarks } {
+        #{ $sliderTrack } {
             left: 8px;
             right: 8px;
         }
 
-        %sliderBar {
+        #{ $sliderBar } {
             top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2) + 4px));
         }
 
-        %sliderTrack {
-            %sliderGrabber {
+        #{ $sliderTrack } {
+            #{ $sliderGrabber } {
                 top: calc(100% - (var(--slider-grabber-height) + 4px));
             }
         }
     }
 
-    %sliderBar {
+    #{ $sliderBar } {
         height: var(--slider-height);
         top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2)));
         background-color: var(--slider-bar-background) !important;
         border-radius: var(--slider-radius);
 
-        %sliderBarFill {
+        #{ $sliderBarFill } {
             background-color: hsl(var(--accent-hsl--material-you));
             border-radius: inherit;
             border: none;
@@ -107,8 +109,8 @@
         }
     }
 
-    %sliderTrack {
-        %sliderGrabber {
+    #{ $sliderTrack } {
+        #{ $sliderGrabber } {
             display: flex;
             width: var(--slider-width);
             height: var(--slider-grabber-height);
@@ -153,15 +155,15 @@
     }
 }
 
-%sliderInputSensitivityBar {
-    %sliderInputSensitivityFill {
+#{ $sliderInputSensitivityBar } {
+    #{ $sliderInputSensitivityFill } {
         height: var(--slider-height) !important;
         background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.8) calc(l * 0.8)) !important;
         border-radius: var(--slider-radius);
     }
 }
 
-%menuPopoutSliderContainer {
+#{ $menuPopoutSliderContainer } {
     --slider-height: 8px;
     --slider-radius: calc(var(--slider-height) / 3);
     --slider-grabber-height: 28px;
@@ -170,34 +172,34 @@
     height: var(--slider-grabber-height);
     margin-bottom: 0 !important;
 
-    %sliderTrack {
-        %sliderGrabber {
+    #{ $sliderTrack } {
+        #{ $sliderGrabber } {
             //transform: translateX(calc(var(--slider-width) / 4));
         }
     }
 }
 
-%layerContainer {
+#{ $layerContainer } {
     --slider-grabber-background: var(--popout-color);
 
-    %bdSettingsGroup {
-        &%bdSettingsGroupCollapsible {
+    #{ $bdSettingsGroup } {
+        &#{ $bdSettingsGroupCollapsible } {
             --slider-grabber-background: var(--card-color-filled);
         }
     }
 }
 
-%sliderMenuPopout {
+#{ $sliderMenuPopout } {
     top: 0;
 }
 
-%sliderMini {
-    %sliderBar {
+#{ $sliderMini } {
+    #{ $sliderBar } {
         height: var(--slider-height);
         top: calc((var(--slider-grabber-height) / 2) - (var(--slider-height) / 2));
     }
 
-    %sliderGrabber {
+    #{ $sliderGrabber } {
         width: var(--slider-height);
         height: var(--slider-height);
         //margin-top: 0;
@@ -205,9 +207,9 @@
     }
 }
 
-%visualRefresh {
-    %sliderMini {
-        %sliderBarFill {
+#{ $visualRefresh } {
+    #{ $sliderMini } {
+        #{ $sliderBarFill } {
             border: none;
         }
     }

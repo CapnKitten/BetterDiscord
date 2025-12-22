@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,11 +7,11 @@
  *
  */
 
-%vencordSettingsTabBar {
+#{ $vencordSettingsTabBar } {
     height: 48px;
     border-bottom-width: 1px !important;
 
-    %item {
+    #{ $item } {
         height: inherit;
         line-height: 48px;
         margin: 0;
@@ -19,19 +20,19 @@
         border: none !important;
         color: var(--interactive-text-default) !important;
 
-        &%itemSelected {
+        &#{ $itemSelected } {
             @include tab-border(80%);
         }
     }
 
-    + %settingsHeaderDivider {
+    + #{ $settingsHeaderDivider } {
         display: none;
     }
 }
 
-%vencordSettingsCard,
-%vencordPluginsInfoCard {
-    %titleH5 {
+#{ $vencordSettingsCard },
+#{ $vencordPluginsInfoCard } {
+    #{ $titleH5 } {
         margin-bottom: 0;
         padding-bottom: 16px;
         line-height: normal;
@@ -40,32 +41,32 @@
         color: var(--card-header-text-color);
     }
 
-    %settingsHeaderDivider {
+    #{ $settingsHeaderDivider } {
         margin: 16px 0;
     }
 }
 
-%vencordPluginStats {
+#{ $vencordPluginStats } {
     padding: 16px;
 }
 
-%vencordPluginStatsCardDivider {
+#{ $vencordPluginStatsCardDivider } {
     border-left-color: var(--card-button-color);
 }
 
-%vencordSettingsSpecialCard {
+#{ $vencordSettingsSpecialCard } {
     background-image: none !important;
 
-    %vencordSettingsSpecialTitle {
+    #{ $vencordSettingsSpecialTitle } {
         font-size: 18px;
         color: var(--header-primary);
     }
 
-    %vencordSettingsSpecialText {
+    #{ $vencordSettingsSpecialText } {
         color: var(--interactive-text-default);
     }
 
-    %flexJustifyStart {
+    #{ $flexJustifyStart } {
         gap: 8px;
     }
 
@@ -74,12 +75,12 @@
     }
 }
 
-%vencordSettingsQuickActionsCard {
+#{ $vencordSettingsQuickActionsCard } {
     display: flex;
     justify-content: start;
 }
 
-%vencordSettingsQuickActionsPill {
+#{ $vencordSettingsQuickActionsPill } {
     height: var(--button-height);
     padding: var(--button-padding-icon-left);
     background-color: hsl(var(--accent-hsl--material-you)) !important;
@@ -94,13 +95,13 @@
         transform: none;
     }
 
-    %vencordSettingsQuickActionsImg {
+    #{ $vencordSettingsQuickActionsImg } {
         width: 18px;
         height: 18px;
     }
 }
 
-%vencordErrorCard {
+#{ $vencordErrorCard } {
     padding: 16px;
     background-color: hsl(var(--alert-hsl), 0.1);
     border-radius: var(--card-radius-big);
@@ -109,12 +110,12 @@
 
 /* VENCORD SETTINGS -> PLUGINS */
 
-%vencordPluginsInfoCard {
+#{ $vencordPluginsInfoCard } {
     height: auto !important;
 }
 
-%vencordPluginsFilterControls {
-    %inputWrapper {
+#{ $vencordPluginsFilterControls } {
+    #{ $inputWrapper } {
         &:last-of-type {
             background-color: transparent !important;
             border: none !important;
@@ -122,12 +123,12 @@
         }
     }
 
-    %selectMenu {
+    #{ $selectMenu } {
         box-shadow: none !important;
     }
 }
 
-%vencordAddonCard {
+#{ $vencordAddonCard } {
     @include card-format(true, 16px, true);
 
     &:hover {
@@ -135,38 +136,38 @@
         transform: none !important;
     }
 
-    %switchContainer {
-        %switchSlider {
+    #{ $switchContainer } {
+        #{ $switchSlider } {
             transform: translate(4px, -50%) !important;
             transition: var(--default-time) var(--default-animation) all;
         }
 
-        &%switchContainerChecked {
-            %switchSlider {
+        &#{ $switchContainerChecked } {
+            #{ $switchSlider } {
                 transform: translate(calc(100% - 1px), -50%) !important;
             }
         }
     }
 }
 
-%vencordAddonHeader {
+#{ $vencordAddonHeader } {
     height: auto !important;
     margin-bottom: 12px !important;
     justify-content: flex-start !important;
 
-    %vencordAddonNameAuthor {
+    #{ $vencordAddonNameAuthor } {
         overflow: hidden;
         font-size: 1.1em !important;
         font-weight: 400;
 
-        %vencordAddonName {
+        #{ $vencordAddonName } {
             font-size: inherit !important;
             font-weight: inherit !important;
         }
     }
 }
 
-%vencordAddonNote {
+#{ $vencordAddonNote } {
     &:not(:last-child) {
         margin-bottom: 0.875em !important;
     }
@@ -178,7 +179,7 @@
 
 /* VENCORD SETTINGS -> THEMES */
 
-%vencordThemeLinks {
+#{ $vencordThemeLinks } {
     padding: 12px !important;
     background-color: var(--input-color);
     border-radius: 4px 4px 0 0 !important;
@@ -195,7 +196,7 @@
     }
 }
 
-%settingsCardPrimary {
+#{ $settingsCardPrimary } {
     &[style*="padding: 0.5em"] {
         padding: 16px !important;
     }
@@ -203,7 +204,7 @@
 
 /* VENCORD SETTINGS -> BACKUP AND RESTORE */
 
-%vencordBackupRestoreCard {
+#{ $vencordBackupRestoreCard } {
     > div {
         gap: 0 !important;
     }
@@ -219,7 +220,7 @@
 
 /* VENCORD SETTINGS -> NOTIFICATION */
 
-%vencordNotificationRoot {
+#{ $vencordNotificationRoot } {
     top: calc(var(--custom-app-top-bar-height) + var(--space-8));
     right: var(--space-8) !important;
     bottom: unset !important;
@@ -227,7 +228,7 @@
     border-radius: var(--popout-radius-big) !important;
     box-shadow: var(--shadow-medium) !important;
 
-    %vencordNotificationTitle {
+    #{ $vencordNotificationTitle } {
         font-size: 22px !important;
         font-weight: 400 !important;
         text-transform: none !important;
@@ -236,9 +237,9 @@
 
 /* VENCORD SETTINGS -> VISUAL REFRESH */
 
-%visualRefresh {
-    %vencordPluginsInfoCard,
-    %vencordPluginStats {
+#{ $visualRefresh } {
+    #{ $vencordPluginsInfoCard },
+    #{ $vencordPluginStats } {
         background-color: var(--card-color-filled) !important;
         border: none !important;
         border-radius: var(--card-radius-big) !important;

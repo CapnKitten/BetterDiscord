@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,8 +7,8 @@
  *
  */
 
-%userProfileOuter {
-	&:not(%userProfileOuterThemed) {
+#{ $userProfileOuter } {
+	&:not(#{ $userProfileOuterThemed }) {
 		--background-surface-high: var(--popout-color) !important;
 		--user-profile-overlay-background: var(--card-color-filled) !important;
 
@@ -25,7 +26,7 @@
 	}
 }
 
-%userProfileOuterThemed {
+#{ $userProfileOuterThemed } {
 	--popout-color-alt: var(--profile-gradient-secondary-color) !important;
     --card-color-filled: var(--user-profile-background-hover) !important;
 	--card-color-hover: var(--user-profile-background-hover) !important;
@@ -35,108 +36,108 @@
 	--input-color: rgb(var(--bg-overlay-color-inverse)/.1) !important;
 	--input-placeholder-color: var(--profile-gradient-primary-color);
 
-    %channelTextAreaFontPadding {
+    #{ $channelTextAreaFontPadding } {
 		color: var(--interactive-text-default) !important;
 	}
 
-    %spriteGreyscale {
+    #{ $spriteGreyscale } {
         background-color: var(--interactive-text-default);
     }
 
-	%userProfileBanner {
+	#{ $userProfileBanner } {
 		border-radius: calc(var(--popout-radius-big) - 4px);
 	}
 
-	%statusBubbleInner {
+	#{ $statusBubbleInner } {
         --text-default: var(--profile-gradient-primary-color);
     }
 
-	%buttonFilled {
+	#{ $buttonFilled } {
 		--button-background: var(--profile-gradient-button-color) !important;
         --button-text-color: var(--white-500) !important;
         --accent-button-action: var(--white-500) !important;
 	}
 
-	%buttonV2Primary {
+	#{ $buttonV2Primary } {
         --button-background: var(--control-primary-background-default);
         --button-text-color: var(--control-primary-text-default);
     }
 
-    %buttonV2Secondary {
+    #{ $buttonV2Secondary } {
         --button-background: var(--control-secondary-background-default);
         --button-text-color: var(--control-secondary-text-default);
     }
 
-	%userProfileModalConnectedAccounts {
-		%userProfileModalConnectedAccount {
+	#{ $userProfileModalConnectedAccounts } {
+		#{ $userProfileModalConnectedAccount } {
 			--card-color-filled: var(--profile-body-background-color);
 		}
 	}
 
-	%spoilerContent {
+	#{ $spoilerContent } {
         --attachment-color: var(--profile-role-pill-background-color);
 
-        &%spoilerHidden {
+        &#{ $spoilerHidden } {
             --attachment-color: var(--profile-gradient-secondary-color);
         }
     }
 
-    %userProfileNoteTextArea,
-	%inputWrapper %input {
+    #{ $userProfileNoteTextArea },
+	#{ $inputWrapper } #{ $input } {
 		--input-color: var(--profile-body-background-color) !important;
 	}
 
-	%input {
+	#{ $input } {
         --input-color: var(--opacity-white-12) !important;
     }
 
-	%listRow {
+	#{ $listRow } {
 	    --menu-item-hover: var(--profile-body-background-hover);
 	}
 
-	%markup a {
+	#{ $markup } a {
 		color: var(--profile-gradient-secondary-color);
 	}
 
-	%flowerStar {
+	#{ $flowerStar } {
 	    path {
 	        fill: var(--profile-gradient-button-color);
 	    }
 	}
 
-	%flowerStarChild {
+	#{ $flowerStarChild } {
 	    path {
 	        fill: var(--white-500);
 	    }
 	}
 }
 
-%profileCustomThemeBackground {
-    %menuPopout {
+#{ $profileCustomThemeBackground } {
+    #{ $menuPopout } {
         border: none;
     }
 }
 
-%userProfileOuter,
-%biteSizeOuter {
+#{ $userProfileOuter },
+#{ $biteSizeOuter } {
 	border-radius: var(--popout-radius-big);
 	box-shadow: var(--shadow-medium);
 
-	%channelTextArea {
+	#{ $channelTextArea } {
 		border-radius: var(--main-textarea-radius);
 		border: none;
 	}
 }
 
-%userProfileBanner {
+#{ $userProfileBanner } {
     border-radius: var(--popout-radius-big);
 }
 
-%userProfileBannerButton {
+#{ $userProfileBannerButton } {
     border: none;
 }
 
-%biteSizeInnerThemed {
+#{ $biteSizeInnerThemed } {
     padding-bottom: 0;
     background-color: var(--popout-color);
 
@@ -145,59 +146,59 @@
     }
 }
 
-%userProfileEffectsInner {
+#{ $userProfileEffectsInner } {
     border-radius: var(--popout-radius-big);
 }
 
-%userProfileInner {
+#{ $userProfileInner } {
 	border-radius: calc(var(--popout-radius-big) / 1.25);
 }
 
-%userProfileIconButton {
+#{ $userProfileIconButton } {
 	--button-background: var(--redesign-button-overlay-alpha-background);
     --button-text-color: var(--white);
 
-	%buttonContents {
+	#{ $buttonContents } {
 		--button-height: var(--custom-button-button-sm-height);
 	}
 }
 
-%userProfileBody {
+#{ $userProfileBody } {
     --scrollbar-width: var(--scrollbar-thin-width);
 
     max-height: 60vh;
     padding-right: calc(16px - var(--scrollbar-width)) !important;
 }
 
-%userProfileUpsellContainer {
+#{ $userProfileUpsellContainer } {
     &,
     > div {
         border-radius: calc(var(--popout-radius-big) / 1.5);
     }
 }
 
-%userProfileUsernameRow {
-    %biteSizeIconButton {
-        %buttonContents {
+#{ $userProfileUsernameRow } {
+    #{ $biteSizeIconButton } {
+        #{ $buttonContents } {
             --button-height: 16px;
         }
     }
 }
 
-%userProfileCard {
+#{ $userProfileCard } {
     border-radius: calc(var(--popout-radius-big) / 1.6);
     transition: var(--default-time) var(--default-animation) background-color;
 }
 
-%userProfileOverlay {
+#{ $userProfileOverlay } {
     background-color: var(--card-color-filled);
 	border-radius: calc(var(--popout-radius-big) / 1.5);
 }
 
-%userProfileMenuOverlay {
+#{ $userProfileMenuOverlay } {
     padding: 8px 0;
 
-    %button {
+    #{ $button } {
         padding: 9px 12px;
         border-radius: 0;
         transition: var(--default-time) var(--default-animation) background-color;
@@ -206,21 +207,21 @@
             background-color: var(--menu-item-hover);
         }
 
-        %buttonContents {
+        #{ $buttonContents } {
             padding: 0;
         }
     }
 }
 
-%userProfileOverlayBackground {
+#{ $userProfileOverlayBackground } {
 	border-radius: calc(var(--popout-radius-big) / 1.5);
 	border: none;
 }
 
-%userProfileAvatarReplyContainer {
+#{ $userProfileAvatarReplyContainer } {
     @include popout-format;
 
-    %channelTextAreaScrollable {
+    #{ $channelTextAreaScrollable } {
         background-color: var(--input-color);
         border-radius: calc(var(--popout-radius-big) / 1.5);
     }
@@ -228,11 +229,11 @@
 
 /* USER POPOUT ->  BANNER BUTTONS */
 
-%biteSizeBannerButtonsWrapper {
-    %button {
+#{ $biteSizeBannerButtonsWrapper } {
+    #{ $button } {
         padding: 0;
 
-        %buttonContents {
+        #{ $buttonContents } {
             min-width: var(--button-height);
             min-height: var(--button-height);
 
@@ -245,7 +246,7 @@
 
 /* USER POPOUT -> STATUS BUBBLE */
 
-%statusBubbleOuter {
+#{ $statusBubbleOuter } {
     background-color: var(--popout-color-alt);
     border-radius: var(--popout-radius-big);
     border: none !important;
@@ -259,23 +260,23 @@
     }
 
     &:hover {
-        %statusBubbleInner {
+        #{ $statusBubbleInner } {
             color: var(--white-500);
         }
     }
 
-    %statusBubbleInner {
+    #{ $statusBubbleInner } {
         background-color: inherit;
         color: var(--white-500);
 
-		%statusContent,
-	    %statusText {
+		#{ $statusContent },
+	    #{ $statusText } {
 	        color: inherit;
 	    }
     }
 }
 
-%statusBubbleAddStatusIcon {
+#{ $statusBubbleAddStatusIcon } {
     fill: currentColor;
 
     path {
@@ -283,13 +284,13 @@
     }
 }
 
-%statusBubbleAddStatusPrompt {
+#{ $statusBubbleAddStatusPrompt } {
     color: inherit !important;
 }
 
 /* USER POPOUT -> BADGE LIST */
 
-%badgeListContainer {
+#{ $badgeListContainer } {
     height: 24px;
 	margin: 0;
     padding: 0 6px !important;
@@ -300,7 +301,7 @@
 
 /* USER POPOUT -> ACTIVITY */
 
-%biteSizeActivity {
+#{ $biteSizeActivity } {
 	padding: 12px;
     background-color: var(--popout-color-alt);
     border-radius: calc(var(--popout-radius-big) / 1.5);
@@ -309,12 +310,12 @@
 
 /* USER POPOUT -> SPOTIFY */
 
-%userProfileSyncButton {
+#{ $userProfileSyncButton } {
     --button-padding: 0;
 
     min-width: var(--button-height);
 
-    %userProfileSyncButtonInner {
+    #{ $userProfileSyncButtonInner } {
         min-width: var(--button-height);
         max-width: var(--button-height);
         min-height: var(--button-height);
@@ -322,13 +323,13 @@
     }
 }
 
-%userProfileAssetsLargeImageSpotify {
+#{ $userProfileAssetsLargeImageSpotify } {
     border-radius: 50%;
 }
 
 /* USER POPOUT -> ROLES */
 
-%role {
+#{ $role } {
     min-width: 28px;
     height: 28px;
     gap: 6px;
@@ -343,12 +344,12 @@
     }
 }
 
-%roleCircle {
+#{ $roleCircle } {
     width: 16px;
     height: 16px;
 }
 
-%rolePill {
+#{ $rolePill } {
     height: 28px;
     padding: 0 6px;
     background-color: var(--card-color-filled);
@@ -361,24 +362,24 @@
         background-color: var(--card-color-hover);
     }
 
-    %textXsMedium {
+    #{ $textXsMedium } {
         line-height: 28px;
     }
 }
 
-%roleRoot {
+#{ $roleRoot } {
     > div:only-child {
-        %roleAddButton {
+        #{ $roleAddButton } {
             padding: 0 8px 0 4px;
         }
     }
 }
 
-%roleAddButton {
+#{ $roleAddButton } {
 	height: 28px;
     padding: 0;
 
-    %buttonContents {
+    #{ $buttonContents } {
         --button-height: 28px;
 
         min-width: 28px;
@@ -392,54 +393,54 @@
 	}
 }
 
-%roleExpandPill {
+#{ $roleExpandPill } {
     min-width: 28px;
     height: 28px;
     padding: 0 6px;
     border-radius: 14px;
     box-sizing: border-box;
 
-    %textXsMedium {
+    #{ $textXsMedium } {
         line-height: 28px;
     }
 }
 
 /* USER POPOUT ->  MESSAGE */
 
-%userProfileMessageInner {
+#{ $userProfileMessageInner } {
     background-color: var(--input-color) !important;
     border-radius: var(--input-radius) !important;
 
-    %textArea {
+    #{ $textArea } {
         min-height: var(--input-height);
         height: var(--input-height);
     }
 
-    %channelTextAreaFontPadding {
+    #{ $channelTextAreaFontPadding } {
         padding-top: calc((var(--input-height) - 1.57em) / 2);
         padding-bottom: calc((var(--input-height) - 1.57em) / 2);
     }
 
-    %channelTextAreaButtonsContainer {
+    #{ $channelTextAreaButtonsContainer } {
         height: var(--input-height);
     }
 }
 
-%userProfileFooter {
-	%textAreaPlaceholder {
+#{ $userProfileFooter } {
+	#{ $textAreaPlaceholder } {
         color: var(--input-placeholder-color);
 		font-weight: 500;
     }
 
-	%forwardInlineContainer {
+	#{ $forwardInlineContainer } {
 		background-color: var(--input-color);
 	}
 }
 
 /* USER POPOUT -> SELF PROFILE */
 
-%userProfileMenus {
-    > %menuPopout {
+#{ $userProfileMenus } {
+    > #{ $menuPopout } {
         background-color: var(--popout-color-alt);
         border-radius: calc(var(--popout-radius-big) / 1.5);
         border: none;
@@ -449,73 +450,73 @@
 
 /* USER POPOUT -> QUEST AVAILABLE POPOUT */
 
-%userProfileQuestWrapper {
+#{ $userProfileQuestWrapper } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius-big) !important;
     box-shadow: var(--shadow-medium);
 }
 
-%userProfileQuestContainer {
+#{ $userProfileQuestContainer } {
     background-color: unset;
 }
 
 /* USER POPOUT -> V2 PROFILE */
 
-%userProfileModalV2 {
+#{ $userProfileModalV2 } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius-big);
     border: none;
     box-shadow: var(--shadow-hard);
 
-    &:not(%userProfileOuterThemed) {
-        %userProfileModalV2Profile {
+    &:not(#{ $userProfileOuterThemed }) {
+        #{ $userProfileModalV2Profile } {
             --background-surface-high: var(--popout-color-alt);
 
             outline: none;
         }
     }
 
-    %userProfileInner {
+    #{ $userProfileInner } {
         padding: var(--space-32);
 		gap: var(--space-32);
     }
 
-    %userProfileModalV2Profile {
+    #{ $userProfileModalV2Profile } {
         border-radius: calc(var(--popout-radius-big) / 1.3);
         border: none;
         box-shadow: var(--shadow-soft);
     }
 
-    %userProfileBanner {
+    #{ $userProfileBanner } {
         border-radius: calc(var(--popout-radius-big) / 1.3);
     }
 
-    %userProfileEffectsInner {
+    #{ $userProfileEffectsInner } {
         border-radius: var(--popout-radius-big);
     }
 
-	%userProfileModalV2ProfileBody {
+	#{ $userProfileModalV2ProfileBody } {
         padding: 4px 24px 24px;
         padding-right: calc(24px - var(--scrollbar-width)) !important;
     }
 
-	%userProfileOverlay {
+	#{ $userProfileOverlay } {
         background-color: var(--card-color-hover);
         border-radius: calc(var(--popout-radius-big) / 1.4);
     }
 
     /* recent activity */
 
-    %userProfileModalV2ActivityScroller {
+    #{ $userProfileModalV2ActivityScroller } {
         padding-bottom: 0;
         border-radius: var(--card-radius-big);
 
-        %userProfileModalHeadings {
+        #{ $userProfileModalHeadings } {
             //padding-top: var(--space-12);
         }
     }
 
-    %userProfileModalV2ActivityCards {
+    #{ $userProfileModalV2ActivityCards } {
         gap: 2px;
 
         > li {
@@ -533,7 +534,7 @@
             }
         }
 
-        %messageButtonWrapper {
+        #{ $messageButtonWrapper } {
             height: 28px;
             top: 0 !important;
             bottom: 0;
@@ -543,15 +544,15 @@
         }
     }
 
-    %userProfileModalV2ActivityCard {
+    #{ $userProfileModalV2ActivityCard } {
         border-radius: 0;
     }
 
-	%memberActivityImageContainer {
+	#{ $memberActivityImageContainer } {
         border-radius: 50%;
     }
 
-	%userProfileModalV2SideContainer {
+	#{ $userProfileModalV2SideContainer } {
 		--custom-gutter-left: 0;
 
 		height: 100%;
@@ -559,28 +560,28 @@
         margin: 0;
         padding: 0;
 
-        %userProfileModalV2SideHeaderScroller {
+        #{ $userProfileModalV2SideHeaderScroller } {
             margin: 0;
             padding: 0;
         }
 
-        %discoverHeaderTopBar {
-            %item {
+        #{ $discoverHeaderTopBar } {
+            #{ $item } {
                 line-height: 48px;
             }
         }
 	}
 
-	%userProfileModalHeadings {
+	#{ $userProfileModalHeadings } {
         padding-top: 0;
 
-		%textXsMedium {
+		#{ $textXsMedium } {
 			font-size: 14px;
 		}
     }
 }
 
-%userProfileModalV2SaveChangesContainer {
+#{ $userProfileModalV2SaveChangesContainer } {
     padding: var(--space-8) var(--space-8) var(--space-8) var(--space-16);
     background-color: var(--popout-color);
     border-radius: 6px;
@@ -588,21 +589,21 @@
     box-shadow: var(--shadow-soft);
 }
 
-%userProfileModalV2TabPanelScroller {
+#{ $userProfileModalV2TabPanelScroller } {
 	padding-top: 0;
     padding-left: var(--space-12);
     gap: 2px;
 
 	section {
         &:first-of-type {
-            %userProfileModalV2WidgetContainer {
+            #{ $userProfileModalV2WidgetContainer } {
                 border-top-left-radius: var(--card-radius-big);
                 border-top-right-radius: var(--card-radius-big);
             }
         }
 
         &:nth-last-of-type(1) {
-            %userProfileModalV2WidgetContainer {
+            #{ $userProfileModalV2WidgetContainer } {
                 border-bottom-left-radius: var(--card-radius-big);
                 border-bottom-right-radius: var(--card-radius-big);
             }
@@ -610,7 +611,7 @@
     }
 }
 
-%userProfileModalV2TabPanelRow {
+#{ $userProfileModalV2TabPanelRow } {
     margin: 0;
     padding: var(--space-8);
     background-color: var(--card-color-filled);
@@ -632,42 +633,42 @@
     }
 }
 
-%userProfileModalV2TabListScroller {
+#{ $userProfileModalV2TabListScroller } {
     margin: 0;
     padding: 0;
 }
 
-%userProfileModalV2TabBarPanel {
+#{ $userProfileModalV2TabBarPanel } {
     padding-left: 0;
 
-    %userProfileModalV2TabBarScroller {
+    #{ $userProfileModalV2TabBarScroller } {
         margin-left: -16px;
         padding-left: 28px;
     }
 }
 
-%userProfileModalV2WidgetDragHandleButton {
+#{ $userProfileModalV2WidgetDragHandleButton } {
     left: 8px;
 }
 
-%userProfileModalV2WidgetContainer {
+#{ $userProfileModalV2WidgetContainer } {
 	padding: var(--space-16);
     background-color: var(--card-color-hover);
     border-radius: 4px;
     border: none;
 }
 
-%userProfileWidgetAddButtonContainer {
+#{ $userProfileWidgetAddButtonContainer } {
     background-color: var(--card-color-hover);
     border-radius: calc(var(--popout-radius-big) / 1.75);
 
-    &:has(%userProfileWidgetAddButtonContent:hover) {
+    &:has(#{ $userProfileWidgetAddButtonContent }:hover) {
         background-color: var(--card-color-active);
     }
 }
 
-%userProfileWidgetCard {
-    &:has(%userProfileWidgetRemoveGameButton) {
+#{ $userProfileWidgetCard } {
+    &:has(#{ $userProfileWidgetRemoveGameButton }) {
         &:before {
             inset: 0;
             border-radius: calc(var(--card-radius-big) / 1.6);
@@ -680,15 +681,15 @@
         }
     }
 
-    %userProfileWidgetGameCover {
+    #{ $userProfileWidgetGameCover } {
         border-radius: calc(var(--card-radius-big) / 1.6);
     }
 }
 
-%userProfileWidgetCoverContainer {
+#{ $userProfileWidgetCoverContainer } {
     box-shadow: var(--shadow-soft);
 }
 
-%userProfileWidgetGameCover {
+#{ $userProfileWidgetGameCover } {
     border-radius: calc(var(--card-radius-big) / 2.5);
 }

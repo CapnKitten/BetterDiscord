@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%settingsLongCard {
+#{ $settingsLongCard } {
     padding: 16px;
     background-color: var(--card-color-filled);
 
@@ -48,30 +49,30 @@
     }
 }
 
-%settingsHeader,
-%settingsMemberHeader  {
-    + %settingsHeaderDivider {
+#{ $settingsHeader },
+#{ $settingsMemberHeader }  {
+    + #{ $settingsHeaderDivider } {
         display: none;
     }
 }
 
 /* SERVER LISTS -> MEMBERS LIST */
 
-%settingsMemberCard {
+#{ $settingsMemberCard } {
     &:nth-child(3) {
 		margin-top: 24px;
     }
 
-    %roleOverflowButton {
+    #{ $roleOverflowButton } {
         width: 36px;
 
-        %button {
+        #{ $button } {
             --button-padding: 0;
 
             min-width: var(--button-height);
         }
 
-        %roleOverflowIcon {
+        #{ $roleOverflowIcon } {
             vertical-align: middle;
         }
     }
@@ -79,15 +80,15 @@
 
 /* SERVER LISTS -> INVITE LIST */
 
-%settingsInviteHeaderSection {
+#{ $settingsInviteHeaderSection } {
 	padding-bottom: 0;
 
-    %settingsInviteHeaderDivider,
-	%settingsInviteDivider {
+    #{ $settingsInviteHeaderDivider },
+	#{ $settingsInviteDivider } {
 		display: none;
 	}
 
-	%settingsInviteHeader {
+	#{ $settingsInviteHeader } {
         margin-top: 24px;
 		padding: 16px 16px 4px;
         background-color: var(--card-color-filled);
@@ -95,19 +96,19 @@
 	}
 }
 
-%settingsInviteRow {
+#{ $settingsInviteRow } {
     height: 72px;
 
     &:nth-child(3) {
 		border-radius: 0;
     }
 
-    %settingsInviteAvatar {
+    #{ $settingsInviteAvatar } {
         width: 24px !important;
         height: 24px !important;
     }
 
-    %settingsInviteRevokeInvite {
+    #{ $settingsInviteRevokeInvite } {
         top: -12px;
         right: -8px;
     }
@@ -115,26 +116,26 @@
 
 /* SERVER LISTS -> BAN LIST */
 
-%bannedUserModal {
-	%bannedUserModalContent {
+#{ $bannedUserModal } {
+	#{ $bannedUserModalContent } {
 		padding: 0 !important;
 
 		&::-webkit-scrollbar {
 			width: 0px !important;
 		}
 
-		%settingsInviteHeader {
+		#{ $settingsInviteHeader } {
 			padding: 16px;
 			justify-content: left;
 			border-bottom: 1px solid var(--card-border-color);
 		}
 
-		%bannedUserModalReasonHeader {
+		#{ $bannedUserModalReasonHeader } {
 			margin-top: 0;
 			padding: 16px;
 			@include remove-caps(14px);
 
-			+ %textSmNormal {
+			+ #{ $textSmNormal } {
 				padding: 0 16px 16px;
 			}
 		}

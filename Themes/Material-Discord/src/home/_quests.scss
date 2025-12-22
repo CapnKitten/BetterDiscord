@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,40 +7,40 @@
  *
  */
 
-%questsHeaderContainer {
+#{ $questsHeaderContainer } {
     border-top-right-radius: var(--card-radius-big);
     border-top: none;
     overflow: hidden;
 }
 
-%questsHeaderBackdrop {
+#{ $questsHeaderBackdrop } {
     background-color: var(--chat-color);
     border-top-right-radius: var(--card-radius-big);
     opacity: 1 !important;
 }
 
-%questsHeaderOrbsClickable {
+#{ $questsHeaderOrbsClickable } {
     height: 32px;
 }
 
-%questsHeaderOrbsContainer {
+#{ $questsHeaderOrbsContainer } {
     height: inherit;
     background-color: var(--card-color-filled);
     border-radius: 18px;
     border: none;
     transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
 
-    &%questsHeaderOrbsContainerHighlighted {
+    &#{ $questsHeaderOrbsContainerHighlighted } {
         background-color: var(--card-color-hover);
     }
 
-    &%questsHeaderOrbsContainerSelected {
+    &#{ $questsHeaderOrbsContainerSelected } {
         background-color: var(--card-color-active);
         border-radius: 10px;
     }
 }
 
-%questsHeaderOrbsPopoutContainer {
+#{ $questsHeaderOrbsPopoutContainer } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius-big);
     border: none;
@@ -48,7 +49,7 @@
 
 /* QUESTS -> BANNER */
 
-%questsBannerContainer {
+#{ $questsBannerContainer } {
     position: relative;
     width: calc(100% - 40px);
     height: 260px;
@@ -57,7 +58,7 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    %button {
+    #{ $button } {
         --button-padding: var(--button-padding-icon-right);
 
         height: var(--button-height);
@@ -69,49 +70,49 @@
     }
 }
 
-%questsBannerContent {
+#{ $questsBannerContent } {
     max-width: unset;
 }
 
-%questsBannerImage {
+#{ $questsBannerImage } {
     height: 100%;
     border-radius: inherit;
 
-    %questsBannerGradient {
+    #{ $questsBannerGradient } {
         display: none;
     }
 }
 
 /* QUESTS -> CONTENT AREA */
 
-%questsContainer {
+#{ $questsContainer } {
     background-color: var(--chat-color) !important;
 }
 
-%questsContentContainer {
+#{ $questsContentContainer } {
     background: none !important;
     backdrop-filter: none !important;
 }
 
-%questsHeadingWrapper {
+#{ $questsHeadingWrapper } {
     padding: var(--space-24) var(--space-32) 0;
 }
 
-%filterPopout {
+#{ $filterPopout } {
     @include popout-format;
 }
 
-%filterOptionGroup {
+#{ $filterOptionGroup } {
     & > :nth-child(2) {
         margin-top: var(--space-8);
     }
 }
 
-%filterGroup {
+#{ $filterGroup } {
     gap: var(--space-8);
 }
 
-%filterSortOption {
+#{ $filterSortOption } {
     &:hover {
         background-color: transparent;
     }
@@ -119,33 +120,33 @@
 
 /* QUESTS -> CARDS */
 
-%questCardsContainer {
+#{ $questCardsContainer } {
     padding: var(--space-24) var(--space-32);
 }
 
-%questCard {
+#{ $questCard } {
     @include card-format(false, 0, true, true, true);
 }
 
-%questCardHeroAssetCont,
-%questCardImageOverlay {
+#{ $questCardHeroAssetCont },
+#{ $questCardImageOverlay } {
     aspect-ratio: 1280 / 400;
 }
 
-%questCardImageContainer {
+#{ $questCardImageContainer } {
     background-color: transparent !important;
     border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
-    %questCardHeroAssetWrapper {
+    #{ $questCardHeroAssetWrapper } {
         border-radius: var(--card-radius-big);
     }
 
-    %questCardImageOverlay {
+    #{ $questCardImageOverlay } {
         display: none;
     }
 
-    %questCardImageBottowRow {
-        %textSmMedium {
+    #{ $questCardImageBottowRow } {
+        #{ $textSmMedium } {
             padding: 0 8px;
             background-color: var(--card-button-color);
             border-radius: 9px;
@@ -154,30 +155,30 @@
     }
 }
 
-%questCardSubmenuWrapper {
+#{ $questCardSubmenuWrapper } {
     background-color: var(--card-button-color) !important;
 }
 
-%questCardRewardDescriptionContainer {
+#{ $questCardRewardDescriptionContainer } {
     background-color: var(--card-color-filled);
 
-    %questCardRewardTileAsset {
+    #{ $questCardRewardTileAsset } {
         border-radius: 50%;
     }
 }
 
-%questCardContentContainer {
+#{ $questCardContentContainer } {
     background-color: transparent;
 
-    %questCardRewardDescriptionContainer {
+    #{ $questCardRewardDescriptionContainer } {
         background-color: transparent;
     }
 
-    %questCardFooterContainer {
+    #{ $questCardFooterContainer } {
         border-top: none;
     }
 }
 
-%questCardRewardTextOverflowBlur {
+#{ $questCardRewardTextOverflowBlur } {
     background: linear-gradient(transparent 50%, var(--card-color-filled) 100%);
 }

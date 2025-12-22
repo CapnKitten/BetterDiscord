@@ -1,3 +1,5 @@
+@use '../../../selectorPlaceholders' as *;
+
 /*
  *
  *  BETTERDISCORD PLUGIN -> BetterAnimations
@@ -5,8 +7,8 @@
  */
 
 [class*="BA__module"] {
-    %messagesWrapper {
-        &:not(%messageGroupStart) {
+    #{ $messagesWrapper } {
+        &:not(#{ $messageGroupStart }) {
             border-radius: var(--message-radius);
         }
 
@@ -16,8 +18,8 @@
         }
     }
 
-    %messageCozy {
-        &:not(%messageGroupStart) {
+    #{ $messageCozy } {
+        &:not(#{ $messageGroupStart }) {
             margin-top: 2px;
             padding: var(--message-padding-top) var(--message-padding-side) !important;
         }

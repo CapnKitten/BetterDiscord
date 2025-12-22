@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,57 +7,57 @@
  *
  */
 
-%forumContainer {
+#{ $forumContainer } {
     background-color: var(--chat-color);
 }
 
-%forumTagsContainer {
+#{ $forumTagsContainer } {
     padding: 16px 0 0;
 }
 
-%forumTagList {
+#{ $forumTagList } {
     height: var(--button-height);
 }
 
-%forumSortDropdown {
-    %buttonContents {
+#{ $forumSortDropdown } {
+    #{ $buttonContents } {
         color: var(--accent-text-color--material-you);
     }
 }
 
-%forumSortDropdownText {
+#{ $forumSortDropdownText } {
     color: inherit !important;
 }
 
-%forumSortContainer {
+#{ $forumSortContainer } {
     padding: 0;
     background-color: transparent;
     border-radius: 0;
     box-shadow: none;
 
-    %menuPopout {
+    #{ $menuPopout } {
         min-width: unset;
 
-        %scroller {
+        #{ $scroller } {
     		&::-webkit-scrollbar {
     			--scrollbar-width: 0;
     		}
         }
 
-        %menuPopoutGroupLabel {
+        #{ $menuPopoutGroupLabel } {
             padding-top: 0;
         }
     }
 }
 
-%forumTagsButton {
+#{ $forumTagsButton } {
     --button-padding: 0 8px 0 12px;
 
-    &%forumTagsButtonWithCount {
+    &#{ $forumTagsButtonWithCount } {
         --button-padding: 0 8px;
     }
 
-    %forumTagsButtonInner {
+    #{ $forumTagsButtonInner } {
         color: inherit;
     }
 
@@ -65,61 +66,61 @@
     }
 }
 
-%forumTagsCountContainer {
+#{ $forumTagsCountContainer } {
     background-color: var(--accent-text-color--material-you);
 
-    %forumTagsCountText {
+    #{ $forumTagsCountText } {
         color: hsl(var(--accent-hsl--material-you));
     }
 }
 
-%forumFilterContainer {
+#{ $forumFilterContainer } {
     padding: 16px 16px 8px;
     background-color: var(--popout-color);
     border-radius: var(--popout-radius-big);
     box-shadow: var(--shadow-medium);
 
-    %forumFilterHeader {
+    #{ $forumFilterHeader } {
         padding: 0;
 
-        %textXsBold {
+        #{ $textXsBold } {
             @include remove-caps(14px);
         }
     }
 
-    %forumFilterCountContainer {
+    #{ $forumFilterCountContainer } {
         background-color: hsl(var(--accent-hsl--material-you));
 
-        %forumFilterCountText {
+        #{ $forumFilterCountText } {
             color: var(--accent-text-color--material-you);
         }
     }
 }
 
-%forumGetStartedContainer {
+#{ $forumGetStartedContainer } {
     margin-top: 16px;
     @include card-format(false, 0, true);
 }
 
-%forumGetStartedStepContainer {
+#{ $forumGetStartedStepContainer } {
     --card-color-filled: var(--card-color-alt);
     --card-color-hover: var(--card-color-active);
 
     @include card-format(true, 12px 16px, true, true);
 }
 
-%forumStartConversationContainer {
+#{ $forumStartConversationContainer } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 
-    %forumStartConversationIcon {
+    #{ $forumStartConversationIcon } {
         height: 62px;
         background-color: var(--card-button-color);
         box-sizing: border-box;
     }
 }
 
-%forumCard {
+#{ $forumCard } {
     padding-bottom: 16px;
 
     &[style*="height: 558px"] {
@@ -127,12 +128,12 @@
     }
 }
 
-%forumGuidelinesContainer {
+#{ $forumGuidelinesContainer } {
     margin-bottom: 0;
     @include card-format(false, 16px, true);
 }
 
-%forumGuidelinesDescriptionContainer {
+#{ $forumGuidelinesDescriptionContainer } {
     --card-color-filled: var(--card-color-hover);
 
     @include card-format(false, 16px, true);
@@ -141,7 +142,7 @@
 
 /* FORUM -> PILL */
 
-%postPill {
+#{ $postPill } {
     height: var(--button-height);
     padding: 0 12px 0 8px;
     background-color: var(--card-button-color) !important;
@@ -150,17 +151,17 @@
     gap: 8px;
     transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-color;
 
-    &%postPillClickable {
+    &#{ $postPillClickable } {
         &:hover {
             background-color: var(--card-button-color-hover) !important;
         }
     }
 
-    &%postPillSmall {
+    &#{ $postPillSmall } {
         border-radius: 6px;
     }
 
-    &%postPillSelected {
+    &#{ $postPillSelected } {
         background-color: hsl(var(--accent-hsl),0.3) !important;
         border-color: transparent !important;
 
@@ -168,16 +169,16 @@
             background-color: hsl(var(--accent-hsl),0.35) !important;
         }
 
-        %defaultColor {
+        #{ $defaultColor } {
             color: hsl(var(--accent-hsl--material-you));
         }
     }
 
-    %postPillEmoji {
+    #{ $postPillEmoji } {
         margin-right: 0;
     }
 
-    %postPillText {
+    #{ $postPillText } {
         padding: 0;
     }
 }

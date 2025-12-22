@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%chatForm {
+#{ $chatForm } {
 	margin-top: 0 !important;
 	padding: 0;
 
@@ -15,44 +16,44 @@
 		display: none;
 	}
 
-	%channelTextArea {
+	#{ $channelTextArea } {
 		margin: 12px 0;
 		background-color: var(--main-textarea-color);
 		border-radius: var(--main-textarea-radius);
 		border: none;
 		box-shadow: none;
 
-		&%channelTextAreaDisabled {
+		&#{ $channelTextAreaDisabled } {
 			opacity: 0.8;
 
-			%channelTextAreaScrollable {
+			#{ $channelTextAreaScrollable } {
 				margin-right: var(--main-textarea-inner-padding);
 				scrollbar-width: none;
 			}
 
-			%channelTextAreaInner {
+			#{ $channelTextAreaInner } {
 				padding-left: 0;
 				padding-right: 0;
 			}
 
-			%slateTextArea {
+			#{ $slateTextArea } {
 				margin-left: var(--space-16);
 			}
 
-			%textAreaSlate {
+			#{ $textAreaSlate } {
 				width: calc(100% + var(--scrollbar-width));
 				height: var(--custom-channel-textarea-text-area-height) !important;
 				margin-right: 0;
 			}
 
-			%textAreaPlaceholder {
+			#{ $textAreaPlaceholder } {
 				line-height: var(--custom-channel-textarea-text-area-height);
 				padding: 0;
 			}
 		}
 	}
 
-	%channelTextAreaScrollable {
+	#{ $channelTextAreaScrollable } {
 		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 		margin: var(--main-textarea-inner-padding) 0 var(--main-textarea-inner-padding) var(--main-textarea-inner-padding);
 		background-color: var(--main-textarea-color);
@@ -60,12 +61,12 @@
 		opacity: 1;
 
 
-		&%channelTextAreaHasStackedBar {
+		&#{ $channelTextAreaHasStackedBar } {
 			border-radius: 0 0 var(--main-textarea-radius) calc(var(--main-textarea-radius) / 2);
 		}
 	}
 
-	%textAreaSlate {
+	#{ $textAreaSlate } {
 		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 		margin-left: calc(var(--main-textarea-inner-padding) * 2);
 		margin-right: var(--main-textarea-inner-padding);
@@ -73,29 +74,29 @@
 		border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
 	}
 
-	%slateTextArea {
+	#{ $slateTextArea } {
 		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
 		margin-left: var(--main-textarea-height);
 		padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) var(--space-16) calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
 	}
 
-	%textAreaDisabled {
-        %textAreaPlaceholder {
+	#{ $textAreaDisabled } {
+        #{ $textAreaPlaceholder } {
             padding-left: 16px;
         }
     }
 
-	%channelTextAreaInner {
+	#{ $channelTextAreaInner } {
 		padding-left: var(--main-textarea-inner-padding);
 		padding-right: calc(var(--main-textarea-inner-padding));
 		overflow: hidden;
 	}
 
-	%textAreaEditor {
+	#{ $textAreaEditor } {
 		color: var(--interactive-text-default);
 	}
 
-	%channelTextAreaAttachedBar {
+	#{ $channelTextAreaAttachedBar } {
 		position: relative;
 		background-color: var(--main-textarea-color);
 		border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
@@ -112,25 +113,25 @@
 			background-color: var(--main-textarea-border);
 		}
 
-		%replyBar {
+		#{ $replyBar } {
 			background-color: transparent;
 			border-radius: 0;
 		}
 
-		%replySeperator {
+		#{ $replySeperator } {
 			background-color: var(--main-textarea-border);
 		}
 
-		%colorLink {
+		#{ $colorLink } {
 			color: hsl(var(--accent-hsl));
 		}
 
-		+ %channelTextAreaScrollable {
+		+ #{ $channelTextAreaScrollable } {
 			border-radius: 0 0 var(--main-textarea-radius) var(--main-textarea-radius);
 		}
 	}
 
-	%channelTextAreaAttachWrapper {
+	#{ $channelTextAreaAttachWrapper } {
 		width: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
 		height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
 		margin-right: calc((var(--main-textarea-height) + var(--main-textarea-inner-padding)) * -1);
@@ -138,14 +139,14 @@
 		z-index: 2;
 	}
 
-	%channelTextAreaAttachButton {
+	#{ $channelTextAreaAttachButton } {
 		width: inherit;
 		height: inherit;
 		margin: 0;
 		padding: 0;
 	}
 
-	%channelTextAreaAttachButtonInner {
+	#{ $channelTextAreaAttachButtonInner } {
 		display: flex;
 		width: inherit;
 		height: inherit;
@@ -154,18 +155,18 @@
 		box-sizing: border-box;
 	}
 
-	%channelTextAreaAttachButtonPlus {
+	#{ $channelTextAreaAttachButtonPlus } {
 		d: path("M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z");
         transform: translate(-12px, 12px) scale(0.025);
 	}
 
-	%channelTextAreaCommandIconWrapper {
+	#{ $channelTextAreaCommandIconWrapper } {
 		margin-left: 0;
 		margin-right: calc((32px + var(--main-textarea-inner-padding)) * -1);
 		z-index: 2;
 	}
 
-	%channelTextAreaCommandIcon {
+	#{ $channelTextAreaCommandIcon } {
 		display: flex;
 		width: 32px;
 		height: var(--custom-channel-textarea-text-area-height);
@@ -174,7 +175,7 @@
 		justify-content: center;
 	}
 
-	%channelTextAreaTyping {
+	#{ $channelTextAreaTyping } {
 		position: absolute;
 		width: calc(100% - (var(--scrollbar-width) + var(--space-32)));
 		top: -16px;
@@ -184,26 +185,26 @@
 		background-color: var(--typing-color);
 		transition: 200ms ease-in-out;
 
-		%channelTextAreaSlowModeIcon {
+		#{ $channelTextAreaSlowModeIcon } {
 			margin-right: 8px;
 		}
 	}
 }
 
-%textAreaPlaceholder {
+#{ $textAreaPlaceholder } {
 	color: var(--text-muted);
 }
 
-%channelTextAreaFloatingBars {
+#{ $channelTextAreaFloatingBars } {
     &:empty {
-        + %channelTextAreaStackedBars:nth-child(2) {
+        + #{ $channelTextAreaStackedBars }:nth-child(2) {
             border-top-left-radius: var(--main-textarea-radius);
             border-top-right-radius: var(--main-textarea-radius);
         }
     }
 }
 
-%channelTextAreaStackedBars {
+#{ $channelTextAreaStackedBars } {
 	position: relative;
     background-color: var(--main-textarea-color);
     border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
@@ -227,27 +228,27 @@
 		border-bottom: none;
 	}
 
-    %replyBar {
+    #{ $replyBar } {
         background: transparent;
     }
 }
 
-%channelAccessoryBar {
+#{ $channelAccessoryBar } {
 	margin: 0 12px;
 	padding: 0 4px;
 	border-color: var(--separator-color);
 }
 
-%channelAttachmentArea {
+#{ $channelAttachmentArea } {
 	padding: 12px;
 	background-color: transparent;
 }
 
-%replyMentionButton {
+#{ $replyMentionButton } {
 	--text-link: hsl(var(--reply-hsl));
 }
 
-%replySuggestion {
+#{ $replySuggestion } {
 	position: relative;
 	background-color: transparent;
 	border: none;
@@ -263,17 +264,17 @@
 		background-color: var(--main-textarea-border);
 	}
 
-	%replySuggestionCreateThreadButton {
+	#{ $replySuggestionCreateThreadButton } {
 		color: hsl(var(--accent-hsl)) !important;
 	}
 }
 
-%channelTextAreaSendButton {
-	%channelTextAreaSendButtonActive {
+#{ $channelTextAreaSendButton } {
+	#{ $channelTextAreaSendButtonActive } {
 		color: hsl(var(--accent-hsl--material-you)) !important;
 	}
 
-	%channelTextAreaSendButtonIcon {
+	#{ $channelTextAreaSendButtonIcon } {
 		padding-top: 0;
 
 		path {
@@ -282,17 +283,17 @@
 	}
 }
 
-%applicationCommandEducation {
+#{ $applicationCommandEducation } {
 	top: -12px;
 	bottom: unset;
 	background-color: var(--typing-color);
 
-	%applicationCommandEducationArrow {
+	#{ $applicationCommandEducationArrow } {
 		transform: rotate(180deg) scaleX(-100%);
 	}
 }
 
-%channelInfo {
+#{ $channelInfo } {
 	height: var(--main-textarea-height);
 	margin: 12px 16px;
 	padding: 0;
@@ -300,24 +301,24 @@
 	border-radius: var(--main-textarea-radius);
 	border: none;
 
-	%channelInfoButtonContainer {
+	#{ $channelInfoButtonContainer } {
 		margin-right: 4px;
 	}
 }
 
-%fakeLink {
+#{ $fakeLink } {
 	color: hsl(var(--accent-hsl));
 }
 
-%channelTextAreaUpload {
+#{ $channelTextAreaUpload } {
 	@include card-format(false, 8px, true);
 	box-shadow: none;
 
-	%channelTextAreaUploadImage {
+	#{ $channelTextAreaUploadImage } {
 		border-radius: var(--card-radius-big);
 	}
 
-	%messageButtonWrapper {
+	#{ $messageButtonWrapper } {
 		background-color: var(--popout-color);
         box-shadow: var(--shadow-medium) !important;
 
@@ -326,22 +327,22 @@
 		}
 	}
 
-	%channelTextAreaUploadAltTag {
+	#{ $channelTextAreaUploadAltTag } {
 		border-radius: 10px;
 	}
 }
 
-%channelTextAreaUploadSpoiler {
+#{ $channelTextAreaUploadSpoiler } {
 	filter: blur(22px);
 }
 
-%channelBottomBarArea {
+#{ $channelBottomBarArea } {
 	margin: 0;
 	padding: 0 var(--space-16);
 	gap: 12px;
 
-	+ span + %channelTextAreaTyping,
-	+ %channelTextAreaTyping {
+	+ span + #{ $channelTextAreaTyping },
+	+ #{ $channelTextAreaTyping } {
 		position: absolute;
 		width: calc(100% - (var(--scrollbar-width) + (var(--space-16) * 3)));
 		left: unset;
@@ -350,7 +351,7 @@
 	}
 }
 
-%messagesErrorBar {
+#{ $messagesErrorBar } {
 	background-color: hsl(var(--alert-hsl));
 	border-radius: 22px;
 	border: none;
@@ -360,13 +361,13 @@
 
 /* MAIN TEXTAREA -> APPS AND COMMANDS BUTTON */
 
-%channelAppLauncher {
+#{ $channelAppLauncher } {
 	width: var(--space-32);
 	height: auto;
 	margin: 0;
 	padding: 0;
 
-    %channelAppLauncherButton {
+    #{ $channelAppLauncherButton } {
         background-color: transparent;
         border-radius: 50%;
         transition: var(--default-time) var(--default-animation) background;
@@ -379,11 +380,11 @@
 
 /* MAIN TEXTAREA -> BOT COMMANDS */
 
-%channelEntryPointButtonContainer {
+#{ $channelEntryPointButtonContainer } {
 	margin: auto;
 }
 
-%channelEntryPointAppButtonContainer {
+#{ $channelEntryPointAppButtonContainer } {
     --button-height: var(--main-textarea-height);
 	--button-padding: 0;
     --button-radius: calc(var(--button-height) / 2);
@@ -393,12 +394,12 @@
 
 /* MAIN TEXTAREA -> INVITE TO GAME */
 
-%activityInviteEducation {
+#{ $activityInviteEducation } {
     top: -14px;
 	padding-left: calc(22px + var(--main-textarea-inner-padding));
     overflow: visible;
 
-    %activityInviteEducationArrow {
+    #{ $activityInviteEducationArrow } {
         transform: rotateX(180deg) translateY(-2px);
     }
 
@@ -412,7 +413,7 @@
 
 /* MAIN TEXTAREA -> SPAM FILTER */
 
-%timeoutBar {
+#{ $timeoutBar } {
 	display: grid;
 	grid-template-columns: 1fr auto;
 	margin: 12px 16px;
@@ -421,11 +422,11 @@
 	border: 1px solid var(--main-textarea-border);
 	border-radius: 28px;
 
-	%timeoutBarTextContainer {
+	#{ $timeoutBarTextContainer } {
 		margin: 0 8px 0 0;
 	}
 
-	%timeoutBarActionButtons {
+	#{ $timeoutBarActionButtons } {
 		width: auto;
 		margin: 0;
 	}
@@ -433,23 +434,23 @@
 
 /* MAIN TEXTAREA -> INTRODUCTION */
 
-%chatIntroductionBanner {
+#{ $chatIntroductionBanner } {
     margin-top: 12px;
     padding: 12px 16px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 
-    %textMdSemibold {
+    #{ $textMdSemibold } {
         font-weight: 500;
     }
 
-    %iconCircle {
+    #{ $iconCircle } {
         width: var(--button-height);
         height: var(--button-height);
         background-color: hsl(var(--accent-hsl--material-you));
         border-radius: var(--button-radius);
 
-        %nextIcon {
+        #{ $nextIcon } {
             width: 20px;
             height: 20px;
 
@@ -462,16 +463,16 @@
 
 /* MAIN TEXTAREA -> BUTTONS */
 
-%channelTextAreaButton,
-%channelAppLauncherButton,
-%spriteGreyscale {
+#{ $channelTextAreaButton },
+#{ $channelAppLauncherButton },
+#{ $spriteGreyscale } {
 	--interactive-text-default: var(--main-textarea-button-color);
 	--interactive-hover: var(--main-textarea-button-color);
 	--interactive-active: var(--main-textarea-button-color);
 }
 
-%channelTextAreaButton,
-%channelAppLauncherButton {
+#{ $channelTextAreaButton },
+#{ $channelAppLauncherButton } {
 	display: flex;
 	min-height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
 	justify-content: center;
@@ -480,14 +481,14 @@
 
 /* MAIN TEXTAREA -> BUTTON RIPPLE */
 
-%channelTextAreaButtonInner,
-%channelTextAreaEmojiButton,
-%channelAppLauncher {
+#{ $channelTextAreaButtonInner },
+#{ $channelTextAreaEmojiButton },
+#{ $channelAppLauncher } {
     @include md-ripple(hover, before, 1.0);
 }
 
-%channelTextAreaButtonInner {
-    &%channelTextAreaAttachButton {
+#{ $channelTextAreaButtonInner } {
+    &#{ $channelTextAreaAttachButton } {
         &:hover {
 			&:before {
 				transform: scale(0.8);
@@ -496,23 +497,23 @@
     }
 }
 
-%channelTextAreaButtonInner:not(%channelTextAreaButtonInnerNoHover),
-%channelTextAreaAttachButtonInner,
-%channelTextAreaEmojiButton,
-%channelAppLauncherButtonContainer {
+#{ $channelTextAreaButtonInner }:not(#{ $channelTextAreaButtonInnerNoHover }),
+#{ $channelTextAreaAttachButtonInner },
+#{ $channelTextAreaEmojiButton },
+#{ $channelAppLauncherButtonContainer } {
     &:hover {
         background-color: transparent;
     }
 }
 
-%channelTextAreaButtonsContainer {
+#{ $channelTextAreaButtonsContainer } {
 	gap: var(--space-4);
 	align-items: center;
 	justify-content: center;
 
-    %channelTextAreaButtonInner,
-    %channelTextAreaEmojiButton,
-    %channelAppLauncher {
+    #{ $channelTextAreaButtonInner },
+    #{ $channelTextAreaEmojiButton },
+    #{ $channelAppLauncher } {
 		height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
         min-width: calc(var(--custom-channel-textarea-text-area-height) - 6px);
     }

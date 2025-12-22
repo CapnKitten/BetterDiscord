@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,45 +7,45 @@
  *
  */
 
-%permissionsSettingCard {
+#{ $permissionsSettingCard } {
 	margin-bottom: 16px;
 	@include card-format(false, 0 0 1px, true);
 
-	&%permissionsSettingCardActive {
+	&#{ $permissionsSettingCardActive } {
 		background-color: var(--card-color-filled);
 
-		%permissionsCardContent {
+		#{ $permissionsCardContent } {
             padding: 16px 16px 0;
         }
 	}
 
-	%permissionsCardFolderHeader {
+	#{ $permissionsCardFolderHeader } {
 		padding: 16px 16px 0;
 		border-bottom: none;
 	}
 
-	%permissionsCardFolder {
+	#{ $permissionsCardFolder } {
         margin: 16px;
         background-color: var(--card-color-hover);
         border-radius: calc(var(--card-radius-big) / 1.6);
     }
 
-    + %permissionsDivider {
+    + #{ $permissionsDivider } {
 		display: none;
 
-		+ %button {
+		+ #{ $button } {
 			--button-padding: 0;
 		}
 	}
 }
 
-%permissionsRoleMemberList {
+#{ $permissionsRoleMemberList } {
 	padding: 16px;
 
-	%permissionsRoleMemberContent {
+	#{ $permissionsRoleMemberContent } {
 		height: auto !important;
 
-		%permissionsMemberRow {
+		#{ $permissionsMemberRow } {
 			padding: 0 4px;
 			margin-bottom: 16px;
 
@@ -53,77 +54,65 @@
 			}
 		}
 
-		%permissionsDivider {
+		#{ $permissionsDivider } {
 			display: none;
 		}
 	}
 }
 
-%settingsContentSidebarScrollable {
-    %settingsContentSidebarHeaderDefault {
+#{ $settingsContentSidebarScrollable } {
+    #{ $settingsContentSidebarHeaderDefault } {
         @include remove-caps(14px);
     }
 
-	%permissionsSidebarRoleItem {
+	#{ $permissionsSidebarRoleItem } {
 		border-radius: 16px;
 		transition: var(--default-time) var(--default-animation) background-color;
 
-        &%itemThemed {
-            &:not(%itemDisabled) {
+        &#{ $itemThemed } {
+            &:not(#{ $itemDisabled }) {
                 &:hover {
                     background-color: var(--menu-item-hover);
                 }
 
-                &%itemSelected {
+                &#{ $itemSelected } {
         			background-color: var(--menu-item-select);
         		}
             }
         }
 
-		%permissionsSidebarRoleDotBackground {
+		#{ $permissionsSidebarRoleDotBackground } {
 			padding: 0;
 			background-color: transparent;
 		}
     }
 }
 
-%settingsContentSidebarScroller {
+#{ $settingsContentSidebarScroller } {
     background-color: transparent;
 }
 
-%staticToolbar {
+#{ $staticToolbar } {
 	margin-bottom: 8px;
 	@include card-format(true, 0, true);
 	overflow: hidden;
 
-	%button {
+	#{ $button } {
 		--button-height: 32px;
 		--button-background: transparent;
 		--button-radius: 0;
 	}
 }
 
-%forumGuidelines {
+#{ $forumGuidelines } {
 	--input-padding: 0 12px;
 
 	@include input-format(false, false, true, 200px, 250px);
 	background: var(--input-color) !important;
 	border-radius: 19px;
 
-	%slateTextArea {
+	#{ $slateTextArea } {
 		right: 0;
 		padding: 12px 0;
-	}
-}
-
-%forumGuidelinesAddTags {
-	background-color: hsl(var(--accent-hsl--material-you));
-
-	&:not(%forumGuidelinesAddTagsDisabled):hover {
-		background-color: hsl(var(--accent-hsl--material-you));
-	}
-
-	path {
-		fill: var(--accent-text-color--material-you);
 	}
 }

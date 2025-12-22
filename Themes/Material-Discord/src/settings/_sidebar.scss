@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,24 +7,24 @@
  *
  */
 
-%settingsSidebarScroller {
+#{ $settingsSidebarScroller } {
 	--scrollbar-width: var(--scrollbar-thin-width);
 
 	background-color: var(--main-alt);
 }
 
-%settingsSidebarRegion {
+#{ $settingsSidebarRegion } {
 	flex: 0;
 }
 
-%settingsSidebar {
+#{ $settingsSidebar } {
 	--sidebar-width: 240px;
 
 	width: var(--sidebar-width);
 	margin: 0;
 	padding: 60px 0 40px;
 
-	%settingsSide {
+	#{ $settingsSide } {
 		width: inherit;
 
 		> div:not([class])[style="margin-bottom: 8px;"] {
@@ -37,29 +38,23 @@
 	        background-color: var(--main-alt);
 	        z-index: 4;
 
-	        + %settingsSideHeader {
+	        + #{ $settingsSideHeader } {
 	            margin-top: 56px;
 	        }
 	    }
 	}
 
-	%inputContainer {
+	#{ $inputContainer } {
         flex: 0 1 auto;
         width: calc(var(--sidebar-width) - 18px);
         margin-left: 12px;
     }
 
-	%triggerSettingsSearchBox {
-		background-color: var(--input-color);
-		border-radius: var(--input-radius);
-		border: none;
-	}
-
-	%inputContainer {
+	#{ $inputContainer } {
 		@include input-transform;
 	}
 
-    %item {
+    #{ $item } {
         width: calc(var(--sidebar-width) - 18px);
     	height: 32px;
 		margin-left: 12px;
@@ -69,22 +64,22 @@
     	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 		box-sizing: border-box;
 
-		&%itemThemed {
+		&#{ $itemThemed } {
             &:hover {
-                &:not(%itemDisabled) {
+                &:not(#{ $itemDisabled }) {
                     background-color: var(--menu-item-hover);
                 }
             }
         }
 
-        &%itemSelected {
+        &#{ $itemSelected } {
 			background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity)) !important;
 
     		&:before {
     			opacity: 1;
     		}
 
-			%itemPremiumLabel {
+			#{ $itemPremiumLabel } {
 				color: var(--interactive-active) !important;
 			}
     	}
@@ -93,40 +88,40 @@
     		display: none;
     	}
 
-        %itemPremiumSelectedBackground {
+        #{ $itemPremiumSelectedBackground } {
     		display: none;
     	}
 
-		%itemPremiumLabel {
+		#{ $itemPremiumLabel } {
 			flex-grow: 1;
 		    gap: 8px;
 		}
 
-		%textBadge {
+		#{ $textBadge } {
 			background-color: hsl(var(--accent-hsl--material-you)) !important;
 			color: var(--accent-text-color--material-you);
 		}
     }
 
-    %settingsSideHeader,
-	%bdSidebarHeader {
+    #{ $settingsSideHeader },
+	#{ $bdSidebarHeader } {
 		margin: 10px 28px 12px;
 		padding: 0;
         color: var(--text-muted) !important;
     }
 
-	%settingsSideHeaderEyebrow,
-	%bdSidebarHeaderLabel {
+	#{ $settingsSideHeaderEyebrow },
+	#{ $bdSidebarHeaderLabel } {
 		@include remove-caps(0.8em);
 	}
 
-	%bdSidebarHeaderLabel {
+	#{ $bdSidebarHeaderLabel } {
 		padding: 0;
 		line-height: 16px;
 		color: inherit;
 	}
 
-    %tabBarSeparator {
+    #{ $tabBarSeparator } {
 		position: relative;
 		height: 1px;
 		margin: 10px 22px 10px 28px;
@@ -142,21 +137,21 @@
 	}
 }
 
-%textBadge {
+#{ $textBadge } {
     &[style="background-color: var(--brand-500);"] {
         background-color: hsl(var(--accent-hsl--material-you)) !important;
         color: var(--accent-text-color--material-you);
     }
 }
 
-%settingsSocialLinks,
-%settingsDiscordInfo {
+#{ $settingsSocialLinks },
+#{ $settingsDiscordInfo } {
 	padding: 8px 12px 8px 26px
 }
 
 /* SIDEBAR -> LIGHT THEME WITH DARK SIDEBAR */
 
-%settingsSidebarRegion%themeDark {
+#{ $settingsSidebarRegion }#{ $themeDark } {
     &:after {
         position: absolute;
         content: " ";
@@ -170,18 +165,18 @@
     }
 }
 
-%settingsContentRegion {
+#{ $settingsContentRegion } {
     z-index: 2;
 }
 
 /* SIDEBAR V2 */
 
-%settingsV2Sidebar {
+#{ $settingsV2Sidebar } {
     padding-top: var(--space-24);
     border-right: none;
 }
 
-%settingsV2SidebarFixedContent {
+#{ $settingsV2SidebarFixedContent } {
     margin-inline-end: var(--space-12);
     margin-bottom: calc(var(--input-radius) * -1);
     padding-inline: 0;
@@ -197,30 +192,34 @@
         z-index: -1;
         pointer-events: none;
     }
+
+	#{ $itemV2 } {
+        height: 60px;
+    }
 }
 
-%settingsV2SearchBarContainer {
+#{ $settingsV2SearchBarContainer } {
     margin-top: var(--space-16);
 
-    %inputContainer {
+    #{ $inputContainer } {
         @include input-transform;
     }
 
-    %settingsV2Card {
+    #{ $settingsV2Card } {
         background-color: transparent;
         border-radius: 0;
     }
 }
 
-%settingsV2SidebarNavScroller {
+#{ $settingsV2SidebarNavScroller } {
     margin-inline-end: 0;
     padding-top: calc(var(--input-radius) + var(--space-12));
     padding-inline: 0 calc(var(--space-12) - var(--scrollbar-thin-width));
     padding-right: calc(var(--space-12) - var(--scrollbar-thin-width)) !important;
 }
 
-%settingsV2SidebarNav {
-    %settingsV2SidebarSection {
+#{ $settingsV2SidebarNav } {
+    #{ $settingsV2SidebarSection } {
         gap: 2px;
         border-bottom: none;
 
@@ -236,12 +235,12 @@
     }
 }
 
-%settingsV2SidebarLabel {
+#{ $settingsV2SidebarLabel } {
     margin: var(--space-8) var(--space-16) var(--space-4);
     color: var(--text-muted) !important;
 }
 
-%itemV2 {
+#{ $itemV2 } {
     height: 40px;
     line-height: 40px;
     padding: 0 var(--space-16);
@@ -253,7 +252,7 @@
         background-color: var(--menu-item-hover);
     }
 
-    &%itemV2Active {
+    &#{ $itemV2Active } {
         background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
         color: var(--interactive-active);
     }

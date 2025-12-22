@@ -1,10 +1,12 @@
+@use '../selectorPlaceholders' as *;
+
 /*
  *
  *	VIDEO PLAYER
  *
  */
 
-%playerVideoControls {
+#{ $playerVideoControls } {
     --progress-bar-height: 3px;
     --progress-bar-hover-height: 8px;
     --progress-grabber-size: calc(var(--progress-bar-hover-height) * 2);
@@ -13,53 +15,53 @@
     background-color: transparent;
     background: linear-gradient(0deg, hsl(0,0%,0%,0.65) 0%, transparent 100%);
 
-    %playerVideoButton {
+    #{ $playerVideoButton } {
         margin-left: 12px;
     }
 
-    %playerDurationTimeWrapper {
+    #{ $playerDurationTimeWrapper } {
         margin-left: 48px;
     }
 
-    %flexHorizontal {
+    #{ $flexHorizontal } {
         position: absolute;
         top: -8px;
 
-        %playerMediaBarInteraction,
-        %playerMediaBarInteractionDragging {
+        #{ $playerMediaBarInteraction },
+        #{ $playerMediaBarInteractionDragging } {
             height: var(--progress-bar-height);
             margin: 0 12px;
             padding: calc(var(--progress-bar-height) * 2) 0;
         }
 
-        %playerMediaBarInteraction {
+        #{ $playerMediaBarInteraction } {
             &:hover {
-                %playerMediaBarWrapper {
+                #{ $playerMediaBarWrapper } {
                     height: var(--progress-bar-hover-height);
                 }
             }
         }
 
-        %playerMediaBarInteractionDragging {
-            %playerMediaBarWrapper {
+        #{ $playerMediaBarInteractionDragging } {
+            #{ $playerMediaBarWrapper } {
                 height: var(--progress-bar-hover-height);
             }
         }
 
-        %playerMediaBarWrapper {
+        #{ $playerMediaBarWrapper } {
             height: var(--progress-bar-height);
             transition: var(--default-time) var(--default-animation) height;
             box-shadow: none;
         }
 
-        %playerMediaBarWrapperFakeEdges {
+        #{ $playerMediaBarWrapperFakeEdges } {
             &:before,
             &:after {
                 border-radius: 0;
             }
         }
 
-        %playerMediaBarProgress {
+        #{ $playerMediaBarProgress } {
             background-color: hsl(var(--accent-hsl));
 
             &:before,
@@ -69,7 +71,7 @@
             }
         }
 
-        %playerMediaBarGrabber {
+        #{ $playerMediaBarGrabber } {
             width: var(--progress-grabber-size);
             height: var(--progress-grabber-size);
             margin: calc((var(--progress-grabber-size) / 2) * -1) calc((var(--progress-grabber-size) / 2) * -1) 0 0;
@@ -78,11 +80,11 @@
         }
     }
 
-    %flex {
+    #{ $flex } {
         position: absolute;
         left: 48px;
 
-        %playerVolumeSlider {
+        #{ $playerVolumeSlider } {
             z-index: 3;
         }
     }
@@ -92,13 +94,13 @@
         right: 12px;
     }
 
-    %playerMediaBarBuffer {
+    #{ $playerMediaBarBuffer } {
         opacity: 0.2;
     }
 }
 
-%playerMediaBarInteractiveVolume {
-    %playerMediaBarProgress {
+#{ $playerMediaBarInteractiveVolume } {
+    #{ $playerMediaBarProgress } {
         background-color: hsl(var(--accent-hsl));
 
         &:before,
@@ -107,11 +109,11 @@
         }
     }
 
-    %playerMediaBarGrabber {
+    #{ $playerMediaBarGrabber } {
         background-color: hsl(var(--accent-hsl));
     }
 }
 
-%playerVideoButton {
+#{ $playerVideoButton } {
     margin-right: 0;
 }

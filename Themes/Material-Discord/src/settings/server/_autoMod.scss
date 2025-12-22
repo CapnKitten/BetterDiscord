@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,11 +7,11 @@
  *
  */
 
-%automodSimpleCard {
+#{ $automodSimpleCard } {
     @include card-format(false, 16px, true);
 }
 
-%automodEditCard {
+#{ $automodEditCard } {
     @include card-format(true, 0, true);
 
     &:before {
@@ -18,30 +19,30 @@
     }
 }
 
-%automodRuleIconContainer,
-%automodStepCountIcon {
+#{ $automodRuleIconContainer },
+#{ $automodStepCountIcon } {
     background-color: var(--card-button-color);
 }
 
-%triggerMainContainer {
+#{ $triggerMainContainer } {
     padding: 0;
     border: none;
 
-    %triggerSettingsContainer {
+    #{ $triggerSettingsContainer } {
         --card-color-filled: var(--card-color-alt);
 
         margin: 8px 0;
         @include card-format(false, 0, true);
 
-        %paddingTop,
-        %triggerSettingsExemptionHint {
+        #{ $paddingTop },
+        #{ $triggerSettingsExemptionHint } {
             margin-top: 0;
             padding: 0px 16px 8px;
         }
     }
 }
 
-%triggerCollapseable {
+#{ $triggerCollapseable } {
     margin-top: 0;
     padding: 16px;
     background-color: transparent;
@@ -61,34 +62,12 @@
     }
 }
 
-%mentionLimitContainer {
+#{ $mentionLimitContainer } {
     background-color: transparent;
 }
 
-%triggerSettingsSearchContainer {
-    padding: 16px 16px 8px;
-
-    %triggerSettingsSearchBox {
-        @include input-format(false, false, true);
-
-        %triggerSettingsSearchBoxInner {
-            padding: 0;
-        }
-
-        %triggerSettingsSearchInput {
-            height: var(--input-height);
-            margin: 0;
-            padding: 0;
-        }
-    }
-
-    %popoutSearchRichTag {
-        margin: 6px 6px 6px 0;
-    }
-}
-
-%keywordsTextArea,
-%regexTextArea {
+#{ $keywordsTextArea },
+#{ $regexTextArea } {
     padding: 12px;
     background-color: var(--input-color);
     border-radius: 19px;
@@ -100,29 +79,29 @@
     }
 }
 
-%keywordsTextArea {
+#{ $keywordsTextArea } {
     width: calc(100% - 32px);
     margin: 16px 16px 8px;
 }
 
-%regexTextArea {
-    %regexTextAreaInnerScroller {
+#{ $regexTextArea } {
+    #{ $regexTextAreaInnerScroller } {
         padding: 0;
     }
 
-    %regexChipletContainer {
+    #{ $regexChipletContainer } {
         background-color: var(--card-button-color);
         border-radius: 6px;
     }
 }
 
-%keywordsCounter {
+#{ $keywordsCounter } {
     right: 24px;
     bottom: 24px;
 }
 
-%keywordListContainer,
-%actionContainer {
+#{ $keywordListContainer },
+#{ $actionContainer } {
     padding: 12px 16px;
     background-color: transparent;
     @include card-format--list;
@@ -131,36 +110,36 @@
         margin-bottom: 0;
     }
 
-    %checkboxWrapper {
+    #{ $checkboxWrapper } {
         padding: 0;
     }
 }
 
-%actionContainer {
-    %actionContainer {
+#{ $actionContainer } {
+    #{ $actionContainer } {
         padding: 0;
     }
 
-    %actionIconContainer {
+    #{ $actionIconContainer } {
         margin-right: 16px;
     }
 
-    %actionEditChannel {
+    #{ $actionEditChannel } {
         color: hsl(var(--accent-hsl--material-you));
     }
 }
 
-%actionRuleContainer {
+#{ $actionRuleContainer } {
     background-color: transparent;
     border-radius: 8px;
     border: 1px solid var(--card-border-color);
 }
 
-%dividerIcon {
+#{ $dividerIcon } {
     color: var(--text-muted);
 }
 
-%stepperContainer {
+#{ $stepperContainer } {
     padding: 0;
     background-color: var(--card-color-outlined);
     border-radius: calc(var(--input-height) / 2);
@@ -168,11 +147,11 @@
 
     --input-height: 36px;
 
-    %stepper {
+    #{ $stepper } {
         border-radius: inherit;
     }
 
-    %stepperIconWrapper {
+    #{ $stepperIconWrapper } {
         background-color: transparent !important;
         transition: var(--default-time) var(--default-animation) background-color;
 
@@ -188,7 +167,7 @@
             background-color: var(--card-color-hover) !important;
         }
 
-        %stepperIcon {
+        #{ $stepperIcon } {
             height: var(--input-height);
 
             &:hover {
@@ -197,7 +176,7 @@
         }
     }
 
-    %inputWrapper {
+    #{ $inputWrapper } {
         border-bottom: none !important;
 
         &:before,
@@ -209,12 +188,12 @@
 
 /* SERVER SETTINGS CONTENT MODERATION -> CARD EXPANSION LIST */
 
-%automodClickableContainer,
-%automodCardListContainer {
+#{ $automodClickableContainer },
+#{ $automodCardListContainer } {
     background-color: transparent;
 }
 
-%automodBackgroundModifierContainer {
+#{ $automodBackgroundModifierContainer } {
     background-color: var(--card-color-hover);
     border-radius: calc(var(--card-radius-big) / 1.6);
     border-top: none;
@@ -222,18 +201,18 @@
     border-right: none;
 
     &:hover {
-        &:not(%automodBackgroundModifierContainerDisabled) {
-            &:not(%automodBackgroundModifierContainerNoAction) {
+        &:not(#{ $automodBackgroundModifierContainerDisabled }) {
+            &:not(#{ $automodBackgroundModifierContainerNoAction }) {
                 background-color: var(--card-color-active);
             }
         }
     }
 
-    &%automodBackgroundModifierContainerDisabled {
+    &#{ $automodBackgroundModifierContainerDisabled } {
         border-left: 3px solid var(--card-color-hover);
     }
 
-    &%automodBackgroundModifierContainerSelected {
+    &#{ $automodBackgroundModifierContainerSelected } {
         background-color: var(--card-color-active);
     }
 }

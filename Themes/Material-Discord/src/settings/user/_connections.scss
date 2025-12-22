@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,11 +7,11 @@
  *
  */
 
-%connectionsAccountButton {
+#{ $connectionsAccountButton } {
     margin-bottom: 0;
 }
 
-%connectionsAccountsButtonInner {
+#{ $connectionsAccountsButtonInner } {
     background-color: var(--card-button-color);
     border-radius: 50%;
     transition: var(--default-time) var(--default-animation) background-color;
@@ -22,7 +23,7 @@
 
 /* CONNECTIONS -> ADD CONNECTION */
 
-%connectionsModalAccountButtonInner {
+#{ $connectionsModalAccountButtonInner } {
     background-color: var(--card-button-color);
     border-radius: 50%;
     transition: var(--default-time) var(--default-animation) background-color;
@@ -34,7 +35,7 @@
 
 /* CONNECTIONS -> CONNECTED ACCOUNTS */
 
-%connectionList {
+#{ $connectionList } {
     > div {
         display: flex;
         flex-direction: column;
@@ -42,31 +43,31 @@
     }
 }
 
-%connectionsModalHeader {
+#{ $connectionsModalHeader } {
     margin-top: 0;
 
-    %headingMdBold {
+    #{ $headingMdBold } {
         font-size: 22px;
         font-weight: 400;
     }
 }
 
-%connectionsModalConnectionsContainer {
+#{ $connectionsModalConnectionsContainer } {
     margin-bottom: 0;
 }
 
-%connectionCard {
+#{ $connectionCard } {
     margin-bottom: 0;
     @include card-format(false, 0, true);
 
-    %connectionCardHeader {
+    #{ $connectionCardHeader } {
         @include card-format--header(false, true);
     }
 
-    %connectionCardOptions {
+    #{ $connectionCardOptions } {
         padding: 0 16px 16px;
 
-        %connectionCardSwitch {
+        #{ $connectionCardSwitch } {
             padding-left: 0;
             padding-right: 0;
 
@@ -76,36 +77,36 @@
         }
     }
 
-    %settingsHeaderDivider {
+    #{ $settingsHeaderDivider } {
         margin: 0 16px;
         border-top-color: var(--card-border-color);
     }
 
-    %connectionCardMetadataContainer {
+    #{ $connectionCardMetadataContainer } {
         --card-color-filled: var(--card-color-alt);
 
         margin: 0 16px 16px;
         @include card-format(false, 12px, true);
     }
 
-    %connectionsCardUpsellWrapper {
+    #{ $connectionsCardUpsellWrapper } {
         padding: 0;
     }
 
-    %connectionCardUpsellContainer {
-        @extend %connectionCardMetadataContainer;
+    #{ $connectionCardUpsellContainer } {
+        @extend #{ $connectionCardMetadataContainer };
 
-        %button {
+        #{ $button } {
             min-width: 130px;
         }
     }
 }
 
-%integrationWrapper {
+#{ $integrationWrapper } {
 	padding: 0;
     background-color: transparent;
 
-	%integrationCard {
+	#{ $integrationCard } {
         --card-color-filled: var(--card-color-alt);
 
         @include card-format(false, 16px, true);
@@ -123,7 +124,7 @@
             border-radius: calc(var(--card-radius-big) / 1.6);
         }
 
-		%button {
+		#{ $button } {
 			background-color: hsl(var(--accent-hsl),0.1);
 			color: hsl(var(--accent-hsl--material-you));
 		}
@@ -132,33 +133,33 @@
 
 /**/
 
-%connectionsChecksGroup {
+#{ $connectionsChecksGroup } {
     @include card-format(false, 16px, true);
 
-    &%connectionsChecksGroupPassed {
+    &#{ $connectionsChecksGroupPassed } {
         background-color: var(--card-color-active);
     }
 }
 
-%connectionsRoleGranted {
+#{ $connectionsRoleGranted } {
     margin-top: 0;
     padding: 16px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
-    %textLGSemibold {
+    #{ $textLgSemibold } {
         font-size: 1.25em;
         font-weight: 400;
     }
 }
 
-%connectionsChannelsGranted {
+#{ $connectionsChannelsGranted } {
     margin-bottom: 0;
     padding: 0 16px 16px;
     background-color: var(--card-color-filled);
     border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
 
-    %headingLgSemibold {
+    #{ $headingLgSemibold } {
         font-size: 1.1em;
         font-weight: 400;
     }

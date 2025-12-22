@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,67 +7,67 @@
  *
  */
 
-%shopScroll,
-%shopContainer {
+#{ $shopScroll },
+#{ $shopContainer } {
     background-color: transparent;
 }
 
-%shopPage {
+#{ $shopPage } {
     background-color: var(--chat-color);
 }
 
-%shopFilterBar {
+#{ $shopFilterBar } {
     background-color: transparent;
 }
 
-%shopSearchBar {
+#{ $shopSearchBar } {
     --input-height: 32px;
 }
 
-%shopOuterContainer {
+#{ $shopOuterContainer } {
     background-color: var(--chat-color);
 }
 
-%shopFullscreen {
+#{ $shopFullscreen } {
     margin-top: 0;
     background: var(--main-alt);
 }
 
-%chatPage {
-    %shopOuterContainer,
-    %shopPageWrapper {
+#{ $chatPage } {
+    #{ $shopOuterContainer },
+    #{ $shopPageWrapper } {
         background-color: transparent;
         border-top: none;
     }
 
-    %shopContainer {
+    #{ $shopContainer } {
         background-color: var(--chat-color);
     }
 }
 
 /* DISCORD SHOP CONTENT -> BANNERS */
 
-%shopShyBanner {
+#{ $shopShyBanner } {
     border-radius: var(--card-radius-big);
     box-shadow: none;
 }
 
-%shopHeroBanner,
-%shopBannerBackground,
-%shopBannerCard {
+#{ $shopHeroBanner },
+#{ $shopBannerBackground },
+#{ $shopBannerCard } {
     border-radius: var(--card-radius-big);
 }
 
-%shopHeroBanner {
+#{ $shopHeroBanner } {
     margin-top: 0;
 }
 
-%shopBanner {
+#{ $shopBanner } {
     border-radius: var(--card-radius-big);
     outline: none;
 }
 
-%shopAllButton {
+#{ $shopAllButton } {
     background-color: hsl(var(--accent-hsl--material-you)) !important;
     border-radius: 22px;
 
@@ -74,68 +75,68 @@
         fill: var(--accent-text-color--material-you);
     }
 
-    %textSmMedium {
+    #{ $textSmMedium } {
         color: var(--accent-text-color--material-you);
     }
 }
 
-%shopItemTypeTitle {
+#{ $shopItemTypeTitle } {
     @include remove-caps(16px);
     font-weight: 500;
 }
 
 /* DISCORD SHOP CONTENT -> CARDS */
 
-%shopCard {
+#{ $shopCard } {
     @include card-format(true, 0, true, true, true);
 
     &:hover {
         --card-color-filled: var(--card-color-hover);
     }
 
-    %textLgBold {
+    #{ $textLgBold } {
         font-weight: 400;
         font-size: 24px;
         color: var(--header-primary) !important;
     }
 
-    %shopCardBackground,
-    %shopDarkCardBackground {
+    #{ $shopCardBackground },
+    #{ $shopDarkCardBackground } {
         background-color: var(--card-color-filled);
         transition: var(--default-time) var(--default-animation) background-color;
     }
 
-    %shopCardDescription,
-    %shopCardPriceTag {
+    #{ $shopCardDescription },
+    #{ $shopCardPriceTag } {
         color: var(--interactive-text-default) !important;
     }
 
-    %shopCardPremiumIcon {
+    #{ $shopCardPremiumIcon } {
         path {
             fill: currentColor;
         }
     }
 
-    %buttonFilled%buttonBrand {
+    #{ $buttonFilled }#{ $buttonBrand } {
         background: var(--button-background) !important;
     }
 
-    %shopGiftButtonInner,
-    %shopPreviewButtonInner {
+    #{ $shopGiftButtonInner },
+    #{ $shopPreviewButtonInner } {
         max-width: none;
         max-height: none;
     }
 }
 
-%shopCardWishlistButton {
+#{ $shopCardWishlistButton } {
     border-radius: calc(var(--card-radius-big) / 1.5);
 }
 
-%shopCardFooterGradient {
+#{ $shopCardFooterGradient } {
     background: linear-gradient(to top, var(--card-color-filled), color-mix(in oklab, var(--card-color-filled) 80%, transparent) 30%, color-mix(in oklab, var(--card-color-filled) 0%, transparent) 100%) !important;
 }
 
-%shopCardTextProfileEffect {
+#{ $shopCardTextProfileEffect } {
     &:before {
         background: linear-gradient(180deg, transparent, transparent, var(--card-color-filled)) !important;
     }
@@ -143,7 +144,7 @@
 
 /* DISCORD SHOP CONTENT -> MODAL */
 
-%shopPreviewModalContent {
+#{ $shopPreviewModalContent } {
     padding: 0 !important;
     border-radius: var(--popout-radius-big) !important;
 
@@ -152,14 +153,14 @@
         --scrollbar-thin-width: 0;
     }
 
-    %shopCollectibleInfoContainer {
+    #{ $shopCollectibleInfoContainer } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius-big);
 
-        %buttonFilled {
+        #{ $buttonFilled } {
             background: var(--button-background) !important;
 
-            %buttonContents {
+            #{ $buttonContents } {
                 svg {
                     height: 24px;
                 }
@@ -167,7 +168,7 @@
         }
     }
 
-    %shopCollectibleCategoryBanner {
+    #{ $shopCollectibleCategoryBanner } {
         width: calc(100% + var(--popout-radius-big));
         left: calc(var(--popout-radius-big) * -1);
     }

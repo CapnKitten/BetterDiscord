@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,30 +7,15 @@
  *
  */
 
-%premiumSkuSelect {
-    @include popout-format(true);
-
-    %titleH4 {
-        font-size: 20px;
-        line-height: 24px;
-    }
-
-    %premiumSkuButtons {
-         padding-top: 16px;
-    }
-}
-
-/* NITRO PURCHASE -> SELECTION AND REVIEW */
-
-%modalRoot {
-    %modalHeader {
-        &%modalHeaderAlt {
+#{ $modalRoot } {
+    #{ $modalHeader } {
+        &#{ $modalHeaderAlt } {
             margin-bottom: 0;
             padding-bottom: 0;
             background-image: linear-gradient(var(--popout-color), var(--popout-color));
             border-bottom: none;
 
-            %modalCloseButton {
+            #{ $modalCloseButton } {
                 top: -4px;
                 right: -4px;
             }
@@ -37,22 +23,22 @@
     }
 }
 
-%nitroPlanHeaderBackground {
+#{ $nitroPlanHeaderBackground } {
     margin-bottom: 16px;
 
-    %modalHeaderAnimation {
+    #{ $modalHeaderAnimation } {
         border-top-left-radius: var(--popout-radius-big);
         border-top-right-radius: var(--popout-radius-big);
     }
 }
 
-%nitroPlanHeaderBackground,
-%nitroPlanPanningAnimation,
-%nitroPurchaseHeaderImage {
+#{ $nitroPlanHeaderBackground },
+#{ $nitroPlanPanningAnimation },
+#{ $nitroPurchaseHeaderImage } {
     border-radius: var(--popout-radius-big);
 }
 
-%breadcrumbsWrapper {
+#{ $breadcrumbsWrapper } {
     padding: 0 24px 16px;
     background-color: transparent;
 
@@ -61,26 +47,26 @@
     }
 }
 
-%nitroPurchaseHeaderContainer {
-    + %breadcrumbsWrapper {
+#{ $nitroPurchaseHeaderContainer } {
+    + #{ $breadcrumbsWrapper } {
         padding: 16px 24px 8px;
     }
 }
 
-%nitroPlanSpinner {
+#{ $nitroPlanSpinner } {
     background-color: transparent;
 }
 
-%nitroPlanSelectSeparator,
-%nitroPlanSelectSeparatorLower {
+#{ $nitroPlanSelectSeparator },
+#{ $nitroPlanSelectSeparatorLower } {
     display: none;
 }
 
-%nitroPlanSelectSeparatorLower + %textXsNormal {
+#{ $nitroPlanSelectSeparatorLower } + #{ $textXsNormal } {
     margin-top: 12px;
 }
 
-%nitroPlanOptionClickableContainer {
+#{ $nitroPlanOptionClickableContainer } {
     padding: 0 12px;
 	background-color: transparent;
 	border-radius: calc(var(--card-radius-big) / 1.65);
@@ -90,7 +76,7 @@
         background-color: var(--card-color-hover) !important;
     }
 
-    &%nitroPlanSelectionBox {
+    &#{ $nitroPlanSelectionBox } {
         margin-bottom: 8px;
         outline: none;
 
@@ -99,57 +85,57 @@
         }
     }
 
-    &%nitroPlanSelected {
+    &#{ $nitroPlanSelected } {
         background-color: var(--card-color-active) !important;
     }
 }
 
-%nitroPlanSelectDivider {
+#{ $nitroPlanSelectDivider } {
     display: none;
 }
 
-%nitroPlanWarnBlock {
+#{ $nitroPlanWarnBlock } {
     margin-top: 16px;
 }
 
-%nitroPlanWarnBlock,
-%nitroTable,
-%nitroInvoice {
+#{ $nitroPlanWarnBlock },
+#{ $nitroTable },
+#{ $nitroInvoice } {
     @include card-format(false, 16px, true);
 }
 
-%nitroTableDivider {
+#{ $nitroTableDivider } {
     background-color: var(--card-border-color);
 }
 
-%nitroPlanPaymentSourceWarning {
+#{ $nitroPlanPaymentSourceWarning } {
     margin-top: 8px;
     @include card-format(false, 8px, true);
 }
 
 /* NITRO PURCHASE -> PURCHASED INFO */
 
-%purchaseModalInner {
+#{ $purchaseModalInner } {
     width: auto;
     background-color: transparent;
 }
 
-%purchaseBannerContainer {
+#{ $purchaseBannerContainer } {
     border-radius: calc(var(--popout-radius-big) / 1.5);
 }
 
 /* NITRO PUCHASE -> GIFT NITRO */
 
-%giftNitroModalHeader {
+#{ $giftNitroModalHeader } {
     background-image: none;
     border-bottom: none;
 
-    %giftNitroInfo {
+    #{ $giftNitroInfo } {
         margin-bottom: 0;
     }
 }
 
-%giftNitroBoxOptionContainer {
+#{ $giftNitroBoxOptionContainer } {
     max-width: 90%;
     padding: 0 !important;
     background-color: transparent !important;
@@ -158,12 +144,12 @@
         display: flex;
     }
 
-    %giftNitroCustomGiftBox,
-    %giftNitroCustomGiftBoxHighlighted {
+    #{ $giftNitroCustomGiftBox },
+    #{ $giftNitroCustomGiftBoxHighlighted } {
         border-radius: var(--card-radius-big) !important;
     }
 
-    %giftNitroCustomGiftBoxHighlighted {
+    #{ $giftNitroCustomGiftBoxHighlighted } {
         border-color: hsl(var(--accent-hsl--material-you));
     }
 }

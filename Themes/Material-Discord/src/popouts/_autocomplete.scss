@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,18 +7,18 @@
  *
  */
 
-%autocomplete {
+#{ $autocomplete } {
 	@include popout-format(true);
 
-	%autocompleteCategoryHeader {
+	#{ $autocompleteCategoryHeader } {
 		background-color: var(--emoji-category-header);
 	}
 
-	%autocompleteRow {
+	#{ $autocompleteRow } {
 		padding: 0;
 
 		&[aria-disabled="false"] {
-			%autocompleteBase {
+			#{ $autocompleteBase } {
 				&:hover {
 					background-color: var(--menu-item-hover);
 				}
@@ -25,65 +26,61 @@
 		}
 
 		&[aria-selected="true"] {
-			%autocompleteBase {
+			#{ $autocompleteBase } {
 				background-color: var(--menu-item-select);
 			}
 		}
 
-		%autocompleteBase {
+		#{ $autocompleteBase } {
 			padding: 8px 12px;
 			border-radius: 0;
 			transition: var(--default-time) var(--default-animation) background-color;
 
-			&%autocompleteBaseSelected {
+			&#{ $autocompleteBaseSelected } {
 				background-color: var(--menu-item-hover) !important;
 			}
 		}
 	}
 
-    %autocompleteTitle {
+    #{ $autocompleteTitle } {
         @include remove-caps(14px);
     }
 
-	%autocompleteDivider {
+	#{ $autocompleteDivider } {
 		padding: 8px 0;
 		&:after {
 			background-color: var(--card-border-color);
 		}
 	}
 
-	%autocompleteListWrapper {
+	#{ $autocompleteListWrapper } {
 		position: relative;
 		background-color: var(--attachment-color);
 
-		%emojiCategoryWrapper {
+		#{ $emojiCategoryWrapper } {
 	        width: 100%;
 
-	        %scroller {
+	        #{ $scroller } {
 	            --scrollbar-width: 0;
 	        }
 	    }
 
-		%emojiCategoryWrapper {
+		#{ $emojiCategoryWrapper } {
 			width: 100%;
 			background-color: transparent;
 
-			%scroller {
+			#{ $scroller } {
 				--scrollbar-width: 0;
 			}
 
-			%autocompleteListItems {
+			#{ $autocompleteListItems } {
 				left: 12px !important;
 				right: 12px !important;
-			}
-
-			%autocompleteAvatarWrapper {
-				border-radius: var(--avatar-radius);
 			}
 		}
 	}
 
-	%autocompleteListItems {
+	#{ $autocompleteListItems } {
 		left: 0 !important;
 		right: 0 !important;
 	}
@@ -91,46 +88,46 @@
 
 /* AUTOCOMPLETE -> ROLES POPOUT */
 
-%autocompletePopout {
+#{ $autocompletePopout } {
 	@include popout-format;
 
-	%autocompletePopoutArrow {
+	#{ $autocompletePopoutArrow } {
 		background-color: var(--popout-color);
 	}
 
-	%autocompletePopoutHeader {
+	#{ $autocompletePopoutHeader } {
 		background-color: transparent;
 		border-bottom: 1px solid var(--card-border-color);
 	}
 
-	%autocompletePopoutHeaderText {
+	#{ $autocompletePopoutHeaderText } {
 		margin-right: 0;
 	}
 
-	%autocompletePopoutInput {
+	#{ $autocompletePopoutInput } {
         width: 100%;
         margin-bottom: 0;
     }
 
-	%autocompletePopoutSectionTag {
+	#{ $autocompletePopoutSectionTag } {
 		background-color: transparent !important;
 	}
 
-	%autocompletePopoutSection {
+	#{ $autocompletePopoutSection } {
 		line-height: 36px;
 		padding: 0 16px;
 		@include remove-caps(14px);
 	}
 
-	%autocompletePopoutShadow {
+	#{ $autocompletePopoutShadow } {
 		display: none;
 	}
 
-	%autocompletePopoutArrow {
+	#{ $autocompletePopoutArrow } {
 		background-color: var(--popout-color);
 	}
 
-	%autocompletePopoutHeader {
+	#{ $autocompletePopoutHeader } {
         padding: 0 16px;
         gap: 8px;
         justify-content: flex-start;
@@ -138,32 +135,32 @@
 		border-bottom: 1px solid var(--card-border-color);
 	}
 
-	%autocompletePopoutSectionTag {
+	#{ $autocompletePopoutSectionTag } {
 		background-color: transparent !important;
 	}
 
-	%autocompletePopoutSection {
+	#{ $autocompletePopoutSection } {
 		line-height: 36px;
 		padding: 0 16px;
 		@include remove-caps(14px);
 	}
 }
 
-%autocompletePopoutShadow,
-%autocompletePopoutHeaderBackground {
+#{ $autocompletePopoutShadow },
+#{ $autocompletePopoutHeaderBackground } {
 	display: none;
 }
 
-%autocompletePopoutRow {
+#{ $autocompletePopoutRow } {
 	padding-left: var(--scrollbar-thin-width);
 
-	&%autocompletePopoutSelected {
-		%autocompletePopoutRowInner {
+	&#{ $autocompletePopoutSelected } {
+		#{ $autocompletePopoutRowInner } {
 			background-color: var(--menu-item-hover);
 		}
 	}
 
-	%autocompletePopoutRowInner {
+	#{ $autocompletePopoutRowInner } {
 		border-radius: var(--popout-radius);
 		transition: var(--default-time) var(--default-animation) background-color;
 	}

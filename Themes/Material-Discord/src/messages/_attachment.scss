@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,20 +7,20 @@
  *
  */
 
-%nonMediaAttachmentsContainer {
+#{ $nonMediaAttachmentsContainer } {
 	margin-top: 0;
 }
 
-%attachment {
+#{ $attachment } {
 	background-color: var(--attachment-color);
 	border-radius: var(--media-radius);
 	border: none;
 
-	&%attachmentNewMosaicStyle {
+	&#{ $attachmentNewMosaicStyle } {
 		border-radius: var(--media-radius);
 	}
 
-	%attachmentDownloadButton {
+	#{ $attachmentDownloadButton } {
 		margin-left: 0;
 
 		path {
@@ -28,12 +29,12 @@
 	}
 }
 
-%attachmentHoverButtonGroup {
+#{ $attachmentHoverButtonGroup } {
 	background-color: var(--card-button-color);
 	border-radius: 16px;
 	transition: var(--default-time) var(--default-animation) opacity;
 
-	%attachmentHoverButton {
+	#{ $attachmentHoverButton } {
 		transition: var(--default-time) var(--default-animation) background-color;
 
 		&:hover {
@@ -41,14 +42,14 @@
 		}
 	}
 
-	%attachmentDownloadButtonIcon {
+	#{ $attachmentDownloadButtonIcon } {
         path {
             d: path("M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z");
         }
     }
 }
 
-%attachmentNonMediaAttachment {
+#{ $attachmentNonMediaAttachment } {
     width: 32px;
     height: 32px;
     top: 0;
@@ -57,153 +58,149 @@
     margin: auto 0;
     outline: none;
 
-    &%attachmentHoverButtonGroup {
+    &#{ $attachmentHoverButtonGroup } {
         background-color: transparent;
         opacity: 1;
     }
 }
 
-%attachmentVideo {
+#{ $attachmentVideo } {
 	border-radius: var(--media-radius);
 }
 
-%attachmentThreadContainer {
+#{ $attachmentThreadContainer } {
     background-color: var(--attachment-color);
 	border-radius: var(--media-radius);
 }
 
-%fileProgress {
+#{ $fileProgress } {
 	background-color: hsl(var(--accent-hsl),0.3) !important;
 
-	%fileProgressBar {
+	#{ $fileProgressBar } {
 		background-color: hsl(var(--accent-hsl--material-you)) !important;
 	}
 }
 
-%attachmentTile {
+#{ $attachmentTile } {
     border-radius: var(--media-radius);
     background-color: var(--attachment-color) !important;
 }
 
-%attachmentTileReferralContainer {
+#{ $attachmentTileReferralContainer } {
     border-radius: var(--media-radius);
 }
 
-%bumpBox {
+#{ $bumpBox } {
     background-color: var(--attachment-color);
     border-radius: var(--media-radius);
 }
 
-%embed {
+#{ $embed } {
 	border-radius: var(--media-radius);
 
-	&%embedFull {
+	&#{ $embedFull } {
 		background-color: var(--attachment-color);
 	}
 
 	pre,
 	pre code,
 	code.inline,
-	%spoilerContent {
+	#{ $spoilerContent } {
 		--attachment-color: var(--message-color);
 	}
 }
 
-%embedCard {
+#{ $embedCard } {
 	background-color: var(--attachment-color);
 	border-radius: var(--message-radius);
 
-	&%embedCardSelected {
+	&#{ $embedCardSelected } {
 		background-color: var(--attachment-color);
 	}
 
-	%messagesWrapper {
+	#{ $messagesWrapper } {
 		margin: 0 0 0 48px !important;
 
-		%avatarLarge {
+		#{ $avatarLarge } {
 			left: -48px !important;
 			margin-top: 0;
 		}
 	}
 }
 
-%embedCardWithFooter {
+#{ $embedCardWithFooter } {
 	padding-bottom: 0;
 	border-radius: var(--media-radius) var(--media-radius) 0 0;
 }
 
-%embedCardFooterContainer {
+#{ $embedCardFooterContainer } {
 	padding: 8px 16px 8px;
 	background-color: var(--attachment-color);
 	border-radius: 0 0 var(--media-radius) var(--media-radius);
 
-    %button {
+    #{ $button } {
         --button-height: 30px;
 
-        %buttonContents {
+        #{ $buttonContents } {
             > div {
                 height: var(--button-height);
             }
         }
 
-		%textXsNormal {
+		#{ $textXsNormal } {
             color: hsl(var(--accent-text-color--material-you)) !important;
             font-weight: 500;
         }
     }
 }
 
-%embedChildren {
+#{ $embedChildren } {
     margin-top: 4px;
     gap: 8px;
 
-    %button {
+    #{ $button } {
         margin: 0;
     }
 }
 
-%embedGuildShop {
+#{ $embedGuildShop } {
     background-color: var(--attachment-color) !important;
     border-radius: var(--media-radius);
 
-    %buttonFilled {
-        &%buttonBrand {
-            %textSmMedium {
+    #{ $buttonFilled } {
+        &#{ $buttonBrand } {
+            #{ $textSmMedium } {
                 color: inherit !important;
             }
         }
     }
 }
 
-%buildOverrideWrapper {
+#{ $buildOverrideWrapper } {
 	background-color: var(--attachment-color);
 	border-radius: var(--media-radius)
 }
 
-%inviteWrapper {
+#{ $inviteWrapper } {
 	background-color: var(--attachment-color) !important;
 	border-radius: var(--media-radius);
 	border: none;
 
-	%inviteSplash,
-	%inviteBanner {
+	#{ $inviteSplash },
+	#{ $inviteBanner } {
 		border-radius: var(--media-radius);
 	}
 
-	%inviteContent {
+	#{ $inviteContent } {
 		gap: 12px;
 	}
 
-	%inviteTitle {
-		@include remove-caps(14px);
-	}
-
-	%inviteGuildIcon {
+	#{ $inviteGuildIcon } {
 		border-radius: 50%;
 	}
 }
 
-%activityInvite {
+#{ $activityInvite } {
 	background-color: var(--attachment-color) !important;
 	border-radius: var(--media-radius);
 	border: none !important;
@@ -211,21 +208,21 @@
 
 /* ATTACHMENTS -> AUDIO FILE */
 
-%playerAudio {
+#{ $playerAudio } {
 	padding: 0;
 	background-color: var(--attachment-color) !important;
 	border-radius: var(--media-radius);
 	border: none;
 
-	&%playerAudioNewMosaicStyle {
+	&#{ $playerAudioNewMosaicStyle } {
 		padding: 0;
 		border-radius: var(--media-radius);
 	}
 
-	%playerAudioMetadata {
+	#{ $playerAudioMetadata } {
 		padding: 12px 12px 4px;
 
-		%playerMetadataIcon {
+		#{ $playerMetadataIcon } {
 			path {
 				&[d="M16.293 9.293L17.707 10.707L12 16.414L6.29297 10.707L7.70697 9.293L11 12.586V2H13V12.586L16.293 9.293ZM18 20V18H20V20C20 21.102 19.104 22 18 22H6C4.896 22 4 21.102 4 20V18H6V20H18Z"] {
 					d: path('M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z');
@@ -234,44 +231,44 @@
 		}
 	}
 
-	+ %attachmentNonMediaAttachment {
+	+ #{ $attachmentNonMediaAttachment } {
 		top: 12px;
 		bottom: unset;
 		margin: 0;
 	}
 
-	%playerAudioControls {
+	#{ $playerAudioControls } {
 		margin-top: 0;
 		background-color: transparent;
 		border-radius: 0;
 		border-top: 1px solid var(--card-border-color);
 		color: var(--interactive-text-default);
 
-		%playerControlIcon {
+		#{ $playerControlIcon } {
 			padding: 8px;
 		}
 	}
 }
 
-%voiceMessageContainer {
+#{ $voiceMessageContainer } {
 	background-color: var(--attachment-color);
 	border-radius: var(--media-radius);
 	border-color: var(--attachment-color);
 
-    &%voiceMessagePlaying {
+    &#{ $voiceMessagePlaying } {
 		border-color: hsl(var(--accent-hsl--material-you));
 
-        %voiceMessagePlayButtonContainer {
+        #{ $voiceMessagePlayButtonContainer } {
             border-radius: 10px;
         }
     }
 }
 
-%voiceMessageContainerRippleContainer {
+#{ $voiceMessageContainerRippleContainer } {
     display: none;
 }
 
-%voiceMessagePlayButtonContainer {
+#{ $voiceMessagePlayButtonContainer } {
     background: hsl(var(--accent-hsl--material-you)) !important;
     transition: var(--default-time) var(--default-animation) border-radius;
 
@@ -279,35 +276,35 @@
         transform: none;
     }
 
-    %voiceMessagePlayIcon {
+    #{ $voiceMessagePlayIcon } {
         color: var(--accent-text-color--material-you) !important;
     }
 }
 
 /* ATTACHMENTS -> VIDEO PLAYER */
 
-%player {
+#{ $player } {
 	border-radius: 0;
 }
 
-%playerMediaBarInteraction {
+#{ $playerMediaBarInteraction } {
 	&:hover {
-		%playerMediaBarGrabber {
+		#{ $playerMediaBarGrabber } {
 			background-color: hsl(var(--accent-hsl--material-you));
 			box-shadow: var(--shadow-2dp);
 		}
 	}
 }
 
-%playerMediaBarInteractionDragging {
-	%playerMediaBarGrabber {
+#{ $playerMediaBarInteractionDragging } {
+	#{ $playerMediaBarGrabber } {
 		background-color: hsl(var(--accent-hsl--material-you));
 		box-shadow: var(--shadow-medium);
 	}
 }
 
-%playerMediaBarGrabber,
-%playerMediaBarProgress {
+#{ $playerMediaBarGrabber },
+#{ $playerMediaBarProgress } {
 	&,
 	&:before,
 	&:after {
@@ -317,62 +314,62 @@
 
 /* ATTACHMENTS -> IMAGES */
 
-%visualMediaItemContainer {
+#{ $visualMediaItemContainer } {
     border-radius: var(--media-radius);
 }
 
-%oneByOneGrid,
-%oneByTwoGrid {
+#{ $oneByOneGrid },
+#{ $oneByTwoGrid } {
     border-radius: var(--media-radius);
     overflow: hidden;
 }
 
-%visualMediaItemContainer {
-    %oneByOneGrid,
-    %oneByTwoGrid {
+#{ $visualMediaItemContainer } {
+    #{ $oneByOneGrid },
+    #{ $oneByTwoGrid } {
         &:not(:only-child) {
             border-radius: calc(var(--media-radius) / 4);
         }
     }
 }
 
-%oneByTwoGridItem,
-%oneByTwoSoloItem,
-%twoByOneGridItem {
+#{ $oneByTwoGridItem },
+#{ $oneByTwoSoloItem },
+#{ $twoByOneGridItem } {
     border-radius: calc(var(--media-radius) / 4);
 }
 
-%mosaicItemMediaMosaic,
-%imageItemContentContainer,
-%imageContainer,
-%imageWrapper {
+#{ $mosaicItemMediaMosaic },
+#{ $imageItemContentContainer },
+#{ $imageContainer },
+#{ $imageWrapper } {
     border-radius: inherit;
 }
 
-%embedVideo {
-	%imageWrapper {
+#{ $embedVideo } {
+	#{ $imageWrapper } {
         border-radius: var(--media-radius);
     }
 }
 
-%spoilerContainer {
+#{ $spoilerContainer } {
 	border-radius: var(--media-radius);
 	box-shadow: none !important;
 }
 
-%messageContentTimestamp {
+#{ $messageContentTimestamp } {
     background-color: var(--attachment-color);
 }
 
 /* ATTACHMENTS -> FILES */
 
-%embedFile {
+#{ $embedFile } {
     background-color: var(--attachment-color);
     border-radius: var(--media-radius);
     border: none;
 	box-shadow: none;
 
-    + %attachmentHoverButtonGroup {
+    + #{ $attachmentHoverButtonGroup } {
         background-color: var(--card-color-active);
         box-shadow: var(--shadow-2dp);
         outline: none;
@@ -381,45 +378,45 @@
 
 /* ATTACHMENTS -> SERVER INVITES */
 
-%attachmentGuildInviteContainer {
+#{ $attachmentGuildInviteContainer } {
     background-color: var(--attachment-color);
     border-radius: var(--media-radius);
     border: none;
 
-    %guildChatPopoutBanner {
+    #{ $guildChatPopoutBanner } {
         border-radius: var(--media-radius);
     }
 
-    %guildChatPopoutAvatarWrapper {
+    #{ $guildChatPopoutAvatarWrapper } {
         background-color: var(--attachment-color);
     }
 }
 
-%attachmentGuildInviteFooterContent {
+#{ $attachmentGuildInviteFooterContent } {
     background-color: transparent;
 }
 
 /* ATTACHMENTS -> QUEST CARD */
 
-%attachmentQuestCard {
+#{ $attachmentQuestCard } {
     background-color: var(--attachment-color);
     border-radius: var(--media-radius);
     box-shadow: none;
 }
 
-%attachmentQuestCardOuterContainer {
+#{ $attachmentQuestCardOuterContainer } {
     border-radius: var(--media-radius);
 }
 
-%attachmentQuestCardRoot {
+#{ $attachmentQuestCardRoot } {
     background-color: transparent;
 
-    %attachmentQuestRewardTile {
+    #{ $attachmentQuestRewardTile } {
         border-radius: 50% !important;
         box-shadow: var(--shadow-soft);
     }
 }
 
-%attachmentQuestRewardHighlight:after {
+#{ $attachmentQuestRewardHighlight }:after {
     display: none;
 }

@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,34 +7,34 @@
  *
  */
 
-%callWrapper {
+#{ $callWrapper } {
     background-color: var(--chat-color);
     box-shadow: var(--shadow-medium);
 
-    &%callMinimum {
+    &#{ $callMinimum } {
         background-color: var(--chat-color);
     }
 
-    %callContainer {
+    #{ $callContainer } {
         border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
     }
 
-    &%callChatSidebarOpen {
-        %callContainer {
+    &#{ $callChatSidebarOpen } {
+        #{ $callContainer } {
             border-radius: var(--card-radius-big);
         }
     }
 
-    &%callWrapperSidebarOpen {
+    &#{ $callWrapperSidebarOpen } {
         background-color: transparent !important;
 
-        %callContainer {
+        #{ $callContainer } {
             border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
         }
     }
 }
 
-%chatContentWrapper {
+#{ $chatContentWrapper } {
     background-color: transparent !important;
 
     &:before {
@@ -41,43 +42,43 @@
 	}
 }
 
-%callGradientContainer {
+#{ $callGradientContainer } {
     border-radius: calc(var(--card-radius-big) / 1.5);
 }
 
-%callTileBorder {
+#{ $callTileBorder } {
     border-radius: var(--card-radius-big);
 	transition: var(--default-time) var(--default-animation) box-shadow;
 }
 
-%callQuickSelect {
+#{ $callQuickSelect } {
 	margin-top: 12px;
 }
 
-%spectatorMenuScroller {
+#{ $spectatorMenuScroller } {
 	padding: 8px 0;
 	padding-right: 0 !important;
 	background-color: var(--popout-color);
 	border-radius: var(--popout-radius);
 
-	%spectatorMenuHeader {
+	#{ $spectatorMenuHeader } {
 		margin: 8px 0;
 		padding: 0 12px;
 		color: var(--menu-item-text-color);
 		text-transform: none;
 	}
 
-	%spectatorMenuItem {
+	#{ $spectatorMenuItem } {
 		margin: 0;
 		padding: 6px 12px;
 		border-radius: 0;
 		transition: var(--default-time) var(--default-animation) background-color;
 
-		&:not(%popoutDisabled):hover {
+		&:not(#{ $popoutDisabled }):hover {
 			background-color: var(--menu-item-hover) !important;
 		}
 
-		%spectatorMenuItemText {
+		#{ $spectatorMenuItemText } {
 			color: var(--menu-item-text-color);
 		}
 	}
@@ -87,25 +88,25 @@
 	}
 }
 
-%callTileRoot {
+#{ $callTileRoot } {
     background-color: var(--card-color-filled);
 }
 
-%callTile {
+#{ $callTile } {
 	border-radius: var(--card-radius-big);
 
-    %button {
-        %size16 {
+    #{ $button } {
+        #{ $size16 } {
             line-height: var(--button-height);
         }
     }
 }
 
-%callTitleOverlayTitle {
+#{ $callTitleOverlayTitle } {
 	border-radius: 16px;
 }
 
-%callParticipantsButton {
+#{ $callParticipantsButton } {
 	background-color: #2f3136 !important;
 	border-radius: 16px !important;
 
@@ -114,7 +115,7 @@
 	}
 }
 
-%waveButton {
+#{ $waveButton } {
     background-color: hsl(var(--button-link-accent-color),0.075);
 
     &:hover {
@@ -122,40 +123,34 @@
     }
 }
 
-/* DIRECT MESSAGES -> VIDEO CALL REACTIONS */
-
-%callReactionContainer {
-    @include popout-format;
-}
-
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
-%dmProfilePanel[style] {
+#{ $dmProfilePanel }[style] {
     height: calc(100% - 24px);
     margin: 12px;
     border-radius: var(--popout-radius-big);
     box-shadow: none;
 
-    &:not(%userProfileOuterThemed) {
+    &:not(#{ $userProfileOuterThemed }) {
         background-color: var(--popout-color);
     }
 
-    %userProfileInner {
+    #{ $userProfileInner } {
         border-radius: inherit;
 
-        %dmProfileScroller {
+        #{ $dmProfileScroller } {
             &::-webkit-scrollbar {
                 width: 0 !important;
             }
         }
 
-        %userProfileOverlayBackground {
+        #{ $userProfileOverlayBackground } {
             border-radius: var(--card-radius-big);
         }
     }
 }
 
-%dmUserProfileBadgeList {
+#{ $dmUserProfileBadgeList } {
     height: var(--button-height);
 	border-radius: var(--button-radius);
 
@@ -164,8 +159,8 @@
     }
 }
 
-%dmProfilePanelConnections {
-    %dmMutualFriendsDivider {
+#{ $dmProfilePanelConnections } {
+    #{ $dmMutualFriendsDivider } {
         position: relative;
         border-top: none;
 
@@ -182,7 +177,7 @@
         }
     }
 
-    %button {
+    #{ $button } {
         --button-height: 42px;
         --button-padding: 0 12px;
         --button-background: transparent !important;
@@ -195,21 +190,21 @@
     }
 }
 
-%dmConnectionList {
+#{ $dmConnectionList } {
     --popout-radius: calc(var(--card-radius-big) / 1.55);
 
     margin-bottom: 8px;
 }
 
-%dmProfileFriendsList {
+#{ $dmProfileFriendsList } {
     margin-left: 0;
 
-    %userProfileModalV2TabPanelRow {
+    #{ $userProfileModalV2TabPanelRow } {
         border-radius: calc(var(--popout-radius-big) / 2.5) !important;
     }
 }
 
-%dmProfileFriendRow {
+#{ $dmProfileFriendRow } {
     margin: 0;
     padding: var(--space-8);
     border-radius: calc(var(--popout-radius-big) / 2.5);
@@ -218,14 +213,14 @@
     &:hover {
         background-color: var(--card-color-hover);
 
-        %avatarMask {
+        #{ $avatarMask } {
             circle {
                 fill: var(--card-color-hover);
             }
         }
     }
 
-    %avatarMask {
+    #{ $avatarMask } {
         circle {
             fill: var(--card-color-filled);
             transition: var(--default-time) var(--default-animation) fill;
@@ -235,7 +230,7 @@
 
 /* DIRECT MESSAGES -> SPAM FILTER */
 
-%dmHamBanner {
+#{ $dmHamBanner } {
     margin: 8px;
     padding: 12px;
     background-color: var(--card-color-filled);
@@ -243,7 +238,7 @@
     box-shadow: none;
 }
 
-%dmSpamChat {
+#{ $dmSpamChat } {
     &:before {
         display: none;
     }
@@ -251,6 +246,6 @@
 
 /* DIRECT MESSAGES -> TURN OFF FROM SERVER MODAL */
 
-%dmFromServerGuildContainer {
+#{ $dmFromServerGuildContainer } {
     @include card-format(false, 16px, true);
 }

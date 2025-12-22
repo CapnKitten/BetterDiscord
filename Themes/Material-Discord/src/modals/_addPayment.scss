@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,10 +7,10 @@
  *
  */
 
-%paymentModalTitle {
+#{ $paymentModalTitle } {
     padding: 24px 24px 16px;
 
-    %settingsContentHeader {
+    #{ $settingsContentHeader } {
         line-height: 24px;
         font-size: 22px;
         font-weight: 400;
@@ -17,7 +18,7 @@
         text-transform: none;
     }
 
-    %modalCloseButton {
+    #{ $modalCloseButton } {
         position: absolute;
         width: 32px;
         height: 32px;
@@ -28,14 +29,14 @@
     }
 }
 
-%paymentModalContent {
+#{ $paymentModalContent } {
     background-color: transparent;
 
-    %scroller {
+    #{ $scroller } {
         padding: 0 calc(24px - var(--scrollbar-thin-width)) 0 24px !important;
     }
 
-    %paymentModalBody {
+    #{ $paymentModalBody } {
         padding: 0;
     }
 
@@ -47,7 +48,7 @@
         padding-bottom: 24px;
     }
 
-    %paymentTypeButton {
+    #{ $paymentTypeButton } {
         width: auto;
         margin: 0;
     }
@@ -55,29 +56,29 @@
 
 /* ADD PAYMENT METHOD MODAL -> INPUTS */
 
-%paymentCardInput {
+#{ $paymentCardInput } {
     @include input-format(false, true);
 
     padding: calc((var(--input-height) - 19.19px) / 2) 12px;
     box-sizing: border-box;
 
-    &%paymentCardNumberInput {
+    &#{ $paymentCardNumberInput } {
         padding-left: 56px;
     }
 }
 
-%paymentCardIcon {
+#{ $paymentCardIcon } {
     top: 0;
     bottom: 0;
     margin: auto 0;
     transform: translateY(-1px);
 }
 
-%paymentPaypalIcon {
-    @extend %paymentCardIcon;
+#{ $paymentPaypalIcon } {
+    @extend #{ $paymentCardIcon };
 
-    + %inputWrapper {
-        %input {
+    + #{ $inputWrapper } {
+        #{ $input } {
             padding-left: 48px;
         }
     }

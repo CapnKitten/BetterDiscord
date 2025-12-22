@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,36 +7,36 @@
  *
  */
 
-%slider {
+#{ $slider } {
     --bar-size: 4px !important;
     --grabber-size: 16px !important;
 
     height: calc(var(--slider-grabber-height) + var(--bar-offset));
 
-    &%sliderHasMarks {
-        %sliderTrack {
+    &#{ $sliderHasMarks } {
+        #{ $sliderTrack } {
             left: 8px;
             right: 8px;
         }
 
-        %sliderBar {
+        #{ $sliderBar } {
             top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2) + 4px));
         }
 
-        %sliderTrack {
-            %sliderGrabber {
+        #{ $sliderTrack } {
+            #{ $sliderGrabber } {
                 top: calc(100% - (var(--slider-grabber-height) + 4px));
             }
         }
     }
 
-    %sliderBar {
+    #{ $sliderBar } {
         height: var(--slider-height);
         top: calc(100% - ((var(--slider-height) / 2) + (var(--slider-grabber-height) / 2)));
         background-color: var(--slider-bar-background) !important;
         border-radius: var(--slider-radius);
 
-        %sliderBarFill {
+        #{ $sliderBarFill } {
             background-color: hsl(var(--accent-hsl--material-you));
             border-radius: inherit;
             border: none;
@@ -47,8 +48,8 @@
         }
     }
 
-    %sliderTrack {
-        %sliderGrabber {
+    #{ $sliderTrack } {
+        #{ $sliderGrabber } {
             display: flex;
             width: var(--slider-width);
             height: var(--slider-grabber-height);
@@ -93,16 +94,16 @@
     }
 }
 
-%sliderMark {
+#{ $sliderMark } {
     height: 100% !important;
     z-index: 2;
     pointer-events: none;
 
-    %sliderMarkValue {
+    #{ $sliderMarkValue } {
         margin-bottom: 0;
     }
 
-    %sliderMarkDash {
+    #{ $sliderMarkDash } {
         position: absolute;
         width: 6px;
         height: 6px;
@@ -112,25 +113,25 @@
     }
 }
 
-%sliderInputSensitivityBar {
-    %sliderInputSensitivityFill {
+#{ $sliderInputSensitivityBar } {
+    #{ $sliderInputSensitivityFill } {
         height: var(--slider-height) !important;
         background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.8) calc(l * 0.8)) !important;
         border-radius: var(--slider-radius);
     }
 }
 
-%sliderMini {
-    %sliderBar {
+#{ $sliderMini } {
+    #{ $sliderBar } {
         height: var(--slider-height);
         top: calc((var(--slider-grabber-height) / 2) - (var(--slider-height) / 2));
     }
 
-    %sliderBarFill {
+    #{ $sliderBarFill } {
         border: none;
     }
 
-    %sliderGrabber {
+    #{ $sliderGrabber } {
         width: var(--slider-height);
         height: var(--slider-height);
     }
@@ -138,33 +139,33 @@
 
 /* SLIDERS -> THEME SPECIFIC CHANGES */
 
-%themeDark {
-    %layerContainer,
-    %menuPopoutSliderContainer {
+#{ $themeDark } {
+    #{ $layerContainer },
+    #{ $menuPopoutSliderContainer } {
         --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.44));
         --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.43) calc(l * 0.34));
     }
 
-    %bdSettingsGroup {
-        &%bdSettingsGroupCollapsible {
+    #{ $bdSettingsGroup } {
+        &#{ $bdSettingsGroupCollapsible } {
             --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 0.32));
         }
     }
 }
 
-%themeLight {
-    %layerContainer,
-    %menuPopoutSliderContainer {
+#{ $themeLight } {
+    #{ $layerContainer },
+    #{ $menuPopoutSliderContainer } {
         --slider-bar-background: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.36) calc(l * 1.92));
         --slider-mark-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 0.87) calc(l * 1.7));
     }
 
-    %slider {
-        %sliderBar %sliderBarFill {
+    #{ $slider } {
+        #{ $sliderBar } #{ $sliderBarFill } {
             background-color: hsl(var(--accent-hsl--material-you)) !important;
         }
 
-        %sliderTrack %sliderGrabber {
+        #{ $sliderTrack } #{ $sliderGrabber } {
             background-color: var(--slider-grabber-background) !important;
         }
     }
@@ -172,7 +173,7 @@
 
 /* SLIDERS -> ALT LOCATIONS */
 
-%menuPopoutSliderContainer {
+#{ $menuPopoutSliderContainer } {
     --slider-height: 8px;
     --slider-radius: calc(var(--slider-height) / 3);
     --slider-grabber-height: 28px;
@@ -182,23 +183,23 @@
     margin-bottom: 0 !important;
 }
 
-%layerContainer {
+#{ $layerContainer } {
     --slider-grabber-background: var(--popout-color);
 
-    %bdSettingsGroup {
-        &%bdSettingsGroupCollapsible {
+    #{ $bdSettingsGroup } {
+        &#{ $bdSettingsGroupCollapsible } {
             --slider-grabber-background: var(--card-color-filled);
         }
     }
 }
 
-%sliderMenuPopout {
+#{ $sliderMenuPopout } {
     top: 0;
 }
 
 /* SLIDERS -> BD SLIDER */
 
-%bdSliderLabel {
+#{ $bdSliderLabel } {
     width: 42px;
     background-color: hsl(var(--accent-hsl--material-you));
     color: var(--accent-text-color--material-you);
@@ -206,7 +207,7 @@
     text-align: center;
 }
 
-%bdSliderInput {
+#{ $bdSliderInput } {
     height: 4px;
     background-color: hsl(var(--accent-hsl--material-you), 0.3);
     background-image: linear-gradient(hsl(var(--accent-hsl--material-you)), hsl(var(--accent-hsl--material-you)));

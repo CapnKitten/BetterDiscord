@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,25 +7,25 @@
  *
  */
 
-%bdNotices {
+#{ $bdNotices } {
     position: absolute;
     top: var(--space-8);
     right: var(--space-8);
     z-index: 1001;
 
-    &:has(%bdNotice) {
+    &:has(#{ $bdNotice }) {
         width: auto;
         left: unset;
     }
 }
 
-%base {
-    &:has(%bdNotices %bdNotice) {
+#{ $base } {
+    &:has(#{ $bdNotices } #{ $bdNotice }) {
         margin-top: 0;
     }
 }
 
-%bdNotice {
+#{ $bdNotice } {
     display: flex;
     max-width: 25vw;
     height: auto;
@@ -44,7 +45,7 @@
         margin-top: 8px;
     }
 
-    %bdNoticeClose {
+    #{ $bdNoticeClose } {
         width: 18px;
         height: 18px;
         top: 16px;
@@ -56,7 +57,7 @@
         opacity: 0.75;
     }
 
-    %bdNoticeContent {
+    #{ $bdNoticeContent } {
         margin-right: 30px;
         font-size: 1.25em;
         font-weight: 400;
@@ -64,7 +65,7 @@
         text-align: left;
     }
 
-    %bdNoticeButton {
+    #{ $bdNoticeButton } {
         display: flex;
         height: var(--button-height);
         line-height: var(--button-height);
@@ -80,16 +81,16 @@
     }
 }
 
-%bdNotificationRoot {
+#{ $bdNotificationRoot } {
     padding: 0;
 }
 
-%bdNotificationTopRight {
+#{ $bdNotificationTopRight } {
     top: calc(var(--custom-app-top-bar-height) + var(--space-16));
     right: var(--space-16);
 }
 
-%bdNotification {
+#{ $bdNotification } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius-big);
     border: none;
@@ -97,21 +98,21 @@
     overflow: hidden;
 }
 
-%bdNotificationClose {
+#{ $bdNotificationClose } {
     top: var(--space-16);
     right: var(--space-16);
 }
 
-%bdNotificationContent {
+#{ $bdNotificationContent } {
     padding: var(--space-24) var(--space-24) 0;
 }
 
-%bdNotificationFooter {
+#{ $bdNotificationFooter } {
     padding: var(--space-16) var(--space-24) calc(var(--space-24) - var(--space-4));
     background-color: transparent;
 }
 
-%bdNotificationProgress {
+#{ $bdNotificationProgress } {
     height: var(--space-4);
     margin-top: 0;
 

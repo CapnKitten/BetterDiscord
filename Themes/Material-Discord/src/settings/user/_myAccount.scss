@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,20 +7,20 @@
  *
  */
 
-%settingsAccountProfileCard {
+#{ $settingsAccountProfileCard } {
     background-color: var(--card-color-filled);
 	border-radius: var(--card-radius-big);
 
-    %userProfileBanner {
+    #{ $userProfileBanner } {
         border-radius: var(--card-radius-big);
     }
 
-    %settingsUserInfo {
+    #{ $settingsUserInfo } {
         position: relative;
 		height: 88px;
 		padding: 16px 16px 16px 130px;
 
-        %avatarWrapper {
+        #{ $avatarWrapper } {
             width: 92px !important;
             height: 92px !important;
             top: unset;
@@ -28,25 +29,25 @@
             border: 8px solid var(--card-color-filled);
             box-sizing: border-box;
 
-            %avatarMask {
+            #{ $avatarMask } {
                 position: relative;
                 width: 90px;
                 height: 90px;
             }
 
-            %avatarStatusDecoration {
+            #{ $avatarStatusDecoration } {
                 transform: translate(-2px);
             }
         }
     }
 
-    %settingsUserBannerSVGMask {
+    #{ $settingsUserBannerSVGMask } {
         circle {
             display: none;
         }
     }
 
-    %settingsUserBackground {
+    #{ $settingsUserBackground } {
         position: relative;
 		margin: 0;
 		padding: 0;
@@ -63,17 +64,17 @@
             background-color: var(--card-border-color);
         }
 
-		%fieldList {
+		#{ $fieldList } {
 			margin-top: 0;
 			padding: 16px;
 
-			%constrainedRow {
-				%button {
+			#{ $constrainedRow } {
+				#{ $button } {
 					margin-left: 8px;
 				}
 			}
 
-            %button {
+            #{ $button } {
                 &:not(:last-child) {
                     margin-right: 16px;
                 }
@@ -81,7 +82,7 @@
 		}
 	}
 
-    %settingsBadgeList {
+    #{ $settingsBadgeList } {
         height: 32px;
         padding: 0 8px;
         background-color: var(--card-color-hover) !important;
@@ -89,29 +90,29 @@
     }
 }
 
-%userProfileBanner {
+#{ $userProfileBanner } {
     &:before {
         display: none;
     }
 }
 
-%settingsUserBanner {
+#{ $settingsUserBanner } {
     position: relative;
     border-radius: calc(var(--card-radius-big) / 1.5);
 }
 
-%fieldList {
+#{ $fieldList } {
 	padding: 0;
 	background-color: transparent;
 	border-radius: 0;
 }
 
-%settingsCredentialList {
+#{ $settingsCredentialList } {
     margin-bottom: 16px;
     @include card-format(false, 8px, true);
 }
 
-%settingsCredentialItem {
+#{ $settingsCredentialItem } {
     border-radius: calc(var(--card-radius-big) / 1.65);
     border-top: none;
     transition: var(--default-time) var(--default-animation) background-color;

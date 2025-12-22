@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,109 +7,105 @@
  *
  */
 
-%oauth2Wrapper {
-	min-height: 100px;
-	@include popout-format;
-	overflow: hidden;
 
-	%authorizeWrapper {
-		background-color: transparent;
+#{ $authorizeWrapper } {
+	background-color: transparent;
 
-		%authorizeHeader {
-			padding: 24px 24px 16px;
-			border-radius: 0;
-			border-bottom: none;
-		}
-
-		%authorizeScrollContent {
-			padding: 0 !important;
-
-			div:last-child {
-				padding-bottom: 0;
-			}
-
-			%authorizeScopes {
-				border-bottom: 1px solid var(--popout-header-border);
-			}
-
-			%authorizeScopes,
-			%authorizeSelectorGroup,
-			%authorizeApplicationDetails {
-				padding: 16px 24px;
-			}
-
-			%authorizeApplicationEntry {
-				margin-top: 0;
-				margin-bottom: 8px;
-
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
-
-			%authorizeGroupLabel {
-				@include remove-caps(14px);
-			}
-		}
+	#{ $authorizeHeader } {
+		padding: 24px 24px 16px;
+		border-radius: 0;
+		border-bottom: none;
 	}
 
-	%authorizeCaptcha {
-        padding: 0 24px 24px !important;
-    }
+	#{ $authorizeScrollContent } {
+		padding: 0 !important;
 
-    %authorizeSuccessWrapper {
-        padding: 24px;
-    }
+		div:last-child {
+			padding-bottom: 0;
+		}
+
+		#{ $authorizeScopes } {
+			border-bottom: 1px solid var(--popout-header-border);
+		}
+
+		#{ $authorizeScopes },
+		#{ $authorizeSelectorGroup },
+		#{ $authorizeApplicationDetails } {
+			padding: 16px 24px;
+		}
+
+		#{ $authorizeApplicationEntry } {
+			margin-top: 0;
+			margin-bottom: 8px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		#{ $authorizeGroupLabel } {
+			@include remove-caps(14px);
+		}
+	}
 }
 
-%modalRoot {
-	%authorizeWrapper {
+#{ $authorizeCaptcha } {
+    padding: 0 24px 24px !important;
+}
+
+#{ $authorizeSuccessWrapper } {
+    padding: 24px;
+}
+
+
+#{ $modalRoot } {
+	#{ $authorizeWrapper } {
 	    background-color: transparent;
 
-	    %authorizeContent {
+	    #{ $authorizeContent } {
 	        background-color: var(--card-color-filled);
 	        border-radius: var(--card-radius-big);
 	    }
 
-	    %authorizeScope {
+	    #{ $authorizeScope } {
 	        background-color: var(--card-color-hover);
 	    }
 	}
 }
 
-%authorizeContent {
+#{ $authorizeContent } {
     padding: 0 24px;
 }
 
-%authorizeDiscordConsentBody {
+#{ $authorizeDiscordConsentBody } {
 	margin: 0;
 	padding: 0 calc(24px - var(--scrollbar-thin-width)) 0 24px;
 }
 
-%authorizeScopes,
-%authorizeApplicationDetails {
+#{ $authorizeScopes },
+#{ $authorizeApplicationDetails } {
 	padding: 16px 0;
 }
 
-%authorizeApplicationDetails {
+#{ $authorizeApplicationDetails } {
 	&:last-child {
 		padding-bottom: 0;
 	}
 }
 
-%authorizeScopes {
+#{ $authorizeScopes } {
     padding-bottom: 0;
     border-bottom: none;
 }
 
-%authorizeScopes,
-%authorizeSelectorGroup {
-    %defaultColor {
+#{ $authorizeScopes },
+#{ $authorizeSelectorGroup } {
+    #{ $defaultColor } {
         @include remove-caps(14px);
     }
 }
 
-%authorizeScope {
+#{ $authorizeScope } {
     margin: 0;
     padding: 8px 16px;
     background-color: var(--card-color-filled);
@@ -124,7 +121,7 @@
     }
 }
 
-%authorizeSectionGroup {
+#{ $authorizeSectionGroup } {
     padding-left: 24px;
     padding-right: 24px;
 
@@ -133,12 +130,12 @@
     }
 }
 
-%authorizeBotPermissions {
+#{ $authorizeBotPermissions } {
     padding: 0;
     border-bottom: none;
 }
 
-%authorizePermissionsList {
+#{ $authorizePermissionsList } {
     max-height: 25vh;
     margin-top: 16px;
     padding: 16px;
@@ -146,14 +143,14 @@
     border-radius: var(--card-radius-big);
     overflow-y: scroll;
 
-    %authorizePermission {
+    #{ $authorizePermission } {
         &:first-of-type {
             margin-top: 0;
         }
     }
 }
 
-%authorizeFooter {
+#{ $authorizeFooter } {
 	margin-top: 0;
 	padding: 24px;
 	background-color: transparent;

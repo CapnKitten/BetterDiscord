@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,12 +7,12 @@
  *
  */
 
-%tabBar {
+#{ $tabBar } {
     height: 48px;
     gap: 24px;
     border-bottom: 1px solid var(--card-border-color);
 
-	%item {
+	#{ $item } {
         height: inherit;
         line-height: 48px;
         margin: 0;
@@ -22,7 +23,7 @@
 
         &,
         &:hover,
-        &%itemSelected {
+        &#{ $itemSelected } {
         	background-color: transparent !important;
         }
 
@@ -30,13 +31,13 @@
             display: none;
         }
 
-        &:not(%itemDisabled) {
+        &:not(#{ $itemDisabled }) {
         	&:hover {
         		color: var(--interactive-text-hover) !important;
         	}
         }
 
-        &%itemSelected {
+        &#{ $itemSelected } {
         	color: var(--interactive-text-default) !important;
 
             &:after {
@@ -45,7 +46,7 @@
             }
         }
 
-        &%itemSelected,
+        &#{ $itemSelected },
         &[aria-selected="true"] {
         	@include tab-border(80%);
         }
@@ -54,24 +55,24 @@
         	margin-right: 0;
         }
 
-        &%itemDisabled {
+        &#{ $itemDisabled } {
             cursor: not-allowed;
             opacity: 0.5;
         }
 
-        %textSmNormal {
+        #{ $textSmNormal } {
             line-height: inherit;
         }
 	}
 }
 
-%tabBarVertical {
+#{ $tabBarVertical } {
     height: unset;
 
-    %item {
+    #{ $item } {
         transition: var(--default-time) var(--default-animation) background-color;
 
-        &%itemSelected {
+        &#{ $itemSelected } {
             background-color: hsl(var(--accent-hsl), 0.3) !important;
             border-radius: 12px;
 
@@ -82,33 +83,33 @@
     }
 }
 
-%userProfileTabBar {
+#{ $userProfileTabBar } {
     margin: 0 16px 0;
 }
 
-%settingsProfilesTabBar {
+#{ $settingsProfilesTabBar } {
     padding-top: 0;
 
-    %item {
+    #{ $item } {
         height: 47px;
     }
 }
 
-%eventTabBar {
+#{ $eventTabBar } {
 	height: 56px;
 	margin-bottom: 0;
 	padding-top: 0;
 
-	%item {
+	#{ $item } {
 		padding: 0 8px;
 		line-height: 56px;
 	}
 }
 
-%serverSubscriptionsTabBar {
+#{ $serverSubscriptionsTabBar } {
     border-bottom-width: 1px;
 
-    %item {
+    #{ $item } {
         margin-right: 24px !important;
         margin-bottom: 0;
     }

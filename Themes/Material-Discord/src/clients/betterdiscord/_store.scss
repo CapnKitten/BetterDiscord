@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,28 +7,28 @@
  *
  */
 
-%bdStoreCard {
+#{ $bdStoreCard } {
     margin: 16px 0;
     gap: 12px;
     @include card-format(false, 16px, true, true);
 
-    %bdStoreCardIcon {
+    #{ $bdStoreCardIcon } {
         background-color: var(--card-button-color);
     }
 
-    %bdStoreCardBody {
+    #{ $bdStoreCardBody } {
         margin-left: 0;
     }
 }
 
-%bdAddonStore {
+#{ $bdAddonStore } {
     margin: 16px 0 32px 0;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 16px clamp(8px, 2vw, 16px);
     justify-content: center;
 }
 
-%bdAddonStoreCard {
+#{ $bdAddonStoreCard } {
     max-width: none;
     @include card-format(true, 0, true, true);
 
@@ -35,7 +36,7 @@
         transform: none !important;
         box-shadow: var(--shadow-medium) !important;
 
-        %bdAddonStoreCardAuthorMask {
+        #{ $bdAddonStoreCardAuthorMask } {
             background-color: var(--card-color-hover) !important;
 
             foreignObject {
@@ -44,33 +45,33 @@
         }
     }
 
-    %bdAddonStoreCardPreviewImg {
+    #{ $bdAddonStoreCardPreviewImg } {
         border-radius: var(--card-radius-big);
     }
 
-    %bdAddonStoreCardBadge {
+    #{ $bdAddonStoreCardBadge } {
         @include remove-caps(0.8em);
 
         background-color: hsl(var(--alert-hsl));
         color: var(--alert-text-color);
     }
 
-    %bdAddonStoreCardAuthorSvg {
+    #{ $bdAddonStoreCardAuthorSvg } {
         foreignObject {
             mask: none;
         }
     }
 
-    %bdAddonStoreCardAuthorMask {
+    #{ $bdAddonStoreCardAuthorMask } {
         background-color: var(--card-color-filled);
         border-radius: calc(var(--avatar-radius) + 2px / 1.2);
 
-        %bdAddonStoreCardAuthorImg {
+        #{ $bdAddonStoreCardAuthorImg } {
             border-radius: calc(var(--avatar-radius) / 1.2);
         }
     }
 
-    %bdAddonStoreCardTag {
+    #{ $bdAddonStoreCardTag } {
         height: 28px;
         padding: 0 12px;
         line-height: 28px;
@@ -87,25 +88,25 @@
 
 /* BETTERDISCORD ADDON STORE -> PAGINATION */
 
-%bdFlowerStar {
+#{ $bdFlowerStar } {
     color: hsl(var(--success-hsl));
 }
 
-%bdFlowerStarCheckmark {
+#{ $bdFlowerStarCheckmark } {
     color: var(--success-text-color);
 }
 
-%bdPaginator {
-    %bdButton {
+#{ $bdPaginator } {
+    #{ $bdButton } {
         margin: 0 !important;
     }
 }
 
-%bdPaginatorBubbles {
+#{ $bdPaginatorBubbles } {
     gap: 8px;
 }
 
-%bdPaginatorBubble {
+#{ $bdPaginatorBubble } {
     margin: 0;
     transition: var(--default-time) var(--default-animation) background-color;
 
@@ -122,8 +123,8 @@
 
 /* BETTERDISCORD ADDON STORE -> MESSAGE EMBED */
 
-%message {
-    %bdAddonStoreCard {
+#{ $message } {
+    #{ $bdAddonStoreCard } {
         --card-color-filled: var(--attachment-color);
         --card-color-hover: var(--attachment-color);
         --card-radius-big: var(--media-radius);
@@ -136,20 +137,20 @@
 
 /* BETTERDISCORD ADDON STORE -> INSTALL MODAL */
 
-%bdInstallModalPreviewImg {
+#{ $bdInstallModalPreviewImg } {
     border-radius: var(--card-radius-big);
 }
 
-%bdInstallModalAuthorMask {
+#{ $bdInstallModalAuthorMask } {
     background-color: var(--popout-color);
 }
 
-%bdInstallModalItems {
+#{ $bdInstallModalItems } {
     padding: 16px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 
-    %bdInstallModalItem {
+    #{ $bdInstallModalItem } {
         padding: 12px 0;
 
         &:not(:last-child) {

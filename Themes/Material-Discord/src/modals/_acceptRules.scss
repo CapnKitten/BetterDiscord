@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
- %rulesGuildSidebar {
+ #{ $rulesGuildSidebar } {
  	padding: 0;
  	background-color: transparent;
  	border-right: 1px solid var(--card-border-color);
@@ -21,7 +22,7 @@
  			position: relative;
  			padding: 0 24px 24px;
 
- 			%membershipFlex {
+ 			#{ $membershipFlex } {
  				height: 36px;
  				margin-right: 8px;
  				margin-bottom: 0;
@@ -33,53 +34,53 @@
  		border-radius: 50%;
  	}
 
- 	%rulesDivider {
+ 	#{ $rulesDivider } {
  		border-bottom-color: var(--card-border-color);
  	}
  }
 
-%rulesModal {
+#{ $rulesModal } {
 	background-color: transparent;
 
-    %rulesInnerContent {
+    #{ $rulesInnerContent } {
         padding-bottom: 0;
     }
 
-	%rulesDivider {
+	#{ $rulesDivider } {
 		border-bottom-color: var(--card-border-color);
 	}
 
-	%rulesRequirementContainer {
+	#{ $rulesRequirementContainer } {
         @include card-format(false, 16px, true);
 	}
 
-	%rulesFieldBackground {
+	#{ $rulesFieldBackground } {
         &,
         &:hover:not(:focus) {
-            @extend %rulesRequirementContainer;
+            @extend #{ $rulesRequirementContainer };
             padding: 0;
         }
 	}
 
-	%rulesTermsRow {
+	#{ $rulesTermsRow } {
 		padding: 16px;
 		@include card-format--list;
 	}
 
-    %modalFooter {
-        %button {
-            %buttonContents {
+    #{ $modalFooter } {
+        #{ $button } {
+            #{ $buttonContents } {
                 width: 70px;
             }
         }
     }
 }
 
-%rulesTermsFieldBody {
+#{ $rulesTermsFieldBody } {
     background-color: var(--card-color-hover);
     border-radius: var(--card-radius-big);
 }
 
-%rulesOverlay {
+#{ $rulesOverlay } {
     display: none;
 }

@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,68 +7,63 @@
  *
  */
 
-%settingsProfileTabBar {
-	%settingsProfileTabBarItem {
+#{ $settingsProfileTabBar } {
+	#{ $settingsProfileTabBarItem } {
 		border-bottom: none;
 
-		&%settingsProfileTabBarItemSelected {
+		&#{ $settingsProfileTabBarItemSelected } {
 			@include tab-border(90%);
 		}
 	}
 }
 
-%settingsProfilesBaseLayout {
+#{ $settingsProfilesBaseLayout } {
 	gap: 16px;
 }
 
-%settingsProfileNotice {
+#{ $settingsProfileNotice } {
 	@include card-format(false, 8px);
 }
 
-%nitroUpsellButtonInner {
-	display: grid;
-	grid-template-columns: 30px 1fr;
-}
-
-%settingsUpsellOverlayContainer,
-%settingsUpsellTextContainer {
+#{ $settingsUpsellOverlayContainer },
+#{ $settingsUpsellTextContainer } {
 	border-radius: var(--card-radius-big);
 }
 
-%settingsUpsellOverlayContainer {
+#{ $settingsUpsellOverlayContainer } {
 	overflow: hidden;
 }
 
-%settingsProfileShopCard {
+#{ $settingsProfileShopCard } {
     border-radius: var(--card-radius-big);
 }
 
-%settingsProfileCard {
+#{ $settingsProfileCard } {
 	--input-color: var(--input-color-alt);
 
 	margin-bottom: 16px;
 	@include card-format(false, 16px, true);
 
 	&:last-child {
-		&:not(%settingsProfileCardWithDivider) {
+		&:not(#{ $settingsProfileCardWithDivider }) {
 			padding-bottom: 16px;
 		}
 	}
 
-	&%settingsProfileCardHideDivider {
+	&#{ $settingsProfileCardHideDivider } {
         padding-bottom: 16px;
     }
 
-	&%settingsPreviewProfileThemes {
+	&#{ $settingsPreviewProfileThemes } {
 		max-width: unset;
 	}
 
-	&%settingsProfileThemeSectionPremiumBorder {
+	&#{ $settingsProfileThemeSectionPremiumBorder } {
 		margin: 0 0 16px;
 		background: linear-gradient(var(--main-color),var(--main-color)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
 		border-width: 2px;
 
-		+ %settingsProfileCardDivider {
+		+ #{ $settingsProfileCardDivider } {
 			display: none;
 		}
 
@@ -76,144 +72,113 @@
 		}
 	}
 
-	&%settingsProfilePreview {
-		%settingsProfileHeader {
+	&#{ $settingsProfilePreview } {
+		#{ $settingsProfileHeader } {
 			display: none;
 		}
 	}
 
-	%settingsProfileCard {
+	#{ $settingsProfileCard } {
 		padding: 0;
 	}
 
-	%settingsProfileHeader {
+	#{ $settingsProfileHeader } {
 		margin: -16px -16px 0;
 		@include card-format--header(false, true);
 
-		%settingsProfileHeaderText {
+		#{ $settingsProfileHeaderText } {
 			@include card-format--header-fix;
 		}
 	}
 }
 
-%settingsProfileCardButtonsContainer {
+#{ $settingsProfileCardButtonsContainer } {
     gap: 16px;
 }
 
-%settingsProfileCardRemoveButton {
+#{ $settingsProfileCardRemoveButton } {
     margin-left: 0;
 }
 
-%settingsProfileCustomizationSectionBorder {
+#{ $settingsProfileCustomizationSectionBorder } {
     margin: -16px;
     background: linear-gradient(var(--card-color-filled),var(--card-color-filled)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
     border-radius: var(--card-radius-big);
 
-    %settingsProfileCustomizationBackground {
+    #{ $settingsProfileCustomizationBackground } {
         padding: 16px;
     }
 
-    %settingsProfileNitroWheel {
+    #{ $settingsProfileNitroWheel } {
         height: 22px;
     }
 }
 
-%settingsProfileBioTextArea {
+#{ $settingsProfileBioTextArea } {
 	--input-padding: 0 12px;
 
 	@include input-format(false, false, true, 136px, 136px);
 	border-radius: 19px !important;
 
-	%channelTextAreaWithoutAttachment {
+	#{ $channelTextAreaWithoutAttachment } {
 		padding: 12px 0;
 	}
 }
 
-%settingsProfileBannerPreview {
+#{ $settingsProfileBannerPreview } {
 	@include popout-format;
 
-	%avatarUploaderInner {
+	#{ $avatarUploaderInner } {
 		background-color: transparent;
 		border: none;
 		box-shadow: var(--shadow-medium);
-
-		&:focus-within,
-		&:hover {
-			%avatarUploaderHint {
-				background-color: rgba(0,0,0,0.5);
-				border-radius: 50%;
-			}
-		}
-	}
-
-	%userPopoutHeaderTop {
-		padding: 64px 12px 12px;
-		border-bottom: 1px solid var(--card-border-color);
-	}
-
-	%userPopoutInfo {
-		padding: 12px;
-	}
-
-	%userPopoutDivider {
-		display: none;
-	}
-
-	%userPopoutAboutMeTitle,
-	%userPopoutAboutMeFakeTitle {
-		@include remove-caps(14px);
-	}
-
-	%userPopoutFakeActivityIcon {
-		background-color: hsl(var(--accent-hsl--material-you));
-		border-radius: 50%;
 	}
 }
 
-%decorationGridItem {
-	@include card-option-select(40px, true, "%decorationGridItemSelected", "%textXsNormal");
+#{ $decorationGridItem } {
+	@include card-option-select(40px, true, "#{ $decorationGridItemSelected }", "#{ $textXsNormal }");
 }
 
-%effectGridItem {
-	@include card-option-select(34px, false, "%effectGridItemSelected");
+#{ $effectGridItem } {
+	@include card-option-select(34px, false, "#{ $effectGridItemSelected }");
 }
 
-%presetEffectBackground,
-%presetEffectImg {
+#{ $presetEffectBackground },
+#{ $presetEffectImg } {
     border-radius: inherit;
 }
 
-%settingsProfileDecorationPreview {
+#{ $settingsProfileDecorationPreview } {
     @include card-format(false, 0, true);
 }
 
-%settingsProfileSmallDecorationPreviewsContainer {
+#{ $settingsProfileSmallDecorationPreviewsContainer } {
     @include card-format(false, 8px, true);
 }
 
-%settingsProfileEffectDescriptionBorderWithGradient {
+#{ $settingsProfileEffectDescriptionBorderWithGradient } {
     border-radius: var(--card-radius-big);
 
-    %settingsProfileEffectDescriptionContainer {
+    #{ $settingsProfileEffectDescriptionContainer } {
         background-color: var(--card-color-filled);
         border-radius: calc(var(--card-radius-big) - 2px);
     }
 }
 
-%settingsProfileEffectDescriptionNoGradient {
+#{ $settingsProfileEffectDescriptionNoGradient } {
     background-color: transparent;
     border: none;
 
-    %settingsProfileEffectDescriptionContainer {
+    #{ $settingsProfileEffectDescriptionContainer } {
         @include card-format(false, 8px, true);
     }
 }
 
-%settingsShopPreviewContainer {
+#{ $settingsShopPreviewContainer } {
     background: linear-gradient(var(--card-color-filled), var(--card-color-filled)) padding-box, var(--custom-premium-colors-premium-gradient-tier-2-diagonal) border-box;
     border-radius: var(--card-radius-big);
 
-    %settingsShopPreviewBanner {
+    #{ $settingsShopPreviewBanner } {
 		background-color: var(--card-color-active);
         border-radius: calc(var(--card-radius-big) - 2px);
     }
@@ -221,7 +186,7 @@
 
 /* USER SETTINGS PROFILES -> TRY OUT NITRO SECTION */
 
-%settingsProfileTryItOutSection {
+#{ $settingsProfileTryItOutSection } {
     position: relative;
     margin: 16px 0 0;
     padding: 0;
@@ -240,7 +205,7 @@
         border: 2px solid transparent;
     }
 
-    %settingsProfilePremiumBackground {
+    #{ $settingsProfilePremiumBackground } {
         padding: 16px;
         background: var(--card-color-filled);
         border-radius: var(--card-radius-big);
@@ -249,38 +214,38 @@
 
 /* USER SETTINGS PROFILES -> NAMEPLATES */
 
-%nameplateInventoryControlsButton {
-    @include card-option-select(40px, true, "%nameplateInventoryControlsButtonSelected", "%textXsNormal");
+#{ $nameplateInventoryControlsButton } {
+    @include card-option-select(40px, true, "#{ $nameplateInventoryControlsButtonSelected }", "#{ $textXsNormal }");
 }
 
-%nameplateInventory {
+#{ $nameplateInventory } {
     padding-left: 3px;
 }
 
-%nameplateItem {
+#{ $nameplateItem } {
     border-radius: 24px;
     transition: var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) border-radius;
 
-    &:has(%nameplateItemOverlaySelected) {
+    &:has(#{ $nameplateItemOverlaySelected }) {
         border-radius: var(--card-radius-big);
     }
 
-    %nameplatePreview,
+    #{ $nameplatePreview },
     > div[role="img"] {
         border-radius: inherit;
     }
 }
 
-%nameplateItemOverlay {
+#{ $nameplateItemOverlay } {
     border-radius: 0;
     border-radius: inherit;
 
-    &%nameplateItemOverlaySelected {
+    &#{ $nameplateItemOverlaySelected } {
         box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--popout-color);
     }
 }
 
-%nameplateIconBadge {
+#{ $nameplateIconBadge } {
     width: var(--space-32);
     height: var(--space-32);
     top: 0;
@@ -290,7 +255,7 @@
     background-color: var(--card-button-color) !important;
 }
 
-%nameplatePreviewBorder {
+#{ $nameplatePreviewBorder } {
     border-radius: var(--card-radius-big);
 
     &:before {
@@ -299,71 +264,71 @@
     }
 }
 
-%nameplatePreviewBox {
+#{ $nameplatePreviewBox } {
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 }
 
 /* USER SETTINGS PROFILES -> DISPLAY NAME STYLE */
 
-%fontZillaSlab {
+#{ $fontZillaSlab } {
     --app-font: "Zilla Slab";
 }
 
-%fontCherryBomb {
+#{ $fontCherryBomb } {
     --app-font: "Cherry Bomb One";
 }
 
-%fontChicle {
+#{ $fontChicle } {
     --app-font: "Chicle";
 }
 
-%fontMuseoModerno {
+#{ $fontMuseoModerno } {
     --app-font: "Museo Moderno";
 }
 
-%fontNeoCastel {
+#{ $fontNeoCastel } {
     --app-font: "Neo Castel";
 }
 
-%fontPixelify {
+#{ $fontPixelify } {
     --app-font: "Pixelify Sans";
 }
 
-%fontSinistre {
+#{ $fontSinistre } {
     --app-font: "Sinistre";
 }
 
-%displayFontButton {
-    @include card-option-select(34px, true, "%displayFontButtonSelected", "%textLgSemibold");
+#{ $displayFontButton } {
+    @include card-option-select(34px, true, "#{ $displayFontButtonSelected }", "#{ $textLgSemibold }");
 }
 
-%displayEffectContainer {
-    @include card-option-select(34px, true, "%displayEffectContainerSelected");
+#{ $displayEffectContainer } {
+    @include card-option-select(34px, true, "#{ $displayEffectContainerSelected }");
 }
 
-%displayEffectContainer {
-    &%displayEffectContainerSelected {
-        %displayEffectTextContainer {
-            &%displayEffectTextShowEffect {
-                %displayEffectPop {
+#{ $displayEffectContainer } {
+    &#{ $displayEffectContainerSelected } {
+        #{ $displayEffectTextContainer } {
+            &#{ $displayEffectTextShowEffect } {
+                #{ $displayEffectPop } {
                     color: var(--accent-text-color--material-you);
                 }
             }
 
-            %displayEffectSolid {
+            #{ $displayEffectSolid } {
                 color: var(--accent-text-color--material-you);
             }
 
-            %displayEffectGradient {
+            #{ $displayEffectGradient } {
                 background: linear-gradient(to bottom right, var(--accent-text-color--material-you) 10%, hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%);
                 background-clip: text;
             }
         }
     }
 
-    %displayEffectTextContainer {
-        %displayEffectGradient {
+    #{ $displayEffectTextContainer } {
+        #{ $displayEffectGradient } {
             background: linear-gradient(to bottom right, hsl(var(--accent-hsl--material-you)) 10%, hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%);
             background-clip: text;
             transition: var(--default-time) var(--default-animation) background;
@@ -371,30 +336,30 @@
     }
 }
 
-%settingsProfileSelectionSection {
-    %settingsProfileSelectionSectionHeader {
+#{ $settingsProfileSelectionSection } {
+    #{ $settingsProfileSelectionSectionHeader } {
         padding: 0;
         border-radius: 0;
     }
 }
 
-%settingsProfilePreviewSection {
+#{ $settingsProfilePreviewSection } {
     border-radius: var(--popout-radius-big);
 }
 
-%settingsProfilePreviewCards {
-    %settingsProfileChatMessagePreview {
+#{ $settingsProfilePreviewCards } {
+    #{ $settingsProfileChatMessagePreview } {
         background-color: var(--message-color) !important;
         border: none;
     }
 
-    %settingsProfileNameplatePreview {
+    #{ $settingsProfileNameplatePreview } {
         margin-top: var(--space-4);
         background-color: var(--chat-color);
         border: none;
     }
 }
 
-%settingsProfileSubscriberButtonContainer {
+#{ $settingsProfileSubscriberButtonContainer } {
     width: auto;
 }

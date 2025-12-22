@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,36 +7,36 @@
  *
  */
 
-%settingsContentRegion {
+#{ $settingsContentRegion } {
     background-color: var(--main-content-color);
     overflow: hidden;
 
-    %settingsContentH1,
-    %headingLgSemibold,
-    %bdSettingsTitle {
+    #{ $settingsContentH1 },
+    #{ $headingLgSemibold },
+    #{ $bdSettingsTitle } {
         font-size: 22px;
         font-weight: 400;
     }
 
-    %bdSettingsGroupTitle {
+    #{ $bdSettingsGroupTitle } {
         @include remove-caps(14px);
         font-weight: 500;
     }
 }
 
-%eyebrow {
+#{ $eyebrow } {
     @include remove-caps(14px);
     font-weight: 500;
 }
 
 /* SETTINGS CONTENT AREA -> RESIZE CONTENT AREA */
 
-%settingsContentColumnDefault,
-%settingsContentColumnMinimal,
-%settingsContentColumnWide,
-%settingsCustomColumn,
-%settingsCustomScroller > div,
-%settingsContent {
+#{ $settingsContentColumnDefault },
+#{ $settingsContentColumnMinimal },
+#{ $settingsContentColumnWide },
+#{ $settingsCustomColumn },
+#{ $settingsCustomScroller } > div,
+#{ $settingsContent } {
     flex: 1 1 auto;
     min-width: 350px;
     max-width: 1400px;
@@ -44,20 +45,20 @@
     margin: 0 auto;
 }
 
-%settingsContent {
+#{ $settingsContent } {
     display: flex;
     padding: 60px;
 }
 
-%settingsContentColumnDefault,
-%settingsContentColumnWide {
+#{ $settingsContentColumnDefault },
+#{ $settingsContentColumnWide } {
 	padding: 60px;
 }
 
-%settingsCustomContainer {
+#{ $settingsCustomContainer } {
     width: auto;
 
-    %settingsCustomScroller {
+    #{ $settingsCustomScroller } {
         padding-right: 0 !important;
 
         > div {
@@ -68,25 +69,25 @@
 			padding: 60px 97px 60px 60px !important;
 		}
 
-		> %settingsCustomHeader {
+		> #{ $settingsCustomHeader } {
 			padding: 0;
 		}
 
-        %settingsCustomHeader {
+        #{ $settingsCustomHeader } {
             padding-top: 0;
         }
     }
 }
 
-%settingsCustomColumn,
-%settingsContentRegion div[role="tabpanel"] {
-	+ %settingsToolsContainer {
+#{ $settingsCustomColumn },
+#{ $settingsContentRegion } div[role="tabpanel"] {
+	+ #{ $settingsToolsContainer } {
 		position: absolute;
 		width: 60px;
 		height: 60px;
 		right: 0;
 
-		%settingsTools {
+		#{ $settingsTools } {
 			position: absolute;
 			width: 36px;
 			right: 0;
@@ -94,38 +95,38 @@
 	}
 }
 
-%settingsContentColumnMinimal {
+#{ $settingsContentColumnMinimal } {
 	padding: 60px 80px 80px;
 }
 
-%settingsContentSidebarScrollable {
-    %settingsSide %settingsSideHeader:first-child {
+#{ $settingsContentSidebarScrollable } {
+    #{ $settingsSide } #{ $settingsSideHeader }:first-child {
     	margin: 0 0 8px 0;
     	padding: 0 0 0 10px !important;
     }
 }
 
-%settingsLeftContent,
-%settingsLeftColumn {
+#{ $settingsLeftContent },
+#{ $settingsLeftColumn } {
     max-width: none;
 }
 
 /* SETTINGS CONTENT AREA V2 */
 
-%settingsV2Content {
+#{ $settingsV2Content } {
     background-color: var(--main-color);
     border-radius: var(--popout-radius-big);
 }
 
-%settingsV2ContentHeader {
+#{ $settingsV2ContentHeader } {
     background-color: var(--main-color);
     border-bottom: none;
 
-    %headingMdMedium {
+    #{ $headingMdMedium } {
         color: var(--header-primary) !important;
     }
 }
 
-%settingsV2Panel {
+#{ $settingsV2Panel } {
     max-width: 920px;
 }

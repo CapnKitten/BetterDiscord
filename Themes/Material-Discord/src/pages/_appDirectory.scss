@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%appDirectoryRoot {
+#{ $appDirectoryRoot } {
     animation: page-open 300ms var(--default-animation);
 }
 
@@ -14,13 +15,13 @@
 	from { transform: scale(1.1); opacity: 0; }
 }
 
-%appDirectoryContainer {
+#{ $appDirectoryContainer } {
     background-color: var(--main-color) !important;
 }
 
 /* APP DIRECTORY -> SEARCH RESULTS */
 
-%appDirectorySidebarCategory {
+#{ $appDirectorySidebarCategory } {
     border-radius: 24px;
     transition: var(--default-time) var(--default-animation) background-color;
 
@@ -28,12 +29,12 @@
         background-color: var(--menu-item-hover);
     }
 
-    &%appDirectorySidebarActiveCategory {
+    &#{ $appDirectorySidebarActiveCategory } {
         background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
     }
 }
 
-%appDirectorySearchResultsListing {
+#{ $appDirectorySearchResultsListing } {
     border-radius: var(--card-radius-big);
     transition: var(--default-time) var(--default-animation) background-color;
 
@@ -41,14 +42,14 @@
         background-color: var(--card-color-hover);
     }
 
-    %appDirectorySearchResultsListingDetails {
+    #{ $appDirectorySearchResultsListingDetails } {
         transition: var(--default-time) var(--default-animation) border-color;
     }
 }
 
 /* APP DIRECTORY -> CATEGORIES */
 
-%appDirectoryCategory {
+#{ $appDirectoryCategory } {
     height: 36px;
     padding: 0 12px;
     background-color: var(--card-button-color);
@@ -62,98 +63,98 @@
 
 /* APP DIRECTORY -> CARDS */
 
-%appDirectoryCardScollerContainer {
-    %scroller {
+#{ $appDirectoryCardScollerContainer } {
+    #{ $scroller } {
         --scrollbar-width: 4px;
     }
 }
 
-%appDirectoryCard {
+#{ $appDirectoryCard } {
     @include card-format(true, 0, true, true);
 }
 
-%appDirectoryAnimatesOnHoverContainer {
+#{ $appDirectoryAnimatesOnHoverContainer } {
     &:hover {
         box-shadow: none;
         transform: none;
 
-        %appDirectoryCardImage {
+        #{ $appDirectoryCardImage } {
             transform: none;
         }
     }
 }
 
-%appDirectoryCardImage {
+#{ $appDirectoryCardImage } {
     border-radius: var(--card-radius-big);
 }
 
-%appDirectoryLearnMoreCard {
+#{ $appDirectoryLearnMoreCard } {
     @include card-format(true, 0, false, false);
 }
 
-%appDirectoryLearnMoreCardHeader {
+#{ $appDirectoryLearnMoreCardHeader } {
     color: var(--header-primary);
 }
 
-%appDirectoryLearnMoreDescription {
+#{ $appDirectoryLearnMoreDescription } {
     color: var(--interactive-text-default);
 }
 
 /* APP DIRECTORY -> BOT INFO */
 
-%botInfoHeaderBanner {
+#{ $botInfoHeaderBanner } {
     border-radius: var(--card-radius-big);
 }
 
-%botInfoHeaderIcon {
+#{ $botInfoHeaderIcon } {
     background-color: var(--main-color);
     border-color: var(--main-color);
 }
 
-%botInfoSupportServerCard {
+#{ $botInfoSupportServerCard } {
     @include card-format(false, 0, true, true);
 
     &:hover {
-        %botInfoSupportServerIconMask {
+        #{ $botInfoSupportServerIconMask } {
             background-color: var(--card-color-hover);
         }
     }
 
-    %botInfoSupportServerSplashImage {
+    #{ $botInfoSupportServerSplashImage } {
         border-radius: var(--card-radius-big);
     }
 
-    %botInfoSupportServerIconMask {
+    #{ $botInfoSupportServerIconMask } {
         background-color: var(--card-color-filled);
         transition: var(--default-time) var(--default-animation) background-color;
     }
 }
 
-%botInfoPremiumContainer {
+#{ $botInfoPremiumContainer } {
     @include card-format;
 
-    %botInfoPremiumCardHeader {
+    #{ $botInfoPremiumCardHeader } {
         @include card-format--header;
     }
 
-    %botInfoPremiumPriceAndButtonContainer {
+    #{ $botInfoPremiumPriceAndButtonContainer } {
         background-color: transparent;
     }
 
-    %botInfoPremiumBenefitsContainer {
+    #{ $botInfoPremiumBenefitsContainer } {
         @include card-format--body;
         background-color: transparent;
     }
 }
 
-%botInfoCommandList {
+#{ $botInfoCommandList } {
     @include card-format(false, 16px);
 
-    %botInfoCommandName {
+    #{ $botInfoCommandName } {
         @include card-format(false, 10px 12px, true);
     }
 }
 
-%botInfoPermissionHeader {
+#{ $botInfoPermissionHeader } {
     margin-top: 0;
 }

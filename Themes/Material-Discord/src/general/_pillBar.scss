@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,18 +7,18 @@
  *
  */
 
-%pillContainer {
-    @include pill-nav(false, 42px, "%pillItem", "%pillItemSelected");
+#{ $pillContainer } {
+    @include pill-nav(false, 42px, "#{ $pillItem }", "#{ $pillItemSelected }");
 }
 
-%pillItem {
-    &:not(%pillItemSelected) {
+#{ $pillItem } {
+    &:not(#{ $pillItemSelected }) {
         &:hover {
             background-color: var(--card-color-active);
         }
     }
 
-    %pillItemIcon path {
+    #{ $pillItemIcon } path {
         fill: currentColor;
     }
 }

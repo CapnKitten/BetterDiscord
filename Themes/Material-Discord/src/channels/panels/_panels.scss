@@ -1,3 +1,4 @@
+@use '../../selectorPlaceholders' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%panels {
+#{ $panels } {
 	width: calc(100% - 20px);
 	left: var(--space-12);
 	bottom: var(--space-12);
@@ -22,7 +23,7 @@
             border-top-left-radius: var(--sidebar-panel-radius-big);
             border-top-right-radius: var(--sidebar-panel-radius-big);
 
-            %connectionPanel {
+            #{ $connectionPanel } {
                 border-top-left-radius: inherit;
                 border-top-right-radius: inherit;
             }
@@ -36,7 +37,7 @@
 
     > div:empty {
         &:first-of-type {
-            + %accountPanel {
+            + #{ $accountPanel } {
                 border-top-left-radius: var(--sidebar-panel-radius-big);
                 border-top-right-radius: var(--sidebar-panel-radius-big);
             }
@@ -45,12 +46,12 @@
 }
 
 button, span {
-    &%panelButton {
+    &#{ $panelButton } {
         border-radius: var(--button-radius);
     }
 }
 
-%listeningAlongPanel {
+#{ $listeningAlongPanel } {
     margin-bottom: 2px;
     background: var(--sidebar-panel-color);
     border-radius: var(--sidebar-panel-radius-small);
@@ -58,13 +59,13 @@ button, span {
     border-bottom: none !important;
 }
 
-%channelUnreadPillBottom {
+#{ $channelUnreadPillBottom } {
     bottom: 12px;
 }
 
 /* CHANNELS LIST PANELS -> ENABLE CLIPS */
 
-%enableClipsPanel {
+#{ $enableClipsPanel } {
     margin: -12px 12px 20px 12px;
     padding: 16px 8px 8px;
     background-color: var(--sidebar-panel-color);

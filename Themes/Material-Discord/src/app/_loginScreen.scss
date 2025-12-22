@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%authBox {
+#{ $authBox } {
 	padding: 24px 24px 0;
 	@include popout-format(true);
 
@@ -14,37 +15,37 @@
 		padding-bottom: 24px;
 	}
 
-	%mainLoginContainer {
+	#{ $mainLoginContainer } {
 		margin-right: 24px;
 		padding-right: 24px;
 		border-right: 1px solid var(--card-border-color);
 	}
 
-	%headlingXlSemibold {
+	#{ $headlingXlSemibold } {
 		margin-bottom: 16px;
 		font-weight: 400;
 	}
 
-	%verticalSeparator {
+	#{ $verticalSeparator } {
 		display: none;
 	}
 
-	%qrLogin {
+	#{ $qrLogin } {
 		height: 320px;
 	}
 
-	%needAccount {
+	#{ $needAccount } {
 		line-height: 24px;
 	}
 
-	%buttonLink {
-		%size14 {
+	#{ $buttonLink } {
+		#{ $size14 } {
 			line-height: var(--button-height);
 		}
 	}
 
-	&:not(%chooseAccountAuthBox) {
-		%buttonLink {
+	&:not(#{ $chooseAccountAuthBox }) {
+		#{ $buttonLink } {
 			--button-height: 17px;
 			--button-padding: 0;
 			--button-radius: 0;
@@ -62,18 +63,18 @@
 		}
 	}
 
-	%needAccount + %buttonLink {
+	#{ $needAccount } + #{ $buttonLink } {
 		position: relative;
 		top: -3px;
 	}
 }
 
-%authBoxNavRow {
+#{ $authBoxNavRow } {
 	height: auto;
 	padding: 24px;
 	background-color: transparent !important;
 
-	%button {
+	#{ $button } {
 		margin: 0;
 	}
 

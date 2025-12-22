@@ -1,3 +1,4 @@
+@use '../selectorPlaceholders' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,21 +7,21 @@
  *
  */
 
-%message {
-	%channelTextArea {
-		margin-bottom: 4px;
+#{ $message } {
+	#{ $channelTextArea } {
+		margin-block-end: 4px;
 		background-color: var(--input-color-alt);
 		border-radius: var(--main-textarea-radius);
 		border: none;
 		box-shadow: none;
 
-		%channelTextAreaInner {
-			padding-left: 0;
+		#{ $channelTextAreaInner } {
+			padding-inline-start: 0;
 		}
 	}
 }
 
-%messageBackgroundFlash {
+#{ $messageBackgroundFlash } {
 	border-radius: var(--message-radius);
 
     &[style] {
@@ -54,90 +55,90 @@
 	}
 }
 
-%messages {
-	&%messagesGroupSpacing0 {
-		%messageGroupStart {
+#{ $messages } {
+	&#{ $messagesGroupSpacing0 } {
+		#{ $messageGroupStart } {
 			--group-spacing: 0.125rem;
 		}
 
-		%newMessagesDivider {
-			&%newMessagesDividerBeforeGroup {
+		#{ $newMessagesDivider } {
+			&#{ $newMessagesDividerBeforeGroup } {
 				top: 1px;
 			}
 		}
 	}
 
-	&%messagesGroupSpacing4 {
-		%messageGroupStart {
+	&#{ $messagesGroupSpacing4 } {
+		#{ $messageGroupStart } {
 			--group-spacing: 0.3125rem;
 		}
 
-		%newMessagesDivider {
-			&%newMessagesDividerBeforeGroup {
+		#{ $newMessagesDivider } {
+			&#{ $newMessagesDividerBeforeGroup } {
 				top: 2px;
 			}
 		}
 	}
 
-	&%messagesGroupSpacing8 {
-		%messageGroupStart {
+	&#{ $messagesGroupSpacing8 } {
+		#{ $messageGroupStart } {
 			--group-spacing: 0.5625rem;
 		}
 
-		%newMessagesDivider {
-			&%newMessagesDividerBeforeGroup {
+		#{ $newMessagesDivider } {
+			&#{ $newMessagesDividerBeforeGroup } {
 				top: 4px;
 			}
 		}
 	}
 
-	&%messagesGroupSpacing16 {
-		%messageGroupStart {
+	&#{ $messagesGroupSpacing16 } {
+		#{ $messageGroupStart } {
 			--group-spacing: 1.0625rem;
 		}
 
-		%newMessagesDivider {
-			&%newMessagesDividerBeforeGroup {
+		#{ $newMessagesDivider } {
+			&#{ $newMessagesDividerBeforeGroup } {
 				top: 8px;
 			}
 		}
 	}
 
-	&%messagesGroupSpacing24 {
-		%messageGroupStart {
+	&#{ $messagesGroupSpacing24 } {
+		#{ $messageGroupStart } {
 			--group-spacing: 1.5625rem;
 		}
 
-		%newMessagesDivider {
-			&%newMessagesDividerBeforeGroup {
+		#{ $newMessagesDivider } {
+			&#{ $newMessagesDividerBeforeGroup } {
 				top: 12px;
 			}
 		}
 	}
 
 	&[class*="group-spacing"] {
-		%messageGroupStart {
-			margin-top: var(--group-spacing) !important;
+		#{ $messageGroupStart } {
+			margin-block-start: var(--group-spacing);
 		}
 
-		%newMessagesDivider {
-			&:not(%newMessagesDividerBeforeGroup) {
+		#{ $newMessagesDivider } {
+			&:not(#{ $newMessagesDividerBeforeGroup }) {
 				top: -4px;
 			}
 		}
 	}
 
-    %divider {
+    #{ $divider } {
         border-top-color: var(--message-color-hover);
     }
 
-    %dividerDate {
+    #{ $dividerDate } {
         padding: 4px 12px;
         border-radius: 11px;
     }
 }
 
-%messagesWrapper {
+#{ $messagesWrapper } {
 	position: relative;
 	background-color: var(--message-color) !important;
 	transition: var(--default-time) var(--default-animation) background-color;
@@ -145,32 +146,32 @@
 	&:hover {
 		background-color: var(--message-color-hover) !important;
 
-        %messageRepliedSpine {
+        #{ $messageRepliedSpine } {
             border-color: var(--message-color-hover) !important;
         }
 	}
 
-	&%automodMessage {
+	&#{ $automodMessage } {
 		&:before {
 			display: none;
 		}
 	}
 
-	&%messageHasThread {
+	&#{ $messageHasThread } {
 		&:after {
 			display: none;
 		}
 
-		%markup {
+		#{ $markup } {
 			overflow: visible;
 		}
 	}
 
-	&%messageGroupStart {
+	&#{ $messageGroupStart } {
 		position: relative;
 		border-radius: var(--message-radius);
 
-		%avatarLarge {
+		#{ $avatarLarge } {
 			width: 40px;
 			height: 40px;
 			top: 0;
@@ -178,19 +179,19 @@
 			border-radius: var(--avatar-radius);
 		}
 
-		%avatarDecoration {
+		#{ $avatarDecoration } {
 			top: 0;
 			left: -54px;
 		}
 
-		&%replyingToIndicator {
+		&#{ $replyingToIndicator } {
 			&:before {
 				display: none;
 			}
 		}
 	}
 
-	&:not(%messageGroupStart) {
+	&:not(#{ $messageGroupStart }) {
 		border-radius: 0 0 var(--message-radius) var(--message-radius);
 
 		&:before,
@@ -218,51 +219,51 @@
 		}
 	}
 
-	&%ephemeral,
-	&%replyingToIndicator {
+	&#{ $ephemeral },
+	&#{ $replyingToIndicator } {
 		a {
 			color: hsl(var(--accent-hsl));
 		}
 	}
 
-	&%ephemeral {
+	&#{ $ephemeral } {
 		&:before {
 			display: none;
 		}
 	}
 
-	%slateTextArea {
-		padding-left: 12px !important;
+	#{ $slateTextArea } {
+		padding-inline-start: 12px !important;
 	}
 
-	%messageContentInner {
+	#{ $messageContentInner } {
 		overflow: visible;
 
-		%messageIconContainer {
+		#{ $messageIconContainer } {
 			width: 40px !important;
 			top: -8px;
 			left: calc((50px + var(--message-padding-side)) * -1);
 		}
 	}
 
-	%messageButtonContainer {
-		margin-top: 8px;
-		margin-left: 0;
+	#{ $messageButtonContainer } {
+		margin-block-start: 8px;
+		margin-inline-start: 0;
 		z-index: 3;
 
-		%button {
+		#{ $button } {
 			--button-height: 24px;
 			--button-padding: 0 6px;
 
-			%textXsNormal {
+			#{ $textXsNormal } {
 				color: hsl(var(--accent-hsl--material-you)) !important;
 			}
 		}
 
-		%messageButtonFooterAction {
+		#{ $messageButtonFooterAction } {
 			height: var(--button-height);
 
-			%messageButtonFooterIcon {
+			#{ $messageButtonFooterIcon } {
 				color: hsl(var(--accent-hsl--material-you));
 
 				path {
@@ -272,29 +273,29 @@
 		}
 	}
 
-	%messageButtonDot {
+	#{ $messageButtonDot } {
 		margin: 0 4px;
 	}
 
-	%channelTextArea {
-		%channelTextAreaScrollable {
+	#{ $channelTextArea } {
+		#{ $channelTextAreaScrollable } {
 			background-color: var(--input-color-alt);
 			border-radius: var(--main-textarea-radius);
 		}
 	}
 }
 
-%messageRepliedSpine {
+#{ $messageRepliedSpine } {
 	left: calc( ((var(--chat-avatar-size) / 2) + var(--message-padding-side) + (var(--gutter) / 2)) * -1 );
-    margin-right: var(--message-padding-side);
+    margin-inline-end: var(--message-padding-side);
 	border-color: var(--message-color);
 	transition: var(--default-time) var(--default-animation) border-color;
 }
 
-%replyingToIndicator {
+#{ $replyingToIndicator } {
     z-index: 2;
 
-    %messageContent {
+    #{ $messageContent } {
         &:before {
             position: absolute;
             content: " ";
@@ -310,20 +311,20 @@
     }
 }
 
-%messageRepliedExecutedCommand {
-    %messageRepliedAppCommandName {
+#{ $messageRepliedExecutedCommand } {
+    #{ $messageRepliedAppCommandName } {
         border-radius: 9px;
     }
 }
 
-%messageListItem,
-%messageBackgroundFlash {
+#{ $messageListItem },
+#{ $messageBackgroundFlash } {
 	&:hover {
-		+ %messageListItem,
-		+ %messageBackgroundFlash,
-		+ %newMessagesDivider + %messageListItem {
-			%messagesWrapper {
-				&:not(%messageGroupStart) {
+		+ #{ $messageListItem },
+		+ #{ $messageBackgroundFlash },
+		+ #{ $newMessagesDivider } + #{ $messageListItem } {
+			#{ $messagesWrapper } {
+				&:not(#{ $messageGroupStart }) {
 					&:before,
 					&:after {
 						border-bottom-color: var(--message-color-hover);
@@ -342,52 +343,54 @@
 	}
 }
 
-%messageCozy {
-	&%messageGroupStart {
-		margin-bottom: 0;
+#{ $messageCozy } {
+	&#{ $messageGroupStart } {
+		margin-block-end: 0;
 
-		&%mentioned {
+		&#{ $mentioned } {
 			&:before {
 				display: none;
 			}
 		}
 	}
 
-	&%messageGroupStart {
-		padding: var(--message-padding-top) var(--message-padding-side) !important;
+	&#{ $messageGroupStart } {
+		padding-block: var(--message-padding-top);
+		padding-inline: var(--message-padding-side);
 	}
 
-	&:not(%messageGroupStart) {
-		margin-top: calc(var(--message-padding-top) * -1);
-		padding: calc(var(--message-padding-top) / 2) var(--message-padding-side) var(--message-padding-top) var(--message-padding-side) !important;
+	&:not(#{ $messageGroupStart }) {
+		margin-block-start: calc(var(--message-padding-top) * -1);
+		padding-block: calc(var(--message-padding-top) / 2) var(--message-padding-top);
+		padding-inline: var(--message-padding-side);
 
-		& + %newMessagesDivider {
-			&:not(%newMessagesDividerBeforeGroup) {
+		& + #{ $newMessagesDivider } {
+			&:not(#{ $newMessagesDividerBeforeGroup }) {
 				top: -4px;
 			}
 		}
 	}
 
-	%messageHeader {
-		margin-bottom: 4px;
+	#{ $messageHeader } {
+		margin-block-end: 4px;
 	}
 
-	%markup {
-		margin-left: 0;
-		padding-left: 0;
+	#{ $markup } {
+		margin-inline-start: 0;
+		padding-inline-start: 0;
 	}
 
 	&:hover {
-		%messageTimestamp {
-			&%messageTimestampAlt {
+		#{ $messageTimestamp } {
+			&#{ $messageTimestampAlt } {
 				opacity: 1;
 				transition: var(--default-time) ease opacity 750ms;
 			}
 		}
 	}
 
-	%messageTimestamp {
-		&%messageTimestampAlt {
+	#{ $messageTimestamp } {
+		&#{ $messageTimestampAlt } {
 			opacity: 0;
 			left: -64px;
 			color: var(--text-muted);
@@ -396,13 +399,15 @@
 		}
 	}
 
-	%removeAttachmentButton {
+	#{ $removeAttachmentButton } {
 		right: -4px;
 	}
 
-	&:not(%message) {
-		margin: 16px 10px 0 68px;
-		padding: var(--message-padding-top) var(--message-padding-side) !important;
+	&:not(#{ $message }) {
+		margin-block: 16px 0;
+		margin-inline: 68px 10px;
+		padding-block: var(--message-padding-top);
+		padding-inline: var(--message-padding-side);
 		border-radius: var(--message-radius);
 
 		&:before,
@@ -411,28 +416,28 @@
 		}
 	}
 
-	%avatarLarge {
+	#{ $avatarLarge } {
 		top: 0;
 		left: -50px;
 	}
 
-	%avatarDecoration {
+	#{ $avatarDecoration } {
 		left: -54px;
 	}
 
-	&%hasReply {
-		%avatarLarge,
-		%avatarDecoration {
+	&#{ $hasReply } {
+		#{ $avatarLarge },
+		#{ $avatarDecoration } {
 			top: 28px;
 		}
 	}
 }
 
-%messageCompact {
-	margin-bottom: 0;
-	padding-right: 8px !important;
+#{ $messageCompact } {
+	margin-block-end: 0;
+	padding-inline-end: 8px;
 
-    %avatarLarge {
+    #{ $avatarLarge } {
         width: 16px !important;
         height: 16px !important;
         top: 3px !important;
@@ -441,72 +446,71 @@
         padding: 0 !important;
     }
 
-	&%messageGroupStart {
+	&#{ $messageGroupStart } {
 		padding: 8px;
 
-		%avatarLarge {
-		}
-
-		&%mentioned {
+		&#{ $mentioned } {
 			&:before {
 				display: none;
 			}
 		}
 
-		& + %newMessagesDivider {
-			margin-bottom: -1px;
+		& + #{ $newMessagesDivider } {
+			margin-block-end: -1px;
 		}
 	}
 
-	&:not(%messageGroupStart) {
-        margin-top: -8px;
-		padding: 0 8px 8px 8px;
+	&:not(#{ $messageGroupStart }) {
+		margin-block-start: -8px;
+		padding-block: 0 8px;
+		padding-inline: 8px;
 	}
 
-	%messageContent {
-		margin-left: -4.25rem;
-		padding-left: 4.25rem;
+	#{ $messageContent } {
+		margin-inline-start: -4.25rem;
+		padding-inline-start: 4.25rem;
 		text-indent: -3.75rem;
 	}
 
-	&%messageHasThread {
-		%messageContent:before {
+	&#{ $messageHasThread } {
+		#{ $messageContent }:before {
 			display: none;
 		}
 	}
 
-	%messageHeader {
+	#{ $messageHeader } {
 		position: relative;
 		left: -8px;
 	}
 
-	%messageTimestamp {
+	#{ $messageTimestamp } {
 		width: 52px;
-		margin-right: 16px;
+		margin-inline-end: 16px;
 		color: var(--text-muted);
 	}
 
-	%messageReplied {
-		margin-left: 0;
+	#{ $messageReplied } {
+		margin-inline-start: 0;
 	}
 
 	& {
-		+ %newMessagesDivider {
-			margin-left: 80px;
+		+ #{ $newMessagesDivider } {
+			margin-inline-start: 80px;
 
-			&:not(%newMessagesDividerBeforeGroup) {
+			/*&:not(#{ $newMessagesDividerBeforeGroup }) {
 				top: -11px;
-			}
+			}*/
 		}
 
-		+ &:not(%message) {
-			margin: 16px 20px 0 70px;
-		}
+		/*+ &:not(#{ $message }) {
+			margin-block: 16px 0;
+			margin-inline: 70px 20px;
+		}*/
 	}
 }
 
-%mentioned {
-	%messageContentInner {
+#{ $mentioned } {
+	#{ $messageContentInner } {
 		position: relative;
 		background-color: hsl(var(--accent-hsl),0.3);
 		border-radius: calc(var(--message-radius) / 1.4);
@@ -520,7 +524,7 @@
 			color: hsl(var(--accent-hsl));
 		}
 
-		%mentionWrapper {
+		#{ $mentionWrapper } {
 			background-color: transparent;
 
 			&:before {
@@ -529,42 +533,44 @@
 		}
 	}
 
-	%messageContent {
-        %messageContentInner {
-            margin: 0 -4px;
-            padding: 0 4px;
+	#{ $messageContent } {
+        #{ $messageContentInner } {
+			margin-inline: -4px;
+			padding-inline: 4px;
+            //margin: 0 -4px;
+            //padding: 0 4px;
         }
     }
 
-    %messageReplied {
-        %messageContentInner {
-            padding: 0 1px 0 4px;
+    #{ $messageReplied } {
+        #{ $messageContentInner } {
+			padding-block: 0;
+			padding-inline: 4px 1px;
         }
     }
 }
 
-%avatarDecoration {
+#{ $avatarDecoration } {
 	top: 0;
 	left: -54px;
 }
 
-%messageListItem,
-%messageQuoted {
-	margin-left: 68px;
-	margin-right: 10px;
+#{ $messageListItem },
+#{ $messageQuoted } {
+	margin-inline: 68px 10px;
 }
 
-%operations {
+#{ $operations } {
 	> a {
 		color: hsl(var(--accent-hsl));
 	}
 }
 
-%messagesScrollerSpacer {
+#{ $messagesScrollerSpacer } {
 	height: 20px !important;
 }
 
-%mention {
+#{ $mention } {
 	&::selection {
 		background: hsl(var(--accent-hsl),0.5);
 		color: var(--accent-text-color--material-you);
@@ -573,14 +579,14 @@
 
 /* MESSAGES -> BADGES */
 
-%messageUserBadge {
+#{ $messageUserBadge } {
     background-color: var(--attachment-color);
 }
 
-%messageQuickConnectionsPopout {
+#{ $messageQuickConnectionsPopout } {
     @include popout-format;
 
-    %messageQuickConnectionsPopoutHeaderContainer {
+    #{ $messageQuickConnectionsPopoutHeaderContainer } {
         padding: 12px;
         background-color: transparent;
         border-bottom: 1px solid var(--popout-header-border);
@@ -589,19 +595,21 @@
 
 /* MESSAGES -> NEW MESSAGES DIVIDER */
 
-%newMessagesDivider {
-	%dividerDate {
+#{ $newMessagesDivider } {
+	#{ $dividerDate } {
         background-color: var(--message-color-hover);
     }
 
-	&%dividerUnread {
-		margin: 0 .875rem 0 5rem;
+	&#{ $dividerUnread } {
+		margin-block: 0;
+		margin-inline: 5rem 0.875rem;
 		border-color: hsl(var(--accent-hsl--material-you));
 
-		%unreadPill {
+		#{ $unreadPill } {
 			height: 28px;
 			top: -15px;
-			padding: 0 16px;
+			padding-block: 0;
+			padding-inline: var(--space-16);
 			background-color: hsl(var(--accent-hsl--material-you));
 			border-radius: 14px;
 			box-shadow: var(--shadow-medium);
@@ -610,27 +618,27 @@
 			text-transform: capitalize;
 			color: var(--accent-text-color--material-you);
 
-			%unreadPillCap {
+			#{ $unreadPillCap } {
 				display: none;
 			}
 		}
 
-		&%hasContent {
-			%dividerDate {
+		&#{ $hasContent } {
+			#{ $dividerDate } {
 				background-color: hsl(var(--accent-hsl--material-you));
 				color: var(--accent-text-color--material-you);
 			}
 		}
 	}
 
-	&%hasContent {
-		margin-left: 1rem;
+	&#{ $hasContent } {
+		margin-inline-start: 1rem;
 	}
 }
 
 /* MESSAGES -> ERROR BAR */
 
-%messagesErrorBar {
+#{ $messagesErrorBar } {
     min-width: 180px;
     min-height: var(--button-height);
     height: var(--button-height);
@@ -643,13 +651,13 @@
 		box-shadow: var(--shadow-medium);
 	}
 
-	%jumpToPresentBarButtonBase {
+	#{ $jumpToPresentBarButtonBase } {
 		background-color: transparent;
 		color: var(--alert-text-color);
 		box-shadow: none;
 	}
 
-	%jumpToPresentBarButtonMain {
+	#{ $jumpToPresentBarButtonMain } {
         display: flex;
 		flex: 0 1 auto;
         border-radius: 0;
@@ -668,14 +676,14 @@
 		}
 	}
 
-	%jumpToPresentBarButtonAlt {
-        margin-left: 0;
+	#{ $jumpToPresentBarButtonAlt } {
+        margin-inline-start: 0;
         font-size: 14px;
         font-weight: 500;
 	}
 
-    %jumpToPresentBarButtonMain,
-    %jumpToPresentBarButtonAlt {
+    #{ $jumpToPresentBarButtonMain },
+    #{ $jumpToPresentBarButtonAlt } {
         min-width: var(--button-height);
         padding: var(--button-padding);
     }
