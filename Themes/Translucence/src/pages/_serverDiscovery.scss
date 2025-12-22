@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,55 +7,49 @@
  *
  */
 
-%discoverContentContainer {
+#{ $discoverContentContainer } {
     background-color: var(--main-content-color);
 }
 
 /* SERVER DISCOVERY -> SIDEBAR */
 
-%discoverSidebar {
+#{ $discoverSidebar } {
     background: transparent;
 }
 
-%discoverSidebarNavItem {
+#{ $discoverSidebarNavItem } {
     border-radius: var(--list-item-radius);
 }
 
 /* SERVER DISCOVERY -> HEADER BAR */
 
-%discoverHeaderBar {
-    %settingsSideItem {
-        margin: 8px 0;
-        padding: 0 8px;
-        line-height: 44px;
-    }
-
+#{ $discoverHeaderBar } {
     &:after {
         display: none;
     }
 }
 
-%discoverHeaderBarBackdrop {
+#{ $discoverHeaderBarBackdrop } {
     background: var(--popout-color);
     backdrop-filter: blur(var(--app-blur));
 }
 
 /* SERVER DISCOVERY -> CARDS */
 
-%discoverServerCard {
+#{ $discoverServerCard } {
     @include card-format(true, true);
 
     svg {
         filter: none;
     }
 
-    %discoverServerIconMask {
+    #{ $discoverServerIconMask } {
         background-color: var(--card-color-hover) !important;
     }
 }
 
 /* SERVER DISCOVERY -> SEARCH RESULTS */
 
-%discoverSearchCategory {
+#{ $discoverSearchCategory } {
     border-radius: var(--list-item-radius);
 }

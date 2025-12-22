@@ -1,3 +1,4 @@
+@use '../../classes' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,48 +7,44 @@
  *
  */
 
-%stickersTier {
+#{ $stickersTier } {
 	@include card-format;
 
-	%stickersGrid {
+	#{ $stickersGrid } {
 		padding: 0 16px 16px;
 	}
 }
 
-%stickersTierHeaderLocked,
-%stickersTierHeaderUnlocked {
+#{ $stickersTierHeaderLocked },
+#{ $stickersTierHeaderUnlocked } {
 	background-color: transparent !important;
 	box-shadow: var(--popout-header-shadow);
 }
 
-%stickersTeirBody {
+#{ $stickersTeirBody } {
 	background-color: transparent !important;
 }
 
-%stickersUploadCard {
+#{ $stickersUploadCard } {
 	@include card-format(false, true);
-
-	%stickerCardButtons {
-		background-color: var(--card-color);
-	}
 }
 
-%stickersProgressBackground {
+#{ $stickersProgressBackground } {
 	color: var(--card-color) !important;
 }
 
-%stickersProgressForground {
+#{ $stickersProgressForground } {
 	color: hsla(var(--accent-hsl), var(--accent-opacity));
 }
 
-%themeDark {
-	%stickersTierInProgress {
+#{ $themeDark } {
+	#{ $stickersTierInProgress } {
 		background-color: var(--card-color);
 	}
 
-	%stickersTierAccomplished,
-	%stickersTierCurrent,
-	%stickersTierFirst {
+	#{ $stickersTierAccomplished },
+	#{ $stickersTierCurrent },
+	#{ $stickersTierFirst } {
 		background: hsla(var(--accent-hsl), var(--accent-opacity));
 	}
 }

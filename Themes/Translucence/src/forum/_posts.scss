@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%postContainer {
+#{ $postContainer } {
     background-color: var(--card-color);
     border-radius: var(--card-radius);
     border: none !important;
@@ -17,12 +18,12 @@
         transform: none;
     }
 
-    &%postContainerIsOpen {
+    &#{ $postContainerIsOpen } {
         background-color: var(--card-color-select) !important;
     }
 }
 
-%postPinIcon {
+#{ $postPinIcon } {
     background-color: hsl(var(--accent-hsl));
 
     svg {
@@ -34,31 +35,31 @@
     }
 }
 
-%postContentPreview,
-%postTextContentFooter {
+#{ $postContentPreview },
+#{ $postTextContentFooter } {
     background-color: var(--card-color-hover);
 }
 
-%postContentPreview {
+#{ $postContentPreview } {
     border-radius: var(--card-radius);
     border: none;
 }
 
-%postTextContentFooter {
+#{ $postTextContentFooter } {
     background: transparent !important;
 }
 
-%postContainer {
-    &:not(%postContainerIsOpen) {
+#{ $postContainer } {
+    &:not(#{ $postContainerIsOpen }) {
         &:hover {
-            %postContentPreview {
+            #{ $postContentPreview } {
                 background-color: var(--card-color);
             }
         }
     }
 }
 
-%postThreadStartConversationBox {
+#{ $postThreadStartConversationBox } {
     @include card-format;
 
     &:after {
@@ -66,8 +67,8 @@
     }
 }
 
-%postThreadButtons {
-    %button {
+#{ $postThreadButtons } {
+    #{ $button } {
         --button-padding: 0;
     }
 }

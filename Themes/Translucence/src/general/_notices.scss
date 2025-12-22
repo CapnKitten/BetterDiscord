@@ -1,18 +1,20 @@
+@use '../classes' as *;
+
 /*
  *
  *  NOTICES
  *
  */
 
-%notice {
+#{ $notice } {
 	box-shadow: none;
 
-	&%noticeColorInfo,
-	&%noticeBrand {
+	&#{ $noticeColorInfo },
+	&#{ $noticeBrand } {
 		background-color: hsla(var(--accent-hsl),var(--accent-opacity));
 		color: var(--accent-text-color);
 
-		%noticeClose {
+		#{ $noticeClose } {
 			opacity: 0.75;
 
 			&:hover {
@@ -21,20 +23,16 @@
 		}
 	}
 
-	&%noticeBrand,
-	&%noticeStreamerMode {
+	&#{ $noticeBrand },
+	&#{ $noticeStreamerMode } {
 		border-radius: 0;
 	}
 
-	&%noticeBrand {
-		%noticeBrandButton {
+	&#{ $noticeBrand } {
+		#{ $noticeBrandButton } {
 			&:after {
 				opacity: 0.15;
 			}
 		}
-	}
-
-	%noticeRepoButton {
-		border-radius: var(--button-radius);
 	}
 }

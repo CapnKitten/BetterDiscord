@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%appDirectoryContainer {
+#{ $appDirectoryContainer } {
     height: calc(100% - (var(--app-margin) * 1.5));
     margin: calc(var(--app-margin) / 2) var(--app-margin) var(--app-margin) var(--app-margin);
     background-color: var(--main-content-color) !important;
@@ -14,24 +15,9 @@
 	backdrop-filter: blur(var(--app-blur));
 }
 
-/* APP DIRECTORY -> SEARCH BAR */
-
-%appDirectorySearch {
-    @include input-format(48px, 24px, true);
-
-    %appDirectorySearchBoxInput {
-        background-color: transparent !important;
-        color: var(--textarea-text-color);
-
-        &::-webkit-input-placeholder {
-            color: var(--textarea-placeholder-color) !important;
-        }
-    }
-}
-
 /* APP DIRECTORY -> CATEGORIES */
 
-%appDirectoryCategory {
+#{ $appDirectoryCategory } {
     background-color: var(--background-modifier-hover);
     color: var(--interactive-hover);
     border-radius: 24px;
@@ -44,7 +30,7 @@
 
 /* APP DIRECTORY -> CARDS */
 
-%appDirectoryCard {
+#{ $appDirectoryCard } {
     @include card-format(true, true);
 
     &:hover {
@@ -53,17 +39,17 @@
     }
 }
 
-%appDirectoryLearnMoreCard {
+#{ $appDirectoryLearnMoreCard } {
     @include card-format;
 }
 
 /* APP DIRECTORY -> BOT INFO */
 
-%botInfoHeaderBanner {
+#{ $botInfoHeaderBanner } {
     border-radius: var(--card-radius);
 }
 
-%botInfoCommandList,
-%botInfoCommandName {
+#{ $botInfoCommandList },
+#{ $botInfoCommandName } {
     @include card-format;
 }

@@ -1,31 +1,33 @@
+@use '../classes' as *;
+
 /*
  *
  *  VISUAL REFRESH
  *
  */
 
-%visualRefresh {
-    &%refreshFastFollowGuildBg {
-        %bg {
+#{ $visualRefresh } {
+    &#{ $refreshFastFollowGuildBg } {
+        #{ $bg } {
             background: transparent;
         }
 
-        %guildsWrapper {
+        #{ $guildsWrapper } {
             background: transparent;
         }
     }
 
     body,
-    %bg {
+    #{ $bg } {
         background: transparent;
     }
 
-    %layers {
+    #{ $layers } {
         margin: 0 var(--app-margin) var(--app-margin);
         backdrop-filter: none;
     }
 
-    %contentMain {
+    #{ $contentMain } {
     	border-radius: var(--app-radius);
     	overflow: hidden;
     	backdrop-filter: blur(var(--app-blur));
@@ -33,17 +35,17 @@
 
     /* servers */
 
-    %guildsWrapper {
+    #{ $guildsWrapper } {
         background-color: transparent;
     }
 
-    %guilds {
+    #{ $guilds } {
         padding-top: var(--space-12);
     }
 
     /* channels and private sidebar */
 
-    %channelsSidebar {
+    #{ $channelsSidebar } {
         background-color: var(--sidebar-color);
 
         &:after {
@@ -51,36 +53,36 @@
         }
     }
 
-    %sidebarList {
+    #{ $sidebarList } {
         backdrop-filter: none;
         border: none;
     }
 
-    %channelsHeaderContainer {
+    #{ $channelsHeaderContainer } {
         background-color: transparent;
     }
 
-    %channelsHeader {
+    #{ $channelsHeader } {
         border-bottom: none;
         box-shadow: var(--popout-header-shadow);
     }
 
-    %channelsContainer,
-    %privateChannels {
+    #{ $channelsContainer },
+    #{ $privateChannels } {
         padding-bottom: calc(var(--custom-app-panels-height, 0) + 10px);
     }
 
-    %panels {
+    #{ $panels } {
         background-color: transparent;
         border: none;
         box-shadow: var(--popout-header-shadow);
     }
 
-    %privateChannelsSearchBar {
+    #{ $privateChannelsSearchBar } {
         border-bottom: none;
         box-shadow: var(--popout-header-shadow);
 
-        %buttonFilled {
+        #{ $buttonFilled } {
             --button-background: rgba(var(--textarea-color),var(--textarea-alpha));
             --button-text-color: var(--textarea-text-color);
         }
@@ -88,33 +90,33 @@
 
     /* chat */
 
-    %chat {
+    #{ $chat } {
         &[data-has-border="true"] {
             border-top: none;
         }
 
-        %dmProfileScroller {
+        #{ $dmProfileScroller } {
             background-color: transparent;
         }
     }
 
-    %headerBar {
+    #{ $headerBar } {
         border-bottom: none;
     }
 
-    %chatContent {
+    #{ $chatContent } {
         background-color: transparent;
     }
 
-    %chatForm {
+    #{ $chatForm } {
         margin-top: 0;
     }
 
-    %channelTextAreaAttachButton {
+    #{ $channelTextAreaAttachButton } {
         padding: var(--space-12) var(--space-xs) var(--space-12) var(--space-md);
     }
 
-    %channelInfo {
+    #{ $channelInfo } {
         margin: 12px 0;
         padding: 11px 0;
         background-color: rgba(var(--textarea-color), var(--textarea-alpha));
@@ -122,52 +124,47 @@
         border: none;
     }
 
-    %channelTextArea {
+    #{ $channelTextArea } {
         background-color: rgba(var(--textarea-color), var(--textarea-alpha));
         border: none;
     }
 
-    %channelAtachmentArea {
-        padding: 10px;
-        background-color: transparent;
-    }
-
-    %channelTextAreaUpload {
+    #{ $channelTextAreaUpload } {
         background-color: var(--message-color);
         border-radius: calc(var(--textarea-radius) / 1.4);
         border: none;
     }
 
-    %channelTextAreaStackedBars {
+    #{ $channelTextAreaStackedBars } {
         background-color: transparent;
     }
 
-    %message {
+    #{ $message } {
         border-radius: var(--message-radius);
     }
 
     /* chat loading */
 
-    %chatLoadingWrapper,
-    %chatLoadingMessageWrapper {
+    #{ $chatLoadingWrapper },
+    #{ $chatLoadingMessageWrapper } {
         background-color: transparent;
     }
 
     /* channels & roles */
 
-    %pageBodyHeader,
-    %pageBody,
-    %channelsAndRolesContainer {
+    #{ $pageBodyHeader },
+    #{ $pageBody },
+    #{ $channelsAndRolesContainer } {
         background-color: transparent !important;
     }
 
-    %channelsAndRolesPrompt {
+    #{ $channelsAndRolesPrompt } {
         background-color: var(--card-color);
         border-radius: var(--card-radius);
         border: none;
     }
 
-    %promptOptionButtonWrapper {
+    #{ $promptOptionButtonWrapper } {
         background-color: var(--card-color);
         border-radius: var(--card-radius);
         border-color: transparent;
@@ -176,23 +173,23 @@
             background-color: var(--card-color-hover);
         }
 
-        &%promptOptionButtonWrapperSelected {
+        &#{ $promptOptionButtonWrapperSelected } {
             background-color: var(--card-color-select);
             border-color: hsl(var(--accent-hsl));
         }
     }
 
-    %promptOptionButton {
+    #{ $promptOptionButton } {
         background-color: transparent;
     }
 
     /* browse channels */
 
-    %browseChannelsChannelRow {
+    #{ $browseChannelsChannelRow } {
         background-color: var(--card-color);
         border: none;
 
-        &:not(%browseChannelsChannelDisabled) {
+        &:not(#{ $browseChannelsChannelDisabled }) {
             &:hover {
                 background-color: var(--card-color-hover);
             }
@@ -201,57 +198,57 @@
 
     /* voice call */
 
-    %callRoot {
+    #{ $callRoot } {
         background-color: transparent;
     }
 
-    %callContainer {
+    #{ $callContainer } {
         border: none;
     }
 
     /* chat area search */
 
-    %searchResultsWrap {
+    #{ $searchResultsWrap } {
         background-color: var(--sidebar-color);
     }
 
-    %searchHeader {
+    #{ $searchHeader } {
         background-color: transparent;
         border-bottom: none;
     }
 
-    %searchResult {
+    #{ $searchResult } {
         background-color: transparent;
         border: none;
     }
 
     /* forum */
 
-    %forumContainer {
+    #{ $forumContainer } {
         background-color: transparent;
     }
 
-    %forumHeader {
+    #{ $forumHeader } {
         background-color: var(--card-color);
         border: none;
     }
 
-    %forumHeaderMatchingPostsRow {
+    #{ $forumHeaderMatchingPostsRow } {
         background-color: var(--card-color);
         border: none;
     }
 
-    %forumGuidelinesContainer {
+    #{ $forumGuidelinesContainer } {
         background-color: var(--card-color);
         border: none;
     }
 
-    %postThreadButtonContainer {
+    #{ $postThreadButtonContainer } {
         background-color: var(--card-color);
         border-top: none;
     }
 
-    %postContainer {
+    #{ $postContainer } {
         background-color: var(--card-color);
 
         &:hover {
@@ -259,45 +256,45 @@
         }
     }
 
-    %newPostContainer {
-        %channelTextArea {
+    #{ $newPostContainer } {
+        #{ $channelTextArea } {
             background-color: transparent;
         }
 
-        %channelTextAreaInner {
+        #{ $channelTextAreaInner } {
             padding-left: 16px;
         }
     }
 
-    %threadResizeHandle {
+    #{ $threadResizeHandle } {
         background-color: transparent;
     }
 
-    %threadContainer {
+    #{ $threadContainer } {
         background-color: var(--main-content-color);
         border: none;
     }
 
     /* messages */
 
-    %pollContainer {
+    #{ $pollContainer } {
         background-color: var(--textarea-block-color);
         border: none;
     }
 
     /* message attachments */
 
-    %attachment,
-    %embedFull,
-    %embedCard,
-    %threadEmbed {
+    #{ $attachment },
+    #{ $embedFull },
+    #{ $embedCard },
+    #{ $threadEmbed } {
         background-color: var(--card-color);
     	border-radius: var(--card-radius);
         border: none;
         border-left: 4px solid;
     }
 
-    %embedFile {
+    #{ $embedFile } {
         background-color: var(--card-color);
         border: none;
         box-shadow: none;
@@ -305,123 +302,119 @@
 
     /* emoji picker */
 
-    %emojiWrapper {
+    #{ $emojiWrapper } {
         background-color: transparent;
         border-radius: var(--popout-radius);
         border: none;
         box-shadow: none;
-
-        %searchContainer {
-            border: none;
-        }
     }
 
-    %emojiPicker {
+    #{ $emojiPicker } {
         background-color: transparent;
     }
 
-    %emojiPickerNavEmoji,
-    %emojiPickerNavSticker,
-    %emojiPickerNavGif {
+    #{ $emojiPickerNavEmoji },
+    #{ $emojiPickerNavSticker },
+    #{ $emojiPickerNavGif } {
         background-color: transparent;
     }
 
-    %emojiCategoryWrapper {
+    #{ $emojiCategoryWrapper } {
         background-color: var(--sidebar-color);
     }
 
-    %emojiPickerCategoryHeaderWrapper {
+    #{ $emojiPickerCategoryHeaderWrapper } {
         position: sticky;
         background-color: transparent;
         backdrop-filter: blur(var(--popout-blur));
     }
 
-    %emojiPickerInspector {
+    #{ $emojiPickerInspector } {
         background-color: transparent;
     }
 
     /* members list */
 
-    %membersWrap {
+    #{ $membersWrap } {
         background-color: transparent;
         border-left: none;
     }
 
-    %memberActivityContainer {
+    #{ $memberActivityContainer } {
         background-color: var(--background-modifier-hover);
 
-        &%memberActivityContainerSelected {
+        &#{ $memberActivityContainerSelected } {
             background-color: var(--background-modifier-selected);
         }
     }
 
-    %memberInner {
+    #{ $memberInner } {
         height: 100%;
     }
 
     /* friends list */
 
-    %friends {
+    #{ $friends } {
         border-top: none;
     }
 
-    %friendsTabBody {
+    #{ $friendsTabBody } {
         background-color: transparent;
     }
 
-    %nowPlayingColumnContainer {
+    #{ $nowPlayingColumnContainer } {
         background-color: transparent;
     }
 
     /* inbox */
 
-    %messagesPopoutChannelHeader {
+    #{ $messagesPopoutChannelHeader } {
         background-color: var(--popout-color);
     }
 
-    %recentMentionsMessagesContainer {
+    #{ $recentMentionsMessagesContainer } {
         background-color: transparent;
         border: none;
     }
 
-    %recentMentionsPopout {
+    #{ $recentMentionsPopout } {
         background-color: transparent;
     }
 
     /* pinned messages popout */
 
-    %messagesPopoutWrap {
+    #{ $messagesPopoutWrap } {
         background-color: transparent;
     }
 
-    %messagesPopoutHeader,
-    %messagesPopoutContentContainer {
+    #{ $messagesPopoutHeader },
+    #{ $messagesPopoutContentContainer } {
         background-color: transparent;
         border: none;
     }
 
-    %pinnedMessageGroupWrapper {
+    #{ $pinnedMessageGroupWrapper } {
         background-color: transparent;
         border: none;
 
-        %messagesWrapper {
+        #{ $messagesWrapper } {
             margin-right: 0 !important;
         }
     }
 
     /* context menu */
 
-    %menuPopout {
+    #{ $menuPopout } {
         border: none;
     }
 
     /* settings */
 
-    %layer {
+    #{ $layer } {
         background-color: transparent;
     }
 
-    %standardSidebarView {
+    #{ $standardSidebarView } {
         margin-top: var(--custom-app-top-bar-height);
         background-color: transparent;
         border-radius: var(--app-radius);
@@ -429,40 +422,40 @@
         overflow: hidden;
     }
 
-    %settingsSidebarScroller {
+    #{ $settingsSidebarScroller } {
         background-color: var(--sidebar-color);
     }
 
-    &%platformWin {
-        %settingsContentScroller {
+    &#{ $platformWin } {
+        #{ $settingsContentScroller } {
             margin-top: 0;
         }
     }
 
-    %settingsContentScroller {
+    #{ $settingsContentScroller } {
         background-color: transparent;
     }
 }
 
-%alignChatInput {
-    %channelsContainer,
-    %privateChannels {
-        %scroller {
+#{ $alignChatInput } {
+    #{ $channelsContainer },
+    #{ $privateChannels } {
+        #{ $scroller } {
             margin-bottom: 0;
         }
     }
 
-    %messagesScrollerSpacer {
+    #{ $messagesScrollerSpacer } {
         height: var(--space-24);
     }
 
-    %channelTextAreaAttachWrapper {
+    #{ $channelTextAreaAttachWrapper } {
         padding: 0;
     }
 
-    %channelTextAreaAttachButtonInner,
-    %channelTextAreaButtonInner:not(%channelTextAreaButtonInnerNoHover),
-    %channelTextAreaEmojiButton {
+    #{ $channelTextAreaAttachButtonInner },
+    #{ $channelTextAreaButtonInner }:not(#{ $channelTextAreaButtonInnerNoHover }),
+    #{ $channelTextAreaEmojiButton } {
         border-radius: var(--space-16);
     }
 }

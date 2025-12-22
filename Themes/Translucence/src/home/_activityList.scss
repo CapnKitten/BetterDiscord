@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,32 +7,28 @@
  *
  */
 
-%nowPlayingColumn,
-%nowPlayingColumnContainer {
+#{ $nowPlayingColumn },
+#{ $nowPlayingColumnContainer } {
     background-color: transparent;
 }
 
-%nowPlayingColumnScroller {
+#{ $nowPlayingColumnScroller } {
     margin-left: 0;
 }
 
-%emptyActiveNowCard {
+#{ $emptyActiveNowCard } {
     background-color: var(--card-color);
     border-radius: var(--card-radius);
 }
 
-%activeNowCardInteractive {
+#{ $activeNowCardInteractive } {
     @include card-format(true, true);
 
-    &%activeNowCardActive {
-        background-color: var(--card-color-select) !important;
-    }
-
-    %activeNowCardInset {
+    #{ $activeNowCardInset } {
         background-color: transparent;
     }
 
-    %activeNowCardSection {
+    #{ $activeNowCardSection } {
         margin-bottom: 2px;
         background-color: var(--background-modifier-hover);
         border-radius: var(--card-radius);
@@ -41,7 +38,7 @@
         }
     }
 
-    %activeNowCardSeparator {
+    #{ $activeNowCardSeparator } {
         display: none;
     }
 }

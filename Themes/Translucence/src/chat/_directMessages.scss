@@ -1,56 +1,58 @@
+@use '../classes' as *;
+
 /*
  *
  *  DIRECT MESSAGES
  *
  */
 
-%callWrapper {
-    &%callMinimum,
-    &%callWrapperVideo {
+#{ $callWrapper } {
+    &#{ $callMinimum },
+    &#{ $callWrapperVideo } {
         background-color: transparent;
         box-shadow: var(--popout-header-shadow);
     }
 
-    %callContainer {
+    #{ $callContainer } {
         background-color: transparent;
     }
 
-    %headerBar {
+    #{ $headerBar } {
         box-shadow: none;
     }
 
-    %callTile {
+    #{ $callTile } {
         border-radius: var(--card-radius);
     }
 }
 
-%callControlButton {
+#{ $callControlButton } {
     svg {
         filter: none;
     }
 }
 
-%callTileBorder {
+#{ $callTileBorder } {
     border-radius: var(--card-radius);
-    
-    &%callTileSpeaking {
+
+    &#{ $callTileSpeaking } {
         box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-base-lower);
     }
 }
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
-%dmProfilePanel[style] {
+#{ $dmProfilePanel }[style] {
     border-radius: 0;
 
-    &:not(%userProfileOuterThemed) {
+    &:not(#{ $userProfileOuterThemed }) {
         background-color: var(--sidebar-color);
     }
 
-    %userProfileInner {
+    #{ $userProfileInner } {
         border-radius: 0;
 
-        %userProfileBanner {
+        #{ $userProfileBanner } {
             border-radius: 0;
         }
 
@@ -64,8 +66,8 @@
     }
 }
 
-%dmProfilePanelConnections {
-    %button {
+#{ $dmProfilePanelConnections } {
+    #{ $button } {
         --button-height: 36px !important;
         --button-padding: 0 12px;
         --button-background: transparent !important;

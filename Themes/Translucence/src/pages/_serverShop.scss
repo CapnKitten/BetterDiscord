@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,41 +7,41 @@
  *
  */
 
-%serverShopHeroCard {
+#{ $serverShopHeroCard } {
     @include card-format;
 }
 
-%serverShopTab {
+#{ $serverShopTab } {
     border-radius: var(--card-radius);
     border: none;
     box-shadow: none;
 
-    &%serverShopTabSelected {
+    &#{ $serverShopTabSelected } {
         background-color: hsl(var(--accent-hsl));
         color: var(--accent-text-color);
 
-        %textSmSemibold,
-        %textXsNormal {
+        #{ $textSmSemibold },
+        #{ $textXsNormal } {
             color: var(--accent-text-color) !important;
         }
     }
 }
 
-%serverShopSortDropdown {
-    %textSmMedium {
+#{ $serverShopSortDropdown } {
+    #{ $textSmMedium } {
         color: var(--button-text-color) !important;
     }
 
-    %buttonContents {
+    #{ $buttonContents } {
         svg:last-child {
             margin-left: 8px;
         }
     }
 }
 
-%serverShopCard {
+#{ $serverShopCard } {
     &:hover {
-        %serverShopCardContent {
+        #{ $serverShopCardContent } {
             box-shadow: none;
             outline: none;
             transform: none;
@@ -48,11 +49,11 @@
     }
 }
 
-%serverShopProductCard {
+#{ $serverShopProductCard } {
     @include card-format(true, true);
 }
 
-%serverProductRoleTag {
+#{ $serverProductRoleTag } {
     padding: 8px 16px;
     background-color: var(--background-modifier-selected);
     border-radius: 20px;

@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,55 +7,55 @@
  *
  */
 
-%platformWin {
-    %channelsSidebar {
+#{ $platformWin } {
+    #{ $channelsSidebar } {
         border-radius: 0;
     }
 }
 
-%channelsSidebar {
+#{ $channelsSidebar } {
 	background-color: var(--sidebar-color);
 
-    %channelsContainer {
+    #{ $channelsContainer } {
     	background-color: transparent;
     }
 
-    %channelLink {
+    #{ $channelLink } {
         border-radius: var(--list-item-radius);
     }
 
-    %voiceChannelsButton {
+    #{ $voiceChannelsButton } {
         &:hover {
             background-color: var(--background-modifier-hover);
         }
     }
 }
 
-%channelsHeader {
+#{ $channelsHeader } {
 	background-color: transparent !important;
     box-shadow: var(--popout-header-shadow);
 
-    %guildCommunityInfoPill {
+    #{ $guildCommunityInfoPill } {
         background-color: var(--card-color);
         border-radius: var(--card-radius);
     }
 }
 
-%voiceUserContent {
+#{ $voiceUserContent } {
     border-radius: var(--list-item-radius);
 }
 
-%guildLiveEvent {
+#{ $guildLiveEvent } {
     @include card-format;
 }
 
-%guildServerBoostProgressContainer {
+#{ $guildServerBoostProgressContainer } {
     background-color: var(--card-color);
 }
 
 /* CHANNELS LIST -> ACTION BUTTONS */
 
-%channelActionButton {
+#{ $channelActionButton } {
     background-color: var(--background-modifier-hover);
     border-radius: var(--list-item-radius);
     border: none;
@@ -63,7 +64,7 @@
 		background-color: var(--background-modifier-active);
 	}
 
-	&%channelActionButtonSelected {
+	&#{ $channelActionButtonSelected } {
 		background-color: var(--background-modifier-accent);
 	}
 }

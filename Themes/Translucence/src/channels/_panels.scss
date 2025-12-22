@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,12 +7,12 @@
  *
  */
 
-%panels {
+#{ $panels } {
 	background-color: transparent;
 }
 
-%connectionPanelActionButtons {
-    %button {
+#{ $connectionPanelActionButtons } {
+    #{ $button } {
         path {
             &[fill] {
                 fill: currentColor !important;
@@ -24,44 +25,44 @@
     }
 }
 
-%voiceUserAvatar {
+#{ $voiceUserAvatar } {
     &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower)"] {
         box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-base-lower) !important;
     }
 }
 
-%activitiesPanel {
+#{ $activitiesPanel } {
 	width: calc(100% - 16px);
     margin: 0 8px 8px;
 	@include add-translucence(before, true);
 
-	%activitiesPanelContent {
+	#{ $activitiesPanelContent } {
         padding: 8px 0;
     }
 
-    %activitiesPanelVideo {
+    #{ $activitiesPanelVideo } {
         width: 208px !important;
         height: 117px !important;
         border-radius: var(--popout-radius);
     }
 }
 
-%connectionPanel,
-%accountPanel,
-%accountPanelContent,
-%activityPanel {
+#{ $connectionPanel },
+#{ $accountPanel },
+#{ $accountPanelContent },
+#{ $activityPanel } {
 	background: transparent !important;
 }
 
-%connectionPanel {
-	%disabledButtonWrapper {
+#{ $connectionPanel } {
+	#{ $disabledButtonWrapper } {
 		--button-padding: 0;
 
 		border-radius: var(--button-radius);
 	}
 }
 
-%accountPanelAvatarWrapper {
+#{ $accountPanelAvatarWrapper } {
 	margin-left: -4px;
 	padding-left: 4px;
 
@@ -70,19 +71,19 @@
 	}
 }
 
-%listeningAlongPanel {
+#{ $listeningAlongPanel } {
 	border-top: none;
 	border-bottom-color: var(--background-modifier-accent);
 }
 
 /* PANELS -> QUEST */
 
-%questPanelWrapper {
+#{ $questPanelWrapper } {
     background-color: transparent !important;
     border-radius: 0;
 }
 
-%questPanelContentWrapper {
+#{ $questPanelContentWrapper } {
     background-color: transparent !important;
     border-radius: 0;
     &:after {
@@ -90,29 +91,25 @@
     }
 }
 
-%questPanelBackgroundWrapper {
+#{ $questPanelBackgroundWrapper } {
     display: none;
 }
 
-%questPanelHeaderWrapper {
-    border-radius: 8px;
-}
-
-%heroAssetWrapper {
+#{ $heroAssetWrapper } {
     border-radius: 0 !important;
 }
 
-%heroAssetWrapper {
+#{ $heroAssetWrapper } {
     filter: none !important;
 }
 
-%questLegibilityGradient {
+#{ $questLegibilityGradient } {
     background: none;
     border-radius: 0;
 }
 
-%heroAssetDarken,
-%heroAssetTint {
+#{ $heroAssetDarken },
+#{ $heroAssetTint } {
     background-color: transparent !important;
     border-radius: 0;
 }

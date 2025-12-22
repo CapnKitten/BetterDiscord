@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,13 +7,13 @@
  *
  */
 
-%spectatorMenuScroller {
+#{ $spectatorMenuScroller } {
     @include add-translucence(null, true, true, true);
 
-    %spectatorMenuItem {
+    #{ $spectatorMenuItem } {
         border-radius: var(--popout-radius);
 
-        &:not(%popoutDisabled) {
+        &:not(#{ $popoutDisabled }) {
             &:hover {
                 background-color: var(--background-modifier-hover) !important;
             }

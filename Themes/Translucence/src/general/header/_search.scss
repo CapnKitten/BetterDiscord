@@ -1,16 +1,18 @@
+@use '../../classes' as *;
+
 /*
  *
  *  HEADER SEARCH BAR
  *
  */
 
-%chatSearch {
-    %chatSearchRoot {
-        %chatSearchContainer {
+#{ $chatSearch } {
+    #{ $chatSearchRoot } {
+        #{ $chatSearchContainer } {
             height: var(--chat-search-size);
         }
 
-        %chatSearchContentContainer {
+        #{ $chatSearchContentContainer } {
             display: flex;
             height: var(--chat-search-size);
             line-height: var(--chat-search-size);
@@ -23,22 +25,22 @@
         }
     }
 
-    %chatSearchPlaceholder {
-        %chatSearchPlaceholderInner {
+    #{ $chatSearchPlaceholder } {
+        #{ $chatSearchPlaceholderInner } {
             height: var(--chat-search-size);
             line-height: var(--chat-search-size);
             font-size: 15px;
         }
     }
 
-    %chatSearchContent {
+    #{ $chatSearchContent } {
         > div[data-contents=true] {
           height: inherit;
         }
     }
 }
 
-%chatSearchBar {
+#{ $chatSearchBar } {
     height: var(--chat-search-size);
     padding: 0 4px;
     background-color: rgba(var(--textarea-color), var(--textarea-alpha));
@@ -46,13 +48,13 @@
     border: none;
 }
 
-%chatSearchContainer {
+#{ $chatSearchContainer } {
     height: var(--chat-search-size);
 }
 
-%chatSearchToken,
-%chatSearchFilter + span[data-offset-key],
-%chatSearchAnswer span[data-offset-key] {
+#{ $chatSearchToken },
+#{ $chatSearchFilter } + span[data-offset-key],
+#{ $chatSearchAnswer } span[data-offset-key] {
     --chat-search-size: var(--chat-search-pill-size);
 
     display: flex;
@@ -63,13 +65,13 @@
     color: var(--textarea-block-text-color);
 }
 
-%chatSearchToken {
-    &%chatSearchFilter {
+#{ $chatSearchToken } {
+    &#{ $chatSearchFilter } {
         padding: 0 4px 0 8px;
         border-radius: calc(var(--chat-search-pill-size) / 2) 0 0 calc(var(--chat-search-pill-size) / 2);
     }
 
-    &%chatSearchAnswer {
+    &#{ $chatSearchAnswer } {
         border-radius: 0 calc(var(--chat-search-pill-size) / 2) calc(var(--chat-search-pill-size) / 2) 0;
 
         span[data-offset-key] {
@@ -80,8 +82,8 @@
     }
 }
 
-%chatSearchFilter + span[data-offset-key],
-%chatSearchAnswer span[data-offset-key] {
+#{ $chatSearchFilter } + span[data-offset-key],
+#{ $chatSearchAnswer } span[data-offset-key] {
     padding-right: 4px;
     border-radius: 0 calc(var(--chat-search-pill-size) / 2) calc(var(--chat-search-pill-size) / 2) 0;
 }

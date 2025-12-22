@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,41 +7,41 @@
  *
  */
 
-%pageBody {
+#{ $pageBody } {
     background: transparent;
 }
 
-%pageBodyHeader {
+#{ $pageBodyHeader } {
     background: transparent !important;
 }
 
-%browseChannelsChooseContainer {
+#{ $browseChannelsChooseContainer } {
     @include card-format;
 }
 
 /* BROWSE CHANNELS -> CHANNELS */
 
-%browseChannelsChannelRow {
+#{ $browseChannelsChannelRow } {
     --button-height: 34px;
 
     background-color: var(--card-color);
     transition: var(--default-time) var(--default-animation) background-color;
 
-    &%browseChannelsFirstChannel {
+    &#{ $browseChannelsFirstChannel } {
         border-radius: var(--card-radius) var(--card-radius) 0 0;
         border-top: 1px solid var(--card-border-color);
 
-        &%browseChannelsLastChannel {
+        &#{ $browseChannelsLastChannel } {
             border-radius: var(--card-radius);
         }
     }
 
-    &%browseChannelsLastChannel {
+    &#{ $browseChannelsLastChannel } {
         border-radius: 0 0 var(--card-radius) var(--card-radius);
         border-bottom: 1px solid var(--card-border-color);
     }
 
-    &:not(%browseChannelsChannelDisabled) {
+    &:not(#{ $browseChannelsChannelDisabled }) {
         &:hover {
             background-color: var(--card-color-hover);
         }

@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,48 +7,48 @@
  *
  */
 
-%messagesPopoutWrap {
+#{ $messagesPopoutWrap } {
     max-height: 80vh !important;
 	@include add-translucence(before, true);
 }
 
-%messagesPopoutHeader {
+#{ $messagesPopoutHeader } {
 	background-color: transparent;
 	box-shadow: var(--popout-header-shadow);
 }
 
-%messagesPopoutInner {
+#{ $messagesPopoutInner } {
 	padding: 16px 0 0 8px;
 }
 
-%messagesPopoutFooter {
+#{ $messagesPopoutFooter } {
     background-color: transparent;
 }
 
 /* MESSAGES POPOUT -> PINNED MESSAGES */
 
-%pinnedMessageGroupWrapper {
+#{ $pinnedMessageGroupWrapper } {
 	margin-bottom: 16px;
 	background-color: transparent;
 	border: none;
 
-	%messagesWrapper {
+	#{ $messagesWrapper } {
 		margin-left: 56px !important;
 		margin-right: 16px !important;
 		background-color: var(--message-color);
 		border-radius: var(--message-radius);
 
-		%messageContent,
-		%embedContainer {
+		#{ $messageContent },
+		#{ $embedContainer } {
 			overflow: hidden;
 		}
 	}
 
-    %pinnedActionButtons {
+    #{ $pinnedActionButtons } {
         right: calc(16px + var(--message-padding-side));
     }
 
-    %pinnedJumpButton {
+    #{ $pinnedJumpButton } {
         background-color: var(--card-color);
         border-radius: var(--button-radius);
     }
@@ -55,7 +56,7 @@
 
 /* MESSAGES POPOUT -> FOR YOU */
 
-%messagesPopoutHeaderFriendRequestButton {
+#{ $messagesPopoutHeaderFriendRequestButton } {
     background-color: var(--background-modifier-hover);
 
     &:hover {
@@ -63,11 +64,11 @@
     }
 }
 
-%messagesPopoutContentContainer {
+#{ $messagesPopoutContentContainer } {
     background-color: transparent;
 }
 
-%messagesPopoutRow {
+#{ $messagesPopoutRow } {
     &:hover {
         background-color: var(--background-modifier-hover);
     }
@@ -75,12 +76,12 @@
 
 /* MESSAGES POPOUT -> MENTIONS */
 
-%messagesPopoutChannelHeader,
-%recentMentionsMessagesContainer {
+#{ $messagesPopoutChannelHeader },
+#{ $recentMentionsMessagesContainer } {
 	background-color: transparent;
 }
 
-%messagesPopoutChannelHeader {
+#{ $messagesPopoutChannelHeader } {
     margin: 4px 0;
 	padding: 12px 16px 12px 28px;
 	background-color: transparent;
@@ -92,7 +93,7 @@
 	}
 }
 
-%messagesPopoutChannelHeaderButton {
+#{ $messagesPopoutChannelHeaderButton } {
 	background-color: var(--background-modifier-hover);
 
 	&:hover {
@@ -100,10 +101,10 @@
 	}
 }
 
-%recentMentionsMessagesContainer {
+#{ $recentMentionsMessagesContainer } {
 	padding: 16px 0;
 
-	%messagesWrapper {
+	#{ $messagesWrapper } {
 		margin-left: 60px;
 		margin-right: 0;
         overflow: visible;
@@ -112,31 +113,22 @@
 
 /* MESSAGES POPOUT -> UNREADS */
 
-%recentMentionsPopout {
+#{ $recentMentionsPopout } {
     @include add-translucence(before, true);
 
-    %post {
-        background-color: var(--message-color);
-        border-radius: var(--message-radius);
-
-        &:hover {
-            background-color: var(--message-color-hover);
-        }
-    }
-
-    %messagesWrapper {
+    #{ $messagesWrapper } {
         overflow: visible;
     }
 }
 
-%unreadTutorial {
+#{ $unreadTutorial } {
     @include card-format;
 }
 
-%unreadCollapseButton {
+#{ $unreadCollapseButton } {
 	left: 4px;
 }
 
-%unreadMessages {
+#{ $unreadMessages } {
     background-color: transparent;
 }

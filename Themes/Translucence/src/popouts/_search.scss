@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,11 +7,11 @@
  *
  */
 
-%searchPopout {
+#{ $searchPopout } {
     @include add-translucence(null, true, true, true);
 }
 
-%keybindShortcutKey {
+#{ $keybindShortcutKey } {
     height: 20px;
     padding: 0 6px;
     line-height: 20px;
@@ -28,28 +29,16 @@
     }
 }
 
-%searchPopoutOption {
-	border-radius: var(--popout-radius);
-
-	&:after {
-		display: none;
-	}
-
-	&[aria-selected="true"] {
-		background-color: var(--background-modifier-hover);
-	}
-}
-
-%searchPopoutQueryContainerFocused {
+#{ $searchPopoutQueryContainerFocused } {
 	background-color: transparent !important;
 }
 
-%searchPopoutQueryContainer {
+#{ $searchPopoutQueryContainer } {
 	border: none;
 	box-shadow: var(--popout-header-shadow);
 }
 
-%searchPopoutResultsGroup {
+#{ $searchPopoutResultsGroup } {
     &:before {
         display: none;
     }

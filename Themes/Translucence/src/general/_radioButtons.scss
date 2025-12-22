@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%radioItem {
+#{ $radioItem } {
 	@include card-format(true, true);
 
 	&[aria-checked=true] {
@@ -15,44 +16,44 @@
 
 	&[aria-checked=true] {
 		path,
-		%radioIconChecked {
+		#{ $radioIconChecked } {
 			fill: hsla(var(--accent-hsl),var(--accent-opacity));
 		}
 	}
 
-    %radioBar {
+    #{ $radioBar } {
         border-radius: var(--card-radius);
     }
 }
 
 /* RADIO BUTTONS -> CONTEXT MENU */
 
-%menuPopoutItem {
+#{ $menuPopoutItem } {
 	&[role="menuitemradio"][aria-checked="true"] {
-		%menuPopoutIcon {
+		#{ $menuPopoutIcon } {
 			color: hsl(var(--accent-hsl));
 		}
 	}
 }
 
-%menuPopoutIcon {
-    %menuPopoutRadio {
+#{ $menuPopoutIcon } {
+    #{ $menuPopoutRadio } {
         color: currentColor !important;
     }
 }
 
 /* RADIO BUTTONS -> RADIO REFRESH */
 
-%radioIndicatorChecked {
-    %radioIndicatorRefreshIconFill {
+#{ $radioIndicatorChecked } {
+    #{ $radioIndicatorRefreshIconFill } {
         fill: hsl(var(--accent-hsl));
     }
 
-    %radioIndicatorRefreshIconStroke {
+    #{ $radioIndicatorRefreshIconStroke } {
         stroke: hsl(var(--accent-hsl));
     }
 
-    %radioIndicatorRefreshIcon {
+    #{ $radioIndicatorRefreshIcon } {
         fill: var(--accent-text-color);
     }
 }

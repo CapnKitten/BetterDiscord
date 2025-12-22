@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,69 +7,69 @@
  *
  */
 
-%forumContainer {
+#{ $forumContainer } {
     background: transparent;
 }
 
-%forumHeader {
+#{ $forumHeader } {
     @include card-format;
 
-    &%forumHeaderWithMatchingPosts {
+    &#{ $forumHeaderWithMatchingPosts } {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
 }
 
-%forumHeaderMatchingPostsRow {
+#{ $forumHeaderMatchingPostsRow } {
     background-color: var(--card-color);
     border-radius: 0 0 var(--card-radius) var(--card-radius);
 }
 
-%forumGuidelinesContainer {
+#{ $forumGuidelinesContainer } {
     @include card-format;
 }
 
-%forumGuidelinesDescriptionContainer {
-    @extend %forumGuidelinesContainer;
+#{ $forumGuidelinesDescriptionContainer } {
+    @extend #{ $forumGuidelinesContainer };
 }
 
-%forumTagsContainer {
+#{ $forumTagsContainer } {
     padding: 16px 0 0;
 }
 
-%forumSortDropdown {
-    %buttonContents {
+#{ $forumSortDropdown } {
+    #{ $buttonContents } {
         color: var(--accent-text-color);
     }
 }
 
-%forumSortDropdownText {
+#{ $forumSortDropdownText } {
     color: inherit !important;
 }
 
-%forumSortContainer {
+#{ $forumSortContainer } {
     padding: 0;
     background-color: transparent;
     border-radius: 0;
     box-shadow: none;
 
-    %menuPopout {
+    #{ $menuPopout } {
         min-width: unset;
 
-        %menuPopoutGroupLabel {
+        #{ $menuPopoutGroupLabel } {
             padding-top: 0;
         }
     }
 }
 
-%forumTagsButton {
+#{ $forumTagsButton } {
     --button-padding: 0 8px 0 12px;
 
-    &%forumTagsButtonWithCount {
+    &#{ $forumTagsButtonWithCount } {
         --button-padding: 0 8px;
     }
 
-    %forumTagsButtonInner {
+    #{ $forumTagsButtonInner } {
         color: inherit;
     }
 
@@ -77,32 +78,32 @@
     }
 }
 
-%forumTagsCountContainer {
+#{ $forumTagsCountContainer } {
     background-color: var(--accent-text-color);
 
-    %forumTagsCountText {
+    #{ $forumTagsCountText } {
         color: hsl(var(--accent-hsl));
     }
 }
 
-%forumFilterContainer {
+#{ $forumFilterContainer } {
     padding: 16px 16px 8px;
     @include add-translucence(null, true, true, true);
 
-    %forumFilterHeader {
+    #{ $forumFilterHeader } {
         padding: 0;
     }
 
-    %forumFilterCountContainer {
+    #{ $forumFilterCountContainer } {
         background-color: hsl(var(--accent-hsl));
 
-        %forumFilterCountText {
+        #{ $forumFilterCountText } {
             color: var(--accent-text-color);
         }
     }
 }
 
-%forumCard {
+#{ $forumCard } {
     padding-bottom: 16px;
 
     &[style*="height: 558px"] {
@@ -112,24 +113,24 @@
 
 /* FORUM -> PILLS */
 
-%postPill {
+#{ $postPill } {
     background-color: var(--card-color) !important;
     border: none;
 
-    &%postPillClickable {
+    &#{ $postPillClickable } {
         &:hover {
             background-color: var(--card-color-hover) !important;
         }
     }
 
-    &%postPillSelected {
+    &#{ $postPillSelected } {
         background-color: hsl(var(--accent-hsl),0.3) !important;
 
         &:hover {
             background-color: hsl(var(--accent-hsl),0.4) !important;
         }
 
-        %postPillText {
+        #{ $postPillText } {
             color: hsl(var(--accent-hsl));
         }
     }

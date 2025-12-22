@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -10,7 +11,7 @@ body {
 	background-color: transparent;
 }
 
-%appMount {
+#{ $appMount } {
 	background: var(--app-bg) !important;
 	background-repeat: no-repeat !important;
 	background-position: center !important;
@@ -31,29 +32,29 @@ body {
 	text-shadow: none;
 }
 
-%layers {
+#{ $layers } {
 	margin: calc(var(--app-margin) / 2) var(--app-margin) var(--app-margin) var(--app-margin);
 	overflow: hidden;
     z-index: 1;
 	backdrop-filter: blur(var(--app-blur));
 }
 
-%titlebarMac + %app %layers {
+#{ $titlebarMac } + #{ $app } #{ $layers } {
 	margin: var(--app-margin);
 }
 
-%shakeable,
-%bg {
+#{ $shakeable },
+#{ $bg } {
 	background-color: transparent;
 }
 
-%loadingScreen {
+#{ $loadingScreen } {
 	background: var(--app-bg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 
-	%loadingScreenContent {
+	#{ $loadingScreenContent } {
 		padding: 16px;
 		@include add-translucence(null, true);
 	}

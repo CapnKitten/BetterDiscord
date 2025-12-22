@@ -1,44 +1,29 @@
+@use '../classes' as *;
+
 /*
  *
  *  SERVER FOLDERS
  *
  */
 
-%guildExpandedFolderBackground {
-	background-color: var(--server-folder-color);
-	border-radius: 16px 16px 24px 24px;
-}
-
-%guildFolder {
+#{ $guildFolder } {
 	background-color: transparent;
 
-	&%guildFolderHover {
+	&#{ $guildFolderHover } {
 		background-color: var(--server-folder-color);
 	}
 }
 
-%guildsUndreadMentionsIndicatorTop {
-    + %guildsItemsContainer {
-        %guildFolder {
+#{ $guildsUndreadMentionsIndicatorTop } {
+    + #{ $guildsItemsContainer } {
+        #{ $guildFolder } {
             background-color: var(--server-folder-color);
-        }
-
-        %guildFolderWrapperIsExpanded {
-            %guildExpandedFolderBackground {
-                background-color: transparent;
-            }
         }
     }
 }
 
-%guildFolderIconWrapper {
+#{ $guildFolderIconWrapper } {
 	&[style*="background-color: rgba(88, 101, 242, 0.4)"] {
 		background-color: hsla(var(--accent-hsl),0.4) !important;
-	}
-}
-
-%guildFolderExpandedIconWrapper {
-	svg[style="color: rgb(88, 101, 242);"] {
-		color: hsla(var(--accent-hsl),var(--accent-opacity)) !important;
 	}
 }

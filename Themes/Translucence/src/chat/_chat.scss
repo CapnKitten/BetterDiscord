@@ -1,55 +1,56 @@
+@use '../classes' as *;
+
 /*
  *
  *  CHAT AREA
  *
  */
 
-%chat,
-%noChannel {
+#{ $chat },
+#{ $noChannel } {
     background-color: var(--main-content-color) !important;
 }
 
-%chat {
-    &%threadSidebarOpen {
+#{ $chat } {
+    &#{ $threadSidebarOpen } {
         border-radius: 0 var(--app-radius) var(--app-radius) 0;
     }
 }
 
-%chatContent {
+#{ $chatContent } {
     background-color: transparent;
 }
 
-%channelChatWrapper {
+#{ $channelChatWrapper } {
     background-color: transparent;
 }
 
-%chatContentWrapper {
+#{ $chatContentWrapper } {
     &:before {
         display: none;
     }
 }
 
-%chatGradientBase,
-%chatTypingGradientAtBottom,
-%chatTypingGradientNotAtBottom {
+#{ $chatGradientBase },
+#{ $chatTypingGradientAtBottom },
+#{ $chatTypingGradientNotAtBottom } {
     background: transparent;
 }
 
-%chatTypingGradientAtBottom,
-%chatTypingGradientNotAtBottom {
+#{ $chatTypingGradientAtBottom },
+#{ $chatTypingGradientNotAtBottom } {
     height: var(--space-24);
 }
 
-%emptyChannelIcon,
-%threadChannelIcon {
+#{ $emptyChannelIcon } {
     background-color: var(--message-color);
 }
 
-%chatOptionButton {
+#{ $chatOptionButton } {
     color: hsl(var(--accent-hsl));
 }
 
-%chatRole {
+#{ $chatRole } {
     background-color: var(--message-color);
     border-radius: 12px;
 
@@ -58,39 +59,38 @@
     }
 }
 
-%baseBase {
-    background-color: hsla(var(--accent-hsl),var(--accent-opacity));
-
-    &:not(%jumpToPresentBar) {
-        border-radius: 0 0 var(--message-radius) var(--message-radius);
-    }
-}
-
-%jumpToPresentBar {
+#{ $jumpToPresentBar } {
     bottom: 10px;
     background-color: var(--popout-color);
 	border-radius: var(--popout-radius);
     border: none;
     backdrop-filter: blur(var(--popout-blur));
 
-    %jumpToPresentBarButtonBase {
+    #{ $jumpToPresentBarButtonBase } {
         color: var(--text-normal);
     }
 
-	%spinner {
+	#{ $spinner } {
 		--spinner-size: auto;
 	}
 
-	%spinnerItem {
+	#{ $spinnerItem } {
 		background-color: var(--accent-text-color);
 	}
 }
 
-%newMessagesBar {
+#{ $newMessagesBar } {
     background-color: hsl(var(--accent-hsl),var(--accent-opacity));
     border: none;
+    box-shadow: none;
 
-    %jumpToPresentBarButtonBase {
+    #{ $jumpToPresentBarButtonBase } {
     	color: var(--accent-text-color);
+
+        &,
+        span {
+            font-weight: 500;
+            text-shadow: none;
+        }
     }
 }

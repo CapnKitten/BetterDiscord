@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,39 +7,39 @@
  *
  */
 
-%uploadModal {
+#{ $uploadModal } {
 	height: 100%;
 	background-color: rgba(0,0,0,0.75) !important;
 	backdrop-filter: blur(calc(var(--popout-blur) * 1.4));
 }
 
-%uploadDropModal {
-    %uploadDropModalBgScale {
+#{ $uploadDropModal } {
+    #{ $uploadDropModalBgScale } {
         @include add-translucence(null, false);
     }
 
-    %uploadDropModalInner {
+    #{ $uploadDropModalInner } {
         border: none;
     }
 }
 
-%uploadModalFooter {
+#{ $uploadModalFooter } {
 	background-color: transparent !important;
 }
 
 /* UPLOAD -> SOUNDBOARD */
 
-%uploadSoundboardMultiInput + %uploadSoundboardSection {
+#{ $uploadSoundboardMultiInput } + #{ $uploadSoundboardSection } {
     &:nth-last-of-type(2) {
         margin-bottom: 0;
     }
 }
 
-%uploadSoundboardFakeInput {
+#{ $uploadSoundboardFakeInput } {
     @include card-format;
 }
 
-%uploadSoundboardHandleFrame {
+#{ $uploadSoundboardHandleFrame } {
     &:before,
     &:after {
         background-color: var(--card-color);

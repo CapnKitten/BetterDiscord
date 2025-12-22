@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,10 +7,10 @@
  *
  */
 
-%inputWrapper {
+#{ $inputWrapper } {
     @include input-format($height: var(--input-height), $important: false);
 
-    %input {
+    #{ $input } {
         background-color: transparent;
 
         &::-webkit-input-placeholder {
@@ -18,42 +19,42 @@
     }
 }
 
-%multiInput {
-    %inputWrapper {
+#{ $multiInput } {
+    #{ $inputWrapper } {
         margin-right: 8px;
     }
 }
 
-%multiInputLast {
+#{ $multiInputLast } {
     &:before {
         display: none;
     }
 }
 
-%fileUploadInput {
+#{ $fileUploadInput } {
     width: auto;
 }
 
-%fileUploadButton {
+#{ $fileUploadButton } {
     padding: 0 12px;
 }
 
 /* INPUTS -> OPTION PILLS */
 
-%optionPill {
+#{ $optionPill } {
     background-color: var(--textarea-block-color) !important;
     border-radius: var(--button-radius);
     border-color: transparent !important;
 
-    &%optionPillSelected {
+    &#{ $optionPillSelected } {
         border-color: hsl(var(--accent-hsl)) !important;
     }
 
-    &%optionPillErrored {
+    &#{ $optionPillErrored } {
         border-color: hsl(var(--alert-hsl)) !important;
     }
 
-    %optionPillKey {
+    #{ $optionPillKey } {
         background-color: var(--textarea-block-color) !important;
         border-top-left-radius: inherit;
         border-bottom-left-radius: inherit;

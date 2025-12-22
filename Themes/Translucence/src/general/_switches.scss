@@ -1,13 +1,15 @@
+@use '../classes' as *;
+
 /*
  *
  *  SWITCHES
  *
  */
 
-%switchContainer {
+#{ $switchContainer } {
     background-color: var(--switch-slider-color) !important;
 
-    %switchSlider {
+    #{ $switchSlider } {
         rect {
             fill: var(--switch-knob-color) !important;
         }
@@ -17,7 +19,7 @@
         }
     }
 
-    &%switchContainerChecked {
+    &#{ $switchContainerChecked } {
         --switch-slider-color: hsla(var(--accent-hsl),var(--accent-opacity));
         --switch-knob-color: var(--accent-text-color);
     }
@@ -29,30 +31,30 @@
 
 /* SWITCHES -> BD SWITCHES */
 
-%bdSwitchContainer {
-    %bdSwitchBody {
+#{ $bdSwitchContainer } {
+    #{ $bdSwitchBody } {
         --switch-color: var(--switch-slider-color);
 
-        %bdSwitchHandle {
+        #{ $bdSwitchHandle } {
             fill: var(--switch-knob-color);
         }
     }
 
     input {
         &:active {
-            + %bdSwitchBody {
+            + #{ $bdSwitchBody } {
     			--switch-color: var(--switch-slider-color);
     		}
         }
 
         &:checked {
-            + %bdSwitchBody {
+            + #{ $bdSwitchBody } {
     			--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
                 --switch-knob-color: var(--accent-text-color);
     		}
 
             &:active {
-				+ %bdSwitchBody {
+				+ #{ $bdSwitchBody } {
 					--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
 				}
 			}
@@ -60,7 +62,7 @@
     }
 }
 
-%bdSwitchDisabled {
+#{ $bdSwitchDisabled } {
     opacity: 0.3;
     filter: none;
 }

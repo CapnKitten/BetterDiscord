@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,8 +7,8 @@
  *
  */
 
-%userProfileOuter {
-	&:not(%userProfileOuterThemed) {
+#{ $userProfileOuter } {
+	&:not(#{ $userProfileOuterThemed }) {
 		--background-surface-high: var(--popout-color) !important;
 		--user-profile-overlay-background: var(--profile-gradient-primary-color) !important;
 
@@ -19,7 +20,7 @@
 	    --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
 	    --bg-mod-faint: var(--profile-body-background-color) !important;
 
-		&%themeLight {
+		&#{ $themeLight } {
 			--textarea-color: 0,0,0;
 			--textarea-text-color: hsl(0,0%,30%);
 			--textarea-placeholder-color: hsl(0,0%,40%);
@@ -32,17 +33,17 @@
 	}
 }
 
-%userProfileOuterThemed {
+#{ $userProfileOuterThemed } {
 	--card-color: rgb(var(--bg-overlay-color)/var(--bg-overlay-opacity-6));
 
-	%buttonFilled {
+	#{ $buttonFilled } {
 		--button-background: var(--profile-gradient-button-color);
         --button-text-color: var(--white-500);
         --accent-button-action: var(--white-500);
 	}
 }
 
-%userProfileOuter {
+#{ $userProfileOuter } {
 	@include add-translucence(before, true, false);
 	border-radius: var(--popout-radius);
 	overflow: initial;
@@ -55,8 +56,8 @@
     	filter: none;
     }
 
-	%userProfileMenus {
-        > %menuPopout {
+	#{ $userProfileMenus } {
+        > #{ $menuPopout } {
             &:before {
                 display: none;
             }
@@ -64,61 +65,61 @@
     }
 }
 
-%userProfileInner {
+#{ $userProfileInner } {
 	border-radius: calc(var(--popout-radius) / 1.25);
 
 	&:before {
 		border-radius: inherit;
 	}
 
-	%avatarWrapper {
+	#{ $avatarWrapper } {
 		circle {
 			fill: var(--profile-avatar-border-color);
 		}
 	}
 
-	%inputWrapper {
+	#{ $inputWrapper } {
 		border-radius: 18px;
 		border: none;
 	}
 
-	%input {
+	#{ $input } {
 		&::-webkit-input-placeholder {
 			color: var(--textarea-placeholder-color);
 		}
 	}
 }
 
-%userProfileNitroUpsellWrapper {
+#{ $userProfileNitroUpsellWrapper } {
 	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
 }
 
-%userProfileBanner {
+#{ $userProfileBanner } {
 	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
 }
 
-%badgeListContainer {
+#{ $badgeListContainer } {
     padding: 2px;
     background-color: var(--card-color) !important;
     border-radius: 12px;
     border: none;
 }
 
-%userProfileOverlayBackground {
+#{ $userProfileOverlayBackground } {
 	border-radius: calc(var(--popout-radius) / 1.25);
 }
 
-%biteSizeInnerThemed {
+#{ $biteSizeInnerThemed } {
     padding-bottom: 0;
 }
 
-%statusBubbleOuter,
-%statusBubbleInner {
+#{ $statusBubbleOuter },
+#{ $statusBubbleInner } {
 	background-color: var(--card-color);
     border-radius: var(--popout-radius);
 }
 
-%statusBubbleOuter {
+#{ $statusBubbleOuter } {
     border: none !important;
 
     &:before,
@@ -127,37 +128,37 @@
     }
 }
 
-%statusBubbleInner {
+#{ $statusBubbleInner } {
 	backdrop-filter: blur(var(--popout-blur));
 }
 
-%profileCustomThemeBackground {
-    %menuPopout {
+#{ $profileCustomThemeBackground } {
+    #{ $menuPopout } {
         border: none;
     }
 }
 
-%biteSizeActivity {
+#{ $biteSizeActivity } {
 	border-radius: var(--popout-radius);
 }
 
-%role {
+#{ $role } {
 	background-color: var(--background-modifier-selected);
 	border-radius: 11px;
 	border: none;
 }
 
-%userProfileNote {
+#{ $userProfileNote } {
 	margin-left: 0;
 	margin-right: 0;
 
-	%input {
+	#{ $input } {
 		height: unset;
 		font-size: 14px;
 		line-height: 16px;
 	}
 
-	%userProfileNoteTextArea {
+	#{ $userProfileNoteTextArea } {
 		padding: 4px 10px;
 		font-size: 14px;
 		line-height: 16px;
@@ -174,7 +175,7 @@
 
 /* USER POPOUT -> STATUS AREA */
 
-%userProfileStatusMenu {
+#{ $userProfileStatusMenu } {
 	&:before {
 		display: none;
 	}

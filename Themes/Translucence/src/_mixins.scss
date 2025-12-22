@@ -1,14 +1,11 @@
-@function important($important) {
-	@return #{if($important, '!important', '')};
-}
-
 @mixin add-translucence($pseudo, $filter: false, $bg: true, $important: false) {
+	$imp: if($important, !important, null);
 	$bg: #{if($bg, 'var(--popout-color)', 'transparent')};
 
 	@if $pseudo != null {
-		background-color: transparent important($important);
-		border-radius: var(--popout-radius) important($important);
-		box-shadow: none important($important);
+		background-color: transparent $imp;
+		border-radius: var(--popout-radius) $imp;
+		box-shadow: none $imp;
 		overflow: hidden;
 
 		&:#{$pseudo} {
@@ -30,10 +27,10 @@
 			z-index: -1;
 		}
 	} @else {
-		background-color: $bg important($important);
-		border-radius: var(--popout-radius) important($important);
-		box-shadow: var(--popout-shadow) important($important);
-		border: none important($important);
+		background-color: $bg $imp;
+		border-radius: var(--popout-radius) $imp;
+		box-shadow: var(--popout-shadow) $imp;
+		border: none $imp;
 
 		@if $filter == true {
 			backdrop-filter: blur(var(--popout-blur));
@@ -67,50 +64,58 @@
 }
 
 @mixin input-format($height: var(--input-height), $radius: var(--input-radius), $important: false) {
+	$imp: if($important, !important, null);
+
 	min-height: $height;
 	height: $height;
 	border-radius: $radius;
-    background-color: rgba(var(--textarea-color),var(--textarea-alpha)) important($important);
-	border: none important($important);
+    background-color: rgba(var(--textarea-color),var(--textarea-alpha)) $imp;
+	border: none $imp;
 	color: var(--textarea-text-color);
 	transition: var(--transition-time) var(--transition-type);
 
 	&:has(input:focus, textarea:focus) {
-		background-color: rgba(var(--textarea-color),var(--textarea-alpha-focus)) important($important);
+		background-color: rgba(var(--textarea-color),var(--textarea-alpha-focus)) $imp;
 		outline: none !important;
 	}
 }
 
 @mixin card-format($important: false, $hover: false) {
-	background-color: var(--card-color) important($important);
-	border-radius: var(--card-radius) important($important);
-	border: none important($important);
+	$imp: if($important, !important, null);
+
+	background-color: var(--card-color) $imp;
+	border-radius: var(--card-radius) $imp;
+	border: none $imp;
 
 	@if $hover == true {
 		&:hover {
-			background-color: var(--card-color-hover) important($important);
+			background-color: var(--card-color-hover) $imp;
 			border: none;
 		}
 	}
 }
 
 @mixin card-format--header($important: false) {
-	background-color: transparent important($important);
+	$imp: if($important, !important, null);
+
+	background-color: transparent $imp;
 	box-shadow: var(--card-header-shadow);
-	border: none important($important);
+	border: none $imp;
 }
 
 @mixin add-button-style($type, $important: false, $innerText: '.contents-3ca1mk', $bg: var(--button-color), $textColor: var(--button-text-color)) {
+	$imp: if($important, !important, null);
+
 	@if $type == 'solid' {
-		background-color: $bg important($important);
+		background-color: $bg $imp;
 
 		&:hover,
 		&:active,
 		&:disabled {
-			background-color: $bg important($important);
+			background-color: $bg $imp;
 		}
 	} @else if $type == 'outline' {
-		border-color: $bg important($important);
+		border-color: $bg $imp;
 	}
 
 	#{$innerText} {
@@ -144,9 +149,11 @@
 }
 
 @mixin app-accents($hasText: true, $important: false) {
-	background-color: hsla(var(--accent-hsl),var(--accent-opacity)) important($important);
+	$imp: if($important, !important, null);
+
+	background-color: hsla(var(--accent-hsl),var(--accent-opacity)) $imp;
 
 	@if $hasText {
-		color: var(--accent-text-color) important($important);
+		color: var(--accent-text-color) $imp;
 	}
 }

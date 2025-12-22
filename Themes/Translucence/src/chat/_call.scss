@@ -1,14 +1,16 @@
+@use '../classes' as *;
+
 /*
  *
  *	VOICE & VIDEO CALL
  *
  */
 
-%voiceCallActionsWrapper {
-    %voiceCallActionsButtonSection:first-child {
-        > %voiceCallAttachedCaretButtonContainer {
+#{ $voiceCallActionsWrapper } {
+    #{ $voiceCallActionsButtonSection }:first-child {
+        > #{ $voiceCallAttachedCaretButtonContainer } {
             > div:first-child {
-                %callButtonColorable {
+                #{ $callButtonColorable } {
                     --button-radius: calc(var(--popout-radius) / 1.2) 4px 4px calc(var(--popout-radius) / 1.2);
                 }
             }
@@ -16,14 +18,14 @@
     }
 }
 
-%voiceCallActionsButtonSection {
+#{ $voiceCallActionsButtonSection } {
     position: relative;
     padding: 5px;
     background-color: var(--popout-color);
     backdrop-filter: blur(var(--popout-blur));
     border: none;
 
-    %callButtonColorable {
+    #{ $callButtonColorable } {
         --button-background: var(--background-modifier-active);
         --button-radius: calc(var(--popout-radius) / 1.2);
 
@@ -35,14 +37,14 @@
         }
     }
 
-    %voiceCallActionsContextMenuNub {
+    #{ $voiceCallActionsContextMenuNub } {
         padding: 0 2px;
         border-radius: 4px calc(var(--popout-radius) / 1.2) calc(var(--popout-radius) / 1.2) 4px;
     }
 }
 
-%callButtonColorable {
-    &%voiceCallDisconnect {
+#{ $callButtonColorable } {
+    &#{ $voiceCallDisconnect } {
         --button-background: hsl(var(--alert-hsl));
         --button-radius: var(--popout-radius);
         --button-text-color: var(--alert-text-color);

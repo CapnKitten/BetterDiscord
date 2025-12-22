@@ -1,39 +1,41 @@
+@use '../classes' as *;
+
 /*
  *
  *  POLLS
  *
  */
 
-%pollContainer {
+#{ $pollContainer } {
 	background-color: var(--textarea-block-color);
 	border-radius: var(--card-radius);
 	border: none;
 }
 
-%pollAnswer {
-    &%pollAnswerVotedStyles {
-        %pollAnswerInner {
+#{ $pollAnswer } {
+    &#{ $pollAnswerVotedStyles } {
+        #{ $pollAnswerInner } {
             outline-color: hsl(var(--accent-hsl));
         }
     }
 
-    &:not(%pollAnswerVotedStyles) {
-        %pollAnswerInner {
+    &:not(#{ $pollAnswerVotedStyles }) {
+        #{ $pollAnswerInner } {
             outline-color: transparent !important;
         }
     }
 }
 
-%pollAnswerInner {
+#{ $pollAnswerInner } {
     background-color: var(--card-color);
     border-radius: var(--card-radius);
 
-    &%pollCurrentlyVoting {
+    &#{ $pollCurrentlyVoting } {
         &:hover {
             background-color: var(--card-color-hover);
         }
 
-        &%pollAnswerSelected {
+        &#{ $pollAnswerSelected } {
             background-color: var(--card-color-select);
 
             circle,
@@ -48,6 +50,6 @@
     }
 }
 
-%pollVotePercentageBar {
+#{ $pollVotePercentageBar } {
     background-color: hsl(from hsl(var(--accent-hsl)) h calc(s * 1.5) l / 0.25);
 }

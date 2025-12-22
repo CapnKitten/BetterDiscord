@@ -1,3 +1,4 @@
+@use '../../classes' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,27 +7,17 @@
  *
  */
 
-%guildSettingsRoleDefaultPermissions {
+#{ $guildSettingsRoleDefaultPermissions } {
     @include card-format(false, true);
 }
 
-%guildSettingsRoleSearchBar {
-    @include input-format(34px, 17px);
-
-    %guildSettingsRoleSearchInput {
-        &::-webkit-input-placeholder {
-            color: var(--textarea-placeholder-color);
-        }
-    }
-}
-
-%guildSettingsRoleRow {
-    %buttonCircle {
+#{ $guildSettingsRoleRow } {
+    #{ $buttonCircle } {
         background-color: var(--background-modifier-active);
     }
 
     &:hover {
-        %buttonCircle {
+        #{ $buttonCircle } {
             background-color: var(--background-modifier-active) !important;
 
             &:hover {
@@ -38,12 +29,12 @@
 
 /* SERVER SETTINGS ROLES -> EDIT ROLE */
 
-%guildSettingsRoleBackContainer {
+#{ $guildSettingsRoleBackContainer } {
     position: sticky;
     @include add-translucence-bg(before);
 }
 
-%guildSettingsRoleHeader {
+#{ $guildSettingsRoleHeader } {
     padding: 60px 8px 0;
     @include add-translucence-bg(before);
 }

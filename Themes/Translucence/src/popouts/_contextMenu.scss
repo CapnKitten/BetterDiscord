@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,25 +7,18 @@
  *
  */
 
-%menuPopout {
+#{ $menuPopout } {
     @include add-translucence(before, true);
 
-    %menuPopoutItem {
+    #{ $menuPopoutItem } {
         border-radius: var(--popout-radius);
 
-        &%menuPopoutItemHover {
+        &#{ $menuPopoutItemHover } {
             background-color: var(--background-modifier-selected);
         }
     }
 
-    %contextMenuItemSubMenuAlt {
-        &:before {
-            width: calc(100% - 16px);
-            left: 8px;
-        }
-    }
-
-    %contextMenuQuickReaction {
+    #{ $contextMenuQuickReaction } {
         background-color: var(--card-color);
 
         &:hover {
@@ -44,24 +38,24 @@
     }
 }
 
-%layerContainer {
-    %backdrop {
-        + %popoutLayerAlt + %popoutLayer {
-            %menuPopout {
+#{ $layerContainer } {
+    #{ $backdrop } {
+        + #{ $popoutLayerAlt } + #{ $popoutLayer } {
+            #{ $menuPopout } {
                 backdrop-filter: blur(var(--popout-blur));
             }
         }
     }
 }
 
-%popoutLayer ~ %popoutLayer {
-    %menuPopout {
+#{ $popoutLayer } ~ #{ $popoutLayer } {
+    #{ $menuPopout } {
         backdrop-filter: blur(var(--popout-blur));
     }
 }
 
 /* CONTEXT MENU -> CHECKBOX */
 
-%menuPopoutIcon {
+#{ $menuPopoutIcon } {
     filter: none !important;
 }

@@ -1,38 +1,42 @@
+@use '../classes' as *;
+
 /*
  *
  *  BUTTONS
  *
  */
 
-%button {
+#{ $button } {
     border-radius: var(--button-radius) !important;
 
     * {
         text-shadow: none;
     }
 
-    %textSmMedium,
-	%textSmSemibold,
-	%textSmBold,
-	%textMdSemibold {
+    #{ $textSmMedium },
+	#{ $textSmSemibold },
+	#{ $textSmBold },
+	#{ $textMdSemibold },
+    #{ $buttonContents } {
         color: inherit !important;
+        font-weight: 500;
     }
 }
 
-%buttonSizeSmall,
-%buttonSizeMedium,
-%buttonSizeLarge,
-%buttonSizeXlarge {
+#{ $buttonSizeSmall },
+#{ $buttonSizeMedium },
+#{ $buttonSizeLarge },
+#{ $buttonSizeXlarge } {
     height: var(--button-height);
     min-height: var(--button-height);
     min-width: var(--button-height);
     padding: var(--button-padding);
 }
 
-%buttonFilled,
-%buttonOutlined,
-%buttonLink,
-%buttonInverted {
+#{ $buttonFilled },
+#{ $buttonOutlined },
+#{ $buttonLink },
+#{ $buttonInverted } {
     --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
 	--button-text-color: var(--accent-text-color);
     --button-outline: none;
@@ -65,8 +69,8 @@
 		opacity: 0.15;
 	}
 
-    %buttonContents,
-    %defaultColor {
+    #{ $buttonContents },
+    #{ $defaultColor } {
         color: var(--button-text-color);
 
         svg {
@@ -75,13 +79,13 @@
     }
 }
 
-%buttonLink {
+#{ $buttonLink } {
     --button-background: transparent;
     --button-text-color: hsla(var(--accent-hsl),var(--accent-opacity));
     --button-action-color: transparent;
 
     &:hover {
-        %buttonContents {
+        #{ $buttonContents } {
             background-image: linear-gradient(0deg,transparent,transparent 1px,hsl(var(--accent-hsl)) 0,hsl(var(--accent-hsl)) 2px,transparent 0) !important;
         }
     }
@@ -89,7 +93,7 @@
 
 /* BUTTONS -> CALL BUTTONS */
 
-%callButtonColorable {
+#{ $callButtonColorable } {
     --button-background: var(--background-modifier-hover);
 	--button-text-color: #fff;
     --button-radius: 50%;
@@ -119,46 +123,46 @@
 		opacity: 0.15;
 	}
 
-    &%callButtonPrimaryDark {
+    &#{ $callButtonPrimaryDark } {
         --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
     	--button-text-color: var(--accent-text-color);
     }
 
-    &%callButtonRed {
+    &#{ $callButtonRed } {
         --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
         --button-text-color: var(--alert-text-color);
 	}
 
-    &%callButtonWhite {
+    &#{ $callButtonWhite } {
 		--button-background: #fff;
 		--button-text-color: #060607;
 	}
 
-	&%callButtonLight {
+	&#{ $callButtonLight } {
 		--button-text-color: #060607;
 	}
 
-	&%callButtonLightActive {
+	&#{ $callButtonLightActive } {
 		--button-background: var(--background-modifier-active);
 		--button-text-color: #060607;
 	}
 
-    %callCenterIcon {
+    #{ $callCenterIcon } {
 		color: var(--button-text-color) !important;
 	}
 }
 
-%buttonRed {
+#{ $buttonRed } {
     --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
     --button-text-color: var(--alert-text-color);
     --button-action-color: var(--alert-action-color);
 }
 
-%buttonQuestionMark {
+#{ $buttonQuestionMark } {
     background-color: hsla(var(--accent-hsl),var(--accent-opacity));
     border-radius: 50%;
 
-    %buttongQuestionMarkIcon {
+    #{ $buttongQuestionMarkIcon } {
         color: var(--accent-text-color);
         filter: none;
     }
@@ -166,7 +170,7 @@
 
 /* BUTTONS -> BUTTON V2 */
 
-%buttonV2 {
+#{ $buttonV2 } {
     --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
 	--button-text-color: var(--accent-text-color);
     --button-outline: none;
@@ -198,7 +202,7 @@
 		opacity: 0.15;
 	}
 
-    %buttonV2ChildrenWrapper {
+    #{ $buttonV2ChildrenWrapper } {
         min-width: 0 !important;
         height: var(--button-height);
 		padding: 0 !important;
@@ -211,44 +215,51 @@
 		}
     }
 
-    %textSmMedium,
-    %textMdMedium,
-    %textLgMedium {
+    #{ $textSmMedium },
+    #{ $textMdMedium },
+    #{ $textLgMedium } {
         text-shadow: none;
     }
 }
 
 /* BUTTONS -> BUTTON V2 -> COLORS */
 
-%buttonV2Primary {
+#{ $buttonV2Primary } {
     --button-background: hsl(var(--accent-hsl));
     --button-text-color: var(--accent-text-color);
 }
 
-%buttonV2Secondary {
+#{ $buttonV2Secondary } {
     --button-background: var(--accent-secondary-color);
     --button-text-color: var(--accent-secondary-text-color);
 }
 
-%buttonV2CriticalPrimary {
+#{ $buttonV2CriticalPrimary } {
     --button-background: hsl(var(--alert-hsl));
     --button-text-color: var(--alert-text-color);
 }
 
-%buttonV2CriticalSecondary {
+#{ $buttonV2CriticalSecondary } {
     --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
     --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
 }
 
 /* BUTTONS -> BUTTON V2 -> SIZES */
 
-%buttonV2Small,
-%buttonV2Medium,
-%buttonV2Large {
+#{ $buttonV2Small },
+#{ $buttonV2Medium },
+#{ $buttonV2Large } {
     min-width: var(--button-height) !important;
 	height: var(--button-height) !important;
 	min-height: var(--button-height) !important;
 	padding: var(--button-padding) !important;
 	line-height: var(--button-height) !important;
 	border-radius: var(--button-radius) !important;
+}
+
+#{ $buttonV2 } {
+    #{ $buttonContents },
+    #{ $textSmMedium } {
+        font-weight: 500 !important;
+    }
 }

@@ -1,10 +1,12 @@
+@use '../classes' as *;
+
 /*
  *
  *  MESSAGE REACTIONS
  *
  */
 
-%reaction {
+#{ $reaction } {
 	background-color: var(--message-color);
 	border-radius: var(--message-radius);
 	border: none;
@@ -13,7 +15,7 @@
 		background-color: var(--message-color);
 	}
 
-	&%reactionMe {
+	&#{ $reactionMe } {
 		background-color: hsla(var(--accent-hsl),0.3);
 		border-color: transparent;
 
@@ -21,21 +23,21 @@
 			background-color: hsla(var(--accent-hsl),0.4);
 		}
 
-		%reactionCount {
+		#{ $reactionCount } {
 			color: hsla(var(--accent-hsl),var(--accent-opacity));
 		}
 	}
 
-	%reactionGlow {
+	#{ $reactionGlow } {
 		border-radius: var(--message-radius);
 	}
 }
 
 /* MESSAGE REACTIONS -> REVERT BUTTONS TO REACTION STYLE */
 
-%embedContainer {
-	%embedChildren {
-		%buttonFilled {
+#{ $embedContainer } {
+	#{ $embedChildren } {
+		#{ $buttonFilled } {
 			--button-height: 28px;
 			--button-padding: 0 8px;
 		}

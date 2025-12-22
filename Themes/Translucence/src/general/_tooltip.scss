@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,57 +7,53 @@
  *
  */
 
-%tooltip {
+#{ $tooltip } {
     background-color: var(--tooltip-color) !important;
     border-radius: var(--tooltip-radius);
 
-    %tooltipPointer {
+    #{ $tooltipPointer } {
         border-top-color: var(--tooltip-color) !important;
     }
 
-    %tooltipContent,
-    %tooltipGuildNameText,
-    %tooltipClickCTA {
+    #{ $tooltipContent },
+    #{ $tooltipGuildNameText },
+    #{ $tooltipClickCTA } {
 		color: var(--tooltip-text-color);
         text-shadow: none;
     }
 
-    %anchor {
+    #{ $anchor } {
         color: var(--tooltip-text-color);
         text-decoration: underline;
     }
 
-    %tooltipText,
-    %tooltipActivityIcon,
-    %textSmMedium {
+    #{ $tooltipText },
+    #{ $tooltipActivityIcon },
+    #{ $textSmMedium } {
         color: var(--tooltip-text-color) !important;
         text-shadow: none;
     }
 
-    %tooltipMuteText {
+    #{ $tooltipMuteText } {
         color: var(--accent-text-color) !important;
     }
-
-    %userPopoutBodyInnerWrapper {
-        background-color: transparent;
-    }
 }
 
-%tooltipV2 {
-    @extend %tooltip;
+#{ $tooltipV2 } {
+    @extend #{ $tooltip };
 }
 
-%tooltipV2CaretIcon {
+#{ $tooltipV2CaretIcon } {
     display: none;
 }
 
 /* TOOLTIP -> UPSELLS */
 
-%reactionTooltip,
-%upsellTooltipWrapper {
+#{ $reactionTooltip },
+#{ $upsellTooltipWrapper } {
     @include add-translucence(before, true);
 
-    &%upsellTooltipCaretTopCenter {
+    &#{ $upsellTooltipCaretTopCenter } {
         &:after {
             border-bottom-color: var(--popout-color);
         }

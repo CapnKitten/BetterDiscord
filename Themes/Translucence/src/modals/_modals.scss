@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,34 +7,34 @@
  *
  */
 
-%modalRoot {
+#{ $modalRoot } {
     @include add-translucence(null, false, true, true);
 
-    &%modalSmall {
+    &#{ $modalSmall } {
         min-height: 75px;
     }
 
-    &%modalRootNoBg,
-    &%modalRootTransparent,
-    &%carouselModal {
+    &#{ $modalRootNoBg },
+    &#{ $modalRootTransparent },
+    &#{ $carouselModal } {
         background-color: transparent !important;
         box-shadow: none !important;
     }
 
-    &%groupInvitePopout {
+    &#{ $groupInvitePopout } {
 		backdrop-filter: blur(var(--popout-blur));
 	}
 
-    %modalHeader {
+    #{ $modalHeader } {
         background-color: transparent;
         box-shadow: var(--popout-header-shadow);
 
-        %modalTitle {
+        #{ $modalTitle } {
             margin-bottom: 0;
         }
 
-        %modalCloseButton,
-        %modalHeaderButton {
+        #{ $modalCloseButton },
+        #{ $modalHeaderButton } {
             --button-height: 32px;
 
             position: absolute;
@@ -45,8 +46,8 @@
 			padding: 0;
         }
 
-        %modalCloseButton {
-            %buttonContents {
+        #{ $modalCloseButton } {
+            #{ $buttonContents } {
                 height: 24px;
             }
 
@@ -56,33 +57,33 @@
 			}
         }
 
-        %modalHeaderButton {
+        #{ $modalHeaderButton } {
             display: flex;
             justify-content: center;
             align-items: center;
 
-            %modalHeaderButtonIcon {
+            #{ $modalHeaderButtonIcon } {
                 height: 24px;
                 transform: scale(0.85);
             }
         }
     }
 
-    %modalContent {
+    #{ $modalContent } {
         padding: 16px;
     }
 
-    %modalBody {
+    #{ $modalBody } {
         background-color: transparent;
     }
 
-    %modalFooter {
+    #{ $modalFooter } {
         background-color: transparent !important;
 		box-shadow: none;
     }
 }
 
-%backdrop {
+#{ $backdrop } {
     background-color: rgba(0,0,0,0.3) !important;
 	backdrop-filter: blur(calc(var(--popout-blur) * 1.4)) !important;
 	opacity: 1 !important;
@@ -90,11 +91,11 @@
 
 /* MODALS -> V2 MODALS */
 
-%modalV2Container {
+#{ $modalV2Container } {
     @include add-translucence(null, true, true, false);
 
-    %modalV2Header {
-        %buttonV2 {
+    #{ $modalV2Header } {
+        #{ $buttonV2 } {
             --button-padding: 0;
             --button-background: transparent;
             --button-text-color: var(--control-icon-icon-only-default);

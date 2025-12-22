@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,42 +7,41 @@
  *
  */
 
-%emojiWrapper,
-%emojiPicker {
+#{ $emojiWrapper },
+#{ $emojiPicker } {
 	background-color: transparent;
 }
 
-%emojiWrapper,
-%popoutTranslate %emojiWrapperAlt {
+#{ $emojiWrapper } {
     @include add-translucence(before, true);
 }
 
-%emojiWrapperChat {
-    &:not(%emojiPickerHasTabWrapper) {
+#{ $emojiWrapperChat } {
+    &:not(#{ $emojiPickerHasTabWrapper }) {
         @include add-translucence(before, true);
     }
 }
 
 /* EMOJI PICKER -> HEADER */
 
-%emojiPickerNavButton {
+#{ $emojiPickerNavButton } {
 	&:hover {
 		background-color: var(--background-modifier-hover);
 	}
 
-	&%emojiPickerNavButtonActive {
+	&#{ $emojiPickerNavButtonActive } {
 		background-color: var(--background-modifier-selected);
 	}
 }
 
-%emojiPickerNavGif,
-%emojiPickerNavSticker,
-%emojiPickerNavEmoji {
+#{ $emojiPickerNavGif },
+#{ $emojiPickerNavSticker },
+#{ $emojiPickerNavEmoji } {
 	background-color: transparent;
     box-shadow: var(--popout-header-shadow) !important;
 }
 
-%emojiPickerDiversitySelectorPopout {
+#{ $emojiPickerDiversitySelectorPopout } {
     @include add-translucence(null, true);
     border: none;
     overflow: hidden;
@@ -49,57 +49,56 @@
 
 /* EMOJI PICKER -> HEADER -> SEARCH BAR */
 
-%emojiPickerSearchBar,
-%emojiPickerGifSearchBar {
+#{ $emojiPickerSearchBar } {
     @include input-format;
 }
 
 /* EMOJI PICKER -> EMOJIS */
 
-%emojiGifContainer {
+#{ $emojiGifContainer } {
     background-color: transparent;
 }
 
-%emojiPickerCategoryHeaderWrapper {
+#{ $emojiPickerCategoryHeaderWrapper } {
 	position: relative;
 	background-color: transparent;
 }
 
-%emojiPickerInspector {
+#{ $emojiPickerInspector } {
 	background-color: transparent
 }
 
-%emojiCategoryWrapper {
+#{ $emojiCategoryWrapper } {
 	top: 60px;
     background-color: var(--sidebar-color);
 
-    %emojiCategoryUnicodeShortcut {
+    #{ $emojiCategoryUnicodeShortcut } {
         @include add-translucence(null, true);
         border-radius: 0;
     }
 }
 
-%emojiPickerHasTabWrapper {
-	%emojiCategoryWrapper {
+#{ $emojiPickerHasTabWrapper } {
+	#{ $emojiCategoryWrapper } {
 		top: 52px;
 	}
 }
 
-%emojiPickerItem {
+#{ $emojiPickerItem } {
     border-radius: var(--card-radius);
 
-    &%emojiPickerItemSelected {
+    &#{ $emojiPickerItemSelected } {
         background-color: var(--background-modifier-hover);
     }
 }
 
 /* EMOJI PICKER -> GIFS */
 
-%gifPickerSearchBar {
+#{ $gifPickerSearchBar } {
 	@include input-format;
 }
 
-%gifPickerResult {
+#{ $gifPickerResult } {
     border-radius: var(--card-radius);
 
     &:after {
@@ -112,16 +111,16 @@
         }
     }
 
-    %gifPickerGif {
+    #{ $gifPickerGif } {
         border-radius: inherit;
     }
 
-    %gifPickerCategoryFade,
-    %gifPickerCategoryFadeBlurple {
+    #{ $gifPickerCategoryFade },
+    #{ $gifPickerCategoryFadeBlurple } {
         border-radius: inherit
     }
 
-    %gifPickerCategoryFadeBlurple {
+    #{ $gifPickerCategoryFadeBlurple } {
         background-color: hsla(var(--accent-hsl),0.8) !important;
     }
 }

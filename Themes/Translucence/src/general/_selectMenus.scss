@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,8 +7,8 @@
  *
  */
 
-%selectMenuWrapper {
-	&%selectMenuWrapperWithBg {
+#{ $selectMenuWrapper } {
+	&#{ $selectMenuWrapperWithBg } {
         min-height: var(--input-height);
         height: var(--input-height);
     	padding: var(--input-padding);
@@ -17,32 +18,28 @@
     }
 }
 
-%selectMenu {
+#{ $selectMenu } {
     padding: 6px 6px 6px 12px;
 
-    &%selectMenuFilled {
-        @include input-format;
-    }
-
-    %selectMenuSubtitle {
+    #{ $selectMenuSubtitle } {
         color: var(--text-muted);
     }
 }
 
-%selectMenuPopout {
+#{ $selectMenuPopout } {
     @include add-translucence(null, true);
     border: none;
 
-    &:not(%selectMenuPopoutPositionTop) {
+    &:not(#{ $selectMenuPopoutPositionTop }) {
         margin-top: 8px;
     }
 
-    &%selectMenuPopoutPositionTop {
+    &#{ $selectMenuPopoutPositionTop } {
         margin-bottom: 8px;
         border-radius: var(--popout-radius);
     }
 
-    %selectMenuOption {
+    #{ $selectMenuOption } {
         &:hover {
             background-color: var(--background-modifier-hover);
         }
