@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%appDirectoryRoot {
+#{ $appDirectoryRoot } {
     margin: calc(var(--window-title-bar-height) + var(--app-card-top-margin)) var(--app-card-margin) var(--app-card-margin);
     border-radius: var(--app-card-radius);
     overflow: hidden;
@@ -17,26 +18,9 @@
 	from { transform: scale(1.1); opacity: 0; }
 }
 
-%appDirectoryModal {
-    background-color: var(--app-foreground) !important;
-    border-radius: var(--app-card-radius);
-}
-
-/* APP DIRECTORY -> SEARCH BAR */
-
-%appDirectorySearch {
-    @include input-format(true, true);
-    box-shadow: none !important;
-
-    %appDirectorySearchBoxInput {
-        height: var(--input-height);
-        padding: 0;
-    }
-}
-
 /* APP DIRECTORY -> CATEGORIES */
 
-%appDirectoryCategory {
+#{ $appDirectoryCategory } {
     background-color: var(--background-tinted-hover);
     border-radius: 24px;
     transition: var(--default-time) var(--default-animation) background-color;
@@ -48,10 +32,10 @@
 
 /* APP DIRECTORY -> CARDS */
 
-%appDirectoryCard {
+#{ $appDirectoryCard } {
     @include card-format(true, true);
 }
 
-%appDirectoryLearnMoreCard {
+#{ $appDirectoryLearnMoreCard } {
     @include card-format;
 }

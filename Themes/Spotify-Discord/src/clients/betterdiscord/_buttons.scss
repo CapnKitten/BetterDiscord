@@ -1,10 +1,11 @@
+@use '../../classes' as *;
 /*
  *
  *  BETTERDISCORD BUTTONS
  *
  */
 
-%bdButton {
+#{ $bdButton } {
     --button-background: hsl(var(--accent-hsl));
     --button-text-color: var(--accent-text-color);
 
@@ -14,7 +15,7 @@
     border: var(--button-outline) !important;
     color: var(--button-text-color) !important;
 
-    &%bdButtonTitle {
+    &#{ $bdButtonTitle } {
         line-height: var(--button-height);
 
         &:hover {
@@ -35,11 +36,11 @@
 		opacity: 0.5 !important;
 	}
 
-    %bdButtonContent {
+    #{ $bdButtonContent } {
 		background-image: none !important;
 	}
 
-    %bdButtonContent {
+    #{ $bdButtonContent } {
         font-size: 14px;
     	font-weight: 700;
 
@@ -55,9 +56,9 @@
 	}
 }
 
-%bdButtonFilled {
-	&%bdButtonColorRed,
-	&%bdButtonDanger {
+#{ $bdButtonFilled } {
+	&#{ $bdButtonColorRed },
+	&#{ $bdButtonDanger } {
 		--button-background: hsl(var(--alert-hsl));
 		--button-text-color: var(--alert-text-color);
 	}
@@ -68,7 +69,7 @@
             opacity: 0.95;
 			transform: scale(1.05);
 
-			%buttonContents {
+			#{ $buttonContents } {
 				background-image: none;
 			}
 		}
@@ -83,7 +84,7 @@
     }
 }
 
-%bdButtonLink {
+#{ $bdButtonLink } {
 	--button-padding: 0 12px;
 	--button-shadow: none !important;
 
@@ -91,28 +92,28 @@
 		--button-action-color: hsl(var(--accent-hsl--material-you));
 	}
 
-	&%bdButtonColorBrand,
-	&%bdButtonColorPrimary {
+	&#{ $bdButtonColorBrand },
+	&#{ $bdButtonColorPrimary } {
 		--button-text-color: hsl(var(--accent-hsl--material-you));
 	}
 }
 
-%bdButtonBlank {
+#{ $bdButtonBlank } {
 	--button-background: transparent;
 	--button-text-color: var(--interactive-normal);
 
-    &%bdButtonIcon {
+    &#{ $bdButtonIcon } {
         --button-height: 24px;
     }
 }
 
-%bdButtonIcon {
+#{ $bdButtonIcon } {
     --button-padding: 0;
 }
 
-%bdButtonMedium,
-%bdButtonLarge,
-%bdButtonIcon {
+#{ $bdButtonMedium },
+#{ $bdButtonLarge },
+#{ $bdButtonIcon } {
     min-width: var(--button-height);
 	height: var(--button-height);
 	min-height: var(--button-height);

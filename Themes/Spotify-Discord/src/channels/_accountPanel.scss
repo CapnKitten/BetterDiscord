@@ -1,24 +1,26 @@
+@use '../classes' as *;
+
 /*
  *
  *  CHANNELS LIST ACCOUNT PANEL
  *
  */
 
-%panels {
+#{ $panels } {
     z-index: 103;
 }
 
-%accountPanelAvatarWrapper {
+#{ $accountPanelAvatarWrapper } {
     min-width: 32px;
     margin: 0;
     padding-left: 0;
 }
 
-%noticeStreamerMode + %contentMain {
-    %accountPanel {
+#{ $noticeStreamerMode } + #{ $contentMain } {
+    #{ $accountPanel } {
         top: calc(var(--notice-bar-height) + var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin));
 
-        %panelButton[role="switch"] {
+        #{ $panelButton }[role="switch"] {
             &:before {
                 --icon-yposition: calc(var(--notice-bar-height) + var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin) + 11px);
             }
@@ -26,25 +28,25 @@
     }
 }
 
-%bdNotices:not(:empty) + %contentMain {
-    %accountPanel {
+#{ $bdNotices }:not(:empty) + #{ $contentMain } {
+    #{ $accountPanel } {
         top: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin) + var(--notice-bar-height));
     }
 }
 
-%notice:not(:empty) + %layers {
-    %accountPanel {
+#{ $notice }:not(:empty) + #{ $layers } {
+    #{ $accountPanel } {
         top: calc(var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) + var(--notice-bar-height));
     }
 
-    %bdNotices:not(:empty) + %contentMain {
-        %accountPanel {
+    #{ $bdNotices }:not(:empty) + #{ $contentMain } {
+        #{ $accountPanel } {
             top: calc(var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) + var(--app-card-margin) + (var(--notice-bar-height) * 2));
         }
     }
 }
 
-%accountPanel {
+#{ $accountPanel } {
     position: fixed;
     width: 32px;
     height: var(--header-bar-height);
@@ -55,11 +57,11 @@
     justify-content: flex-end;
     transition: var(--default-time) var(--default-animation) width;
 
-    %avatarWrapper {
+    #{ $avatarWrapper } {
         z-index: 103;
     }
 
-    %accountPanelNameTag {
+    #{ $accountPanelNameTag } {
         position: absolute;
         width: 38px;
         top: calc( (var(--header-bar-height) / 2) - (38px / 2) );
@@ -70,22 +72,22 @@
         border-radius: 19px;
         transition: var(--default-time) var(--default-animation) width, var(--default-time) var(--default-animation) padding, var(--default-time) var(--default-animation) box-shadow;
 
-        %accountPanelUsername,
-        %accountPanelDiscriminator {
+        #{ $accountPanelUsername },
+        #{ $accountPanelDiscriminator } {
             opacity: 0;
             transition: var(--default-time) var(--default-animation) opacity;
         }
 
-        %accountPanelUsernameContainer {
+        #{ $accountPanelUsernameContainer } {
             max-width: 100px;
         }
 
-        %accountPanelDiscriminator {
+        #{ $accountPanelDiscriminator } {
             line-height: 12px;
         }
     }
 
-    %flexJustifyStart {
+    #{ $flexJustifyStart } {
         position: absolute;
         flex-direction: column;
         width: auto;
@@ -107,7 +109,7 @@
         }
     }
 
-    %panelButton {
+    #{ $panelButton } {
         display: grid;
         grid-template-columns: 20px max-content;
         grid-template-rows: auto;
@@ -121,11 +123,11 @@
         pointer-events: none;
 
         &:after,
-        %buttonContents {
+        #{ $buttonContents } {
             opacity: 0;
         }
 
-        &%panelButtonEnabled {
+        &#{ $panelButtonEnabled } {
             &:hover {
                 background-color: var(--background-tinted-hover);
             }
@@ -152,7 +154,7 @@
             }
 
             &[aria-checked="true"] {
-                + %panelButton[role="switch"][aria-checked="false"] {
+                + #{ $panelButton }[role="switch"][aria-checked="false"] {
                     &:before {
                         background-color: hsla(0,0%,0%,0.6);
                         backdrop-filter: blur(2px);
@@ -160,7 +162,7 @@
                     }
                 }
 
-                + %panelButton[role="switch"][aria-checked="true"] {
+                + #{ $panelButton }[role="switch"][aria-checked="true"] {
                     &:before {
                         background-color: hsla(0,0%,0%,0.6);
                         backdrop-filter: blur(2px);
@@ -178,7 +180,7 @@
             text-align: left;
         }
 
-        %buttonContents {
+        #{ $buttonContents } {
 
         }
     }
@@ -186,29 +188,29 @@
     &:hover {
         width: 132px;
 
-        %accountPanelNameTag {
+        #{ $accountPanelNameTag } {
             width: calc(100% - 48px);
             padding: 4px 35px 4px 12px;
             box-shadow: var(--elevation-high);
 
-            %accountPanelUsername,
-            %accountPanelDiscriminator {
+            #{ $accountPanelUsername },
+            #{ $accountPanelDiscriminator } {
                 opacity: 1;
             }
         }
 
-        %flexJustifyStart {
+        #{ $flexJustifyStart } {
             background-color: var(--popout-color);
             border-radius: var(--popout-radius);
             box-shadow: var(--default-shadow);
             pointer-events: all;
         }
 
-        %panelButton {
+        #{ $panelButton } {
             pointer-events: all;
 
             &:after,
-            %buttonContents {
+            #{ $buttonContents } {
                 opacity: 1;
             }
         }

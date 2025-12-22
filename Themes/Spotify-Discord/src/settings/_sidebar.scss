@@ -1,10 +1,12 @@
+@use '../classes' as *;
+
 /*
  *
  *  SETTINGS SIDEBAR
  *
  */
 
-%settingsSidebarRegion {
+#{ $settingsSidebarRegion } {
     width: 218px;
     flex: none;
     margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
@@ -12,20 +14,20 @@
     border-radius: var(--app-card-radius);
     overflow: hidden;
 
-    %settingsSidebarScroller {
+    #{ $settingsSidebarScroller } {
         background-color: transparent;
     }
 }
 
-%settingsSide {
-    %item {
+#{ $settingsSide } {
+    #{ $item } {
         border-radius: var(--menu-item-radius);
 
         &:hover {
             background-color: var(--background-tinted-hover) !important;
         }
 
-        &%itemSelected {
+        &#{ $itemSelected } {
             background-color: var(--background-tinted-active) !important;
 
             &:hover {
@@ -33,21 +35,21 @@
             }
         }
 
-        %itemPremiumBackground {
+        #{ $itemPremiumBackground } {
             display: none;
         }
     }
 }
 
-%settingsContentColumnMinimal {
+#{ $settingsContentColumnMinimal } {
     padding-right: 0;
 }
 
-%settingsContentSidebarScroller {
+#{ $settingsContentSidebarScroller } {
     background-color: transparent;
 }
 
-%settingsCustomScroller {
+#{ $settingsCustomScroller } {
     > div {
         min-width: 460px;
         max-width: 716px;

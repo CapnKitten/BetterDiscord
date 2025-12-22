@@ -1,18 +1,19 @@
+@use '../../../classes' as *;
 /*
  *
  *  BETTERDISCORD PLUGIN -> ChannelTabs
  *
  */
 
-%channelTabsContainer {
+#{ $channelTabsContainer } {
     padding: 4px var(--app-card-margin) !important;
 }
 
-%channelTabsTabContainer {
+#{ $channelTabsTabContainer } {
     gap: 8px;
 }
 
-%channelTabsTabNav {
+#{ $channelTabsTabNav } {
     margin: 0 !important;
     gap: 4px;
 
@@ -26,7 +27,7 @@
     }
 }
 
-%channelTabsTab {
+#{ $channelTabsTab } {
     margin-bottom: 0 !important;
     border-radius: var(--menu-item-radius) !important;
 
@@ -34,12 +35,12 @@
         background-color: var(--background-tinted-hover) !important;
     }
 
-    &%channelTabsTabSelected {
+    &#{ $channelTabsTabSelected } {
         background-color: var(--background-tinted-active) !important;
     }
 }
 
-%channelTabsNewTab {
+#{ $channelTabsNewTab } {
     width: var(--channelTabs-tabHeight) !important;
     height: var(--channelTabs-tabHeight) !important;
     margin: 0 !important;
@@ -52,9 +53,9 @@
 
 /* BETTERDISCORD PLUGIN -> ChannelTabs -> REPOSITION HEADER BAR AND AVATAR */
 
-%channelTabsContainer + %bg + %layers {
-    %channelsContainer,
-    %privateChannels {
+#{ $channelTabsContainer } + #{ $bg } + #{ $layers } {
+    #{ $channelsContainer },
+    #{ $privateChannels } {
         &[aria-label] {
             &:after {
                 --header-bar-yposition: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + 40px);
@@ -62,14 +63,14 @@
         }
     }
 
-    %accountPanel {
+    #{ $accountPanel } {
         top: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + 40px);
     }
 }
 
-%channelTabsContainer + %bg + %layers %notice + %contentMain {
-    %channelsContainer,
-    %privateChannels {
+#{ $channelTabsContainer } + #{ $bg } + #{ $layers } #{ $notice } + #{ $contentMain } {
+    #{ $channelsContainer },
+    #{ $privateChannels } {
         &[aria-label] {
             &:after {
                 --header-bar-yposition: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + var(--notice-bar-height) + var(--app-card-margin) + 40px);
@@ -77,7 +78,7 @@
         }
     }
 
-    %accountPanel {
+    #{ $accountPanel } {
         top: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + var(--notice-bar-height) + var(--app-card-margin) + 40px);
     }
 }

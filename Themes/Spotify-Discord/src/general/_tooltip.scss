@@ -1,25 +1,27 @@
+@use '../classes' as *;
+
 /*
  *
  *  TOOLTIP
  *
  */
 
-%tooltip {
+#{ $tooltip } {
 	border-radius: var(--tooltip-radius);
 	border: none;
 
-	&%tooltipPrimary,
-	&%tooltipBrand {
+	&#{ $tooltipPrimary },
+	&#{ $tooltipBrand } {
 		background-color: var(--tooltip-color);
 		box-shadow: var(--tooltip-shadow);
         color: var(--tooltip-text-color);
 
-		%tooltipPointer {
+		#{ $tooltipPointer } {
 			border-top-color: var(--tooltip-color);
 		}
 	}
 
-	%tooltipPointer {
+	#{ $tooltipPointer } {
 		&:before,
 		&:after {
 			display: none;
@@ -27,22 +29,22 @@
 	}
 }
 
-%tooltipV2 {
+#{ $tooltipV2 } {
     background-color: var(--tooltip-color);
 	border-radius: var(--tooltip-radius);
 	box-shadow: var(--tooltip-shadow);
 	border: none;
 }
 
-%tooltipV2CaretIcon {
-	%tooltipV2CaretStroke {
+#{ $tooltipV2CaretIcon } {
+	#{ $tooltipV2CaretStroke } {
 	    stroke: var(--tooltip-color);
 	}
 }
 
 /* TOOLTIP -> REACTIONS */
 
-%reactionTooltip {
+#{ $reactionTooltip } {
     background-color: var(--tooltip-color);
     border-radius: var(--tooltip-radius);
     box-shadow: var(--tooltip-shadow);
@@ -50,11 +52,11 @@
 
 /* TOOLTIP -> UPSELLS */
 
-%upsellTooltipWrapper {
+#{ $upsellTooltipWrapper } {
     background-color: var(--tooltip-color);
     box-shadow: var(--tooltip-shadow);
 
-    &%upsellTooltipCaretTopCenter {
+    &#{ $upsellTooltipCaretTopCenter } {
         &:after {
             border-bottom-color: var(--tooltip-color);
         }

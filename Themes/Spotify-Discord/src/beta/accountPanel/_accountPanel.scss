@@ -1,14 +1,16 @@
+@use '../../classes' as *;
+
 /*
  *
  *  BETA - CHANNELS LIST ACCOUNT PANEL
  *
  */
 
-%panels {
+#{ $panels } {
     z-index: 103;
 }
 
-%accountPanelAvatarWrapper {
+#{ $accountPanelAvatarWrapper } {
     flex-direction: row-reverse;
     min-width: 32px;
     width: 100%;
@@ -20,11 +22,11 @@
     }
 }
 
-%noticeStreamerMode + %contentMain {
-    %accountPanel {
+#{ $noticeStreamerMode } + #{ $contentMain } {
+    #{ $accountPanel } {
         top: calc(var(--notice-bar-height) + var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin));
 
-        %panelButton[role="switch"] {
+        #{ $panelButton }[role="switch"] {
             &:before {
                 --icon-yposition: calc(var(--notice-bar-height) + var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin) + 11px);
             }
@@ -32,25 +34,25 @@
     }
 }
 
-%bdNotices:not(:empty) + %contentMain {
-    %accountPanel {
+#{ $bdNotices }:not(:empty) + #{ $contentMain } {
+    #{ $accountPanel } {
         top: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin) + var(--notice-bar-height));
     }
 }
 
-%notice:not(:empty) + %layers {
-    %accountPanel {
+#{ $notice }:not(:empty) + #{ $layers } {
+    #{ $accountPanel } {
         top: calc(var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) + var(--notice-bar-height));
     }
 
-    %bdNotices:not(:empty) + %contentMain {
-        %accountPanel {
+    #{ $bdNotices }:not(:empty) + #{ $contentMain } {
+        #{ $accountPanel } {
             top: calc(var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) + var(--app-card-margin) + (var(--notice-bar-height) * 2));
         }
     }
 }
 
-%accountPanel {
+#{ $accountPanel } {
     --account-panel-height: 44px;
 
     position: fixed;
@@ -65,23 +67,23 @@
     justify-content: flex-end;
     transition: var(--default-time) var(--default-animation) width;
 
-    %avatarWrapper {
+    #{ $avatarWrapper } {
         width: 32px !important;
         height: 32px !important;
         z-index: 103;
 
-        %avatarMask {
+        #{ $avatarMask } {
             width: 36px !important;
             height: 36px !important;
         }
 
-        %avatarStatusDecoration {
+        #{ $avatarStatusDecoration } {
             width: 40px !important;
             height: 40px !important;
         }
     }
 
-    %accountPanelNameTag {
+    #{ $accountPanelNameTag } {
         width: calc(100% - 32px);
         top: calc( (var(--header-bar-height) / 2) - (38px / 2) );
         right: 7px;
@@ -90,22 +92,22 @@
         border-radius: 19px;
         transition: var(--default-time) var(--default-animation) width, var(--default-time) var(--default-animation) padding, var(--default-time) var(--default-animation) box-shadow;
 
-        %accountPanelUsername,
-        %accountPanelDiscriminator {
+        #{ $accountPanelUsername },
+        #{ $accountPanelDiscriminator } {
             opacity: 0;
             transition: var(--default-time) var(--default-animation) opacity;
         }
 
-        %accountPanelUsernameContainer {
+        #{ $accountPanelUsernameContainer } {
             max-width: 100px;
         }
 
-        %accountPanelDiscriminator {
+        #{ $accountPanelDiscriminator } {
             line-height: 12px;
         }
     }
 
-    %accountPanelButtons {
+    #{ $accountPanelButtons } {
         position: absolute;
         flex-direction: column;
         width: auto;
@@ -125,7 +127,7 @@
         }
     }
 
-    %panelButton {
+    #{ $panelButton } {
         display: grid;
         grid-template-columns: 20px max-content;
         grid-template-rows: auto;
@@ -140,11 +142,11 @@
         pointer-events: none;
 
         &:after,
-        %buttonContents {
+        #{ $buttonContents } {
             opacity: 0;
         }
 
-        &%panelButtonEnabled {
+        &#{ $panelButtonEnabled } {
             &:hover {
                 background-color: var(--background-tinted-hover) !important;
             }
@@ -171,7 +173,7 @@
             }
         }
 
-        &%accountPanelButtonChevron {
+        &#{ $accountPanelButtonChevron } {
             display: flex;
             min-width: 32px;
             max-width: 32px;
@@ -192,9 +194,9 @@
         }
     }
 
-    %accountPanelMicButtonParent {
-        &%accountPanelMicButtonHasColorGlow {
-            %panelButton[aria-checked="true"] {
+    #{ $accountPanelMicButtonParent } {
+        &#{ $accountPanelMicButtonHasColorGlow } {
+            #{ $panelButton }[aria-checked="true"] {
                 &:before {
                     background-color: hsla(0,0%,0%,0.6);
                     backdrop-filter: blur(2px);
@@ -202,8 +204,8 @@
                 }
             }
 
-            + %accountPanelMicButtonHasColorGlow {
-                %panelButton[aria-checked="true"] {
+            + #{ $accountPanelMicButtonHasColorGlow } {
+                #{ $panelButton }[aria-checked="true"] {
                     &:before {
                         background-color: hsla(0,0%,0%,0.2);
                         backdrop-filter: blur(2px);
@@ -214,7 +216,7 @@
         }
     }
 
-    %panelButtonBlur {
+    #{ $panelButtonBlur } {
         &:hover {
             backdrop-filter: none;
         }
@@ -224,54 +226,54 @@
         width: 176px;
         padding: 0 4px 0 12px;
 
-        %accountPanelNameTag {
+        #{ $accountPanelNameTag } {
             width: calc(100% - 48px);
             box-shadow: var(--elevation-high);
 
-            %accountPanelUsername,
-            %accountPanelDiscriminator {
+            #{ $accountPanelUsername },
+            #{ $accountPanelDiscriminator } {
                 opacity: 1;
             }
         }
 
-        %accountPanelButtons {
+        #{ $accountPanelButtons } {
             background-color: var(--popout-color);
             border-radius: var(--popout-radius);
             box-shadow: var(--default-shadow);
             pointer-events: all;
         }
 
-        %panelButton {
+        #{ $panelButton } {
             pointer-events: all;
 
             &:after,
-            %buttonContents {
+            #{ $buttonContents } {
                 opacity: 1;
             }
         }
     }
 }
 
-%accountPanelButtons {
+#{ $accountPanelButtons } {
     gap: 0;
 }
 
-%accountPanelMicButtonParent {
+#{ $accountPanelMicButtonParent } {
     gap: var(--space-4);
 }
 
-%panelButtonPlateMuted {
+#{ $panelButtonPlateMuted } {
     background-color: transparent !important;
 }
 
-%panelButtonPlateMuted,
-%panelButtonPlated:hover {
+#{ $panelButtonPlateMuted },
+#{ $panelButtonPlated }:hover {
     backdrop-filter: none;
 }
 
-%visualRefresh {
-    %guildsWrapper,
-    %sidebarList {
+#{ $visualRefresh } {
+    #{ $guildsWrapper },
+    #{ $sidebarList } {
         height: calc(100% - var(--custom-app-panels-height, 0)) !important;
     }
 }

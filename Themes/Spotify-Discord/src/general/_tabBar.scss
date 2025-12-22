@@ -1,21 +1,23 @@
+@use '../classes' as *;
+
 /*
  *
  *  TAB BAR
  *
  */
 
-%tabBar {
+#{ $tabBar } {
     padding-bottom: var(--space-8);
     gap: var(--space-16);
 
-    %item {
+    #{ $item } {
         height: auto;
         margin: 0;
         padding: var(--space-8) var(--space-16);
         border-radius: 4px;
         font-weight: 700;
 
-        + %item {
+        + #{ $item } {
             margin-left: 0;
         }
 
@@ -27,19 +29,19 @@
             background-color: var(--background-tinted-hover);
         }
 
-        &%itemSelected {
+        &#{ $itemSelected } {
             background-color: var(--background-tinted-active);
             color: var(--text-primary);
         }
 
-        &%itemAddFriend {
+        &#{ $itemAddFriend } {
             background-color: var(--status-positive-background);
         }
     }
 }
 
-%headerBar {
-    %tabBar {
+#{ $headerBar } {
+    #{ $tabBar } {
         padding-bottom: 0;
     }
 }

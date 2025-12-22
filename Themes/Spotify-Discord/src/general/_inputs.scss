@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,22 +7,22 @@
  *
  */
 
-%input {
+#{ $input } {
     @include input-format;
 
-    &%inputTextArea {
+    &#{ $inputTextArea } {
         --input-height: auto;
         --input-padding: 8px 12px;
     }
 }
 
-%inputContainer,
-%nameInputContainer {
+#{ $inputContainer },
+#{ $nameInputContainer } {
     min-height: var(--input-height);
     background-color: transparent;
     border: none;
 
-    %input {
+    #{ $input } {
         padding: 0;
         background-color: transparent;
         box-shadow: none;
@@ -29,53 +30,53 @@
     }
 }
 
-%multiInput {
+#{ $multiInput } {
     padding: 0;
 
-    %input {
+    #{ $input } {
         background-color: transparent;
         border: none;
     }
 
-    &%multiInputFocused {
+    &#{ $multiInputFocused } {
         border-color: var(--input-border-color);
     }
 }
 
 /* INPUTS -> COPY INPUTS */
 
-%copyInput {
+#{ $copyInput } {
     @include input-format(true, true);
 
-    %accountPanelFlex {
+    #{ $accountPanelFlex } {
         margin-right: 0;
         align-items: center;
     }
 
-    %button {
+    #{ $button } {
         margin: var(--input-padding);
     }
 }
 
 /* INPUTS -> EMOJI INPUTS */
 
-%inputEmojiContainer {
+#{ $inputEmojiContainer } {
     margin: var(--input-padding);
 
-    + %inputWrapper {
-        %input {
+    + #{ $inputWrapper } {
+        #{ $input } {
             padding-left: 42px;
         }
     }
 }
 
-%emojiInput {
-    %channelTextAreaEmojiButton {
+#{ $emojiInput } {
+    #{ $channelTextAreaEmojiButton } {
         height: var(--input-height);
         margin: var(--input-padding);
 
-        + %inputWrapper {
-            %input {
+        + #{ $inputWrapper } {
+            #{ $input } {
                 padding-left: 42px;
             }
         }
@@ -84,31 +85,15 @@
 
 /* INPUTS -> FILE UPLOAD INPUTS */
 
-%fileUploadContainer {
+#{ $fileUploadContainer } {
     @include input-format(true, true);
     align-items: center;
 
-    %fileUploadInput {
+    #{ $fileUploadInput } {
         padding: 0;
     }
 
-    %fileUploadButton {
+    #{ $fileUploadButton } {
         margin: 0;
-    }
-}
-
-/* INPUTS -> SEARCH CONTAINERS */
-
-%searchContainer {
-    @include input-format(false, true);
-
-    %searchInner {
-        padding: 0;
-    }
-
-    %searchInput {
-        line-height: var(--input-height);
-        margin: 0;
-        padding: 0;
     }
 }

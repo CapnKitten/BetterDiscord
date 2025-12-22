@@ -1,3 +1,4 @@
+@use '../../classes' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,15 +7,15 @@
  *
  */
 
-%bdModalRoot {
+#{ $bdModalRoot } {
     @include modal-format;
 
-    %bdModalFooter {
+    #{ $bdModalFooter } {
         gap: 8px;
         background-color: transparent;
         box-shadow: none;
 
-        %bdButton {
+        #{ $bdButton } {
             min-height: var(--button-height);
             height: var(--button-height);
             padding: var(--button-padding);
@@ -28,7 +29,7 @@
                     opacity: 0.95;
         			transform: scale(1.05);
 
-        			%buttonContents {
+        			#{ $buttonContents } {
         				background-image: none;
         			}
         		}
@@ -42,13 +43,13 @@
         		}
             }
 
-            &%bdButtonLink {
+            &#{ $bdButtonLink } {
                 --button-background: transparent;
                 --button-text-color: hsl(0,0%,100%);
                 transform: none !important;
             }
 
-            %bdButtonContent {
+            #{ $bdButtonContent } {
                 margin: 0;
             }
         }

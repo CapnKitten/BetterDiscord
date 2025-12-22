@@ -1,85 +1,83 @@
+@use '../classes' as *;
+
 /*
  *
  *  CHAT AREA
  *
  */
 
-%base {
+#{ $base } {
     width: calc( calc(72px + calc(var(--app-card-margin) * 2)) - 100vw);
     margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size) 0;
     overflow: visible;
 }
 
-%guildsWrapperHidden + %base {
+#{ $guildsWrapperHidden } + #{ $base } {
     margin: 0;
 }
 
-%chat,
-%threadContainer {
+#{ $chat },
+#{ $threadContainer } {
     border-radius: var(--app-card-radius);
     background-color: var(--app-foreground) !important;
     overflow: visible;
 
-    &%chatThreadSidebarOpen {
-        border-radius: var(--app-card-radius);
-    }
-
-    %chatContentWrapper {
+    #{ $chatContentWrapper } {
         border-bottom-right-radius: var(--app-card-radius);
     }
 }
 
-%chat {
-    &%threadSidebarOpen {
+#{ $chat } {
+    &#{ $threadSidebarOpen } {
         border-radius: var(--app-card-radius);
     }
 
-    &:has(%callWrapperSidebarOpen) {
+    &:has(#{ $callWrapperSidebarOpen }) {
         background-color: transparent !important;
     }
 }
 
-%chatContent {
+#{ $chatContent } {
 	background-color: transparent;
 }
 
-%channelChatWrapper {
+#{ $channelChatWrapper } {
     background-color: transparent;
 }
 
-%chatContentWrapper {
+#{ $chatContentWrapper } {
     &:before {
         display: none;
     }
 }
 
-%chatGradientBase {
+#{ $chatGradientBase } {
     transition: var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) background;
 }
 
-%chatGradient {
+#{ $chatGradient } {
     background: linear-gradient(to bottom, transparent, var(--app-foreground));
 }
 
-%chatTypingGradientAtBottom {
+#{ $chatTypingGradientAtBottom } {
     height: var(--space-16);
     background: linear-gradient(to bottom, transparent, var(--app-foreground) var(--space-8), var(--app-foreground) 100%);
 }
 
-%chatTypingGradientNotAtBottom {
+#{ $chatTypingGradientNotAtBottom } {
     height: var(--space-32);
     background: linear-gradient(to bottom, transparent, var(--app-foreground) var(--space-16), var(--app-foreground) 100%);
 }
 
-%messagesScrollerSpacer {
+#{ $messagesScrollerSpacer } {
     height: 28px;
 }
 
-%threadResizeHandle {
+#{ $threadResizeHandle } {
     background-color: var(--app-background);
 }
 
-%chatHeaderBar {
+#{ $chatHeaderBar } {
     background-color: var(--background-tinted-active);
 
     &:after {
@@ -89,24 +87,24 @@
 
 /* CHAT AREA -> DIVIDERS */
 
-%divider {
+#{ $divider } {
     --divider-color: var(--popout-color);
     --divider-text-color: var(--menu-text-color);
 
     border-top-color: var(--divider-color);
 
-    &%dividerUnread {
+    &#{ $dividerUnread } {
         --divider-color: hsl(var(--alert-hsl));
         --divider-text-color: var(--alert-text-color);
     }
 
-    %dividerDate,
-    %unreadPill {
+    #{ $dividerDate },
+    #{ $unreadPill } {
         background: var(--divider-color);
         color: var(--divider-text-color);
     }
 
-    %dividerDate {
+    #{ $dividerDate } {
         padding: 4px 8px;
         border-radius: 11px;
     }
@@ -114,10 +112,10 @@
 
 /* CHAT AREA -> NEW MESSAGES BAR */
 
-%barBase {
+#{ $barBase } {
     border: none;
 
-    &:not(%jumpToPresentBar) {
+    &:not(#{ $jumpToPresentBar }) {
         padding: 0 var(--space-12);
         top: var(--space-8);
         left: var(--space-16);
@@ -126,7 +124,7 @@
         box-shadow: var(--default-shadow);
         gap: var(--space-12);
 
-        %barButtonBase {
+        #{ $barButtonBase } {
             padding: 0;
             color: var(--accent-text-color);
         }
@@ -135,7 +133,7 @@
 
 /* CHAT AREA -> JUMP TO PRESENT BUTTON */
 
-%jumpToPresentBar {
+#{ $jumpToPresentBar } {
     margin-bottom: 8px;
     padding-bottom: 0;
     border-radius: 4px;
@@ -147,16 +145,16 @@
 
 /* CHAT AREA -> PLACEHOLDER */
 
-%chatLoadingWrapper {
+#{ $chatLoadingWrapper } {
 	background: var(--app-foreground) !important;
 }
 
-%chatLoadingMessageWrapper {
+#{ $chatLoadingMessageWrapper } {
 	background: transparent !important;
 }
 
-%chatLoadingAttachment,
-%chatLoadingAvatar,
-%chatLoadingBlob {
+#{ $chatLoadingAttachment },
+#{ $chatLoadingAvatar },
+#{ $chatLoadingBlob } {
 	background: hsl(0,0%,100%) !important;
 }

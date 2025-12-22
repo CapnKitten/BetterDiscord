@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,7 +7,7 @@
  *
  */
 
-%markup {
+#{ $markup } {
 	a {
 		color: hsl(var(--accent-hsl));
 	}
@@ -20,29 +21,23 @@
 	}
 }
 
-pre, pre code, code.inline, %codeBlockText, %codeLine, %codeBlockLang, %codeBlockSyntax, %syntaxAfter, %syntaxBefore, %channelTextAreaInlineCodeAfter, %channelTextAreaInlineCodeBefore, %channelTextAreaInlineCode {
+pre, pre code, code.inline, #{ $codeBlockText }, #{ $codeLine }, #{ $codeBlockLang }, #{ $codeBlockSyntax }, #{ $syntaxAfter }, #{ $syntaxBefore }, #{ $channelTextAreaInlineCodeAfter }, #{ $channelTextAreaInlineCodeBefore }, #{ $channelTextAreaInlineCode } {
     --app-font: var(--code-font);
 }
 
-%fakeLink {
+#{ $fakeLink } {
 	--text-link: hsl(var(--accent-hsl));
-}
-
-%spoilerText {
-	&%spoilerHidden {
-		background-color: var(--background-tinted-active) !important;
-	}
 }
 
 /* MARKUP -> MENTIONS */
 
-%mentionWrapper {
+#{ $mentionWrapper } {
 	background-color: hsla(var(--accent-hsl),0.175);
 	color: hsl(var(--accent-hsl));
 }
 
-%themeDark {
-	%mentionWrapper {
+#{ $themeDark } {
+	#{ $mentionWrapper } {
 	    background-color: hsla(var(--accent-hsl),0.175);
 	    color: hsl(var(--accent-hsl));
 
@@ -54,6 +49,6 @@ pre, pre code, code.inline, %codeBlockText, %codeLine, %codeBlockLang, %codeBloc
 
 /* MARKUP -> UPLOADS */
 
-%channelTextAreaUpload {
+#{ $channelTextAreaUpload } {
 	@include card-format;
 }

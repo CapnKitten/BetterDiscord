@@ -1,43 +1,45 @@
+@use '../classes' as *;
+
 /*
  *
  *  BETA - VISUAL REFRESH
  *
  */
 
-%visualRefresh {
-    &%refreshFastFollowGuildBg {
-        %bg {
+#{ $visualRefresh } {
+    &#{ $refreshFastFollowGuildBg } {
+        #{ $bg } {
             background-color: var(--app-background);
         }
 
-        %guildsWrapper {
+        #{ $guildsWrapper } {
             background: var(--app-foreground);
         }
     }
 
-    %bg {
+    #{ $bg } {
         background-color: var(--app-background);
     }
 
-    %base {
+    #{ $base } {
         margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
     }
 
-    %promptMain {
+    #{ $promptMain } {
         border-radius: var(--app-card-radius);
     }
 
     /* servers */
 
-    %guildsWrapper {
+    #{ $guildsWrapper } {
         height: calc(100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin))) !important;
         margin: 0 var(--app-card-margin) calc(var(--custom-app-panels-height, 0) + 8px) 0 !important;
         background-color: var(--app-foreground);
     }
 
-    %circleIconButton {
-        &:not(%circleIconButtonDisabled) {
-            &%circleIconButtonSelected {
+    #{ $circleIconButton } {
+        &:not(#{ $circleIconButtonDisabled }) {
+            &#{ $circleIconButtonSelected } {
                 background-color: hsl(var(--accent-hsl));
                 color: var(--accent-text-color);
             }
@@ -46,39 +48,39 @@
 
     /* channels */
 
-    %sidebarList {
+    #{ $sidebarList } {
         height: calc(100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin)));
         border: none;
 
-        %scroller {
+        #{ $scroller } {
             margin: 0;
         }
     }
 
-    %channelsSidebar {
+    #{ $channelsSidebar } {
         overflow: visible;
 
         &:after {
             display: none;
         }
 
-        &%channelsSidebarChannelListHidden {
+        &#{ $channelsSidebarChannelListHidden } {
             margin-right: 0;
         }
 
         overflow: visible;
 
-        &:has(%spotifyPanel),
-        &:has(%vencordSpotifyPlayer) {
+        &:has(#{ $spotifyPanel }),
+        &:has(#{ $vencordSpotifyPlayer }) {
             margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
         }
     }
 
-    %channelMentionsContainerBottom {
+    #{ $channelMentionsContainerBottom } {
         bottom: 0;
     }
 
-    %sidebarResizeHandle {
+    #{ $sidebarResizeHandle } {
         width: var(--app-card-margin);
         right: calc(var(--app-card-margin) * -1);
 
@@ -105,27 +107,27 @@
         }
     }
 
-    %channelsContainer,
-    %privateChannels {
+    #{ $channelsContainer },
+    #{ $privateChannels } {
         background-color: var(--app-foreground);
         border-radius: var(--app-card-radius);
     }
 
-    %channelsHeaderContainer {
+    #{ $channelsHeaderContainer } {
         border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
     }
 
-    %channelsHeader {
+    #{ $channelsHeader } {
         padding: 0 16px;
         border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
         border-bottom: none;
     }
 
-    %channelsContainer {
+    #{ $channelsContainer } {
         padding-bottom: 0;
     }
 
-    %panels {
+    #{ $panels } {
         width: 100%;
         left: 0;
         bottom: 0;
@@ -137,7 +139,7 @@
 
     /* connection panel */
 
-    %connectionPanelWrapper {
+    #{ $connectionPanelWrapper } {
         &:not(:empty) {
             border-bottom: 1px solid var(--sidebar-panel-border);
         }
@@ -145,30 +147,30 @@
 
     /* spotify panel */
 
-    %spotifyPanel {
-        %panelButton {
+    #{ $spotifyPanel } {
+        #{ $panelButton } {
             width: var(--button-height);
             height: var(--button-height);
             margin: 0;
         }
 
-        %spotifyPanelTimeline {
+        #{ $spotifyPanelTimeline } {
             height: 16px;
             margin: 0 0 0 calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
         }
 
-        %spotifyPanelTimelineBar {
+        #{ $spotifyPanelTimelineBar } {
             top: 6px;
             margin-bottom: 0;
         }
 
-        %spotifyPanelTimelineBarText {
+        #{ $spotifyPanelTimelineBarText } {
             top: 0;
         }
     }
 
-    %spotifyPanel,
-    %vencordSpotifyPlayer {
+    #{ $spotifyPanel },
+    #{ $vencordSpotifyPlayer } {
         --panel-height: calc(var(--app-bar-size) - (var(--app-card-margin) * 2));
         --button-height: 32px;
 
@@ -180,41 +182,41 @@
         gap: 8px;
     }
 
-    %spotifyPanelCoverWrapper,
-    %vencordSpotifyAlbumImage {
+    #{ $spotifyPanelCoverWrapper },
+    #{ $vencordSpotifyAlbumImage } {
         width: calc(var(--panel-height) - 10px);
         height: calc(var(--panel-height) - 10px);
         transform: translate(var(--app-card-margin), 0) !important;
     }
 
-    %spotifyPanelDetails,
-    %vencordSpotifyTitles {
+    #{ $spotifyPanelDetails },
+    #{ $vencordSpotifyTitles } {
         margin-left: calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
     }
 
     /* spotify panel vencord */
 
-    %vencordSpotifyInfoWrapper {
+    #{ $vencordSpotifyInfoWrapper } {
         width: calc(100% - (180px + 4px));
         height: calc(var(--panel-height) - 20px);
         margin: 0;
     }
 
-    %vencordSpotifyAlbumImage {
+    #{ $vencordSpotifyAlbumImage } {
         top: 0;
         left: 0;
         bottom: 0;
         margin: auto 0;
     }
 
-    %vencordSpotifyButtonRow {
+    #{ $vencordSpotifyButtonRow } {
         height: calc(var(--panel-height) - 20px);
         top: 0;
         margin-top: 0;
         align-items: center;
     }
 
-    %vencordSpotifyProgressBar {
+    #{ $vencordSpotifyProgressBar } {
         display: flex;
         width: auto;
         margin: 0 0 0 calc(var(--panel-height) + var(--app-card-margin) * 1.5);
@@ -223,7 +225,7 @@
         align-items: center;
         gap: 8px;
 
-        %vencordSpotifyProgressTime {
+        #{ $vencordSpotifyProgressTime } {
             position: relative;
             width: 36px;
             top: 0;
@@ -231,21 +233,21 @@
             text-align: center;
         }
 
-        %slider {
+        #{ $slider } {
             height: 16px !important;
         }
 
-        %sliderBar {
+        #{ $sliderBar } {
             top: calc(12px - 12px / 2 + var(--bar-offset)) !important;
         }
     }
 
     /* private channels */
 
-    %privateChannelsSearchBar {
+    #{ $privateChannelsSearchBar } {
         border-bottom: none;
 
-        %buttonFilled%buttonPrimary {
+        #{ $buttonFilled }#{ $buttonPrimary } {
             --button-background: var(--background-tinted-hover);
             --button-text-color: var(--text-default);
 
@@ -258,55 +260,55 @@
 
     /* chat */
 
-    %chat {
+    #{ $chat } {
         height: calc(100% - (var(--app-bar-size) - var(--app-card-margin)));
     }
 
-    %chatContent {
+    #{ $chatContent } {
         background: transparent;
     }
 
-    %headerBar {
+    #{ $headerBar } {
         border-bottom: none;
     }
 
-    %chatForm {
+    #{ $chatForm } {
         bottom: calc(((var(--app-bar-size) + var(--main-textarea-min-height)) / 2) * -1);
         margin-top: calc( var(--main-textarea-min-height) * -1);
 
-        %channelTextArea {
+        #{ $channelTextArea } {
             margin-bottom: 0;
         }
 
-        %textArea {
+        #{ $textArea } {
             &[style*="height: 56px"] {
                 height: var(--main-textarea-min-height) !important;
             }
         }
 
-        %slateTextArea {
+        #{ $slateTextArea } {
             padding: calc((var(--main-textarea-min-height) - var(--chat-markup-line-height)) / 2) 0;
         }
     }
 
-    %channelTextArea {
+    #{ $channelTextArea } {
         background-color: var(--main-textarea-color);
         border: none;
 
-        %channelTextAreaFontPadding {
+        #{ $channelTextAreaFontPadding } {
             padding: var(--textarea-text-padding) 0;
         }
     }
 
-    %slateTextArea {
+    #{ $slateTextArea } {
         min-height: var(--main-textarea-min-height);
     }
 
-    %channelTextAreaAttachButton {
+    #{ $channelTextAreaAttachButton } {
         padding: var(--space-12) var(--space-4) var(--space-12) var(--space-md);
     }
 
-    %channelTextAreaTyping {
+    #{ $channelTextAreaTyping } {
         width: calc(100% - var(--scrollbar-width));
         top: calc((((var(--app-bar-size) - var(--main-textarea-min-height)) / 2) + 16px) * -1);
         left: 0;
@@ -316,44 +318,39 @@
         border-bottom-left-radius: var(--app-card-radius);
     }
 
-    %channelTextAreaStackedBars {
+    #{ $channelTextAreaStackedBars } {
         background-color: transparent;
     }
 
-    %channelAtachmentArea {
-        padding: 10px;
-        background-color: transparent;
-    }
-
-    %channelTextAreaUpload {
+    #{ $channelTextAreaUpload } {
         background-color: var(--card-color);
         border-radius: calc(var(--main-textarea-radius) / 1.5);
         border: none;
         box-shadow: none;
     }
 
-    %channelAppLauncher {
-        %channelAppLauncherButton {
+    #{ $channelAppLauncher } {
+        #{ $channelAppLauncherButton } {
             background-color: transparent;
         }
     }
 
-    %chatOuterSearchContainer {
+    #{ $chatOuterSearchContainer } {
         min-width: var(--space-32);
         min-height: var(--space-32);
     }
 
-    %chatSearchBar {
+    #{ $chatSearchBar } {
         width: 24px;
         padding: 0;
         border-radius: 12px;
         border: none;
 
-        %chatSearchRoot {
+        #{ $chatSearchRoot } {
             padding: 0;
         }
 
-        %chatSearchIconWrapper {
+        #{ $chatSearchIconWrapper } {
             width: 20px;
             height: 20px;
             top: 0;
@@ -362,27 +359,27 @@
         }
     }
 
-    %chatSearch {
-        &%chatSearchOpen,
-        &%chatSearchFocused {
-            %chatSearchRoot {
+    #{ $chatSearch } {
+        &#{ $chatSearchOpen },
+        &#{ $chatSearchFocused } {
+            #{ $chatSearchRoot } {
                 padding: 0 8px 0 4px;
             }
         }
     }
 
-    %messageButtonWrapper {
+    #{ $messageButtonWrapper } {
         padding: 4px 6px;
         background-color: var(--popout-color);
         border: none;
         box-shadow: var(--default-shadow);
     }
 
-    %messagesScrollerSpacer {
+    #{ $messagesScrollerSpacer } {
         height: var(--space-16);
     }
 
-    %jumpToPresentBar {
+    #{ $jumpToPresentBar } {
         padding: var(--space-8);
         background-color: var(--popout-color);
         border-radius: var(--popout-radius);
@@ -392,7 +389,7 @@
 
     /* markup */
 
-    %markup {
+    #{ $markup } {
     	code {
     		background-color: var(--background-tinted-active);
     		border-radius: var(--card-radius);
@@ -402,7 +399,7 @@
 
     /* chat area search */
 
-    %searchPopout {
+    #{ $searchPopout } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius);
         border: none;
@@ -411,46 +408,46 @@
 
     /* search results */
 
-    %searchResultsWrap {
+    #{ $searchResultsWrap } {
         background-color: transparent;
         border-left-color: var(--card-color-hover);
     }
 
-    %searchResult {
+    #{ $searchResult } {
         background-color: var(--message-color-hover);
         border: none;
     }
 
     /* voice call */
 
-    %callWrapper {
+    #{ $callWrapper } {
         background-color: transparent;
 
-        &%callWrapperNoChat {
-            %callContainer {
+        &#{ $callWrapperNoChat } {
+            #{ $callContainer } {
                 height: auto;
             }
         }
     }
 
-    %callContainer {
+    #{ $callContainer } {
         border: none;
     }
 
     /* forum */
 
-    %forumContainer {
+    #{ $forumContainer } {
         background-color: transparent;
     }
 
-    %forumHeader,
-    %forumHeaderMatchingPostsRow,
-    %forumGuidelinesContainer {
+    #{ $forumHeader },
+    #{ $forumHeaderMatchingPostsRow },
+    #{ $forumGuidelinesContainer } {
         background-color: var(--card-color);
         border: none;
     }
 
-    %postContainer {
+    #{ $postContainer } {
         background-color: var(--card-color);
         border: none;
 
@@ -459,24 +456,24 @@
         }
     }
 
-    %postContentPreview {
+    #{ $postContentPreview } {
         background-color: var(--background-tinted-hover);
         border: none;
 
-        %postTextContentFooter {
+        #{ $postTextContentFooter } {
             background: none;
         }
     }
 
-    %threadResizeHandle {
+    #{ $threadResizeHandle } {
         background-color: var(--app-background);
     }
 
-    %threadContainer {
+    #{ $threadContainer } {
         background-color: transparent !important;
         border: none;
 
-        %chatContent {
+        #{ $chatContent } {
             margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
             background-color: var(--app-foreground);
             border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
@@ -485,8 +482,8 @@
 
     /* message reactions */
 
-    %reaction {
-    	&%reactionMe {
+    #{ $reaction } {
+    	&#{ $reactionMe } {
     		background-color: hsla(var(--accent-hsl),0.3);
     		border-color: hsla(var(--accent-hsl),0.2);
 
@@ -494,7 +491,7 @@
     			background-color: hsla(var(--accent-hsl),0.4);
     		}
 
-    		%reactionCount {
+    		#{ $reactionCount } {
     			color: hsl(var(--accent-hsl));
     		}
     	}
@@ -502,8 +499,8 @@
 
     /* message attachments */
 
-    %threadEmbed,
-    %inviteWrapper {
+    #{ $threadEmbed },
+    #{ $inviteWrapper } {
         background-color: var(--background-tinted-active);
         border-radius: var(--card-radius);
         border: none;
@@ -511,133 +508,133 @@
 
     /* emoji picker */
 
-    %emojiWrapper {
+    #{ $emojiWrapper } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius);
         border: none;
         box-shadow: var(--default-shadow);
     }
 
-    %emojiWrapperChat {
+    #{ $emojiWrapperChat } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius);
 
-        %emojiCategoryList {
+        #{ $emojiCategoryList } {
             top: 65px;
         }
     }
 
-    %emojiPicker {
+    #{ $emojiPicker } {
         background-color: transparent;
     }
 
-    %emojiPickerNavEmoji,
-    %emojiPickerNavSticker,
-    %emojiPickerNavGif {
+    #{ $emojiPickerNavEmoji },
+    #{ $emojiPickerNavSticker },
+    #{ $emojiPickerNavGif } {
         background-color: transparent;
         border-bottom-color: var(--popout-border-color);
     }
 
-    %emojiCategoryWrapper {
+    #{ $emojiCategoryWrapper } {
         background-color: var(--app-foreground);
     }
 
-    %emojiPickerHasTabWrapper {
-        %emojiCategoryList {
+    #{ $emojiPickerHasTabWrapper } {
+        #{ $emojiCategoryList } {
             top: 49px;
         }
     }
 
-    %emojiStickerContainer {
-        %stickerCategoryList {
+    #{ $emojiStickerContainer } {
+        #{ $stickerCategoryList } {
             top: 49px;
         }
     }
 
-    %emojiPickerCategoryHeaderWrapper {
+    #{ $emojiPickerCategoryHeaderWrapper } {
         background-color: hsl(from var(--popout-color) h s l / 0.9);
     }
 
-    %emojiPickerInspector {
+    #{ $emojiPickerInspector } {
         background-color: var(--popout-color);
         border-top-color: var(--popout-border-color);
     }
 
     /* members list */
 
-    %membersWrap {
+    #{ $membersWrap } {
         background-color: transparent;
     }
 
-    %memberActivityContainer {
+    #{ $memberActivityContainer } {
         background-color: var(--background-tinted-hover);
         border: none;
 
-        &%memberActivityContainerSelected {
+        &#{ $memberActivityContainerSelected } {
             background-color: var(--background-tinted-active);
         }
     }
 
     /* friends list */
 
-    %friends {
+    #{ $friends } {
         height: 100%;
         background-color: var(--app-foreground);
         border-top: none;
     }
 
-    %friendsTabBody {
+    #{ $friendsTabBody } {
         background-color: transparent;
     }
 
     /* active now */
 
-    %activeNowCardInteractive {
+    #{ $activeNowCardInteractive } {
         background-color: var(--card-color);
     }
 
     /* modals */
 
-    %modalRoot {
+    #{ $modalRoot } {
         border: none;
     }
 
     /* pinned messages popout */
 
-    %messagesPopoutWrap,
-    %recentMentionsPopout {
+    #{ $messagesPopoutWrap },
+    #{ $recentMentionsPopout } {
         background-color: var(--popout-color);
     }
 
-    %messagesPopoutHeader,
-    %messagesPopoutContentContainer {
+    #{ $messagesPopoutHeader },
+    #{ $messagesPopoutContentContainer } {
         background-color: transparent;
     }
 
     /* tab bar */
 
-    %tabBar {
-        %item {
+    #{ $tabBar } {
+        #{ $item } {
             margin: 0;
 
             &:hover {
                 background-color: var(--background-tinted-hover);
             }
 
-            &%itemSelected {
+            &#{ $itemSelected } {
                 background-color: var(--background-tinted-active);
                 color: var(--text-primary);
             }
 
-            &%itemThemed {
-                &%itemAddFriend {
+            &#{ $itemThemed } {
+                &#{ $itemAddFriend } {
                     background-color: transparent;
 
                     &:hover {
                         background-color: var(--background-tinted-hover);
                     }
 
-                    &%itemSelected {
+                    &#{ $itemSelected } {
                         background-color: var(--background-tinted-active);
                         color: var(--text-primary);
                     }
@@ -648,80 +645,80 @@
 
     /* context menu */
 
-    %menuPopout {
+    #{ $menuPopout } {
         border: none;
     }
 
-    %menuPopoutColorDefault {
-        %menuPopoutLabel {
+    #{ $menuPopoutColorDefault } {
+        #{ $menuPopoutLabel } {
             color: var(--menu-text-color);
         }
     }
 
     /* tooltip */
 
-    %tooltip {
+    #{ $tooltip } {
         border: none;
     }
 
     /* settings */
 
-    %standardSidebarView {
+    #{ $standardSidebarView } {
         margin: var(--app-card-margin);
         gap: var(--app-card-margin);
         background-color: var(--app-background);
     }
 
-    %settingsSidebarRegion {
+    #{ $settingsSidebarRegion } {
         width: auto;
         flex: 1 0 1;
         margin: 0;
     }
 
-    %settingsSidebar {
+    #{ $settingsSidebar } {
         padding: 60px var(--custom-standard-sidebar-view-sidebar-content-scrollbar-padding) 60px 8px;
     }
 
-    %settingsContentRegion {
+    #{ $settingsContentRegion } {
         margin: 0;
     }
 
     /* vencord notification */
 
-    %vencordNotificationRoot {
+    #{ $vencordNotificationRoot } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius);
         box-shadow: var(--default-shadow);
     }
 }
 
-%alignChatInput {
-    %guildsWrapper,
-    %channelsContainer {
+#{ $alignChatInput } {
+    #{ $guildsWrapper },
+    #{ $channelsContainer } {
         mask: none;
     }
 
-    %accountPanel {
+    #{ $accountPanel } {
         height: calc((var(--app-bar-size) - (var(--app-card-margin) + 1px) * 2));
         padding: 0 var(--space-12);
     }
 
-    %channelTextAreaTyping {
+    #{ $channelTextAreaTyping } {
         top: calc((((var(--app-bar-size) - var(--main-textarea-min-height)) / 2) + 16px) * -1) !important;
     }
 
-    %channelTextAreaAttachWrapper {
+    #{ $channelTextAreaAttachWrapper } {
         padding: 0;
     }
 
-    %channelTextAreaAttachButtonInner,
-    %channelTextAreaButtonInner:not(%channelTextAreaButtonInnerNoHover),
-    %channelTextAreaEmojiButton {
+    #{ $channelTextAreaAttachButtonInner },
+    #{ $channelTextAreaButtonInner }:not(#{ $channelTextAreaButtonInnerNoHover }),
+    #{ $channelTextAreaEmojiButton } {
         border-radius: var(--space-16);
     }
 
-    %channelTextAreaButtonInner {
-        &:not(%channelTextAreaButtonInnerNoHover) {
+    #{ $channelTextAreaButtonInner } {
+        &:not(#{ $channelTextAreaButtonInnerNoHover }) {
             &:hover {
                 background-color: transparent;
             }

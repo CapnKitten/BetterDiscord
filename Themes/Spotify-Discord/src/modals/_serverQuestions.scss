@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,24 +7,24 @@
  *
  */
 
-%prompt {
+#{ $prompt } {
     @include modal-format;
 
-    %promptNavButtons {
+    #{ $promptNavButtons } {
         background-color: transparent;
     }
 }
 
-%promptOptionButtonWrapper {
+#{ $promptOptionButtonWrapper } {
     @include card-format(false, true);
     border: none;
 
-    &%promptOptionButtonWrapperSelected {
+    &#{ $promptOptionButtonWrapperSelected } {
         background-color: var(--card-color-active);
     }
 }
 
-%promptOptionCheckIcon {
+#{ $promptOptionCheckIcon } {
     background-color: hsl(var(--accent-hsl));
     color: var(--accent-text-color);
 
@@ -32,10 +33,10 @@
     }
 }
 
-%rulesTermsFieldBody {
+#{ $rulesTermsFieldBody } {
     @include card-format;
 }
 
-%rulesOverlay {
+#{ $rulesOverlay } {
     background: linear-gradient(to top, var(--popout-color), transparent) !important;
 }

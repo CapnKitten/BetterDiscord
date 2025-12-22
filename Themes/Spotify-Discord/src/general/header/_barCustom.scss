@@ -1,10 +1,12 @@
+@use '../../classes' as *;
+
 /*
  *
  *  HEADER BAR CUSTOM
  *
  */
 
-%headerBar {
+#{ $headerBar } {
     --header-secondary: var(--text-default);
     --interactive-normal: var(--text-default);
 
@@ -12,38 +14,38 @@
     border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
     z-index: 102;
 
-    &%headerBarThemed {
+    &#{ $headerBarThemed } {
         background-color: transparent;
 
-        %headerBarChildren {
+        #{ $headerBarChildren } {
             &:after {
                 display: none;
             }
         }
     }
 
-    %headerBarChildren {
+    #{ $headerBarChildren } {
         //overflow: visible;
     }
 
-    %toolbar {
+    #{ $toolbar } {
         margin-left: 8px;
         padding-right: 52px;
         gap: 16px;
 
-        %headerBarIconWrapper {
+        #{ $headerBarIconWrapper } {
             margin: 0;
         }
     }
 
-    %headerBarAnchor {
+    #{ $headerBarAnchor } {
         display: none;
     }
 }
 
-%threadSidebarOpen {
-    %headerBar {
-        %toolbar {
+#{ $threadSidebarOpen } {
+    #{ $headerBar } {
+        #{ $toolbar } {
             padding-right: 8px;
         }
     }
@@ -51,8 +53,8 @@
 
 /* HEADER BAR CUSTOM -> COLORED BAR */
 
-%channelsContainer,
-%privateChannels {
+#{ $channelsContainer },
+#{ $privateChannels } {
     &[aria-label] {
         &:after {
             --header-bar-xposition: calc(72px + 240px + (var(--app-card-margin) * 3));
@@ -73,9 +75,9 @@
     }
 }
 
-%noticeStreamerMode + %contentMain {
-    %channelsContainer,
-    %privateChannels {
+#{ $noticeStreamerMode } + #{ $contentMain } {
+    #{ $channelsContainer },
+    #{ $privateChannels } {
         &[aria-label] {
             &:after {
                 --header-bar-yposition: calc(var(--window-title-bar-height) + var(--notice-bar-height) + var(--app-card-margin) + var(--app-card-top-margin));
@@ -84,11 +86,11 @@
     }
 }
 
-%notice {
-    + %layers {
-        %bdNotices:not(:empty) + %contentMain {
-            %channelsContainer,
-            %privateChannels {
+#{ $notice } {
+    + #{ $layers } {
+        #{ $bdNotices }:not(:empty) + #{ $contentMain } {
+            #{ $channelsContainer },
+            #{ $privateChannels } {
                 &[aria-label] {
                     &:after {
                         --header-bar-yposition: calc(var(--window-title-bar-height) + (var(--notice-bar-height) * 2) + var(--app-card-margin) + (var(--app-card-top-margin) * 2));
@@ -97,8 +99,8 @@
             }
         }
 
-        %channelsContainer,
-        %privateChannels {
+        #{ $channelsContainer },
+        #{ $privateChannels } {
             &[aria-label] {
                 &:after {
                     --header-bar-yposition: calc(var(--window-title-bar-height) + var(--notice-bar-height) + var(--app-card-margin));
@@ -108,9 +110,9 @@
     }
 }
 
-%bdNotices:not(:empty) + %contentMain {
-    %channelsContainer,
-    %privateChannels {
+#{ $bdNotices }:not(:empty) + #{ $contentMain } {
+    #{ $channelsContainer },
+    #{ $privateChannels } {
         &[aria-label] {
             &:after {
                 --header-bar-yposition: calc(var(--window-title-bar-height) + var(--notice-bar-height) + var(--app-card-margin) + var(--app-card-top-margin));
@@ -119,7 +121,7 @@
     }
 }
 
-%channelsContainer {
+#{ $channelsContainer } {
     &[aria-label*="CapnKitten"] {
         --header-bar-color: hsl(212,70%,31%);
     }

@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -5,49 +6,8 @@
  *  SCREENSARE SELECTION MODAL
  *
  */
-
-%screenshareSegmentDivider {
-    bottom: -1px;
-    background-color: var(--popout-border-color);
-    opacity: 1;
-}
-
-%screenshareTile {
-    &:hover {
-        %screenshareSourceThumbnail {
-            box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl),0.8);
-        }
-    }
-}
-
-%screenshareSourceThumbnail {
-    border-radius: var(--card-radius);
-
-    &%screenshareSourceSelected {
-        box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)) !important;
-    }
-}
-
-%screenshareCard {
-    @include input-format;
-
-    %button {
-        --button-height: 28px;
-    }
-}
-
-%screenshareVoiceUserList {
-    margin-right: 0;
-}
-
-%screenshareSettingsQualitySettingsContainer,
-%screenshareSettingsClipsContainer {
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
-    border: 1px solid var(--card-color);
-}
-
-%segmentedButton {
+ 
+#{ $segmentedButton } {
     background-color: var(--card-color);
     border-color: var(--card-border-color) !important;
 
@@ -59,12 +19,12 @@
         border-radius: 0 var(--card-radius) var(--card-radius) 0;
     }
 
-    &:not(%segmentedButtonPremiumRequired) {
+    &:not(#{ $segmentedButtonPremiumRequired }) {
         &:hover {
             background-color: var(--card-color-hover);
         }
 
-        &%segmentedButtonSelected {
+        &#{ $segmentedButtonSelected } {
             background-color: var(--card-color-active);
         }
     }
@@ -72,7 +32,7 @@
 
 /* SCREENSARE SELECTION MODAL -> RECENT CLIPS POPOUT */
 
-%recentClipsPopout {
+#{ $recentClipsPopout } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius);
     box-shadow: var(--default-shadow);

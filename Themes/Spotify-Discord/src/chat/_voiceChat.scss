@@ -1,51 +1,53 @@
+@use '../classes' as *;
+
 /*
  *
  *  VOICE CHAT
  *
  */
 
-%callContainer {
+#{ $callContainer } {
     width: 0;
 }
 
-%callWrapper {
-    &:not(%callWrapperFullScreen) {
-        %callContainer {
+#{ $callWrapper } {
+    &:not(#{ $callWrapperFullScreen }) {
+        #{ $callContainer } {
             //overflow: visible;
         }
 
-        %callRoot%callIdle {
-            %callBottomControls {
+        #{ $callRoot }#{ $callIdle } {
+            #{ $callBottomControls } {
                 //transform: translate3d(0,calc(var(--app-bar-size) + 8px),0);
             }
         }
 
-        %callBottomControls {
+        #{ $callBottomControls } {
             //transform: translate3d(0,var(--app-bar-size),0);
         }
     }
 
-    &%callMinimum {
-        %callRoot%callIdle {
-            %callBottomControls {
+    &#{ $callMinimum } {
+        #{ $callRoot }#{ $callIdle } {
+            #{ $callBottomControls } {
                 //transform: none;
             }
         }
 
-        %callBottomControls {
+        #{ $callBottomControls } {
             //transform: none !important;
         }
     }
 
-    &%callWrapperNoChat {
-        %callContainer {
+    &#{ $callWrapperNoChat } {
+        #{ $callContainer } {
             height: calc(100% + var(--app-bar-size));
         }
     }
 }
 
-%callButtonColorable {
-    &%callButtonPrimaryDark {
+#{ $callButtonColorable } {
+    &#{ $callButtonPrimaryDark } {
         background-color: var(--background-tinted-active);
 
         &:hover {
@@ -53,27 +55,27 @@
         }
     }
 
-    &%callButtonRed {
+    &#{ $callButtonRed } {
         background-color: hsl(var(--alert-hsl));
         color: var(--alert-text-color);
     }
 }
 
-%callActionBarButton {
+#{ $callActionBarButton } {
     height: 36px;
 }
 
 /* VOICE CHAT -> TILES */
 
-%callTile {
+#{ $callTile } {
     background-color: var(--card-color);
     border-radius: var(--card-radius);
 
-    &%callTileRoot {
+    &#{ $callTileRoot } {
         background-color: var(--card-color);
     }
 }
 
-%callTileVideoWrapper {
+#{ $callTileVideoWrapper } {
     background-color: var(--card-color);
 }

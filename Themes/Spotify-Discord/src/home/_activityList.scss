@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,30 +7,30 @@
  *
  */
 
-%nowPlayingColumn {
+#{ $nowPlayingColumn } {
     background-color: transparent;
 }
 
-%nowPlayingColumnContainer {
+#{ $nowPlayingColumnContainer } {
     background-color: transparent;
 
-    %nowPlayingColumnScroller {
+    #{ $nowPlayingColumnScroller } {
         margin-left: 0;
         padding-bottom: 16px;
         border-left-color: var(--app-card-border-color);
     }
 }
 
-%nowPlayingColumnMemberItem {
+#{ $nowPlayingColumnMemberItem } {
     padding: 0;
 }
 
-%activeNowCardInteractive {
+#{ $activeNowCardInteractive } {
     @include card-format;
     border: none;
 
     &:hover {
-        %activeNowCardSection {
+        #{ $activeNowCardSection } {
             background-color: var(--card-color-active);
         }
     }
@@ -38,13 +39,13 @@
         background-color: var(--card-color-hover) !important;
     }
 
-    %activeNowCardSection {
+    #{ $activeNowCardSection } {
         background-color: var(--card-color-hover);
         border-radius: var(--card-radius);
         border: none;
     }
 }
 
-%emptyActiveNowCard {
+#{ $emptyActiveNowCard } {
     @include card-format;
 }

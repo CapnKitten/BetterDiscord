@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,16 +7,16 @@
  *
  */
 
-%quickswitcher {
+#{ $quickswitcher } {
     --input-height: 56px;
 
     @include modal-format;
 
-    %quickswitcherInput {
+    #{ $quickswitcherInput } {
         @include input-format;
     }
 
-    %quickswitcherScroller {
+    #{ $quickswitcherScroller } {
         background-color: transparent;
 
         &::-webkit-scrollbar-track {
@@ -23,7 +24,7 @@
         }
     }
 
-    %quickswitcherResult {
+    #{ $quickswitcherResult } {
         &[aria-selected="true"] {
             background-color: var(--background-tinted-active);
         }

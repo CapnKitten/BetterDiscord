@@ -1,28 +1,29 @@
+@use '../../classes' as *;
 /*
  *
  *  BETTERDISCORD NOTICES
  *
  */
 
-%bdNotices {
+#{ $bdNotices } {
     position: absolute;
     top: var(--space-8);
     right: var(--space-8);
     z-index: 1001;
 
-    &:has(%bdNotice) {
+    &:has(#{ $bdNotice }) {
         width: auto;
         left: unset;
     }
 }
 
-%base {
-    &:has(%bdNotices %bdNotice) {
+#{ $base } {
+    &:has(#{ $bdNotices } #{ $bdNotice }) {
         margin-top: 0;
     }
 }
 
-%bdNotice {
+#{ $bdNotice } {
     display: flex;
     max-width: 25vw;
     height: auto;
@@ -38,7 +39,7 @@
         border-radius: var(--popout-radius);
     }
 
-    %bdNoticeClose {
+    #{ $bdNoticeClose } {
         width: 18px;
         height: 18px;
         top: 20px;
@@ -52,7 +53,7 @@
         opacity: 1;
     }
 
-    %bdNoticeContent {
+    #{ $bdNoticeContent } {
         margin-right: 30px;
         font-size: 1.25em;
         font-weight: 400;
@@ -60,7 +61,7 @@
         text-align: left;
     }
 
-    %bdNoticeButton {
+    #{ $bdNoticeButton } {
         display: flex;
         height: var(--button-height);
         line-height: var(--button-height);

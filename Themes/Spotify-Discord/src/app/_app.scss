@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -10,7 +11,7 @@
     font-family: var(--app-font), sans-serif !important;
 }
 
-%appMount {
+#{ $appMount } {
     --app-search-bar-margin: calc( (var(--app-search-bar-height) + 22px) / 2 );
     --window-title-bar-height: 22px;
     --notice-bar-height: 36px;
@@ -19,14 +20,14 @@
 }
 
 body,
-%app,
-%shakeable,
-%bg,
-%loadingScreen {
+#{ $app },
+#{ $shakeable },
+#{ $bg },
+#{ $loadingScreen } {
 	background-color: transparent;
 }
 
-%loadingScreenContent {
+#{ $loadingScreenContent } {
     padding: 0 8px;
     @include modal-format;
 }
@@ -36,10 +37,10 @@ body,
     color: hsl(var(--accent-text-color));
 }
 
-%anchor {
+#{ $anchor } {
     --text-link: hsl(var(--accent-hsl));
 }
 
-%layer {
+#{ $layer } {
     background-color: var(--app-background);
 }

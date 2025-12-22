@@ -1,17 +1,19 @@
+@use '../classes' as *;
+
 /*
  *
  *  RADIO BUTTONS
  *
  */
 
-%radioItem {
+#{ $radioItem } {
     background-color: var(--card-color);
     border-radius: var(--card-radius);
     transition: var(--default-time) var(--default-animation) background-color;
 
     &:hover {
         &[aria-checked="false"] {
-            &:not(%radioItemDisabled) {
+            &:not(#{ $radioItemDisabled }) {
                 background-color: var(--card-color-hover);
             }
         }
@@ -21,7 +23,7 @@
         background-color: var(--card-color-active);
 
         svg,
-        %radioIconChecked {
+        #{ $radioIconChecked } {
             color: hsl(var(--accent-hsl));
         }
     }
@@ -29,16 +31,16 @@
 
 /* RADIO BUTTONS -> RADIO REFRESH */
 
-%radioIndicatorChecked {
-    %radioIndicatorRefreshIconFill {
+#{ $radioIndicatorChecked } {
+    #{ $radioIndicatorRefreshIconFill } {
         fill: hsl(var(--accent-hsl));
     }
 
-    %radioIndicatorRefreshIconStroke {
+    #{ $radioIndicatorRefreshIconStroke } {
         stroke: hsl(var(--accent-hsl));
     }
 
-    %radioIndicatorRefreshIcon {
+    #{ $radioIndicatorRefreshIcon } {
         fill: var(--accent-text-color);
     }
 }

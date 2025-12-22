@@ -1,35 +1,33 @@
+@use '../classes' as *;
+
 /*
  *
  *  BROWSE CHANNELS
  *
  */
 
-%pageBodyHeader {
+#{ $pageBodyHeader } {
     background: var(--header-bar-color) !important;
 }
 
-%pageBody {
+#{ $pageBody } {
     background: var(--app-foreground) !important;
 }
 
-%channelsAndRolesContainer {
+#{ $channelsAndRolesContainer } {
     border-radius: var(--app-card-radius);
 
-    %pageBody {
+    #{ $pageBody } {
         border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
-    }
-
-    %searchContainer {
-        margin: 0;
     }
 }
 
-%browseChannelsChannelRow {
+#{ $browseChannelsChannelRow } {
     position: relative;
     background-color: var(--card-color);
 
     &:hover {
-        &:not(%browseChannelsChannelDisabled) {
+        &:not(#{ $browseChannelsChannelDisabled }) {
             background-color: var(--card-color);
 
             &:before {
@@ -45,19 +43,19 @@
         }
     }
 
-    &%browseChannelsFirstChannel {
+    &#{ $browseChannelsFirstChannel } {
         border-radius: var(--card-radius) var(--card-radius) 0 0;
     }
 
-    &%browseChannelsLastChannel {
+    &#{ $browseChannelsLastChannel } {
         border-radius: 0 0 var(--card-radius) var(--card-radius);
     }
 
-    %browseChannelsChannelInfo {
+    #{ $browseChannelsChannelInfo } {
         z-index: 2;
     }
 
-    %buttonOutlinedPrimary {
+    #{ $buttonOutlinedPrimary } {
         --button-text-color: hsl(0,0%,100%);
     }
 }

@@ -1,10 +1,11 @@
+@use '../../../classes' as *;
 /*
  *
  *  BETTERDISCORD PLUGIN -> SpotifyControls
  *
  */
 
-%spotifyPanel {
+#{ $spotifyPanel } {
     --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
 
     position: absolute;
@@ -16,11 +17,11 @@
     padding: 0 0 0 16px;
     border-bottom: none;
 
-    &%spotifyPanelWithTimeline {
+    &#{ $spotifyPanelWithTimeline } {
         padding-top: 0;
     }
 
-    %spotifyPanelCoverWrapper {
+    #{ $spotifyPanelCoverWrapper } {
         position: absolute;
         width: 52px;
         height: 52px;
@@ -32,33 +33,33 @@
         transform: translate(18px, 0) !important;
     }
 
-    %spotifyPanelDetails {
+    #{ $spotifyPanelDetails } {
         margin-left: 72px;
     }
 
-    %spotifyPanelDetails {
+    #{ $spotifyPanelDetails } {
         transition: var(--default-time) ease margin-left;
     }
 
-    %spotifyPanelTimeline {
+    #{ $spotifyPanelTimeline } {
         position: relative;
         margin: 10px 0 0 72px;
         transition: var(--default-time) ease margin-left, var(--default-time) ease margin-bottom;
     }
 
-    %spotifyPanelTimelineBar {
+    #{ $spotifyPanelTimelineBar } {
         width: calc(100% - 68px);
         left: 34px;
     }
 
-    %spotifyPanelTimelineBarText {
+    #{ $spotifyPanelTimelineBarText } {
         position: absolute;
         width: 100%;
         top: -5px;
     }
 
-    &%spotifyPanelMaximized {
-        %spotifyPanelCoverWrapper {
+    &#{ $spotifyPanelMaximized } {
+        #{ $spotifyPanelCoverWrapper } {
             --left: calc(72px + calc(var(--app-card-margin) * 2));
             --bottom: -292px;
 
@@ -69,44 +70,48 @@
             transform: translate(var(--left), var(--bottom)) !important;
         }
 
-        + %connectionPanelWrapper {
+        + #{ $connectionPanelWrapper } {
             margin-bottom: 240px;
         }
 
-        %spotifyPanelInner {
+        #{ $spotifyPanelInner } {
             --button-height: 28px;
         }
 
-        %spotifyPanelDetails {
+        #{ $spotifyPanelDetails } {
             margin-left: 0;
         }
 
-        %spotifyPanelDetails {
+        #{ $spotifyPanelDetails } {
             display: flex;
             flex-direction: row;
             justify-content: center;
             margin: 4px 0 0;
 
-            %accountPanelDiscriminator {
+            #{ $accountPanelDiscriminator } {
                 margin-left: 4px;
                 line-height: 18px;
                 font-size: 14px;
             }
         }
 
-        %spotifyPanelTimeline {
+        #{ $spotifyPanelTimeline } {
             margin: 4px 0 8px;
         }
 
-        %spotifyPanelTimelineBar {
+        #{ $spotifyPanelTimelineBar } {
             margin: 0;
         }
+    }
+
+    #{ $textSmNormal } {
+        color: var(--text-subtle);
     }
 }
 
 /* BETTERDISCORD PLUGIN -> SpotifyControls -> VENCORD */
 
-%vencordSpotifyPlayer {
+#{ $vencordSpotifyPlayer } {
     --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
 
     position: absolute;
@@ -120,7 +125,7 @@
     box-sizing: border-box;
 }
 
-%vencordSpotifyInfoWrapper {
+#{ $vencordSpotifyInfoWrapper } {
     width: calc(100% - ((var(--app-card-margin) * 2) + 52px + 160px));
     height: auto;
     margin-top: 8px;
@@ -128,7 +133,7 @@
     gap: 0;
 }
 
-%vencordSpotifyAlbumImage {
+#{ $vencordSpotifyAlbumImage } {
     position: absolute;
     width: 52px;
     height: 52px !important;
@@ -136,55 +141,55 @@
     top: 14px;
 }
 
-%vencordSpotifyTitles {
-    %vencordSpotifyEllipoverflow {
+#{ $vencordSpotifyTitles } {
+    #{ $vencordSpotifyEllipoverflow } {
         &:last-of-type {
             display: none;
         }
     }
 }
 
-%vencordSpotifyProgressBar {
+#{ $vencordSpotifyProgressBar } {
     width: calc(100% - 72px);
     margin: 8px 0 0 72px;
 
-    %settingsV2Card {
+    #{ $settingsV2Card } {
         --card-color: transparent;
         margin-bottom: 0;
     }
 
-    %menuPopoutSliderContainer {
+    #{ $menuPopoutSliderContainer } {
         width: calc(100% - 84px);
         margin: 0 auto;
     }
 
-    %slider {
+    #{ $slider } {
         &:hover {
-            %sliderBarFill {
+            #{ $sliderBarFill } {
                 background-color: hsl(var(--accent-hsl));
             }
         }
     }
 
-    %sliderBarFill {
+    #{ $sliderBarFill } {
         background-color: var(--interactive-normal);
     }
 
-    %sliderGrabber {
+    #{ $sliderGrabber } {
         --grabber-size: 12px;
         top: 8px;
     }
 
-    %vencordSpotifyProgressTime {
+    #{ $vencordSpotifyProgressTime } {
         top: -4px;
     }
 }
 
-%vencordSpotifyProgressTime {
+#{ $vencordSpotifyProgressTime } {
     top: -4px;
 }
 
-%vencordSpotifyButtonRow {
+#{ $vencordSpotifyButtonRow } {
     position: absolute;
     top: 12px;
     right: 0;
@@ -192,6 +197,6 @@
     background-color: var(--app-background);
 }
 
-%vencordSpotifyButton {
+#{ $vencordSpotifyButton } {
     margin: 0;
 }

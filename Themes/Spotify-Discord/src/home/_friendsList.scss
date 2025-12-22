@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,33 +7,27 @@
  *
  */
 
-%friends {
+#{ $friends } {
     height: var(--content-full-height);
     background-color: var(--app-foreground);
     border-radius: var(--app-card-radius);
 }
 
-%friendsBlockedIgnoredSettingsNotice {
+#{ $friendsBlockedIgnoredSettingsNotice } {
     margin: 16px 24px 0;
     background-color: var(--card-color);
     border-radius: var(--card-radius);
 }
 
-%friendsColumn {
-    %searchContainer {
-        margin: 24px 24px 0;
-    }
-}
-
-%friendsTabBody {
+#{ $friendsTabBody } {
     &:before {
         display: none;
     }
 }
 
-%friendsItem {
+#{ $friendsItem } {
     &:hover,
-    &%friendsItemActive {
+    &#{ $friendsItemActive } {
         border-radius: var(--menu-item-radius);
     }
 
@@ -40,7 +35,7 @@
         background-color: var(--background-tinted-hover);
     }
 
-    &%friendsItemActive {
+    &#{ $friendsItemActive } {
         background-color: var(--background-tinted-active);
 
         &:hover {
@@ -49,10 +44,10 @@
     }
 }
 
-%friendActionButton {
+#{ $friendActionButton } {
     background-color: var(--background-tinted-hover);
 
-    &%friendActionButtonHighlight {
+    &#{ $friendActionButtonHighlight } {
         background-color: var(--background-tinted-active);
     }
 }

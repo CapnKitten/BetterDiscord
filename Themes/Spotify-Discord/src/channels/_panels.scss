@@ -1,37 +1,39 @@
+@use '../classes' as *;
+
 /*
  *
  *  CHANNELS LIST PANELS
  *
  */
 
-%panels {
+#{ $panels } {
     background-color: var(--app-foreground);
     border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
     //z-index: 103;
 }
 
-%activityPanel {
+#{ $activityPanel } {
     background: transparent !important;
     border-bottom: none;
 
-    + %connectionPanelWrapper {
+    + #{ $connectionPanelWrapper } {
         &:not(:empty) {
             border-top: 1px solid var(--sidebar-panel-border);
         }
     }
 }
 
-%connectionPanelWrapper {
+#{ $connectionPanelWrapper } {
     transition: var(--default-time) var(--default-animation) margin-bottom;
 }
 
-%connectionPanel {
+#{ $connectionPanel } {
     background-color: transparent;
     border-bottom: none;
 }
 
-%connectionPanelActionButtons {
-    %button {
+#{ $connectionPanelActionButtons } {
+    #{ $button } {
         --button-padding: 0 12px;
 
         path {
@@ -46,29 +48,29 @@
     }
 }
 
-%accountPanel {
+#{ $accountPanel } {
     background: transparent !important;
     transition: var(--default-time) var(--default-animation) margin-bottom;
 }
 
-%accountPanelContent {
+#{ $accountPanelContent } {
     background-color: inherit !important;
 }
 
-%panelButton {
+#{ $panelButton } {
     border-radius: 16px;
 }
 
-%accountPanelWithTagAsButton,
-%accountPanelWithTagless {
+#{ $accountPanelWithTagAsButton },
+#{ $accountPanelWithTagless } {
     &:hover {
         background-color: var(--background-tinted-hover);
         border-radius: 20px;
     }
 }
 
-%accountPanelGameActivityToggleAdded {
-    %accountPanelWithTagAsButton {
+#{ $accountPanelGameActivityToggleAdded } {
+    #{ $accountPanelWithTagAsButton } {
         flex: 0;
         min-width: 32px;
     }

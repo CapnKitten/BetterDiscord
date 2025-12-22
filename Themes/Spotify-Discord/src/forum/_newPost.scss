@@ -1,20 +1,22 @@
+@use '../classes' as *;
+
 /*
  *
  *  FORUM NEW POST / SEARCH POSTS
  *
  */
 
-%forumHeader {
+#{ $forumHeader } {
     background-color: var(--card-color);
     border-radius: var(--card-radius);
     border: none;
 
-    &%forumHeaderWithMatchingPosts {
+    &#{ $forumHeaderWithMatchingPosts } {
         border-radius: var(--card-radius) var(--card-radius) 0 0;
     }
 
-    %input {
-        &%inputTextArea {
+    #{ $input } {
+        &#{ $inputTextArea } {
             --input-height: 36px !important;
             --input-padding: 0 12px !important;
 
@@ -25,31 +27,31 @@
     }
 }
 
-%forumHeaderMatchingPostsRow {
+#{ $forumHeaderMatchingPostsRow } {
     background-color: var(--card-color);
     border-radius: 0 0 var(--card-radius) var(--card-radius);
 }
 
-%newPostContainer {
-    &:not(%newPostContainerCollapsed) {
-        %newPostFormContainer {
-            %newPostForm {
+#{ $newPostContainer } {
+    &:not(#{ $newPostContainerCollapsed }) {
+        #{ $newPostFormContainer } {
+            #{ $newPostForm } {
                 margin-right: 16px;
             }
         }
 
-        %newPostTitleContainer {
+        #{ $newPostTitleContainer } {
             margin-bottom: 16px;
         }
     }
 }
 
-%newPostFormContainer {
-    %channelTextArea {
+#{ $newPostFormContainer } {
+    #{ $channelTextArea } {
         background-color: transparent;
     }
-    
-    %channelTextAreaScrollable {
+
+    #{ $channelTextAreaScrollable } {
         --main-textarea-color: var(--input-color);
 
         padding: 6px 8px;
@@ -63,23 +65,17 @@
     }
 }
 
-%newPostAttachmentUploadInput {
+#{ $newPostAttachmentUploadInput } {
     background-color: var(--input-color);
     border-radius: var(--input-radius);
 }
 
-%newPostAttachmentImageSmall {
+#{ $newPostAttachmentImageSmall } {
     border-radius: var(--input-radius);
 }
 
-%newPostAttachmentPopoutContainer {
-    %spoilerContainer {
+#{ $newPostAttachmentPopoutContainer } {
+    #{ $spoilerContainer } {
         border-radius: var(--input-radius);
     }
-}
-
-%forumNewPostAttachmentAction {
-    min-width: 32px;
-    height: 32px;
-    padding: 0;
 }

@@ -1,3 +1,4 @@
+@use '../../classes' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,77 +7,65 @@
  *
  */
 
-%nitroHomeSettingsHeroCard,
-%nitroHomeTierCard,
-%settingsProfileShopCard {
+#{ $nitroHomeTierCard },
+#{ $settingsProfileShopCard } {
     border-radius: var(--card-radius);
 }
 
-%nitroHomeSettingsHeroCard,
-%settingsProfileShopCard,
-%nitroHomeTierCard {
-    %buttonInverted {
-        &%buttonBrand {
+#{ $settingsProfileShopCard },
+#{ $nitroHomeTierCard } {
+    #{ $buttonInverted } {
+        &#{ $buttonBrand } {
             --button-background: hsl(0,0%,100%);
             --button-text-color: var(--brand-experiment);
         }
     }
 
-    %buttonOutlined {
-        &%buttonWhite {
+    #{ $buttonOutlined } {
+        &#{ $buttonWhite } {
             --button-text-color: hsl(0,0%,100%);
             --button-outline: 1px solid hsl(0,0%,100%);
         }
     }
 }
 
-%nitroHomeBigPerkCard,
-%nitroHomeSmallPerkCard {
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
-}
-
-%nitroSettingsFloatingInnerWrapper {
+#{ $nitroSettingsFloatingInnerWrapper } {
     background-color: var(--popout-color);
     box-shadow: var(--default-shadow);
 
-    %buttonInverted {
-        &%buttonBrand {
+    #{ $buttonInverted } {
+        &#{ $buttonBrand } {
             --button-background: hsl(0,0%,100%);
             --button-text-color: hsl(0,0%,0%);
         }
     }
 
-    %buttonOutlined {
-        &%buttonWhite {
+    #{ $buttonOutlined } {
+        &#{ $buttonWhite } {
             --button-text-color: hsl(0,0%,100%);
             --button-outline: 1px solid hsl(0,0%,100%);
         }
     }
 }
 
-%nitroUpsellContainer {
+#{ $nitroUpsellContainer } {
     background: var(--popout-color);
     border-radius: var(--popout-radius);
     box-shadow: var(--default-shadow);
 }
 
-%nitroFloatingUpsell {
-    bottom: calc(var(--app-card-margin) + var(--space-32));
-}
-
 /* USER SETTINGS NITRO SETTINGS -> SERVER BOOST */
 
-%settingsServerBoostBannerGradient {
+#{ $settingsServerBoostBannerGradient } {
     border-radius: var(--card-radius) var(--card-radius) 0 0;
 }
 
-%settingsServerBoostBannerWave {
+#{ $settingsServerBoostBannerWave } {
     fill: var(--app-foreground);
 }
 
-%settingsServerBoostGuildContainer,
-%settingsServerBoostGuildNotSeenWrapper,
-%settingsServerBoostFAQCard {
+#{ $settingsServerBoostGuildContainer },
+#{ $settingsServerBoostGuildNotSeenWrapper },
+#{ $settingsServerBoostFAQCard } {
     @include card-format;
 }

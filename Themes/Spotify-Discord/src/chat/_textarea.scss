@@ -1,10 +1,12 @@
+@use '../classes' as *;
+
 /*
  *
  *  MAIN TEXTAREA
  *
  */
 
-%chatForm {
+#{ $chatForm } {
     position: relative;
     width: 100%;
     bottom: calc(var(--app-bar-size) * -1);
@@ -16,31 +18,31 @@
         display: none;
     }
 
-    %textArea {
+    #{ $textArea } {
         height: var(--main-textarea-min-height);
         min-height: var(--main-textarea-min-height);
     }
 }
 
-%channelTextArea {
+#{ $channelTextArea } {
     margin-bottom: var(--textarea-margin);
     z-index: 2;
 
-    %channelTextAreaAttachButton {
+    #{ $channelTextAreaAttachButton } {
         height: var(--main-textarea-min-height);
     }
 
-    %channelTextAreaButtonsContainer {
+    #{ $channelTextAreaButtonsContainer } {
         --button-height: var(--main-textarea-min-height);
 
         height: var(--main-textarea-min-height);
     }
 
-    %channelTextAreaEmojiButton {
+    #{ $channelTextAreaEmojiButton } {
         max-height: unset;
     }
 
-    %channelTextAreaFontPadding {
+    #{ $channelTextAreaFontPadding } {
         --textarea-text-padding: calc( calc(var(--main-textarea-min-height) - 22px) / 2);
 
         padding-top: var(--textarea-text-padding);
@@ -48,7 +50,7 @@
     }
 }
 
-%channelTextAreaTyping {
+#{ $channelTextAreaTyping } {
     width: calc(100% - (80px + var(--scrollbar-width)));
     height: 16px;
     line-height: 16px;
@@ -59,52 +61,52 @@
     box-sizing: border-box;
 }
 
-%channelInfo,
-%channelTextArea,
-%channelTextAreaScrollable {
+#{ $channelInfo },
+#{ $channelTextArea },
+#{ $channelTextAreaScrollable } {
     background-color: var(--main-textarea-color);
     border-radius: var(--main-textarea-radius);
 }
 
-%channelTextAreaScrollable {
+#{ $channelTextAreaScrollable } {
     background: var(--main-textarea-color) !important;
 }
 
-%channelInfo {
+#{ $channelInfo } {
     height: var(--main-textarea-min-height);
     margin: 0;
     padding: 0;
     border: none;
 }
 
-%channelTextAreaScrollable {
-    %textArea {
+#{ $channelTextAreaScrollable } {
+    #{ $textArea } {
         color: var(--main-textarea-text-color);
     }
 
-    %textAreaDisabled {
-        %textAreaPlaceholder {
+    #{ $textAreaDisabled } {
+        #{ $textAreaPlaceholder } {
             padding-left: 16px;
         }
     }
 
-    %textAreaPlaceholder {
+    #{ $textAreaPlaceholder } {
         color: var(--main-textarea-placeholder-color);
     }
 }
 
-%channelTextAreaAttachWrapper {
+#{ $channelTextAreaAttachWrapper } {
     padding: 0;
 }
 
 /* MAIN TEXTAREA -> APPS AND COMMANDS BUTTON */
 
-%channelAppLauncher {
+#{ $channelAppLauncher } {
     width: var(--space-32);
     height: var(--space-32);
     margin: auto 0;
 
-    %channelAppLauncherButton {
+    #{ $channelAppLauncherButton } {
         --button-height: var(--space-32);
 
         width: var(--space-32);
@@ -119,22 +121,22 @@
 
 /* MAIN TEXTAREA -> REPLY BAR */
 
-%channelTextAreaStackedBars {
+#{ $channelTextAreaStackedBars } {
     background-color: var(--main-textarea-color);
     border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
     border-bottom: 1px solid var(--main-textarea-border-color);
 
-    %channelTextAreaClipContainer {
+    #{ $channelTextAreaClipContainer } {
         margin-top: 0;
         padding-top: 0;
     }
 }
 
-%replyBar,
-%replySuggestion {
+#{ $replyBar },
+#{ $replySuggestion } {
     background-color: transparent;
 }
 
-%replyMentionButton {
+#{ $replyMentionButton } {
     --text-link: hsl(var(--accent-hsl));
 }

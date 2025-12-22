@@ -1,3 +1,4 @@
+@use '../../classes' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,36 +7,17 @@
  *
  */
 
- %formNotice {
-     @include card-format(true);
-     padding: 0;
-     border: none;
-
-     %formNoticeTitle {
-         @include card-format--header;
-         opacity: 1;
-     }
-
-     %formNoticeBody {
-         padding: 16px;
-     }
- }
-
-%authedApp {
-    margin-bottom: 16px;
+#{ $formNotice } {
+    @include card-format(true);
     padding: 0;
     border: none;
 
-    %marginBottom20 {
+    #{ $formNoticeTitle } {
         @include card-format--header;
+        opacity: 1;
     }
 
-    div:not([class]) {
-        padding: 16px 16px 0;
-    }
-
-    %marginTop20 {
-        margin-top: 0;
+    #{ $formNoticeBody } {
         padding: 16px;
     }
 }

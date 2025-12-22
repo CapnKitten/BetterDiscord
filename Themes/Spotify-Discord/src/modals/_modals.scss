@@ -1,3 +1,4 @@
+@use '../classes' as *;
 @use '../mixins' as *;
 
 /*
@@ -6,51 +7,47 @@
  *
  */
 
-%modalRoot {
+#{ $modalRoot } {
     @include modal-format(true);
 
-    &%modalRootNoBg,
-    &%modalRootTransparent,
-    &%carouselModal {
+    &#{ $modalRootNoBg },
+    &#{ $modalRootTransparent },
+    &#{ $carouselModal } {
         background-color: transparent !important;
         box-shadow: none !important;
     }
 
-    &%modalSmall {
+    &#{ $modalSmall } {
         min-height: 75px;
     }
 
-    %modalHeader {
+    #{ $modalHeader } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
     }
 
-    %modalContent {
+    #{ $modalContent } {
 
     }
 
-    %modalCloseButton {
+    #{ $modalCloseButton } {
         --button-height: 24px;
 
         padding: 0;
     }
 
-    %modalFooter {
+    #{ $modalFooter } {
         background-color: var(--popout-color);
         border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
         border-top: 1px solid var(--popout-border-color);
         box-shadow: none;
         gap: 8px;
 
-        %modalFooterRight {
-            gap: 8px;
-        }
-
         span:not([class])[style*="display: block"]:empty {
             display: none !important;
         }
 
-        %buttonLink {
+        #{ $buttonLink } {
             --button-background: hsla(0,0%,0%, 0.1);
             --button-outline: 1px solid hsl(0,0%,80%);
             --button-text-color: hsl(0,0%,100%);
@@ -60,22 +57,18 @@
             }
         }
     }
-
-    %modalFooterButtonsContainer {
-        gap: 8px;
-    }
 }
 
 /* MODALS -> V2 MODALS */
 
-%modalV2Container {
+#{ $modalV2Container } {
     background-color: var(--popout-color);
     border-radius: var(--popout-radius-big);
     border: none;
 }
 
-%modalV2Header {
-    %buttonV2 {
+#{ $modalV2Header } {
+    #{ $buttonV2 } {
         --button-background: transparent;
     }
 }
