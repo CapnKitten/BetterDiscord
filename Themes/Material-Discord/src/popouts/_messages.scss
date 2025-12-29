@@ -9,6 +9,8 @@
 
 #{ $messagesPopoutWrap },
 #{ $recentMentionsPopout } {
+	--unread-radius: calc(var(--message-radius) + var(--space-12));
+
 	max-height: 80vh !important;
 	@include popout-format;
 	animation: top-pop-out 400ms var(--default-animation);
@@ -46,7 +48,8 @@ body:active {
 #{ $messagesPopoutHeader } {
 	height: auto;
 	min-height: unset;
-	padding: 24px 24px 16px;
+	padding-block: 24px 16px;
+	padding-inline: 24px;
 	background-color: transparent;
 	border-bottom: none;
 
@@ -63,7 +66,7 @@ body:active {
 	}
 
 	#{ $headingMdMedium } {
-		margin-bottom: 16px;
+		margin-block-end: 16px;
 	}
 
 	#{ $messagesPopoutExpandedInboxHeader } {
@@ -74,15 +77,17 @@ body:active {
 		height: 48px;
 	}
 
-	#{ $messagesPopoutHeaderControlButton },
 	#{ $messagesPopoutHeaderFriendRequestButton },
 	#{ $messagesPopoutHeaderButton }:not(#{ $messagesPopoutHeaderButtonDisabled }) {
-		background-color: hsl(from hsl(var(--button-link-color)) h s l / 0.125);
-		border-radius: 16px;
+		height: var(--button-height);
+		padding-inline: var(--button-padding);
+		background-color: hsl(from var(--accent-secondary-color) h s l / 0.3);
+		border-radius: var(--button-radius);
+		border: none;
 		transition: var(--default-time) var(--default-animation) background-color;
 
 		&:hover {
-			background-color: hsl(from hsl(var(--button-link-color)) h s l / 0.2);
+			background-color: hsl(from var(--accent-secondary-color) h s l / 0.45);
 		}
 	}
 }
@@ -102,7 +107,7 @@ body:active {
 }
 
 #{ $unreadChannelList } > :first-child #{ $unreadChannel } {
-	margin-top: 16px;
+	margin-block-start: 16px;
 }
 
 #{ $recentMentionsHeaderTabs } {
@@ -117,7 +122,8 @@ body:active {
 
 #{ $messagesPopoutFriendRequestContainer } {
 	#{ $button } {
-		padding: var(--button-padding);
+		padding-inline-start: var(--button-padding-start);
+		padding-inline-end: var(--button-padding-end);
 
 		#{ $textSmMedium } {
 			line-height: var(--button-height);
@@ -125,7 +131,7 @@ body:active {
 	}
 
 	#{ $buttonGreen } {
-		margin-right: 8px;
+		margin-inline-end: 8px;
 
 		#{ $textSmMedium } {
 			color: var(--button-text-color) !important;
@@ -133,7 +139,8 @@ body:active {
 	}
 
 	#{ $buttonPrimary } {
-		--button-padding: 0 12px;
+		--button-padding-start: 12px;
+		--button-padding-end: 12px;
 		--button-background: transparent !important;
 		--button-text-color: var(--button-link-accent-text-color) !important;
 
@@ -157,17 +164,19 @@ body:active {
 	padding: 0 calc(24px - var(--scrollbar-thin-width)) 24px 24px !important;
 
 	#{ $pinnedMessageGroupWrapper } {
-		margin: 0 0 16px;
+		margin-block: 0 16px;
+		margin-inline: 0;
 		background-color: transparent;
 		border: none;
 		overflow: visible;
 
 		&:last-of-type {
-			margin-bottom: 0;
+			margin-block-end: 0;
 		}
 
 		#{ $messagesWrapper } {
-			margin: 0 0 0 50px;
+			margin-block: 0;
+			margin-inline: 50px 0;
 			padding: var(--message-padding-top) var(--message-padding-side) !important;
 			background-color: var(--message-color-alt) !important;
 			border-radius: var(--message-radius);
@@ -190,7 +199,6 @@ body:active {
 }
 
 #{ $messagesPopoutChannelHeader } {
-    --unread-radius: calc(var(--message-radius) + 12px);
 	padding: 12px 16px;
 	background-color: var(--message-color-alt);
 	border-radius: var(--unread-radius) var(--unread-radius) 0 0;
@@ -212,32 +220,43 @@ body:active {
 /* MESSAGES POPOUT -> RECENT MENTIONS */
 
 #{ $recentMentionsContainer } {
-	padding-left: 0;
-	padding-right: 0;
+	padding-inline: 0;
 	background-color: var(--message-color-alt);
-    border-radius: calc(var(--message-radius) + 12px);
+    border-radius: var(--unread-radius);
 
 	&:first-child {
-		margin-top: 16px;
+		margin-block-start: 16px;
 	}
 
 	#{ $recentMentionsMessagesContainer } {
-        --unread-radius: calc(var(--message-radius) + 12px);
-		margin-left: 0;
-        padding-top: 8px;
+		margin-inline-start: 0;
 		background-color: var(--message-color-alt);
-	    border-radius: 0 0 var(--unread-radius) var(--unread-radius);
+		border-radius: 0 0 var(--unread-radius) var(--unread-radius);
 		border: none;
 
 		#{ $messagesWrapper } {
 			--message-color: var(--message-color-hover);
 
 			&#{ $messageCozy } {
-				margin: 0 0 0 66px;
+				margin-block: 0;
+				margin-inline: 66px 0;
 				border-radius: var(--message-radius);
 				overflow: visible;
 			}
 		}
+	}
+}
+
+#{ $unreadMessagesJumpButton } {
+	margin-inline-end: 12px;
+	background-color: var(--accent-secondary-color);
+	border-radius: 8px;
+	border: none;
+	backdrop-filter: none;
+	box-shadow: var(--shadow-soft);
+
+	&:hover {
+		background-color: var(--accent-secondary-color);
 	}
 }
 
@@ -260,59 +279,66 @@ body:active {
 
 #{ $unreadChannel } {
 	#{ $messagesPopoutChannelHeader } {
-		padding: 12px 16px;
+		gap: var(--space-12);
+		padding: var(--space-12) var(--space-16);
 
 		&:only-child {
-			border-radius: calc(var(--message-radius) + 12px);
+			border-radius: calc(var(--message-radius) + var(--space-12));
 			border-bottom: none;
 		}
 	}
 
-    #{ $messagesPopoutCollapseButton } {
-        margin-inline-end: 16px;
-	    background-color: var(--accent-secondary-color);
-	    padding: 12px;
-	    border-radius: 50%;
-    }
+	#{ $messagesPopoutCollapseButton } {
+		display: flex;
+		height: var(--button-height);
+		min-width: var(--button-height);
+		padding: 0;
+		background-color: var(--accent-secondary-color);
+		border-radius: var(--button-radius);
+		justify-content: center;
+		align-items: center;
+	}
+
+	#{ $messagesPopoutChannelIcon } {
+		margin-inline-end: 0;
+	}
 }
 
 #{ $unreadMessages } {
-    --unread-radius: calc(var(--message-radius) + 12px);
-
-	padding: 16px;
-    padding-top: 8px;
+	padding: var(--space-16);
+	padding-block-start: var(--space-8);
 	background-color: var(--message-color-alt);
 	border-radius: 0 0 var(--unread-radius) var(--unread-radius);
 	border: none;
 
 	#{ $messagesWrapper } {
+		--message-color: var(--message-color-hover);
+
 		&#{ $messageCozy } {
 			overflow: visible;
 
 			&#{ $messageGroupStart } {
-				margin-left: 48px;
-                margin-right: 0px;
+				margin-inline-start: 48px;
+				margin-inline-end: 0;
 			}
 
 			&:not(#{ $messageGroupStart }) {
-				margin-left :48px;
-                margin-top: 4px;
-                margin-bottom: 0px;
+				margin-block: 4px 0;
+				margin-inline-start: 48px;
 			}
 		}
 	}
 }
 
-/* JUMP BUTTON */
+#{ $messagesPopoutThreadContainer } {
+    --unread-radius: calc(var(--message-radius) + var(--space-12));
 
-#{ $unreadMessagesJumpButton } {
-    margin-inline-end: 12px;
-    
-    border: none;
-    border-radius: 8px;
-    
-    background-color: var(--accent-secondary-color);
+    padding-block-end: var(--space-16);
+    padding-inline: var(--space-16);
+    background-color: var(--message-color-alt);
+    border-radius: 0 0 var(--unread-radius) var(--unread-radius);
 
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
+    #{ $postContainer } {
+        background-color: var(--message-color-hover);
+    }
 }

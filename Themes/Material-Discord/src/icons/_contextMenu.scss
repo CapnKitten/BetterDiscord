@@ -69,6 +69,7 @@
         &[id="channel-context-2"],
         &[id="channel-context-3"],
         &[id*="user-settings-cog-Appearance"],
+        &[id*="user-profile-overflow-menu-invite-to-server"],
         &#user-context-user-volume,
         &#user-context-report-event,
         &#user-context-vc-copy-user-url,
@@ -248,6 +249,7 @@
             'user-profile-actions-user-block':                  'block',
             'user-profile-actions-user-message':                'chat_bubble',
             'user-profile-overflow-menu-view-profile':          'person',
+            'user-profile-overflow-menu-ignore':                'remove_circle',
             'user-profile-overflow-menu-block':                 'block',
             'user-profile-overflow-menu-report-user':           'report',
 
@@ -298,7 +300,10 @@
             'user-settings-cog-VencordThemes':                  'themes',
             'user-settings-cog-VencordUpdater':                 'update',
             'user-settings-cog-VencordCloud':                   'cloud',
-            'user-settings-cog-VencordSettingsSync':            'cloud_done'
+            'user-settings-cog-VencordSettingsSync':            'cloud_done',
+
+            'user-settings-cog-BetterDiscord--Updates':         'update',
+            'user-settings-cog-BetterDiscord--Custom-CSS':      'code'
         );
 
         &[id] {
@@ -415,77 +420,86 @@
         }
 
         $icons: (
-            'user-context-apps':                                'apps',
-            'user-context-favorite-channel':                    'favorite',
-            'user-context-invite-to-server':                    'add_circle',
-            'user-context-roles':                               'person',
-            'user-context-voice-move':                          'move',
-            'user-context-mute-channel':                        'volume_off',
+            'user-context-apps':                                            'apps',
+            'user-context-favorite-channel':                                'favorite',
+            'user-context-invite-to-server':                                'add_circle',
+            'user-context-roles':                                           'person',
+            'user-context-voice-move':                                      'move',
+            'user-context-mute-channel':                                    'volume_off',
 
-            'gdm-context-favorite-channel':                     'favorite',
-            'gdm-context-mute-channel':                         'volume_up',
+            'gdm-context-favorite-channel':                                 'favorite',
+            'gdm-context-mute-channel':                                     'volume_up',
 
-            'message-add-reaction':                             'emoji',
-            'message-add-reaction-0':                           'emoji',
-            'message-add-reaction-1':                           'burst_reaction',
-            'message-translate':                                'translate',
-            'message-apps':                                     'apps',
-            'message-guild-feed-feature':                       'feature',
-            'message-guild-automod-add-selection':              'filter',
-            'message-copy-message':                             'content_copy',
-            'message-remove-emoji-reactions':                   'remove_circle',
-            'message-save-for-later':                           'bookmark',
+            'message-add-reaction':                                         'emoji',
+            'message-add-reaction-0':                                       'emoji',
+            'message-add-reaction-1':                                       'burst_reaction',
+            'message-translate':                                            'translate',
+            'message-apps':                                                 'apps',
+            'message-guild-feed-feature':                                   'feature',
+            'message-guild-automod-add-selection':                          'filter',
+            'message-copy-message':                                         'content_copy',
+            'message-remove-emoji-reactions':                               'remove_circle',
+            'message-save-for-later':                                       'bookmark',
 
-            'message-actions-apps':                             'apps',
-            'message-actions-add-reaction':                     'emoji',
-            'message-actions-add-reaction-0':                   'emoji',
-            'message-actions-add-reaction-1':                   'burst_reaction',
-            'message-actions-remove-emoji-reactions':           'remove_circle',
-            'message-actions-guild-feed-feature':               'feature',
-            'message-actions-save-for-later':                   'bookmark',
+            'message-actions-apps':                                         'apps',
+            'message-actions-add-reaction':                                 'emoji',
+            'message-actions-add-reaction-0':                               'emoji',
+            'message-actions-add-reaction-1':                               'burst_reaction',
+            'message-actions-remove-emoji-reactions':                       'remove_circle',
+            'message-actions-guild-feed-feature':                           'feature',
+            'message-actions-save-for-later':                               'bookmark',
 
-            'image-context-imageutilities-download-file-as':    'save',
-            'image-context-imageutilities-submenu-search':      'search',
+            'image-context-imageutilities-download-file-as':                'save',
+            'image-context-imageutilities-submenu-search':                  'search',
 
-            'image-menu-media-viewer-details':                  'info',
+            'image-menu-media-viewer-details':                              'info',
 
-            'thread-context-mute-channel':                      'volume_up',
-            'thread-context-thread-notifications':              'notifications',
-            'thread-context-edit-tags':                         'edit',
-            'thread-context-auto-archive-thread':               'archive',
-            'thread-context-guild-feed-feature':                'feature',
+            'thread-context-mute-channel':                                  'volume_up',
+            'thread-context-thread-notifications':                          'notifications',
+            'thread-context-edit-tags':                                     'edit',
+            'thread-context-auto-archive-thread':                           'archive',
+            'thread-context-guild-feed-feature':                            'feature',
 
-            'textarea-context-suggestions':                     'lightbulb',
+            'textarea-context-suggestions':                                 'lightbulb',
 
-            'guild-context-mute-guild':                         'volume_up',
-            'guild-context-guild-notifications':                'notifications',
-            'guild-context-guild-settings':                     'settings',
-            'guild-context-ChannelTabs':                        'folder',
+            'guild-context-mute-guild':                                     'volume_up',
+            'guild-context-guild-notifications':                            'notifications',
+            'guild-context-guild-settings':                                 'settings',
+            'guild-context-ChannelTabs':                                    'folder',
 
-            'channel-context-mute-channel':                     'volume_up',
-            'channel-context-channel-notifications':            'notifications',
-            'channel-context-favorite-channel':                 'favorite',
+            'channel-context-mute-channel':                                 'volume_up',
+            'channel-context-channel-notifications':                        'notifications',
+            'channel-context-favorite-channel':                             'favorite',
 
-            'user-settings-cog-Games':                          'stadia_controller',
-            'user-settings-cog-Appearance':                     'chat',
-            'user-settings-cog-Accessibility':                  'accessibility',
-            'user-settings-cog-Voice___Video':                  'mic',
-            'user-settings-cog-Text___Images':                  'keyboard',
-            'user-settings-cog-Streamer_Mode':                  'live_tv',
-            'user-settings-cog-Experiments':                    'experiment',
-            'user-settings-cog-Developer_Options':              'code',
+            'user-settings-cog-Games':                                      'stadia_controller',
+            'user-settings-cog-Appearance':                                 'chat',
+            'user-settings-cog-Accessibility':                              'accessibility',
+            'user-settings-cog-Voice___Video':                              'mic',
+            'user-settings-cog-Text___Images':                              'keyboard',
+            'user-settings-cog-Streamer_Mode':                              'live_tv',
+            'user-settings-cog-Experiments':                                'experiment',
+            'user-settings-cog-Developer_Options':                          'code',
 
-            'user-profile-overflow-menu-invite-to-server':      'add_circle',
+            'user-settings-cog-BetterDiscord':                              'betterdiscord',
+            'user-settings-cog-BetterDiscord--Plugins':                     'plugins',
+            'user-settings-cog-BetterDiscord--Themes':                      'themes',
 
-            'audio-device-context-audioinput-devices':          'mic',
-            'audio-device-context-input-profiles':              'headset_mic',
-            'audio-device-context-audiooutput-devices':         'volume_up',
-            'audio-device-context-input-devices':               'mic',
-            'audio-device-context-output-devices':              'volume_up',
-            'video-device-context-video-devices':               'videocam',
+            'user-settings-cog-BetterDiscord--Settings--Addon-Manager':     'plugins',
+            'user-settings-cog-BetterDiscord--Settings--Addon-Store':       'storefront',
+            'user-settings-cog-BetterDiscord--Settings--Custom-CSS':        'code',
+            'user-settings-cog-BetterDiscord--Settings--Editor-Options':    'code_blocks',
 
-            'manage-streams-stream-settings':                   'settings',
-            'clips-context-clips-duration':                     'width'
+            'user-profile-overflow-menu-invite-to-server':                  'add_circle',
+
+            'audio-device-context-audioinput-devices':                      'mic',
+            'audio-device-context-input-profiles':                          'headset_mic',
+            'audio-device-context-audiooutput-devices':                     'volume_up',
+            'audio-device-context-input-devices':                           'mic',
+            'audio-device-context-output-devices':                          'volume_up',
+            'video-device-context-video-devices':                           'videocam',
+
+            'manage-streams-stream-settings':                               'settings',
+            'clips-context-clips-duration':                                 'width'
         );
 
         &[id] {

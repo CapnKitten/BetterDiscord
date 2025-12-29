@@ -253,7 +253,8 @@
 
 		#{ $button } {
 			--button-height: 24px;
-			--button-padding: 0 6px;
+			--button-padding-start: 6px;
+			--button-padding-end: 6px;
 
 			#{ $textXsNormal } {
 				color: hsl(var(--accent-hsl--material-you)) !important;
@@ -596,10 +597,6 @@
 /* MESSAGES -> NEW MESSAGES DIVIDER */
 
 #{ $newMessagesDivider } {
-	#{ $dividerDate } {
-        background-color: var(--message-color-hover);
-    }
-
 	&#{ $dividerUnread } {
 		margin-block: 0;
 		margin-inline: 5rem 0.875rem;
@@ -634,6 +631,10 @@
 	&#{ $hasContent } {
 		margin-inline-start: 1rem;
 	}
+}
+
+#{ $dividerDate } {
+	background-color: var(--message-color-hover);
 }
 
 /* MESSAGES -> ERROR BAR */
@@ -685,6 +686,7 @@
     #{ $jumpToPresentBarButtonMain },
     #{ $jumpToPresentBarButtonAlt } {
         min-width: var(--button-height);
-        padding: var(--button-padding);
+		padding-inline-start: var(--button-padding-start);
+		padding-inline-end: var(--button-padding-end);
     }
 }

@@ -8,7 +8,8 @@
  */
 
 #{ $searchResultsWrap } {
-	margin: 12px 12px 12px 8px;
+	margin-block: 12px;
+	margin-inline: 8px 12px;
 	background-color: var(--main-alt);
 	border-radius: var(--popout-radius-big);
     border: none;
@@ -20,8 +21,10 @@
 	--search-header-padding: 16px;
 
 	height: var(--search-header-height);
-	margin: 8px 8px -8px;
-    padding: 0 calc(var(--search-header-padding) / 2) 0 var(--search-header-padding);
+	margin-block: 8px -8px;
+	margin-inline: 8px;
+	padding-block: 0;
+	padding-inline: var(--search-header-padding) calc(var(--search-header-padding) / 2);
     background-color: var(--card-color-filled);
     border-radius: calc(var(--popout-radius-big) - 8px);
     border-bottom: none;
@@ -49,11 +52,13 @@
 /* SEARCH RESULTS -> MESSAGES */
 
 #{ $searchScroller } {
-	padding: 16px 8px 8px;
+	padding-block: 16px 8px;
+	padding-inline: 8px;
 }
 
 #{ $searchChannelName } {
-	padding: 8px 8px 8px 12px;
+	padding-block: 8px;
+	padding-inline: 12px 8px;
 	background-color: transparent;
 	color: var(--card-header-text-color);
 }
@@ -64,7 +69,8 @@
 	border: none;
 
 	#{ $messagesWrapper } {
-		margin: 0 8px 0 60px !important;
+		margin-block: 0 !important;
+		margin-inline: 60px 8px !important;
 		padding: 12px !important;
 		border-radius: var(--message-radius);
 
@@ -90,8 +96,8 @@
 
 		#{ $messageReplied } {
             &:before {
-			left: calc((var(--chat-avatar-size) / 2 + var(--message-padding-side) + var(--gutter) / 2) * -1);
-			border-color: var(--message-color);
+				left: calc((var(--chat-avatar-size) / 2 + var(--message-padding-side) + var(--gutter) / 2) * -1);
+				border-color: var(--message-color);
             }
         }
 	}
@@ -107,7 +113,12 @@
 	}
 }
 
+#{ $pageControl } {
+	gap: var(--space-4);
+}
+
 #{ $pageButton } {
+	margin: 0;
 	transition: var(--default-time) var(--default-animation) background-color;
 
 	&:hover {
@@ -127,24 +138,19 @@
 }
 
 #{ $pageEndButton } {
-	&:first-child,
-	&:last-child {
-		padding: var(--button-padding);
+	&:first-of-type {
+		--button-padding-start: var(--button-padding-has-icon);
 	}
 
-	&:first-child {
-		--button-padding: 0 16px 0 12px;
-
-		#{ $pageEndButtonIconCaret } {
-			margin-right: 8px;
-		}
+	&:last-of-type {
+		--button-padding-end: var(--button-padding-has-icon);
 	}
 
-	&:last-child {
-		--button-padding: 0 12px 0 16px;
+	#{ $buttonContents} {
+		gap: var(--space-8);
+	}
 
-		#{ $pageEndButtonIconCaret } {
-			margin-left: 8px;
-		}
+	#{ $pageEndButtonIconCaret } {
+		margin-inline: 0;
 	}
 }
