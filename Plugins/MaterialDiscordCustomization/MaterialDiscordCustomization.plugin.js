@@ -1,9 +1,9 @@
 /**
  * @name MaterialDiscordCustomization
  * @author CapnKitten
- * @version 1.0.2
+ * @version 1.0.3
  * @description Implements easy customization of the Material Discord theme.
- * @authorId 405126960902176768
+ * @authorId 124276233478471680
  * @website https://github.com/CapnKitten
  * @source https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/MaterialDiscordCustomization/MaterialDiscordCustomization.plugin.js
  * @donate https://paypal.me/capnkitten
@@ -13,7 +13,7 @@
 const config = {
     info: {
         name: "MaterialDiscordCustomization",
-        version: "1.0.2",
+        version: "1.0.3",
         description: "Implements easy customization of the Material Discord theme."
     },
     changelog: [
@@ -52,9 +52,9 @@ module.exports = class MaterialDiscordCustomization {
 
         const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
-        let r = parseInt(result[1], 16);
-        let g = parseInt(result[2], 16);
-        let b = parseInt(result[3], 16);
+        let r = parseInt(result[1], 16),
+            g = parseInt(result[2], 16),
+            b = parseInt(result[3], 16);
 
         r /= 255, g /= 255, b /= 255;
         const max = Math.max(r, g, b), min = Math.min(r, g, b);
@@ -86,18 +86,18 @@ module.exports = class MaterialDiscordCustomization {
         s /= 100;
         l /= 100;
 
-        const k = (n) => (n + h / 30) % 12;
-        const a = s * Math.min(l, 1 - l);
-        const f = (n) => l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1));
+        const k = (n) => (n + h / 30) % 12,
+            a = s * Math.min(l, 1 - l),
+            f = (n) => l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1));
 
         const toHex = (c) => {
             const hex = Math.round(c * 255).toString(16);
             return hex.length === 1 ? '0' + hex : hex;
         };
 
-        const r = toHex(f(0));
-        const g = toHex(f(8));
-        const b = toHex(f(4));
+        const r = toHex(f(0)),
+            g = toHex(f(8)),
+            b = toHex(f(4));
 
         return `#${r}${g}${b}`;
     }
@@ -127,6 +127,7 @@ module.exports = class MaterialDiscordCustomization {
                     type: "color",
                     id: "accent",
                     name: "Accent color",
+                    note: "The accent color controls the color scheme of the entire UI. Everything will be a variation of this color.",
                     value: ACCENT_HEX_LOADED,
                     defaultValue: ACCENT_HEX_DEFAULT,
                     inline: true,
@@ -527,7 +528,7 @@ module.exports = class MaterialDiscordCustomization {
 
                 --button-height: ${this.settings.button.height}px !important;
                 --button-radius: ${this.settings.button.radius}px !important;
-                --button-padding: 0 ${this.settings.button.padding}px !important;
+                --button-padding: ${this.settings.button.padding}px !important;
 
                 --message-radius: ${this.settings.message.radius}px !important;
                 --message-padding-top: ${this.settings.message.paddingTop}px !important;
