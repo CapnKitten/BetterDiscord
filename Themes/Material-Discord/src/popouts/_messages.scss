@@ -214,16 +214,18 @@ body:active {
 	padding-left: 0;
 	padding-right: 0;
 	background-color: var(--message-color-alt);
-    border-radius: var(--message-radius);
+    border-radius: calc(var(--message-radius) + 12px);
 
 	&:first-child {
 		margin-top: 16px;
 	}
 
 	#{ $recentMentionsMessagesContainer } {
+        --unread-radius: calc(var(--message-radius) + 12px);
 		margin-left: 0;
+        padding-top: 8px;
 		background-color: var(--message-color-alt);
-		border-radius: 0 0 var(--message-radius) var(--message-radius);
+	    border-radius: 0 0 var(--unread-radius) var(--unread-radius);
 		border: none;
 
 		#{ $messagesWrapper } {
@@ -300,4 +302,12 @@ body:active {
 			}
 		}
 	}
+}
+
+#{ unreadMessagesJumpButton } {
+    border: none;
+	background-color: var(--accent-secondary-color);
+	border-radius: 8px;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
 }
