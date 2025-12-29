@@ -257,10 +257,10 @@ body:active {
 
 #{ $unreadChannel } {
 	#{ $messagesPopoutChannelHeader } {
-		padding: 12px 16px 12px 42px;
+		padding: 12px 16px;
 
 		&:only-child {
-			border-radius: var(--message-radius);
+			border-radius: calc(var(--message-radius) + 12px);
 			border-bottom: none;
 		}
 
@@ -269,12 +269,22 @@ body:active {
 			cursor: pointer;
 		}
 	}
+
+    #{ $messagesPopoutCollapseButton } {
+        margin-inline-end: 16px;
+	    background-color: var(--accent-secondary-color);
+	    padding: 12px;
+	    border-radius: 50%;
+    }
 }
 
 #{ $unreadMessages } {
+    --unread-radius: calc(var(--message-radius) + 12px);
+
 	padding: 16px;
+    padding-top: 8px;
 	background-color: var(--message-color-alt);
-	border-radius: 0 0 var(--message-radius) var(--message-radius);
+	border-radius: 0 0 var(--unread-radius) var(--unread-radius);
 	border: none;
 
 	#{ $messagesWrapper } {
@@ -282,7 +292,7 @@ body:active {
 			overflow: visible;
 
 			&#{ $messageGroupStart } {
-				margin: 16px 0 0 48px;
+				margin-left: 48px;
 			}
 
 			&:not(#{ $messageGroupStart }) {
