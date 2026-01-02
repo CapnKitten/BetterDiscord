@@ -196,8 +196,8 @@ body:active {
 
     #{ $pinnedActionButtons } {
         display: flex;
-		top: 22px;
-		right: 12px;
+		top: var(--space-8);
+		right: var(--space-8);
         gap: 2px !important;
         opacity: 0;
         transition: var(--default-time) var(--default-animation) opacity;
@@ -284,16 +284,30 @@ body:active {
 	}
 }
 
+
 #{ $unreadMessagesJumpButton } {
-	margin-inline-end: 12px;
+	--button-height: var(--space-32);
+
+	height: var(--button-height);
+	top: unset;
+	right: unset;
+	inset-block-start: var(--space-8);
+	inset-inline-end: var(--space-8);
+	padding-block: 0;
+	padding-inline: var(--space-8);
 	background-color: var(--accent-secondary-color);
-	border-radius: 8px;
+	border-radius: calc(var(--button-height) / 2);
 	border: none;
 	backdrop-filter: none;
 	box-shadow: var(--shadow-soft);
 
 	&:hover {
 		background-color: var(--accent-secondary-color);
+	}
+
+	#{ $textXsMedium } {
+		font-size: var(--button-font-size);
+		line-height: var(--button-height);
 	}
 }
 
@@ -361,7 +375,14 @@ body:active {
 
 			&:not(#{ $messageGroupStart }) {
 				margin-block: 4px 0;
-				margin-inline-start: 48px;
+				margin-inline: 48px 0;
+			}
+		}
+
+		#{ $messageSpine } {
+			&:before {
+				margin-inline: 0 calc(var(--message-padding-side));
+				border-color: var(--message-color-hover);
 			}
 		}
 	}
