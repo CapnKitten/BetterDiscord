@@ -209,13 +209,13 @@
 	$border-focused: inset 0 0 0 2px hsl(var(--accent-hsl--material-you));
 
 	height: $height $imp;
+	padding: 0 var(--input-padding) $imp;
+	background-color: var(--input-color) $imp;
+	border: none;
 
 	@if $rounded {
 		max-height: $max-height $imp;
-		padding: var(--input-padding) $imp;
-		background-color: var(--input-color) $imp;
 		border-radius: calc(#{$height} / 2) $imp;
-		border: none;
 		box-shadow: none;
 
 		&:focus-within {
@@ -223,18 +223,11 @@
 		}
 	} @else {
 		min-height: $height $imp;
-		padding: var(--input-padding) $imp;
-		background-color: var(--input-color) $imp;
-		border-radius: calc($max-height / 4) $imp;
-	    border: none;
+		border-radius: calc($max-height / 8) $imp;
 	    box-shadow: inset 0 0 0 1px var(--input-border-color);
 	    color: var(--input-text-color);
 	    transition: var(--default-time) var(--default-animation) box-shadow;
 		box-sizing: border-box;
-
-	    &:hover {
-	        border: none;
-	    }
 
 		@if $focus-within {
 			&:focus-within {
