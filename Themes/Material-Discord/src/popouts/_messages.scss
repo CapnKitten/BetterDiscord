@@ -48,8 +48,8 @@ body:active {
 #{ $messagesPopoutHeader } {
 	height: auto;
 	min-height: unset;
-	padding-block: 24px 16px;
-	padding-inline: 24px;
+	padding-block: var(--space-24) var(--space-16);
+	padding-inline: var(--space-24);
 	background-color: transparent;
 	border-bottom: none;
 
@@ -161,7 +161,7 @@ body:active {
 /* MESSAGES POPOUT -> INNER */
 
 #{ $messagesPopoutInner } {
-	padding: 0 calc(24px - var(--scrollbar-thin-width)) 24px 24px !important;
+	padding: 0 calc(var(--space-24) - var(--scrollbar-width)) var(--space-24) var(--space-24) !important;
 
 	#{ $pinnedMessageGroupWrapper } {
 		margin-block: 0 16px;
@@ -174,6 +174,12 @@ body:active {
 			margin-block-end: 0;
 		}
 
+		&:hover {
+            #{ $pinnedActionButtons } {
+                opacity: 1;
+            }
+        }
+
 		#{ $messagesWrapper } {
 			margin-block: 0;
 			margin-inline: 50px 0;
@@ -182,15 +188,46 @@ body:active {
 			border-radius: var(--message-radius);
 		}
 
-		#{ $pinnedActionButtons } {
-			top: 22px;
-			right: 12px;
-
-			#{ $pinnedJumpButton } {
-				border-radius: 9px;
-			}
-		}
+		#{ $unreadMessagesJumpButton } {
+            margin-block-start: var(--space-8);
+            margin-inline-end: var(--space-12);
+        }
 	}
+
+    #{ $pinnedActionButtons } {
+        display: flex;
+		top: 22px;
+		right: 12px;
+        gap: 2px !important;
+        opacity: 0;
+        transition: var(--default-time) var(--default-animation) opacity;
+
+		#{ $pinnedJumpButton } {
+			border-radius: 9px;
+		}
+    }
+
+    #{ $pinnedActionButtonContainer } {
+        background: transparent;
+
+        #{ $buttonV2 } {
+            --button-height: var(--space-32);
+            --button-padding-start: var(--space-8);
+            --button-padding-end: var(--space-8);
+        }
+
+        &:first-of-type {
+            --button-radius: calc(var(--button-height) / 2) 4px 4px calc(var(--button-height) / 2);
+        }
+
+        &:last-of-type {
+            --button-radius: 4px calc(var(--button-height) / 2) calc(var(--button-height) / 2) 4px;
+        }
+
+        &:only-child {
+            --button-radius: calc(var(--button-height) / 2);
+        }
+    }
 }
 
 #{ $messagesPopoutFooter } {

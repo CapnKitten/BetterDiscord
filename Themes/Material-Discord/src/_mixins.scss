@@ -206,13 +206,13 @@
 
 @mixin input-format($important: false, $focus-within: false, $rounded: false, $height: var(--input-height), $max-height: var(--input-height)) {
 	$imp: if($important, !important, null);
-	$border-focused: inset 0 -2px 0 0 hsl(var(--accent-hsl--material-you));
+	$border-focused: inset 0 0 0 2px hsl(var(--accent-hsl--material-you));
 
 	height: $height $imp;
 
 	@if $rounded {
 		max-height: $max-height $imp;
-		padding: 0 var(--input-padding) $imp;
+		padding: var(--input-padding) $imp;
 		background-color: var(--input-color) $imp;
 		border-radius: calc(#{$height} / 2) $imp;
 		border: none;
@@ -223,11 +223,11 @@
 		}
 	} @else {
 		min-height: $height $imp;
-		padding: 0 var(--input-padding) $imp;
+		padding: var(--input-padding) $imp;
 		background-color: var(--input-color) $imp;
-		border-radius: 4px 4px 0 0 $imp;
+		border-radius: calc($max-height / 4) $imp;
 	    border: none;
-	    box-shadow: inset 0 -1px 0 0 var(--input-border-color);
+	    box-shadow: inset 0 0 0 1px var(--input-border-color);
 	    color: var(--input-text-color);
 	    transition: var(--default-time) var(--default-animation) box-shadow;
 		box-sizing: border-box;
