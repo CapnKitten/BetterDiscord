@@ -61,74 +61,85 @@
 	}
 }
 
-#{ $activeNowCardInteractive } {
-	margin: 0 0 2px;
-	background-color: var(--activity-card-color);
-	border-radius: 4px;
-	border: none;
-	transition: var(--default-time) var(--default-animation) background-color;
-
-	&:first-of-type {
-		border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-	}
-
-	&:nth-last-child(1) {
-		border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-	}
-
-	&:hover {
-		background-color: var(--activity-card-color--hover) !important;
-	}
-
-	#{ $activeNowCardInset } {
-		margin-left: 44px;
-		background-color: transparent;
-	}
-
-	#{ $activeNowOuterCard } {
-        background-color: var(--activity-card-color);
-    }
-
-	#{ $activeNowCardSection } {
-		margin-bottom: 2px;
-        background-color: var(--activity-card-color--inset);
-        border-radius: 4px;
+#{ $activeNowRefresh } {
+	#{ $activeNowCardInteractive } {
+		margin: 0 0 2px;
+		background-color: var(--activity-card-color);
+		border-radius: 4px;
 		border: none;
+		box-shadow: none;
+		transition: var(--default-time) var(--default-animation) background-color;
 
 		&:first-of-type {
-            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-        }
+			border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+		}
 
-        &:not(:first-of-type):last-of-type {
-            margin-bottom: 0;
-            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-        }
+		&:nth-last-child(1) {
+			border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+		}
 
-        &:only-child {
-            border-radius: var(--card-radius-big);
-        }
-	}
+		&:hover {
+			background-color: var(--activity-card-color--hover) !important;
+		}
 
-	#{ $activeNowCardSeparator } {
-		display: none;
-	}
+		#{ $activeNowCardInset } {
+			&:not(:empty) {
+				padding-block: var(--space-4) var(--space-8);
+				padding-inline: var(--space-16);
+			}
 
-	#{ $activeNowCardHeaderIcon } {
-		border-radius: 50%;
-	}
+			background-color: transparent;
+		}
 
-	#{ $activeNowStreamingPreviewWrapper } {
-		background-color: var(--card-color-alt);
-		border-radius: calc(var(--card-radius-big) / 1.25);
-		overflow: hidden;
-	}
+		#{ $activeNowOuterCard } {
+	        background-color: var(--activity-card-color);
+	    }
 
-	#{ $activeNowCardStreamImage } {
-		border-radius: calc(var(--card-radius-big) / 1.25);
-	}
+		#{ $activeNowCardSection } {
+			margin-bottom: 2px;
+	        background-color: var(--activity-card-color--inset);
+	        border-radius: 4px;
+			border: none;
 
-	#{ $activeNowCardImageBorderRadius0 } {
-		border-radius: 50%;
+			&:first-of-type {
+	            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+	        }
+
+	        &:not(:first-of-type):last-of-type {
+	            margin-bottom: 0;
+	            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+	        }
+
+	        &:only-child {
+	            border-radius: var(--card-radius-big);
+	        }
+		}
+
+		#{ $activeNowCardSeparator } {
+			display: none;
+		}
+
+		#{ $activeNowCardHeader } {
+			background-color: transparent;
+		}
+
+		#{ $activeNowCardHeaderIcon } {
+			border-radius: 50%;
+		}
+
+		#{ $activeNowStreamingPreviewWrapper } {
+			background-color: var(--card-color-alt);
+			border-radius: calc(var(--card-radius-big) / 1.25);
+			overflow: hidden;
+		}
+
+		#{ $activeNowCardStreamImage } {
+			border-radius: calc(var(--card-radius-big) / 1.25);
+		}
+
+		#{ $activeNowCardImageBorderRadius0 } {
+			border-radius: 50%;
+		}
 	}
 }
 
