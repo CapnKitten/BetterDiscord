@@ -8,18 +8,43 @@
  */
 
 #{ $menuPopout } {
-    background-color: var(--popout-color);
-	border-radius: var(--popout-radius);
+    --context-padding: 4px;
+    --context-gap: 2px;
+
+    --context-radius: calc(var(--context-radius-big) / 2.25);
+    --context-radius-big: calc(var(--popout-radius-big) / 1.25);
+    --context-radius-big-inner: calc(var(--context-radius-big) - var(--context-padding));
+
+    background-color: transparent;
+    border-radius: var(--context-radius-big);
     box-shadow: var(--shadow-medium);
     border: none;
     animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
 	transform-origin: top;
 
+    &:not(:has(div[role="group"])) {
+        padding: var(--context-padding);
+        background-color: var(--popout-color);
+    }
+
     #{ $scroller } {
-        padding: 8px 0;
+        padding: 0 !important;
+        border-radius: var(--context-radius-big);
 
         &::-webkit-scrollbar {
             --scrollbar-thin-width: 0;
+        }
+    }
+
+    div[role="group"] {
+        padding: var(--context-padding);
+        background-color: var(--popout-color);
+        border-radius: var(--context-radius);
+        box-shadow: var(--shadow-medium);
+        overflow: hidden;
+
+        + div[role="group"] {
+            margin-block-start: var(--context-gap);
         }
     }
 
@@ -30,10 +55,10 @@
     #{ $menuPopoutItem } {
         min-height: 32px;
 		margin: 0;
-		padding: 9px 12px;
 		line-height: 18px;
+        padding: 10px 12px;
         gap: 12px;
-		border-radius: 0;
+		border-radius: var(--context-radius-big-inner);
 		color: var(--menu-item-text-color) !important;
 		transition: var(--default-time) var(--default-animation) background-color;
         flex-direction: row-reverse;
@@ -96,6 +121,17 @@
         #{ $accountSwitcherUserMenuText } {
             color: inherit;
         }
+
+        &#textarea-context-suggestions {
+            margin-block-end: var(--context-gap);
+        }
+
+        &#textarea-context-suggestions,
+        &#textarea-context-submit-button {
+            background-color: var(--popout-color);
+            border-radius: var(--context-radius);
+            box-shadow: var(--shadow-medium);
+        }
     }
 
     #{ $menuPopoutLabel } {
@@ -109,26 +145,73 @@
         }
     }
 
-	#{ $submenuPaddingContainer } {
-		margin-left: -4px;
-		margin-right: -4px;
-		animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
-		transform-origin: top;
-	}
-
     #{ $menuPopoutSeparator } {
         width: 100%;
-		margin: 8px 0;
-		border-color: var(--separator-color);
+        height: var(--context-gap);
+        margin: 0;
+        border: none;
     }
 
     #{ $menuPopoutInnerLabel } {
         gap: 8px;
     }
+
+    /* Some context menus are not universal - This fixes the transparent background and padding */
+
+    &#user-settings-cog,
+    &#now-playing-menu {
+        padding: var(--context-padding);
+        background-color: var(--popout-color);
+
+        div[role="group"] {
+            padding: 0;
+            box-shadow: none;
+        }
+
+        #{ $submenuContainer } {
+            div[role="group"] {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+#{ $menuPopoutQuickReactionsWrapper } {
+    margin-bottom: var(--context-gap);
 }
 
 #{ $contextMenuQuickReaction } {
-    border-radius: 50%;
+    background-color: var(--menu-item-hover);
+    border-radius: var(--context-radius-big-inner);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+	&:hover {
+		background-color: var(--menu-item-select);
+	}
+}
+
+#{ $submenuContainer } {
+    background-color: var(--popout-color);
+    padding: var(--context-padding);
+
+    #{ $scroller } {
+        border-radius: var(--context-radius-big-inner);
+    }
+
+    div[role="group"] {
+        &:first-of-type {
+            &:nth-last-of-type(2) {
+                padding: 0;
+            }
+        }
+    }
+}
+
+#{ $submenuPaddingContainer } {
+    margin-left: -4px;
+    margin-right: -4px;
+    animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
+    transform-origin: top;
 }
 
 body:active #{ $menuPopout }:not(:active) {
