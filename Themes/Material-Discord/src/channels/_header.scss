@@ -65,27 +65,32 @@
 
 #{ $channelsHeaderGuildBadge },
 #{ $channelsHeaderGuildBadgeV2 } {
-	margin-right: 0;
+	margin-inline-end: 0;
 }
 
-#{ $channelsHeaderInvitesRefresh } {
-	#{ $channelsHeaderInviteButton },
-    #{ $channelsHeaderGuildDropdown } {
-        border-radius: calc(var(--card-radius-big) / 1.8);
-		transition: var(--default-time) var(--default-animation) background-color;
+#{ $channelsHeaderInviteButton } {
+	border-radius: 10px;
+	transition: var(--default-time) var(--default-animation) background-color;
 
-        &:hover {
-			background-color: var(--menu-item-hover);
-		}
+	&:hover {
+		background-color: var(--card-color-filled);
+	}
+}
 
-		&[aria-expanded="true"] {
-			background-color: var(--menu-item-select);
-		}
-    }
+#{ $channelsHeaderGuildDropdown } {
+	padding-block: 0;
+	padding-inline: var(--space-12) var(--space-8);
+    gap: var(--space-xs);
+	border-radius: 16px;
+	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
 
-	#{ $channelsHeaderGuildDropdown } {
-		padding: 0 var(--space-8) 0 var(--space-12);
-        gap: var(--space-xs);
+	&:hover {
+		background-color: var(--card-color-filled);
+	}
+
+	&[aria-expanded="true"] {
+		background-color: var(--card-color-active);
+		border-radius: 10px;
 	}
 }
 

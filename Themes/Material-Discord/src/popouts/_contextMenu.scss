@@ -9,43 +9,25 @@
 
 #{ $menuPopout } {
     --context-padding: 4px;
-    --context-gap: 2px;
 
     --context-radius: calc(var(--context-radius-big) / 2.25);
     --context-radius-big: calc(var(--popout-radius-big) / 1.25);
     --context-radius-big-inner: calc(var(--context-radius-big) - var(--context-padding));
 
-    background-color: transparent;
+    padding: 0;
+    background-color: var(--popout-color);
     border-radius: var(--context-radius-big);
     box-shadow: var(--shadow-medium);
     border: none;
     animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
 	transform-origin: top;
-
-    &:not(:has(div[role="group"])) {
-        padding: var(--context-padding);
-        background-color: var(--popout-color);
-    }
+    overflow: hidden;
 
     #{ $scroller } {
-        padding: 0 !important;
-        border-radius: var(--context-radius-big);
+        --scrollbar-width: 0;
 
-        &::-webkit-scrollbar {
-            --scrollbar-thin-width: 0;
-        }
-    }
-
-    div[role="group"] {
-        padding: var(--context-padding);
-        background-color: var(--popout-color);
-        border-radius: var(--context-radius);
-        box-shadow: var(--shadow-medium);
-        overflow: hidden;
-
-        + div[role="group"] {
-            margin-block-start: var(--context-gap);
-        }
+        padding: var(--context-padding) !important;
+        border-radius: var(--context-radius-big-inner);
     }
 
     #{ $menuPopoutGroupLabel } {
@@ -56,7 +38,8 @@
         min-height: 32px;
 		margin: 0;
 		line-height: 18px;
-        padding: 10px 12px;
+        padding-block: 10px;
+        padding-inline: 12px;
         gap: 12px;
 		border-radius: var(--context-radius-big-inner);
 		color: var(--menu-item-text-color) !important;
@@ -93,11 +76,12 @@
 
         &#{ $menuPopoutHideInteraction } {
             #{ $menuPopoutLabelContainer } {
-                padding: 0 0 8px;
+                padding-block: 0 var(--space-8);
+                padding-inline: 0;
             }
 
             #{ $menuPopoutSliderContainer } {
-                margin-bottom: -6px;
+                margin-block-end: -6px;
                 padding: 0;
             }
         }
@@ -121,17 +105,6 @@
         #{ $accountSwitcherUserMenuText } {
             color: inherit;
         }
-
-        &#textarea-context-suggestions {
-            margin-block-end: var(--context-gap);
-        }
-
-        &#textarea-context-suggestions,
-        &#textarea-context-submit-button {
-            background-color: var(--popout-color);
-            border-radius: var(--context-radius);
-            box-shadow: var(--shadow-medium);
-        }
     }
 
     #{ $menuPopoutLabel } {
@@ -146,38 +119,19 @@
     }
 
     #{ $menuPopoutSeparator } {
-        width: 100%;
-        height: var(--context-gap);
-        margin: 0;
-        border: none;
+        margin-block: var(--context-padding);
+        margin-inline: calc(var(--context-radius-big-inner) - var(--context-padding));
+        border-color: var(--card-border-color);
     }
 
     #{ $menuPopoutInnerLabel } {
         gap: 8px;
     }
-
-    /* Some context menus are not universal - This fixes the transparent background and padding */
-
-    &#user-settings-cog,
-    &#now-playing-menu {
-        padding: var(--context-padding);
-        background-color: var(--popout-color);
-
-        div[role="group"] {
-            padding: 0;
-            box-shadow: none;
-        }
-
-        #{ $submenuContainer } {
-            div[role="group"] {
-                box-shadow: none;
-            }
-        }
-    }
 }
 
 #{ $menuPopoutQuickReactionsWrapper } {
-    margin-bottom: var(--context-gap);
+    padding: 0;
+    margin-block-end: var(--context-padding);
 }
 
 #{ $contextMenuQuickReaction } {
@@ -190,26 +144,8 @@
 	}
 }
 
-#{ $submenuContainer } {
-    background-color: var(--popout-color);
-    padding: var(--context-padding);
-
-    #{ $scroller } {
-        border-radius: var(--context-radius-big-inner);
-    }
-
-    div[role="group"] {
-        &:first-of-type {
-            &:nth-last-of-type(2) {
-                padding: 0;
-            }
-        }
-    }
-}
-
 #{ $submenuPaddingContainer } {
-    margin-left: -4px;
-    margin-right: -4px;
+    margin-inline: -4px;
     animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
     transform-origin: top;
 }
