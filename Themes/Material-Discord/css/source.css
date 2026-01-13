@@ -1406,25 +1406,30 @@ button._67645e1530f1195d-button, span._67645e1530f1195d-button {
 
 ._85d1663d6a9fc7f6-guildIconContainer,
 ._85d1663d6a9fc7f6-guildIconV2Container {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 
-.invitesRefresh_f37cb1 .f37cb1984c371ee5-inviteButton,
-.invitesRefresh_f37cb1 .f37cb1984c371ee5-guildDropdown {
-  border-radius: calc(var(--card-radius-big) / 1.8);
+.f37cb1984c371ee5-inviteButton {
+  border-radius: 10px;
   transition: var(--default-time) var(--default-animation) background-color;
 }
-.invitesRefresh_f37cb1 .f37cb1984c371ee5-inviteButton:hover,
-.invitesRefresh_f37cb1 .f37cb1984c371ee5-guildDropdown:hover {
-  background-color: var(--menu-item-hover);
+.f37cb1984c371ee5-inviteButton:hover {
+  background-color: var(--card-color-filled);
 }
-.invitesRefresh_f37cb1 .f37cb1984c371ee5-inviteButton[aria-expanded=true],
-.invitesRefresh_f37cb1 .f37cb1984c371ee5-guildDropdown[aria-expanded=true] {
-  background-color: var(--menu-item-select);
-}
-.invitesRefresh_f37cb1 .f37cb1984c371ee5-guildDropdown {
-  padding: 0 var(--space-8) 0 var(--space-12);
+
+.f37cb1984c371ee5-guildDropdown {
+  padding-block: 0;
+  padding-inline: var(--space-12) var(--space-8);
   gap: var(--space-xs);
+  border-radius: 16px;
+  transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
+}
+.f37cb1984c371ee5-guildDropdown:hover {
+  background-color: var(--card-color-filled);
+}
+.f37cb1984c371ee5-guildDropdown[aria-expanded=true] {
+  background-color: var(--card-color-active);
+  border-radius: 10px;
 }
 
 .f37cb1984c371ee5-headerChildren {
@@ -8759,6 +8764,9 @@ div[role=radiogroup]._344e69670924b1be-group {
 .refresh-active-now .bf1984a18b3ec6f0-interactive:first-of-type {
   border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
 }
+.refresh-active-now .bf1984a18b3ec6f0-interactive:first-of-type:nth-last-child(1) {
+  border-radius: var(--card-radius-big);
+}
 .refresh-active-now .bf1984a18b3ec6f0-interactive:nth-last-child(1) {
   border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
 }
@@ -9328,6 +9336,10 @@ div[role=radiogroup]._344e69670924b1be-group {
   overflow: hidden;
 }
 
+._1a9cebfbd0c9d0f6-headerBarContent {
+  padding-inline-end: var(--space-8);
+}
+
 ._8a7fc664acf53af6-backdrop {
   background-color: var(--chat-color);
   border-top-right-radius: var(--card-radius-big);
@@ -9341,7 +9353,7 @@ div[role=radiogroup]._344e69670924b1be-group {
 .a3e8dbaff932c162-container {
   height: inherit;
   background-color: var(--card-color-filled);
-  border-radius: 18px;
+  border-radius: 16px;
   border: none;
   transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
 }
@@ -15003,38 +15015,22 @@ body:active ._49fc18ba07c5025f-root .d9c8822889d1d4a1-container:not(:active) {
  */
 .c1e9c47c23f12ca3-menu {
   --context-padding: 4px;
-  --context-gap: 2px;
   --context-radius: calc(var(--context-radius-big) / 2.25);
   --context-radius-big: calc(var(--popout-radius-big) / 1.25);
   --context-radius-big-inner: calc(var(--context-radius-big) - var(--context-padding));
-  background-color: transparent;
+  padding: 0;
+  background-color: var(--popout-color);
   border-radius: var(--context-radius-big);
   box-shadow: var(--shadow-medium);
   border: none;
   animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
   transform-origin: top;
-  /* Some context menus are not universal - This fixes the transparent background and padding */
-}
-.c1e9c47c23f12ca3-menu:not(:has(div[role=group])) {
-  padding: var(--context-padding);
-  background-color: var(--popout-color);
-}
-.c1e9c47c23f12ca3-menu .d125d22cdfd32cfe-scrollerBase {
-  padding: 0 !important;
-  border-radius: var(--context-radius-big);
-}
-.c1e9c47c23f12ca3-menu .d125d22cdfd32cfe-scrollerBase::-webkit-scrollbar {
-  --scrollbar-thin-width: 0;
-}
-.c1e9c47c23f12ca3-menu div[role=group] {
-  padding: var(--context-padding);
-  background-color: var(--popout-color);
-  border-radius: var(--context-radius);
-  box-shadow: var(--shadow-medium);
   overflow: hidden;
 }
-.c1e9c47c23f12ca3-menu div[role=group] + div[role=group] {
-  margin-block-start: var(--context-gap);
+.c1e9c47c23f12ca3-menu .d125d22cdfd32cfe-scrollerBase {
+  --scrollbar-width: 0;
+  padding: var(--context-padding) !important;
+  border-radius: var(--context-radius-big-inner);
 }
 .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-groupLabel {
   font-size: 14px;
@@ -15044,7 +15040,8 @@ body:active ._49fc18ba07c5025f-root .d9c8822889d1d4a1-container:not(:active) {
   min-height: 32px;
   margin: 0;
   line-height: 18px;
-  padding: 10px 12px;
+  padding-block: 10px;
+  padding-inline: 12px;
   gap: 12px;
   border-radius: var(--context-radius-big-inner);
   color: var(--menu-item-text-color) !important;
@@ -15073,10 +15070,11 @@ body:active ._49fc18ba07c5025f-root .d9c8822889d1d4a1-container:not(:active) {
   background-color: var(--menu-item-select);
 }
 .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-item.c1e9c47c23f12ca3-hideInteraction .c1e9c47c23f12ca3-labelContainer {
-  padding: 0 0 8px;
+  padding-block: 0 var(--space-8);
+  padding-inline: 0;
 }
 .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-item.c1e9c47c23f12ca3-hideInteraction ._650391965b2d6ee2-sliderContainer {
-  margin-bottom: -6px;
+  margin-block-end: -6px;
   padding: 0;
 }
 .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-item .c1e9c47c23f12ca3-labelContainer {
@@ -15093,14 +15091,6 @@ body:active ._49fc18ba07c5025f-root .d9c8822889d1d4a1-container:not(:active) {
 .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-item .d40c56f847687e8d-userMenuText {
   color: inherit;
 }
-.c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-item#textarea-context-suggestions {
-  margin-block-end: var(--context-gap);
-}
-.c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-item#textarea-context-suggestions, .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-item#textarea-context-submit-button {
-  background-color: var(--popout-color);
-  border-radius: var(--context-radius);
-  box-shadow: var(--shadow-medium);
-}
 .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-label {
   color: inherit;
 }
@@ -15109,28 +15099,17 @@ body:active ._49fc18ba07c5025f-root .d9c8822889d1d4a1-container:not(:active) {
   font-weight: 500;
 }
 .c1e9c47c23f12ca3-menu .c1e9c47c23f12ca3-separator {
-  width: 100%;
-  height: var(--context-gap);
-  margin: 0;
-  border: none;
+  margin-block: var(--context-padding);
+  margin-inline: calc(var(--context-radius-big-inner) - var(--context-padding));
+  border-color: var(--card-border-color);
 }
 .c1e9c47c23f12ca3-menu ._202d80cea47aca3c-label {
   gap: 8px;
 }
-.c1e9c47c23f12ca3-menu#user-settings-cog, .c1e9c47c23f12ca3-menu#now-playing-menu {
-  padding: var(--context-padding);
-  background-color: var(--popout-color);
-}
-.c1e9c47c23f12ca3-menu#user-settings-cog div[role=group], .c1e9c47c23f12ca3-menu#now-playing-menu div[role=group] {
-  padding: 0;
-  box-shadow: none;
-}
-.c1e9c47c23f12ca3-menu#user-settings-cog .c1e9c47c23f12ca3-submenu div[role=group], .c1e9c47c23f12ca3-menu#now-playing-menu .c1e9c47c23f12ca3-submenu div[role=group] {
-  box-shadow: none;
-}
 
 .f563df886a7377be-wrapper {
-  margin-bottom: var(--context-gap);
+  padding: 0;
+  margin-block-end: var(--context-padding);
 }
 
 .f563df886a7377be-button {
@@ -15142,20 +15121,8 @@ body:active ._49fc18ba07c5025f-root .d9c8822889d1d4a1-container:not(:active) {
   background-color: var(--menu-item-select);
 }
 
-.c1e9c47c23f12ca3-submenu {
-  background-color: var(--popout-color);
-  padding: var(--context-padding);
-}
-.c1e9c47c23f12ca3-submenu .d125d22cdfd32cfe-scrollerBase {
-  border-radius: var(--context-radius-big-inner);
-}
-.c1e9c47c23f12ca3-submenu div[role=group]:first-of-type:nth-last-of-type(2) {
-  padding: 0;
-}
-
 .c1e9c47c23f12ca3-submenuPaddingContainer {
-  margin-left: -4px;
-  margin-right: -4px;
+  margin-inline: -4px;
   animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
   transform-origin: top;
 }
@@ -16669,13 +16636,6 @@ body:active .b6544fb09f373e60-container:not(:active) {
 
 body:active .menu_ad5fac:not(:active) {
   opacity: 1;
-}
-
-.c1e9c47c23f12ca3-scroller {
-  padding: 8px 0 !important;
-}
-.c1e9c47c23f12ca3-scroller::-webkit-scrollbar {
-  width: 0 !important;
 }
 
 .ce832809562bf737-statusItem {
