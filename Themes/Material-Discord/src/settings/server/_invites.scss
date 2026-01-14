@@ -19,36 +19,30 @@
 
     &:nth-of-type(4) {
         height: calc(72px + var(--space-8));
-        padding-top: var(--space-8);
+        padding-block-start: var(--space-8);
         border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
-        &:before {
-            top: 8px;
+        &:before {inset-block-start: 8px;
         }
     }
 
     &:last-of-type {
         height: calc(72px + var(--space-8));
-        padding-bottom: var(--space-8);
+        padding-block-end: var(--space-8);
         border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
 
-        &:before {
-            bottom: var(--space-8);
+        &:before {inset-block-end: var(--space-8);
         }
     }
 
-    &:before {
-        left: var(--space-8);
-        right: var(--space-8);
+    &:before {inset-inline-start: var(--space-8);inset-inline-end: var(--space-8);
         background-color: var(--card-color-hover);
         border-radius: calc(var(--card-radius-big) / 1.6);
         border: none;
     }
 }
 
-#{ $settingsInviteRevokeInvite } {
-    top: calc(var(--space-12) * -1);
-    right: calc(var(--space-8) * -1);
+#{ $settingsInviteRevokeInvite } {inset-block-start: calc(var(--space-12) * -1);inset-inline-end: calc(var(--space-8) * -1);
     background-color: var(--card-color-active);
     box-shadow: var(--shadow-soft);
     transition: opacity 0.1s, var(--default-time) var(--default-animation) box-shadow;

@@ -33,12 +33,12 @@
 }
 
 #{ $channelsContainer } {
-	padding-bottom: calc(var(--custom-app-panels-height, 0) + 12px - var(--sidebar-panel-radius-big));
+	padding-block-end: calc(var(--custom-app-panels-height, 0) + 12px - var(--sidebar-panel-radius-big));
 	background-color: var(--main-color);
 
     #{ $scroller } {
-        margin-bottom: 0;
-        padding-bottom: 0;
+        margin-block-end: 0;
+        padding-block-end: 0;
     }
 }
 
@@ -90,12 +90,11 @@
 
 #{ $channelMentionsContainer } {
 	&#{ $channelMentionsContainerTop } {
-		padding-top: 4px;
+		padding-block-start: 4px;
 	}
 
-	&#{ $channelMentionsContainerBottom } {
-		bottom: 12px;
-		padding-bottom: 4px;
+	&#{ $channelMentionsContainerBottom } {inset-block-end: 12px;
+		padding-block-end: 4px;
 	}
 }
 
@@ -164,8 +163,8 @@
 /* CHANNELS LIST -> ACTION BUTTONS */
 
 #{ $channelActionContainer } {
-	margin-left: 8px;
-	margin-right: 2px;
+	margin-inline-start: 8px;
+	margin-inline-end: 2px;
 }
 
 #{ $channelActionButton } {
@@ -229,7 +228,7 @@
 	}
 
 	#{ $channelContent } {
-		margin-left: 0;
+		margin-inline-start: 0;
 		background-color: transparent !important;
 		border-radius: var(--channel-radius);
 	}
@@ -240,7 +239,7 @@
 }
 
 #{ $channelLink } {
-	margin-right: calc(8px - var(--scrollbar-thin-width));
+	margin-inline-end: calc(8px - var(--scrollbar-thin-width));
     padding: 0 8px;
     border-radius: var(--channel-radius);
 	overflow: visible;
@@ -271,7 +270,7 @@
 
 #{ $channelThread } {
 	#{ $channelMain } {
-		margin-left: 28px;
+		margin-inline-start: 28px;
 	}
 
 	#{ $channelLink } {
@@ -280,9 +279,8 @@
 }
 
 #{ $channelUnreadPillBottom } {
-	bottom: calc(var(--custom-app-panels-height,0) + var(--space-12));
+inset-block-end: calc(var(--custom-app-panels-height,0) + var(--space-12));
 	padding: 8px 12px;
-
 }
 
 #{ $channelUnreadBar } {
@@ -305,7 +303,7 @@
 #{ $channelContainerDefault }:not([role="listitem"]) {
     &:not(:only-child) {
         &:last-child {
-            padding-bottom: calc(var(--sidebar-panel-radius-big) + var(--space-16));
+            padding-block-end: calc(var(--sidebar-panel-radius-big) + var(--space-16));
         }
     }
 }
@@ -319,18 +317,18 @@
 }
 
 #{ $channelsRefreshVoiceChannelsButton } {
-    padding-bottom: calc(var(--sidebar-panel-radius-big) + var(--space-16));
+    padding-block-end: calc(var(--sidebar-panel-radius-big) + var(--space-16));
 }
 
 #{ $channelContainerDragBefore }:before,
-#{ $channelContainerDragAfter }:after {
-	left: 0;
+#{ $channelContainerDragAfter }:after {
+	inset-inline-start: 0;
 	background-color: hsl(var(--accent-hsl--material-you));
 }
 
 #{ $channelContainerUserOver } {
-	&:after {
-		right: 4px;
+	&:after {
+		inset-inline-end: 4px;
 		background-color: hsl(var(--accent-hsl),0.1);
 		border-radius: var(--card-radius-big);
 		border-color: hsl(var(--accent-hsl),0.5);
@@ -358,7 +356,7 @@
 
 #{ $channelStatusDiv },
 #{ $channelSubtitle } #{ $channelActivityOverflow } {
-    margin-bottom: 4px;
+    margin-block-end: 4px;
 }
 
 #{ $channelStatusTextArea } {

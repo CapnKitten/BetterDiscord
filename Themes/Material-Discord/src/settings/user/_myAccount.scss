@@ -22,9 +22,7 @@
 
         #{ $avatarWrapper } {
             width: 92px !important;
-            height: 92px !important;
-            top: unset;
-            bottom: 30px;
+            height: 92px !important;inset-block-start: unset;inset-block-end: 30px;
             background-color: var(--card-color-filled);
             border: 8px solid var(--card-color-filled);
             box-sizing: border-box;
@@ -58,25 +56,23 @@
             position: absolute;
             content: " ";
             width: calc(100% - 32px);
-            height: 1px;
-            top: 0;
-            left: 16px;
+            height: 1px;inset-block-start: 0;inset-inline-start: 16px;
             background-color: var(--card-border-color);
         }
 
 		#{ $fieldList } {
-			margin-top: 0;
+			margin-block-start: 0;
 			padding: 16px;
 
 			#{ $constrainedRow } {
 				#{ $button } {
-					margin-left: 8px;
+					margin-inline-start: 8px;
 				}
 			}
 
             #{ $button } {
                 &:not(:last-child) {
-                    margin-right: 16px;
+                    margin-inline-end: 16px;
                 }
             }
 		}
@@ -108,7 +104,7 @@
 }
 
 #{ $settingsCredentialList } {
-    margin-bottom: 16px;
+    margin-block-end: 16px;
     @include card-format(false, 8px, true);
 }
 
@@ -118,7 +114,7 @@
     transition: var(--default-time) var(--default-animation) background-color;
 
     &:not(:last-child) {
-        margin-bottom: 0;
+        margin-block-end: 0;
     }
 
     &:hover {

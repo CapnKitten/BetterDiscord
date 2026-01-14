@@ -125,7 +125,7 @@
 }
 
 #{ $chatWelcomeOptionsCard } {
-    margin-top: 0;
+    margin-block-start: 0;
     background-color: var(--card-color-filled);
     border-radius: 4px;
 	transition: var(--default-time) var(--default-animation) background-color;
@@ -161,7 +161,8 @@
 
 #{ $newMessagesPill } {
 	position: relative;
-	padding: 9px 16px;
+	padding-block: 9px;
+	padding-inline: 16px;
 	border-radius: 18px;
 
 	&:after {
@@ -169,8 +170,8 @@
 		content: " ";
 		width: 40px;
 		height: 36px;
-		top: 0;
-		right: -24px;
+		inset-block-start: 0;
+		inset-inline-end: -24px;
 		z-index: -1;
 	}
 
@@ -180,7 +181,7 @@
 }
 
 #{ $newMessagesClear } {
-	margin-left: 8px;
+	margin-inline-start: 8px;
 	padding: 10px;
 	border-radius: 18px;
 	border-left: none;
@@ -195,9 +196,9 @@
 #{ $barBase } {
 	&:not(#{ $jumpToPresentBar }, #{ $messagesErrorBar }) {
 		height: auto;
-	    top: var(--space-16);
-	    left: 50%;
-	    right: unset;
+	    inset-block-start: var(--space-16);
+	    inset-inline-start: 50%;
+	    inset-inline-end: unset;
 	    gap: var(--space-8);
 	    padding: var(--space-8);
 	    background-color: var(--popout-color);
@@ -215,7 +216,7 @@
 		}
 
 	    &:active {
-	        padding-top: var(--space-8);
+	        padding-block-start: var(--space-8);
 	    }
 	}
 }
@@ -246,7 +247,7 @@
         justify-content: center;
 
         #{ $barButtonIcon } {
-            top: 0;
+            inset-block-start: 0;
             margin: 0;
 
             path {
@@ -259,7 +260,7 @@
 /* CHAT AREA -> NAVIGATOR */
 
 #{ $highlightContainer } {
-	right: 20px;
+	inset-inline-end: 20px;
 	justify-content: flex-end;
 }
 
@@ -296,9 +297,9 @@
 	height: var(--button-height);
 	min-width: var(--button-height);
 	gap: var(--space-8);
-	left: unset;
-	right: var(--space-16);
-	bottom: var(--space-16);
+	inset-block-end: var(--space-16);
+	inset-inline-start: unset;
+	inset-inline-end: var(--space-16);
 	margin: 0;
 	padding-inline-start: var(--button-padding-start);
 	padding-inline-end: var(--button-padding-end);
@@ -319,7 +320,8 @@
 	}
 
 	&:active {
-		margin: 0 auto !important;
+		margin-block: 0;
+		margin-inline: auto;
 
 		&:after {
 			opacity: var(--button-action-active);
@@ -331,9 +333,9 @@
 		position: relative;
 		width: 24px;
 		height: 24px;
-		left: unset;
-		bottom: 0;
-		right: 0;
+		inset-block-end: 0;
+		inset-inline-start: unset;
+		inset-inline-end: 0;
 		box-sizing: border-box;
 		@include add-icon(var(--accent-text-color--material-you), expand, solid);
 		-webkit-mask-position: center;
@@ -348,8 +350,8 @@
 		content: " ";
 		width: 100%;
 		height: 100%;
-		top: 0;
-		left: 0;
+		inset-block-start: 0;
+		inset-inline-start: 0;
 		background-color: var(--button-action-color);
 		border-radius: var(--button-radius);
 		opacity: 0;
@@ -380,9 +382,10 @@
 	#{ $spinner } {
 		position: absolute;
 		width: 100%;
-		left: 0;
-		right: 0;
-		margin: 0 auto;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		margin-block: 0;
+		margin-inline: auto;
 		padding: 0;
 		background-color: hsl(var(--accent-hsl--material-you));
 		border-radius: 50%;

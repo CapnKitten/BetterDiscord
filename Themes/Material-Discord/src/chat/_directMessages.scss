@@ -52,25 +52,28 @@
 }
 
 #{ $callQuickSelect } {
-	margin-top: 12px;
+	margin-block-start: 12px;
 }
 
 #{ $spectatorMenuScroller } {
-	padding: 8px 0;
-	padding-right: 0 !important;
+    padding-block: 8px;
+	padding-inline: 0 !important;
 	background-color: var(--popout-color);
 	border-radius: var(--popout-radius);
 
 	#{ $spectatorMenuHeader } {
-		margin: 8px 0;
-		padding: 0 12px;
+        margin-block: 8px;
+        margin-inline: 0;
+        padding-block: 0;
+        padding-inline: 12px;
 		color: var(--menu-item-text-color);
 		text-transform: none;
 	}
 
 	#{ $spectatorMenuItem } {
 		margin: 0;
-		padding: 6px 12px;
+        padding-block: 6px;
+        padding-inline: 12px;
 		border-radius: 0;
 		transition: var(--default-time) var(--default-animation) background-color;
 
@@ -81,10 +84,6 @@
 		#{ $spectatorMenuItemText } {
 			color: var(--menu-item-text-color);
 		}
-	}
-
-	&::-webkit-scrollbar {
-		width: 0 !important;
 	}
 }
 
@@ -138,12 +137,6 @@
     #{ $userProfileInner } {
         border-radius: inherit;
 
-        #{ $dmProfileScroller } {
-            &::-webkit-scrollbar {
-                width: 0 !important;
-            }
-        }
-
         #{ $userProfileOverlayBackground } {
             border-radius: var(--card-radius-big);
         }
@@ -155,7 +148,8 @@
 	border-radius: var(--button-radius);
 
     &:not(:empty) {
-        padding: 0 7px;
+        padding-block: 0;
+        padding-inline: 7px;
     }
 }
 
@@ -169,9 +163,9 @@
             content: " ";
             width: auto;
             height: 1px;
-            top: 0;
-            left: 12px;
-            right: 12px;
+            inset-block-start: 0;
+            inset-inline-start: 12px;
+            inset-inline-end: 12px;
             background-color: var(--card-border-color);
             box-sizing: border-box;
         }
@@ -194,11 +188,11 @@
 #{ $dmConnectionList } {
     --popout-radius: calc(var(--card-radius-big) / 1.55);
 
-    margin-bottom: 8px;
+    margin-block-end: 8px;
 }
 
 #{ $dmProfileFriendsList } {
-    margin-left: 0;
+    margin-inline-start: 0;
 
     #{ $userProfileModalV2TabPanelRow } {
         border-radius: calc(var(--popout-radius-big) / 2.5) !important;

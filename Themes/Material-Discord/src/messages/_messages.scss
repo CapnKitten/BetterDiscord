@@ -32,9 +32,7 @@
             position: absolute;
             content: " ";
             width: calc(100% - 78px);
-            height: 100%;
-            top: 0;
-            left: 68px;
+            height: 100%;inset-block-start: 0;inset-inline-start: 68px;
             border-radius: var(--message-radius);
             pointer-events: none;
             z-index: 2;
@@ -62,8 +60,7 @@
 		}
 
 		#{ $newMessagesDivider } {
-			&#{ $newMessagesDividerBeforeGroup } {
-				top: 1px;
+			&#{ $newMessagesDividerBeforeGroup } {inset-block-start: 1px;
 			}
 		}
 	}
@@ -74,8 +71,7 @@
 		}
 
 		#{ $newMessagesDivider } {
-			&#{ $newMessagesDividerBeforeGroup } {
-				top: 2px;
+			&#{ $newMessagesDividerBeforeGroup } {inset-block-start: 2px;
 			}
 		}
 	}
@@ -86,8 +82,7 @@
 		}
 
 		#{ $newMessagesDivider } {
-			&#{ $newMessagesDividerBeforeGroup } {
-				top: 4px;
+			&#{ $newMessagesDividerBeforeGroup } {inset-block-start: 4px;
 			}
 		}
 	}
@@ -98,8 +93,7 @@
 		}
 
 		#{ $newMessagesDivider } {
-			&#{ $newMessagesDividerBeforeGroup } {
-				top: 8px;
+			&#{ $newMessagesDividerBeforeGroup } {inset-block-start: 8px;
 			}
 		}
 	}
@@ -110,8 +104,7 @@
 		}
 
 		#{ $newMessagesDivider } {
-			&#{ $newMessagesDividerBeforeGroup } {
-				top: 12px;
+			&#{ $newMessagesDividerBeforeGroup } {inset-block-start: 12px;
 			}
 		}
 	}
@@ -122,8 +115,7 @@
 		}
 
 		#{ $newMessagesDivider } {
-			&:not(#{ $newMessagesDividerBeforeGroup }) {
-				top: -4px;
+			&:not(#{ $newMessagesDividerBeforeGroup }) {inset-block-start: -4px;
 			}
 		}
 	}
@@ -173,15 +165,11 @@
 
 		#{ $avatarLarge } {
 			width: 40px;
-			height: 40px;
-			top: 0;
-			left: -50px;
+			height: 40px;inset-block-start: 0;inset-inline-start: -50px;
 			border-radius: var(--avatar-radius);
 		}
 
-		#{ $avatarDecoration } {
-			top: 0;
-			left: -54px;
+		#{ $avatarDecoration } {inset-block-start: 0;inset-inline-start: -54px;
 		}
 
 		&#{ $replyingToIndicator } {
@@ -199,8 +187,7 @@
 			content: " ";
 			position: absolute;
 			width: 0;
-            height: 0;
-			top: calc((var(--message-radius) / 2.2) * -1);
+            height: 0;inset-block-start: calc((var(--message-radius) / 2.2) * -1);
 			background-color: transparent;
             border: calc(var(--message-radius) / 3.75) solid transparent;
 			border-bottom-color: var(--message-color);
@@ -208,13 +195,11 @@
 			transition: var(--default-time) var(--default-animation) border-color;
 		}
 
-		&:before {
-			left: 0;
+		&:before {inset-inline-start: 0;
 			border-left-color: var(--message-color);
 		}
 
-		&:after {
-			right: 0;
+		&:after {inset-inline-end: 0;
 			border-right-color: var(--message-color);
 		}
 	}
@@ -240,9 +225,7 @@
 		overflow: visible;
 
 		#{ $messageIconContainer } {
-			width: 40px !important;
-			top: -8px;
-			left: calc((50px + var(--message-padding-side)) * -1);
+			width: 40px !important;inset-block-start: -8px;inset-inline-start: calc((50px + var(--message-padding-side)) * -1);
 		}
 	}
 
@@ -286,8 +269,7 @@
 	}
 }
 
-#{ $messageRepliedSpine } {
-	left: calc( ((var(--chat-avatar-size) / 2) + var(--message-padding-side) + (var(--gutter) / 2)) * -1 );
+#{ $messageRepliedSpine } {inset-inline-start: calc( ((var(--chat-avatar-size) / 2) + var(--message-padding-side) + (var(--gutter) / 2)) * -1 );
     margin-inline-end: var(--message-padding-side);
 	border-color: var(--message-color);
 	transition: var(--default-time) var(--default-animation) border-color;
@@ -301,9 +283,7 @@
             position: absolute;
             content: " ";
             width: calc(100% - 8px);
-            height: calc(100% - 8px);
-            top: 4px;
-            left: 4px;
+            height: calc(100% - 8px);inset-block-start: 4px;inset-inline-start: 4px;
             background-color: hsl(var(--reply-hsl),var(--reply-opacity));
             border-radius: calc(var(--message-radius) / 1.25);
             pointer-events: none;
@@ -366,8 +346,7 @@
 		padding-inline: var(--message-padding-side);
 
 		& + #{ $newMessagesDivider } {
-			&:not(#{ $newMessagesDividerBeforeGroup }) {
-				top: -4px;
+			&:not(#{ $newMessagesDividerBeforeGroup }) {inset-block-start: -4px;
 			}
 		}
 	}
@@ -392,22 +371,20 @@
 
 	#{ $messageTimestamp } {
 		&#{ $messageTimestampAlt } {
-			opacity: 0;
-			left: -64px;
+			opacity: 0;inset-inline-start: -64px;
 			color: var(--text-muted);
 			font-weight: 600;
 			transition: var(--default-time) ease opacity 0ms;
 		}
 	}
 
-	#{ $removeAttachmentButton } {
-		right: -4px;
+	#{ $removeAttachmentButton } {inset-inline-end: -4px;
 	}
 
 	&:not(#{ $message }) {
 		margin-block: 16px 0;
 		margin-inline: 68px 10px;
-		padding-block: var(--message-padding-top);
+		padding-block: var(--message-padding-block-start);
 		padding-inline: var(--message-padding-side);
 		border-radius: var(--message-radius);
 
@@ -417,19 +394,15 @@
 		}
 	}
 
-	#{ $avatarLarge } {
-		top: 0;
-		left: -50px;
+	#{ $avatarLarge } {inset-block-start: 0;inset-inline-start: -50px;
 	}
 
-	#{ $avatarDecoration } {
-		left: -54px;
+	#{ $avatarDecoration } {inset-inline-start: -54px;
 	}
 
 	&#{ $hasReply } {
 		#{ $avatarLarge },
-		#{ $avatarDecoration } {
-			top: 28px;
+		#{ $avatarDecoration } {inset-block-start: 28px;
 		}
 	}
 }
@@ -440,9 +413,7 @@
 
     #{ $avatarLarge } {
         width: 16px !important;
-        height: 16px !important;
-        top: 3px !important;
-        left: 0 !important;
+        height: 16px !important;inset-block-start: 3px !important;inset-inline-start: 0 !important;
         margin: 0 0.5em 0 0.25em !important;
         padding: 0 !important;
     }
@@ -480,8 +451,7 @@
 	}
 
 	#{ $messageHeader } {
-		position: relative;
-		left: -8px;
+		position: relative;inset-inline-start: -8px;
 	}
 
 	#{ $messageTimestamp } {
@@ -498,8 +468,7 @@
 		+ #{ $newMessagesDivider } {
 			margin-inline-start: 80px;
 
-			/*&:not(#{ $newMessagesDividerBeforeGroup }) {
-				top: -11px;
+			/*&:not(#{ $newMessagesDividerBeforeGroup }) {inset-block-start: -11px;
 			}*/
 		}
 
@@ -551,9 +520,7 @@
     }
 }
 
-#{ $avatarDecoration } {
-	top: 0;
-	left: -54px;
+#{ $avatarDecoration } {inset-block-start: 0;inset-inline-start: -54px;
 }
 
 #{ $messageListItem },
@@ -603,8 +570,7 @@
 		border-color: hsl(var(--accent-hsl--material-you));
 
 		#{ $unreadPill } {
-			height: 28px;
-			top: -15px;
+			height: 28px;inset-block-start: -15px;
 			padding-block: 0;
 			padding-inline: var(--space-16);
 			background-color: hsl(var(--accent-hsl--material-you));
@@ -668,10 +634,7 @@
 			position: absolute;
 			content: " ";
 			width: 1px;
-			height: 50%;
-			top: 0;
-			right: 0;
-            bottom: 0;
+			height: 50%;inset-block-start: 0;inset-inline-end: 0;inset-block-end: 0;
             margin: auto 0;
             background-color: var(--alert-text-color);
 		}

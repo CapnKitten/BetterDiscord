@@ -8,15 +8,13 @@
  */
 
 #{ $menuPopout } {
-    --context-padding: 4px;
-
-    --context-radius: calc(var(--context-radius-big) / 2.25);
-    --context-radius-big: calc(var(--popout-radius-big) / 1.25);
-    --context-radius-big-inner: calc(var(--context-radius-big) - var(--context-padding));
+    --context-menu-radius: calc(var(--context-menu-radius-big) / 2.25);
+    --context-menu-radius-big: calc(var(--popout-radius-big) / 1.25);
+    --context-menu-radius-big-inner: calc(var(--context-menu-radius-big) - var(--context-menu-padding));
 
     padding: 0;
     background-color: var(--popout-color);
-    border-radius: var(--context-radius-big);
+    border-radius: var(--context-menu-radius-big);
     box-shadow: var(--shadow-medium);
     border: none;
     animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
@@ -26,8 +24,8 @@
     #{ $scroller } {
         --scrollbar-width: 0;
 
-        padding: var(--context-padding) !important;
-        border-radius: var(--context-radius-big-inner);
+        padding: var(--context-menu-padding) !important;
+        border-radius: var(--context-menu-radius-big-inner);
     }
 
     #{ $menuPopoutGroupLabel } {
@@ -41,7 +39,7 @@
         padding-block: 10px;
         padding-inline: 12px;
         gap: 12px;
-		border-radius: var(--context-radius-big-inner);
+		border-radius: var(--context-menu-radius-big-inner);
 		color: var(--menu-item-text-color) !important;
 		transition: var(--default-time) var(--default-animation) background-color;
         flex-direction: row-reverse;
@@ -119,8 +117,8 @@
     }
 
     #{ $menuPopoutSeparator } {
-        margin-block: var(--context-padding);
-        margin-inline: calc(var(--context-radius-big-inner) - var(--context-padding));
+        margin-block: var(--context-menu-padding);
+        margin-inline: calc(var(--context-menu-radius-big-inner) - var(--context-menu-padding));
         border-color: var(--card-border-color);
     }
 
@@ -129,14 +127,21 @@
     }
 }
 
+#{ $menuPopoutCaret } {
+    path {
+        d: path("M400-280v-400l200 200-200 200Z");
+        transform: translate(0, 24px) scale(0.025);
+    }
+}
+
 #{ $menuPopoutQuickReactionsWrapper } {
     padding: 0;
-    margin-block-end: var(--context-padding);
+    margin-block-end: var(--context-menu-padding);
 }
 
 #{ $contextMenuQuickReaction } {
     background-color: var(--menu-item-hover);
-    border-radius: var(--context-radius-big-inner);
+    border-radius: var(--context-menu-radius-big-inner);
     transition: var(--default-time) var(--default-animation) background-color;
 
 	&:hover {

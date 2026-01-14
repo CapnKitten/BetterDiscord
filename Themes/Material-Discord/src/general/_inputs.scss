@@ -44,8 +44,8 @@
         }
 
         #{ $inputWrapperHasLeading } {
-            margin-left: calc(var(--input-padding) / -2);
-            padding-left: 0;
+            margin-inline-start: calc(var(--input-padding) / -2);
+            padding-inline-start: 0;
 
             #{ $inputIcon } {
                 width: calc(var(--input-height) / 1.5);
@@ -102,7 +102,7 @@
 }
 
 #{ $inputPrefixContainer } {
-    margin-right: 6px;
+    margin-inline-end: 6px;
 
     #{ $inputPrefixContainerSeparator } {
         background-color: var(--input-border-color);
@@ -145,14 +145,11 @@
     @include remove-caps(14px);
 }
 
-#{ $inputPrefix } {
-    top: 0;
-    left: 0;
-    bottom: 0;
+#{ $inputPrefix } {inset-block-start: 0;inset-inline-start: 0;inset-block-end: 0;
     margin: auto 0;
 
     + #{ $input } {
-        padding-left: 28px;
+        padding-inline-start: 28px;
     }
 }
 
@@ -165,7 +162,7 @@
 
     + #{ $inputWrapper } {
         #{ $input } {
-            padding-left: 42px !important;
+            padding-inline-start: 42px !important;
         }
     }
 }
@@ -176,7 +173,7 @@
 
 #{ $input } {
     &#{ $inputEmojiButtonText } {
-        padding-left: 44px !important;
+        padding-inline-start: 44px !important;
     }
 }
 
@@ -287,7 +284,7 @@
         + #{ $inputColorStatusRed } {
             position: absolute;
             width: 100%;
-            margin-top: -24px;
+            margin-block-start: -24px;
             text-align: right;
         }
     }

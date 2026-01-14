@@ -44,16 +44,17 @@
 	}
 
 	#{ $threadsPopoutSectionHeader } {
-		margin-top: 0;
+		margin-block-start: 0;
 		@include remove-caps(14px);
 	}
 
 	#{ $threadsPopoutList } {
-		padding: 0 24px 16px;
+		padding-block: 0 16px;
+		padding-inline: 24px;
 	}
 
 	.activeThreadsList-c8qlqZ {
-		padding-bottom: 16px;
+		padding-block-end: 16px;
 	}
 
 	.content-28mbXd {
@@ -64,7 +65,7 @@
 		@include card-format(false, 16px, true, true);
 
 		&:last-of-type {
-			margin-bottom: 0;
+			margin-block-end: 0;
 		}
 	}
 }
@@ -72,7 +73,8 @@
 #{ $threadsPopoutHeader } {
     min-height: unset;
     height: auto;
-    padding: 24px 24px 16px;
+	padding-block: 24px 16px;
+	padding-inline: 24px;
     background-color: transparent;
 	border-bottom: none;
 
@@ -108,40 +110,42 @@ body:active #{ $threadsPopoutContainer }:not(:active) {
  *
  */
 
- #{ $channelThreadPopout } {
+#{ $channelThreadPopout } {
  	padding: 0;
  	@include popout-format;
 
- 	#{ $channelThreadPopoutTitle } {
-		margin: 0 0 8px 0;
+	#{ $channelThreadPopoutTitle } {
+		margin-block-end: 0;
  		padding: 12px;
  		@include remove-caps(14px);
 		border-bottom: 1px solid var(--popout-header-border);
  	}
 
  	#{ $channelThreadPopoutRow } {
- 		margin: 0;
- 		border-radius: 0;
- 		color: var(--menu-item-text-color);
- 		transition: var(--default-time) var(--default-animation);
+		margin: var(--context-menu-padding);
+		border-radius: calc(var(--popout-radius-big) / 2);
+		color: var(--menu-item-text-color);
+		transition: var(--default-time) var(--default-animation);
 
  		&:hover {
- 			background-color: var(--menu-item-hover);
- 			color: var(--menu-item-text-color);
- 		}
+			background-color: var(--menu-item-hover);
+			color: var(--menu-item-text-color);
+		}
 
 		#{ $channelThreadPopoutTimestamp } {
 			color: var(--text-muted) !important;
 		}
  	}
 
- 	#{ $channelThreadPopoutMore } {
-		padding: 8px 12px;
+	#{ $channelThreadPopoutMore } {
+		margin-block-start: 0;
+		padding-block: var(--space-8);
+		padding-inline: var(--space-12);
 		border-top-color: var(--popout-header-border);
- 		color: hsl(var(--accent-hsl--material-you));
+		color: hsl(var(--accent-hsl--material-you));
 
- 		#{ $size14 } {
- 			margin-left: auto;
- 		}
- 	}
- }
+		#{ $size14 } {
+			margin-inline-start: auto;
+		}
+	}
+}

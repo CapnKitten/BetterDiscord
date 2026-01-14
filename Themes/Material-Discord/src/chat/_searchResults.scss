@@ -40,7 +40,8 @@
     #{ $item } {
         display: flex;
         height: calc(var(--search-header-height) - var(--search-header-padding));
-        padding: 0 12px;
+		padding-block: 0;
+		padding-inline: 12px;
         align-items: center;
 
         &#{ $itemSelected } {
@@ -89,23 +90,23 @@
 		}
 
 		#{ $avatarLarge } {
-			top: 0 !important;
-			left: -50px !important;
+			inset-block-start: 0 !important;
+			inset-inline-start: -50px !important;
 		}
 
 		&#{ $hasReply } {
 			#{ $avatarLarge } {
-				top: 28px !important;
+				inset-block-start: 28px !important;
 			}
 
             #{ $avatarDecoration } {
-				top: 28px;
+				inset-block-start: 28px;
 			}
 		}
 
 		#{ $messageReplied } {
             &:before {
-				left: calc((var(--chat-avatar-size) / 2 + var(--message-padding-side) + var(--gutter) / 2) * -1);
+				inset-inline-start: calc((var(--chat-avatar-size) / 2 + var(--message-padding-side) + var(--gutter) / 2) * -1);
 				border-color: var(--message-color);
             }
         }

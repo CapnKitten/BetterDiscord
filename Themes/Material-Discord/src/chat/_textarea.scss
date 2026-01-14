@@ -8,7 +8,7 @@
  */
 
 #{ $chatForm } {
-	margin-top: 0 !important;
+	margin-block-start: 0 !important;
 	padding: 0;
 
 	&:before,
@@ -17,7 +17,8 @@
 	}
 
 	#{ $channelTextArea } {
-		margin: 12px 0;
+		margin-block: 12px;
+		margin-inline: 0;
 		background-color: var(--main-textarea-color);
 		border-radius: var(--main-textarea-radius);
 		border: none;
@@ -27,23 +28,22 @@
 			opacity: 0.8;
 
 			#{ $channelTextAreaScrollable } {
-				margin-right: var(--main-textarea-inner-padding);
+				margin-inline-end: var(--main-textarea-inner-padding);
 				scrollbar-width: none;
 			}
 
 			#{ $channelTextAreaInner } {
-				padding-left: 0;
-				padding-right: 0;
+				padding-inline: 0;
 			}
 
 			#{ $slateTextArea } {
-				margin-left: var(--space-16);
+				margin-inline-start: var(--space-16);
 			}
 
 			#{ $textAreaSlate } {
 				width: calc(100% + var(--scrollbar-width));
 				height: var(--custom-channel-textarea-text-area-height) !important;
-				margin-right: 0;
+				margin-inline: 0;
 			}
 
 			#{ $textAreaPlaceholder } {
@@ -55,7 +55,8 @@
 
 	#{ $channelTextAreaScrollable } {
 		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-		margin: var(--main-textarea-inner-padding) 0 var(--main-textarea-inner-padding) var(--main-textarea-inner-padding);
+		margin-block: var(--main-textarea-inner-padding);
+		margin-inline: var(--main-textarea-inner-padding) 0;
 		background-color: var(--main-textarea-color);
 		border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
 		opacity: 1;
@@ -68,27 +69,28 @@
 
 	#{ $textAreaSlate } {
 		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-		margin-left: calc(var(--main-textarea-inner-padding) * 2);
-		margin-right: var(--main-textarea-inner-padding);
+		margin-inline-start: calc(var(--main-textarea-inner-padding) * 2);
+		margin-inline-end: var(--main-textarea-inner-padding);
 		background-color: var(--main-textarea-inner-color);
 		border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
 	}
 
 	#{ $slateTextArea } {
 		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-		margin-left: var(--main-textarea-height);
-		padding: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) var(--space-16) calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2) 0;
+		margin-inline-start: var(--main-textarea-height);
+		padding-block: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2);
+		padding-inline: 0 var(--space-16);
 	}
 
 	#{ $textAreaDisabled } {
         #{ $textAreaPlaceholder } {
-            padding-left: 16px;
+            padding-inline-start: 16px;
         }
     }
 
 	#{ $channelTextAreaInner } {
-		padding-left: var(--main-textarea-inner-padding);
-		padding-right: calc(var(--main-textarea-inner-padding));
+		padding-inline-start: var(--main-textarea-inner-padding);
+		padding-inline-end: calc(var(--main-textarea-inner-padding));
 		overflow: hidden;
 	}
 
@@ -107,9 +109,10 @@
 			content: " ";
 			width: calc(100% - 24px);
 			height: 1px;
-			left: 0;
-			bottom: 0;
-			margin: 0 12px;
+			inset-inline-start: 0;
+			inset-block-end: 0;
+			margin-block: 0;
+			margin-inline: 12px;
 			background-color: var(--main-textarea-border);
 		}
 
@@ -134,7 +137,7 @@
 	#{ $channelTextAreaAttachWrapper } {
 		width: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
 		height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
-		margin-right: calc((var(--main-textarea-height) + var(--main-textarea-inner-padding)) * -1);
+		margin-inline-end: calc((var(--main-textarea-height) + var(--main-textarea-inner-padding)) * -1);
 		padding: 0;
 		z-index: 2;
 	}
@@ -161,8 +164,8 @@
 	}
 
 	#{ $channelTextAreaCommandIconWrapper } {
-		margin-left: 0;
-		margin-right: calc((32px + var(--main-textarea-inner-padding)) * -1);
+		margin-inline-start: 0;
+		margin-inline-end: calc((32px + var(--main-textarea-inner-padding)) * -1);
 		z-index: 2;
 	}
 
@@ -178,15 +181,16 @@
 	#{ $channelTextAreaTyping } {
 		position: absolute;
 		width: calc(100% - (var(--scrollbar-width) + var(--space-32)));
-		top: -16px;
-		left: 0;
-		margin-top: 0;
-		padding: 0 var(--space-16);
+		inset-block-start: -16px;
+		inset-inline-start: 0;
+		margin-block-start: 0;
+		padding-block: 0;
+		padding-inline: var(--space-16);
 		background-color: var(--typing-color);
 		transition: 200ms ease-in-out;
 
 		#{ $channelTextAreaSlowModeIcon } {
-			margin-right: 8px;
+			margin-inline-end: 8px;
 		}
 	}
 }
@@ -214,9 +218,10 @@
 		content: " ";
 		width: calc(100% - 24px);
 		height: 1px;
-		left: 0;
-		bottom: 0;
-		margin: 0 12px;
+		inset-block-end: 0;
+		inset-inline-start: 0;
+		margin-block: 0;
+		margin-inline: 12px;
 		background-color: var(--separator-color);
 	}
 
@@ -234,7 +239,10 @@
 }
 
 #{ $channelAccessoryBar } {
-	margin: 0 12px;
+	margin-block: 0;
+	margin-inline: 12px;
+	padding-block: 0;
+	padding-inline: 4px;
 	padding: 0 4px;
 	border-color: var(--separator-color);
 }
@@ -258,9 +266,10 @@
 		content: " ";
 		width: calc(100% - 24px);
 		height: 1px;
-		top: 0;
-		left: 0;
-		margin: 0 12px;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		margin-block: 0;
+		margin-inline: 12px;
 		background-color: var(--main-textarea-border);
 	}
 
@@ -275,7 +284,7 @@
 	}
 
 	#{ $channelTextAreaSendButtonIcon } {
-		padding-top: 0;
+		padding-block-start: 0;
 
 		path {
 			d: path("M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z");
@@ -284,8 +293,8 @@
 }
 
 #{ $applicationCommandEducation } {
-	top: -12px;
-	bottom: unset;
+	inset-block-start: -12px;
+	inset-block-end: unset;
 	background-color: var(--typing-color);
 
 	#{ $applicationCommandEducationArrow } {
@@ -295,14 +304,15 @@
 
 #{ $channelInfo } {
 	height: var(--main-textarea-height);
-	margin: 12px 16px;
+	margin-block: 12px;
+	margin-inline: 16px;
 	padding: 0;
 	background-color: var(--main-textarea-color);
 	border-radius: var(--main-textarea-radius);
 	border: none;
 
 	#{ $channelInfoButtonContainer } {
-		margin-right: 4px;
+		margin-inline-end: 4px;
 	}
 }
 
@@ -338,15 +348,16 @@
 
 #{ $channelBottomBarArea } {
 	margin: 0;
-	padding: 0 var(--space-16);
+	padding-block: 0;
+	padding-inline: var(--space-16);
 	gap: 12px;
 
 	+ span + #{ $channelTextAreaTyping },
 	+ #{ $channelTextAreaTyping } {
 		position: absolute;
 		width: calc(100% - (var(--scrollbar-width) + (var(--space-16) * 3)));
-		left: unset;
-		right: var(--space-16);
+		inset-inline-start: unset;
+		inset-inline-end: var(--space-16);
 		background-color: var(--typing-color);
 	}
 }
@@ -390,14 +401,14 @@
 	--button-padding-end: 0;
     --button-radius: calc(var(--button-height) / 2);
 
-	margin-left: 0;
+	margin-inline-start: 0;
 }
 
 /* MAIN TEXTAREA -> INVITE TO GAME */
 
 #{ $activityInviteEducation } {
-    top: -14px;
-	padding-left: calc(22px + var(--main-textarea-inner-padding));
+    inset-block-start: -14px;
+	padding-inline-start: calc(22px + var(--main-textarea-inner-padding));
     overflow: visible;
 
     #{ $activityInviteEducationArrow } {
@@ -405,7 +416,8 @@
     }
 
     span {
-        padding: 2px 8px;
+		padding-block: 2px;
+		padding-inline: 8px;
         background-color: var(--popout-color);
         border-radius: 12px;
         box-shadow: var(--shadow-medium);
@@ -417,14 +429,17 @@
 #{ $timeoutBar } {
 	display: grid;
 	grid-template-columns: 1fr auto;
-	margin: 12px 16px;
-	padding: 4px 8px;
+	margin-block: 12px;
+	margin-inline: 16px;
+	padding-block: 4px;
+	padding-inline: 8px;
 	background-color: var(--main-textarea-color);
 	border: 1px solid var(--main-textarea-border);
 	border-radius: 28px;
 
 	#{ $timeoutBarTextContainer } {
-		margin: 0 8px 0 0;
+		margin-block: 0;
+		margin-inline: 0 8px;
 	}
 
 	#{ $timeoutBarActionButtons } {
@@ -436,8 +451,9 @@
 /* MAIN TEXTAREA -> INTRODUCTION */
 
 #{ $chatIntroductionBanner } {
-    margin-top: 12px;
-    padding: 12px 16px;
+    margin-block-start: 12px;
+	padding-block: 12px;
+	padding-inline: 16px;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 

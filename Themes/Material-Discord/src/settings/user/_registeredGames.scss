@@ -41,11 +41,11 @@
     color: var(--interactive-text-default) !important;
 
     #{ $buttonLink } {
-        margin-left: 8px;
+        margin-inline-start: 8px;
     }
 
     + #{ $marginTop40 } {
-        margin-top: 0;
+        margin-block-start: 0;
     }
 }
 
@@ -58,43 +58,39 @@
 }
 
 #{ $settingsAddedGamesDescription } {
-    margin-bottom: 0;
+    margin-block-end: 0;
     padding: 0 16px;
     background-color: var(--card-color-filled);
 }
 
 #{ $settingsGameContainer } {
-    margin-bottom: 0;
+    margin-block-end: 0;
     padding: 16px;
     background-color: var(--card-color-filled);
     border-radius: 0;
     border: none;
 
     &#{ $settingsGameHoverCardNoMargin } {
-        &:before {
-            left: var(--space-8);
-            right: var(--space-4);
+        &:before {inset-inline-start: var(--space-8);inset-inline-end: var(--space-4);
         }
     }
 
     &:first-of-type {
-        padding-top: var(--space-24);
+        padding-block-start: var(--space-24);
         border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
         &:before {
-            height: calc(100% - 8px);
-            top: 8px;
+            height: calc(100% - 8px);inset-block-start: 8px;
         }
     }
 
     &:last-of-type {
-        padding-bottom: var(--space-24);
+        padding-block-end: var(--space-24);
         border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
         box-shadow: none !important;
 
         &:before {
-            height: calc(100% - 8px);
-            bottom: 8px;
+            height: calc(100% - 8px);inset-block-end: 8px;
         }
     }
 
@@ -102,10 +98,7 @@
         position: absolute;
         content: " ";
         width: calc(100% - 16px);
-        height: 100%;
-        left: 8px;
-        right: 4px;
-        bottom: unset;
+        height: 100%;inset-inline-start: 8px;inset-inline-end: 4px;inset-block-end: unset;
         background-color: var(--card-color-hover);
         border-radius: calc(var(--card-radius-big) / 1.5);
         border: none;
@@ -135,7 +128,7 @@
     }
 
     #{ $settingsGameNameInput } {
-        margin-left: -4px;
+        margin-inline-start: -4px;
         padding: 0 4px;
         border: none;
         border-radius: 12px;
@@ -152,12 +145,10 @@
         color: var(--text-muted) !important;
     }
 
-    #{ $settingsLongCardButton } {
-        right: -12px;
+    #{ $settingsLongCardButton } {inset-inline-end: -12px;
     }
 
-    #{ $settingsGameRemoveButton } {
-        top: calc(var(--space-8) * -1);
+    #{ $settingsGameRemoveButton } {inset-block-start: calc(var(--space-8) * -1);
         inset-inline-end: 0;
     }
 }
