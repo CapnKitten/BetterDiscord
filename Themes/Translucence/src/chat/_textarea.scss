@@ -7,7 +7,7 @@
  */
 
 #{ $chatForm } {
-    margin-top: 0;
+    margin-block-start: 0;
 
     &:before {
         display: none;
@@ -15,7 +15,8 @@
 }
 
 #{ $channelBottomBarArea } {
-    margin: 12px 0;
+    margin-block: 12px;
+    margin-inline: 0;
     gap: var(--space-16);
 }
 
@@ -23,9 +24,9 @@
 #{ $channelInfo } {
     --textarea-alpha: 0.1;
 
-    margin: 0;
     background: rgba(var(--textarea-color),var(--textarea-alpha));
 	border-radius: var(--textarea-radius);
+    border: none;
 
     #{ $channelTextAreaScrollable } {
         background-color: transparent;
@@ -40,33 +41,41 @@
     }
 }
 
+#{ $channelTextArea } {
+    margin: 0;
+}
+
+#{ $channelInfo } {
+    margin-block: 12px;
+    margin-inline: 0;
+    padding-block: 11px;
+    padding-inline: 0;
+}
+
 #{ $channelTextAreaDisabled } {
     #{ $channelTextAreaScrollable } {
         opacity: 1;
     }
 }
 
-#{ $channelInfo } {
-    padding: 12px 0;
-}
-
 #{ $channelTextAreaUpload } {
     background-color: var(--message-color);
-	border-radius: var(--message-radius);
+    border-radius: calc(var(--textarea-radius) / 1.4);
+    border: none;
 }
 
 #{ $channelTextAreaTyping } {
     position: absolute;
     width: calc(100% - 32px);
 	height: 24px;
-	top: -12px;
-	left: unset;
-	right: unset;
-    margin-top: 0;
-	margin-right: 0 !important;
+	inset-block-start: -12px;
+	inset-inline-start: unset;
+	inset-inline-end: unset;
+    margin-block-start: 0;
+	margin-inline-end: 0 !important;
 
     &#{ $channelTextAreaInTextChannel } {
-        top: -12px;
+        inset-block-start: -12px;
     }
 }
 
@@ -110,6 +119,9 @@
 }
 
 #{ $channelTextAreaAttachButton } {
+    padding-block: var(--space-12);
+    padding-inline: var(--space-md) var(--space-xs);
+
     &:not(#{ $channelTextAreaButtonInnerNoHover }) {
         &:hover {
             background-color: transparent;

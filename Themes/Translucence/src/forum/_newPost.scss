@@ -35,7 +35,8 @@
     #{ $input } {
         margin: 0;
         height: var(--button-height);
-        padding: 0 10px;
+        padding-block: 0;
+        padding-inline: 10px;
         line-height: var(--button-height);
         font-weight: 400;
         text-shadow: none;
@@ -56,13 +57,11 @@
     }
 
     #{ $newPostContentContainer } {
-        padding-left: 0;
-        padding-right: 86px;
+        padding-inline: 0 86px;
     }
 
     #{ $newPostForm } {
-        margin-left: 40px;
-        margin-right: 0;
+        margin-inline: 40px 0;
     }
 
     #{ $newPostFormContainer } {
@@ -71,14 +70,16 @@
     }
 
     #{ $channelTextArea } {
-        margin: 16px 0 0;
+        margin-block: 16px 0;
+        margin-inline: 0;
         background-color: transparent;
     }
 
     #{ $channelTextAreaInner } {
         --textarea-alpha: 0.1;
 
-        padding: 8px 16px;
+        padding-block: 8px;
+        padding-inline: 16px;
         background-color: rgba(var(--textarea-color),var(--textarea-alpha)) !important;
     	border-radius: var(--textarea-radius);
         color: var(--textarea-text-color);
@@ -91,8 +92,8 @@
 
 #{ $newPostAttachmentPopoutContainer } {
     position: absolute;
-    top: calc(var(--button-height) + 16px);
-    right: 16px;
+    inset-block-start: calc(var(--button-height) + 16px);
+    inset-inline-end: 16px;
 
     #{ $newPostAttachmentUploadInput } {
         @include card-format;

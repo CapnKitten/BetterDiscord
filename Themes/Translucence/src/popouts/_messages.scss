@@ -10,15 +10,18 @@
 #{ $messagesPopoutWrap } {
     max-height: 80vh !important;
 	@include add-translucence(before, true);
+    background-color: transparent;
 }
 
 #{ $messagesPopoutHeader } {
-	background-color: transparent;
+    background-color: transparent;
+    border: none;
 	box-shadow: var(--popout-header-shadow);
 }
 
 #{ $messagesPopoutInner } {
-	padding: 16px 0 0 8px;
+    padding-block: 16px 0;
+    padding-inline: 8px 0;
 }
 
 #{ $messagesPopoutFooter } {
@@ -28,13 +31,13 @@
 /* MESSAGES POPOUT -> PINNED MESSAGES */
 
 #{ $pinnedMessageGroupWrapper } {
-	margin-bottom: 16px;
-	background-color: transparent;
-	border: none;
+	margin-block-end: 16px;
+    background-color: transparent;
+    border: none;
 
 	#{ $messagesWrapper } {
-		margin-left: 56px !important;
-		margin-right: 16px !important;
+		margin-inline-start: 56px !important;
+		margin-inline-end: 0 !important;
 		background-color: var(--message-color);
 		border-radius: var(--message-radius);
 
@@ -45,7 +48,7 @@
 	}
 
     #{ $pinnedActionButtons } {
-        right: calc(16px + var(--message-padding-side));
+        inset-inline-end: calc(16px + var(--message-padding-side));
     }
 
     #{ $pinnedJumpButton } {
@@ -66,6 +69,7 @@
 
 #{ $messagesPopoutContentContainer } {
     background-color: transparent;
+    border: none;
 }
 
 #{ $messagesPopoutRow } {
@@ -76,15 +80,12 @@
 
 /* MESSAGES POPOUT -> MENTIONS */
 
-#{ $messagesPopoutChannelHeader },
-#{ $recentMentionsMessagesContainer } {
-	background-color: transparent;
-}
-
 #{ $messagesPopoutChannelHeader } {
-    margin: 4px 0;
-	padding: 12px 16px 12px 28px;
-	background-color: transparent;
+    margin-block: 4px;
+    margin-inline: 0;
+    padding-block: 12px;
+    padding-inline: 28px 16px;
+	background-color: var(--popout-color);
 	@include add-translucence(null, true);
 
 	&:before {
@@ -102,11 +103,14 @@
 }
 
 #{ $recentMentionsMessagesContainer } {
-	padding: 16px 0;
+    padding-block: 16px;
+    padding-inline: 0;
+    background-color: transparent;
+    border: none;
 
 	#{ $messagesWrapper } {
-		margin-left: 60px;
-		margin-right: 0;
+		margin-inline-start: 60px;
+		margin-inline-end: 0;
         overflow: visible;
 	}
 }
@@ -115,6 +119,12 @@
 
 #{ $recentMentionsPopout } {
     @include add-translucence(before, true);
+
+    #{ $messagesPopoutWrap } {
+        &:before {
+            background-color: transparent;
+        }
+    }
 
     #{ $messagesWrapper } {
         overflow: visible;

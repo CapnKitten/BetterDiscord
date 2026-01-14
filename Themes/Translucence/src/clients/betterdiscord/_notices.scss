@@ -9,19 +9,19 @@
 
 #{ $bdNotices } {
     position: absolute;
-    top: var(--space-8);
-    right: var(--space-8);
+    inset-block-start: var(--space-8);
+    inset-inline-end: var(--space-8);
     z-index: 1001;
 
     &:has(#{ $bdNotice }) {
         width: auto;
-        left: unset;
+        inset-inline-start: unset;
     }
 }
 
 #{ $base } {
     &:has(#{ $bdNotices } #{ $bdNotice }) {
-        margin-top: 0;
+        margin-block-start: 0;
     }
 }
 
@@ -45,8 +45,8 @@
     #{ $bdNoticeClose } {
         width: 18px;
         height: 18px;
-        top: 20px;
-        right: 20px;
+        inset-block-start: 20px;
+        inset-inline-end: 20px;
         -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
     	-webkit-mask-repeat: no-repeat;
         background-color: var(--header-secondary);
@@ -57,7 +57,7 @@
     }
 
     #{ $bdNoticeContent } {
-        margin-right: 30px;
+        margin-inline-end: 30px;
         font-size: 1.25em;
         font-weight: 400;
         color: var(--header-primary) !important;
@@ -68,7 +68,7 @@
         display: flex;
         height: var(--button-height);
         line-height: var(--button-height);
-        top: 0;
+        inset-block-start: 0;
         margin: 0;
         justify-content: center;
         background-color: hsl(var(--accent-hsl)) !important;

@@ -8,14 +8,15 @@
  */
 
 #{ $vencordSettingsTabBar } {
-    margin-top: 24px;
-    margin-bottom: 0 !important;
-    padding-top: 10px;
+    margin-block-start: 24px;
+    margin-block-end: 0 !important;
+    padding-block-start: 10px;
     border-bottom: 1px solid var(--background-modifier-accent) !important;
 
     #{ $item } {
         margin: 8px;
-        padding: 2px 8px;
+        padding-block: 2px;
+        padding-inline: 8px;
         border-radius: var(--button-radius);
         border-bottom: none;
         line-height: 20px;
@@ -33,11 +34,11 @@
         }
 
         &:first-child {
-            margin-left: 0;
+            margin-inline-start: 0;
         }
 
         &:last-child {
-            margin-right: 0;
+            margin-inline-end: 0;
         }
     }
 
@@ -65,8 +66,8 @@
 /* VENCORD SETTINGS -> NOTIFICATION */
 
 #{ $vencordNotificationRoot } {
-    top: calc(var(--custom-app-top-bar-height) + var(--space-8));
-    right: calc(var(--app-margin) + var(--space-8)) !important;
+    inset-block-start: calc(var(--custom-app-top-bar-height) + var(--space-8));
+    inset-inline-end: calc(var(--app-margin) + var(--space-8)) !important;
     bottom: unset !important;
 
     @include add-translucence(before, true, true, true);

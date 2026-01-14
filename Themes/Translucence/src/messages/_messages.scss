@@ -7,6 +7,10 @@
  *
  */
 
+#{ $message } {
+	border-radius: var(--message-radius);
+}
+
 #{ $messageBackgroundFlash } {
 	&:not([style$="0);"]) {
 		background-color: hsla(var(--accent-hsl),0.3) !important;
@@ -28,48 +32,48 @@
 }
 
 #{ $messagesWrapper } {
-	margin-left: 68px;
-	margin-right: 16px;
+	margin-inline-start: 68px;
+	margin-inline-end: 16px;
 	background-color: var(--message-color) !important;
 	border-radius: var(--message-radius);
 	transition: 300ms ease background-color;
 
 	&:not(#{ $messageGroupStart }),
     &#{ $messageCompact } {
-    	margin-top: 2px;
+    	margin-block-start: 2px;
     }
 
 	&#{ $messageCozy },
 	&#{ $messageCompact } {
-		padding: var(--message-padding-top) var(--message-padding-side) !important;
-		padding-right: 8px !important;
+		padding-block: var(--message-padding-top) !important;
+		padding-inline: var(--message-padding-side) !important;
 		border: 2px solid transparent;
 	}
 
 	&#{ $messageCozy } {
 		#{ $messageTimestamp } {
 			&#{ $messageTimestampAlt } {
-				left: -62px;
+				inset-inline-start: -62px;
 			}
 		}
 	}
 
 	&#{ $messageCompact } {
 		padding: 4px;
-		padding-left: 6px;
+		padding-inline-start: 6px;
 
 		#{ $messageTimestamp } {
-			margin-right: 0.75rem;
+			margin-inline-end: 0.75rem;
 		}
 	}
 
 	&#{ $hasReply } {
         #{ $avatarLarge } {
-            top: 28px;
+            inset-block-start: 28px;
         }
 
         #{ $avatarDecoration } {
-            top: 26px;
+            inset-block-start: 26px;
         }
     }
 
@@ -128,21 +132,21 @@
 #{ $avatarLarge } {
 	width: 40px;
 	height: 40px;
-	top: 0;
-	left: -50px;
-	margin-top: 0;
+	inset-block-start: 0;
+	inset-inline-start: -50px;
+	margin-block-start: 0;
 }
 
 #{ $avatarDecoration } {
-	top: -2px;
-	left: -54px;
+	inset-block-start: -2px;
+	inset-inline-start: -54px;
 }
 
 .a11y-font-scaled-down {
 	#{ $avatarLarge } {
 		&:not(#{ $messageCompact }) {
-			top: 0;
-			left: -50px;
+			inset-block-start: 0;
+			inset-inline-start: -50px;
 		}
 	}
 }
@@ -150,7 +154,7 @@
 #{ $messageListItem },
 #{ $divider } {
 	+ #{ $messagesWrapper } {
-		margin-top: 2px;
+		margin-block-start: 2px;
 	}
 }
 
@@ -163,24 +167,25 @@
 		content: " ";
 		width: calc(50% - 60px);
 		height: 1px;
-		top: 0;
-		bottom: 0;
+		inset-block-start: 0;
+		inset-block-end: 0;
 		margin: auto 0;
 		background-color: var(--background-modifier-accent);
 	}
 
 	&:before {
-		left: 0;
+		inset-inline-start: 0;
 	}
 
 	&:after {
-		right: 0;
+		inset-inline-end: 0;
 	}
 }
 
 #{ $dividerDate } {
 	width: 120px;
-	padding: 2px 0;
+	padding-block: 2px;
+	padding-inline: 0;
 	background-color: var(--message-color);
 	text-align: center;
 }

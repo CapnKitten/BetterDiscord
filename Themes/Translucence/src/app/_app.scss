@@ -7,7 +7,9 @@
  *
  */
 
-body {
+body,
+#{ $shakeable },
+#{ $bg } {
 	background-color: transparent;
 }
 
@@ -33,19 +35,15 @@ body {
 }
 
 #{ $layers } {
-	margin: calc(var(--app-margin) / 2) var(--app-margin) var(--app-margin) var(--app-margin);
+	margin-block: 0 var(--app-margin);
+	margin-inline: var(--app-margin);
 	overflow: hidden;
     z-index: 1;
-	backdrop-filter: blur(var(--app-blur));
+	backdrop-filter: none;
 }
 
 #{ $titlebarMac } + #{ $app } #{ $layers } {
 	margin: var(--app-margin);
-}
-
-#{ $shakeable },
-#{ $bg } {
-	background-color: transparent;
 }
 
 #{ $loadingScreen } {
@@ -58,4 +56,10 @@ body {
 		padding: 16px;
 		@include add-translucence(null, true);
 	}
+}
+
+#{ $contentMain } {
+	border-radius: var(--app-radius);
+	overflow: hidden;
+	backdrop-filter: blur(var(--app-blur));
 }

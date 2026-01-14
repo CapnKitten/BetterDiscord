@@ -7,33 +7,37 @@
  */
 
 #{ $searchResultsWrap } {
-    background-color: rgba( var(--main-rgb), calc( (var(--sidebar-opacity) - var(--main-content-opacity)) / (1 - var(--main-content-opacity)) ));
+    background-color: var(--sidebar-color);
 }
 
 /* SEARCH RESULTS -> HEADER */
 
 #{ $searchHeader } {
 	background-color: transparent;
+    border-bottom: none;
 	box-shadow: var(--popout-header-shadow);
 }
 
 /* SEARCH RESULTS -> MESSAGES */
 
 #{ $searchResult } {
+    background-color: transparent;
+    border: none;
+
 	&:before,
 	&:after {
 		display: none;
 	}
 
 	#{ $messagesWrapper } {
-		margin-left: 50px;
-		margin-right: 0;
+		margin-inline-start: 50px;
+		margin-inline-end: 0;
 	}
 }
 
 #{ $searchResultsButtonsContainer } {
-    top: 16px;
-    right: 8px;
+    inset-block-start: 16px;
+    inset-inline-end: 8px;
 
     #{ $searchResultJumpButton } {
         background-color: var(--card-color);
