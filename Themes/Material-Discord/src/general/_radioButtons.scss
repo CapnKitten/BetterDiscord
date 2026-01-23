@@ -7,12 +7,12 @@
  *
  */
 
-div[role="radiogroup"] {
-	@include card-format(false, 8px, true);
+#{ $radioGroup } {
+	@include card-format(false, var(--space-8), true);
 
 	display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-8);
 
 	&[aria-orientation="horizontal"] {
         display: grid;
@@ -20,110 +20,38 @@ div[role="radiogroup"] {
     }
 }
 
-#{ $radioItem } {
-	margin: 0;
-	padding: 0 12px;
-	background-color: transparent;
-	border-radius: calc(var(--card-radius-big) / 1.65) !important;
+#{ $radioGroupOption } {
+    padding: var(--space-8);
+    border-radius: calc(var(--card-radius-big) / 1.65) !important;
 	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 
     &:hover {
-        background-color: var(--card-color-hover) !important;
+        background-color: var(--card-color-hover);
     }
 
-    &[aria-checked=true],
-	&:active {
-        background-color: var(--card-color-active) !important;
+    &[data-selected="true"] {
+        background-color: var(--card-color-active);
+
+        #{ $radioIndicator } {
+            background-color: hsl(var(--accent-hsl--material-you));
+			-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_checked.svg);
+        }
     }
-
-	#{ $radioBar } {
-		grid-gap: 12px;
-		margin-block-end: 0;
-		padding: 12px 0 !important;
-		border-left: none;
-
-		@include md-ripple(hover, after, 1.15);
-
-		&:after {
-			width: 32px;
-			height: 32px;
-			inset-block-start: 0;
-			inset-inline-start: -4px;
-			inset-block-end: 0;
-			margin: auto 0;
-		}
-	}
-
-	&[aria-checked=true] {
-		#{ $radioBar } {
-			&:after {
-				--md-ripple-color: var(--accent-hsl--material-you);
-			}
-
-			svg {
-				color: hsl(var(--accent-hsl--material-you));
-			}
-
-			path {
-				fill: currentColor !important;
-			}
-		}
-
-		#{ $radioIconChecked } {
-			color: currentColor !important;
-		}
-	}
-
-	&#{ $radioItemDisabled } {
-		opacity: 1;
-
-		#{ $radioBar } {
-			opacity: 0.3;
-
-			&:after {
-				display: none;
-			}
-		}
-	}
 }
 
-#{ $radioIndicatorGroup } {
-	width: 24px;
+#{ $radioIndicator } {
+    width: 24px;
 	height: 24px;
 	background-repeat: no-repeat;
 	background-position: center;
+    background-color: var(--interactive-text-default);
 	-webkit-mask-repeat: no-repeat;
-	mask-size: 100%;
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_unchecked.svg);
+    mask-size: 100%;
 
-	#{ $radioIndicator } {
-		display: none;
-	}
-}
-
-#{ $radioItem },
-#{ $menuPopoutItem }[role="menuitemradio"] {
-	&[aria-checked="false"] {
-		#{ $radioIndicatorGroup } {
-			background-color: var(--interactive-text-default);
-			-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_unchecked.svg);
-		}
-	}
-
-	&[aria-checked="true"] {
-		#{ $radioIndicatorGroup } {
-			background-color: hsl(var(--accent-hsl--material-you));
-			-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_checked.svg);
-		}
-	}
-}
-
-#{ $radioItemDisabledTooltip } {
-	margin: 0;
-	@include card-format--list;
-
-	&:last-child {
-		border-bottom: none;
-	}
+    circle {
+        display: none;
+    }
 }
 
 /* RADIO BUTTONS -> PILL */
@@ -185,23 +113,15 @@ div[role="radiogroup"] {
 
 #{ $menuPopoutItem } {
 	&[role="menuitemradio"] {
-		#{ $radioIndicatorGroup } {
-            width: 20px;
-            height: 20px;
-        }
-
 		&[aria-checked="true"] {
-			#{ $menuPopoutIcon } {
-				color: hsl(var(--accent-hsl--material-you));
-
-				path {
-					fill: currentColor
-				}
-			}
+			#{ $radioIndicator } {
+	            background-color: hsl(var(--accent-hsl--material-you));
+				-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/radio_button_checked.svg);
+	        }
 		}
 	}
 
-	&[id*="account-switch"] {
+	&[id*="switch-accounts-submenu"] {
 		#{ $menuPopoutActiveIcon } {
 			circle {
 				fill: var(--accent-text-color--material-you);
@@ -212,10 +132,4 @@ div[role="radiogroup"] {
 			}
 		}
 	}
-}
-
-#{ $menuPopoutIcon } {
-    #{ $menuPopoutRadio } {
-        color: currentColor !important;
-    }
 }

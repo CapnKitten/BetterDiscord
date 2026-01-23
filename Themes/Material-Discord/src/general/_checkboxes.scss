@@ -6,48 +6,31 @@
  *
  */
 
-#{ $checkbox } {
+#{ $checkboxIndicator } {
+	background-color: transparent;
 	border-width: 2px;
     border-radius: 4px;
 	transition: var(--default-time) var(--default-animation) border-color, var(--default-time) var(--default-animation) background-color;
-
-	&:not(#{ $checkboxChecked }) {
-		path {
-			transition: var(--default-time) var(--default-animation) fill;
-		}
-	}
-
-	&#{ $checkboxChecked } {
-		background-color: hsl(var(--accent-hsl--material-you)) !important;
-		border-color: hsl(var(--accent-hsl--material-you)) !important;
-
-		path {
-			fill: var(--accent-text-color--material-you);
-			transition: var(--default-time) var(--default-animation) fill;
-		}
-	}
 }
 
-/* CHECKBOXES -> CONTEXT MENU */
+#{ $checkboxOption } {
+	&[data-selected] {
+		&:hover {
+			&:not([data-disabled]) {
+				#{ $checkboxIndicator } {
+					background-color: hsl(var(--accent-hsl--material-you));
+				}
+			}
+		}
+		
+		#{ $checkboxIndicator } {
+			background-color: hsl(var(--accent-hsl--material-you));
+			border-color: hsl(var(--accent-hsl--material-you));
+		}
 
-#{ $menuPopoutColorDefault } {
-    #{ $menuPopoutCheckbox } {
-        color: hsl(var(--accent-hsl--material-you));
-    }
-
-    #{ $menuPopoutCheck } {
-        color: var(--accent-text-color--material-you);
-    }
-
-    &#{ $menuPopoutItemHover } {
-        #{ $menuPopoutCheckbox } {
-            color: hsl(var(--accent-hsl--material-you));
-            fill: currentColor;
-        }
-
-        #{ $menuPopoutCheck } {
-            color: var(--accent-text-color--material-you);
-            fill: currentColor;
-        }
-    }
+		#{ $checkboxCheckmark },
+		#{ $checkboxCheckStroke} {
+			color: var(--accent-text-color--material-you);
+		}
+	}
 }
