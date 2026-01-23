@@ -6,22 +6,24 @@
  *
  */
 
-#{ $checkbox } {
-    &#{ $checkboxChecked } {
-        background-color: hsl(var(--accent-hsl)) !important;
-        border-color: hsl(var(--accent-hsl)) !important;
+#{ $checkboxOption } {
+	&[data-selected] {
+		&:hover {
+			&:not([data-disabled]) {
+				#{ $checkboxIndicator } {
+					background-color: hsla(var(--accent-hsl));
+				}
+			}
+		}
 
-        path {
-            fill: var(--accent-text-color) !important;
-        }
-    }
-}
+		#{ $checkboxIndicator } {
+			background-color: hsla(var(--accent-hsl));
+			background-color: hsla(var(--accent-hsl));
+		}
 
-#{ $menuPopoutCheckbox },
-#{ $menuPopoutRadio } {
-    color: hsl(var(--accent-hsl)) !important;
-}
-
-#{ $menuPopoutCheck } {
-    color: var(--accent-text-color) !important;
+		#{ $checkboxCheckmark },
+		#{ $checkboxCheckStroke} {
+			color: var(--accent-text-color);
+		}
+	}
 }
