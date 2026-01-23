@@ -1,5 +1,4 @@
 @use '../classes' as *;
-@use '../mixins' as *;
 
 /*
  *
@@ -7,53 +6,28 @@
  *
  */
 
-#{ $radioItem } {
-	@include card-format(true, true);
+#{ $radioGroupOption } {
+    &[data-selected] {
+        #{ $radioOuterBase },
+        #{ $radioOuterFill } {
+            fill: hsla(var(--accent-hsl),var(--accent-opacity));
+        }
 
-	&[aria-checked=true] {
-		background-color: var(--card-color-select) !important;
-	}
+        #{ $radioInnerDot} {
+            fill: var(--accent-text-color);
+        }
 
-	&[aria-checked=true] {
-		path,
-		#{ $radioIconChecked } {
-			fill: hsla(var(--accent-hsl),var(--accent-opacity));
-		}
-	}
+		&:not([data-disabled]) {
+            &:hover {
+                #{ $radioOuterBase },
+                #{ $radioOuterFill } {
+                    fill: hsla(var(--accent-hsl));
+                }
 
-    #{ $radioBar } {
-        border-radius: var(--card-radius);
-    }
-}
-
-/* RADIO BUTTONS -> CONTEXT MENU */
-
-#{ $menuPopoutItem } {
-	&[role="menuitemradio"][aria-checked="true"] {
-		#{ $menuPopoutIcon } {
-			color: hsl(var(--accent-hsl));
-		}
-	}
-}
-
-#{ $menuPopoutIcon } {
-    #{ $menuPopoutRadio } {
-        color: currentColor !important;
-    }
-}
-
-/* RADIO BUTTONS -> RADIO REFRESH */
-
-#{ $radioIndicatorChecked } {
-    #{ $radioIndicatorRefreshIconFill } {
-        fill: hsl(var(--accent-hsl));
-    }
-
-    #{ $radioIndicatorRefreshIconStroke } {
-        stroke: hsl(var(--accent-hsl));
-    }
-
-    #{ $radioIndicatorRefreshIcon } {
-        fill: var(--accent-text-color);
+                #{ $radioInnerDot} {
+                    fill: var(--accent-text-color);
+                }
+            }
+        }
     }
 }
