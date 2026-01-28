@@ -27,7 +27,7 @@
 
 #{ $searchPopoutResultsGroup } {
 	margin: 40px 8px 8px;
-	padding: 8px;
+	padding: var(--space-8);
 	background-color: var(--message-color-alt);
 	border-radius: calc(var(--popout-radius-big) / 1.5);
 
@@ -55,11 +55,17 @@
 
 #{ $searchPopoutItemContainer } {
 	margin: 0;
-	padding: 0 8px;
+	padding-block: 0;
+	padding-inline: var(--space-8);
 	border-radius: calc(var(--popout-radius-big) / 2.5);
 	text-overflow: ellipsis;
 	overflow: hidden;
 	transition: var(--default-time) var(--default-animation) background-color;
+
+	&:not(#{ $searchPopoutGroupWrapper } *) {
+        padding-block: var(--space-4);
+        border-radius: calc(var(--popout-radius-big) / 1.5);
+    }
 
 	strong,
 	#{ $searchPopoutOptionChannelIcon },
@@ -111,12 +117,22 @@
 }
 
 #{ $searchPopoutGroupWrapper } {
-    padding: 8px;
+	margin-block-start: calc(32px + var(--space-8));
+	padding-block: var(--space-4) var(--space-8);
+    padding-inline: var(--space-8);
 	background-color: var(--message-color-alt);
 	border-radius: calc(var(--popout-radius-big) / 1.5);
+
+	&:first-child {
+		margin-block-start: 32px;
+	}
 }
 
 #{ $searchPopoutGroupHeader } {
+	height: 32px;
+	margin-block-start: calc((var(--space-8) + 32px) * -1);
+	padding-inline: 0;
+
     #{ $textXsSemibold } {
         font-size: 14px;
     }
