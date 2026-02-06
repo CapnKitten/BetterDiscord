@@ -110,11 +110,12 @@
 }
 
 @supports (color: color-mix(in lch, red, blue)) {
-  .visual-refresh.theme-dark,
-  .visual-refresh .theme-dark {
+  .theme-dark {
     /* TEXT COLOR SETTINGS */
     --text-primary: hsl(0,0%,100%);
     --text-secondary: hsl(0,0%,77%);
+    --text-default: hsl(0,0%,86%);
+    --text-muted: hsl(0,0%,72%);
     --channels-default: hsl(0,0%,62%);
     --channel-icon: hsl(0,0%,62%);
     /* ICON COLOR SETTINGS */
@@ -132,6 +133,7 @@
     --background-modifier-selected: hsl(0,0%,100%,0.125);
     --background-modifier-accent: hsl(0,0%,100%,0.175);
     --background-primary: transparent;
+    /* ACCENT COLORED TEXT AND LINK SETTINGS */
     --text-brand: hsl(var(--accent-hsl));
     --text-link: hsl(var(--accent-hsl));
   }
@@ -1318,6 +1320,16 @@ body,
   color: var(--input-placeholder-color);
 }
 
+.bd-store-card {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
+  border: none;
+}
+.bd-store-card:hover {
+  background-color: var(--card-color-hover);
+  border: none;
+}
+
 .bd-addon-list .bd-addon-card {
   background-color: var(--card-color);
   border-radius: var(--card-radius);
@@ -1340,6 +1352,33 @@ body,
 .bd-addon-store-card {
   background-color: var(--card-color) !important;
   border-radius: var(--card-radius);
+}
+
+/*
+ *
+ *  BETTERDISCORD SWITCHES
+ *
+ */
+.bd-switch .bd-switch-body {
+  --switch-color: var(--switch-slider-color);
+}
+.bd-switch .bd-switch-body .bd-switch-handle {
+  fill: var(--switch-knob-color);
+}
+.bd-switch input:active + .bd-switch-body {
+  --switch-color: var(--switch-slider-color);
+}
+.bd-switch input:checked + .bd-switch-body {
+  --switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
+  --switch-knob-color: var(--accent-text-color);
+}
+.bd-switch input:checked:active + .bd-switch-body {
+  --switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
+}
+
+.bd-switch-disabled {
+  opacity: 0.3;
+  filter: none;
 }
 
 /*
@@ -2420,44 +2459,21 @@ body,
  *  SWITCHES
  *
  */
-.container__3f21e {
+.switchIndicator_a28278 {
   background-color: var(--switch-slider-color) !important;
 }
-.container__3f21e .slider__3f21e rect {
-  fill: var(--switch-knob-color) !important;
-}
-.container__3f21e .slider__3f21e path {
-  fill: var(--switch-slider-color) !important;
-}
-.container__3f21e.checked__3f21e {
+.switchIndicator_a28278:has(.thumb_a28278[style="left: 24px;"]) {
   --switch-slider-color: hsla(var(--accent-hsl),var(--accent-opacity));
   --switch-knob-color: var(--accent-text-color);
 }
-.container__3f21e svg {
+.switchIndicator_a28278 .thumb_a28278 {
   filter: none;
 }
-
-/* SWITCHES -> BD SWITCHES */
-.bd-switch .bd-switch-body {
-  --switch-color: var(--switch-slider-color);
+.switchIndicator_a28278 .thumb_a28278 rect {
+  fill: var(--switch-knob-color) !important;
 }
-.bd-switch .bd-switch-body .bd-switch-handle {
-  fill: var(--switch-knob-color);
-}
-.bd-switch input:active + .bd-switch-body {
-  --switch-color: var(--switch-slider-color);
-}
-.bd-switch input:checked + .bd-switch-body {
-  --switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
-  --switch-knob-color: var(--accent-text-color);
-}
-.bd-switch input:checked:active + .bd-switch-body {
-  --switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
-}
-
-.bd-switch-disabled {
-  opacity: 0.3;
-  filter: none;
+.switchIndicator_a28278 .thumb_a28278 svg path {
+  fill: var(--switch-slider-color);
 }
 
 /*
@@ -2566,6 +2582,11 @@ body,
 
 .caretIcon__4e35b {
   display: none;
+}
+
+.listItemTooltipContent__91816 {
+  color: var(--tooltip-text-color);
+  text-shadow: none;
 }
 
 /* TOOLTIP -> UPSELLS */
@@ -4840,7 +4861,7 @@ body,
  *	SEARCH POPOUT
  *
  */
-.container_b6544f {
+.container__16eb0 {
   background-color: var(--popout-color) !important;
   border-radius: var(--popout-radius) !important;
   box-shadow: var(--popout-shadow) !important;
@@ -4944,15 +4965,6 @@ body,
 }
 .scroller_d6b206 .memberListItem_ec58fe:not(.popoutDisabled_ec58fe):hover {
   background-color: var(--background-modifier-hover) !important;
-}
-
-/*
- *
- *	STATUS PICKER
- *
- */
-.menu_ad5fac:before {
-  display: none;
 }
 
 /*
@@ -6061,10 +6073,33 @@ body,
   background-color: var(--card-color);
   border-radius: var(--card-radius);
   border: none;
+  padding: 0;
 }
 .connection_c7f964 .connectionHeader_c7f964 {
   background-color: transparent;
   box-shadow: var(--card-header-shadow);
+  border: none;
+  padding: var(--space-16);
+}
+.connection_c7f964 .container__35859 {
+  width: auto;
+  margin-block-end: var(--space-16);
+  margin-inline: var(--space-16);
+}
+
+.connectionOptions_c7f964,
+.metadataContainer_c7f964,
+.container__0d793 {
+  margin-inline: var(--space-16);
+}
+
+.connectionOptions_c7f964:last-child {
+  margin-block-end: var(--space-16);
+}
+
+.metadataContainer_c7f964 {
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
   border: none;
 }
 
