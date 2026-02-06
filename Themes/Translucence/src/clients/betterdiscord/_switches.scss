@@ -1,0 +1,43 @@
+@use '../../classes' as *;
+
+/*
+ *
+ *  BETTERDISCORD SWITCHES
+ *
+ */
+
+#{ $bdSwitchContainer } {
+    #{ $bdSwitchBody } {
+        --switch-color: var(--switch-slider-color);
+
+        #{ $bdSwitchHandle } {
+            fill: var(--switch-knob-color);
+        }
+    }
+
+    input {
+        &:active {
+            + #{ $bdSwitchBody } {
+    			--switch-color: var(--switch-slider-color);
+    		}
+        }
+
+        &:checked {
+            + #{ $bdSwitchBody } {
+    			--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
+                --switch-knob-color: var(--accent-text-color);
+    		}
+
+            &:active {
+				+ #{ $bdSwitchBody } {
+					--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
+				}
+			}
+        }
+    }
+}
+
+#{ $bdSwitchDisabled } {
+    opacity: 0.3;
+    filter: none;
+}

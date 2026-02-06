@@ -6,63 +6,26 @@
  *
  */
 
-#{ $switchContainer } {
-    background-color: var(--switch-slider-color) !important;
+#{ $switchIndicator } {
+	background-color: var(--switch-slider-color) !important;
 
-    #{ $switchSlider } {
-        rect {
-            fill: var(--switch-knob-color) !important;
-        }
-
-        path {
-            fill: var(--switch-slider-color) !important;
-        }
-    }
-
-    &#{ $switchContainerChecked } {
+    // Switch in on state
+    &:has(#{ $switchThumb }[style="left: 24px;"]) {
         --switch-slider-color: hsla(var(--accent-hsl),var(--accent-opacity));
         --switch-knob-color: var(--accent-text-color);
     }
 
-    svg {
+    #{ $switchThumb } {
         filter: none;
-    }
-}
 
-/* SWITCHES -> BD SWITCHES */
-
-#{ $bdSwitchContainer } {
-    #{ $bdSwitchBody } {
-        --switch-color: var(--switch-slider-color);
-
-        #{ $bdSwitchHandle } {
-            fill: var(--switch-knob-color);
-        }
-    }
-
-    input {
-        &:active {
-            + #{ $bdSwitchBody } {
-    			--switch-color: var(--switch-slider-color);
-    		}
+        rect {
+            fill: var(--switch-knob-color) !important;
         }
 
-        &:checked {
-            + #{ $bdSwitchBody } {
-    			--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
-                --switch-knob-color: var(--accent-text-color);
-    		}
-
-            &:active {
-				+ #{ $bdSwitchBody } {
-					--switch-color: hsla(var(--accent-hsl),var(--accent-opacity));
-				}
-			}
+        svg {
+            path {
+                fill: var(--switch-slider-color);
+            }
         }
     }
-}
-
-#{ $bdSwitchDisabled } {
-    opacity: 0.3;
-    filter: none;
 }
