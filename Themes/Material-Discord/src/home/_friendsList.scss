@@ -10,7 +10,7 @@
 #{ $friends } {
 	background-color: var(--chat-color) !important;
 	border-top-right-radius: var(--card-radius-big);
-	border-top: none;
+	border-block-start: none;
 }
 
 #{ $friendsTabBody } {
@@ -57,6 +57,16 @@
 	#{ $inputContainer } {
 		&:not(#{ $selectMenuContainer }) {
 			@include input-transform;
+		}
+	}
+}
+
+#{ $themeLight } {
+	#{ $friendsSearchBar } {
+		#{ $inputContainer } {
+			&:not(#{ $selectMenuContainer }) {
+				background-color: hsl(from var(--input-color) h s calc(l * 1.075));
+			}
 		}
 	}
 }
@@ -109,7 +119,7 @@
 
 #{ $spamRequest } {
     &:not(:nth-last-of-type(2)) {
-        border-bottom: none;
+        border-block-end: none;
     }
 
     #{ $friendsItem } {

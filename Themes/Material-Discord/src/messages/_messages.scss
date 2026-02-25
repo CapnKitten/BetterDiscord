@@ -55,6 +55,15 @@
 	}
 }
 
+#{ $a11yFontScaledDown } {
+	#{ $messageCozy } {
+		&#{ $messagesWrapper } {
+			padding-inline-start: var(--message-padding-side);
+			padding-inline-end: var(--message-padding-side) !important;
+		}
+	}
+}
+
 #{ $messages } {
 	&#{ $messagesGroupSpacing0 } {
 		#{ $messageGroupStart } {
@@ -198,24 +207,22 @@
 		&:after {
 			content: " ";
 			position: absolute;
-			width: 0;
-            height: 0;
+			width: calc((var(--message-radius) / 3.75) * 2);
+            height: calc((var(--message-radius) / 3.75) * 2);
 			inset-block-start: calc((var(--message-radius) / 2.2) * -1);
-			background-color: transparent;
-            border: calc(var(--message-radius) / 3.75) solid transparent;
-			border-bottom-color: var(--message-color);
+            background: var(--message-color);
 			pointer-events: none;
-			transition: var(--default-time) var(--default-animation) border-color;
+			transition: var(--default-time) var(--default-animation) background;
 		}
 
 		&:before {
 			inset-inline-start: 0;
-			border-left-color: var(--message-color);
+			mask-image: linear-gradient(to top right, black 50%, transparent 50%);
 		}
 
 		&:after {
 			inset-inline-end: 0;
-			border-right-color: var(--message-color);
+			mask-image: linear-gradient(to top left, black 50%, transparent 50%);
 		}
 	}
 
@@ -286,6 +293,24 @@
 	}
 }
 
+#{ $messageListItem },
+#{ $messageBackgroundFlash } {
+	&:hover {
+		+ #{ $messageListItem },
+		+ #{ $messageBackgroundFlash },
+		+ #{ $newMessagesDivider } + #{ $messageListItem } {
+			#{ $messagesWrapper } {
+				&:not(#{ $messageGroupStart }) {
+					&:before,
+					&:after {
+						background: var(--message-color-hover);
+					}
+				}
+			}
+		}
+	}
+}
+
 #{ $messageRepliedSpine } {
 	inset-inline-start: calc( ((var(--chat-avatar-size) / 2) + var(--message-padding-side) + (var(--gutter) / 2)) * -1 );
     margin-inline-end: var(--message-padding-side);
@@ -316,32 +341,6 @@
     #{ $messageRepliedAppCommandName } {
         border-radius: 9px;
     }
-}
-
-#{ $messageListItem },
-#{ $messageBackgroundFlash } {
-	&:hover {
-		+ #{ $messageListItem },
-		+ #{ $messageBackgroundFlash },
-		+ #{ $newMessagesDivider } + #{ $messageListItem } {
-			#{ $messagesWrapper } {
-				&:not(#{ $messageGroupStart }) {
-					&:before,
-					&:after {
-						border-bottom-color: var(--message-color-hover);
-					}
-
-					&:before {
-						border-left-color: var(--message-color-hover);
-					}
-
-					&:after {
-						border-right-color: var(--message-color-hover);
-					}
-				}
-			}
-		}
-	}
 }
 
 #{ $messageCozy } {
@@ -590,7 +589,7 @@
     #{ $messageQuickConnectionsPopoutHeaderContainer } {
         padding: 12px;
         background-color: transparent;
-        border-bottom: 1px solid var(--popout-header-border);
+        border-block-end: 1px solid var(--popout-header-border);
     }
 }
 

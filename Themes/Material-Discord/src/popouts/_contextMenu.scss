@@ -48,6 +48,7 @@
             --menu-item-text-color: hsl(var(--alert-hsl));
         }
 
+        &:hover,
         &#{ $menuPopoutItemHover } {
             background-color: var(--menu-item-hover);
 
@@ -124,6 +125,25 @@
 
     #{ $menuPopoutInnerLabel } {
         gap: 8px;
+    }
+}
+
+#{ $themeLight } {
+    #{ $menuPopout } {
+        #{ $menuPopoutItem } {
+            &:hover,
+            &#{ $menuPopoutItemHover } {
+                background-color: hsl(from var(--menu-item-hover) h s calc(l * 0.875));
+            }
+        }
+    }
+
+    #{ $contextMenuQuickReaction } {
+        background-color: hsl(from var(--menu-item-hover) h s calc(l * 0.875));
+
+        &:hover {
+    		background-color: hsl(from var(--menu-item-select) h s calc(l * 0.815));
+    	}
     }
 }
 

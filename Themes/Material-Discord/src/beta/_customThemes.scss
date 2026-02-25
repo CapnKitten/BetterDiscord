@@ -6,343 +6,149 @@
  *
  */
 
+#{ $themeDark } {
+    --background-base-high: color-mix(in oklab,var(--neutral-58) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+    --background-base-higher: color-mix(in oklab,var(--neutral-52) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+    --background-base-highest: color-mix(in oklab,var(--neutral-47) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+}
+
+#{ $themeLight } {
+    --background-base-high: color-mix(in oklab,var(--neutral-1) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+    --background-base-higher: color-mix(in oklab,var(--neutral-6) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+    --background-base-highest: color-mix(in oklab,var(--neutral-9) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+}
+
 #{ $themeDark },
 #{ $themeLight } {
-    --app-bg: var(--bg-overlay-4,var(--background-tertiary)) !important;
-    --accent-text-color--material-you: var(--interactive-active);
+    --app-bg: var(--background-gradient-app-frame, var(--background-base-lowest));
 
-    #{ $titlebarWithBackgroundOverride } {
-        background: transparent;
-    }
+    --popout-color: var(--background-base-high);
+    --popout-color-alt: var(--background-base-lower);
 
-    #{ $base } {
-        background: var(--bg-overlay-2, var(--background-secondary));
-        border-radius: var(--card-radius-big);
-    }
+    --card-color-filled: var(--background-base-high);
+    --card-color-hover: var(--background-base-higher);
+    --card-color-active: var(--background-base-highest);
+    --card-color-alt: var(--background-base-higher);
+    --card-border-color: var(--background-base-highest);
+    --card-button-color: var(--background-base-highest);
+}
 
-    #{ $headerBar }#{ $headerBarThemed } {
-        background: var(--bg-overlay-2, var(--background-secondary)) !important;
-    }
+/* CUSTOM THEMES -> CHANNELS LIST */
 
-    #{ $standardSidebarView } {
-        background: var(--app-bg);
-    }
+#{ $channelsContainer } {
+    background: var(--background-gradient-chat, var(--background-base-lowest));
+}
 
-    #{ $settingsSidebarScroller } {
-        background-color: transparent;
-    }
+#{ $channelsHeaderContainer } {
+    background-color: transparent;
 
-    #{ $settingsContentRegion } {
-        background: var(--bg-overlay-2, var(--background-secondary));
-    }
+    &:not(#{ $channelHasBanner }) {
+        #{ $channelsHeader } {
 
-    #{ $settingsCardPrimary },
-    #{ $settingsAccountProfileCard },
-    #{ $settingsProfileCard },
-    #{ $deviceSessions } > div:not([class]),
-    #{ $deviceOtherSessions },
-    #{ $accountList },
-    #{ $connectionCard },
-    #{ $titleH5 }#{ $eyebrow } + div:not([class]) div[role=radiogroup],
-    #{ $radioGroup } {
-        background: var(--bg-overlay-3, var(--background-secondary));
-    }
-
-    #{ $radioGroupOption } {
-        &:hover {
-            background: var(--bg-overlay-4, var(--background-secondary));
-        }
-
-        &[data-selected="true"] {
-            background: var(--bg-overlay-5, var(--background-secondary));
-        }
-    }
-
-    #{ $settingsSidebar } {
-        #{ $settingsSide } > div:not([class])[style="margin-block-end: 8px;"] {
-            background: var(--app-bg);
-        }
-
-        #{ $triggerSettingsSearchBox } {
-            background: var(--bg-overlay-3,var(--background-tertiary));
-        }
-
-        #{ $item } {
+            &,
             &:hover {
-                background: var(--bg-overlay-hover, var(--background-primary));
-            }
-
-            &#{ $itemSelected } {
-                background: var(--bg-overlay-selected, var(--background-primary));
-            }
-        }
-    }
-
-    #{ $settingsProfileCustomizationSectionBorder } {
-        background: var(--bg-overlay-3, var(--background-secondary)) padding-box, linear-gradient(45deg, hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%), hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)) border-box;
-    }
-
-    #{ $connectionCardMetadataContainer },
-    #{ $integrationCard } {
-        background: var(--bg-overlay-4, var(--background-secondary));
-    }
-
-    #{ $buttonFilled } {
-        --button-background: var(--bg-overlay-selected,var(--background-modifier-selected));
-        --button-text-color: var(--interactive-active);
-
-        &#{ $buttonBrand } {
-            --button-background: var(--bg-overlay-selected,var(--background-modifier-selected));
-            --button-text-color: var(--interactive-active);
-        }
-    }
-
-    #{ $connectionCardUpsellContainer } {
-        background: var(--bg-overlay-4, var(--background-secondary));
-    }
-
-    #{ $guildsWrapper } {
-        background: transparent;
-
-        #{ $scroller } {
-            background: transparent;
-        }
-    }
-
-    #{ $guilds } {
-        background: transparent;
-    }
-
-    #{ $guildLink } {
-        #{ $guildChildWrapper } {
-            background: var(--bg-overlay-1, var(--background-primary));
-            color: var(--interactive-active);
-        }
-
-        &#{ $guildLinkSelected } {
-            #{ $guildChildWrapper } {
-                background: var(--bg-overlay-6, var(--background-primary));
-                color: var(--interactive-active);
-            }
-        }
-    }
-
-    #{ $circleIconButtonMask },
-    #{ $circleIconButton } {
-        background: var(--bg-overlay-1, var(--background-primary));
-        color: var(--interactive-active);
-
-        &#{ $circleIconButtonSelected } {
-            background: var(--bg-overlay-6, var(--background-primary));
-            color: var(--interactive-active);
-        }
-    }
-
-    #{ $privateChannels } {
-        background: transparent;
-
-        #{ $scroller } {
-            background: inherit;
-        }
-    }
-
-    #{ $channelWrapper } {
-        &,
-        &:hover {
-            #{ $channelLink } {
-                background: transparent;
-            }
-        }
-
-        &:hover {
-            background: var(--bg-overlay-hover, var(--background-primary));
-        }
-
-        &#{ $channelWrapperSelected } {
-            background: var(--bg-overlay-selected, var(--background-primary));
-        }
-    }
-
-    #{ $nowPlayingColumn } {
-        background: transparent;
-
-        #{ $nowPlayingColumnContainer } {
-            background: inherit;
-        }
-    }
-
-    #{ $activeNowCardInteractive } {
-        background: var(--bg-overlay-2, var(--background-primary));
-
-        &:hover,
-        &#{ $activeNowCardActive } {
-            background: var(--bg-overlay-3, var(--background-primary));
-        }
-
-        #{ $activeNowCardSection } {
-            background: var(--bg-overlay-4, var(--background-primary));
-        }
-    }
-
-    #{ $channelsSidebar } {
-        background: transparent;
-
-        #{ $channelsHeaderContainer } {
-            &:not(#{ $channelHasBanner }) #{ $channelsHeader } {
                 background-color: transparent;
             }
         }
     }
+}
 
-    #{ $channelsContainer } {
-        background: transparent !important;
+/* CUSTOM THEMES -> HEADER BAR */
 
-        &:after {
-            --main-color: transparent;
-        }
+#{ $headerBar } {
+    &#{ $headerBarThemed } {
+        background: transparent;
     }
+}
 
-    #{ $connectionPanel },
-    #{ $activityPanel },
-    #{ $listeningAlongPanel },
-    #{ $spotifyPanel },
-    #{ $vencordSpotifyPlayer } {
-        background: var(--bg-overlay-3, var(--background-tertiary)) !important;
+/* CUSTOM THEMES -> MESSAGES */
+
+#{ $messagesWrapper } {
+    --message-color: var(--background-gradient-high, var(--background-base-lowest));
+    --message-color-hover: var(--background-gradient-higher, var(--background-base-lowest));
+
+    background: var(--message-color) !important;
+
+    &:hover {
+		background: var(--message-color-hover) !important;
+	}
+}
+
+#{ $messageButtonWrapper } {
+    background: var(--background-base-higher);
+}
+
+#{ $barBase } {
+    &:not(#{ $jumpToPresentBar }, #{ $messagesErrorBar }) {
+        background: var(--background-base-lower);
     }
+}
 
-    #{ $accountPanel } {
-        background: var(--bg-overlay-4, var(--background-tertiary)) !important;
+#{ $barButtonBase } {
+    &#{ $barButtonMain } {
+        background: var(--background-accent);
     }
+}
 
-    #{ $chat },
-    #{ $chatContent } {
-        background: transparent !important;
-    }
+/* CUSTOM THEMES -> CHAT BOX */
 
-    #{ $chatForm } {
-        background-color: transparent;
-    }
-
+#{ $chatForm } {
     #{ $channelTextAreaTyping } {
-        background: var(--bg-overlay-2, var(--background-secondary));
+        background: var(--background-gradient-chat, var(--background-base-lowest));
     }
 
-    #{ $messagesWrapper } {
-        background: var(--bg-overlay-3, var(--background-secondary));
-
-        &:not(#{ $messageGroupStart }) {
-            &:before,
-            &:after {
-                width: calc(var(--message-radius) / 3);
-                height: calc(var(--message-radius) / 2);
-                inset-block-start: calc(var(--message-radius) / 2 * -1);
-                background: var(--bg-overlay-3, var(--background-secondary));
-                border: none;
-            }
-        }
-
-        &:hover {
-            background: var(--bg-overlay-4, var(--background-secondary)) !important;
-        }
+    #{ $textAreaSlate} {
+        background: var(--background-gradient-higher, var(--background-base-lowest));
     }
+}
 
-    #{ $messageListItem } {
-        &:hover {
-            + #{ $messageListItem } {
-                #{ $messagesWrapper } {
-                    &:not(#{ $messageGroupStart }) {
-                        &:before,
-                        &:after {
-                            background: var(--bg-overlay-4, var(--background-secondary));
-                            border: none;
-                        }
-                    }
-                }
-            }
-        }
-    }
+/* CUSTOM THEMES -> SETTINGS */
 
-    #{ $mentioned } {
-        #{ $messageContentInner } {
-            background: var(--bg-overlay-5, var(--background-primary));
-        }
-    }
+#{ $settingsModalContent } {
+    background: var(--background-base-lowest);
+}
 
-    #{ $mentionWrapper } {
-        color: var(--interactive-text-default);
-    }
+#{ $settingsSidebarScroller } {
+    background-color: transparent;
+}
 
-    #{ $markup } {
-        a {
-            span {
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent;
-                background: var(--bg-overlay-6, var(--background-primary));
-            }
-        }
-    }
+#{ $settingsV2ContentHeader } {
+    background-color: transparent;
+}
 
-    #{ $embed } {
-        &#{ $embedFull } {
-            background: var(--bg-overlay-2, var(--background-secondary));
-        }
-    }
+#{ $settingsV2Content } {
+    background: var(--background-base-lower);
+}
 
-    #{ $inviteWrapper } {
-        background: var(--bg-overlay-2, var(--background-secondary));
-    }
+/* CUSTOM THEMES -> POPOUTS */
 
-    #{ $messageButtonWrapper } {
-        background: var(--bg-overlay-5, var(--background-secondary));
-
-        #{ $messageButton } {
-            color: var(--interactive-active);
-        }
-    }
-
-    #{ $members } {
-        &,
-        & > div {
-            background: transparent;
-        }
-
-        #{ $member } {
-            background: inherit;
-        }
-    }
-
-    #{ $channelTextAreaUpload } {
-        background: var(--bg-overlay-5, var(--background-secondary));
-    }
-
-    #{ $searchResultsWrap } {
-        background: var(--bg-overlay-3, var(--background-secondary));
-    }
-
-    #{ $themeEditor } {
-        background: var(--bg-overlay-2, var(--background-secondary));
-
-        &:before {
-            background: var(--app-bg);
-        }
-
-        &:after {
-            background: var(--bg-overlay-2, var(--background-secondary));
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+        &:hover,
+        &#{ $menuPopoutItemHover } {
+            background: var(--background-base-higher);
         }
     }
 }
 
-#{ $buttonFilled },
-#{ $buttonOutlined },
-#{ $buttonLink },
-#{ $buttonInverted } {
-    background: var(--button-background);
+#{ $contextMenuQuickReaction } {
+    background: var(--background-base-higher);
+
+    &:hover {
+        background: var(--background-base-highest);
+    }
 }
 
-#{ $customThemeBackground } {
-    #{ $titlebarWin } {
-        &#{ $titlebarWithBackgroundOverride } {
-            padding-block-start: 0;
-        }
+/* CUSTOM THEMES -> MODALS */
+
+#{ $userProfileOuter } {
+	&:not(#{ $userProfileOuterThemed }) {
+        --popout-color: var(--background-base-high);
+        --popout-color-alt: var(--background-base-low);
+
+        --card-color-filled: var(--background-base-low);
+        --card-color-hover: var(--background-base-lowest);
+
+        --input-color: var(--background-base-highest) !important;
     }
 }

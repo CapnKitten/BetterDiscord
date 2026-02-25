@@ -47,7 +47,7 @@
     padding: 16px;
     background-color: transparent;
     border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-    border-top: 1px solid var(--card-border-color);
+    border-block-start: 1px solid var(--card-border-color);
 
     &:not(:last-child) {
         margin-block-end: 0;
@@ -156,11 +156,11 @@
         transition: var(--default-time) var(--default-animation) background-color;
 
         &:first-of-type {
-            border-right: 1px solid var(--card-border-color);
+            border-inline-end: 1px solid var(--card-border-color);
         }
 
         &:last-of-type {
-            border-left: 1px solid var(--card-border-color);
+            border-inline-start: 1px solid var(--card-border-color);
         }
 
         &:hover {
@@ -177,7 +177,7 @@
     }
 
     #{ $inputWrapper } {
-        border-bottom: none !important;
+        border-block-end: none !important;
 
         &:before,
         &:after {
@@ -196,9 +196,9 @@
 #{ $automodBackgroundModifierContainer } {
     background-color: var(--card-color-hover);
     border-radius: calc(var(--card-radius-big) / 1.6);
-    border-top: none;
-    border-bottom: none;
-    border-right: none;
+    border-block-start: none;
+    border-block-end: none;
+    border-inline-end: none;
 
     &:hover {
         &:not(#{ $automodBackgroundModifierContainerDisabled }) {
@@ -209,7 +209,7 @@
     }
 
     &#{ $automodBackgroundModifierContainerDisabled } {
-        border-left: 3px solid var(--card-color-hover);
+        border-inline-start: 3px solid var(--card-color-hover);
     }
 
     &#{ $automodBackgroundModifierContainerSelected } {
