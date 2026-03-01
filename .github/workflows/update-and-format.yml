@@ -44,7 +44,8 @@ jobs:
 
       - name: Run Prettier
         id: prettier
-        run: npx prettier --write . --cache --cache-location .prettiercache
+        run: echo ".github/" > .prettierignore
+          npx prettier --write . --cache --cache-location .prettiercache --ignore-path .prettierignore
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7
