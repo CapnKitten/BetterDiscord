@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,70 +8,70 @@
  */
 
 #{ $listPopoutContainer } {
-	padding: 0;
-	background-color: var(--popout-color);
-	border-radius: var(--popout-radius);
-	border: none;
-	box-shadow: var(--shadow-medium);
-	animation: top-pop-out 400ms var(--default-animation);
+  padding: 0;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  border: none;
+  box-shadow: var(--shadow-medium);
+  animation: top-pop-out 400ms var(--default-animation);
 
-	#{ $listPopoutSearchBar } {
-		margin: 12px 8px;
-	}
+  #{ $listPopoutSearchBar } {
+    margin: 12px 8px;
+  }
 }
 
 #{ $listItemPopoutCombobox } {
-    padding: 0;
+  padding: 0;
 }
 
 #{ $listPopoutHeader } {
-    padding: 16px;
+  padding: 16px;
 
-    #{ $inputContainer } {
-        @include input-transform;
+  #{ $inputContainer } {
+    @include input-transform;
+  }
+
+  #{ $input } {
+    font-size: 16px;
+  }
+
+  #{ $inputIcon } {
+    width: calc(var(--input-height) / 2.5);
+    height: calc(var(--input-height) / 2.5);
+    border: none;
+
+    svg {
+      width: 100%;
+      height: 100%;
     }
-
-    #{ $input } {
-        font-size: 16px;
-    }
-
-    #{ $inputIcon } {
-        width: calc(var(--input-height) / 2.5);
-        height: calc(var(--input-height) / 2.5);
-        border: none;
-
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    }
+  }
 }
 
 #{ $listPopoutList } {
-	padding-block-start: 0;
+  padding-block-start: 0;
 
-	&#{ $listPopoutScroller } {
-		margin: 0;
-	}
+  &#{ $listPopoutScroller } {
+    margin: 0;
+  }
 }
 
 #{ $listPopoutItem } {
-	margin-block-end: 0;
-	padding: 10px 16px;
-	border-radius: 0;
-	color: var(--menu-item-text-color);
-	transition: var(--default-time) var(--default-animation) background-color;
+  margin-block-end: 0;
+  padding: 10px 16px;
+  border-radius: 0;
+  color: var(--menu-item-text-color);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--menu-item-hover);
-	}
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 
-	&#{ $listPopoutItemSelectedBrand } {
-		background-color: var(--menu-item-select);
-	}
+  &#{ $listPopoutItemSelectedBrand } {
+    background-color: var(--menu-item-select);
+  }
 }
 
 body:active #{ $listPopoutContainer }:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
+  opacity: 0;
+  transition: 150ms ease all;
 }

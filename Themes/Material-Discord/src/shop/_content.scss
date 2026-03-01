@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -9,167 +9,177 @@
 
 #{ $shopScroll },
 #{ $shopContainer } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $shopPage } {
-    background-color: var(--chat-color);
+  background-color: var(--chat-color);
 }
 
 #{ $shopFilterBar } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $shopSearchBar } {
-    --input-height: 32px;
+  --input-height: 32px;
 }
 
 #{ $shopOuterContainer } {
-    background-color: var(--chat-color);
+  background-color: var(--chat-color);
 }
 
 #{ $shopFullscreen } {
-    margin-block-start: 0;
-    background: var(--main-alt);
+  margin-block-start: 0;
+  background: var(--main-alt);
 }
 
 #{ $chatPage } {
-    #{ $shopOuterContainer },
-    #{ $shopPageWrapper } {
-        background-color: transparent;
-        border-block-start: none;
-    }
+  #{ $shopOuterContainer },
+  #{ $shopPageWrapper } {
+    background-color: transparent;
+    border-block-start: none;
+  }
 
-    #{ $shopContainer } {
-        background-color: var(--chat-color);
-    }
+  #{ $shopContainer } {
+    background-color: var(--chat-color);
+  }
 }
 
 /* DISCORD SHOP CONTENT -> BANNERS */
 
 #{ $shopShyBanner } {
-    border-radius: var(--card-radius-big);
-    box-shadow: none;
+  border-radius: var(--card-radius-big);
+  box-shadow: none;
 }
 
 #{ $shopHeroBanner },
 #{ $shopBannerBackground },
 #{ $shopBannerCard } {
-    border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $shopHeroBanner } {
-    margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 #{ $shopBanner } {
-    border-radius: var(--card-radius-big);
-    outline: none;
+  border-radius: var(--card-radius-big);
+  outline: none;
 }
 
 #{ $shopAllButton } {
-    background-color: hsl(var(--accent-hsl--material-you)) !important;
-    border-radius: 22px;
+  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  border-radius: 22px;
 
-    svg path {
-        fill: var(--accent-text-color--material-you);
-    }
+  svg path {
+    fill: var(--accent-text-color--material-you);
+  }
 
-    #{ $textSmMedium } {
-        color: var(--accent-text-color--material-you);
-    }
+  #{ $textSmMedium } {
+    color: var(--accent-text-color--material-you);
+  }
 }
 
 #{ $shopItemTypeTitle } {
-    @include remove-caps(16px);
-    font-weight: 500;
+  @include remove-caps(16px);
+  font-weight: 500;
 }
 
 /* DISCORD SHOP CONTENT -> CARDS */
 
 #{ $shopCard } {
-    @include card-format(true, 0, true, true, true);
+  @include card-format(true, 0, true, true, true);
 
-    &:hover {
-        --card-color-filled: var(--card-color-hover);
-    }
+  &:hover {
+    --card-color-filled: var(--card-color-hover);
+  }
 
-    #{ $textLgBold } {
-        font-weight: 400;
-        font-size: 24px;
-        color: var(--header-primary) !important;
-    }
+  #{ $textLgBold } {
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--header-primary) !important;
+  }
 
-    #{ $shopCardBackground },
-    #{ $shopDarkCardBackground } {
-        background-color: var(--card-color-filled);
-        transition: var(--default-time) var(--default-animation) background-color;
-    }
+  #{ $shopCardBackground },
+  #{ $shopDarkCardBackground } {
+    background-color: var(--card-color-filled);
+    transition: var(--default-time) var(--default-animation) background-color;
+  }
 
-    #{ $shopCardDescription },
-    #{ $shopCardPriceTag } {
-        color: var(--interactive-text-default) !important;
-    }
+  #{ $shopCardDescription },
+  #{ $shopCardPriceTag } {
+    color: var(--interactive-text-default) !important;
+  }
 
-    #{ $shopCardPremiumIcon } {
-        path {
-            fill: currentColor;
-        }
+  #{ $shopCardPremiumIcon } {
+    path {
+      fill: currentColor;
     }
+  }
 
-    #{ $buttonFilled }#{ $buttonBrand } {
-        background: var(--button-background) !important;
-    }
+  #{ $buttonFilled }#{ $buttonBrand } {
+    background: var(--button-background) !important;
+  }
 
-    #{ $shopGiftButtonInner },
-    #{ $shopPreviewButtonInner } {
-        max-width: none;
-        max-height: none;
-    }
+  #{ $shopGiftButtonInner },
+  #{ $shopPreviewButtonInner } {
+    max-width: none;
+    max-height: none;
+  }
 }
 
 #{ $shopCardWishlistButton } {
-    border-radius: calc(var(--card-radius-big) / 1.5);
+  border-radius: calc(var(--card-radius-big) / 1.5);
 }
 
 #{ $shopCardFooterGradient } {
-    background: linear-gradient(to top, var(--card-color-filled), color-mix(in oklab, var(--card-color-filled) 80%, transparent) 30%, color-mix(in oklab, var(--card-color-filled) 0%, transparent) 100%) !important;
+  background: linear-gradient(
+    to top,
+    var(--card-color-filled),
+    color-mix(in oklab, var(--card-color-filled) 80%, transparent) 30%,
+    color-mix(in oklab, var(--card-color-filled) 0%, transparent) 100%
+  ) !important;
 }
 
 #{ $shopCardTextProfileEffect } {
-    &:before {
-        background: linear-gradient(180deg, transparent, transparent, var(--card-color-filled)) !important;
-    }
+  &:before {
+    background: linear-gradient(
+      180deg,
+      transparent,
+      transparent,
+      var(--card-color-filled)
+    ) !important;
+  }
 }
 
 /* DISCORD SHOP CONTENT -> MODAL */
 
 #{ $shopPreviewModalContent } {
-    padding: 0 !important;
-    border-radius: var(--popout-radius-big) !important;
+  padding: 0 !important;
+  border-radius: var(--popout-radius-big) !important;
 
-    &::-webkit-scrollbar {
-        --scrollbar-width: 0;
-        --scrollbar-thin-width: 0;
-    }
+  &::-webkit-scrollbar {
+    --scrollbar-width: 0;
+    --scrollbar-thin-width: 0;
+  }
 
-    #{ $shopCollectibleInfoContainer } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius-big);
+  #{ $shopCollectibleInfoContainer } {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
 
-        #{ $buttonFilled } {
-            background: var(--button-background) !important;
+    #{ $buttonFilled } {
+      background: var(--button-background) !important;
 
-            #{ $buttonContents } {
-                svg {
-                    height: 24px;
-                }
-            }
+      #{ $buttonContents } {
+        svg {
+          height: 24px;
         }
+      }
     }
+  }
 
-    #{ $shopCollectibleCategoryBanner } {
-        width: calc(100% + var(--popout-radius-big));
-        inset-inline-start: calc(var(--popout-radius-big) * -1);
-    }
+  #{ $shopCollectibleCategoryBanner } {
+    width: calc(100% + var(--popout-radius-big));
+    inset-inline-start: calc(var(--popout-radius-big) * -1);
+  }
 }

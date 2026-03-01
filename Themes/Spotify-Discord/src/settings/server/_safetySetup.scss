@@ -1,4 +1,4 @@
-@use '../../mixins' as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -7,71 +7,71 @@
  */
 
 %safetySetupChangelog {
-    @include card-format;
+  @include card-format;
 }
 
 %safetySetupChecklist {
-    @include card-format;
+  @include card-format;
 }
 
 %safetySetupCard {
-    @include card-format;
+  @include card-format;
 }
 
 %safetySetupGroupContainer {
+  background-color: transparent;
+
+  &:active {
     background-color: transparent;
+  }
 
+  &:before {
+    display: none;
+  }
+
+  &%safetySetupGroupContainerToggled {
     &:active {
-        background-color: transparent;
+      background-color: transparent;
     }
-
-    &:before {
-        display: none;
-    }
-
-    &%safetySetupGroupContainerToggled {
-        &:active {
-            background-color: transparent;
-        }
-    }
+  }
 }
 
 %safetySetupGroupCollapsedContainer {
-    margin-top: 16px;
-    @include card-format;
+  margin-top: 16px;
+  @include card-format;
 
-    %safetySetupGroupCollapsedPointer {
-        top: -20px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        background-color: transparent;
-        border: 10px solid transparent;
-        border-bottom-color: var(--card-color);
-        transform: none;
-    }
+  %safetySetupGroupCollapsedPointer {
+    top: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 10px solid transparent;
+    border-bottom-color: var(--card-color);
+    transform: none;
+  }
 }
 
 %safetySetupClickableContainer {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 %safetyCardBackgroundModifierContainer {
-    border-radius: var(--card-radius);
+  border-radius: var(--card-radius);
 
-    &:hover {
-        &:not(%safetyCardBackgroundModifierDisabled) {
-            &:not(%safetyCardBackgroundModifierNoAction) {
-                background-color: var(--card-color-hover);
-            }
-        }
+  &:hover {
+    &:not(%safetyCardBackgroundModifierDisabled) {
+      &:not(%safetyCardBackgroundModifierNoAction) {
+        background-color: var(--card-color-hover);
+      }
     }
+  }
 
-    &%safetyCardBackgroundModifierSelected {
-        background-color: var(--card-color-active) !important;
+  &%safetyCardBackgroundModifierSelected {
+    background-color: var(--card-color-active) !important;
 
-        %safetySetupRadioItem {
-            color: hsl(var(--accent-hsl));
-        }
+    %safetySetupRadioItem {
+      color: hsl(var(--accent-hsl));
     }
+  }
 }

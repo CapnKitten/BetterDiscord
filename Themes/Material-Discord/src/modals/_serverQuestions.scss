@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,54 +8,58 @@
  */
 
 #{ $promptGradient } {
-    background: linear-gradient(180deg, var(--main-color) 0%, var(--main-alt) 100%) !important;
-    opacity: 0.725;
+  background: linear-gradient(
+    180deg,
+    var(--main-color) 0%,
+    var(--main-alt) 100%
+  ) !important;
+  opacity: 0.725;
 }
 
 #{ $promptMain } {
-    border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
+  border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
 }
 
 #{ $prompt } {
-    @include popout-format;
+  @include popout-format;
 
-    #{ $scroller } {
-        padding: 80px 100px;
-    }
+  #{ $scroller } {
+    padding: 80px 100px;
+  }
 
-    #{ $promptNavButtons } {
-        padding: 8px;
-        background-color: transparent;
-        border-block-start: 1px solid var(--separator-color);
-    }
+  #{ $promptNavButtons } {
+    padding: 8px;
+    background-color: transparent;
+    border-block-start: 1px solid var(--separator-color);
+  }
 }
 
 #{ $promptOptions } {
-    margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 #{ $promptOptionButtonWrapper } {
-    --card-color-filled: var(--card-color-alt);
+  --card-color-filled: var(--card-color-alt);
 
-    @include card-format(false, 0, true, true);
+  @include card-format(false, 0, true, true);
 
-    &#{ $promptOptionButtonWrapperSelected } {
-        background-color: var(--card-color-active);
-    }
+  &#{ $promptOptionButtonWrapperSelected } {
+    background-color: var(--card-color-active);
+  }
 }
 
 #{ $promptOptionCheckIcon } {
-    background-color: hsl(var(--accent-hsl--material-you));
+  background-color: hsl(var(--accent-hsl--material-you));
 
-    path {
-        fill: var(--accent-text-color--material-you);
-    }
+  path {
+    fill: var(--accent-text-color--material-you);
+  }
 }
 
 #{ $promptOptionMemberCount } {
-    @extend #{ $promptOptionCheckIcon };
+  @extend #{ $promptOptionCheckIcon };
 
-    #{ $textXsNormal } {
-        color: var(--accent-text-color--material-you) !important;
-    }
+  #{ $textXsNormal } {
+    color: var(--accent-text-color--material-you) !important;
+  }
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -10,56 +10,56 @@
 body,
 #{ $shakeable },
 #{ $bg } {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $appMount } {
-	background: var(--app-bg) !important;
-	background-repeat: no-repeat !important;
-	background-position: center !important;
-	background-size: cover !important;
+  background: var(--app-bg) !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
 
-    * {
-    	text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
-    }
+  * {
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  }
 
-    svg {
-    	filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
-    }
+  svg {
+    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.5));
+  }
 }
 
 ::selection {
-	background: hsla(var(--accent-hsl),0.65);
-	color: var(--accent-text-color);
-	text-shadow: none;
+  background: hsla(var(--accent-hsl), 0.65);
+  color: var(--accent-text-color);
+  text-shadow: none;
 }
 
 #{ $layers } {
-	margin-block: 0 var(--app-margin);
-	margin-inline: var(--app-margin);
-	overflow: hidden;
-    z-index: 1;
-	backdrop-filter: none;
+  margin-block: 0 var(--app-margin);
+  margin-inline: var(--app-margin);
+  overflow: hidden;
+  z-index: 1;
+  backdrop-filter: none;
 }
 
 #{ $titlebarMac } + #{ $app } #{ $layers } {
-	margin: var(--app-margin);
+  margin: var(--app-margin);
 }
 
 #{ $loadingScreen } {
-	background: var(--app-bg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+  background: var(--app-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
-	#{ $loadingScreenContent } {
-		padding: 16px;
-		@include add-translucence(null, true);
-	}
+  #{ $loadingScreenContent } {
+    padding: 16px;
+    @include add-translucence(null, true);
+  }
 }
 
 #{ $contentMain } {
-	border-radius: var(--app-radius);
-	overflow: hidden;
-	backdrop-filter: blur(var(--app-blur));
+  border-radius: var(--app-radius);
+  overflow: hidden;
+  backdrop-filter: blur(var(--app-blur));
 }

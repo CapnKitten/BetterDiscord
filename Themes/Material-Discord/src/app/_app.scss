@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,78 +8,80 @@
  */
 
 * {
-	font-family: var(--app-font), sans-serif !important;
-	font-variation-settings:
-        "slnt" 0,
-        "wdth" var(--app-font-width),
-        "GRAD" 0,
-        "ROND" var(--app-font-roundness);
+  font-family: var(--app-font), sans-serif !important;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" var(--app-font-width),
+    "GRAD" 0,
+    "ROND" var(--app-font-roundness);
 }
 
 ::selection {
-	background: hsl(var(--accent-hsl),0.35);
-	text-shadow: none;
+  background: hsl(var(--accent-hsl), 0.35);
+  text-shadow: none;
 }
 
 body,
 #{ $app } {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $bg },
 #{ $appMount },
 #{ $loadingScreen } {
-	background: var(--app-bg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+  background: var(--app-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #{ $bg } {
-	background-color: var(--main-alt);
+  background-color: var(--main-alt);
 
-	&#{ $themeDark } {
-		background-color: var(--main-alt);
-	}
+  &#{ $themeDark } {
+    background-color: var(--main-alt);
+  }
 }
 
 #{ $appMount } {
-	--custom-channel-textarea-text-area-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
+  --custom-channel-textarea-text-area-height: calc(
+    var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)
+  );
 }
 
 #{ $shakeable } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $platformWin } {
-	#{ $bg } {
-		inset-block-start: calc((var(--app-title-bar-height) + 4px) * -1);
-	}
+  #{ $bg } {
+    inset-block-start: calc((var(--app-title-bar-height) + 4px) * -1);
+  }
 }
 
 #{ $layers } {
-    //z-index: 1000;
+  //z-index: 1000;
 }
 
 #{ $anchor },
 #{ $anchorIcon },
 #{ $lowSaturation } #{ $anchor },
 #{ $textColorBrand } {
-	color: hsl(var(--accent-hsl));
+  color: hsl(var(--accent-hsl));
 }
 
 /* APP ELEMENTS -> LIGHT THEME WITH DARK SIDEBAR */
 
 #{ $channelsSidebar } {
-    &#{ $themeDark } {
-        + #{ $chat },
-        + #{ $friends },
-        + #{ $libraryContainer },
-        + #{ $nitroHomePage },
-        + #{ $shopContainer },
-        + #{ $familyCenterContent } {
-            border-radius: var(--card-radius-big);
-            border-bottom-right-radius: 0;
-        }
+  &#{ $themeDark } {
+    + #{ $chat },
+    + #{ $friends },
+    + #{ $libraryContainer },
+    + #{ $nitroHomePage },
+    + #{ $shopContainer },
+    + #{ $familyCenterContent } {
+      border-radius: var(--card-radius-big);
+      border-bottom-right-radius: 0;
     }
+  }
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,122 +8,122 @@
  */
 
 #{ $biteSizeIconButton } {
-    padding: 0;
+  padding: 0;
 
-    #{ $buttonContents } {
-        min-height: var(--button-height);
-        min-width: var(--button-height);
-        max-height: var(--button-height);
-        max-width: var(--button-height);
+  #{ $buttonContents } {
+    min-height: var(--button-height);
+    min-width: var(--button-height);
+    max-height: var(--button-height);
+    max-width: var(--button-height);
 
-        svg {
-            margin: auto;
-        }
+    svg {
+      margin: auto;
     }
+  }
 }
 
 #{ $userProfileModalTabBar } {
-    height: 48px;
-    margin: 0;
-    padding: 0 16px;
-    gap: 24px;
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  gap: 24px;
 
-    #{ $item } {
-		height: inherit;
-		border-block-end: none;
+  #{ $item } {
+    height: inherit;
+    border-block-end: none;
 
-		&#{ $itemSelected } {
-			@include tab-border(90%);
-		}
+    &#{ $itemSelected } {
+      @include tab-border(90%);
+    }
 
-        #{ $textSmNormal } {
-            line-height: 48px;
-        }
-	}
+    #{ $textSmNormal } {
+      line-height: 48px;
+    }
+  }
 }
 
 #{ $fullSizeOverlayBackground } {
-    border-radius: calc(var(--popout-radius-big) / 1.75);
-    border: none;
+  border-radius: calc(var(--popout-radius-big) / 1.75);
+  border: none;
 }
 
 /* USER PROFILE -> CONNECTED ACCOUNTS */
 
 #{ $userProfileModalConnectedAccounts } {
-	margin-block-start: -16px;
-	border-block-start: none !important;
+  margin-block-start: -16px;
+  border-block-start: none !important;
 
-	#{ $userProfileModalConnectedAccount } {
-		--card-color-filled: var(--card-color-hover);
-		--card-radius-big: var(--card-radius);
+  #{ $userProfileModalConnectedAccount } {
+    --card-color-filled: var(--card-color-hover);
+    --card-radius-big: var(--card-radius);
 
-		margin-block-start: 16px;
-		@include card-format(false, 12px 8px, true);
-	}
+    margin-block-start: 16px;
+    @include card-format(false, 12px 8px, true);
+  }
 }
 
 /* USER PROFILE -> NOTE */
 
 #{ $userProfileModalNote } {
-	margin: 0;
+  margin: 0;
 
-	textarea {
-		padding: 6px 12px;
-		border-radius: var(--input-radius);
-        box-shadow: none !important;
+  textarea {
+    padding: 6px 12px;
+    border-radius: var(--input-radius);
+    box-shadow: none !important;
 
-		&:focus {
-			background-color: var(--input-color);
-		}
-	}
+    &:focus {
+      background-color: var(--input-color);
+    }
+  }
 }
 
 /* USER PROFILE -> LISTS */
 
 #{ $listRow } {
-	border-radius: var(--popout-radius);
-	transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: var(--popout-radius);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--menu-item-hover);
-	}
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 }
 
 #{ $listRowIconActiveMedium } {
-	border-radius: 50%;
+  border-radius: 50%;
 }
 
 /* USER PROFILE -> ACTIVITIES */
 
 #{ $userProfileModalSection } {
-    gap: 2px;
+  gap: 2px;
 
-    #{ $userProfileModalHeadings } {
-        margin-block-end: 6px;
+  #{ $userProfileModalHeadings } {
+    margin-block-end: 6px;
+  }
+
+  #{ $userProfileOverlayBackground } {
+    background-color: var(--card-color-alt);
+    border-radius: 4px;
+
+    &:only-child {
+      border-radius: calc(var(--card-radius-big) / 2.5);
     }
 
-    #{ $userProfileOverlayBackground } {
-        background-color: var(--card-color-alt);
-        border-radius: 4px;
+    &:not(:only-child) {
+      &:nth-of-type(2) {
+        border-top-left-radius: calc(var(--card-radius-big) / 2.5);
+        border-top-right-radius: calc(var(--card-radius-big) / 2.5);
+      }
 
-        &:only-child {
-            border-radius: calc(var(--card-radius-big) / 2.5);
-        }
-
-        &:not(:only-child) {
-            &:nth-of-type(2) {
-                border-top-left-radius: calc(var(--card-radius-big) / 2.5);
-                border-top-right-radius: calc(var(--card-radius-big) / 2.5);
-            }
-
-            &:last-of-type {
-                border-bottom-left-radius: calc(var(--card-radius-big) / 2.5);
-                border-bottom-right-radius: calc(var(--card-radius-big) / 2.5);
-            }
-        }
+      &:last-of-type {
+        border-bottom-left-radius: calc(var(--card-radius-big) / 2.5);
+        border-bottom-right-radius: calc(var(--card-radius-big) / 2.5);
+      }
     }
+  }
 }
 
 #{ $memberActivityImageContainer } {
-    border-radius: calc(var(--avatar-radius) * 1.25);
+  border-radius: calc(var(--avatar-radius) * 1.25);
 }

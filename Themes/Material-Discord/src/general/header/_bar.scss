@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,95 +8,103 @@
  */
 
 #{ $headerBar } {
-	padding: 0 9px 0 16px;
-	border-top-right-radius: var(--card-radius-big);
-	border-block-end: none;
-	box-shadow: var(--shadow-ledge);
+  padding: 0 9px 0 16px;
+  border-top-right-radius: var(--card-radius-big);
+  border-block-end: none;
+  box-shadow: var(--shadow-ledge);
 
-	&#{ $headerBarTransparent } {
-		box-shadow: none;
-	}
+  &#{ $headerBarTransparent } {
+    box-shadow: none;
+  }
 
-	&#{ $headerBarThemed } {
-		background: var(--main-color);
-	}
+  &#{ $headerBarThemed } {
+    background: var(--main-color);
+  }
 
-	&#{ $headerBarAlt } {
-		background: var(--main-color) !important;
+  &#{ $headerBarAlt } {
+    background: var(--main-color) !important;
 
-        &#{ $headerBarAltFullscreen } {
-            background: var(--main-alt) !important;
-            box-shadow: none;
+    &#{ $headerBarAltFullscreen } {
+      background: var(--main-alt) !important;
+      box-shadow: none;
 
-            #{ $headerBarChildren } {
-                &:after {
-                    background: linear-gradient(90deg, transparent 0, var(--main-alt)) !important;
-                }
-            }
+      #{ $headerBarChildren } {
+        &:after {
+          background: linear-gradient(
+            90deg,
+            transparent 0,
+            var(--main-alt)
+          ) !important;
         }
-	}
+      }
+    }
+  }
 
-	#{ $headerBarFollowButton } {
-		--button-height: 32px;
-		--button-padding-start: 16px;
-		--button-padding-end: 16px;
-	}
+  #{ $headerBarFollowButton } {
+    --button-height: 32px;
+    --button-padding-start: 16px;
+    --button-padding-end: 16px;
+  }
 
-	#{ $tabBar } {
-		border-block-end: none !important;
-	}
+  #{ $tabBar } {
+    border-block-end: none !important;
+  }
 }
 
 #{ $headerBarAltFullscreen } {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 #{ $headerBarChildren } {
-    //overflow: visible;
+  //overflow: visible;
 
-	&:after {
-		background: linear-gradient(90deg, transparent 0, var(--main-color)) !important;
-	}
+  &:after {
+    background: linear-gradient(
+      90deg,
+      transparent 0,
+      var(--main-color)
+    ) !important;
+  }
 }
 
 #{ $headerBarIconWrapper } {
-	&#{ $headerBarIconClickable } {
-		@include md-ripple(hover, after, 1.5);
-	}
+  &#{ $headerBarIconClickable } {
+    @include md-ripple(hover, after, 1.5);
+  }
 
-	foreignObject {
-		mask: none !important;
-	}
+  foreignObject {
+    mask: none !important;
+  }
 }
 
 #{ $headerBarTopic } a {
-    color: hsl(var(--accent-hsl--material-you));
+  color: hsl(var(--accent-hsl--material-you));
 }
 
 #{ $headerBarReturnButton } {
-	--button-height: 32px;
+  --button-height: 32px;
 
-	max-width: 250px;
-	margin-inline-end: 8px;
+  max-width: 250px;
+  margin-inline-end: 8px;
 }
 
 #{ $headerBarReturnButtonText } {
-	font-size: 1em;
+  font-size: 1em;
 
-	&,
-	* {
-		line-height: var(--button-height);
-		color: hsl(var(--accent-hsl--material-you)) !important;
-	}
+  &,
+  * {
+    line-height: var(--button-height);
+    color: hsl(var(--accent-hsl--material-you)) !important;
+  }
 
-	#{ $textXsMedium } {
-		font-size: 1em;
-	}
+  #{ $textXsMedium } {
+    font-size: 1em;
+  }
 }
 
 #{ $headerBarIconBadge } {
-	inset-block-start: 0;
-	inset-inline-end: 0;
-	background-color: hsl(var(--accent-hsl--material-you));
-	box-shadow: 0 0 0 4px var(--main-color);
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  background-color: hsl(var(--accent-hsl--material-you));
+  box-shadow: 0 0 0 4px var(--main-color);
 }

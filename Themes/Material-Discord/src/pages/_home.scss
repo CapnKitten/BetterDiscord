@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,148 +8,148 @@
  */
 
 #{ $homeIntroCard } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 
-    #{ $homeIntroCardIcon } {
-        border: 6px solid var(--card-color-filled);
-    }
+  #{ $homeIntroCardIcon } {
+    border: 6px solid var(--card-color-filled);
+  }
 }
 
 /* HOME TAB -> ACTIVE NOW */
 
 #{ $homeActiveNowContainer } {
-    @include card-format(false, 0, true);
+  @include card-format(false, 0, true);
 
-    #{ $homeActiveNowContainerHeader } {
-        @include card-format--header(false, true);
+  #{ $homeActiveNowContainerHeader } {
+    @include card-format--header(false, true);
 
-        #{ $headingMdSemibold } {
-            @include card-format--header-fix;
-        }
+    #{ $headingMdSemibold } {
+      @include card-format--header-fix;
     }
+  }
 
-    #{ $homeActiveNowEmptyContainer } {
-        margin-block-start: 0;
-        background-color: transparent;
-    }
+  #{ $homeActiveNowEmptyContainer } {
+    margin-block-start: 0;
+    background-color: transparent;
+  }
 }
 
 #{ $homeActiveNowChannelList } {
-    padding: 12px 12px 0;
+  padding: 12px 12px 0;
 }
 
 #{ $homeActiveNowChannelContainer } {
-    border-radius: var(--card-radius-big);
-    transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 
-    #{ $homeActiveNowChannelIconContainer },
-    #{ $homeActiveNowChannelMoreUsers } {
-        background-color: var(--card-color-hover);
-    }
+  #{ $homeActiveNowChannelIconContainer },
+  #{ $homeActiveNowChannelMoreUsers } {
+    background-color: var(--card-color-hover);
+  }
 }
 
 #{ $homeActiveNowSmallCard } {
-    @include card-format(false, 8px);
-    transition: var(--default-time) var(--default-animation) background-color;
+  @include card-format(false, 8px);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 
-    &#{ $homeActiveNowSmallCardFiller } {
-        padding: 0;
-        overflow: hidden;
-    }
+  &#{ $homeActiveNowSmallCardFiller } {
+    padding: 0;
+    overflow: hidden;
+  }
 
-    #{ $homeActiveNowTypingIndicator } {
-        background-color: var(--card-color-hover);
-    }
+  #{ $homeActiveNowTypingIndicator } {
+    background-color: var(--card-color-hover);
+  }
 }
 
 @media (max-width: 1300px) {
-    #{ $homeActiveNowSmallScrollIcon } {
-        background-color: var(--chat-color);
-        border: 1px solid var(--card-border-color);
-    }
+  #{ $homeActiveNowSmallScrollIcon } {
+    background-color: var(--chat-color);
+    border: 1px solid var(--card-border-color);
+  }
 }
 
 /* HOME TAB -> UPCOMING */
 
 #{ $homeUpcomingContainer } {
-    @include card-format(false, 0, true);
+  @include card-format(false, 0, true);
 
-    #{ $homeUpcomingHeader } {
-        @include card-format--header(false, true);
+  #{ $homeUpcomingHeader } {
+    @include card-format--header(false, true);
 
-        #{ $headingMdSemibold } {
-            @include card-format--header-fix;
-        }
+    #{ $headingMdSemibold } {
+      @include card-format--header-fix;
     }
+  }
 }
 
 #{ $homeUpcomingEventContainer } {
-    margin: 0 16px;
+  margin: 0 16px;
 
-    &:last-of-type,
-    &:only-child {
-        margin-block-end: 16px;
-    }
+  &:last-of-type,
+  &:only-child {
+    margin-block-end: 16px;
+  }
 }
 
 /* HOME TAB -> YOUR HIGHLIGHTS */
 
 #{ $homeBrandCard } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 
-    #{ $homeBrandCardTextContainer } {
-        margin: 16px 0 16px 16px;
-    }
+  #{ $homeBrandCardTextContainer } {
+    margin: 16px 0 16px 16px;
+  }
 }
 
 #{ $homeHighlightsCard } {
-    &#{ $homeHighlightsCardBackground } {
-        @include card-format(false, 16px, true);
-    }
+  &#{ $homeHighlightsCardBackground } {
+    @include card-format(false, 16px, true);
+  }
 }
 
 #{ $homeHighlightsInteractiveCard } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-    border: none !important;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  border: none !important;
 
-    &:hover {
-        box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
+
+  #{ $messagesWrapper } {
+    #{ $messageContentInner } {
+      overflow: hidden;
     }
 
-    #{ $messagesWrapper } {
-        #{ $messageContentInner } {
-            overflow: hidden;
-        }
+    &#{ $messageCozy } {
+      --message-color: var(--message-color-hover);
 
-        &#{ $messageCozy } {
-            --message-color: var(--message-color-hover);
-
-            &:not(#{ $message }) {
-                margin: 16px 16px 0 79px;
-            }
-        }
+      &:not(#{ $message }) {
+        margin: 16px 16px 0 79px;
+      }
     }
+  }
 
-    #{ $avatarDecoration } {
-        inset-inline-start: -65px;
-    }
+  #{ $avatarDecoration } {
+    inset-inline-start: -65px;
+  }
 }
 
 #{ $homeHighlightsFeedItemHeader } {
-    padding: 16px;
-    border-block-end: none;
+  padding: 16px;
+  border-block-end: none;
 
-    #{ $headingSmSemibold } {
-        font-size: 1.25em;
-    }
+  #{ $headingSmSemibold } {
+    font-size: 1.25em;
+  }
 }

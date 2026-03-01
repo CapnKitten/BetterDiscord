@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,223 +8,223 @@
  */
 
 #{ $onboardingChannelRowRecommended } {
-    @include card-format(false, 12px 16px, true);
+  @include card-format(false, 12px 16px, true);
 }
 
 #{ $onboardingQuestionContainer } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 }
 
 #{ $onboardingChannelCoverage } {
-    @include card-format(false, 0, true);
+  @include card-format(false, 0, true);
 
-    #{ $onboardingChannelCoverageDetails } {
-        background-color: transparent;
-    }
+  #{ $onboardingChannelCoverageDetails } {
+    background-color: transparent;
+  }
 }
 
 #{ $onboardingChannelPill } {
-    height: 20px;
-    background-color: var(--card-color-active);
-    border-radius: 10px;
+  height: 20px;
+  background-color: var(--card-color-active);
+  border-radius: 10px;
 }
 
 #{ $onboardingNotice } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 }
 
 #{ $onboardingReview } {
-    padding: 16px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+  padding: 16px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 }
 
 #{ $onboardingStepContainer } {
-    position: relative;
-    background-color: var(--card-color-filled);
+  position: relative;
+  background-color: var(--card-color-filled);
+
+  &:after {
+    position: absolute;
+    content: " ";
+    width: calc(100% - 32px);
+    height: 1px;
+    inset-block-end: 0;
+    inset-inline-start: 16px;
+    background-color: var(--card-border-color);
+  }
+
+  &:last-of-type {
+    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
 
     &:after {
-        position: absolute;
-        content: " ";
-        width: calc(100% - 32px);
-        height: 1px;
-        inset-block-end: 0;
-        inset-inline-start: 16px;
-        background-color: var(--card-border-color);
+      display: none;
     }
+  }
 
-    &:last-of-type {
-        border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+  #{ $onboardingStepIconContainer } {
+    background-color: var(--card-color-active);
+  }
 
-        &:after {
-            display: none;
-        }
+  #{ $buttonOutlined } {
+    &#{ $buttonPrimary } {
+      border: var(--button-outline) !important;
     }
-
-    #{ $onboardingStepIconContainer } {
-        background-color: var(--card-color-active);
-    }
-
-    #{ $buttonOutlined } {
-        &#{ $buttonPrimary } {
-            border: var(--button-outline) !important;
-        }
-    }
+  }
 }
 
 #{ $onboardingStepDivider } {
-    display: none;
+  display: none;
 }
 
 /* SERVER COMMUNITY ONBOARDING -> DEFAULT CHANNELS */
 
 #{ $onboardingCategoryRow } {
-    #{ $onboardingCategoryText } {
-        @include remove-caps(14px);
-    }
+  #{ $onboardingCategoryText } {
+    @include remove-caps(14px);
+  }
 }
 
 #{ $onboardingChannelRow } {
-    background-color: var(--card-color-filled);
-    transition: var(--default-time) var(--default-animation) background-color;
+  background-color: var(--card-color-filled);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &#{ $onboardingChannelRowFirst } {
-        border-top-left-radius: var(--card-radius-big);
-        border-top-right-radius: var(--card-radius-big);
-    }
+  &#{ $onboardingChannelRowFirst } {
+    border-top-left-radius: var(--card-radius-big);
+    border-top-right-radius: var(--card-radius-big);
+  }
 
-    &#{ $onboardingChannelRowLast } {
-        border-bottom-left-radius: var(--card-radius-big);
-        border-bottom-right-radius: var(--card-radius-big);
-    }
+  &#{ $onboardingChannelRowLast } {
+    border-bottom-left-radius: var(--card-radius-big);
+    border-bottom-right-radius: var(--card-radius-big);
+  }
 
-    &:hover {
-        &:not(#{ $onboardingChannelRowDisabled }) {
-            background-color: var(--card-color-hover);
-        }
+  &:hover {
+    &:not(#{ $onboardingChannelRowDisabled }) {
+      background-color: var(--card-color-hover);
     }
+  }
 
-    #{ $onboardingChannelLockedPill } {
-        --button-padding-start: 16px;
-        --button-padding-end: 24px;
-    }
+  #{ $onboardingChannelLockedPill } {
+    --button-padding-start: 16px;
+    --button-padding-end: 24px;
+  }
 }
 
 #{ $onboardingChannelSeparator } {
-    background-color: var(--card-border-color);
+  background-color: var(--card-border-color);
 }
 
 #{ $onboardingChannelSelectionContainer } {
-    @include card-format(false, 0, true);
+  @include card-format(false, 0, true);
 
-    #{ $onboardingChannelSelectionHeader },
-    #{ $onboardingChannelSelectionHeaderContainer },
-    #{ $onboardingChannelSelectionList } {
-        background-color: transparent;
-    }
+  #{ $onboardingChannelSelectionHeader },
+  #{ $onboardingChannelSelectionHeaderContainer },
+  #{ $onboardingChannelSelectionList } {
+    background-color: transparent;
+  }
 }
 
 /* SERVER COMMUNITY ONBOARDING -> NAVIGATION BANNER */
 
 #{ $onboardingNavigationBarContainer } {
-    background-color: var(--popout-color) !important;
-    border-radius: 4px;
-    box-shadow: var(--shadow-2dp);
+  background-color: var(--popout-color) !important;
+  border-radius: 4px;
+  box-shadow: var(--shadow-2dp);
 
-    #{ $button } {
-        &#{ $buttonOutlined } {
-            --button-padding-start: 16px;
-            --button-padding-end: 24px;
-        }
-
-        &#{ $buttonFilled } {
-            --button-padding-start: 24px;
-            --button-padding-end: 16px;
-
-            #{ $onboardingNavigationBarInnerButton } {
-                color: var(--accent-text-color--material-you) !important;
-            }
-        }
+  #{ $button } {
+    &#{ $buttonOutlined } {
+      --button-padding-start: 16px;
+      --button-padding-end: 24px;
     }
+
+    &#{ $buttonFilled } {
+      --button-padding-start: 24px;
+      --button-padding-end: 16px;
+
+      #{ $onboardingNavigationBarInnerButton } {
+        color: var(--accent-text-color--material-you) !important;
+      }
+    }
+  }
 }
 
 #{ $onboardingNavigationEducationUpsell } {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big);
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
 
-    #{ $onboardingNavigationEducationUpsellArrow } {
-        border-bottom-color: var(--popout-color);
-    }
+  #{ $onboardingNavigationEducationUpsellArrow } {
+    border-bottom-color: var(--popout-color);
+  }
 }
 
 /* SERVER COMMUNITY ONBOARDING -> PREVIEW */
 
 #{ $onboardingTestimonialHeroContainer } {
-    @include card-format(false, 32px, true);
+  @include card-format(false, 32px, true);
 
-    #{ $onboardingQuotes } {
-        inset-block-start: 40px;
-        color: var(--card-header-text-color);
-    }
+  #{ $onboardingQuotes } {
+    inset-block-start: 40px;
+    color: var(--card-header-text-color);
+  }
 
-    #{ $onboardingTestimonialsControls } {
-        margin: 0;
-    }
+  #{ $onboardingTestimonialsControls } {
+    margin: 0;
+  }
 
-    #{ $button } {
-        --button-padding-start: 10px;
-        --button-padding-end: 10px;
-    }
+  #{ $button } {
+    --button-padding-start: 10px;
+    --button-padding-end: 10px;
+  }
 }
 
 #{ $onboardingUpsellPreview } {
-    gap: 16px;
-    @include card-format(false, 16px, true);
+  gap: 16px;
+  @include card-format(false, 16px, true);
 
-    &#{ $onboardingSpacingLarge } {
-        gap: 2px;
-
-        #{ $headingMdSemibold } {
-            padding-block-end: 14px;
-        }
-
-        #{ $onboardingWelcomeMessageContainer } {
-            margin-block-end: 14px;
-        }
-    }
+  &#{ $onboardingSpacingLarge } {
+    gap: 2px;
 
     #{ $headingMdSemibold } {
-        line-height: normal;
-    	font-size: 1.25em;
-    	color: var(--card-header-text-color);
-    	font-weight: 400;
+      padding-block-end: 14px;
     }
 
-    #{ $onboardingSpacingSmall } {
-        gap: 2px;
+    #{ $onboardingWelcomeMessageContainer } {
+      margin-block-end: 14px;
+    }
+  }
+
+  #{ $headingMdSemibold } {
+    line-height: normal;
+    font-size: 1.25em;
+    color: var(--card-header-text-color);
+    font-weight: 400;
+  }
+
+  #{ $onboardingSpacingSmall } {
+    gap: 2px;
+  }
+
+  #{ $onboardingPreviewListItem } {
+    padding: 12px;
+
+    &#{ $onboardingPreviewListItemSelected } {
+      background-color: var(--card-color-alt-hover);
+    }
+  }
+
+  #{ $onboardingPreviewListItem },
+  #{ $onboardingPreviewAction } {
+    background-color: var(--card-color-alt);
+    border-radius: 4px;
+
+    &:first-of-type {
+      border-top-left-radius: var(--card-radius-big);
+      border-top-right-radius: var(--card-radius-big);
     }
 
-    #{ $onboardingPreviewListItem } {
-        padding: 12px;
-
-        &#{ $onboardingPreviewListItemSelected } {
-            background-color: var(--card-color-alt-hover);
-        }
+    &:last-of-type {
+      border-bottom-left-radius: var(--card-radius-big);
+      border-bottom-right-radius: var(--card-radius-big);
     }
-
-    #{ $onboardingPreviewListItem },
-    #{ $onboardingPreviewAction } {
-        background-color: var(--card-color-alt);
-        border-radius: 4px;
-
-        &:first-of-type {
-            border-top-left-radius: var(--card-radius-big);
-            border-top-right-radius: var(--card-radius-big);
-        }
-
-        &:last-of-type {
-            border-bottom-left-radius: var(--card-radius-big);
-            border-bottom-right-radius: var(--card-radius-big);
-        }
-    }
+  }
 }

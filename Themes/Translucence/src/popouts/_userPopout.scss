@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,175 +8,182 @@
  */
 
 #{ $userProfileOuter } {
-	&:not(#{ $userProfileOuterThemed }) {
-		--background-surface-high: var(--popout-color) !important;
-		--user-profile-overlay-background: var(--profile-gradient-primary-color) !important;
+  &:not(#{ $userProfileOuterThemed }) {
+    --background-surface-high: var(--popout-color) !important;
+    --user-profile-overlay-background: var(
+      --profile-gradient-primary-color
+    ) !important;
 
-		--profile-gradient-primary-color: var(--popout-color) !important;
-		--profile-gradient-secondary-color: var(--popout-color) !important;
-		--profile-avatar-border-color: var(--popout-color) !important;
-		--profile-body-background-color: var(--popout-color) !important;
+    --profile-gradient-primary-color: var(--popout-color) !important;
+    --profile-gradient-secondary-color: var(--popout-color) !important;
+    --profile-avatar-border-color: var(--popout-color) !important;
+    --profile-body-background-color: var(--popout-color) !important;
 
-	    --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
-	    --bg-mod-faint: var(--profile-body-background-color) !important;
+    --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+    --bg-mod-faint: var(--profile-body-background-color) !important;
 
-		&#{ $themeLight } {
-			--textarea-color: 0,0,0;
-			--textarea-text-color: hsl(0,0%,30%);
-			--textarea-placeholder-color: hsl(0,0%,40%);
-			--background-modifier-selected: hsl(0,0%,0%,0.125);
-		}
+    &#{ $themeLight } {
+      --textarea-color: 0, 0, 0;
+      --textarea-text-color: hsl(0, 0%, 30%);
+      --textarea-placeholder-color: hsl(0, 0%, 40%);
+      --background-modifier-selected: hsl(0, 0%, 0%, 0.125);
+    }
 
-		&:before {
-			background-color: var(--profile-gradient-primary-color);
-		}
-	}
+    &:before {
+      background-color: var(--profile-gradient-primary-color);
+    }
+  }
 }
 
 #{ $userProfileOuterThemed } {
-	--card-color: rgb(var(--bg-overlay-color)/var(--bg-overlay-opacity-6));
+  --card-color: rgb(var(--bg-overlay-color)/var(--bg-overlay-opacity-6));
 
-	#{ $buttonFilled } {
-		--button-background: var(--profile-gradient-button-color);
-        --button-text-color: var(--white-500);
-        --accent-button-action: var(--white-500);
-	}
+  #{ $buttonFilled } {
+    --button-background: var(--profile-gradient-button-color);
+    --button-text-color: var(--white-500);
+    --accent-button-action: var(--white-500);
+  }
 }
 
 #{ $userProfileOuter } {
-	@include add-translucence(before, true, false);
-	border-radius: var(--popout-radius);
-	overflow: initial;
+  @include add-translucence(before, true, false);
+  border-radius: var(--popout-radius);
+  overflow: initial;
 
-	* {
-		text-shadow: none;
-	}
+  * {
+    text-shadow: none;
+  }
 
-	svg {
-    	filter: none;
+  svg {
+    filter: none;
+  }
+
+  #{ $userProfileMenus } {
+    > #{ $menuPopout } {
+      &:before {
+        display: none;
+      }
     }
-
-	#{ $userProfileMenus } {
-        > #{ $menuPopout } {
-            &:before {
-                display: none;
-            }
-        }
-    }
+  }
 }
 
 #{ $userProfileInner } {
-	border-radius: calc(var(--popout-radius) / 1.25);
+  border-radius: calc(var(--popout-radius) / 1.25);
 
-	&:before {
-		border-radius: inherit;
-	}
+  &:before {
+    border-radius: inherit;
+  }
 
-	#{ $avatarWrapper } {
-		circle {
-			fill: var(--profile-avatar-border-color);
-		}
-	}
+  #{ $avatarWrapper } {
+    circle {
+      fill: var(--profile-avatar-border-color);
+    }
+  }
 
-	#{ $inputWrapper } {
-		border-radius: 18px;
-		border: none;
-	}
+  #{ $inputWrapper } {
+    border-radius: 18px;
+    border: none;
+  }
 
-	#{ $input } {
-		&::-webkit-input-placeholder {
-			color: var(--textarea-placeholder-color);
-		}
-	}
+  #{ $input } {
+    &::-webkit-input-placeholder {
+      color: var(--textarea-placeholder-color);
+    }
+  }
 }
 
 #{ $userProfileNitroUpsellWrapper } {
-	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
+  border-radius: calc(var(--popout-radius) / 1.25)
+    calc(var(--popout-radius) / 1.25) 0 0;
 }
 
 #{ $userProfileBanner } {
-	border-radius: calc(var(--popout-radius) / 1.25) calc(var(--popout-radius) / 1.25) 0 0;
+  border-radius: calc(var(--popout-radius) / 1.25)
+    calc(var(--popout-radius) / 1.25) 0 0;
 }
 
 #{ $badgeListContainer } {
-    padding: 2px;
-    background-color: var(--card-color) !important;
-    border-radius: 12px;
-    border: none;
+  padding: 2px;
+  background-color: var(--card-color) !important;
+  border-radius: 12px;
+  border: none;
 }
 
 #{ $userProfileOverlayBackground } {
-	border-radius: calc(var(--popout-radius) / 1.25);
+  border-radius: calc(var(--popout-radius) / 1.25);
 }
 
 #{ $biteSizeInnerThemed } {
-    padding-block-end: 0;
+  padding-block-end: 0;
 }
 
 #{ $statusBubbleOuter },
 #{ $statusBubbleInner } {
-	background-color: var(--card-color);
-    border-radius: var(--popout-radius);
+  background-color: var(--card-color);
+  border-radius: var(--popout-radius);
 }
 
 #{ $statusBubbleOuter } {
-    border: none !important;
+  border: none !important;
 
-    &:before,
-    &:after {
-        border: inherit !important;
-    }
+  &:before,
+  &:after {
+    border: inherit !important;
+  }
 }
 
 #{ $statusBubbleInner } {
-	backdrop-filter: blur(var(--popout-blur));
+  backdrop-filter: blur(var(--popout-blur));
 }
 
 #{ $profileCustomThemeBackground } {
-    #{ $menuPopout } {
-        border: none;
-    }
+  #{ $menuPopout } {
+    border: none;
+  }
 }
 
 #{ $biteSizeActivity } {
-	border-radius: var(--popout-radius);
+  border-radius: var(--popout-radius);
 }
 
 #{ $role } {
-	background-color: var(--background-modifier-selected);
-	border-radius: 11px;
-	border: none;
+  background-color: var(--background-modifier-selected);
+  border-radius: 11px;
+  border: none;
 }
 
 #{ $userProfileNote } {
-	margin-inline-start: 0;
-	margin-inline-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 
-	#{ $input } {
-		height: unset;
-		font-size: 14px;
-		line-height: 16px;
-	}
+  #{ $input } {
+    height: unset;
+    font-size: 14px;
+    line-height: 16px;
+  }
 
-	#{ $userProfileNoteTextArea } {
-		padding: 4px 10px;
-		font-size: 14px;
-		line-height: 16px;
+  #{ $userProfileNoteTextArea } {
+    padding: 4px 10px;
+    font-size: 14px;
+    line-height: 16px;
 
-		&::-webkit-input-placeholder {
-			color: var(--textarea-placeholder-color);
-		}
+    &::-webkit-input-placeholder {
+      color: var(--textarea-placeholder-color);
+    }
 
-		&:focus {
-			background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus));
-		}
-	}
+    &:focus {
+      background-color: rgba(
+        var(--textarea-color),
+        var(--textarea-alpha-focus)
+      );
+    }
+  }
 }
 
 /* USER POPOUT -> STATUS AREA */
 
 #{ $userProfileStatusMenu } {
-	&:before {
-		display: none;
-	}
+  &:before {
+    display: none;
+  }
 }

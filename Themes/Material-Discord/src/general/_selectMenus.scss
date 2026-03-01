@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,132 +7,132 @@
  */
 
 #{ $selectMenuWrapper } {
-	&#{ $selectMenuWrapperWithBg } {
-        min-height: var(--input-height);
-        height: var(--input-height);
-    	padding: 0 var(--input-padding);
-        background-color: var(--input-color);
-    	border-radius: var(--input-radius);
-    	border: none;
+  &#{ $selectMenuWrapperWithBg } {
+    min-height: var(--input-height);
+    height: var(--input-height);
+    padding: 0 var(--input-padding);
+    background-color: var(--input-color);
+    border-radius: var(--input-radius);
+    border: none;
 
-        #{ $selectMenu } {
-        	padding: 0;
-        }
-
-        #{ $selectMenuIconsContainer } {
-            margin-inline-end: 0;
-        }
+    #{ $selectMenu } {
+      padding: 0;
     }
 
-	#{ $selectMenu } {
-		padding-inline-end: calc(var(--icons-width) + 12px);
+    #{ $selectMenuIconsContainer } {
+      margin-inline-end: 0;
+    }
+  }
 
-		&#{ $selectMenuMulti } {
-			padding-block-end: 0;
-		}
-	}
+  #{ $selectMenu } {
+    padding-inline-end: calc(var(--icons-width) + 12px);
+
+    &#{ $selectMenuMulti } {
+      padding-block-end: 0;
+    }
+  }
 }
 
 #{ $selectMenu } {
-	min-height: var(--input-height);
-	height: var(--input-height);
-	padding: 0 var(--input-padding);
-	background-color: var(--input-color);
-	border-radius: var(--input-radius) !important;
-	border: none;
+  min-height: var(--input-height);
+  height: var(--input-height);
+  padding: 0 var(--input-padding);
+  background-color: var(--input-color);
+  border-radius: var(--input-radius) !important;
+  border: none;
 
-	&#{ $selectMenuMulti } {
-		min-height: var(--input-height);
-		height: auto;
+  &#{ $selectMenuMulti } {
+    min-height: var(--input-height);
+    height: auto;
 
-		> #{ $selectMenuMulti } {
-			min-height: inherit;
-		}
-	}
+    > #{ $selectMenuMulti } {
+      min-height: inherit;
+    }
+  }
 
-	#{ $selectMenuSearchInput } {
-		&::-webkit-input-placeholder {
-			font-family: var(--app-font);
-			color: var(--input-placeholder-color);
-		}
+  #{ $selectMenuSearchInput } {
+    &::-webkit-input-placeholder {
+      font-family: var(--app-font);
+      color: var(--input-placeholder-color);
+    }
 
-		&#{ $selectMenuMulti } {
-			height: 28px;
-			margin-block-start: 2px;
-		}
-	}
+    &#{ $selectMenuMulti } {
+      height: 28px;
+      margin-block-start: 2px;
+    }
+  }
 }
 
 #{ $selectMenuIconsContainer } {
-	height: var(--input-height);
+  height: var(--input-height);
 
-	> div {
-		height: var(--icons-width);
-	}
+  > div {
+    height: var(--icons-width);
+  }
 }
 
 #{ $selectMenuPopout } {
-	margin: 4px 0;
-	background-color: var(--popout-color);
+  margin: 4px 0;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  border: none;
+  box-shadow: var(--shadow-soft);
+
+  &#{ $selectMenuPopoutPositionTop } {
+    background-color: var(--popout-color);
     border-radius: var(--popout-radius);
     border: none;
     box-shadow: var(--shadow-soft);
+  }
 
-    &#{ $selectMenuPopoutPositionTop } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius);
-        border: none;
-        box-shadow: var(--shadow-soft);
+  #{ $selectMenuOption } {
+    gap: 8px;
+    color: var(--menu-item-text-color);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+      background-color: var(--menu-item-hover) !important;
     }
 
-	#{ $selectMenuOption } {
-		gap: 8px;
-		color: var(--menu-item-text-color);
-		transition: var(--default-time) var(--default-animation) background-color;
+    &[aria-selected="true"] {
+      background-color: var(--menu-item-select) !important;
 
-		&:hover {
-			background-color: var(--menu-item-hover) !important;
-		}
+      #{ $selectMenuOptionSelectedIcon } {
+        color: hsl(var(--accent-hsl--material-you));
 
-		&[aria-selected=true] {
-			background-color: var(--menu-item-select) !important;
+        circle {
+          fill: var(--accent-text-color--material-you);
+        }
+      }
+    }
 
-			#{ $selectMenuOptionSelectedIcon } {
-				color: hsl(var(--accent-hsl--material-you));
+    #{ $selectMenuDeviceOption } {
+      gap: 8px;
+    }
 
-				circle {
-					fill: var(--accent-text-color--material-you);;
-				}
-			}
-		}
-
-		#{ $selectMenuDeviceOption } {
-			gap: 8px;
-		}
-
-		#{ $selectMenuDeviceOptionLabel } {
-			margin-inline-end: 0;
-		}
-	}
+    #{ $selectMenuDeviceOptionLabel } {
+      margin-inline-end: 0;
+    }
+  }
 }
 
 /* SELECT MENUS -> PILLS */
 
 #{ $optionPillButton } {
-    --button-height: 28px;
-	--button-padding-start: 8px;
-	--button-padding-end: 8px;
+  --button-height: 28px;
+  --button-padding-start: 8px;
+  --button-padding-end: 8px;
 
-    &#{ $buttonFilled } {
-        --button-background: transparent;
-        --button-outline: 1px solid var(--text-muted);
-    }
+  &#{ $buttonFilled } {
+    --button-background: transparent;
+    --button-outline: 1px solid var(--text-muted);
+  }
 
-    &:after {
-        display: none;
-    }
+  &:after {
+    display: none;
+  }
 
-    #{ $optionPill } {
-        background-color: transparent;
-    }
+  #{ $optionPill } {
+    background-color: transparent;
+  }
 }

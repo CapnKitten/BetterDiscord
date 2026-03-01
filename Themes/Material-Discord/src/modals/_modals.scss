@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,302 +8,302 @@
  */
 
 #{ $modalRoot } {
-    @include popout-format(true);
-    border: none;
+  @include popout-format(true);
+  border: none;
 
-    &#{ $modalRootNoBg },
-    &#{ $modalRootTransparent },
-    &#{ $carouselModal } {
-        background-color: transparent !important;
-        box-shadow: none !important;
-    }
+  &#{ $modalRootNoBg },
+  &#{ $modalRootTransparent },
+  &#{ $carouselModal } {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
 
-    &#{ $modalSmall } {
-        min-height: 75px;
-        max-height: 800px;
-    }
+  &#{ $modalSmall } {
+    min-height: 75px;
+    max-height: 800px;
+  }
 
-    #{ $modalRootBg } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius-big);
-    }
+  #{ $modalRootBg } {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius-big);
+  }
 
-    #{ $modalConfirmStartHeader } {
-        padding: 75px 16px 16px;
-    }
+  #{ $modalConfirmStartHeader } {
+    padding: 75px 16px 16px;
+  }
 
+  > div:not([class]) {
     > div:not([class]) {
-        > div:not([class]) {
-            max-height: 720px;
+      max-height: 720px;
 
-            .content-1OG56Q {
-                max-height: 548px;
-            }
-        }
+      .content-1OG56Q {
+        max-height: 548px;
+      }
     }
+  }
 
-    #{ $settingsHeaderDivider } {
-        margin: 16px 0;
-        padding-block-end: 0;
-        border-top-color: var(--popout-header-border);
+  #{ $settingsHeaderDivider } {
+    margin: 16px 0;
+    padding-block-end: 0;
+    border-top-color: var(--popout-header-border);
+  }
+
+  #{ $input } {
+    &#{ $flex } {
+      --button-height: 28px;
+
+      padding: 0;
+      border-radius: var(--input-radius);
+      box-shadow: none;
+
+      #{ $input } {
+        border-radius: var(--input-radius);
+        box-shadow: none;
+      }
     }
+  }
 
-    #{ $input } {
-        &#{ $flex } {
-            --button-height: 28px;
-
-            padding: 0;
-            border-radius: var(--input-radius);
-            box-shadow: none;
-
-            #{ $input } {
-                border-radius: var(--input-radius);
-                box-shadow: none;
-            }
-        }
-    }
-
-    #{ $guestBody } {
-        padding: 0;
-    }
+  #{ $guestBody } {
+    padding: 0;
+  }
 }
 
 #{ $modalHeader } {
-    min-height: 24px;
+  min-height: 24px;
+  margin: 0;
+  padding: 24px 24px 16px;
+  background-color: transparent;
+  border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
+  box-shadow: none !important;
+
+  &#{ $modalHeaderLargePadding } {
+    padding-block-start: 76px;
+  }
+
+  #{ $headingLgSemibold },
+  #{ $headingLgBold },
+  #{ $headlingXlSemibold },
+  #{ $headlingXlExtrabold },
+  #{ $textMdSemibold },
+  #{ $titleH1 },
+  #{ $titleH2 } {
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  #{ $headingLgBold } {
+    padding-block-start: 0;
+  }
+
+  #{ $modalTitle } {
+    margin-block-end: 0;
+  }
+
+  #{ $modalHeaderTitle } {
+    font-weight: 400;
+  }
+
+  #{ $modalCloseButton },
+  #{ $modalHeaderButton } {
+    --button-height: 32px;
+
+    width: var(--button-height);
+    height: var(--button-height);
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
     margin: 0;
-    padding: 24px 24px 16px;
-    background-color: transparent;
-    border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
-    box-shadow: none !important;
+    padding: 0;
+    background-color: transparent !important;
+    @include md-ripple(hover, after, 1.1);
+    position: absolute;
+  }
 
-    &#{ $modalHeaderLargePadding } {
-        padding-block-start: 76px;
+  #{ $modalCloseButton } {
+    #{ $buttonContents } {
+      height: 24px;
     }
 
-    #{ $headingLgSemibold },
-    #{ $headingLgBold },
-    #{ $headlingXlSemibold },
-    #{ $headlingXlExtrabold },
-    #{ $textMdSemibold },
-    #{ $titleH1 },
-    #{ $titleH2 } {
-        font-size: 22px;
-        font-weight: 400;
+    svg {
+      height: 24px !important;
+      transform: scale(0.85);
     }
+  }
 
-    #{ $headingLgBold } {
-        padding-block-start: 0;
+  #{ $modalHeaderButton } {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #{ $modalHeaderButtonIcon } {
+      height: 24px;
+      transform: scale(0.85);
     }
-
-    #{ $modalTitle } {
-        margin-block-end: 0;
-    }
-
-    #{ $modalHeaderTitle } {
-        font-weight: 400;
-    }
-
-    #{ $modalCloseButton },
-    #{ $modalHeaderButton } {
-        --button-height: 32px;
-
-        width: var(--button-height);
-        height: var(--button-height);
-        inset-block-start: 20px;
-        inset-inline-end: 20px;
-        margin: 0;
-        padding: 0;
-        background-color: transparent !important;
-        @include md-ripple(hover, after, 1.1);
-        position: absolute;
-    }
-
-    #{ $modalCloseButton } {
-        #{ $buttonContents } {
-            height: 24px;
-        }
-
-        svg {
-            height: 24px !important;
-            transform: scale(0.85);
-        }
-    }
-
-    #{ $modalHeaderButton } {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        #{ $modalHeaderButtonIcon } {
-            height: 24px;
-            transform: scale(0.85);
-        }
-    }
+  }
 }
 
 #{ $modalContent } {
-    padding: 0 24px;
-    background-color: transparent !important;
-    border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+  padding: 0 24px;
+  background-color: transparent !important;
+  border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
 
-    &:first-child {
-        padding-block-start: 24px;
+  &:first-child {
+    padding-block-start: 24px;
 
-        #{ $headingMdSemibold } {
-            line-height: 24px;
-            font-size: 20px;
-            font-weight: 400;
-        }
+    #{ $headingMdSemibold } {
+      line-height: 24px;
+      font-size: 20px;
+      font-weight: 400;
     }
+  }
 
+  &:last-child {
+    padding-block-end: 24px;
+  }
+
+  #{ $modalContentInner } {
+    padding-block-end: 0;
+  }
+
+  #{ $modalContentParagraph } {
     &:last-child {
-        padding-block-end: 24px;
+      margin-block-end: 2px;
     }
+  }
 
-    #{ $modalContentInner } {
-        padding-block-end: 0;
-    }
-
-    #{ $modalContentParagraph } {
-        &:last-child {
-            margin-block-end: 2px;
-        }
-    }
-
-    a {
-        color: hsl(var(--accent-hsl--material-you));
-    }
+  a {
+    color: hsl(var(--accent-hsl--material-you));
+  }
 }
 
 #{ $modalFooter } {
-    padding: 24px;
+  padding: 24px;
+  gap: 16px;
+  background-color: transparent !important;
+  border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+  box-shadow: none !important;
+
+  #{ $authorizeFooter } {
+    padding: 0;
+  }
+
+  > #{ $flexDirectionRow } {
     gap: 16px;
+  }
+
+  span:not([class])[style*="display: block"]:empty {
+    display: none !important;
+  }
+
+  #{ $button } {
+    margin: 0;
+
+    &#{ $buttonPrimary } {
+      --button-padding-start: 12px;
+      --button-padding-end: 12px;
+      --button-background: transparent;
+      --button-text-color: var(--button-link-accent-text-color);
+
+      --accent-button-action: hsl(var(--accent-hsl--material-you));
+      --accent-button-action-hover: 0.14;
+      --accent-button-action-active: 0.21;
+    }
+  }
+
+  #{ $buttonBlank } {
     background-color: transparent !important;
-    border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
-    box-shadow: none !important;
-
-    #{ $authorizeFooter } {
-        padding: 0;
-    }
-
-    > #{ $flexDirectionRow } {
-        gap: 16px;
-    }
-
-    span:not([class])[style*="display: block"]:empty {
-        display: none !important;
-    }
-
-    #{ $button } {
-        margin: 0;
-
-        &#{ $buttonPrimary } {
-            --button-padding-start: 12px;
-            --button-padding-end: 12px;
-            --button-background: transparent;
-            --button-text-color: var(--button-link-accent-text-color);
-
-            --accent-button-action: hsl(var(--accent-hsl--material-you));
-            --accent-button-action-hover: 0.14;
-            --accent-button-action-active: 0.21;
-        }
-    }
-
-    #{ $buttonBlank } {
-        background-color: transparent !important;
-        color: var(--button-link-accent-text-color) !important;
-    }
+    color: var(--button-link-accent-text-color) !important;
+  }
 }
 
 #{ $textContainerModalContent } {
-    #{ $codeView } {
-        background-color: transparent;
-    }
-}
-
-#{ $textContainerModalTextContainer } {
+  #{ $codeView } {
     background-color: transparent;
+  }
 }
 
 #{ $textContainerModalTextContainer } {
-    border: none;
+  background-color: transparent;
+}
+
+#{ $textContainerModalTextContainer } {
+  border: none;
 }
 
 #{ $textContainerModalFooter } {
-    padding: 0 var(--space-16);
+  padding: 0 var(--space-16);
 }
 
 #{ $valuePropContainer } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 
-    #{ $bulletedValueProp } {
-        padding: 0;
-    }
+  #{ $bulletedValueProp } {
+    padding: 0;
+  }
 
-    #{ $valuePropIconContainer } {
-        background-color: var(--card-button-color);
-        color: var(--interactive-text-default);
-    }
+  #{ $valuePropIconContainer } {
+    background-color: var(--card-button-color);
+    color: var(--interactive-text-default);
+  }
 }
 
 #{ $welcomeModalLargeContent } {
-    @include popout-format;
+  @include popout-format;
 }
 
 /* MODALS -> V2 MODALS */
 
 #{ $modalV2Container } {
-    --input-color: var(--input-color-alt);
-    --slider-bar-background: var(--popout-color-alt);
-    --slider-grabber-background: var(--popout-color);
+  --input-color: var(--input-color-alt);
+  --slider-bar-background: var(--popout-color-alt);
+  --slider-grabber-background: var(--popout-color);
 
-    @include popout-format;
+  @include popout-format;
 
-    &#{ $modalV2ContainerPaddingSizeSm } {
-        padding-block-start: 0;
-        padding-block-end: 0
-    }
+  &#{ $modalV2ContainerPaddingSizeSm } {
+    padding-block-start: 0;
+    padding-block-end: 0;
+  }
 
-    #{ $modalFooter } {
-        background-color: transparent;
-    }
+  #{ $modalFooter } {
+    background-color: transparent;
+  }
 }
 
 #{ $modalV2ContainerSizeMd } {
-    max-height: 80vh;
+  max-height: 80vh;
 }
 
 #{ $modalV2Header } {
-    padding: 24px 24px 16px;
+  padding: 24px 24px 16px;
 
-    #{ $headingLgSemibold } {
-        font-weight: 400;
-    }
+  #{ $headingLgSemibold } {
+    font-weight: 400;
+  }
 }
 
 #{ $modalV2Body } {
-    padding: 0 24px 24px;
+  padding: 0 24px 24px;
 
-    &#{ $scroller } {
-        padding-inline-end: calc(24px - var(--scrollbar-width)) !important;
-    }
+  &#{ $scroller } {
+    padding-inline-end: calc(24px - var(--scrollbar-width)) !important;
+  }
 }
 
 #{ $modalV2BodyInner } {
-    padding-inline-start: 0;
+  padding-inline-start: 0;
 }
 
 #{ $modalV2ActionBar } {
-    padding: 24px;
+  padding: 24px;
 }
 
 #{ $modalV2BodySpacerTop },
 #{ $modalV2BodySpacerBottom } {
-    display: none;
+  display: none;
 }
 
 #{ $hasWebkitScrollbar } {
-    #{ $modalV2BodyInner } {
-        padding-inline-end: 0;
-    }
+  #{ $modalV2BodyInner } {
+    padding-inline-end: 0;
+  }
 }

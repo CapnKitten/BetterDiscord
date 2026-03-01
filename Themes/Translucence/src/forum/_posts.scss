@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,78 +8,78 @@
  */
 
 #{ $postContainer } {
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
-    border: none !important;
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
+  border: none !important;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-        box-shadow: none;
-        transform: none;
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+    box-shadow: none;
+    transform: none;
+  }
 
-    &#{ $postContainerIsOpen } {
-        background-color: var(--card-color-select) !important;
-    }
+  &#{ $postContainerIsOpen } {
+    background-color: var(--card-color-select) !important;
+  }
 }
 
 #{ $postPinIcon } {
-    background-color: hsl(var(--accent-hsl));
+  background-color: hsl(var(--accent-hsl));
 
-    svg {
-        filter: none;
-    }
+  svg {
+    filter: none;
+  }
 
-    path {
-        fill: var(--accent-text-color);
-    }
+  path {
+    fill: var(--accent-text-color);
+  }
 }
 
 #{ $postContentPreview },
 #{ $postTextContentFooter } {
-    background-color: var(--card-color-hover);
+  background-color: var(--card-color-hover);
 }
 
 #{ $postContentPreview } {
-    border-radius: var(--card-radius);
-    border: none;
+  border-radius: var(--card-radius);
+  border: none;
 }
 
 #{ $postTextContentFooter } {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 #{ $postContainer } {
-    background-color: var(--card-color);
+  background-color: var(--card-color);
 
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
+
+  &:not(#{ $postContainerIsOpen }) {
     &:hover {
-        background-color: var(--card-color-hover);
+      #{ $postContentPreview } {
+        background-color: var(--card-color);
+      }
     }
-
-    &:not(#{ $postContainerIsOpen }) {
-        &:hover {
-            #{ $postContentPreview } {
-                background-color: var(--card-color);
-            }
-        }
-    }
+  }
 }
 
 #{ $postThreadStartConversationBox } {
-    @include card-format;
+  @include card-format;
 
-    &:after {
-        inset-inline-start: 50px;
-    }
+  &:after {
+    inset-inline-start: 50px;
+  }
 }
 
 #{ $postThreadButtonContainer } {
-    background-color: var(--card-color);
-    border-top: none;
+  background-color: var(--card-color);
+  border-top: none;
 }
 
 #{ $postThreadButtons } {
-    #{ $button } {
-        --button-padding: 0;
-    }
+  #{ $button } {
+    --button-padding: 0;
+  }
 }

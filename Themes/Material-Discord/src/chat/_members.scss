@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -9,101 +9,104 @@
 
 #{ $membersWrap },
 #{ $membersContainer } {
-	background-color: transparent;
-	border-inline-start: none;
+  background-color: transparent;
+  border-inline-start: none;
 }
 
 #{ $members } {
-	&,
-	& > div {
-		background: transparent;
-	}
+  &,
+  & > div {
+    background: transparent;
+  }
 
-	#{ $memberChildContainer } {
-	    height: 100%;
-		padding: 0;
-		background-color: transparent !important;
-	}
+  #{ $memberChildContainer } {
+    height: 100%;
+    padding: 0;
+    background-color: transparent !important;
+  }
 
-    #{ $listItem } {
-		width: 100%;
-		height: 42px;
-		margin-block: 0 2px;
-		margin-inline: 0;
-		padding: 0;
+  #{ $listItem } {
+    width: 100%;
+    height: 42px;
+    margin-block: 0 2px;
+    margin-inline: 0;
+    padding: 0;
 
-		&,
-		#{ $listItemLayout } {
-			border-radius: var(--channel-radius);
-		}
+    &,
+    #{ $listItemLayout } {
+      border-radius: var(--channel-radius);
+    }
 
-		#{ $listItemLayout } {
-			width: calc(100% - (var(--scrollbar-width) + 2px));
-			margin-inline-start: 8px;
-			padding-block: 0;
-			padding-inline: 8px;
-			transition: 200ms ease all;
-		}
+    #{ $listItemLayout } {
+      width: calc(100% - (var(--scrollbar-width) + 2px));
+      margin-inline-start: 8px;
+      padding-block: 0;
+      padding-inline: 8px;
+      transition: 200ms ease all;
+    }
 
-		&:hover #{ $listItemLayout } {
-			background-color: var(--menu-item-hover);
-		}
+    &:hover #{ $listItemLayout } {
+      background-color: var(--menu-item-hover);
+    }
 
-		&#{ $listItemSelected } #{ $listItemLayout } {
-			background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-		}
-	}
+    &#{ $listItemSelected } #{ $listItemLayout } {
+      background-color: hsl(
+        var(--accent-hsl),
+        var(--menu-item-select-accent-opacity)
+      );
+    }
+  }
 }
 
 #{ $member } {
-	max-width: 100%;
-	background: transparent !important;
+  max-width: 100%;
+  background: transparent !important;
 
-	&:hover {
-		#{ $memberChildContainer } {
-			background-color: transparent;
-		}
-	}
+  &:hover {
+    #{ $memberChildContainer } {
+      background-color: transparent;
+    }
+  }
 }
 
 #{ $memberInner } {
-	height: 100%;
+  height: 100%;
 }
 
 #{ $membersGroup } {
-    @include remove-caps(14px, true);
+  @include remove-caps(14px, true);
 }
 
 #{ $botTag } {
-	border-radius: 8px !important;
+  border-radius: 8px !important;
 
-	&#{ $botTagRegular } {
-		background-color: hsl(var(--accent-hsl--material-you));
-		color: var(--accent-text-color--material-you);
-	}
+  &#{ $botTagRegular } {
+    background-color: hsl(var(--accent-hsl--material-you));
+    color: var(--accent-text-color--material-you);
+  }
 
-	#{ $botTagVerified } {
-		path {
-			fill: var(--accent-text-color--material-you);
-		}
-	}
+  #{ $botTagVerified } {
+    path {
+      fill: var(--accent-text-color--material-you);
+    }
+  }
 }
 
 /* MEMBERS LIST -> ACTIVITIES */
 
 #{ $memberActivityContainer } {
-	padding-block: 8px;
-	padding-inline: 12px 8px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-	border: none;
-    transition: var(--default-time) var(--default-animation) background-color;
+  padding-block: 8px;
+  padding-inline: 12px 8px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  border: none;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 
-    #{ $memberActivityThumbnail } {
-        border-radius: calc(var(--card-radius-big) / 1.6);
-    }
+  #{ $memberActivityThumbnail } {
+    border-radius: calc(var(--card-radius-big) / 1.6);
+  }
 }

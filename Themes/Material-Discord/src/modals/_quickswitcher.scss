@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,69 +8,69 @@
  */
 
 #{ $quickswitcher } {
-	padding: 0;
+  padding: 0;
 
-	#{ $quickswitcherInput } {
-		height: 42px;
-		line-height: 42px;
-		margin: calc(24px - var(--custom-modal-padding-top)) 24px 16px;
-		padding: 0 16px;
-		background-color: var(--input-color-alt);
-		border-radius: 21px;
-		box-shadow: none;
-		border: none;
-		font-size: 18px;
+  #{ $quickswitcherInput } {
+    height: 42px;
+    line-height: 42px;
+    margin: calc(24px - var(--custom-modal-padding-top)) 24px 16px;
+    padding: 0 16px;
+    background-color: var(--input-color-alt);
+    border-radius: 21px;
+    box-shadow: none;
+    border: none;
+    font-size: 18px;
 
-		&::-webkit-input-placeholder {
-			font-family: var(--app-font);
-			color: var(--input-placeholder-color);
-		}
-	}
+    &::-webkit-input-placeholder {
+      font-family: var(--app-font);
+      color: var(--input-placeholder-color);
+    }
+  }
 
-	#{ $quickswitcherScroller } {
-		margin-block-start: 0;
-		margin-inline-end: 0;
-		background-color: transparent;
+  #{ $quickswitcherScroller } {
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    background-color: transparent;
 
-		&::-webkit-scrollbar-track {
-			background: transparent !important;
-		}
-	}
+    &::-webkit-scrollbar-track {
+      background: transparent !important;
+    }
+  }
 
-	#{ $quickswitcherHeader } {
-		@include remove-caps(14px);
-	}
+  #{ $quickswitcherHeader } {
+    @include remove-caps(14px);
+  }
 
-	#{ $quickswitcherResult } {
-		margin: 0 calc(16px - var(--scrollbar-width)) 0 16px;
-        border-radius: var(--card-radius);
-		transition: var(--default-time) var(--default-animation) background-color;
+  #{ $quickswitcherResult } {
+    margin: 0 calc(16px - var(--scrollbar-width)) 0 16px;
+    border-radius: var(--card-radius);
+    transition: var(--default-time) var(--default-animation) background-color;
 
-		&[aria-selected="true"] {
-			background-color: var(--menu-item-hover);
-		}
-
-		#{ $quickswitcherContent } {
-            padding: 0 8px;
-        }
-
-		#{ $quickswitcherResultNote } {
-			@include remove-caps(11px);
-		}
-	}
-
-	#{ $quickswitcherContent } {
-        padding: 0 24px;
+    &[aria-selected="true"] {
+      background-color: var(--menu-item-hover);
     }
 
-	#{ $quickswitcherProtip } {
-		margin: 16px 24px calc(24px - var(--custom-modal-padding-md));
-        padding: 16px;
-		background-color: var(--card-color-filled);
-        border-radius: calc(var(--popout-radius-big) / 1.7);
+    #{ $quickswitcherContent } {
+      padding: 0 8px;
+    }
 
-		&#{ $quickswitcherHasContent } {
-			border-block-start: none;
-		}
-	}
+    #{ $quickswitcherResultNote } {
+      @include remove-caps(11px);
+    }
+  }
+
+  #{ $quickswitcherContent } {
+    padding: 0 24px;
+  }
+
+  #{ $quickswitcherProtip } {
+    margin: 16px 24px calc(24px - var(--custom-modal-padding-md));
+    padding: 16px;
+    background-color: var(--card-color-filled);
+    border-radius: calc(var(--popout-radius-big) / 1.7);
+
+    &#{ $quickswitcherHasContent } {
+      border-block-start: none;
+    }
+  }
 }

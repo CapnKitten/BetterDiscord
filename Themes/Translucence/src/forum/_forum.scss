@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,133 +8,133 @@
  */
 
 #{ $forumContainer } {
-    background: transparent;
+  background: transparent;
 }
 
 #{ $forumHeader } {
-    @include card-format;
+  @include card-format;
 
-    &#{ $forumHeaderWithMatchingPosts } {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+  &#{ $forumHeaderWithMatchingPosts } {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 #{ $forumHeaderMatchingPostsRow } {
-    background-color: var(--card-color);
-    border-radius: 0 0 var(--card-radius) var(--card-radius);
-    border: none;
+  background-color: var(--card-color);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  border: none;
 }
 
 #{ $forumGuidelinesContainer } {
-    @include card-format;
+  @include card-format;
 }
 
 #{ $forumGuidelinesDescriptionContainer } {
-    @extend #{ $forumGuidelinesContainer };
+  @extend #{ $forumGuidelinesContainer };
 }
 
 #{ $forumTagsContainer } {
-    padding-block: 16px 0;
-    padding-inline: 0;
+  padding-block: 16px 0;
+  padding-inline: 0;
 }
 
 #{ $forumSortDropdown } {
-    #{ $buttonContents } {
-        color: var(--accent-text-color);
-    }
+  #{ $buttonContents } {
+    color: var(--accent-text-color);
+  }
 }
 
 #{ $forumSortDropdownText } {
-    color: inherit !important;
+  color: inherit !important;
 }
 
 #{ $forumSortContainer } {
-    padding: 0;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 
-    #{ $menuPopout } {
-        min-width: unset;
+  #{ $menuPopout } {
+    min-width: unset;
 
-        #{ $menuPopoutGroupLabel } {
-            padding-block-start: 0;
-        }
+    #{ $menuPopoutGroupLabel } {
+      padding-block-start: 0;
     }
+  }
 }
 
 #{ $forumTagsButton } {
-    --button-padding: 0 8px 0 12px;
+  --button-padding: 0 8px 0 12px;
 
-    &#{ $forumTagsButtonWithCount } {
-        --button-padding: 0 8px;
-    }
+  &#{ $forumTagsButtonWithCount } {
+    --button-padding: 0 8px;
+  }
 
-    #{ $forumTagsButtonInner } {
-        color: inherit;
-    }
+  #{ $forumTagsButtonInner } {
+    color: inherit;
+  }
 
-    svg {
-        color: var(--accent-text-color);
-    }
+  svg {
+    color: var(--accent-text-color);
+  }
 }
 
 #{ $forumTagsCountContainer } {
-    background-color: var(--accent-text-color);
+  background-color: var(--accent-text-color);
 
-    #{ $forumTagsCountText } {
-        color: hsl(var(--accent-hsl));
-    }
+  #{ $forumTagsCountText } {
+    color: hsl(var(--accent-hsl));
+  }
 }
 
 #{ $forumFilterContainer } {
-    padding-block: 16px 8px;
-    padding-inline: 16px;
-    @include add-translucence(null, true, true, true);
+  padding-block: 16px 8px;
+  padding-inline: 16px;
+  @include add-translucence(null, true, true, true);
 
-    #{ $forumFilterHeader } {
-        padding: 0;
+  #{ $forumFilterHeader } {
+    padding: 0;
+  }
+
+  #{ $forumFilterCountContainer } {
+    background-color: hsl(var(--accent-hsl));
+
+    #{ $forumFilterCountText } {
+      color: var(--accent-text-color);
     }
-
-    #{ $forumFilterCountContainer } {
-        background-color: hsl(var(--accent-hsl));
-
-        #{ $forumFilterCountText } {
-            color: var(--accent-text-color);
-        }
-    }
+  }
 }
 
 #{ $forumCard } {
-    padding-block-end: 16px;
+  padding-block-end: 16px;
 
-    &[style*="height: 558px"] {
-        padding-block-end: 0;
-    }
+  &[style*="height: 558px"] {
+    padding-block-end: 0;
+  }
 }
 
 /* FORUM -> PILLS */
 
 #{ $postPill } {
-    background-color: var(--card-color) !important;
-    border: none;
+  background-color: var(--card-color) !important;
+  border: none;
 
-    &#{ $postPillClickable } {
-        &:hover {
-            background-color: var(--card-color-hover) !important;
-        }
+  &#{ $postPillClickable } {
+    &:hover {
+      background-color: var(--card-color-hover) !important;
+    }
+  }
+
+  &#{ $postPillSelected } {
+    background-color: hsl(var(--accent-hsl), 0.3) !important;
+
+    &:hover {
+      background-color: hsl(var(--accent-hsl), 0.4) !important;
     }
 
-    &#{ $postPillSelected } {
-        background-color: hsl(var(--accent-hsl),0.3) !important;
-
-        &:hover {
-            background-color: hsl(var(--accent-hsl),0.4) !important;
-        }
-
-        #{ $postPillText } {
-            color: hsl(var(--accent-hsl));
-        }
+    #{ $postPillText } {
+      color: hsl(var(--accent-hsl));
     }
+  }
 }

@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,147 +7,147 @@
  */
 
 #{ $guildsWrapper } {
-    margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size);
-    background-color: transparent;
-    border-radius: var(--app-card-radius);
-    mask: none;
+  margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size);
+  background-color: transparent;
+  border-radius: var(--app-card-radius);
+  mask: none;
 
-    &#{ $guildsWrapperHidden } {
-        margin: 0;
+  &#{ $guildsWrapperHidden } {
+    margin: 0;
+  }
+
+  #{ $guildsTree } {
+    &:focus {
+      outline: none;
     }
-
-	#{ $guildsTree } {
-		&:focus {
-			outline: none;
-		}
-	}
+  }
 }
 
 body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) {
-    #{ $guildsWrapper } {
-        height: var(--content-full-height);
-        margin: var(--app-card-top-margin) var(--app-card-margin) 0;
-    }
+  #{ $guildsWrapper } {
+    height: var(--content-full-height);
+    margin: var(--app-card-top-margin) var(--app-card-margin) 0;
+  }
 }
 
 #{ $guilds } {
-	background-color: transparent;
+  background-color: transparent;
 
-	&::-webkit-scrollbar {
-		width: 0 !important;
-	}
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
 }
 
 /* SERVERS LIST -> HOME BUTTON AND DMS */
 
 #{ $guildsHomeContainer } {
-    padding: 12px 0 0;
-    background-color: var(--app-foreground);
-    border-radius: var(--app-card-radius);
+  padding: 12px 0 0;
+  background-color: var(--app-foreground);
+  border-radius: var(--app-card-radius);
 
-    #{ $guild } {
-        margin-bottom: 0;
-    }
+  #{ $guild } {
+    margin-bottom: 0;
+  }
 
-    + #{ $guild } {
-        margin: 0 0 var(--app-card-margin);
-    }
+  + #{ $guild } {
+    margin: 0 0 var(--app-card-margin);
+  }
 }
 
 #{ $platformWin } {
-    #{ $guilds } {
-        padding-top: 0;
-    }
+  #{ $guilds } {
+    padding-top: 0;
+  }
 }
 
 #{ $guilds } {
-    > div[style*="height: 56px"]:not([class]) {
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
+  > div[style*="height: 56px"]:not([class]) {
+    background-color: var(--app-foreground);
+    border-radius: var(--app-card-radius);
 
-        + #{ $guild } {
-            margin: 0 0 var(--app-card-margin);
-        }
-
-        &:before,
-        &:after {
-            --app-card-radius-fix: calc(var(--app-card-radius) * 1.75);
-
-            position: absolute;
-            content: " ";
-            width: calc(var(--app-card-radius-fix) / 2);
-            height: var(--app-card-radius-fix);
-            background-color: var(--app-foreground);
-            top: calc((var(--app-card-radius-fix) / 2) * -1);
-            pointer-events: none;
-        }
-
-        &:before {
-            left: 0;
-        }
-
-        &:after {
-            right: 0;
-        }
+    + #{ $guild } {
+      margin: 0 0 var(--app-card-margin);
     }
+
+    &:before,
+    &:after {
+      --app-card-radius-fix: calc(var(--app-card-radius) * 1.75);
+
+      position: absolute;
+      content: " ";
+      width: calc(var(--app-card-radius-fix) / 2);
+      height: var(--app-card-radius-fix);
+      background-color: var(--app-foreground);
+      top: calc((var(--app-card-radius-fix) / 2) * -1);
+      pointer-events: none;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+  }
 }
 
 #{ $guild } {
-    + div[aria-label]:not([class]) {
-        padding: 8px 0;
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
+  + div[aria-label]:not([class]) {
+    padding: 8px 0;
+    background-color: var(--app-foreground);
+    border-radius: var(--app-card-radius);
 
-        > #{ $guild } {
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-        }
+    > #{ $guild } {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
+  }
 
-    #{ $guildFolder } {
-        background-color: var(--popout-color);
-    }
+  #{ $guildFolder } {
+    background-color: var(--popout-color);
+  }
 }
 
 #{ $guildLink } {
-    &:hover,
-    &#{ $guildLinkSelected } {
-        #{ $guildChildWrapper } {
-            background-color: hsl(var(--accent-hsl));
-            color: var(--accent-text-color);
-        }
+  &:hover,
+  &#{ $guildLinkSelected } {
+    #{ $guildChildWrapper } {
+      background-color: hsl(var(--accent-hsl));
+      color: var(--accent-text-color);
     }
+  }
 }
 
 #{ $guildChildWrapper } {
-    &#{ $guildChildWrapperNoHoverBg } {
-        background-color: hsl(var(--accent-hsl));
-        color: var(--accent-text-color);
-    }
+  &#{ $guildChildWrapperNoHoverBg } {
+    background-color: hsl(var(--accent-hsl));
+    color: var(--accent-text-color);
+  }
 }
 
 /* SERVERS LIST -> ADD SERVER AND DISCOVERY */
 
 #{ $circleIconButton } {
-    background-color: var(--background-tinted-active);
-    color: hsl(var(--accent-hsl));
+  background-color: var(--background-tinted-active);
+  color: hsl(var(--accent-hsl));
 
-    &:not(#{ $circleIconButtonDisabled }) {
-        &#{ $circleIconButtonSelected } {
-            background-color: hsl(var(--accent-hsl));
-            color: var(--accent-text-color);
-        }
+  &:not(#{ $circleIconButtonDisabled }) {
+    &#{ $circleIconButtonSelected } {
+      background-color: hsl(var(--accent-hsl));
+      color: var(--accent-text-color);
     }
+  }
 }
 
 #{ $guildDiscoverFooter } {
-    margin-top: -12px;
-    padding-top: 12px;
-    background-color: var(--app-foreground);
-    border-radius: var(--app-card-radius);
+  margin-top: -12px;
+  padding-top: 12px;
+  background-color: var(--app-foreground);
+  border-radius: var(--app-card-radius);
 
-    #{ $guildDiscoverGradient } {
-        background: hsl(from var(--app-background) h s l / 0.5);
-    }
+  #{ $guildDiscoverGradient } {
+    background: hsl(from var(--app-background) h s l / 0.5);
+  }
 }

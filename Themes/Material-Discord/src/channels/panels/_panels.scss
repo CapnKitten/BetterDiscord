@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,67 +8,68 @@
  */
 
 #{ $panels } {
-	width: calc(100% - 20px);
-	inset-inline-start: var(--space-12);
-	inset-block-end: var(--space-12);
-	margin: 0;
-	background-color: transparent !important;
-	border-radius: var(--sidebar-panel-radius-big);
-	border: none;
-	box-shadow: none;
-	transition: var(--default-time) var(--default-animation) left;
+  width: calc(100% - 20px);
+  inset-inline-start: var(--space-12);
+  inset-block-end: var(--space-12);
+  margin: 0;
+  background-color: transparent !important;
+  border-radius: var(--sidebar-panel-radius-big);
+  border: none;
+  box-shadow: none;
+  transition: var(--default-time) var(--default-animation) left;
 
-    > div:not(:empty) {
-        &:first-of-type {
-            border-top-left-radius: var(--sidebar-panel-radius-big);
-            border-top-right-radius: var(--sidebar-panel-radius-big);
+  > div:not(:empty) {
+    &:first-of-type {
+      border-top-left-radius: var(--sidebar-panel-radius-big);
+      border-top-right-radius: var(--sidebar-panel-radius-big);
 
-            #{ $connectionPanel } {
-                border-top-left-radius: inherit;
-                border-top-right-radius: inherit;
-            }
-        }
-
-        &:last-of-type {
-            border-bottom-left-radius: var(--sidebar-panel-radius-big);
-            border-bottom-right-radius: var(--sidebar-panel-radius-big);
-        }
+      #{ $connectionPanel } {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+      }
     }
 
-    > div:empty {
-        &:first-of-type {
-            + #{ $accountPanel } {
-                border-top-left-radius: var(--sidebar-panel-radius-big);
-                border-top-right-radius: var(--sidebar-panel-radius-big);
-            }
-        }
+    &:last-of-type {
+      border-bottom-left-radius: var(--sidebar-panel-radius-big);
+      border-bottom-right-radius: var(--sidebar-panel-radius-big);
     }
+  }
+
+  > div:empty {
+    &:first-of-type {
+      + #{ $accountPanel } {
+        border-top-left-radius: var(--sidebar-panel-radius-big);
+        border-top-right-radius: var(--sidebar-panel-radius-big);
+      }
+    }
+  }
 }
 
-button, span {
-    &#{ $panelButton } {
-        border-radius: var(--button-radius);
-    }
+button,
+span {
+  &#{ $panelButton } {
+    border-radius: var(--button-radius);
+  }
 }
 
 #{ $listeningAlongPanel } {
-    margin-block-end: 2px;
-    background: var(--sidebar-panel-color);
-    border-radius: var(--sidebar-panel-radius-small);
-    border-block-start: none;
-    border-block-end: none !important;
+  margin-block-end: 2px;
+  background: var(--sidebar-panel-color);
+  border-radius: var(--sidebar-panel-radius-small);
+  border-block-start: none;
+  border-block-end: none !important;
 }
 
 #{ $channelUnreadPillBottom } {
-	inset-block-end: 12px;
+  inset-block-end: 12px;
 }
 
 /* CHANNELS LIST PANELS -> ENABLE CLIPS */
 
 #{ $enableClipsPanel } {
-    margin: -12px 12px 20px 12px;
-    padding: 16px 8px 8px;
-    background-color: var(--sidebar-panel-color);
-    border-radius: var(--sidebar-panel-radius-big);
-    z-index: 2;
+  margin: -12px 12px 20px 12px;
+  padding: 16px 8px 8px;
+  background-color: var(--sidebar-panel-color);
+  border-radius: var(--sidebar-panel-radius-big);
+  z-index: 2;
 }

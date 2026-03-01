@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,221 +8,221 @@
  */
 
 #{ $discoverScroller } {
-    background-color: var(--chat-color);
+  background-color: var(--chat-color);
 }
 
 #{ $discoverContentContainer } {
-    border-block-start: none;
+  border-block-start: none;
 }
 
 /* DISCOVER -> SIDEBAR */
 
 #{ $discoverSidebar } {
-    background-color: var(--chat-color);
+  background-color: var(--chat-color);
 }
 
 #{ $discoverSidebarHeader } {
-    height: 48px;
-    padding: 0 16px;
-    border-block-end: none;
-    box-shadow: var(--shadow-ledge);
+  height: 48px;
+  padding: 0 16px;
+  border-block-end: none;
+  box-shadow: var(--shadow-ledge);
 }
 
 #{ $discoverSidebarNav } {
-    padding: 16px 8px;
+  padding: 16px 8px;
 }
 
 #{ $discoverSidebarNavItem } {
-    padding: var(--space-sm);
-    border-radius: 24px;
-    transition: var(--default-time) var(--default-animation) background;
+  padding: var(--space-sm);
+  border-radius: 24px;
+  transition: var(--default-time) var(--default-animation) background;
 
-    &:hover {
-		background: var(--menu-item-hover);
-	}
+  &:hover {
+    background: var(--menu-item-hover);
+  }
 
-	&#{ $discoverSidebarNavItemSelected } {
-		background: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-    }
+  &#{ $discoverSidebarNavItemSelected } {
+    background: hsl(var(--accent-hsl), var(--menu-item-select-accent-opacity));
+  }
 }
 
 /* DISCOVER -> HEADER BAR */
 
 #{ $discoverHeaderBar } {
-    --input-height: 32px;
-    position: relative;
-    height: 48px;
-    box-shadow: var(--shadow-ledge);
+  --input-height: 32px;
+  position: relative;
+  height: 48px;
+  box-shadow: var(--shadow-ledge);
 
-    &:after {
-        display: none;
+  &:after {
+    display: none;
+  }
+
+  &#{ $discoverHeaderBarRelative } {
+    background-color: var(--chat-color);
+  }
+
+  #{ $discoverHeaderBarIconButton } {
+    background-color: var(--card-button-color);
+    border-radius: 16px;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+      background-color: var(--card-button-color-hover);
     }
+  }
 
-    &#{ $discoverHeaderBarRelative } {
-        background-color: var(--chat-color);
-    }
-
-    #{ $discoverHeaderBarIconButton } {
-        background-color: var(--card-button-color);
-        border-radius: 16px;
-        transition: var(--default-time) var(--default-animation) background-color;
-
-        &:hover {
-            background-color: var(--card-button-color-hover);
-        }
-    }
-
-    #{ $inputContainer } {
-        @include input-transform(true);
-    }
+  #{ $inputContainer } {
+    @include input-transform(true);
+  }
 }
 
 #{ $discoverHeaderTopBar } {
+  height: 48px;
+  gap: 24px;
+
+  #{ $item } {
     height: 48px;
-    gap: 24px;
+    padding: 0 8px;
+    border-block-end: none;
 
-    #{ $item } {
-        height: 48px;
-        padding: 0 8px;
-        border-block-end: none;
-
-        + #{ $item } {
-            margin-inline-start: 0;
-        }
-
-        &#{ $itemBrand } {
-            --selected-tab-item-color: var(--interactive-active);
-        }
-
-        &:hover {
-            &:not(#{ $itemSelected }) {
-                &:after {
-                    display: none;
-                }
-            }
-        }
-
-        &#{ $itemSelected } {
-        	@include tab-border(80%);
-
-            &:after {
-                inset-block-start: unset;
-            }
-        }
+    + #{ $item } {
+      margin-inline-start: 0;
     }
+
+    &#{ $itemBrand } {
+      --selected-tab-item-color: var(--interactive-active);
+    }
+
+    &:hover {
+      &:not(#{ $itemSelected }) {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    &#{ $itemSelected } {
+      @include tab-border(80%);
+
+      &:after {
+        inset-block-start: unset;
+      }
+    }
+  }
 }
 
 #{ $discoverHeaderBarTabsContainer } {
-    height: inherit;
+  height: inherit;
 
-    #{ $tabs } {
-        height: inherit;
-        border-block-end: none;
-    }
+  #{ $tabs } {
+    height: inherit;
+    border-block-end: none;
+  }
 }
 
 #{ $discoverDragRegion } {
-    height: 48px;
+  height: 48px;
 }
 
 /* DISCOVER -> BANNER */
 
 #{ $discoverBannerContainer } {
-    margin: 16px 32px 0;
-    padding-block-start: 0;
-    border-radius: var(--card-radius-big);
+  margin: 16px 32px 0;
+  padding-block-start: 0;
+  border-radius: var(--card-radius-big);
 
-    #{ $discoverBannerTitle } {
-        text-transform: unset;
-    }
+  #{ $discoverBannerTitle } {
+    text-transform: unset;
+  }
 }
 
 #{ $discoverBannerContent } {
-    margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 #{ $discoverBannerGradient } {
-    border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 }
 
 /* DISCOVER -> CARDS */
 
 #{ $discoverServersContent } {
-    max-width: unset;
+  max-width: unset;
 }
 
 #{ $discoverServerCard } {
-	@include card-format(true, 0, true, true, true);
-	box-shadow: none !important;
+  @include card-format(true, 0, true, true, true);
+  box-shadow: none !important;
 
-    &:hover {
-		transform: none !important;
-
-        #{ $discoverServerIconMask } {
-            background-color: var(--card-color-hover) !important;
-        }
-	}
-
-    #{ $discoverServerIcon } {
-		foreignObject {
-			mask: none !important;
-		}
-	}
+  &:hover {
+    transform: none !important;
 
     #{ $discoverServerIconMask } {
-        background-color: var(--card-color-filled) !important;
-        border-radius: calc(var(--avatar-radius) * 1.2);
+      background-color: var(--card-color-hover) !important;
     }
+  }
 
-    #{ $discoverServerAvatar } {
-        border-radius: var(--avatar-radius);
+  #{ $discoverServerIcon } {
+    foreignObject {
+      mask: none !important;
     }
+  }
+
+  #{ $discoverServerIconMask } {
+    background-color: var(--card-color-filled) !important;
+    border-radius: calc(var(--avatar-radius) * 1.2);
+  }
+
+  #{ $discoverServerAvatar } {
+    border-radius: var(--avatar-radius);
+  }
 }
 
 /* DISCOVER -> SEARCH RESULTS */
 
 #{ $discoverSearchHeaderBar } {
-    padding: 12px 16px;
-    background: var(--chat-color);
+  padding: 12px 16px;
+  background: var(--chat-color);
 }
 
 #{ $discoverSearchContentContainer } {
-    background: var(--chat-color);
+  background: var(--chat-color);
 }
 
 #{ $discoverSearchMasonryList } {
-    margin-block-start: 0;
+  margin-block-start: 0;
 
-    #{ $channelsList } {
-        > div {
-            > div[style*="top: 32px"] {
-                inset-block-start: 16px !important;
-            }
-        }
+  #{ $channelsList } {
+    > div {
+      > div[style*="top: 32px"] {
+        inset-block-start: 16px !important;
+      }
     }
+  }
 }
 
 #{ $discoverSearchSiderbarLanguageSelect } {
-    height: 34px;
+  height: 34px;
 }
 
 #{ $discoverSearchCategory } {
-    border-radius: 17px;
-    transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: 17px;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--menu-item-hover);
-    }
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 
-    &#{ $discoverSearchCategorySelected } {
-        --text-muted: hsl(var(--accent-hsl--material-you));
+  &#{ $discoverSearchCategorySelected } {
+    --text-muted: hsl(var(--accent-hsl--material-you));
 
-        background: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-    }
+    background: hsl(var(--accent-hsl), var(--menu-item-select-accent-opacity));
+  }
 }
 
 /* DISCOVER -> SCHOOL HUBS */
 
 #{ $joinHubContainer } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 }

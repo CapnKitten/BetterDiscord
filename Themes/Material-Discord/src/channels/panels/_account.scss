@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,135 +7,141 @@
  */
 
 #{ $accountPanelContent } {
-	min-height: 100%;
-    height: inherit;
-	padding: 0 8px;
-    background-color: transparent !important;
+  min-height: 100%;
+  height: inherit;
+  padding: 0 8px;
+  background-color: transparent !important;
 }
 
 #{ $accountPanel } {
-    width: 100%;
-	min-height: unset;
-    height: var(--main-textarea-height);
-    margin-block-end: 0;
-	margin-inline-start: 0;
-	padding: 0 var(--space-xs) 0 6px;
-	gap: var(--space-8);
-    background-color: var(--status-picker-color);
-    border-radius: var(--sidebar-panel-radius-small);
-    box-sizing: border-box;
+  width: 100%;
+  min-height: unset;
+  height: var(--main-textarea-height);
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  padding: 0 var(--space-xs) 0 6px;
+  gap: var(--space-8);
+  background-color: var(--status-picker-color);
+  border-radius: var(--sidebar-panel-radius-small);
+  box-sizing: border-box;
 
-    #{ $accountPanelNameTag } {
-		margin-inline-end: 2px;
-	}
+  #{ $accountPanelNameTag } {
+    margin-inline-end: 2px;
+  }
 
-    #{ $accountPanelDiscriminator } {
-		line-height: 14px;
-	}
+  #{ $accountPanelDiscriminator } {
+    line-height: 14px;
+  }
 
+  #{ $panelButton } {
+    color: var(--interactive-text-default) !important;
+    transition:
+      var(--default-time) var(--default-animation) background-color,
+      var(--default-time) var(--default-animation) border-radius;
+
+    &:hover {
+      color: var(--interactive-text-hover) !important;
+    }
+  }
+
+  &:has(#{ $accountPanelAvatarWrapperPlated }) {
     #{ $panelButton } {
-        color: var(--interactive-text-default) !important;
-		transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
+      transition:
+        var(--default-time) var(--default-animation) background-color,
+        var(--default-time) var(--default-animation) border-radius,
+        var(--default-time) var(--default-animation) backdrop-filter;
 
-        &:hover {
-            color: var(--interactive-text-hover) !important;
-        }
+      &:hover,
+      &#{ $accountPanelMicPopoutOpen } {
+        backdrop-filter: blur(3px);
+      }
     }
-
-	&:has(#{ $accountPanelAvatarWrapperPlated }) {
-        #{ $panelButton } {
-            transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius, var(--default-time) var(--default-animation) backdrop-filter;
-
-            &:hover,
-            &#{ $accountPanelMicPopoutOpen } {
-                backdrop-filter: blur(3px);
-            }
-        }
-    }
+  }
 }
 
 #{ $accountPanelButtons } {
-    gap: var(--space-4);
+  gap: var(--space-4);
 }
 
 #{ $accountPanelMicButtonParent } {
-    gap: 1px;
+  gap: 1px;
 }
 
 #{ $panelButton } {
-    --background-mod-invisible: transparent;
+  --background-mod-invisible: transparent;
 
-    background-color: var(--background-mod-invisible) !important;
+  background-color: var(--background-mod-invisible) !important;
 
-    &:hover {
-        background-color: var(--background-mod-subtle) !important;
+  &:hover {
+    background-color: var(--background-mod-subtle) !important;
+  }
+
+  &#{ $accountPanelMicButtonWithMenu } {
+    border-radius: var(--button-radius) 4px 4px var(--button-radius);
+  }
+
+  &#{ $accountPanelButtonChevron } {
+    width: 24px;
+    margin-inline-start: 0;
+    border-radius: 4px var(--button-radius) var(--button-radius) 4px;
+
+    &#{ $accountPanelMicPopoutOpen } {
+      background-color: var(--background-mod-normal) !important;
+      border-radius: var(--button-radius);
     }
-
-    &#{ $accountPanelMicButtonWithMenu } {
-        border-radius: var(--button-radius) 4px 4px var(--button-radius);
-    }
-
-    &#{ $accountPanelButtonChevron } {
-        width: 24px;
-        margin-inline-start: 0;
-        border-radius: 4px var(--button-radius) var(--button-radius) 4px;
-
-        &#{ $accountPanelMicPopoutOpen } {
-            background-color: var(--background-mod-normal) !important;
-            border-radius: var(--button-radius);
-        }
-    }
+  }
 }
 
 #{ $panelButtonRedGlow } {
-    --background-mod-invisible: hsl(from hsl(var(--alert-hsl)) h s l / 0.1);
-    --background-mod-subtle: hsl(from hsl(var(--alert-hsl)) h s l / 0.2);
-    --background-mod-normal: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
+  --background-mod-invisible: hsl(from hsl(var(--alert-hsl)) h s l / 0.1);
+  --background-mod-subtle: hsl(from hsl(var(--alert-hsl)) h s l / 0.2);
+  --background-mod-normal: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
 
-    svg {
-        color: hsl(var(--alert-hsl));
+  svg {
+    color: hsl(var(--alert-hsl));
+  }
+
+  #{ $panelButtonLottieIcon } {
+    path {
+      &[fill="rgb(88,101,242)"] {
+        fill: currentColor;
+      }
+
+      &[stroke="rgb(88,101,242)"] {
+        stroke: currentColor;
+      }
     }
-
-    #{ $panelButtonLottieIcon } {
-        path {
-            &[fill="rgb(88,101,242)"] {
-                fill: currentColor;
-            }
-
-            &[stroke="rgb(88,101,242)"] {
-                stroke: currentColor;
-            }
-        }
-    }
+  }
 }
 
 #{ $accountPanelButtonChevronIcon } {
-    path {
-        fill: currentColor;
-    }
+  path {
+    fill: currentColor;
+  }
 }
 
 #{ $accountPanelFitInAccount } {
-	width: 100%;
-	height: 100%;
-	inset-block-start: 0;
+  width: 100%;
+  height: 100%;
+  inset-block-start: 0;
 }
 
 #{ $accountPanelAvatarWrapper } {
-	flex-grow: 1;
-	min-width: 0 !important;
-	margin-inline-start: 0;
-	margin-inline-end: 0;
-	padding: 5px calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) - 6px);
-	border-radius: var(--sidebar-panel-radius-big);
+  flex-grow: 1;
+  min-width: 0 !important;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding: 5px
+    calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) - 6px);
+  border-radius: var(--sidebar-panel-radius-big);
 
-	&:hover {
-		background-color: var(--menu-item-hover);
-	}
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 }
 
 #{ $accountPanelAvatarWrapperPlated } {
-	&:hover {
-		background-color: var(--background-mod-subtle);
-	}
+  &:hover {
+    background-color: var(--background-mod-subtle);
+  }
 }

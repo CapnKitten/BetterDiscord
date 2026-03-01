@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,76 +7,76 @@
  */
 
 #{ $membersContainer } {
-    background-color: transparent;
-    border-left: 1px solid var(--app-card-border-color);
+  background-color: transparent;
+  border-left: 1px solid var(--app-card-border-color);
 }
 
 #{ $membersWrap } {
-    border-bottom-right-radius: var(--app-card-radius);
-    overflow: hidden;
+  border-bottom-right-radius: var(--app-card-radius);
+  overflow: hidden;
 }
 
 #{ $members } {
+  &,
+  & > div {
+    background-color: transparent;
+  }
+
+  #{ $memberChildContainer } {
+    height: 100%;
+    padding: 0;
+    background-color: transparent !important;
+  }
+
+  #{ $listItem } {
+    width: 100%;
+
     &,
-    & > div {
-        background-color: transparent;
+    #{ $listItemLayout } {
+      border-radius: var(--menu-item-radius);
     }
 
-    #{ $memberChildContainer } {
-	    height: 100%;
-		padding: 0;
-		background-color: transparent !important;
-	}
+    #{ $listItemLayout } {
+      width: 100%;
+    }
 
-    #{ $listItem } {
-        width: 100%;
+    &:hover {
+      #{ $listItemLayout } {
+        background-color: var(--background-tinted-hover);
+      }
+    }
 
-        &,
-		#{ $listItemLayout } {
-			border-radius: var(--menu-item-radius);
-		}
+    &#{ $listItemSelected } {
+      #{ $listItemLayout } {
+        background-color: var(--background-tinted-active);
+      }
 
+      &:hover {
         #{ $listItemLayout } {
-			width: 100%;
-		}
-
-        &:hover {
-            #{ $listItemLayout } {
-                background-color: var(--background-tinted-hover);
-            }
+          background-color: var(--background-tinted-highlight);
         }
-
-        &#{ $listItemSelected } {
-            #{ $listItemLayout } {
-                background-color: var(--background-tinted-active);
-            }
-
-            &:hover {
-                #{ $listItemLayout } {
-                    background-color: var(--background-tinted-highlight);
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 #{ $member } {
-	background: transparent !important;
+  background: transparent !important;
 
-	&:hover {
-		#{ $memberChildContainer } {
-			background-color: transparent;
-		}
-	}
+  &:hover {
+    #{ $memberChildContainer } {
+      background-color: transparent;
+    }
+  }
 }
 
 /* MEMBERS LIST -> ACTIVITIES */
 
 #{ $memberActivityContainer } {
-    background-color: var(--background-tinted-hover);
-    border-radius: var(--menu-item-radius);
+  background-color: var(--background-tinted-hover);
+  border-radius: var(--menu-item-radius);
 
-    &:hover {
-        background-color: var(--background-tinted-active);
-    }
+  &:hover {
+    background-color: var(--background-tinted-active);
+  }
 }

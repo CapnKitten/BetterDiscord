@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,31 +8,31 @@
  */
 
 #{ $shopTabs } {
-    #{ $shopTab } {
-        margin-block-end: 0;
+  #{ $shopTab } {
+    margin-block-end: 0;
 
-        &:hover {
-            &:not(#{ $shopTabSelected }) {
-                border: none;
-            }
-        }
-
-        &#{ $shopTabSelected } {
-        	@include tab-border(80%);
-        }
+    &:hover {
+      &:not(#{ $shopTabSelected }) {
+        border: none;
+      }
     }
+
+    &#{ $shopTabSelected } {
+      @include tab-border(80%);
+    }
+  }
 }
 
 #{ $shopScroll } {
-    height: 100%;
-    //overflow: hidden !important;
+  height: 100%;
+  //overflow: hidden !important;
 }
 
 #{ $shopFullscreen },
 #{ $shopPageWrapper } {
-    height: calc(100vh - (124px + var(--space-32)));
-    padding-block-end: var(--space-32);
-    overflow-y: scroll;
+  height: calc(100vh - (124px + var(--space-32)));
+  padding-block-end: var(--space-32);
+  overflow-y: scroll;
 }
 
 /*#{ $shopViewWrapper } {
@@ -44,10 +44,13 @@
 }*/
 
 #{ $chatPage } {
-    #{ $shopContainer },
-    #{ $shopPageWrapper } {
-        height: calc(100vh - (var(--custom-channel-header-height) + var(--custom-app-top-bar-height)));
-        padding-block-end: 0;
-        overflow-y: scroll;
-    }
+  #{ $shopContainer },
+  #{ $shopPageWrapper } {
+    height: calc(
+      100vh -
+        (var(--custom-channel-header-height) + var(--custom-app-top-bar-height))
+    );
+    padding-block-end: 0;
+    overflow-y: scroll;
+  }
 }

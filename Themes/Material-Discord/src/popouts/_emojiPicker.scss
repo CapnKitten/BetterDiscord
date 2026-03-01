@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,542 +8,556 @@
  */
 
 #{ $emojiWrapper } {
-	animation: bottom-pop-out 400ms var(--default-animation);
+  animation: bottom-pop-out 400ms var(--default-animation);
 }
 
 #{ $emojiWrapperIsBurstReactionPicker } {
-	border-radius: var(--popout-radius-big) !important;
+  border-radius: var(--popout-radius-big) !important;
 }
 
 #{ $emojiWrapper },
 #{ $emojiPicker } {
-	@include popout-format;
+  @include popout-format;
 }
 
 #{ $emojiPicker } {
-	background-color: var(--popout-color);
-	border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+  background-color: var(--popout-color);
+  border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
 }
 
 #{ $emojiWrapperChat } {
-	background-color: var(--popout-color);
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+
+  &#{ $emojiWrapperIsBurstReactionUnlimited } {
     border-radius: var(--popout-radius-big);
+    box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you));
 
-    &#{ $emojiWrapperIsBurstReactionUnlimited } {
-        border-radius: var(--popout-radius-big);
-        box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you));
-
-        &:before {
-            border-radius: inherit;
-            box-shadow: 0 0 100px hsl(var(--accent-hsl--material-you));
-        }
+    &:before {
+      border-radius: inherit;
+      box-shadow: 0 0 100px hsl(var(--accent-hsl--material-you));
     }
+  }
 
-	&#{ $emojiPickerHasTabWrapper } {
-		#{ $emojiCategoryWrapper } {
-			inset-block-start: 55px;
-		}
-	}
+  &#{ $emojiPickerHasTabWrapper } {
+    #{ $emojiCategoryWrapper } {
+      inset-block-start: 55px;
+    }
+  }
 
-	#{ $emojiCategoryWrapper } {
-		inset-block-start: 73px;
-	}
+  #{ $emojiCategoryWrapper } {
+    inset-block-start: 73px;
+  }
 
-	#{ $inputContainer } {
-		--input-color: var(--input-color-alt);
-	}
+  #{ $inputContainer } {
+    --input-color: var(--input-color-alt);
+  }
 }
 
 /* EMOJI PICKER -> HEADER */
 
 #{ $emojiPickerNavButtonSuperReactActive } {
-	background: var(--menu-item-select);
+  background: var(--menu-item-select);
 }
 
 #{ $emojiPickerNavEmoji },
 #{ $emojiPickerNavSticker },
 #{ $emojiPickerNavGif } {
-	padding: 16px;
-	background-color: var(--popout-color);
-	border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
-	border-block-end: 1px solid var(--card-border-color);
-	box-shadow: none !important;
+  padding: 16px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big) var(--popout-radius-big) 0 0;
+  border-block-end: 1px solid var(--card-border-color);
+  box-shadow: none !important;
 
-	#{ $inputContainer } {
-		@include input-transform;
-		--input-color: var(--input-color-alt);
-	}
+  #{ $inputContainer } {
+    @include input-transform;
+    --input-color: var(--input-color-alt);
+  }
 
-	#{ $searchIconLayout } {
-		width: 32px;
-		height: 32px;
-	}
+  #{ $searchIconLayout } {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 #{ $emojiContentWrapper } {
-	--nav-button-height: 36px;
+  --nav-button-height: 36px;
 
-	background-color: var(--popout-color);
-	border-radius: var(--popout-radius-big);
-	border: none;
-	box-shadow: var(--shadow-medium);
-	grid-template-rows: var(--nav-button-height) auto;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  border: none;
+  box-shadow: var(--shadow-medium);
+  grid-template-rows: var(--nav-button-height) auto;
 
-	#{ $inputWrapper } {
-		--input-color: var(--input-color-alt);
-	}
+  #{ $inputWrapper } {
+    --input-color: var(--input-color-alt);
+  }
 }
 
 #{ $emojiPickerNavEmoji } {
-	+ #{ $emojiPicker } {
-		border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
-	}
+  + #{ $emojiPicker } {
+    border-radius: 0 0 var(--popout-radius-big) var(--popout-radius-big);
+  }
 }
 
 #{ $emojiPickerNav } {
-	+ #{ $emojiWrapperChat } {
-		#{ $emojiPickerNavEmoji } {
-			padding-block-start: 0;
-		}
-	}
+  + #{ $emojiWrapperChat } {
+    #{ $emojiPickerNavEmoji } {
+      padding-block-start: 0;
+    }
+  }
 
-	+ #{ $emojiStickerContainer } {
-		#{ $emojiPickerNavSticker } {
-			padding-block-start: 0;
-		}
-	}
+  + #{ $emojiStickerContainer } {
+    #{ $emojiPickerNavSticker } {
+      padding-block-start: 0;
+    }
+  }
 
-	+ #{ $emojiGifContainer } {
-		#{ $emojiPickerNavGif } {
-			padding-block-start: 0;
-		}
-	}
+  + #{ $emojiGifContainer } {
+    #{ $emojiPickerNavGif } {
+      padding-block-start: 0;
+    }
+  }
 }
 
 #{ $emojiPickerDiversitySelectorPopout } {
-	background-color: var(--popout-color);
-	border-radius: 16px;
-	border: none;
-	box-shadow: var(--shadow-medium);
-	overflow: hidden;
+  background-color: var(--popout-color);
+  border-radius: 16px;
+  border: none;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
 
-	#{ $emojiPickerDiversityItem } {
-		border-radius: 0;
-		transition: var(--default-time) var(--default-animation) background-color;
+  #{ $emojiPickerDiversityItem } {
+    border-radius: 0;
+    transition: var(--default-time) var(--default-animation) background-color;
 
-		&:hover {
-			background-color: var(--menu-item-hover);
-		}
-	}
+    &:hover {
+      background-color: var(--menu-item-hover);
+    }
+  }
 }
 
 #{ $emojiPickerNavList } {
-    @include pill-nav(true, 36px, "#{ $emojiPickerNavItem }", "#{ $emojiPickerNavButtonActive }");
-	width: 100%;
+  @include pill-nav(
+    true,
+    36px,
+    "#{ $emojiPickerNavItem }",
+    "#{ $emojiPickerNavButtonActive }"
+  );
+  width: 100%;
 }
 
 #{ $emojiPickerNavItem } {
-	flex-grow: 1;
-	flex-basis: 0;
-	margin: 0 !important;
-	padding: 0;
-	line-height: var(--nav-button-height);
-    text-align: center;
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 0 !important;
+  padding: 0;
+  line-height: var(--nav-button-height);
+  text-align: center;
 
-	&:hover {
-		background-color: var(--card-color-active) !important;
-	}
+  &:hover {
+    background-color: var(--card-color-active) !important;
+  }
 }
 
 #{ $emojiPickerStickersNavItem } {
-    justify-content: center;
+  justify-content: center;
 }
 
 body:active #{ $drawerSizingWrapper }:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
+  opacity: 0;
+  transition: 150ms ease all;
 }
 
 #gif-picker-tab-panel,
 #sticker-picker-tab-panel,
 #emoji-picker-tab-panel {
-    animation: picker-panel calc(var(--default-time) * 2) var(--default-animation);
+  animation: picker-panel calc(var(--default-time) * 2) var(--default-animation);
 }
 
 @keyframes picker-panel {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 }
 
 /* EMOJI PICKER -> HEADER -> SEARCH BAR */
 
 #{ $emojiPickerSearchBar } {
-	--input-height: 32px;
-	--input-padding: 0 6px 0 12px;
+  --input-height: 32px;
+  --input-padding: 0 6px 0 12px;
 
-	background-color: var(--input-color);
-	border-radius: var(--input-radius);
+  background-color: var(--input-color);
+  border-radius: var(--input-radius);
 
-	#{ $emojiPickerSearchInner } {
-		padding: 0 var(--input-padding) !important;
+  #{ $emojiPickerSearchInner } {
+    padding: 0 var(--input-padding) !important;
 
-		&::-webkit-scrollbar {
-			width: 0px !important;
-		}
-	}
+    &::-webkit-scrollbar {
+      width: 0px !important;
+    }
+  }
 
-	#{ $emojiPickerSearchInput } {
-		height: var(--input-height);
-		margin: 0;
-		padding: 0;
-	}
+  #{ $emojiPickerSearchInput } {
+    height: var(--input-height);
+    margin: 0;
+    padding: 0;
+  }
 }
-
 
 /* EMOJI PICKER -> EMOJIS */
 
 #{ $emojiSuperReactContainer } {
-	background-color: var(--popout-color);
+  background-color: var(--popout-color);
 
-	#{ $emojiSuperReactBanner } {
-		border-radius: var(--card-radius-big);
-	}
+  #{ $emojiSuperReactBanner } {
+    border-radius: var(--card-radius-big);
+  }
 }
 
 #{ $emojiPickerCategoryHeaderWrapper } {
-	background-color: var(--emoji-category-header);
+  background-color: var(--emoji-category-header);
 
-	#{ $emojiPickerCategoryHeaderLabel } {
-		@include remove-caps(14px);
-	}
+  #{ $emojiPickerCategoryHeaderLabel } {
+    @include remove-caps(14px);
+  }
 }
 
 #{ $emojiPickerCategorySectionNitroLocked } {
-    --emoji-category-header: hsl(from hsl(var(--premium-tier-2-purple-hsl)) h calc(s / 1.9) calc(l / 1.4) / 0.95);
+  --emoji-category-header: hsl(
+    from hsl(var(--premium-tier-2-purple-hsl)) h calc(s / 1.9) calc(l / 1.4) /
+      0.95
+  );
 }
 
 #{ $emojiPickerItem } {
-	border-radius: 8px;
-	transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: 8px;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&#{ $emojiPickerItemSelected } {
-		background-color: var(--menu-item-select);
-	}
+  &#{ $emojiPickerItemSelected } {
+    background-color: var(--menu-item-select);
+  }
 
-	&#{ $emojiPickerItemDisabled } {
-		filter: none;
+  &#{ $emojiPickerItemDisabled } {
+    filter: none;
 
-		#{ $emojiPickerItemImage } {
-			filter: brightness(60%) grayscale(100%);
-		}
-	}
+    #{ $emojiPickerItemImage } {
+      filter: brightness(60%) grayscale(100%);
+    }
+  }
 }
 
 #{ $emojiPickerHighlightNewlyAdded } {
-    border-radius: 8px 8px 8px 0;
-    border-color: hsl(var(--accent-hsl--material-you)) !important;
-    overflow: hidden;
+  border-radius: 8px 8px 8px 0;
+  border-color: hsl(var(--accent-hsl--material-you)) !important;
+  overflow: hidden;
 
-    &#{ $emojiPickerHighlightOneItem } {
-        border-radius: 8px 8px 0 0
-    }
+  &#{ $emojiPickerHighlightOneItem } {
+    border-radius: 8px 8px 0 0;
+  }
 
-    #{ $emojiPickerItem } {
-        border-radius: 0;
-    }
+  #{ $emojiPickerItem } {
+    border-radius: 0;
+  }
 }
 
 #{ $emojiPickerHighlightNewlyAddedBadge } {
-    background-color: hsl(var(--accent-hsl--material-you)) !important;
-    border-radius: 0 0 8px 8px;
-    color: var(--accent-text-color--material-you);
+  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  border-radius: 0 0 8px 8px;
+  color: var(--accent-text-color--material-you);
 
-    #{ $emojiPickerHighlightNewlyAddedBadgeStar } {
-        color: inherit;
-    }
+  #{ $emojiPickerHighlightNewlyAddedBadgeStar } {
+    color: inherit;
+  }
 
-    div {
-        color: inherit !important;
-        text-transform: capitalize;
-    }
+  div {
+    color: inherit !important;
+    text-transform: capitalize;
+  }
 }
 
 #{ $emojiPickerInspector } {
-	background-color: var(--popout-color);
-	border-bottom-right-radius: var(--popout-radius-big);
-	border-block-start: 1px solid var(--card-border-color);
+  background-color: var(--popout-color);
+  border-bottom-right-radius: var(--popout-radius-big);
+  border-block-start: 1px solid var(--card-border-color);
 
-	#{ $emojiCategoryGuildIcon } {
-		border-radius: 50%;
-	}
+  #{ $emojiCategoryGuildIcon } {
+    border-radius: 50%;
+  }
 }
 
 #{ $emojiPickerBadgeLabel } {
-	border-radius: 13px;
-	text-transform: none;
+  border-radius: 13px;
+  text-transform: none;
 
-	&#{ $emojiPickerNewlyAddedBadge } {
-		background: hsl(var(--accent-hsl--material-you));
-		color: var(--accent-text-color--material-you);
+  &#{ $emojiPickerNewlyAddedBadge } {
+    background: hsl(var(--accent-hsl--material-you));
+    color: var(--accent-text-color--material-you);
 
-		#{ $emojiPickerNewlyAddedBadgeIcon } {
-			color: inherit;
-		}
+    #{ $emojiPickerNewlyAddedBadgeIcon } {
+      color: inherit;
+    }
 
-		div {
-			color: inherit !important;
-		}
-	}
+    div {
+      color: inherit !important;
+    }
+  }
 }
 
 /* EMOJI PICKER -> CATEGORIES */
 
 #{ $emojiCategoryList } {
-	inset-block-start: 64px;
-	background-color: var(--attachment-color);
-	border-radius: 0 0 0 var(--popout-radius-big);
+  inset-block-start: 64px;
+  background-color: var(--attachment-color);
+  border-radius: 0 0 0 var(--popout-radius-big);
 
-	#{ $emojiCategoryScroller } {
-		&::-webkit-scrollbar {
-			width: 0px !important;
-		}
-	}
+  #{ $emojiCategoryScroller } {
+    &::-webkit-scrollbar {
+      width: 0px !important;
+    }
+  }
 
-	#{ $emojiCategoryUnicodeShortcut } {
-        height: 48px;
-        background-color: var(--popout-color);
-        border-block-start: 1px solid var(--card-border-color);
-	}
+  #{ $emojiCategoryUnicodeShortcut } {
+    height: 48px;
+    background-color: var(--popout-color);
+    border-block-start: 1px solid var(--card-border-color);
+  }
 }
 
 #{ $emojiCategoryWrapper } {
-	inset-block-start: 57px;
-	background-color: var(--attachment-color);
-	border-bottom-left-radius: var(--popout-radius-big);
+  inset-block-start: 57px;
+  background-color: var(--attachment-color);
+  border-bottom-left-radius: var(--popout-radius-big);
 
-	#{ $emojiPickerScroller } {
-		--scrollbar-width: 0;
-	}
+  #{ $emojiPickerScroller } {
+    --scrollbar-width: 0;
+  }
 
-	#{ $emojiCategoryItem },
-	#{ $stickerCategoryItem } {
-		border-radius: 50%;
+  #{ $emojiCategoryItem },
+  #{ $stickerCategoryItem } {
+    border-radius: 50%;
 
-		&:hover {
-			background-color: var(--menu-item-hover);
-		}
+    &:hover {
+      background-color: var(--menu-item-hover);
+    }
 
-		&#{ $emojiCategoryItemRecent } path,
-		&#{ $stickerCategoryGeneric } path {
-			d: path('M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z');
-		}
-	}
+    &#{ $emojiCategoryItemRecent } path,
+    &#{ $stickerCategoryGeneric } path {
+      d: path(
+        "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+      );
+    }
+  }
 }
 
 #{ $emojiPickerHasTabWrapper } {
-	#{ $emojiCategoryWrapper } {
-		inset-block-start: 50px;
-	}
+  #{ $emojiCategoryWrapper } {
+    inset-block-start: 50px;
+  }
 }
 
 #{ $emojiPickerNav } {
-	+ #{ $emojiWrapperChat } {
-		#{ $emojiCategoryWrapper } {
-			margin-block-start: -1px;
-		}
-	}
+  + #{ $emojiWrapperChat } {
+    #{ $emojiCategoryWrapper } {
+      margin-block-start: -1px;
+    }
+  }
 
-	+ #{ $emojiStickerContainer } {
-		#{ $emojiCategoryWrapper } {
-			margin-block-start: -1px;
-		}
-	}
+  + #{ $emojiStickerContainer } {
+    #{ $emojiCategoryWrapper } {
+      margin-block-start: -1px;
+    }
+  }
 }
 
 #{ $emojiPicker } {
-	 + #{ $emojiCategoryList } {
-		 #{ $emojiCategoryScroller } {
-			 &::-webkit-scrollbar {
-				 width: 0px !important;
-			 }
-		 }
-	 }
+  + #{ $emojiCategoryList } {
+    #{ $emojiCategoryScroller } {
+      &::-webkit-scrollbar {
+        width: 0px !important;
+      }
+    }
+  }
 }
 
 /* EMOJI PICKER -> GIFS */
 
 #{ $emojiGifContainer } {
-	background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 #{ $gifPickerSearchBar } {
-	--input-height: 32px;
+  --input-height: 32px;
 }
 
 #{ $gifPickerResult } {
-	border-radius: var(--media-radius);
+  border-radius: var(--media-radius);
 
-	&:after,
-	#{ $gifPickerGif },
-	#{ $gifPickerCategoryFade },
-	#{ $gifPickerCategoryFadeBlurple } {
-		border-radius: inherit;
-	}
+  &:after,
+  #{ $gifPickerGif },
+  #{ $gifPickerCategoryFade },
+  #{ $gifPickerCategoryFadeBlurple } {
+    border-radius: inherit;
+  }
 
-	#{ $gifPickerCategoryFadeBlurple } {
-		background-color: hsl(var(--accent-hsl),0.8) !important;
-	}
+  #{ $gifPickerCategoryFadeBlurple } {
+    background-color: hsl(var(--accent-hsl), 0.8) !important;
+  }
 
-	&:hover {
-		box-shadow: var(--shadow-2dp) !important;
+  &:hover {
+    box-shadow: var(--shadow-2dp) !important;
 
-		&:after {
-			box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 1px 3px #2f3136 !important;
-		}
-	}
+    &:after {
+      box-shadow:
+        inset 0 0 0 2px hsl(var(--accent-hsl--material-you)),
+        inset 0 0 1px 3px #2f3136 !important;
+    }
+  }
 }
 
 #{ $gifPickerEmptyHints } {
-    margin: 0;
-    gap: 16px;
+  margin: 0;
+  gap: 16px;
 }
 
 #{ $gifPickerEmptyHintCard } {
-	margin: 0;
-	@include card-format(true, 24px, true);
+  margin: 0;
+  @include card-format(true, 24px, true);
 }
 
 /* EMOJI PICKER -> STICKERS */
 
 #{ $stickerCategoryList } {
-	#{ $emojiCategoryScroller } {
-		&::-webkit-scrollbar {
-			width: 0px !important;
-		}
-	}
+  #{ $emojiCategoryScroller } {
+    &::-webkit-scrollbar {
+      width: 0px !important;
+    }
+  }
 }
 
 #{ $createSticker } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-    transition: var(--default-time) var(--default-animation) background-color;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &#{ $createStickerInspected } {
-        background-color: var(--card-color-active);
-    }
+  &#{ $createStickerInspected } {
+    background-color: var(--card-color-active);
+  }
 }
 
 #{ $createStickerIconWrapper } {
-    background-image: none;
-    background-color: hsl(var(--accent-hsl--material-you));
-    color: var(--accent-text-color--material-you);
+  background-image: none;
+  background-color: hsl(var(--accent-hsl--material-you));
+  color: var(--accent-text-color--material-you);
 }
 
 #{ $stickerInspected } {
-    #{ $stickerInspectedIndicator } {
-        background-color: var(--card-color-active);
-    }
+  #{ $stickerInspectedIndicator } {
+    background-color: var(--card-color-active);
+  }
 }
 
 #{ $emojiStandardStickerShortcut } {
-	background-color: var(--popout-color);
+  background-color: var(--popout-color);
 }
 
 /* EMOJI PICKER -> BURST REACTIONS */
 
 #{ $emojiPickerBurst } {
-	padding: 4px;
-	border-radius: var(--popout-radius-big);
+  padding: 4px;
+  border-radius: var(--popout-radius-big);
 
-	#{ $emojiPickerBurstHeader } {
-		height: unset;
-		padding: 8px 16px;
-		background-color: var(--popout-color);
-		border-top-left-radius: calc(var(--popout-radius-big) / 1.25);
-		border-top-right-radius: calc(var(--popout-radius-big) / 1.25);
-		border-block-end: 1px solid var(--card-border-color);
+  #{ $emojiPickerBurstHeader } {
+    height: unset;
+    padding: 8px 16px;
+    background-color: var(--popout-color);
+    border-top-left-radius: calc(var(--popout-radius-big) / 1.25);
+    border-top-right-radius: calc(var(--popout-radius-big) / 1.25);
+    border-block-end: 1px solid var(--card-border-color);
 
-		#{ $emojiPickerBurstHeaderDivider } {
-			display: none;
-		}
-	}
+    #{ $emojiPickerBurstHeaderDivider } {
+      display: none;
+    }
+  }
 
-	#{ $emojiPickerBurstBadge } {
-		background-color: hsl(var(--accent-hsl--material-you)) !important;
-		color: var(--accent-text-color--material-you);
-	}
+  #{ $emojiPickerBurstBadge } {
+    background-color: hsl(var(--accent-hsl--material-you)) !important;
+    color: var(--accent-text-color--material-you);
+  }
 
-	#{ $emojiPickerBurstPicker } {
-		border-radius: 0 0 calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25);
-		box-shadow: none;
-	}
+  #{ $emojiPickerBurstPicker } {
+    border-radius: 0 0 calc(var(--popout-radius-big) / 1.25)
+      calc(var(--popout-radius-big) / 1.25);
+    box-shadow: none;
+  }
 }
 
 /* EMOJI PICKER -> SUPER REACT */
 
 #{ $emojiPickerLabel } {
-    background-color: var(--card-color-filled);
-    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+  background-color: var(--card-color-filled);
+  transition:
+    var(--default-time) var(--default-animation) background-color,
+    var(--default-time) var(--default-animation) color;
 
-    &#{ $emojiPickerLabelChecked } {
-        background-color: hsl(var(--accent-hsl--material-you));
-        color: var(--accent-text-color--material-you);
-    }
+  &#{ $emojiPickerLabelChecked } {
+    background-color: hsl(var(--accent-hsl--material-you));
+    color: var(--accent-text-color--material-you);
+  }
 
-    svg path {
-        fill: currentColor;
-    }
+  svg path {
+    fill: currentColor;
+  }
 }
 
 #{ $emojiSuperReactContainer } {
-    border-radius: var(--popout-radius-big);
-    overflow: hidden;
+  border-radius: var(--popout-radius-big);
+  overflow: hidden;
 
-    #{ $emojiSuperReactCloseButton } {
-        display: flex;
-        width: 28px;
-        height: 28px;
-        background-color: var(--card-button-color-hover);
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
+  #{ $emojiSuperReactCloseButton } {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    background-color: var(--card-button-color-hover);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
 
-        svg {
-            width: 18px;
-            height: 18px;
-        }
+    svg {
+      width: 18px;
+      height: 18px;
     }
+  }
 }
 
 #{ $emojiSuperReactContent } {
-    height: 100%;
-    padding: 24px calc(24px - var(--scrollbar-width)) 24px 24px;
-    overflow-y: scroll;
-    gap: 16px;
+  height: 100%;
+  padding: 24px calc(24px - var(--scrollbar-width)) 24px 24px;
+  overflow-y: scroll;
+  gap: 16px;
 
-    #{ $emojiSuperReactContentFill } {
-        margin: 0;
-        border-radius: var(--card-radius-big);
+  #{ $emojiSuperReactContentFill } {
+    margin: 0;
+    border-radius: var(--card-radius-big);
+  }
+
+  #{ $emojiSuperReactContentContainer } {
+    padding: 0;
+
+    #{ $headlingXlBold } {
+      font-weight: 400;
     }
+  }
 
-    #{ $emojiSuperReactContentContainer } {
-        padding: 0;
-
-        #{ $headlingXlBold } {
-            font-weight: 400;
-        }
-    }
-
-    #{ $emojiSuperReactGradientUpsellWrapper } {
-        border-radius: var(--card-radius-big);
-    }
+  #{ $emojiSuperReactGradientUpsellWrapper } {
+    border-radius: var(--card-radius-big);
+  }
 }
 
 /* EMOJI PICKER -> VOICE CHAT */
 
 #{ $voiceChatEmojiPickerContainer } {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big);
-    box-shadow: var(--shadow-medium);
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--shadow-medium);
 }

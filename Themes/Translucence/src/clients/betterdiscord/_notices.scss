@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,88 +8,88 @@
  */
 
 #{ $bdNotices } {
-    position: absolute;
-    inset-block-start: var(--space-8);
-    inset-inline-end: var(--space-8);
-    z-index: 1001;
+  position: absolute;
+  inset-block-start: var(--space-8);
+  inset-inline-end: var(--space-8);
+  z-index: 1001;
 
-    &:has(#{ $bdNotice }) {
-        width: auto;
-        inset-inline-start: unset;
-    }
+  &:has(#{ $bdNotice }) {
+    width: auto;
+    inset-inline-start: unset;
+  }
 }
 
 #{ $base } {
-    &:has(#{ $bdNotices } #{ $bdNotice }) {
-        margin-block-start: 0;
-    }
+  &:has(#{ $bdNotices } #{ $bdNotice }) {
+    margin-block-start: 0;
+  }
 }
 
 #{ $bdNotice } {
-    display: flex;
-    max-width: 25vw;
-    height: auto;
-    line-height: normal;
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-    background-color: var(--popout-color);
+  display: flex;
+  max-width: 25vw;
+  height: auto;
+  line-height: normal;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  backdrop-filter: blur(var(--popout-blur));
+  box-shadow: var(--popout-shadow);
+
+  &:first-child {
     border-radius: var(--popout-radius);
-    backdrop-filter: blur(var(--popout-blur));
-    box-shadow: var(--popout-shadow);
+  }
 
-    &:first-child {
-        border-radius: var(--popout-radius);
-    }
+  #{ $bdNoticeClose } {
+    width: 18px;
+    height: 18px;
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
+    -webkit-mask-repeat: no-repeat;
+    background-color: var(--header-secondary);
+    background-image: none;
+    -webkit-mask-position: center;
+    mask-position: center;
+    opacity: 0.75;
+  }
 
-    #{ $bdNoticeClose } {
-        width: 18px;
-        height: 18px;
-        inset-block-start: 20px;
-        inset-inline-end: 20px;
-        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
-    	-webkit-mask-repeat: no-repeat;
-        background-color: var(--header-secondary);
-        background-image: none;
-        -webkit-mask-position: center;
-                mask-position: center;
-        opacity: 0.75;
-    }
+  #{ $bdNoticeContent } {
+    margin-inline-end: 30px;
+    font-size: 1.25em;
+    font-weight: 400;
+    color: var(--header-primary) !important;
+    text-align: left;
+  }
 
-    #{ $bdNoticeContent } {
-        margin-inline-end: 30px;
-        font-size: 1.25em;
-        font-weight: 400;
-        color: var(--header-primary) !important;
-        text-align: left;
-    }
-
-    #{ $bdNoticeButton } {
-        display: flex;
-        height: var(--button-height);
-        line-height: var(--button-height);
-        inset-block-start: 0;
-        margin: 0;
-        justify-content: center;
-        background-color: hsl(var(--accent-hsl)) !important;
-        border-radius: var(--button-radius);
-        border: none;
-        color: var(--accent-text-color);
-        font-size: 1em;
-        font-weight: 500;
-    }
+  #{ $bdNoticeButton } {
+    display: flex;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    inset-block-start: 0;
+    margin: 0;
+    justify-content: center;
+    background-color: hsl(var(--accent-hsl)) !important;
+    border-radius: var(--button-radius);
+    border: none;
+    color: var(--accent-text-color);
+    font-size: 1em;
+    font-weight: 500;
+  }
 }
 
 #{ $bdNotification } {
-    @include add-translucence(null, true);
+  @include add-translucence(null, true);
 }
 
 #{ $bdNotificationFooter } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $bdNotificationProgress } {
-    &[style*="background-color: var(--bd-brand)"] {
-        background-color: hsl(var(--accent-hsl)) !important;
-    }
+  &[style*="background-color: var(--bd-brand)"] {
+    background-color: hsl(var(--accent-hsl)) !important;
+  }
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,101 +8,103 @@
  */
 
 #{ $searchPopoutCalendarPicker } {
-    #{ $datepicker } {
-        padding: 16px;
-        @include popout-format(true);
+  #{ $datepicker } {
+    padding: 16px;
+    @include popout-format(true);
+  }
+
+  #{ $datepickerHeader } {
+    background-color: transparent !important;
+  }
+
+  #{ $datepickerCurrentMonth } {
+    border-bottom-color: var(--separator-color) !important;
+    @include remove-caps(14px);
+  }
+
+  #{ $datepickerNavigation } {
+    &#{ $datepickerNavigationNext },
+    &#{ $datepickerNavigationPrevious } {
+      width: 24px;
+      height: 24px;
+      background-color: hsl(var(--button-link-accent-color), 0.1);
+      border-radius: 50%;
+      border: none;
+      color: var(--button-link-accent-text-color);
+
+      &:hover {
+        background-color: hsl(var(--button-link-accent-color), 0.2);
+      }
+    }
+  }
+
+  #{ $datepickerDayName } {
+    color: var(--interactive-text-default) !important;
+  }
+
+  #{ $datepickerDayDisabled },
+  #{ $datepickerDayOutsideMonth } {
+    background-color: transparent !important;
+    color: var(--text-disabled) !important;
+  }
+
+  #{ $datepickerDay } {
+    background-color: transparent !important;
+    border-radius: 50% !important;
+    border: 1px solid transparent !important;
+    transition:
+      var(--default-time) var(--default-animation) background-color,
+      var(--default-time) var(--default-animation) color;
+
+    &:hover {
+      &:not(#{ $datepickerDayToday }) {
+        background-color: var(--menu-item-hover) !important;
+      }
     }
 
-    #{ $datepickerHeader } {
-        background-color: transparent !important;
+    &#{ $datepickerDaySelected } {
+      background-color: hsl(var(--accent-hsl--material-you)) !important;
+      color: var(--accent-text-color--material-you) !important;
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        background-color: hsl(var(--accent-hsl--material-you)) !important;
+      }
     }
+  }
 
-    #{ $datepickerCurrentMonth } {
-        border-bottom-color: var(--separator-color) !important;
-        @include remove-caps(14px);
+  #{ $datepickerDayToday } {
+    border-color: hsl(var(--accent-hsl--material-you)) !important;
+    color: hsl(var(--accent-hsl--material-you)) !important;
+
+    &:hover {
+      background-color: hsl(var(--accent-hsl), 0.2) !important;
     }
-
-    #{ $datepickerNavigation } {
-        &#{ $datepickerNavigationNext },
-        &#{ $datepickerNavigationPrevious } {
-            width: 24px;
-            height: 24px;
-            background-color: hsl(var(--button-link-accent-color),0.1);
-            border-radius: 50%;
-            border: none;
-            color: var(--button-link-accent-text-color);
-
-            &:hover {
-                background-color: hsl(var(--button-link-accent-color),0.2);
-            }
-        }
-    }
-
-    #{ $datepickerDayName } {
-        color: var(--interactive-text-default) !important;
-    }
-
-    #{ $datepickerDayDisabled },
-    #{ $datepickerDayOutsideMonth } {
-        background-color: transparent !important;
-        color: var(--text-disabled) !important;
-    }
-
-    #{ $datepickerDay } {
-        background-color: transparent !important;
-        border-radius: 50% !important;
-        border: 1px solid transparent !important;
-        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
-
-        &:hover {
-            &:not(#{ $datepickerDayToday }) {
-                background-color: var(--menu-item-hover) !important;
-            }
-        }
-
-        &#{ $datepickerDaySelected } {
-            background-color: hsl(var(--accent-hsl--material-you)) !important;
-            color: var(--accent-text-color--material-you) !important;
-
-            &:after {
-                display: none;
-            }
-
-            &:hover {
-                background-color: hsl(var(--accent-hsl--material-you)) !important;
-            }
-        }
-    }
-
-    #{ $datepickerDayToday } {
-        border-color: hsl(var(--accent-hsl--material-you)) !important;
-        color: hsl(var(--accent-hsl--material-you)) !important;
-
-        &:hover {
-            background-color: hsl(var(--accent-hsl),0.2) !important;
-        }
-    }
+  }
 }
 
 #{ $searchPopoutDatePicker } {
-    #{ $datepicker } {
-        padding-block-end: 8px;
-        box-shadow: none !important;
+  #{ $datepicker } {
+    padding-block-end: 8px;
+    box-shadow: none !important;
+  }
+
+  #{ $searchPopoutDatePickerHint } {
+    border-top-color: var(--separator-color);
+
+    #{ $searchPopoutHint } {
+      color: var(--interactive-text-default);
     }
 
-    #{ $searchPopoutDatePickerHint } {
-        border-top-color: var(--separator-color);
-
-        #{ $searchPopoutHint } {
-            color: var(--interactive-text-default);
-        }
-
-        #{ $searchPopoutHintValue } {
-            margin-inline-start: 2px;
-            padding: 0 6px;
-            background-color: hsl(var(--accent-hsl--material-you));
-            color: var(--accent-text-color--material-you);
-            border-radius: 11px;
-        }
+    #{ $searchPopoutHintValue } {
+      margin-inline-start: 2px;
+      padding: 0 6px;
+      background-color: hsl(var(--accent-hsl--material-you));
+      color: var(--accent-text-color--material-you);
+      border-radius: 11px;
     }
+  }
 }

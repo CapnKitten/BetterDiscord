@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -9,120 +9,122 @@
 
 #{ $emojiWrapper },
 #{ $emojiContentWrapper } {
-    grid-template-rows: 32px auto;
-    grid-row-gap: 16px;
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+  grid-template-rows: 32px auto;
+  grid-row-gap: 16px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--default-shadow);
 }
 
 /* EMOJI PICKER -> NAV LIST */
 
 #{ $emojiPickerNavList } {
-    gap: 8px;
+  gap: 8px;
 
-    #{ $emojiPickerNavButton } {
-        margin: 0;
-        padding: 0 12px;
-        border-radius: 18px;
+  #{ $emojiPickerNavButton } {
+    margin: 0;
+    padding: 0 12px;
+    border-radius: 18px;
 
-        &:hover {
-            background-color: var(--background-tinted-hover);
-        }
-
-        &#{ $emojiPickerNavButtonActive } {
-            background-color: var(--background-tinted-active);
-        }
+    &:hover {
+      background-color: var(--background-tinted-hover);
     }
+
+    &#{ $emojiPickerNavButtonActive } {
+      background-color: var(--background-tinted-active);
+    }
+  }
 }
 
 #{ $emojiPickerNavEmoji },
 #{ $emojiPickerNavSticker },
 #{ $emojiPickerNavGif } {
-    border-bottom: 1px solid var(--popout-border-color);
-    box-shadow: none !important;
+  border-bottom: 1px solid var(--popout-border-color);
+  box-shadow: none !important;
 }
 
 #{ $emojiPickerNavGif } {
-    padding-bottom: 16px;
-    background-color: var(--popout-color);
+  padding-bottom: 16px;
+  background-color: var(--popout-color);
 }
 
 #{ $emojiPickerSearchBar } {
-    --input-padding: 0 calc(12px - (var(--scrollbar-width) / 2)) 0 12px;
+  --input-padding: 0 calc(12px - (var(--scrollbar-width) / 2)) 0 12px;
 
-    @include input-format(false, true);
+  @include input-format(false, true);
 
-    #{ $emojiPickerSearchInner } {
-        padding: 0;
+  #{ $emojiPickerSearchInner } {
+    padding: 0;
 
-        &::-webkit-scrollbar {
-            width: 0 !important;
-        }
+    &::-webkit-scrollbar {
+      width: 0 !important;
     }
+  }
 
-    #{ $emojiPickerSearchInput } {
-        height: auto;
-        margin: 0;
-        padding: 0;
-        color: var(--input-text-color);
+  #{ $emojiPickerSearchInput } {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    color: var(--input-text-color);
 
-        &:-webkit-input-placeholder {
-            color: var(--input-placeholder-color);
-        }
+    &:-webkit-input-placeholder {
+      color: var(--input-placeholder-color);
     }
+  }
 
-    #{ $emojiPickerSearchIconLayout } {
-        height: auto;
-    }
+  #{ $emojiPickerSearchIconLayout } {
+    height: auto;
+  }
 }
 
 #{ $gifPickerSearchBar } {
-    @extend #{ $emojiPickerSearchBar };
+  @extend #{ $emojiPickerSearchBar };
 }
 
 /* EMOJI PICKER -> CONTENT */
 
 #{ $emojiCategoryWrapper } {
-    background-color: var(--app-foreground);
+  background-color: var(--app-foreground);
 }
 
 #{ $emojiPickerCategoryHeaderWrapper },
 #{ $emojiPickerInspector } {
-    background-color: var(--popout-color);
+  background-color: var(--popout-color);
 }
 
 #{ $emojiPickerHasTabWrapper },
 #{ $emojiStickerContainer } {
-    #{ $emojiCategoryWrapper } {
-        top: 57px;
-    }
+  #{ $emojiCategoryWrapper } {
+    top: 57px;
+  }
 }
 
 #{ $emojiGifContainer } {
-    background-color: var(--popout-color);
+  background-color: var(--popout-color);
 }
 
 #{ $emojiPickerItem } {
-    border-radius: var(--popout-radius);
+  border-radius: var(--popout-radius);
 
-    &#{ $emojiPickerItemSelected } {
-        background-color: var(--background-tinted-active);
-    }
+  &#{ $emojiPickerItemSelected } {
+    background-color: var(--background-tinted-active);
+  }
 }
 
 #{ $gifPickerCategoryFade },
 #{ $gifPickerCategoryFadeBlurple } {
-    border-radius: var(--popout-radius);
+  border-radius: var(--popout-radius);
 }
 
 #{ $gifPickerCategoryFadeBlurple } {
-    background-color: hsla(var(--accent-hsl),0.8) !important;
+  background-color: hsla(var(--accent-hsl), 0.8) !important;
 }
 
 #{ $gifPickerResult }:hover,
 #{ $gifPickerResultFocused } {
-    &:after {
-        box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--popout-color) !important;
-    }
+  &:after {
+    box-shadow:
+      inset 0 0 0 2px hsl(var(--accent-hsl)),
+      inset 0 0 0 3px var(--popout-color) !important;
+  }
 }

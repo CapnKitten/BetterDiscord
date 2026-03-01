@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,153 +8,159 @@
  */
 
 #{ $appDirectoryRoot } {
-    animation: page-open 300ms var(--default-animation);
+  animation: page-open 300ms var(--default-animation);
 }
 
 @keyframes page-open {
-	from { transform: scale(1.1); opacity: 0; }
+  from {
+    transform: scale(1.1);
+    opacity: 0;
+  }
 }
 
 #{ $appDirectoryContainer } {
-    background-color: var(--main-color) !important;
+  background-color: var(--main-color) !important;
 }
 
 /* APP DIRECTORY -> SEARCH RESULTS */
 
 #{ $appDirectorySidebarCategory } {
-    border-radius: 24px;
-    transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: 24px;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--menu-item-hover);
-    }
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 
-    &#{ $appDirectorySidebarActiveCategory } {
-        background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-    }
+  &#{ $appDirectorySidebarActiveCategory } {
+    background-color: hsl(
+      var(--accent-hsl),
+      var(--menu-item-select-accent-opacity)
+    );
+  }
 }
 
 #{ $appDirectorySearchResultsListing } {
-    border-radius: var(--card-radius-big);
-    transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 
-    #{ $appDirectorySearchResultsListingDetails } {
-        transition: var(--default-time) var(--default-animation) border-color;
-    }
+  #{ $appDirectorySearchResultsListingDetails } {
+    transition: var(--default-time) var(--default-animation) border-color;
+  }
 }
 
 /* APP DIRECTORY -> CATEGORIES */
 
 #{ $appDirectoryCategory } {
-    height: 36px;
-    padding: 0 12px;
-    background-color: var(--card-button-color);
-    border-radius: 10px;
-    transition: var(--default-time) var(--default-animation) background-color;
+  height: 36px;
+  padding: 0 12px;
+  background-color: var(--card-button-color);
+  border-radius: 10px;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-button-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-button-color-hover);
+  }
 }
 
 /* APP DIRECTORY -> CARDS */
 
 #{ $appDirectoryCardScollerContainer } {
-    #{ $scroller } {
-        --scrollbar-width: 4px;
-    }
+  #{ $scroller } {
+    --scrollbar-width: 4px;
+  }
 }
 
 #{ $appDirectoryCard } {
-    @include card-format(true, 0, true, true);
+  @include card-format(true, 0, true, true);
 }
 
 #{ $appDirectoryAnimatesOnHoverContainer } {
-    &:hover {
-        box-shadow: none;
-        transform: none;
+  &:hover {
+    box-shadow: none;
+    transform: none;
 
-        #{ $appDirectoryCardImage } {
-            transform: none;
-        }
+    #{ $appDirectoryCardImage } {
+      transform: none;
     }
+  }
 }
 
 #{ $appDirectoryCardImage } {
-    border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $appDirectoryLearnMoreCard } {
-    @include card-format(true, 0, false, false);
+  @include card-format(true, 0, false, false);
 }
 
 #{ $appDirectoryLearnMoreCardHeader } {
-    color: var(--header-primary);
+  color: var(--header-primary);
 }
 
 #{ $appDirectoryLearnMoreDescription } {
-    color: var(--interactive-text-default);
+  color: var(--interactive-text-default);
 }
 
 /* APP DIRECTORY -> BOT INFO */
 
 #{ $botInfoHeaderBanner } {
-    border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $botInfoHeaderIcon } {
-    background-color: var(--main-color);
-    border-color: var(--main-color);
+  background-color: var(--main-color);
+  border-color: var(--main-color);
 }
 
 #{ $botInfoSupportServerCard } {
-    @include card-format(false, 0, true, true);
+  @include card-format(false, 0, true, true);
 
-    &:hover {
-        #{ $botInfoSupportServerIconMask } {
-            background-color: var(--card-color-hover);
-        }
-    }
-
-    #{ $botInfoSupportServerSplashImage } {
-        border-radius: var(--card-radius-big);
-    }
-
+  &:hover {
     #{ $botInfoSupportServerIconMask } {
-        background-color: var(--card-color-filled);
-        transition: var(--default-time) var(--default-animation) background-color;
+      background-color: var(--card-color-hover);
     }
+  }
+
+  #{ $botInfoSupportServerSplashImage } {
+    border-radius: var(--card-radius-big);
+  }
+
+  #{ $botInfoSupportServerIconMask } {
+    background-color: var(--card-color-filled);
+    transition: var(--default-time) var(--default-animation) background-color;
+  }
 }
 
 #{ $botInfoPremiumContainer } {
-    @include card-format;
+  @include card-format;
 
-    #{ $botInfoPremiumCardHeader } {
-        @include card-format--header;
-    }
+  #{ $botInfoPremiumCardHeader } {
+    @include card-format--header;
+  }
 
-    #{ $botInfoPremiumPriceAndButtonContainer } {
-        background-color: transparent;
-    }
+  #{ $botInfoPremiumPriceAndButtonContainer } {
+    background-color: transparent;
+  }
 
-    #{ $botInfoPremiumBenefitsContainer } {
-        @include card-format--body;
-        background-color: transparent;
-    }
+  #{ $botInfoPremiumBenefitsContainer } {
+    @include card-format--body;
+    background-color: transparent;
+  }
 }
 
 #{ $botInfoCommandList } {
-    @include card-format(false, 16px);
+  @include card-format(false, 16px);
 
-    #{ $botInfoCommandName } {
-        @include card-format(false, 10px 12px, true);
-    }
+  #{ $botInfoCommandName } {
+    @include card-format(false, 10px 12px, true);
+  }
 }
 
 #{ $botInfoPermissionHeader } {
-    margin-block-start: 0;
+  margin-block-start: 0;
 }

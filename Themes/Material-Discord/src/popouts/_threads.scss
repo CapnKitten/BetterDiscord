@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,100 +8,100 @@
  */
 
 #{ $threadsPopoutContainer } {
-	min-height: 200px;
-	max-height: 80vh;
-	@include popout-format;
-	animation: top-pop-out 400ms var(--default-animation);
+  min-height: 200px;
+  max-height: 80vh;
+  @include popout-format;
+  animation: top-pop-out 400ms var(--default-animation);
 
-    #{ $threadsPopoutControls } {
-        height: 52px;
+  #{ $threadsPopoutControls } {
+    height: 52px;
+  }
+
+  #{ $threadModalTabBar } {
+    height: 100%;
+
+    #{ $item } {
+      height: 24px;
+      border-radius: 12px;
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        background-color: var(--menu-item-hover) !important;
+      }
+
+      &#{ $itemSelected } {
+        background-color: var(--menu-item-select) !important;
+      }
     }
+  }
 
-    #{ $threadModalTabBar } {
-    	height: 100%;
+  #{ $threadsPopoutInnerContainer } {
+    min-height: 200px;
+    padding: 16px;
+  }
 
-    	#{ $item } {
-            height: 24px;
-    		border-radius: 12px;
+  #{ $threadsPopoutSectionHeader } {
+    margin-block-start: 0;
+    @include remove-caps(14px);
+  }
 
-            &:after {
-                display: none;
-            }
+  #{ $threadsPopoutList } {
+    padding-block: 0 16px;
+    padding-inline: 24px;
+  }
 
-    		&:hover {
-    			background-color: var(--menu-item-hover) !important;
-    		}
+  .activeThreadsList-c8qlqZ {
+    padding-block-end: 16px;
+  }
 
-    		&#{ $itemSelected } {
-    			background-color: var(--menu-item-select) !important;
-    		}
-    	}
+  .content-28mbXd {
+    height: auto !important;
+  }
+
+  #{ $threadPreview } {
+    @include card-format(false, 16px, true, true);
+
+    &:last-of-type {
+      margin-block-end: 0;
     }
-
-	#{ $threadsPopoutInnerContainer } {
-		min-height: 200px;
-		padding: 16px;
-	}
-
-	#{ $threadsPopoutSectionHeader } {
-		margin-block-start: 0;
-		@include remove-caps(14px);
-	}
-
-	#{ $threadsPopoutList } {
-		padding-block: 0 16px;
-		padding-inline: 24px;
-	}
-
-	.activeThreadsList-c8qlqZ {
-		padding-block-end: 16px;
-	}
-
-	.content-28mbXd {
-		height: auto !important;
-	}
-
-	#{ $threadPreview } {
-		@include card-format(false, 16px, true, true);
-
-		&:last-of-type {
-			margin-block-end: 0;
-		}
-	}
+  }
 }
 
 #{ $threadsPopoutHeader } {
-    min-height: unset;
-    height: auto;
-	padding-block: 24px 16px;
-	padding-inline: 24px;
-    background-color: transparent;
-	border-block-end: none;
+  min-height: unset;
+  height: auto;
+  padding-block: 24px 16px;
+  padding-inline: 24px;
+  background-color: transparent;
+  border-block-end: none;
 
-    #{ $threadsPopoutHeaderDivider } {
-        display: none;
-    }
+  #{ $threadsPopoutHeaderDivider } {
+    display: none;
+  }
 
-    #{ $threadsPopoutTabBar } {
-        height: 100%;
-    }
+  #{ $threadsPopoutTabBar } {
+    height: 100%;
+  }
 
-    #{ $inputContainer } {
-        --input-height: 32px;
-    }
+  #{ $inputContainer } {
+    --input-height: 32px;
+  }
 
-    #{ $threadsPopoutCreateButton } {
-        --button-height: 32px;
-		--button-padding-start: 12px;
-        --button-padding-end: 12px;
+  #{ $threadsPopoutCreateButton } {
+    --button-height: 32px;
+    --button-padding-start: 12px;
+    --button-padding-end: 12px;
 
-        min-width: 84px;
-    }
+    min-width: 84px;
+  }
 }
 
 body:active #{ $threadsPopoutContainer }:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
+  opacity: 0;
+  transition: 150ms ease all;
 }
 
 /*
@@ -111,41 +111,41 @@ body:active #{ $threadsPopoutContainer }:not(:active) {
  */
 
 #{ $channelThreadPopout } {
- 	padding: 0;
- 	@include popout-format;
+  padding: 0;
+  @include popout-format;
 
-	#{ $channelThreadPopoutTitle } {
-		margin-block-end: 0;
- 		padding: 12px;
- 		@include remove-caps(14px);
-		border-block-end: 1px solid var(--popout-header-border);
- 	}
+  #{ $channelThreadPopoutTitle } {
+    margin-block-end: 0;
+    padding: 12px;
+    @include remove-caps(14px);
+    border-block-end: 1px solid var(--popout-header-border);
+  }
 
- 	#{ $channelThreadPopoutRow } {
-		margin: var(--context-menu-padding);
-		border-radius: calc(var(--popout-radius-big) / 2);
-		color: var(--menu-item-text-color);
-		transition: var(--default-time) var(--default-animation);
+  #{ $channelThreadPopoutRow } {
+    margin: var(--context-menu-padding);
+    border-radius: calc(var(--popout-radius-big) / 2);
+    color: var(--menu-item-text-color);
+    transition: var(--default-time) var(--default-animation);
 
- 		&:hover {
-			background-color: var(--menu-item-hover);
-			color: var(--menu-item-text-color);
-		}
+    &:hover {
+      background-color: var(--menu-item-hover);
+      color: var(--menu-item-text-color);
+    }
 
-		#{ $channelThreadPopoutTimestamp } {
-			color: var(--text-muted) !important;
-		}
- 	}
+    #{ $channelThreadPopoutTimestamp } {
+      color: var(--text-muted) !important;
+    }
+  }
 
-	#{ $channelThreadPopoutMore } {
-		margin-block-start: 0;
-		padding-block: var(--space-8);
-		padding-inline: var(--space-12);
-		border-top-color: var(--popout-header-border);
-		color: hsl(var(--accent-hsl--material-you));
+  #{ $channelThreadPopoutMore } {
+    margin-block-start: 0;
+    padding-block: var(--space-8);
+    padding-inline: var(--space-12);
+    border-top-color: var(--popout-header-border);
+    color: hsl(var(--accent-hsl--material-you));
 
-		#{ $size14 } {
-			margin-inline-start: auto;
-		}
-	}
+    #{ $size14 } {
+      margin-inline-start: auto;
+    }
+  }
 }

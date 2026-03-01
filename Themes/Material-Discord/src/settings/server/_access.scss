@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,108 +7,120 @@
  */
 
 #{ $serverAccessJoinOptions } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  border: none;
+
+  #{ $serverAccessJoinOptionContent } {
+    border-radius: calc(var(--card-radius-big) / 1.4);
     border: none;
-
-    #{ $serverAccessJoinOptionContent } {
-        border-radius: calc(var(--card-radius-big) / 1.4);
-        border: none;
-        transition: var(--default-time) var(--default-animation) background-color;
-
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
-
-        &#{ $serverAccessJoinOptionContentActive } {
-            background-color: var(--card-color-active);
-        }
-    }
-
-    path {
-        $icons: (
-            /* SERVER ACCESS ICONS -> INVITE ONLY */
-            'M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a3 3 0 0 1 3-3Zm9-3v3H9V6a3 3 0 1 1 6 0Zm-1 8a2 2 0 0 1-1 1.73V18a1 1 0 1 1-2 0v-2.27A2 2 0 1 1 14 14Z':
-                (icon: 'M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z', remove: false),
-
-            /* SERVER ACCESS ICONS -> APPLY TO JOIN */
-            'M1.16 5.02c-.1.28.04.58.29.74l10.27 6.85a.5.5 0 0 0 .56 0l10.27-6.85c.25-.16.38-.46.29-.74A3 3 0 0 0 20 3H4a3 3 0 0 0-2.84 2.02Z':
-                (icon: 'M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z', remove: true),
-
-            /* SERVER ACCESS ICONS -> DISCOVERABLE */
-            'M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-4.16 5.85A9 9 0 0 0 15 3.52V4a3 3 0 0 1-3 3h-.77c-.13 0-.23.1-.23.23A2.77 2.77 0 0 1 8.23 10c-.13 0-.23.1-.23.23v1.52c0 .14.11.25.25.25H13a3 3 0 0 1 3 3v.77c0 .13.1.23.23.23 1.2 0 2.23.77 2.61 1.85ZM3.18 10.18A9 9 0 0 0 11 20.94v-2.7c0-.14-.1-.24-.23-.24h-.65A2.12 2.12 0 0 1 8 15.88c0-.56-.22-1.1-.62-1.5l-4.2-4.2Z':
-                (icon: 'M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z', remove: false),
-        );
-
-        @each $key, $value in $icons {
-            &[d="#{$key}"] {
-                d: path(map-get($value, icon));
-                transform: translate(0, 24px) scale(0.025);
-
-                @if map-get($value, remove) == true {
-                    ~ path {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
-}
-
-#{ $serverAccessJoinOptionTab } {
-    &:hover {
-        background-color: transparent !important;
-    }
-}
-
-#{ $severAcessRules } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-}
-
-#{ $severAccessRulesContainer } {
-    gap: 4px;
-
-    #{ $severAccessDraggableInputContainer } {
-        &:first-of-type {
-            #{ $severAccessRulesTextAreaInput } {
-                border-radius: calc(var(--card-radius-big) / 1.8) calc(var(--card-radius-big) / 1.8) 4px 4px;
-            }
-        }
-
-        &:last-of-type {
-            #{ $severAccessRulesTextAreaInput } {
-                border-radius: 4px 4px calc(var(--card-radius-big) / 1.8) calc(var(--card-radius-big) / 1.8);
-            }
-        }
-    }
-
-    #{ $severAccessRulesTextAreaInput } {
-        background-color: var(--card-color-hover);
-        border-radius: 4px;
-        transition: var(--default-time) var(--default-animation) background-color;
-
-        &:focus-within {
-            background-color: var(--card-color-active);
-        }
-    }
-
-    #{ $channelTextArea } {
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-    }
-}
-
-#{ $severAccessAddRuleContainer } {
-    border-radius: calc(var(--card-radius-big) / 1.8);
-}
-
-#{ $severAccessRulesPill } {
-    background-color: var(--card-color-hover);
     transition: var(--default-time) var(--default-animation) background-color;
 
     &:hover {
-        background-color: var(--card-color-active);
+      background-color: var(--card-color-hover);
     }
+
+    &#{ $serverAccessJoinOptionContentActive } {
+      background-color: var(--card-color-active);
+    }
+  }
+
+  path {
+    $icons: (
+      /* SERVER ACCESS ICONS -> INVITE ONLY */
+      "M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a3 3 0 0 1 3-3Zm9-3v3H9V6a3 3 0 1 1 6 0Zm-1 8a2 2 0 0 1-1 1.73V18a1 1 0 1 1-2 0v-2.27A2 2 0 1 1 14 14Z":
+        (
+          icon:
+            "M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z",
+          remove: false,
+        ),
+      /* SERVER ACCESS ICONS -> APPLY TO JOIN */
+      "M1.16 5.02c-.1.28.04.58.29.74l10.27 6.85a.5.5 0 0 0 .56 0l10.27-6.85c.25-.16.38-.46.29-.74A3 3 0 0 0 20 3H4a3 3 0 0 0-2.84 2.02Z":
+        (
+          icon:
+            "M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z",
+          remove: true,
+        ),
+      /* SERVER ACCESS ICONS -> DISCOVERABLE */
+      "M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-4.16 5.85A9 9 0 0 0 15 3.52V4a3 3 0 0 1-3 3h-.77c-.13 0-.23.1-.23.23A2.77 2.77 0 0 1 8.23 10c-.13 0-.23.1-.23.23v1.52c0 .14.11.25.25.25H13a3 3 0 0 1 3 3v.77c0 .13.1.23.23.23 1.2 0 2.23.77 2.61 1.85ZM3.18 10.18A9 9 0 0 0 11 20.94v-2.7c0-.14-.1-.24-.23-.24h-.65A2.12 2.12 0 0 1 8 15.88c0-.56-.22-1.1-.62-1.5l-4.2-4.2Z":
+        (
+          icon:
+            "M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z",
+          remove: false,
+        )
+    );
+
+    @each $key, $value in $icons {
+      &[d="#{$key}"] {
+        d: path(map-get($value, icon));
+        transform: translate(0, 24px) scale(0.025);
+
+        @if map-get($value, remove) == true {
+          ~ path {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+#{ $serverAccessJoinOptionTab } {
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+#{ $severAcessRules } {
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+}
+
+#{ $severAccessRulesContainer } {
+  gap: 4px;
+
+  #{ $severAccessDraggableInputContainer } {
+    &:first-of-type {
+      #{ $severAccessRulesTextAreaInput } {
+        border-radius: calc(var(--card-radius-big) / 1.8)
+          calc(var(--card-radius-big) / 1.8) 4px 4px;
+      }
+    }
+
+    &:last-of-type {
+      #{ $severAccessRulesTextAreaInput } {
+        border-radius: 4px 4px calc(var(--card-radius-big) / 1.8)
+          calc(var(--card-radius-big) / 1.8);
+      }
+    }
+  }
+
+  #{ $severAccessRulesTextAreaInput } {
+    background-color: var(--card-color-hover);
+    border-radius: 4px;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:focus-within {
+      background-color: var(--card-color-active);
+    }
+  }
+
+  #{ $channelTextArea } {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+#{ $severAccessAddRuleContainer } {
+  border-radius: calc(var(--card-radius-big) / 1.8);
+}
+
+#{ $severAccessRulesPill } {
+  background-color: var(--card-color-hover);
+  transition: var(--default-time) var(--default-animation) background-color;
+
+  &:hover {
+    background-color: var(--card-color-active);
+  }
 }

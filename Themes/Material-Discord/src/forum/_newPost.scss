@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,190 +8,190 @@
  */
 
 #{ $forumHeader } {
-    position: relative;
-    min-height: 52px;
-    background-color: var(--input-color);
-    border-radius: 26px;
-    border: none;
+  position: relative;
+  min-height: 52px;
+  background-color: var(--input-color);
+  border-radius: 26px;
+  border: none;
 
-    &#{ $forumHeaderWithMatchingPosts } {
-        box-shadow: var(--shadow-medium);
-    }
+  &#{ $forumHeaderWithMatchingPosts } {
+    box-shadow: var(--shadow-medium);
+  }
 
-    #{ $buttonFilled } {
-        --button-padding-start: 16px;
-        --button-padding-end: 24px;
-    }
+  #{ $buttonFilled } {
+    --button-padding-start: 16px;
+    --button-padding-end: 24px;
+  }
 }
 
 #{ $forumHeaderMatchingPostsRow } {
-    margin-block-start: -24px;
-    padding-block-start: 24px;
-    background-color: var(--input-color);
-    border-radius: 0 0 24px 24px;
-    border: none;
+  margin-block-start: -24px;
+  padding-block-start: 24px;
+  background-color: var(--input-color);
+  border-radius: 0 0 24px 24px;
+  border: none;
 }
 
 #{ $newPostForm } {
-    margin-inline-end: 0;
+  margin-inline-end: 0;
 }
 
 #{ $newPostContainer } {
-    padding: 16px;
+  padding: 16px;
 
-    &#{ $newPostContainerCollapsed } {
-        padding: 0;
-
-        #{ $newPostFormContainer } {
-            padding: 0 8px 0 16px;
-            gap: 12px;
-        }
-
-        #{ $newPostTitleContainer } {
-            gap: 12px;
-        }
-
-        #{ $newPostPrefixElement } {
-            position: relative;
-            inset-inline-end: unset;
-
-            svg {
-                padding: 0;
-            }
-        }
-
-        #{ $input }#{ $inputTextArea } {
-            --input-color: transparent;
-            --input-padding: 0;
-
-            border-radius: 0;
-        }
-
-        #{ $newPostGuidelinesButton } {
-            height: var(--button-height);
-            margin: 0;
-        }
-    }
-
-    #{ $newPostPrefixElement } {
-        position: absolute;
-        width: auto;
-        height: var(--button-height);
-        inset-inline-end: 16px;
-        margin: 0;
-        z-index: 2;
-
-        div[role="button"],
-        svg {
-            height: inherit;
-        }
-
-        svg {
-            padding: 0 8px;
-        }
-    }
+  &#{ $newPostContainerCollapsed } {
+    padding: 0;
 
     #{ $newPostFormContainer } {
-        padding: 0;
-
-        + #{ $newPostForm } > div {
-            padding: 0;
-        }
+      padding: 0 8px 0 16px;
+      gap: 12px;
     }
 
     #{ $newPostTitleContainer } {
-        position: relative;
-
-        #{ $newPostTitle } {
-            padding: 8px 0;
-            font-weight: 400;
-
-            &::-webkit-input-placeholder {
-                color: var(--input-placeholder-color);
-                font-weight: 400;
-            }
-        }
+      gap: 12px;
     }
 
-    #{ $newPostBodyContainer } {
-        margin-inline-end: 94px !important;
+    #{ $newPostPrefixElement } {
+      position: relative;
+      inset-inline-end: unset;
+
+      svg {
+        padding: 0;
+      }
     }
 
     #{ $input }#{ $inputTextArea } {
-        --input-color: var(--card-color-filled);
+      --input-color: transparent;
+      --input-padding: 0;
 
-        height: var(--button-height);
-        margin: 0;
-        padding: 0 var(--input-padding);
-        border-radius: 20px;
-        box-shadow: none;
+      border-radius: 0;
+    }
+
+    #{ $newPostGuidelinesButton } {
+      height: var(--button-height);
+      margin: 0;
+    }
+  }
+
+  #{ $newPostPrefixElement } {
+    position: absolute;
+    width: auto;
+    height: var(--button-height);
+    inset-inline-end: 16px;
+    margin: 0;
+    z-index: 2;
+
+    div[role="button"],
+    svg {
+      height: inherit;
+    }
+
+    svg {
+      padding: 0 8px;
+    }
+  }
+
+  #{ $newPostFormContainer } {
+    padding: 0;
+
+    + #{ $newPostForm } > div {
+      padding: 0;
+    }
+  }
+
+  #{ $newPostTitleContainer } {
+    position: relative;
+
+    #{ $newPostTitle } {
+      padding: 8px 0;
+      font-weight: 400;
+
+      &::-webkit-input-placeholder {
+        color: var(--input-placeholder-color);
         font-weight: 400;
-        line-height: var(--button-height);
-        cursor: text;
-
-        &::-webkit-input-placeholder {
-            font-weight: inherit;
-        }
+      }
     }
+  }
 
-    #{ $buttonFilled }:disabled {
-        opacity: 0.5 !important;
+  #{ $newPostBodyContainer } {
+    margin-inline-end: 94px !important;
+  }
+
+  #{ $input }#{ $inputTextArea } {
+    --input-color: var(--card-color-filled);
+
+    height: var(--button-height);
+    margin: 0;
+    padding: 0 var(--input-padding);
+    border-radius: 20px;
+    box-shadow: none;
+    font-weight: 400;
+    line-height: var(--button-height);
+    cursor: text;
+
+    &::-webkit-input-placeholder {
+      font-weight: inherit;
     }
+  }
+
+  #{ $buttonFilled }:disabled {
+    opacity: 0.5 !important;
+  }
 }
 
 #{ $newPostPreviewForm } {
-    margin-inline-end: 94px;
-    background-color: var(--card-color-active);
-    border-radius: calc(var(--card-radius-big) / 1.6);
-    border: none;
+  margin-inline-end: 94px;
+  background-color: var(--card-color-active);
+  border-radius: calc(var(--card-radius-big) / 1.6);
+  border: none;
 }
 
 #{ $newPostTagsDivider } {
-    width: 100%;
-    inset-inline-start: 0;
+  width: 100%;
+  inset-inline-start: 0;
 }
 
 #{ $newPostContentContainer } {
-    padding-inline-start: 0;
+  padding-inline-start: 0;
 
-    #{ $channelTextArea } {
-        min-height: 68px;
-        margin-block-start: 16px;
+  #{ $channelTextArea } {
+    min-height: 68px;
+    margin-block-start: 16px;
+  }
+
+  #{ $channelTextAreaScrollable } {
+    min-height: 68px;
+    padding: 6px 12px;
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+    color: var(--input-text-color);
+
+    &::-webkit-input-placeholder {
+      color: var(--input-placeholder-color);
     }
-
-    #{ $channelTextAreaScrollable } {
-        min-height: 68px;
-        padding: 6px 12px;
-        background-color: var(--card-color-filled);
-        border-radius: var(--card-radius-big);
-        color: var(--input-text-color);
-
-        &::-webkit-input-placeholder {
-            color: var(--input-placeholder-color);
-        }
-    }
+  }
 }
 
 #{ $newPostAttachmentPopoutContainer } {
-    position: absolute;
-    inset-block-start: calc(var(--button-height) + (16px * 2));
-    inset-inline-end: 16px;
-    z-index: 3;
+  position: absolute;
+  inset-block-start: calc(var(--button-height) + (16px * 2));
+  inset-inline-end: 16px;
+  z-index: 3;
 
-    #{ $newPostAttachmentUploadInput } {
-        background-color: transparent;
-        border: 1px solid var(--card-border-color);
-    }
+  #{ $newPostAttachmentUploadInput } {
+    background-color: transparent;
+    border: 1px solid var(--card-border-color);
+  }
 
-    #{ $newPostAttachmentUploadInput },
-    #{ $spoilerContainer },
-    #{ $newPostAttachmentImageSmall } {
-        border-radius: var(--card-radius-big);
-    }
+  #{ $newPostAttachmentUploadInput },
+  #{ $spoilerContainer },
+  #{ $newPostAttachmentImageSmall } {
+    border-radius: var(--card-radius-big);
+  }
 
-    #{ $newPostAttachmentBadge } {
-        background-color: hsl(var(--accent-hsl--material-you));
-        color: var(--accent-text-color--material-you);
-        border-color: var(--input-color);
-    }
+  #{ $newPostAttachmentBadge } {
+    background-color: hsl(var(--accent-hsl--material-you));
+    color: var(--accent-text-color--material-you);
+    border-color: var(--input-color);
+  }
 }

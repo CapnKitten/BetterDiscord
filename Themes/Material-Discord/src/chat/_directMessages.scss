@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,243 +8,246 @@
  */
 
 #{ $callWrapper } {
-    background-color: var(--chat-color);
-    box-shadow: var(--shadow-medium);
+  background-color: var(--chat-color);
+  box-shadow: var(--shadow-medium);
 
-    &#{ $callMinimum } {
-        background-color: var(--chat-color);
+  &#{ $callMinimum } {
+    background-color: var(--chat-color);
+  }
+
+  #{ $callContainer } {
+    border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
+  }
+
+  &#{ $callChatSidebarOpen } {
+    #{ $callContainer } {
+      border-radius: var(--card-radius-big);
     }
+  }
+
+  &#{ $callWrapperSidebarOpen } {
+    background-color: transparent !important;
 
     #{ $callContainer } {
-        border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
+      border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
     }
-
-    &#{ $callChatSidebarOpen } {
-        #{ $callContainer } {
-            border-radius: var(--card-radius-big);
-        }
-    }
-
-    &#{ $callWrapperSidebarOpen } {
-        background-color: transparent !important;
-
-        #{ $callContainer } {
-            border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
-        }
-    }
+  }
 }
 
 #{ $chatContentWrapper } {
-    background-color: transparent !important;
+  background-color: transparent !important;
 
-    &:before {
-		display: none !important;
-	}
+  &:before {
+    display: none !important;
+  }
 }
 
 #{ $callGradientContainer } {
-    border-radius: calc(var(--card-radius-big) / 1.5);
+  border-radius: calc(var(--card-radius-big) / 1.5);
 }
 
 #{ $callTileBorder } {
-    border-radius: var(--card-radius-big);
-	transition: var(--default-time) var(--default-animation) box-shadow;
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) box-shadow;
 
-    &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower);"] {
-        box-shadow: 0 0 0 0px hsl(var(--accent-hsl)), inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-base-lower) !important;
-    }
+  &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower);"] {
+    box-shadow:
+      0 0 0 0px hsl(var(--accent-hsl)),
+      inset 0 0 0 2px hsl(var(--accent-hsl)),
+      inset 0 0 0 3px var(--background-base-lower) !important;
+  }
 }
 
 #{ $callQuickSelect } {
-	margin-block-start: 12px;
+  margin-block-start: 12px;
 }
 
 #{ $spectatorMenuScroller } {
-    padding-block: 8px;
-	padding-inline: 0 !important;
-	background-color: var(--popout-color);
-	border-radius: var(--popout-radius);
+  padding-block: 8px;
+  padding-inline: 0 !important;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
 
-	#{ $spectatorMenuHeader } {
-        margin-block: 8px;
-        margin-inline: 0;
-        padding-block: 0;
-        padding-inline: 12px;
-		color: var(--menu-item-text-color);
-		text-transform: none;
-	}
+  #{ $spectatorMenuHeader } {
+    margin-block: 8px;
+    margin-inline: 0;
+    padding-block: 0;
+    padding-inline: 12px;
+    color: var(--menu-item-text-color);
+    text-transform: none;
+  }
 
-	#{ $spectatorMenuItem } {
-		margin: 0;
-        padding-block: 6px;
-        padding-inline: 12px;
-		border-radius: 0;
-		transition: var(--default-time) var(--default-animation) background-color;
+  #{ $spectatorMenuItem } {
+    margin: 0;
+    padding-block: 6px;
+    padding-inline: 12px;
+    border-radius: 0;
+    transition: var(--default-time) var(--default-animation) background-color;
 
-		&:not(#{ $popoutDisabled }):hover {
-			background-color: var(--menu-item-hover) !important;
-		}
+    &:not(#{ $popoutDisabled }):hover {
+      background-color: var(--menu-item-hover) !important;
+    }
 
-		#{ $spectatorMenuItemText } {
-			color: var(--menu-item-text-color);
-		}
-	}
+    #{ $spectatorMenuItemText } {
+      color: var(--menu-item-text-color);
+    }
+  }
 }
 
 #{ $callTileRoot } {
-    background-color: var(--card-color-filled);
+  background-color: var(--card-color-filled);
 }
 
 #{ $callTile } {
-	border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 
-    #{ $button } {
-        #{ $size16 } {
-            line-height: var(--button-height);
-        }
+  #{ $button } {
+    #{ $size16 } {
+      line-height: var(--button-height);
     }
+  }
 }
 
 #{ $callTitleOverlayTitle } {
-	border-radius: 16px;
+  border-radius: 16px;
 }
 
 #{ $callParticipantsButton } {
-	background-color: #2f3136 !important;
-	border-radius: 16px !important;
+  background-color: #2f3136 !important;
+  border-radius: 16px !important;
 
-	&:hover {
-		background-color: #202225 !important;
-	}
+  &:hover {
+    background-color: #202225 !important;
+  }
 }
 
 #{ $waveButton } {
-    background-color: hsl(var(--button-link-accent-color),0.075);
+  background-color: hsl(var(--button-link-accent-color), 0.075);
 
-    &:hover {
-        background-color: hsl(var(--button-link-accent-color),0.1);
-    }
+  &:hover {
+    background-color: hsl(var(--button-link-accent-color), 0.1);
+  }
 }
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
 #{ $dmProfilePanel }[style] {
-    height: calc(100% - 24px);
-    margin: 12px;
-    border-radius: var(--popout-radius-big);
-    box-shadow: none;
+  height: calc(100% - 24px);
+  margin: 12px;
+  border-radius: var(--popout-radius-big);
+  box-shadow: none;
 
-    &:not(#{ $userProfileOuterThemed }) {
-        background-color: var(--popout-color);
+  &:not(#{ $userProfileOuterThemed }) {
+    background-color: var(--popout-color);
+  }
+
+  #{ $userProfileInner } {
+    border-radius: inherit;
+
+    #{ $userProfileOverlayBackground } {
+      border-radius: var(--card-radius-big);
     }
-
-    #{ $userProfileInner } {
-        border-radius: inherit;
-
-        #{ $userProfileOverlayBackground } {
-            border-radius: var(--card-radius-big);
-        }
-    }
+  }
 }
 
 #{ $dmUserProfileBadgeList } {
-    height: var(--button-height);
-	border-radius: var(--button-radius);
+  height: var(--button-height);
+  border-radius: var(--button-radius);
 
-    &:not(:empty) {
-        padding-block: 0;
-        padding-inline: 7px;
-    }
+  &:not(:empty) {
+    padding-block: 0;
+    padding-inline: 7px;
+  }
 }
 
 #{ $dmProfilePanelConnections } {
-    #{ $dmMutualFriendsDivider } {
-        position: relative;
-        border-block-start: none;
+  #{ $dmMutualFriendsDivider } {
+    position: relative;
+    border-block-start: none;
 
-        &:before {
-            position: absolute;
-            content: " ";
-            width: auto;
-            height: 1px;
-            inset-block-start: 0;
-            inset-inline-start: 12px;
-            inset-inline-end: 12px;
-            background-color: var(--card-border-color);
-            box-sizing: border-box;
-        }
+    &:before {
+      position: absolute;
+      content: " ";
+      width: auto;
+      height: 1px;
+      inset-block-start: 0;
+      inset-inline-start: 12px;
+      inset-inline-end: 12px;
+      background-color: var(--card-border-color);
+      box-sizing: border-box;
     }
+  }
 
-    #{ $button } {
-        --button-height: 42px;
-        --button-padding-start: 12px;
-        --button-padding-end: 12px;
-        --button-background: transparent !important;
-        --button-radius: 0;
-        --button-text-color: var(--header-primary) !important;
+  #{ $button } {
+    --button-height: 42px;
+    --button-padding-start: 12px;
+    --button-padding-end: 12px;
+    --button-background: transparent !important;
+    --button-radius: 0;
+    --button-text-color: var(--header-primary) !important;
 
-        &:after {
-            display: none;
-        }
+    &:after {
+      display: none;
     }
+  }
 }
 
 #{ $dmConnectionList } {
-    --popout-radius: calc(var(--card-radius-big) / 1.55);
+  --popout-radius: calc(var(--card-radius-big) / 1.55);
 
-    margin-block-end: 8px;
+  margin-block-end: 8px;
 }
 
 #{ $dmProfileFriendsList } {
-    margin-inline-start: 0;
+  margin-inline-start: 0;
 
-    #{ $userProfileModalV2TabPanelRow } {
-        border-radius: calc(var(--popout-radius-big) / 2.5) !important;
-    }
+  #{ $userProfileModalV2TabPanelRow } {
+    border-radius: calc(var(--popout-radius-big) / 2.5) !important;
+  }
 }
 
 #{ $dmProfileFriendRow } {
-    margin: 0;
-    padding: var(--space-8);
-    border-radius: calc(var(--popout-radius-big) / 2.5);
-    transition: var(--default-time) var(--default-animation) background-color;
+  margin: 0;
+  padding: var(--space-8);
+  border-radius: calc(var(--popout-radius-big) / 2.5);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-
-        #{ $avatarMask } {
-            circle {
-                fill: var(--card-color-hover);
-            }
-        }
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
 
     #{ $avatarMask } {
-        circle {
-            fill: var(--card-color-filled);
-            transition: var(--default-time) var(--default-animation) fill;
-        }
+      circle {
+        fill: var(--card-color-hover);
+      }
     }
+  }
+
+  #{ $avatarMask } {
+    circle {
+      fill: var(--card-color-filled);
+      transition: var(--default-time) var(--default-animation) fill;
+    }
+  }
 }
 
 /* DIRECT MESSAGES -> SPAM FILTER */
 
 #{ $dmHamBanner } {
-    margin: 8px;
-    padding: 12px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-    box-shadow: none;
+  margin: 8px;
+  padding: 12px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  box-shadow: none;
 }
 
 #{ $dmSpamChat } {
-    &:before {
-        display: none;
-    }
+  &:before {
+    display: none;
+  }
 }
 
 /* DIRECT MESSAGES -> TURN OFF FROM SERVER MODAL */
 
 #{ $dmFromServerGuildContainer } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 }

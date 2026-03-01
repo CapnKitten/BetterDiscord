@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,128 +8,130 @@
  */
 
 #{ $pollCreateQuestionMaxLength } {
-    inset-block-end: calc(var(--input-height) / 2 - 2px);
+  inset-block-end: calc(var(--input-height) / 2 - 2px);
 }
 
 #{ $pollCreateLegend } {
-    @include remove-caps(14px);
+  @include remove-caps(14px);
 }
 
 #{ $pollCreateAnswerInputsContainer } {
-    row-gap: 2px;
+  row-gap: 2px;
 }
 
 #{ $pollCreateAnswerRow } {
+  display: flex;
+  padding: 16px;
+  gap: 8px;
+  background-color: var(--card-color-filled);
+  border-radius: 4px;
+
+  &:first-of-type {
+    border-top-left-radius: var(--card-radius-big);
+    border-top-right-radius: var(--card-radius-big);
+  }
+
+  &:nth-last-child(2) {
+    border-bottom-left-radius: var(--card-radius-big);
+    border-bottom-right-radius: var(--card-radius-big);
+  }
+
+  #{ $pollCreateExpressionPickerButton } {
+    width: var(--button-height);
+    min-width: var(--button-height);
+    height: var(--button-height);
+  }
+
+  #{ $pollCreateExpressionPickerIcon } {
+    margin-inline-start: 0;
+  }
+
+  #{ $pollCreateRemoveAnswerButton } {
     display: flex;
-    padding: 16px;
-    gap: 8px;
-    background-color: var(--card-color-filled);
-    border-radius: 4px;
-
-    &:first-of-type {
-        border-top-left-radius: var(--card-radius-big);
-        border-top-right-radius: var(--card-radius-big);
-    }
-
-    &:nth-last-child(2) {
-        border-bottom-left-radius: var(--card-radius-big);
-        border-bottom-right-radius: var(--card-radius-big);
-    }
-
-    #{ $pollCreateExpressionPickerButton } {
-        width: var(--button-height);
-        min-width: var(--button-height);
-        height: var(--button-height);
-    }
-
-    #{ $pollCreateExpressionPickerIcon } {
-        margin-inline-start: 0;
-    }
-
-    #{ $pollCreateRemoveAnswerButton } {
-        display: flex;
-        width: var(--button-height);
-        height: var(--button-height);
-        padding: 0;
-        align-items: center;
-        justify-content: center;
-    }
+    width: var(--button-height);
+    height: var(--button-height);
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 #{ $pollCreateQuestionInput } {
-    min-height: var(--input-height);
-    max-height: calc(var(--input-height) * 5);
-    line-height: var(--input-height);
-    padding: 0 var(--input-padding) !important;
-    border: none;
+  min-height: var(--input-height);
+  max-height: calc(var(--input-height) * 5);
+  line-height: var(--input-height);
+  padding: 0 var(--input-padding) !important;
+  border: none;
 }
 
 #{ $pollCreateDefaultTextInputWrapper } {
-    width: 100%;
-    gap: 8px;
-    background-color: transparent;
-    border: none !important;
+  width: 100%;
+  gap: 8px;
+  background-color: transparent;
+  border: none !important;
 
-    &:focus-within {
-        #{ $pollCreateCharacterCount } {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    > #{ $pollCreateDefaultTextInput } {
-        padding: 0;
-    }
-
-    #{ $inputWrapper } {
-        margin-inline-end: -50px;
-    }
-
-    #{ $input } {
-        padding-inline-end: 50px;
-        border-radius: var(--input-radius);
-        box-shadow: none;
-    }
-
+  &:focus-within {
     #{ $pollCreateCharacterCount } {
-        display: flex;
-        height: var(--input-height);
-        line-height: var(--input-height);
-        padding: 0 12px 0 0;
-        transform: translateX(12px);
-        opacity: 0;
-        transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) transform;
+      transform: translateX(0);
+      opacity: 1;
     }
+  }
+
+  > #{ $pollCreateDefaultTextInput } {
+    padding: 0;
+  }
+
+  #{ $inputWrapper } {
+    margin-inline-end: -50px;
+  }
+
+  #{ $input } {
+    padding-inline-end: 50px;
+    border-radius: var(--input-radius);
+    box-shadow: none;
+  }
+
+  #{ $pollCreateCharacterCount } {
+    display: flex;
+    height: var(--input-height);
+    line-height: var(--input-height);
+    padding: 0 12px 0 0;
+    transform: translateX(12px);
+    opacity: 0;
+    transition:
+      var(--default-time) var(--default-animation) opacity,
+      var(--default-time) var(--default-animation) transform;
+  }
 }
 
 #{ $pollCreateAddAnswerButton } {
-    height: var(--button-height);
-    line-height: var(--button-height);
-    margin-block-start: 14px;
+  height: var(--button-height);
+  line-height: var(--button-height);
+  margin-block-start: 14px;
+  background-color: var(--button-background);
+  border-radius: var(--button-radius);
+  border: 1px solid hsl(var(--accent-hsl--material-you));
+  align-self: start;
+
+  &:hover {
     background-color: var(--button-background);
-    border-radius: var(--button-radius);
-    border: 1px solid hsl(var(--accent-hsl--material-you));
-    align-self: start;
+  }
 
-    &:hover {
-        background-color: var(--button-background);
-    }
+  #{ $pollCreateAddAnswerIcon },
+  #{ $pollCreateAddAnswerButtonLabel } {
+    color: hsl(var(--accent-hsl--material-you)) !important;
+  }
 
-    #{ $pollCreateAddAnswerIcon },
-    #{ $pollCreateAddAnswerButtonLabel } {
-        color: hsl(var(--accent-hsl--material-you)) !important;
-    }
+  #{ $pollCreateAddAnswerIcon } {
+    height: var(--button-height);
+  }
 
-    #{ $pollCreateAddAnswerIcon } {
-        height: var(--button-height);
-    }
+  #{ $pollCreateAddAnswerButtonLabel } {
+    padding: 0;
+    line-height: var(--button-height);
+  }
 
-    #{ $pollCreateAddAnswerButtonLabel } {
-        padding: 0;
-        line-height: var(--button-height);
-    }
-
-    &#{ $pollCreateCanRemoveMoreAnswers } {
-        margin-inline-end: 0;
-    }
+  &#{ $pollCreateCanRemoveMoreAnswers } {
+    margin-inline-end: 0;
+  }
 }

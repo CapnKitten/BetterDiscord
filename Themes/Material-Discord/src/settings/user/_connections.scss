@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,159 +8,159 @@
  */
 
 #{ $connectionsAccountButton } {
-    margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 #{ $connectionsAccountsButtonInner } {
-    background-color: var(--card-button-color);
-    border-radius: 50%;
-    transition: var(--default-time) var(--default-animation) background-color;
+  background-color: var(--card-button-color);
+  border-radius: 50%;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-button-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-button-color-hover);
+  }
 }
 
 /* CONNECTIONS -> ADD CONNECTION */
 
 #{ $connectionsModalAccountButtonInner } {
-    background-color: var(--card-button-color);
-    border-radius: 50%;
-    transition: var(--default-time) var(--default-animation) background-color;
+  background-color: var(--card-button-color);
+  border-radius: 50%;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-button-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-button-color-hover);
+  }
 }
 
 /* CONNECTIONS -> CONNECTED ACCOUNTS */
 
 #{ $connectionList } {
-    > div {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-8);
-    }
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
 }
 
 #{ $connectionsModalHeader } {
-    margin-block-start: 0;
+  margin-block-start: 0;
 
-    #{ $headingMdBold } {
-        font-size: 22px;
-        font-weight: 400;
-    }
+  #{ $headingMdBold } {
+    font-size: 22px;
+    font-weight: 400;
+  }
 }
 
 #{ $connectionsModalConnectionsContainer } {
-    margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 #{ $connectionCard } {
-    margin-block-end: 0;
-    @include card-format(false, 0, true);
+  margin-block-end: 0;
+  @include card-format(false, 0, true);
 
-    #{ $connectionCardHeader } {
-        @include card-format--header(false, true);
+  #{ $connectionCardHeader } {
+    @include card-format--header(false, true);
+  }
+
+  #{ $connectionCardOptions } {
+    padding: 0 16px 16px;
+
+    #{ $connectionCardSwitch } {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+
+      &:last-of-type {
+        margin-block-end: 0;
+      }
     }
+  }
 
-    #{ $connectionCardOptions } {
-        padding: 0 16px 16px;
+  #{ $settingsHeaderDivider } {
+    margin: 0 16px;
+    border-top-color: var(--card-border-color);
+  }
 
-        #{ $connectionCardSwitch } {
-            padding-inline-start: 0;
-            padding-inline-end: 0;
+  #{ $connectionCardMetadataContainer } {
+    --card-color-filled: var(--card-color-alt);
 
-            &:last-of-type {
-                margin-block-end: 0;
-            }
-        }
+    margin: 0 16px 16px;
+    @include card-format(false, 12px, true);
+  }
+
+  #{ $connectionsCardUpsellWrapper } {
+    padding: 0;
+  }
+
+  #{ $connectionCardUpsellContainer } {
+    @extend #{ $connectionCardMetadataContainer };
+
+    #{ $button } {
+      min-width: 130px;
     }
-
-    #{ $settingsHeaderDivider } {
-        margin: 0 16px;
-        border-top-color: var(--card-border-color);
-    }
-
-    #{ $connectionCardMetadataContainer } {
-        --card-color-filled: var(--card-color-alt);
-
-        margin: 0 16px 16px;
-        @include card-format(false, 12px, true);
-    }
-
-    #{ $connectionsCardUpsellWrapper } {
-        padding: 0;
-    }
-
-    #{ $connectionCardUpsellContainer } {
-        @extend #{ $connectionCardMetadataContainer };
-
-        #{ $button } {
-            min-width: 130px;
-        }
-    }
+  }
 }
 
 #{ $integrationWrapper } {
-	padding: 0;
-    background-color: transparent;
+  padding: 0;
+  background-color: transparent;
 
-	#{ $integrationCard } {
-        --card-color-filled: var(--card-color-alt);
+  #{ $integrationCard } {
+    --card-color-filled: var(--card-color-alt);
 
-        @include card-format(false, 16px, true);
-        border-radius: 4px;
+    @include card-format(false, 16px, true);
+    border-radius: 4px;
 
-        &:first-of-type {
-            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-        }
+    &:first-of-type {
+      border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+    }
 
-        &:last-of-type {
-            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-        }
+    &:last-of-type {
+      border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+    }
 
-        &:only-child {
-            border-radius: calc(var(--card-radius-big) / 1.6);
-        }
+    &:only-child {
+      border-radius: calc(var(--card-radius-big) / 1.6);
+    }
 
-		#{ $button } {
-			background-color: hsl(var(--accent-hsl),0.1);
-			color: hsl(var(--accent-hsl--material-you));
-		}
-	}
+    #{ $button } {
+      background-color: hsl(var(--accent-hsl), 0.1);
+      color: hsl(var(--accent-hsl--material-you));
+    }
+  }
 }
 
 /**/
 
 #{ $connectionsChecksGroup } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 
-    &#{ $connectionsChecksGroupPassed } {
-        background-color: var(--card-color-active);
-    }
+  &#{ $connectionsChecksGroupPassed } {
+    background-color: var(--card-color-active);
+  }
 }
 
 #{ $connectionsRoleGranted } {
-    margin-block-start: 0;
-    padding: 16px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+  margin-block-start: 0;
+  padding: 16px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
-    #{ $textLgSemibold } {
-        font-size: 1.25em;
-        font-weight: 400;
-    }
+  #{ $textLgSemibold } {
+    font-size: 1.25em;
+    font-weight: 400;
+  }
 }
 
 #{ $connectionsChannelsGranted } {
-    margin-block-end: 0;
-    padding: 0 16px 16px;
-    background-color: var(--card-color-filled);
-    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+  margin-block-end: 0;
+  padding: 0 16px 16px;
+  background-color: var(--card-color-filled);
+  border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
 
-    #{ $headingLgSemibold } {
-        font-size: 1.1em;
-        font-weight: 400;
-    }
+  #{ $headingLgSemibold } {
+    font-size: 1.1em;
+    font-weight: 400;
+  }
 }

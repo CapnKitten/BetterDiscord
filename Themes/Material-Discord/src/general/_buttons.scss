@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,284 +7,284 @@
  */
 
 #{ $button } {
-	font-size: var(--button-font-size) !important;
+  font-size: var(--button-font-size) !important;
 
-	#{ $textSmMedium },
-	#{ $textSmSemibold },
-	#{ $textSmBold },
-	#{ $textMdMedium },
-	#{ $textMdSemibold },
-	#{ $textMdBold } {
-		height: var(--button-height);
-		line-height: var(--button-height);
-		font-size: unset;
-		font-weight: 500;
-		color: inherit !important;
-	}
+  #{ $textSmMedium },
+  #{ $textSmSemibold },
+  #{ $textSmBold },
+  #{ $textMdMedium },
+  #{ $textMdSemibold },
+  #{ $textMdBold } {
+    height: var(--button-height);
+    line-height: var(--button-height);
+    font-size: unset;
+    font-weight: 500;
+    color: inherit !important;
+  }
 }
 
 #{ $buttonFilled },
 #{ $buttonOutlined },
 #{ $buttonLink },
 #{ $buttonInverted } {
-	--button-background: hsl(var(--accent-hsl--material-you));
-	--button-text-color: var(--accent-text-color--material-you);
-	--button-shadow: none;
-	--button-outline: none;
+  --button-background: hsl(var(--accent-hsl--material-you));
+  --button-text-color: var(--accent-text-color--material-you);
+  --button-shadow: none;
+  --button-outline: none;
 
-	background-color: var(--button-background) !important;
-	border-radius: var(--button-radius);
-	border: var(--button-outline) !important;
-	box-shadow: var(--button-shadow);
-	color: var(--button-text-color) !important;
-	transition: var(--default-time) var(--default-animation) box-shadow;
+  background-color: var(--button-background) !important;
+  border-radius: var(--button-radius);
+  border: var(--button-outline) !important;
+  box-shadow: var(--button-shadow);
+  color: var(--button-text-color) !important;
+  transition: var(--default-time) var(--default-animation) box-shadow;
 
-	&:hover,
-	&:active {
-		&:not(:disabled) {
-			opacity: 1;
-		}
-	}
+  &:hover,
+  &:active {
+    &:not(:disabled) {
+      opacity: 1;
+    }
+  }
 
-	&:hover {
-		--button-shadow: none;
-	}
+  &:hover {
+    --button-shadow: none;
+  }
 
-	&:active {
-		--button-shadow: none;
-	}
+  &:active {
+    --button-shadow: none;
+  }
 
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		background-color: var(--button-action-color);
-		border-radius: var(--button-radius);
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: var(--button-action-color);
+    border-radius: var(--button-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
 
-	&:hover {
-		&:after {
-			opacity: var(--button-action-hover);
-		}
-	}
+  &:hover {
+    &:after {
+      opacity: var(--button-action-hover);
+    }
+  }
 
-	&:active {
-		&:after {
-			opacity: var(--button-action-active);
-		}
-	}
+  &:active {
+    &:after {
+      opacity: var(--button-action-active);
+    }
+  }
 
-	&:disabled {
-		&:after {
-			display: none;
-		}
-	}
+  &:disabled {
+    &:after {
+      display: none;
+    }
+  }
 
-	&#{ $userProfileSyncButton } {
-		--button-padding-start: 0 !important;
-		--button-padding-end: 0 !important;
-	}
+  &#{ $userProfileSyncButton } {
+    --button-padding-start: 0 !important;
+    --button-padding-end: 0 !important;
+  }
 
-	#{ $buttonContents } {
-		height: var(--button-height);
-		padding: 0;
-		line-height: var(--button-height);
-		color: inherit;
-		overflow: visible;
+  #{ $buttonContents } {
+    height: var(--button-height);
+    padding: 0;
+    line-height: var(--button-height);
+    color: inherit;
+    overflow: visible;
 
-		svg {
-			height: var(--button-height);
-		}
-	}
+    svg {
+      height: var(--button-height);
+    }
+  }
 
-	#{ $defaultColor } {
-		color: inherit;
-	}
+  #{ $defaultColor } {
+    color: inherit;
+  }
 
-	#{ $buttonLoading } {
-		height: var(--button-height);
-		line-height: var(--button-height);
+  #{ $buttonLoading } {
+    height: var(--button-height);
+    line-height: var(--button-height);
 
-		svg {
-			height: auto;
-		}
-	}
+    svg {
+      height: auto;
+    }
+  }
 
-	#{ $buttonContentsInner },
-	#{ $size16 },
-	#{ $size14 } {
-		height: var(--button-height);
-		line-height: var(--button-height);
-		font-weight: 500;
-	}
+  #{ $buttonContentsInner },
+  #{ $size16 },
+  #{ $size14 } {
+    height: var(--button-height);
+    line-height: var(--button-height);
+    font-weight: 500;
+  }
 }
 
 /* BUTTONS -> FILLED */
 
 #{ $buttonFilled } {
-	&#{ $buttonPrimary } {
-		--button-background: var(--accent-secondary-color);
-		--button-text-color: var(--accent-secondary-text-color);
-	}
+  &#{ $buttonPrimary } {
+    --button-background: var(--accent-secondary-color);
+    --button-text-color: var(--accent-secondary-text-color);
+  }
 
-	&#{ $buttonBrand } {
-		--button-background: hsl(var(--accent-hsl--material-you));
-		--button-text-color: var(--accent-text-color--material-you);
-	}
+  &#{ $buttonBrand } {
+    --button-background: hsl(var(--accent-hsl--material-you));
+    --button-text-color: var(--accent-text-color--material-you);
+  }
 
-	&#{ $buttonBrandInverted } {
-	    --button-background: var(--button-filled-white-background);
-	    --button-text-color: hsl(var(--accent-hsl--material-you));
-	}
+  &#{ $buttonBrandInverted } {
+    --button-background: var(--button-filled-white-background);
+    --button-text-color: hsl(var(--accent-hsl--material-you));
+  }
 
-    &#{ $buttonGreen } {
-		--button-background: hsl(var(--success-hsl));
-        --button-text-color: var(--success-text-color);
-    }
+  &#{ $buttonGreen } {
+    --button-background: hsl(var(--success-hsl));
+    --button-text-color: var(--success-text-color);
+  }
 
-	&#{ $buttonRed } {
-		--button-background: hsl(var(--alert-hsl));
-		--button-text-color: var(--alert-text-color);
-	}
+  &#{ $buttonRed } {
+    --button-background: hsl(var(--alert-hsl));
+    --button-text-color: var(--alert-text-color);
+  }
 
-	&#{ $buttonWhite } {
-		--button-background: var(--button-filled-white-background);
-		--button-text-color: var(--button-filled-white-text);
-		box-shadow: none !important;
-	}
+  &#{ $buttonWhite } {
+    --button-background: var(--button-filled-white-background);
+    --button-text-color: var(--button-filled-white-text);
+    box-shadow: none !important;
+  }
 
-	&#{ $buttonUpsell } {
-		--button-text-color: hsl(0,0%,100%);
-	}
+  &#{ $buttonUpsell } {
+    --button-text-color: hsl(0, 0%, 100%);
+  }
 }
 
 /* BUTTONS -> OUTLINED */
 
 #{ $buttonOutlined } {
-	--button-background: transparent;
-	--button-text-color: hsl(var(--accent-hsl--material-you));
-	--button-shadow: none !important;
-	--button-outline: 1px solid hsl(var(--accent-hsl--material-you));
+  --button-background: transparent;
+  --button-text-color: hsl(var(--accent-hsl--material-you));
+  --button-shadow: none !important;
+  --button-outline: 1px solid hsl(var(--accent-hsl--material-you));
 
-	&:after {
-		--button-action-color: hsl(var(--accent-hsl--material-you));
-	}
+  &:after {
+    --button-action-color: hsl(var(--accent-hsl--material-you));
+  }
 
-	&#{ $buttonPrimary } {
-        --button-outline: 1px solid var(--accent-secondary-color);
-        --button-text-color: var(--accent-secondary-color);
+  &#{ $buttonPrimary } {
+    --button-outline: 1px solid var(--accent-secondary-color);
+    --button-text-color: var(--accent-secondary-color);
+  }
+
+  &#{ $buttonGreen } {
+    --button-outline: 1px solid hsl(var(--success-hsl));
+    --button-text-color: hsl(var(--success-hsl));
+
+    &:after {
+      --button-action-color: hsl(var(--success-hsl));
+      --button-action-hover: 0.1;
+      --button-action-active: 0.2;
     }
+  }
 
-    &#{ $buttonGreen } {
-        --button-outline: 1px solid hsl(var(--success-hsl));
-        --button-text-color: hsl(var(--success-hsl));
+  &#{ $buttonRed } {
+    --button-text-color: hsl(var(--alert-hsl));
+    --button-outline: 1px solid hsl(var(--alert-hsl));
 
-        &:after {
-			--button-action-color: hsl(var(--success-hsl));
-			--button-action-hover: 0.1;
-			--button-action-active: 0.2;
-		}
+    &:after {
+      --button-action-color: hsl(var(--alert-hsl));
+      --button-action-hover: 0.1;
+      --button-action-active: 0.2;
     }
+  }
 
-	&#{ $buttonRed } {
-		--button-text-color: hsl(var(--alert-hsl));
-		--button-outline: 1px solid hsl(var(--alert-hsl));
+  &#{ $buttonWhite } {
+    --button-background: transparent;
+    --button-text-color: hsl(0, 0%, 100%);
+    --button-outline: 1px solid hsl(0, 0%, 100%);
+    box-shadow: none !important;
 
-		&:after {
-			--button-action-color: hsl(var(--alert-hsl));
-			--button-action-hover: 0.1;
-			--button-action-active: 0.2;
-		}
-	}
-
-	&#{ $buttonWhite } {
-		--button-background: transparent;
-		--button-text-color: hsl(0,0%,100%);
-		--button-outline: 1px solid hsl(0,0%,100%);
-		box-shadow: none !important;
-
-		&:after {
-			--button-action-color: hsl(0,0%,100%);
-		}
-	}
+    &:after {
+      --button-action-color: hsl(0, 0%, 100%);
+    }
+  }
 }
 
 /* BUTTONS -> LINKS */
 
 #{ $buttonLink } {
-	--button-padding-start: 12px;
-	--button-padding-end: 12px;
-	--button-background: transparent;
-	--button-text-color: var(--button-link-accent-text-color);
-	--button-shadow: none !important;
+  --button-padding-start: 12px;
+  --button-padding-end: 12px;
+  --button-background: transparent;
+  --button-text-color: var(--button-link-accent-text-color);
+  --button-shadow: none !important;
 
-	--accent-button-action-hover: 0.14;
-	--accent-button-action-active: 0.21;
+  --accent-button-action-hover: 0.14;
+  --accent-button-action-active: 0.21;
 
-	&:after {
-		--button-action-color: hsl(var(--button-link-accent-color));
-	}
+  &:after {
+    --button-action-color: hsl(var(--button-link-accent-color));
+  }
 
-	&:hover {
-		text-decoration: none !important;
+  &:hover {
+    text-decoration: none !important;
 
-		#{ $buttonContents } {
-			background-image: none !important;
-		}
-	}
-
-	#{ $buttonContents } {
-		> div {
-			line-height: var(--button-height);
-			color: var(--button-text-color) !important;
-			font-size: 1em;
-			font-weight: 500;
-		}
-	}
-
-	&#{ $buttonGreen } {
-        --button-text-color: hsl(var(--success-hsl));
-
-        &:after {
-			--button-action-color: hsl(var(--success-hsl));
-			--button-action-hover: 0.1;
-			--button-action-active: 0.2;
-		}
+    #{ $buttonContents } {
+      background-image: none !important;
     }
+  }
 
-	&#{ $buttonGreen } {
-		&:after {
-			--button-action-color: hsl(var(--success-hsl));
-			--button-action-hover: 0.1;
-			--button-action-active: 0.2;
-		}
-	}
+  #{ $buttonContents } {
+    > div {
+      line-height: var(--button-height);
+      color: var(--button-text-color) !important;
+      font-size: 1em;
+      font-weight: 500;
+    }
+  }
 
-	&#{ $buttonRed } {
-		--button-text-color: hsl(var(--alert-hsl));
+  &#{ $buttonGreen } {
+    --button-text-color: hsl(var(--success-hsl));
 
-		&:after {
-			--button-action-color: hsl(var(--alert-hsl));
-			--button-action-hover: 0.1;
-			--button-action-active: 0.2;
-		}
-	}
+    &:after {
+      --button-action-color: hsl(var(--success-hsl));
+      --button-action-hover: 0.1;
+      --button-action-active: 0.2;
+    }
+  }
+
+  &#{ $buttonGreen } {
+    &:after {
+      --button-action-color: hsl(var(--success-hsl));
+      --button-action-hover: 0.1;
+      --button-action-active: 0.2;
+    }
+  }
+
+  &#{ $buttonRed } {
+    --button-text-color: hsl(var(--alert-hsl));
+
+    &:after {
+      --button-action-color: hsl(var(--alert-hsl));
+      --button-action-hover: 0.1;
+      --button-action-active: 0.2;
+    }
+  }
 }
 
 /* BUTTONS -> INVERTED */
 
 #{ $buttonInverted } {
-	&#{ $buttonBrand } {
-		--button-background: hsl(0,0%,100%,0.15);
-		--button-text-color: hsl(0,0%,100%);
-		--button-shadow: none !important;
-	}
+  &#{ $buttonBrand } {
+    --button-background: hsl(0, 0%, 100%, 0.15);
+    --button-text-color: hsl(0, 0%, 100%);
+    --button-shadow: none !important;
+  }
 }
 
 /* BUTTONS -> SIZES */
@@ -300,192 +300,191 @@
 #{ $buttonSizeAlt },
 #{ $noticeButton },
 #{ $buttonSizeIcon } {
-	//min-width: var(--button-height);
-	height: var(--button-height) !important;
-	min-height: var(--button-height) !important;
-	padding-block: 0 !important;
-	padding-inline-start: var(--button-padding-start) !important;
-	padding-inline-end: var(--button-padding-end) !important;
-	line-height: var(--button-height) !important;
-	border-radius: var(--button-radius) !important;
+  //min-width: var(--button-height);
+  height: var(--button-height) !important;
+  min-height: var(--button-height) !important;
+  padding-block: 0 !important;
+  padding-inline-start: var(--button-padding-start) !important;
+  padding-inline-end: var(--button-padding-end) !important;
+  line-height: var(--button-height) !important;
+  border-radius: var(--button-radius) !important;
 }
 
 #{ $buttonSizeMedium },
 #{ $buttonSizeLarge },
 #{ $buttonSizeXlarge },
 #{ $buttonSizeMax } {
-	min-width: var(--button-height) !important;
+  min-width: var(--button-height) !important;
 }
 
 #{ $buttonSizeAlt } {
-	height: var(--button-height) !important;
+  height: var(--button-height) !important;
 }
 
 #{ $buttonSizeIcon } {
-	--button-padding-start: 0;
-	--button-padding-end: 0;
+  --button-padding-start: 0;
+  --button-padding-end: 0;
 
-	min-width: var(--button-height);
+  min-width: var(--button-height);
 }
 
 #{ $disabledButtonWrapper } {
-	--button-padding-start: 0;
-	--button-padding-end: 0;
+  --button-padding-start: 0;
+  --button-padding-end: 0;
 
-	background-color: transparent !important;
+  background-color: transparent !important;
 
-	#{ $buttonFilled } {
-		--button-padding-start: 20px;
-		--button-padding-end: 20px;
-	}
+  #{ $buttonFilled } {
+    --button-padding-start: 20px;
+    --button-padding-end: 20px;
+  }
 
-	#{ $buttonOutlined } {
-		--button-padding-start: 24px;
-		--button-padding-end: 24px;
+  #{ $buttonOutlined } {
+    --button-padding-start: 24px;
+    --button-padding-end: 24px;
 
-		opacity: 0.5 !important;
-	}
+    opacity: 0.5 !important;
+  }
 
-
-	#{ $iconButton } {
-		--button-padding-start: 0;
-		--button-padding-end: 0;
-	}
+  #{ $iconButton } {
+    --button-padding-start: 0;
+    --button-padding-end: 0;
+  }
 }
 
 #{ $buttonIconSize } {
-	min-width: var(--button-height);
-	max-width: var(--button-height);
+  min-width: var(--button-height);
+  max-width: var(--button-height);
 }
 
 #{ $iconButton } {
-	--button-padding-start: 0;
-	--button-padding-end: 0;
+  --button-padding-start: 0;
+  --button-padding-end: 0;
 }
 
 /* BUTTONS -> BUTTON V2 */
 
 #{ $buttonV2 } {
-    --button-background: hsl(var(--accent-hsl--material-you));
-	--button-text-color: var(--accent-text-color--material-you);
-	--button-shadow: none;
-	--button-outline: none;
+  --button-background: hsl(var(--accent-hsl--material-you));
+  --button-text-color: var(--accent-text-color--material-you);
+  --button-shadow: none;
+  --button-outline: none;
 
-    background-color: var(--button-background) !important;
-	border-radius: var(--button-radius);
-	border: var(--button-outline) !important;
-	box-shadow: var(--button-shadow);
-	color: var(--button-text-color) !important;
-	transition: var(--default-time) var(--default-animation) box-shadow;
+  background-color: var(--button-background) !important;
+  border-radius: var(--button-radius);
+  border: var(--button-outline) !important;
+  box-shadow: var(--button-shadow);
+  color: var(--button-text-color) !important;
+  transition: var(--default-time) var(--default-animation) box-shadow;
 
-    &:hover,
-	&:active {
-		&:not(:disabled) {
-			opacity: 1;
-		}
-	}
+  &:hover,
+  &:active {
+    &:not(:disabled) {
+      opacity: 1;
+    }
+  }
 
-    &:hover {
-		--button-shadow: none;
-	}
+  &:hover {
+    --button-shadow: none;
+  }
 
-	&:active {
-		--button-shadow: none;
-	}
+  &:active {
+    --button-shadow: none;
+  }
 
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		background-color: var(--button-action-color);
-		border-radius: var(--button-radius);
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: var(--button-action-color);
+    border-radius: var(--button-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
 
-	&:hover {
-		&:after {
-			opacity: var(--button-action-hover);
-		}
-	}
+  &:hover {
+    &:after {
+      opacity: var(--button-action-hover);
+    }
+  }
 
-	&:active {
-		&:after {
-			opacity: var(--button-action-active);
-		}
-	}
+  &:active {
+    &:after {
+      opacity: var(--button-action-active);
+    }
+  }
 
-	&:disabled {
-		&:after {
-			display: none;
-		}
-	}
+  &:disabled {
+    &:after {
+      display: none;
+    }
+  }
 
-    #{ $buttonV2ChildrenWrapper } {
-        min-width: 0 !important;
-        height: var(--button-height);
-		padding: 0 !important;
-		line-height: var(--button-height);
-		color: inherit;
-		overflow: visible;
+  #{ $buttonV2ChildrenWrapper } {
+    min-width: 0 !important;
+    height: var(--button-height);
+    padding: 0 !important;
+    line-height: var(--button-height);
+    color: inherit;
+    overflow: visible;
 
-		svg {
-			height: var(--button-height);
-			margin: 0;
-		}
-
-		img {
-			vertical-align: middle;
-		}
+    svg {
+      height: var(--button-height);
+      margin: 0;
     }
 
-    #{ $textSmMedium },
-    #{ $textMdMedium },
-    #{ $textLgMedium } {
-		height: var(--button-height);
-		line-height: var(--button-height);
-        font-size: var(--button-font-size);
+    img {
+      vertical-align: middle;
     }
+  }
+
+  #{ $textSmMedium },
+  #{ $textMdMedium },
+  #{ $textLgMedium } {
+    height: var(--button-height);
+    line-height: var(--button-height);
+    font-size: var(--button-font-size);
+  }
 }
 
 #{ $buttonV2Expressive } {
-    #{ $buttonV2ExpressiveFill } {
-        border-radius: var(--button-radius);
-    }
+  #{ $buttonV2ExpressiveFill } {
+    border-radius: var(--button-radius);
+  }
 }
 
 /* BUTTONS -> BUTTON V2 -> COLORS */
 
 #{ $buttonV2Primary } {
-    --button-background: hsl(var(--accent-hsl--material-you));
-    --button-text-color: var(--accent-text-color--material-you);
+  --button-background: hsl(var(--accent-hsl--material-you));
+  --button-text-color: var(--accent-text-color--material-you);
 }
 
 #{ $buttonV2Secondary } {
-    --button-background: var(--accent-secondary-color);
-    --button-text-color: var(--accent-secondary-text-color);
+  --button-background: var(--accent-secondary-color);
+  --button-text-color: var(--accent-secondary-text-color);
 }
 
 #{ $buttonV2CriticalPrimary } {
-    --button-background: hsl(var(--alert-hsl));
-    --button-text-color: var(--alert-text-color);
+  --button-background: hsl(var(--alert-hsl));
+  --button-text-color: var(--alert-text-color);
 }
 
 #{ $buttonV2CriticalSecondary } {
-    --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
-    --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
-	--button-action-color: hsl(var(--alert-hsl));
+  --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
+  --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
+  --button-action-color: hsl(var(--alert-hsl));
 }
 
 #{ $buttonV2IconOnly } {
-	--button-padding-start: 0;
-	--button-padding-end: 0;
-    --button-background: transparent;
-    --button-text-color: var(--text-primary);
+  --button-padding-start: 0;
+  --button-padding-end: 0;
+  --button-background: transparent;
+  --button-text-color: var(--text-primary);
 }
 
 /* BUTTONS -> BUTTON V2 -> SIZES */
@@ -493,107 +492,107 @@
 #{ $buttonV2Small },
 #{ $buttonV2Medium },
 #{ $buttonV2Large } {
-    min-width: var(--button-height) !important;
-	height: var(--button-height) !important;
-	min-height: var(--button-height) !important;
-	padding-block: 0 !important;
-	padding-inline-start: var(--button-padding-start) !important;
-	padding-inline-end: var(--button-padding-end) !important;
-	line-height: var(--button-height) !important;
-	border-radius: var(--button-radius) !important;
+  min-width: var(--button-height) !important;
+  height: var(--button-height) !important;
+  min-height: var(--button-height) !important;
+  padding-block: 0 !important;
+  padding-inline-start: var(--button-padding-start) !important;
+  padding-inline-end: var(--button-padding-end) !important;
+  line-height: var(--button-height) !important;
+  border-radius: var(--button-radius) !important;
 }
 
 /* BUTTONS -> CALL BUTTONS */
 
 #{ $callButtonColorable } {
-	--button-background: var(--menu-item-hover);
-	--button-text-color: hsl(0,0%,100%);
+  --button-background: var(--menu-item-hover);
+  --button-text-color: hsl(0, 0%, 100%);
 
-	background-color: var(--button-background) !important;
-	color: var(--button-text-color) !important;
+  background-color: var(--button-background) !important;
+  color: var(--button-text-color) !important;
 
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		background-color: hsl(0,0%,100%);
-		border-radius: 50%;
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
 
-	&:hover {
-		&:after {
-			opacity: var(--button-action-hover);
-		}
-	}
+  &:hover {
+    &:after {
+      opacity: var(--button-action-hover);
+    }
+  }
 
-	&:active {
-		&:after {
-			opacity: var(--button-action-active);
-		}
-	}
+  &:active {
+    &:after {
+      opacity: var(--button-action-active);
+    }
+  }
 
-	&#{ $callButtonRed } {
-		--button-background: hsl(var(--alert-hsl));
-		--button-text-color: var(--alert-text-color);
-	}
+  &#{ $callButtonRed } {
+    --button-background: hsl(var(--alert-hsl));
+    --button-text-color: var(--alert-text-color);
+  }
 
-	&#{ $callButtonWhite } {
-		--button-background: hsl(0,0%,100%);
-		--button-text-color: hsl(240,8%,3%);
-	}
+  &#{ $callButtonWhite } {
+    --button-background: hsl(0, 0%, 100%);
+    --button-text-color: hsl(240, 8%, 3%);
+  }
 
-	&#{ $callButtonLight } {
-		--button-text-color: hsl(240,8%,3%);
-	}
+  &#{ $callButtonLight } {
+    --button-text-color: hsl(240, 8%, 3%);
+  }
 
-	&#{ $callButtonLightActive } {
-		--button-background: var(--menu-item-select);
-		--button-text-color: hsl(240,8%,3%);
-	}
+  &#{ $callButtonLightActive } {
+    --button-background: var(--menu-item-select);
+    --button-text-color: hsl(240, 8%, 3%);
+  }
 
-	#{ $callCenterIcon } {
-		color: var(--button-text-color) !important;
-	}
+  #{ $callCenterIcon } {
+    color: var(--button-text-color) !important;
+  }
 }
 
 #{ $buttonQuestionMark } {
-	background-color: hsl(var(--accent-hsl--material-you));
-	border-radius: 50%;
+  background-color: hsl(var(--accent-hsl--material-you));
+  border-radius: 50%;
 
-	#{ $buttongQuestionMarkIcon } {
-		color: var(--accent-text-color--material-you);
-	}
+  #{ $buttongQuestionMarkIcon } {
+    color: var(--accent-text-color--material-you);
+  }
 }
 
 /* BUTTONS -> SEGMENTED BUTTONS */
 
 #{ $segmentedButton } {
-	padding: 11px 0;
-	background-color: transparent;
-	border-color: var(--separator-color) !important;
-	transition: var(--default-time) var(--default-animation) background-color;
+  padding: 11px 0;
+  background-color: transparent;
+  border-color: var(--separator-color) !important;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:first-child {
-		border-radius: 20px 0 0 20px;
-	}
+  &:first-child {
+    border-radius: 20px 0 0 20px;
+  }
 
-	&:last-child {
-		border-radius: 0 20px 20px 0;
-	}
+  &:last-child {
+    border-radius: 0 20px 20px 0;
+  }
 
-	&:not(#{ $segmentedButtonPremiumRequired }) {
-		&:hover {
-			background-color: var(--menu-item-hover) !important;
-		}
+  &:not(#{ $segmentedButtonPremiumRequired }) {
+    &:hover {
+      background-color: var(--menu-item-hover) !important;
+    }
 
-		&#{ $segmentedButtonSelected } {
-			background-color: var(--menu-item-select) !important;
-		}
-	}
+    &#{ $segmentedButtonSelected } {
+      background-color: var(--menu-item-select) !important;
+    }
+  }
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,97 +8,97 @@
  */
 
 #{ $modalRoot } {
-    @include add-translucence(null, false, true, true);
+  @include add-translucence(null, false, true, true);
 
-    &#{ $modalSmall } {
-        min-height: 75px;
+  &#{ $modalSmall } {
+    min-height: 75px;
+  }
+
+  &#{ $modalRootNoBg },
+  &#{ $modalRootTransparent },
+  &#{ $carouselModal } {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  &#{ $groupInvitePopout } {
+    backdrop-filter: blur(var(--popout-blur));
+  }
+
+  #{ $modalHeader } {
+    background-color: transparent;
+    box-shadow: var(--popout-header-shadow);
+
+    #{ $modalTitle } {
+      margin-block-end: 0;
     }
 
-    &#{ $modalRootNoBg },
-    &#{ $modalRootTransparent },
-    &#{ $carouselModal } {
-        background-color: transparent !important;
-        box-shadow: none !important;
+    #{ $modalCloseButton },
+    #{ $modalHeaderButton } {
+      --button-height: 32px;
+
+      position: absolute;
+      width: var(--button-height);
+      height: var(--button-height);
+      inset-block-start: 12px;
+      inset-inline-end: 12px;
+      margin: 0;
+      padding: 0;
     }
 
-    &#{ $groupInvitePopout } {
-		backdrop-filter: blur(var(--popout-blur));
-	}
+    #{ $modalCloseButton } {
+      #{ $buttonContents } {
+        height: 24px;
+      }
 
-    #{ $modalHeader } {
-        background-color: transparent;
-        box-shadow: var(--popout-header-shadow);
-
-        #{ $modalTitle } {
-            margin-block-end: 0;
-        }
-
-        #{ $modalCloseButton },
-        #{ $modalHeaderButton } {
-            --button-height: 32px;
-
-            position: absolute;
-            width: var(--button-height);
-			height: var(--button-height);
-            inset-block-start: 12px;
-			inset-inline-end: 12px;
-			margin: 0;
-			padding: 0;
-        }
-
-        #{ $modalCloseButton } {
-            #{ $buttonContents } {
-                height: 24px;
-            }
-
-            svg {
-                height: 24px !important;
-				transform: scale(0.85);
-			}
-        }
-
-        #{ $modalHeaderButton } {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            #{ $modalHeaderButtonIcon } {
-                height: 24px;
-                transform: scale(0.85);
-            }
-        }
+      svg {
+        height: 24px !important;
+        transform: scale(0.85);
+      }
     }
 
-    #{ $modalContent } {
-        padding: 16px;
-    }
+    #{ $modalHeaderButton } {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    #{ $modalBody } {
-        background-color: transparent;
+      #{ $modalHeaderButtonIcon } {
+        height: 24px;
+        transform: scale(0.85);
+      }
     }
+  }
 
-    #{ $modalFooter } {
-        background-color: transparent !important;
-		box-shadow: none;
-    }
+  #{ $modalContent } {
+    padding: 16px;
+  }
+
+  #{ $modalBody } {
+    background-color: transparent;
+  }
+
+  #{ $modalFooter } {
+    background-color: transparent !important;
+    box-shadow: none;
+  }
 }
 
 #{ $backdrop } {
-    background-color: rgba(0,0,0,0.3) !important;
-	backdrop-filter: blur(calc(var(--popout-blur) * 1.4)) !important;
-	opacity: 1 !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(calc(var(--popout-blur) * 1.4)) !important;
+  opacity: 1 !important;
 }
 
 /* MODALS -> V2 MODALS */
 
 #{ $modalV2Container } {
-    @include add-translucence(null, true, true, false);
+  @include add-translucence(null, true, true, false);
 
-    #{ $modalV2Header } {
-        #{ $buttonV2 } {
-            --button-padding: 0;
-            --button-background: transparent;
-            --button-text-color: var(--control-icon-icon-only-default);
-        }
+  #{ $modalV2Header } {
+    #{ $buttonV2 } {
+      --button-padding: 0;
+      --button-background: transparent;
+      --button-text-color: var(--control-icon-icon-only-default);
     }
+  }
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,184 +8,184 @@
  */
 
 #{ $nowPlayingColumn } {
-	background-color: var(--main-color);
+  background-color: var(--main-color);
 
-	#{ $nowPlayingColumnContainer } {
-		background-color: transparent;
+  #{ $nowPlayingColumnContainer } {
+    background-color: transparent;
 
-		#{ $nowPlayingColumnScroller } {
-			margin-inline-start: 0;
-			padding: 16px 16px 12px;
-			border-inline-start: none;
-		}
-	}
+    #{ $nowPlayingColumnScroller } {
+      margin-inline-start: 0;
+      padding: 16px 16px 12px;
+      border-inline-start: none;
+    }
+  }
 }
 
 #{ $nowPlayingColumnMemberItem } {
-	padding: 0;
+  padding: 0;
 }
 
 #{ $activeNowPrivacyCard } {
-	margin-block-end: 16px;
-	@include card-format;
+  margin-block-end: 16px;
+  @include card-format;
 
-	#{ $activeNowPrivacyCardHeader } {
-		@include card-format--header;
-		text-align: left;
-	}
+  #{ $activeNowPrivacyCardHeader } {
+    @include card-format--header;
+    text-align: left;
+  }
 
-	#{ $size14 } {
-		padding: 16px 16px 0;
-	}
+  #{ $size14 } {
+    padding: 16px 16px 0;
+  }
 
-	#{ $activeNowPrivacyCardButtonContainer } {
-		padding: 0 16px 16px;
-	}
+  #{ $activeNowPrivacyCardButtonContainer } {
+    padding: 0 16px 16px;
+  }
 }
 
 #{ $emptyActiveNowCard } {
-	padding: 0;
-	background-color: var(--activity-card-color);
-	border-radius: var(--card-radius-big);
+  padding: 0;
+  background-color: var(--activity-card-color);
+  border-radius: var(--card-radius-big);
 
-	#{ $emptyActiveNowHeader } {
-		width: 100%;
-		@include card-format--header(false, true);
-		box-sizing: border-box;
-		text-align: left;
-	}
+  #{ $emptyActiveNowHeader } {
+    width: 100%;
+    @include card-format--header(false, true);
+    box-sizing: border-box;
+    text-align: left;
+  }
 
-	#{ $emptyActiveNowText } {
-		padding: 0 16px 16px;
-		text-align: left;
-	}
+  #{ $emptyActiveNowText } {
+    padding: 0 16px 16px;
+    text-align: left;
+  }
 }
 
 #{ $activeNowRefresh } {
-	#{ $activeNowCardInteractive } {
-		margin: 0 0 2px;
-		background-color: var(--activity-card-color);
-		border-radius: 4px;
-		border: none;
-		box-shadow: none;
-		transition: var(--default-time) var(--default-animation) background-color;
+  #{ $activeNowCardInteractive } {
+    margin: 0 0 2px;
+    background-color: var(--activity-card-color);
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+    transition: var(--default-time) var(--default-animation) background-color;
 
-		&:first-of-type {
-			border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+    &:first-of-type {
+      border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
 
-			&:nth-last-child(1) {
-				border-radius: var(--card-radius-big);
-			}
-		}
+      &:nth-last-child(1) {
+        border-radius: var(--card-radius-big);
+      }
+    }
 
-		&:nth-last-child(1) {
-			border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-		}
+    &:nth-last-child(1) {
+      border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+    }
 
-		&:hover {
-			background-color: var(--activity-card-color--hover) !important;
-		}
+    &:hover {
+      background-color: var(--activity-card-color--hover) !important;
+    }
 
-		#{ $activeNowCardInset } {
-			&:not(:empty) {
-				padding-block: var(--space-4) var(--space-8);
-				padding-inline: var(--space-16);
-			}
+    #{ $activeNowCardInset } {
+      &:not(:empty) {
+        padding-block: var(--space-4) var(--space-8);
+        padding-inline: var(--space-16);
+      }
 
-			background-color: transparent;
-		}
+      background-color: transparent;
+    }
 
-		#{ $activeNowOuterCard } {
-	        background-color: var(--activity-card-color);
-	    }
+    #{ $activeNowOuterCard } {
+      background-color: var(--activity-card-color);
+    }
 
-		#{ $activeNowCardSection } {
-			margin-block-end: 2px;
-	        background-color: var(--activity-card-color--inset);
-	        border-radius: 4px;
-			border: none;
+    #{ $activeNowCardSection } {
+      margin-block-end: 2px;
+      background-color: var(--activity-card-color--inset);
+      border-radius: 4px;
+      border: none;
 
-			&:first-of-type {
-	            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-	        }
+      &:first-of-type {
+        border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+      }
 
-	        &:not(:first-of-type):last-of-type {
-	            margin-block-end: 0;
-	            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-	        }
+      &:not(:first-of-type):last-of-type {
+        margin-block-end: 0;
+        border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+      }
 
-	        &:only-child {
-	            border-radius: var(--card-radius-big);
-	        }
-		}
+      &:only-child {
+        border-radius: var(--card-radius-big);
+      }
+    }
 
-		#{ $activeNowCardSeparator } {
-			display: none;
-		}
+    #{ $activeNowCardSeparator } {
+      display: none;
+    }
 
-		#{ $activeNowCardHeader } {
-			background-color: transparent;
-		}
+    #{ $activeNowCardHeader } {
+      background-color: transparent;
+    }
 
-		#{ $activeNowCardHeaderIcon } {
-			border-radius: 50%;
-		}
+    #{ $activeNowCardHeaderIcon } {
+      border-radius: 50%;
+    }
 
-		#{ $activeNowStreamingPreviewWrapper } {
-			background-color: var(--card-color-alt);
-			border-radius: calc(var(--card-radius-big) / 1.25);
-			overflow: hidden;
-		}
+    #{ $activeNowStreamingPreviewWrapper } {
+      background-color: var(--card-color-alt);
+      border-radius: calc(var(--card-radius-big) / 1.25);
+      overflow: hidden;
+    }
 
-		#{ $activeNowCardStreamImage } {
-			border-radius: calc(var(--card-radius-big) / 1.25);
-		}
+    #{ $activeNowCardStreamImage } {
+      border-radius: calc(var(--card-radius-big) / 1.25);
+    }
 
-		#{ $activeNowCardImageBorderRadius0 } {
-			border-radius: 50%;
-		}
-	}
+    #{ $activeNowCardImageBorderRadius0 } {
+      border-radius: 50%;
+    }
+  }
 }
 
 #{ $activeNowQuestWrapper } {
-    background-color: var(--activity-card-color--inset);
-    border-radius: 4px;
+  background-color: var(--activity-card-color--inset);
+  border-radius: 4px;
 
-    &:only-child {
-        border-radius: var(--card-radius-big);
-    }
+  &:only-child {
+    border-radius: var(--card-radius-big);
+  }
 
-    #{ $activeNowQuestPromotedTag } {
-        padding: 3px 6px 2px;
-    }
+  #{ $activeNowQuestPromotedTag } {
+    padding: 3px 6px 2px;
+  }
 
-    #{ $activeNowQuestPromotedTagBackground } {
-        background-color: var(--card-color-filled) !important;
-        border-radius: 9px;
-    }
+  #{ $activeNowQuestPromotedTagBackground } {
+    background-color: var(--card-color-filled) !important;
+    border-radius: 9px;
+  }
 }
 
 #{ $activeNowQuestRewardTileWithInstructions } {
-    margin-inline: 0;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  margin-inline: 0;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $activeNowCardSeparator } {
-    + #{ $activeNowQuestWrapper } {
-        border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-    }
+  + #{ $activeNowQuestWrapper } {
+    border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+  }
 }
 
 #{ $nowPlayingColumn } {
-	#{ $nowPlayingColumnHeader } {
-		margin-block-start: 0;
-		font-weight: 400;
+  #{ $nowPlayingColumnHeader } {
+    margin-block-start: 0;
+    font-weight: 400;
 
-		+ #{ $activeNowCardInteractive } {
-			&:nth-last-child(2) {
-				border-radius: var(--card-radius-big);
-			}
-		}
-	}
+    + #{ $activeNowCardInteractive } {
+      &:nth-last-child(2) {
+        border-radius: var(--card-radius-big);
+      }
+    }
+  }
 }
