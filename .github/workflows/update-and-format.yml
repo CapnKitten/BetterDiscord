@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -33,8 +33,7 @@ jobs:
         with:
           path: |
             .prettiercache
-            .git
-          key: ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-${{ hashFiles('**/*') }}
+          key: ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-${{ hashFiles('**/*.css', '**/*.js', '**/*.scss') }}
           restore-keys: |
             ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-
 
@@ -51,8 +50,18 @@ jobs:
           echo ".github/" > .prettierignore
           npx prettier --write . --cache --cache-location .prettiercache --ignore-path .prettierignore
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update classes and format code"
-          push_options: --force
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .
+
+          # Only commit if there are actual changes to avoid "empty commit" errors
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "chore: update classes and format code"
+            # We use --force-with-lease instead of --force for safety
+            git push origin HEAD:master --force-with-lease
+          else
+            echo "No changes to commit"
+          fi
