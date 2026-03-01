@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -52,3 +54,4 @@ jobs:
           default_author: github_actions
           message: "chore: update classes and format code"
           fetch: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
