@@ -33,7 +33,7 @@ jobs:
         with:
           path: |
             .prettiercache
-          key: ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-${{ hashFiles('**/*.css', '**/*.js', '**/*.scss') }}
+          key: ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-${{ hashFiles('**/*.css', '**/*.js', '**/*.scss', '**/*.yml', '**/*.md') }}
           restore-keys: |
             ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-
 
@@ -47,8 +47,7 @@ jobs:
       - name: Run Prettier
         id: prettier
         run: |
-          echo ".github/" > .prettierignore
-          npx prettier --write . --cache --cache-location .prettiercache --ignore-path .prettierignore
+          npx prettier --write . --cache --cache-location .prettiercache
 
       - name: Commit and Push changes
         run: |
@@ -57,10 +56,8 @@ jobs:
 
           git add .
 
-          # Only commit if there are actual changes to avoid "empty commit" errors
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "chore: update classes and format code"
-            # We use --force-with-lease instead of --force for safety
             git push origin HEAD:master --force-with-lease
           else
             echo "No changes to commit"
