@@ -28,14 +28,13 @@ jobs:
         id: get-date
         run: echo "date=$(date +'%Y-%U')" >> $GITHUB_OUTPUT
 
-      - name: Cache Prettier and CSS state
+      - name: Cache Prettier state
         uses: actions/cache@v5
         with:
-          path: |
-            .prettiercache
-          key: ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-${{ hashFiles('**/*.css', '**/*.js', '**/*.scss', '**/*.yml', '**/*.md') }}
+          path: .prettiercache
+          key: ${{ runner.os }}-prettier-${{ steps.get-date.outputs.date }}-${{ hashFiles('.github/workflows/*.yml') }}
           restore-keys: |
-            ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-
+            ${{ runner.os }}-prettier-${{ steps.get-date.outputs.date }}-
 
       - name: Update all classes
         id: update-all
@@ -46,8 +45,21 @@ jobs:
 
       - name: Run Prettier
         id: prettier
+        run: npx prettier --write . --cache --cache-location .prettiercache
+
+      - name: Generate Summary
+        if: always()
         run: |
-          npx prettier --write . --cache --cache-location .prettiercache
+          echo "Run Summary" >> $GITHUB_STEP_SUMMARY
+          echo "Date: $(date)" >> $GITHUB_STEP_SUMMARY
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Changes detected:" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            git status --porcelain >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No changes detected." >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Commit and Push changes
         run: |
