@@ -1,4 +1,4 @@
-name: Update Classes
+name: Update and Format
 
 on:
   schedule:
@@ -8,38 +8,44 @@ on:
     types: [update_class]
 
 jobs:
-  classUpdate:
+  update-and-format:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+
       - name: Get date key
         id: get-date
         run: echo "date=$(date +'%Y-%U')" >> $GITHUB_OUTPUT
 
-      - name: Cache CSS state
+      - name: Cache Prettier and CSS state
         uses: actions/cache@v5
         with:
           path: |
+            .prettiercache
             .git
-          key: ${{ runner.os }}-css-update-${{ steps.get-date.outputs.date }}-${{ hashFiles('**/*.css') }}
+          key: ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-${{ hashFiles('**/*') }}
           restore-keys: |
-            ${{ runner.os }}-css-update-${{ steps.get-date.outputs.date }}-
-            ${{ runner.os }}-css-update-
+            ${{ runner.os }}-assets-${{ steps.get-date.outputs.date }}-
 
       - name: Update all classes
         id: update-all
         uses: flowerey/class-update@main
         with:
-          folder: '.'
+          folder: "."
           ext: css
+
+      - name: Run Prettier
+        id: prettier
+        run: npx prettier --write . --cache --cache-location .prettiercache
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
-        if: ${{ steps.update-all.outputs.totalChanges > 0 }}
         with:
           default_author: github_actions
-          message: "chore: update classes >_<"
+          message: "chore: update classes and format code"
           fetch: true
