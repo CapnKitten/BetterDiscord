@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,78 +7,78 @@
  */
 
 #{ $imageViewerActionButtons } {
-    background-color: var(--popout-color);
-    border-radius: calc(var(--button-height) + 4px);
-    box-shadow: var(--shadow-medium);
-    border: none;
+  background-color: var(--popout-color);
+  border-radius: calc(var(--button-height) + 4px);
+  box-shadow: var(--shadow-medium);
+  border: none;
 
-    #{ $imageViewerActionButton } {
-        width: var(--button-height);
-        transition: var(--default-time) var(--default-animation) background-color;
+  #{ $imageViewerActionButton } {
+    width: var(--button-height);
+    transition: var(--default-time) var(--default-animation) background-color;
 
-        &:hover {
-            background-color: var(--card-button-color-hover);
-        }
+    &:hover {
+      background-color: var(--card-button-color-hover);
     }
+  }
 }
 
 #{ $imageViewerCloseButton } {
-    width: var(--button-height);
-    height: var(--button-height);
-    padding: 3px;
-    background-color: var(--popout-color);
-    border-radius: calc(var(--button-height) + 4px);
-    box-shadow: var(--shadow-medium);
+  width: var(--button-height);
+  height: var(--button-height);
+  padding: 3px;
+  background-color: var(--popout-color);
+  border-radius: calc(var(--button-height) + 4px);
+  box-shadow: var(--shadow-medium);
 
-    #{ $imageViewerCloseButtonInner } {
-        width: inherit;
-        height: inherit;
-        border: none;
+  #{ $imageViewerCloseButtonInner } {
+    width: inherit;
+    height: inherit;
+    border: none;
 
-        &:hover {
-            background-color: var(--card-button-color-hover);
-        }
+    &:hover {
+      background-color: var(--card-button-color-hover);
     }
+  }
 }
 
 #{ $imageViewerNavButton } {
-    background-color: var(--popout-color);
-    border-radius: 20px;
+  background-color: var(--popout-color);
+  border-radius: 20px;
 
-    #{ $imageViewerCloseButtonInner } {
-        border: none;
-    }
+  #{ $imageViewerCloseButtonInner } {
+    border: none;
+  }
 }
 
 #{ $imageViewerGallery } {
-    gap: var(--space-8);
+  gap: var(--space-8);
 }
 
 #{ $imageViewerGalleryItem } {
-    width: 50px;
+  width: 50px;
+  margin: 0;
+  border-radius: 10px;
+  transition: var(--default-time) var(--default-animation) width;
+
+  &#{ $imageViewerGalleryItemInactive } {
+    width: 20px;
+
+    &:after {
+      opacity: 0.65;
+    }
+  }
+
+  &#{ $imageViewerGalleryItemFirst },
+  &#{ $imageViewerGalleryItemLast } {
     margin: 0;
     border-radius: 10px;
-    transition: var(--default-time) var(--default-animation) width;
+  }
 
-    &#{ $imageViewerGalleryItemInactive } {
-        width: 20px;
+  #{ $imageWrapper } {
+    border-radius: inherit;
+  }
 
-        &:after {
-            opacity: 0.65;
-        }
-    }
-
-    &#{ $imageViewerGalleryItemFirst },
-    &#{ $imageViewerGalleryItemLast } {
-        margin: 0;
-        border-radius: 10px;
-    }
-
-    #{ $imageWrapper } {
-        border-radius: inherit;
-    }
-
-    ~ div:not([class]):empty {
-        display: none;
-    }
+  ~ div:not([class]):empty {
+    display: none;
+  }
 }

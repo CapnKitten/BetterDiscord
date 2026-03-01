@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,176 +8,187 @@
  */
 
 #{ $searchResultsWrap } {
-	margin-block: 12px;
-	margin-inline: 8px 12px;
-	background-color: var(--main-alt);
-	border-radius: var(--popout-radius-big);
-    border: none;
+  margin-block: 12px;
+  margin-inline: 8px 12px;
+  background-color: var(--main-alt);
+  border-radius: var(--popout-radius-big);
+  border: none;
 }
-
-
 
 /* SEARCH RESULTS -> HEADER */
 
 #{ $searchHeader } {
-	--search-header-padding: 16px;
+  --search-header-padding: 16px;
 
-	height: var(--search-header-height);
-	margin-block: 8px -8px;
-	margin-inline: 8px;
-	padding-block: 0;
-	padding-inline: var(--search-header-padding) calc(var(--search-header-padding) / 2);
-    background-color: var(--card-color-filled);
-    border-radius: calc(var(--popout-radius-big) - 8px);
-    border-block-end: none;
-	box-shadow: var(--shadow-soft);
+  height: var(--search-header-height);
+  margin-block: 8px -8px;
+  margin-inline: 8px;
+  padding-block: 0;
+  padding-inline: var(--search-header-padding)
+    calc(var(--search-header-padding) / 2);
+  background-color: var(--card-color-filled);
+  border-radius: calc(var(--popout-radius-big) - 8px);
+  border-block-end: none;
+  box-shadow: var(--shadow-soft);
 }
 
 #{ $searchHeaderTabList } {
-    height: 100%;
-    @include pill-nav(true, calc(var(--search-header-height) - var(--search-header-padding)), "#{ $item }", "#{ $itemSelected }", true);
+  height: 100%;
+  @include pill-nav(
+    true,
+    calc(var(--search-header-height) - var(--search-header-padding)),
+    "#{ $item }",
+    "#{ $itemSelected }",
+    true
+  );
 
-    #{ $item } {
-        display: flex;
-        height: calc(var(--search-header-height) - var(--search-header-padding));
-		padding-block: 0;
-		padding-inline: 12px;
-        align-items: center;
+  #{ $item } {
+    display: flex;
+    height: calc(var(--search-header-height) - var(--search-header-padding));
+    padding-block: 0;
+    padding-inline: 12px;
+    align-items: center;
 
-        &#{ $itemSelected } {
-            &:after {
-                display: none;
-            }
-        }
+    &#{ $itemSelected } {
+      &:after {
+        display: none;
+      }
     }
+  }
 }
 
 /* SEARCH RESULTS -> MESSAGES */
 
 #{ $searchResults } {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
 }
 
 #{ $searchResultGroup } {
-    display: flex;
-    flex-direction: column;
-    margin-block-end: 0;
-    gap: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  margin-block-end: 0;
+  gap: var(--space-16);
 }
 
 #{ $searchScroller } {
-	padding-block: 16px 8px;
-	padding-inline: 8px;
+  padding-block: 16px 8px;
+  padding-inline: 8px;
 }
 
 #{ $searchResult } {
-	margin-block-end: 0;
-	background-color: transparent;
-	border-radius: 0;
-	border: none;
+  margin-block-end: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
 
-	#{ $messagesWrapper } {
-		margin-block: 0 !important;
-		margin-inline: 60px 8px !important;
-		padding: 12px !important;
-		border-radius: var(--message-radius);
+  #{ $messagesWrapper } {
+    margin-block: 0 !important;
+    margin-inline: 60px 8px !important;
+    padding: 12px !important;
+    border-radius: var(--message-radius);
 
-		&:before,
-		&:after {
-			display: none;
-		}
+    &:before,
+    &:after {
+      display: none;
+    }
 
-		#{ $avatarLarge } {
-			inset-block-start: 0 !important;
-			inset-inline-start: -50px !important;
-		}
+    #{ $avatarLarge } {
+      inset-block-start: 0 !important;
+      inset-inline-start: -50px !important;
+    }
 
-		&#{ $hasReply } {
-			#{ $avatarLarge } {
-				inset-block-start: 28px !important;
-			}
+    &#{ $hasReply } {
+      #{ $avatarLarge } {
+        inset-block-start: 28px !important;
+      }
 
-            #{ $avatarDecoration } {
-				inset-block-start: 28px;
-			}
-		}
+      #{ $avatarDecoration } {
+        inset-block-start: 28px;
+      }
+    }
 
-		#{ $messageReplied } {
-            &:before {
-				inset-inline-start: calc((var(--chat-avatar-size) / 2 + var(--message-padding-side) + var(--gutter) / 2) * -1);
-				border-color: var(--message-color);
-            }
-        }
-	}
+    #{ $messageReplied } {
+      &:before {
+        inset-inline-start: calc(
+          (
+              var(--chat-avatar-size) / 2 + var(--message-padding-side) +
+                var(--gutter) / 2
+            ) *
+            -1
+        );
+        border-color: var(--message-color);
+      }
+    }
+  }
 }
 
 #{ $searchResultMessage } {
-	padding-block: 0;
+  padding-block: 0;
 }
 
 #{ $searchResultsButtonsContainer } {
-	inset-block-start: var(--space-8);
-	inset-inline-end: var(--space-16);
+  inset-block-start: var(--space-8);
+  inset-inline-end: var(--space-16);
 
-	#{ $searchResultJumpButton } {
-		--button-height: var(--space-32);
+  #{ $searchResultJumpButton } {
+    --button-height: var(--space-32);
 
-		height: var(--button-height);
-		line-height: var(--button-height);
-		padding-block: 0;
-		padding-inline: var(--space-8);
-		background-color: var(--accent-secondary-color);
-		border-radius: calc(var(--button-height) / 2);
-		border: none;
-		backdrop-filter: none;
-		box-shadow: var(--shadow-soft);
+    height: var(--button-height);
+    line-height: var(--button-height);
+    padding-block: 0;
+    padding-inline: var(--space-8);
+    background-color: var(--accent-secondary-color);
+    border-radius: calc(var(--button-height) / 2);
+    border: none;
+    backdrop-filter: none;
+    box-shadow: var(--shadow-soft);
 
-		&:hover {
-			background-color: var(--accent-secondary-color);
-		}
-	}
+    &:hover {
+      background-color: var(--accent-secondary-color);
+    }
+  }
 }
 
 #{ $pageControl } {
-	gap: var(--space-4);
+  gap: var(--space-4);
 }
 
 #{ $pageButton } {
-	margin: 0;
-	transition: var(--default-time) var(--default-animation) background-color;
+  margin: 0;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--card-button-color-hover);
-	}
+  &:hover {
+    background-color: var(--card-button-color-hover);
+  }
 
-	&:disabled {
-		&:hover {
-			background-color: transparent;
-		}
-	}
+  &:disabled {
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }
 
 #{ $pageButtonActive } {
-	background-color: hsl(var(--accent-hsl--material-you)) !important;
-	color: var(--accent-text-color--material-you) !important;
+  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  color: var(--accent-text-color--material-you) !important;
 }
 
 #{ $pageEndButton } {
-	&:first-of-type {
-		--button-padding-start: var(--button-padding-has-icon);
-	}
+  &:first-of-type {
+    --button-padding-start: var(--button-padding-has-icon);
+  }
 
-	&:last-of-type {
-		--button-padding-end: var(--button-padding-has-icon);
-	}
+  &:last-of-type {
+    --button-padding-end: var(--button-padding-has-icon);
+  }
 
-	#{ $buttonContents} {
-		gap: var(--space-8);
-	}
+  #{ $buttonContents} {
+    gap: var(--space-8);
+  }
 
-	#{ $pageEndButtonIconCaret } {
-		margin-inline: 0;
-	}
+  #{ $pageEndButtonIconCaret } {
+    margin-inline: 0;
+  }
 }

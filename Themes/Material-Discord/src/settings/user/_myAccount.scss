@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,103 +8,103 @@
  */
 
 #{ $settingsAccountProfileCard } {
-    background-color: var(--card-color-filled);
-	border-radius: var(--card-radius-big);
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 
-    #{ $userProfileBanner } {
-        border-radius: var(--card-radius-big);
-    }
+  #{ $userProfileBanner } {
+    border-radius: var(--card-radius-big);
+  }
 
-    #{ $settingsUserInfo } {
+  #{ $settingsUserInfo } {
+    position: relative;
+    height: 88px;
+    padding: 16px 16px 16px 130px;
+
+    #{ $avatarWrapper } {
+      width: 92px !important;
+      height: 92px !important;
+      inset-block-start: unset;
+      inset-block-end: 30px;
+      background-color: var(--card-color-filled);
+      border: 8px solid var(--card-color-filled);
+      box-sizing: border-box;
+
+      #{ $avatarMask } {
         position: relative;
-		height: 88px;
-		padding: 16px 16px 16px 130px;
+        width: 90px;
+        height: 90px;
+      }
 
-        #{ $avatarWrapper } {
-            width: 92px !important;
-            height: 92px !important;
-            inset-block-start: unset;
-            inset-block-end: 30px;
-            background-color: var(--card-color-filled);
-            border: 8px solid var(--card-color-filled);
-            box-sizing: border-box;
+      #{ $avatarStatusDecoration } {
+        transform: translate(-2px);
+      }
+    }
+  }
 
-            #{ $avatarMask } {
-                position: relative;
-                width: 90px;
-                height: 90px;
-            }
+  #{ $settingsUserBannerSVGMask } {
+    circle {
+      display: none;
+    }
+  }
 
-            #{ $avatarStatusDecoration } {
-                transform: translate(-2px);
-            }
-        }
+  #{ $settingsUserBackground } {
+    padding: var(--space-16);
+    background-color: var(--card-color-hover);
+    border-radius: calc(var(--popout-radius-big) / 1.6);
+
+    #{ $constrainedRow } {
+      #{ $button } {
+        margin-inline-start: 8px;
+      }
     }
 
-    #{ $settingsUserBannerSVGMask } {
-        circle {
-            display: none;
-        }
+    #{ $button } {
+      &:not(:last-child) {
+        margin-inline-end: 16px;
+      }
     }
+  }
 
-    #{ $settingsUserBackground } {
-        padding: var(--space-16);
-        background-color: var(--card-color-hover);
-        border-radius: calc(var(--popout-radius-big) / 1.6);
-
-		#{ $constrainedRow } {
-			#{ $button } {
-				margin-inline-start: 8px;
-			}
-		}
-
-        #{ $button } {
-            &:not(:last-child) {
-                margin-inline-end: 16px;
-            }
-        }
-	}
-
-    #{ $settingsBadgeList } {
-        height: 32px;
-        padding: 0 8px;
-        background-color: var(--card-color-hover) !important;
-        border-radius: 16px;
-    }
+  #{ $settingsBadgeList } {
+    height: 32px;
+    padding: 0 8px;
+    background-color: var(--card-color-hover) !important;
+    border-radius: 16px;
+  }
 }
 
 #{ $userProfileBanner } {
-    &:before {
-        display: none;
-    }
+  &:before {
+    display: none;
+  }
 }
 
 #{ $settingsUserBanner } {
-    position: relative;
-    border-radius: calc(var(--card-radius-big) / 1.5);
+  position: relative;
+  border-radius: calc(var(--card-radius-big) / 1.5);
 }
 
 #{ $fieldList } {
-	padding: 0;
-	background-color: transparent;
-	border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
 }
 
 #{ $settingsCredentialList } {
-    margin-block-end: 16px;
-    @include card-format(false, 8px, true);
+  margin-block-end: 16px;
+  @include card-format(false, 8px, true);
 }
 
 #{ $settingsCredentialItem } {
-    border-radius: calc(var(--card-radius-big) / 1.65);
-    border-block-start: none;
-    transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: calc(var(--card-radius-big) / 1.65);
+  border-block-start: none;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:not(:last-child) {
-        margin-block-end: 0;
-    }
+  &:not(:last-child) {
+    margin-block-end: 0;
+  }
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 }

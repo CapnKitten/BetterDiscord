@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,136 +7,138 @@
  */
 
 #{ $chatForm } {
-    position: relative;
-    width: 100%;
-    bottom: calc(var(--app-bar-size) * -1);
-    margin-top: calc( calc(var(--app-bar-size) - var(--textarea-margin)) * -1);
-    box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  bottom: calc(var(--app-bar-size) * -1);
+  margin-top: calc(calc(var(--app-bar-size) - var(--textarea-margin)) * -1);
+  box-sizing: border-box;
 
-    &:before,
-    &:after {
-        display: none;
-    }
+  &:before,
+  &:after {
+    display: none;
+  }
 
-    #{ $textArea } {
-        height: var(--main-textarea-min-height);
-        min-height: var(--main-textarea-min-height);
-    }
+  #{ $textArea } {
+    height: var(--main-textarea-min-height);
+    min-height: var(--main-textarea-min-height);
+  }
 }
 
 #{ $channelTextArea } {
-    margin-bottom: var(--textarea-margin);
-    z-index: 2;
+  margin-bottom: var(--textarea-margin);
+  z-index: 2;
 
-    #{ $channelTextAreaAttachButton } {
-        height: var(--main-textarea-min-height);
-    }
+  #{ $channelTextAreaAttachButton } {
+    height: var(--main-textarea-min-height);
+  }
 
-    #{ $channelTextAreaButtonsContainer } {
-        --button-height: var(--main-textarea-min-height);
+  #{ $channelTextAreaButtonsContainer } {
+    --button-height: var(--main-textarea-min-height);
 
-        height: var(--main-textarea-min-height);
-    }
+    height: var(--main-textarea-min-height);
+  }
 
-    #{ $channelTextAreaEmojiButton } {
-        max-height: unset;
-    }
+  #{ $channelTextAreaEmojiButton } {
+    max-height: unset;
+  }
 
-    #{ $channelTextAreaFontPadding } {
-        --textarea-text-padding: calc( calc(var(--main-textarea-min-height) - 22px) / 2);
+  #{ $channelTextAreaFontPadding } {
+    --textarea-text-padding: calc(
+      calc(var(--main-textarea-min-height) - 22px) / 2
+    );
 
-        padding-top: var(--textarea-text-padding);
-        padding-bottom: var(--textarea-text-padding);
-    }
+    padding-top: var(--textarea-text-padding);
+    padding-bottom: var(--textarea-text-padding);
+  }
 }
 
 #{ $channelTextAreaTyping } {
-    width: calc(100% - (80px + var(--scrollbar-width)));
-    height: 16px;
-    line-height: 16px;
-    left: 16px;
-    bottom: 0;
-    padding-right: 0;
-    background-color: transparent;
-    box-sizing: border-box;
+  width: calc(100% - (80px + var(--scrollbar-width)));
+  height: 16px;
+  line-height: 16px;
+  left: 16px;
+  bottom: 0;
+  padding-right: 0;
+  background-color: transparent;
+  box-sizing: border-box;
 }
 
 #{ $channelInfo },
 #{ $channelTextArea },
 #{ $channelTextAreaScrollable } {
-    background-color: var(--main-textarea-color);
-    border-radius: var(--main-textarea-radius);
+  background-color: var(--main-textarea-color);
+  border-radius: var(--main-textarea-radius);
 }
 
 #{ $channelTextAreaScrollable } {
-    background: var(--main-textarea-color) !important;
+  background: var(--main-textarea-color) !important;
 }
 
 #{ $channelInfo } {
-    height: var(--main-textarea-min-height);
-    margin: 0;
-    padding: 0;
-    border: none;
+  height: var(--main-textarea-min-height);
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 #{ $channelTextAreaScrollable } {
-    #{ $textArea } {
-        color: var(--main-textarea-text-color);
-    }
+  #{ $textArea } {
+    color: var(--main-textarea-text-color);
+  }
 
-    #{ $textAreaDisabled } {
-        #{ $textAreaPlaceholder } {
-            padding-left: 16px;
-        }
-    }
-
+  #{ $textAreaDisabled } {
     #{ $textAreaPlaceholder } {
-        color: var(--main-textarea-placeholder-color);
+      padding-left: 16px;
     }
+  }
+
+  #{ $textAreaPlaceholder } {
+    color: var(--main-textarea-placeholder-color);
+  }
 }
 
 #{ $channelTextAreaAttachWrapper } {
-    padding: 0;
+  padding: 0;
 }
 
 /* MAIN TEXTAREA -> APPS AND COMMANDS BUTTON */
 
 #{ $channelAppLauncher } {
+  width: var(--space-32);
+  height: var(--space-32);
+  margin: auto 0;
+
+  #{ $channelAppLauncherButton } {
+    --button-height: var(--space-32);
+
     width: var(--space-32);
-    height: var(--space-32);
-    margin: auto 0;
+    background: var(--card-color);
+    border-radius: var(--main-textarea-radius);
 
-    #{ $channelAppLauncherButton } {
-        --button-height: var(--space-32);
-
-        width: var(--space-32);
-        background: var(--card-color);
-        border-radius: var(--main-textarea-radius);
-
-        &:hover {
-            background: var(--card-color-hover);
-        }
+    &:hover {
+      background: var(--card-color-hover);
     }
+  }
 }
 
 /* MAIN TEXTAREA -> REPLY BAR */
 
 #{ $channelTextAreaStackedBars } {
-    background-color: var(--main-textarea-color);
-    border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
-    border-bottom: 1px solid var(--main-textarea-border-color);
+  background-color: var(--main-textarea-color);
+  border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+  border-bottom: 1px solid var(--main-textarea-border-color);
 
-    #{ $channelTextAreaClipContainer } {
-        margin-top: 0;
-        padding-top: 0;
-    }
+  #{ $channelTextAreaClipContainer } {
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 
 #{ $replyBar },
 #{ $replySuggestion } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $replyMentionButton } {
-    --text-link: hsl(var(--accent-hsl));
+  --text-link: hsl(var(--accent-hsl));
 }

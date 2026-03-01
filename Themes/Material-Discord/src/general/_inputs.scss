@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,226 +8,226 @@
  */
 
 #{ $input } {
-    @include input-format(false, false);
+  @include input-format(false, false);
 
-    &#{ $multiInput } {
-        padding: 0;
-    }
+  &#{ $multiInput } {
+    padding: 0;
+  }
 
-    &::-webkit-input-placeholder {
-        font-family: var(--app-font);
-        color: var(--input-placeholder-color);
-    }
+  &::-webkit-input-placeholder {
+    font-family: var(--app-font);
+    color: var(--input-placeholder-color);
+  }
 
-    &#{ $inputHidden } {
-        --input-height: 0;
-    }
+  &#{ $inputHidden } {
+    --input-height: 0;
+  }
 
-    &#{ $inputTextArea } {
-        height: auto;
-        min-height: var(--input-height);
-        max-height: calc(var(--input-height) * 10);
-        padding: calc((var(--input-height) - 22px) / 2) 12px !important;
-    }
+  &#{ $inputTextArea } {
+    height: auto;
+    min-height: var(--input-height);
+    max-height: calc(var(--input-height) * 10);
+    padding: calc((var(--input-height) - 22px) / 2) 12px !important;
+  }
 }
 
 #{ $inputContainer } {
-    background-color: var(--input-color);
+  background-color: var(--input-color);
 
-    &:not(#{ $selectMenuContainer }) {
-        @include input-format(false, true, false);
+  &:not(#{ $selectMenuContainer }) {
+    @include input-format(false, true, false);
 
-        #{ $inputWrapper } {
-            min-height: auto;
-            background-color: transparent;
-            border: none;
-        }
-
-        #{ $inputWrapperHasLeading } {
-            margin-inline-start: calc(var(--input-padding) / -2);
-            padding-inline-start: 0;
-
-            #{ $inputIcon } {
-                width: calc(var(--input-height) / 1.5);
-                height: calc(var(--input-height) / 1.5);
-                border: none;
-
-                svg {
-                    width: 60%;
-                    height: 60%;
-                }
-            }
-        }
+    #{ $inputWrapper } {
+      min-height: auto;
+      background-color: transparent;
+      border: none;
     }
 
-    &:has(#{ $selectMenu }) {
-        padding: 0;
-        border-radius: var(--input-radius);
+    #{ $inputWrapperHasLeading } {
+      margin-inline-start: calc(var(--input-padding) / -2);
+      padding-inline-start: 0;
 
-        #{ $selectMenu } {
-            background-color: transparent;
+      #{ $inputIcon } {
+        width: calc(var(--input-height) / 1.5);
+        height: calc(var(--input-height) / 1.5);
+        border: none;
+
+        svg {
+          width: 60%;
+          height: 60%;
         }
+      }
     }
+  }
+
+  &:has(#{ $selectMenu }) {
+    padding: 0;
+    border-radius: var(--input-radius);
+
+    #{ $selectMenu } {
+      background-color: transparent;
+    }
+  }
 }
 
 #{ $clickTrapContainer } {
-    #{ $inputContainer } {
-        --input-color: var(--input-color-alt);
-    }
+  #{ $inputContainer } {
+    --input-color: var(--input-color-alt);
+  }
 }
 
 #{ $inputWrapper },
 #{ $nameInputContainer } {
-    &#{ $inputWrapperLeading } {
-        padding: 0 12px 0 8px;
-    }
+  &#{ $inputWrapperLeading } {
+    padding: 0 12px 0 8px;
+  }
 
-    #{ $input } {
-        padding: 0;
-        background-color: transparent;
-        box-shadow: none;
-    }
+  #{ $input } {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
 
-    #{ $inputEmojiButton } {
-        margin: 0;
-        padding: 0 0 0 var(--space-8);
-        background-color: transparent;
-    }
+  #{ $inputEmojiButton } {
+    margin: 0;
+    padding: 0 0 0 var(--space-8);
+    background-color: transparent;
+  }
 }
 
 #{ $inputWrapper } {
-    &:has(input:focus, textarea:focus) {
-        outline: none !important;
-    }
+  &:has(input:focus, textarea:focus) {
+    outline: none !important;
+  }
 }
 
 #{ $inputPrefixContainer } {
-    margin-inline-end: 6px;
+  margin-inline-end: 6px;
 
-    #{ $inputPrefixContainerSeparator } {
-        background-color: var(--input-border-color);
-    }
+  #{ $inputPrefixContainerSeparator } {
+    background-color: var(--input-border-color);
+  }
 }
 
 #{ $textareaV2Wrapper }:not(#{ $inputWrapper }) {
-    background-color: var(--input-color);
-    border-radius: var(--input-radius);
-    border: none;
+  background-color: var(--input-color);
+  border-radius: var(--input-radius);
+  border: none;
 
-    #{ $textareaV2 } {
-        color: var(--input-text-color);
+  #{ $textareaV2 } {
+    color: var(--input-text-color);
 
-        &::-webkit-input-placeholder {
-            color: var(--input-placeholder-color);
-        }
+    &::-webkit-input-placeholder {
+      color: var(--input-placeholder-color);
     }
+  }
 }
 
 #{ $multiInputLast } {
-    &:before {
-        display: none;
-    }
+  &:before {
+    display: none;
+  }
 }
 
 #{ $eyebrowError } {
-    + #{ $inputWrapper } {
-        #{ $input } {
-            box-shadow: inset 0 -1px 0 0 hsl(var(--alert-hsl));
+  + #{ $inputWrapper } {
+    #{ $input } {
+      box-shadow: inset 0 -1px 0 0 hsl(var(--alert-hsl));
 
-            &:focus {
-                box-shadow: inset 0 -2px 0 0 hsl(var(--alert-hsl));
-            }
-        }
+      &:focus {
+        box-shadow: inset 0 -2px 0 0 hsl(var(--alert-hsl));
+      }
     }
+  }
 }
 
 #{ $inputLabel } {
-    @include remove-caps(14px);
+  @include remove-caps(14px);
 }
 
 #{ $inputPrefix } {
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    inset-block-end: 0;
-    margin: auto 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inset-block-end: 0;
+  margin: auto 0;
 
-    + #{ $input } {
-        padding-inline-start: 28px;
-    }
+  + #{ $input } {
+    padding-inline-start: 28px;
+  }
 }
 
 #{ $inputEmojiContainer } {
-    height: var(--input-height);
-    line-height: var(--input-height);
-    margin: 0 12px;
-    padding: 0;
-    z-index: 2;
+  height: var(--input-height);
+  line-height: var(--input-height);
+  margin: 0 12px;
+  padding: 0;
+  z-index: 2;
 
-    + #{ $inputWrapper } {
-        #{ $input } {
-            padding-inline-start: 42px !important;
-        }
+  + #{ $inputWrapper } {
+    #{ $input } {
+      padding-inline-start: 42px !important;
     }
+  }
 }
 
 #{ $inputEmojiButton } {
-    margin: 0 12px;
+  margin: 0 12px;
 }
 
 #{ $input } {
-    &#{ $inputEmojiButtonText } {
-        padding-inline-start: 44px !important;
-    }
+  &#{ $inputEmojiButtonText } {
+    padding-inline-start: 44px !important;
+  }
 }
 
 #{ $copyInput } {
-    @include input-format(true, false, true);
+  @include input-format(true, false, true);
 
-    &:hover {
-        #{ $button } {
-            width: auto !important;
-        }
-    }
-
+  &:hover {
     #{ $button } {
-        --button-height: calc(var(--input-height) / 1.2);
-		margin: calc((var(--input-height) - var(--button-height)) / 2) !important;
+      width: auto !important;
     }
+  }
+
+  #{ $button } {
+    --button-height: calc(var(--input-height) / 1.2);
+    margin: calc((var(--input-height) - var(--button-height)) / 2) !important;
+  }
 }
 
 #{ $copyInput } {
-    #{ $copyInputInner } {
-        padding: 8px 8px 8px 12px;
-    }
+  #{ $copyInputInner } {
+    padding: 8px 8px 8px 12px;
+  }
 
-    #{ $button } {
-        padding-inline-start: var(--button-padding-start) !important;
-    	padding-inline-end: var(--button-padding-end) !important;
-    }
+  #{ $button } {
+    padding-inline-start: var(--button-padding-start) !important;
+    padding-inline-end: var(--button-padding-end) !important;
+  }
 }
 
 #{ $fileUploadContainer } {
-    --input-padding: 0;
+  --input-padding: 0;
 
-    #{ $fileUploadInput } {
-        padding: 0 0 0 12px;
+  #{ $fileUploadInput } {
+    padding: 0 0 0 12px;
 
-        &::-webkit-input-placeholder {
-            font-weight: 500;
-        }
+    &::-webkit-input-placeholder {
+      font-weight: 500;
     }
+  }
 }
 
 #{ $fakeInput } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--input-radius);
-    border: none;
+  background-color: var(--card-color-filled);
+  border-radius: var(--input-radius);
+  border: none;
 }
 
 /* INPUTS -> SEARCH BAR */
 
 #{ $inputContainer } {
-    /*--input-padding: 0 6px 0 12px;
+  /*--input-padding: 0 6px 0 12px;
 
     height: var(--input-height);
     background-color: var(--input-color);
@@ -261,34 +261,34 @@
 /* INPUTS -> OPTION PILL */
 
 #{ $optionPill } {
-    background-color: transparent !important;
-    border-radius: 13px;
-    border-color: var(--main-textarea-border) !important;
+  background-color: transparent !important;
+  border-radius: 13px;
+  border-color: var(--main-textarea-border) !important;
 
-    &#{ $optionPillSelected } {
-        border-color: hsl(var(--accent-hsl--material-you)) !important;
-    }
+  &#{ $optionPillSelected } {
+    border-color: hsl(var(--accent-hsl--material-you)) !important;
+  }
 
-    &#{ $optionPillErrored } {
-        border-color: hsl(var(--alert-hsl)) !important;
-    }
+  &#{ $optionPillErrored } {
+    border-color: hsl(var(--alert-hsl)) !important;
+  }
 
-    #{ $optionPillKey } {
-        background-color: var(--input-pill-color) !important;
-        border-top-left-radius: inherit;
-        border-bottom-left-radius: inherit;
-    }
+  #{ $optionPillKey } {
+    background-color: var(--input-pill-color) !important;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
 }
 
 #{ $input } {
-    &#{ $inputError } {
-        border-radius: 4px;
+  &#{ $inputError } {
+    border-radius: 4px;
 
-        + #{ $inputColorStatusRed } {
-            position: absolute;
-            width: 100%;
-            margin-block-start: -24px;
-            text-align: right;
-        }
+    + #{ $inputColorStatusRed } {
+      position: absolute;
+      width: 100%;
+      margin-block-start: -24px;
+      text-align: right;
     }
+  }
 }

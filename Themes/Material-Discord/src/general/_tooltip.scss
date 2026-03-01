@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,175 +8,175 @@
  */
 
 #{ $tooltip } {
-    padding: var(--tooltip-padding);
-	background-color: var(--tooltip-color) !important;
-	border-radius: var(--popout-radius);
-	box-shadow: var(--tooltip-shadow) !important;
-    border: none;
-	font-size: var(--tooltip-font-size);
-	font-weight: 500;
-    z-index: 99999999999999;
-    animation: opacity var(--default-time) ease;
+  padding: var(--tooltip-padding);
+  background-color: var(--tooltip-color) !important;
+  border-radius: var(--popout-radius);
+  box-shadow: var(--tooltip-shadow) !important;
+  border: none;
+  font-size: var(--tooltip-font-size);
+  font-weight: 500;
+  z-index: 99999999999999;
+  animation: opacity var(--default-time) ease;
 
-    #{ $tooltipPointer } {
-        display: none;
-    }
+  #{ $tooltipPointer } {
+    display: none;
+  }
 
-    #{ $tooltipContent },
-    #{ $tooltipGuildNameText } {
-        padding: 0;
-		font-size: var(--tooltip-font-size);
-		color: var(--tooltip-text-color);
-    }
+  #{ $tooltipContent },
+  #{ $tooltipGuildNameText } {
+    padding: 0;
+    font-size: var(--tooltip-font-size);
+    color: var(--tooltip-text-color);
+  }
 
-    #{ $tooltipText },
-    #{ $textSmMedium } {
-        font-size: var(--tooltip-font-size);
-        color: var(--tooltip-text-color) !important;
-    }
+  #{ $tooltipText },
+  #{ $textSmMedium } {
+    font-size: var(--tooltip-font-size);
+    color: var(--tooltip-text-color) !important;
+  }
 
-    #{ $textXsNormal } {
-        color: var(--tooltip-text-color) !important;
-    }
+  #{ $textXsNormal } {
+    color: var(--tooltip-text-color) !important;
+  }
 
-    #{ $tooltipActivityIcon } {
-        color: var(--tooltip-text-color);
-    }
+  #{ $tooltipActivityIcon } {
+    color: var(--tooltip-text-color);
+  }
 
-    #{ $tooltipClickCTA } {
-        color: var(--tooltip-text-color) !important;
-    }
+  #{ $tooltipClickCTA } {
+    color: var(--tooltip-text-color) !important;
+  }
 }
 
 #{ $tooltipListItemContent } {
-    font-size: var(--tooltip-font-size);
-    font-weight: 500;
+  font-size: var(--tooltip-font-size);
+  font-weight: 500;
 }
 
 #{ $tooltipV2 } {
-    @extend #{ $tooltip };
+  @extend #{ $tooltip };
 }
 
 #{ $tooltipV2CaretIcon } {
-    display: none;
+  display: none;
 }
 
 #{ $upsellTooltipWrapper } {
-    @include popout-format;
+  @include popout-format;
 
-    &#{ $upsellTooltipCaretTopCenter } {
-        &:after {
-    		border-bottom-color: var(--popout-color);
-    	}
+  &#{ $upsellTooltipCaretTopCenter } {
+    &:after {
+      border-bottom-color: var(--popout-color);
     }
+  }
 
-    &#{ $upsellTooltipCaretLeftCenter } {
-        &:after {
-            border-right-color: var(--popout-color);
-        }
+  &#{ $upsellTooltipCaretLeftCenter } {
+    &:after {
+      border-right-color: var(--popout-color);
     }
+  }
 }
 
 #{ $upsellTooltipWrapper } {
-    &#{ $upsellTooltipCaretTopCenter } {
-        &:after {
-            border-bottom-color: var(--popout-color);
-        }
+  &#{ $upsellTooltipCaretTopCenter } {
+    &:after {
+      border-bottom-color: var(--popout-color);
     }
+  }
 
-    &#{ $upsellTooltipCaretLefTop } {
-        &:after {
-            inset-block-start: var(--popout-radius-big);
-            border-right-color: var(--popout-color);
-        }
+  &#{ $upsellTooltipCaretLefTop } {
+    &:after {
+      inset-block-start: var(--popout-radius-big);
+      border-right-color: var(--popout-color);
     }
+  }
 
-    #{ $upsellTooltipHeader } {
-        color: var(--header-primary);
+  #{ $upsellTooltipHeader } {
+    color: var(--header-primary);
+  }
+
+  #{ $upsellTooltipText } {
+    color: var(--header-secondary) !important;
+  }
+
+  #{ $buttonInverted } {
+    &#{ $buttonBrand } {
+      --button-padding-start: 12px;
+      --button-padding-end: 12px;
+      --button-background: transparent;
+      --button-text-color: hsl(var(--accent-hsl--material-you));
+      --accent-button-action-hover: 0.14;
+      --accent-button-action-active: 0.21;
+
+      &:after {
+        background-color: hsl(var(--accent-hsl--material-you));
+      }
     }
-
-    #{ $upsellTooltipText } {
-        color: var(--header-secondary) !important;
-    }
-
-    #{ $buttonInverted } {
-        &#{ $buttonBrand } {
-            --button-padding-start: 12px;
-			--button-padding-end: 12px;
-            --button-background: transparent;
-            --button-text-color: hsl(var(--accent-hsl--material-you));
-            --accent-button-action-hover: 0.14;
-        	--accent-button-action-active: 0.21;
-
-            &:after {
-        		background-color: hsl(var(--accent-hsl--material-you));
-        	}
-        }
-    }
+  }
 }
 
 #{ $tooltipPremiumFooterContainer } {
-    border-radius: 14px;
+  border-radius: 14px;
 }
 
 #{ $reactionTooltip } {
-    padding: 8px;
-    background-color: var(--tooltip-color);
-    border-radius: var(--tooltip-radius);
-    box-shadow: var(--tooltip-shadow);
-    font-size: var(--tooltip-font-size);
-    color: var(--tooltip-text-color);
+  padding: 8px;
+  background-color: var(--tooltip-color);
+  border-radius: var(--tooltip-radius);
+  box-shadow: var(--tooltip-shadow);
+  font-size: var(--tooltip-font-size);
+  color: var(--tooltip-text-color);
 
-    #{ $reactionTooltipText } {
-        color: inherit;
-    }
+  #{ $reactionTooltipText } {
+    color: inherit;
+  }
 }
 
 #{ $burstReactionTooltipMessage } {
-    border-bottom-color: var(--text-disabled);
+  border-bottom-color: var(--text-disabled);
 }
 
 #{ $burstReactionTooltipPrompt } {
-    margin: 8px 0 0;
+  margin: 8px 0 0;
 
-    #{ $reactionTooltipText } {
-        margin-inline-start: 0;
-    }
+  #{ $reactionTooltipText } {
+    margin-inline-start: 0;
+  }
 }
 
 /* TOOLTIP -> EMOJI INFO */
 
 #{ $messageEmojiPopout } {
-    background-color: var(--tooltip-color) !important;
-    border-radius: var(--tooltip-radius);
-    box-shadow: var(--tooltip-shadow) !important;
+  background-color: var(--tooltip-color) !important;
+  border-radius: var(--tooltip-radius);
+  box-shadow: var(--tooltip-shadow) !important;
 
-    #{ $defaultColor } {
-        color: var(--tooltip-text-color);
-    }
+  #{ $defaultColor } {
+    color: var(--tooltip-text-color);
+  }
 }
 
 #{ $messageEmojiPopoutEmojiSection } {
-    padding: 16px 16px 8px;
+  padding: 16px 16px 8px;
 }
 
 #{ $messageEmojiPopoutGuildSection } {
-    position: relative;
-    padding: 8px 16px 16px;
-    background-color: transparent;
+  position: relative;
+  padding: 8px 16px 16px;
+  background-color: transparent;
 
-    &:before {
-        position: absolute;
-        content: " ";
-        width: calc(100% - 32px);
-        height: 1px;
-        inset-block-start: 0;
-        inset-inline-start: 16px;
-        background-color: var(--tooltip-border-color);
-    }
+  &:before {
+    position: absolute;
+    content: " ";
+    width: calc(100% - 32px);
+    height: 1px;
+    inset-block-start: 0;
+    inset-inline-start: 16px;
+    background-color: var(--tooltip-border-color);
+  }
 
-    #{ $messageEmojiPopoutGuildTitle },
-    #{ $textXsNormal } {
-        color: var(--tooltip-text-color) !important;
-    }
+  #{ $messageEmojiPopoutGuildTitle },
+  #{ $textXsNormal } {
+    color: var(--tooltip-text-color) !important;
+  }
 }

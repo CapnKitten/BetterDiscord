@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,110 +8,110 @@
  */
 
 #{ $tabBar } {
-    max-width: unset;
-    height: 48px;
-    gap: 24px;
-    border-block-end: 1px solid var(--card-border-color) !important;
+  max-width: unset;
+  height: 48px;
+  gap: 24px;
+  border-block-end: 1px solid var(--card-border-color) !important;
 
-	#{ $item } {
-        height: inherit;
-        line-height: 48px;
-        margin: 0;
-        padding: 0 8px;
-        border-radius: 0;
-        border: none !important;
-        color: var(--interactive-text-default) !important;
+  #{ $item } {
+    height: inherit;
+    line-height: 48px;
+    margin: 0;
+    padding: 0 8px;
+    border-radius: 0;
+    border: none !important;
+    color: var(--interactive-text-default) !important;
 
-        &,
-        &:hover,
-        &#{ $itemSelected } {
-        	background-color: transparent !important;
-        }
+    &,
+    &:hover,
+    &#{ $itemSelected } {
+      background-color: transparent !important;
+    }
 
-        &:after {
-            display: none;
-        }
+    &:after {
+      display: none;
+    }
 
-        &:not(#{ $itemDisabled }) {
-        	&:hover {
-        		color: var(--interactive-text-hover) !important;
-        	}
-        }
+    &:not(#{ $itemDisabled }) {
+      &:hover {
+        color: var(--interactive-text-hover) !important;
+      }
+    }
 
-        &#{ $itemSelected } {
-        	color: var(--interactive-text-default) !important;
+    &#{ $itemSelected } {
+      color: var(--interactive-text-default) !important;
 
-            &:after {
-                display: block;
-                inset-block-start: unset;
-            }
-        }
+      &:after {
+        display: block;
+        inset-block-start: unset;
+      }
+    }
 
-        &#{ $itemSelected },
-        &[aria-selected="true"] {
-        	@include tab-border(80%);
-        }
+    &#{ $itemSelected },
+    &[aria-selected="true"] {
+      @include tab-border(80%);
+    }
 
-        &:last-of-type {
-        	margin-inline-end: 0;
-        }
+    &:last-of-type {
+      margin-inline-end: 0;
+    }
 
-        &#{ $itemDisabled } {
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
+    &#{ $itemDisabled } {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
 
-        #{ $textSmNormal } {
-            line-height: inherit;
-        }
-	}
+    #{ $textSmNormal } {
+      line-height: inherit;
+    }
+  }
 }
 
 #{ $tabBarVertical } {
-    height: unset;
+  height: unset;
 
-    #{ $item } {
-        transition: var(--default-time) var(--default-animation) background-color;
+  #{ $item } {
+    transition: var(--default-time) var(--default-animation) background-color;
 
-        &#{ $itemSelected } {
-            background-color: hsl(var(--accent-hsl), 0.3) !important;
-            border-radius: 12px;
+    &#{ $itemSelected } {
+      background-color: hsl(var(--accent-hsl), 0.3) !important;
+      border-radius: 12px;
 
-            &:after {
-                display: none;
-            }
-        }
+      &:after {
+        display: none;
+      }
     }
+  }
 }
 
 #{ $userProfileTabBar } {
-    margin: 0 16px 0;
+  margin: 0 16px 0;
 }
 
 #{ $settingsProfilesTabBar } {
-    padding-block-start: 0;
+  padding-block-start: 0;
 
-    #{ $item } {
-        height: 47px;
-    }
+  #{ $item } {
+    height: 47px;
+  }
 }
 
 #{ $eventTabBar } {
-	height: 56px;
-	margin-block-end: 0;
-	padding-block-start: 0;
+  height: 56px;
+  margin-block-end: 0;
+  padding-block-start: 0;
 
-	#{ $item } {
-		padding: 0 8px;
-		line-height: 56px;
-	}
+  #{ $item } {
+    padding: 0 8px;
+    line-height: 56px;
+  }
 }
 
 #{ $serverSubscriptionsTabBar } {
-    border-bottom-width: 1px;
+  border-bottom-width: 1px;
 
-    #{ $item } {
-        margin-inline-end: 24px !important;
-        margin-block-end: 0;
-    }
+  #{ $item } {
+    margin-inline-end: 24px !important;
+    margin-block-end: 0;
+  }
 }

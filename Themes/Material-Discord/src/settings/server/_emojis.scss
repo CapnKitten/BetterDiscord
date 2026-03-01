@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,96 +8,100 @@
  */
 
 #{ $emojiContent } {
-    padding: 8px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  padding: 8px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $emojiTable } {
-	margin-block-end: 0;
-	padding: 8px 12px;
-	background-color: var(--card-color-filled);
-	border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
+  margin-block-end: 0;
+  padding: 8px 12px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
-	#{ $formText } {
-		@include remove-caps(14px);
-	}
+  #{ $formText } {
+    @include remove-caps(14px);
+  }
 }
 
 #{ $emojiRow } {
-    position: relative;
-    padding: 0 16px;
-    box-shadow: none !important;
+  position: relative;
+  padding: 0 16px;
+  box-shadow: none !important;
 
-	&:nth-child(3) {
-        padding-block-start: 16px !important;
-
-		&:before {
-			height: 100% !important;
-            inset-block-start: 0 !important;
-		}
-	}
-
-	&:last-of-type {
-		margin-block-end: 0 !important;
-
-		&:before {
-			height: 100% !important;
-		}
-	}
+  &:nth-child(3) {
+    padding-block-start: 16px !important;
 
     &:before {
-		width: 100% !important;
-        inset-inline-start: 0 !important;
-        background-color: var(--card-color-hover) !important;
-        border-radius: calc(var(--card-radius-big) / 1.6);
-        border: none;
+      height: 100% !important;
+      inset-block-start: 0 !important;
+    }
+  }
+
+  &:last-of-type {
+    margin-block-end: 0 !important;
+
+    &:before {
+      height: 100% !important;
+    }
+  }
+
+  &:before {
+    width: 100% !important;
+    inset-inline-start: 0 !important;
+    background-color: var(--card-color-hover) !important;
+    border-radius: calc(var(--card-radius-big) / 1.6);
+    border: none;
+  }
+
+  #{ $emojiAliasInput } {
+    margin-block-start: 0;
+    border-block-end: none !important;
+
+    &:before,
+    &:after {
+      display: none;
     }
 
-    #{ $emojiAliasInput } {
-        margin-block-start: 0;
-		border-block-end: none !important;
+    &:focus-within {
+      + #{ $emojiAliasPlaceholder } {
+        opacity: 0;
+      }
+    }
 
-		&:before,
-		&:after {
-			display: none;
-		}
+    #{ $emojiInput } {
+      padding: 0 8px;
+      font-size: 16px;
+      background-color: var(--input-color-alt);
+      transition:
+        var(--default-time) var(--default-animation) box-shadow,
+        var(--default-time) var(--default-animation) opacity;
+    }
+  }
 
-		&:focus-within {
-			+ #{ $emojiAliasPlaceholder } {
-				opacity: 0;
-			}
-		}
+  #{ $emojiAliasPlaceholder } {
+    height: auto;
+    margin-inline-start: 8px;
+    padding: 0;
+    line-height: var(--input-height);
+    color: var(--interactive-text-default);
+    transition: var(--default-time) var(--default-animation);
+    overflow: visible;
+  }
 
-		#{ $emojiInput } {
-			padding: 0 8px;
-			font-size: 16px;
-			background-color: var(--input-color-alt);
-			transition: var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) opacity;
-		}
-	}
+  #{ $emojiRemove } {
+    inset-block-start: 0;
+    inset-inline-end: 12px;
+    inset-block-end: 0;
+    margin: auto 0;
+    background-color: var(--card-button-color);
+    box-shadow: none !important;
+    transition:
+      var(--default-time) var(--default-animation) background-color,
+      var(--default-time) var(--default-animation) opacity;
 
-    #{ $emojiAliasPlaceholder } {
-		height: auto;
-		margin-inline-start: 8px;
-		padding: 0;
-		line-height: var(--input-height);
-		color: var(--interactive-text-default);
-		transition: var(--default-time) var(--default-animation);
-		overflow: visible;
-	}
-
-	#{ $emojiRemove } {
-        inset-block-start: 0;
-        inset-inline-end: 12px;
-        inset-block-end: 0;
-        margin: auto 0;
-        background-color: var(--card-button-color);
-        box-shadow: none !important;
-        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) opacity;
-
-        &:hover {
-            background-color: var(--card-button-color-hover);
-        }
-	}
+    &:hover {
+      background-color: var(--card-button-color-hover);
+    }
+  }
 }

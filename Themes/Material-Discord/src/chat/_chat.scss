@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -9,390 +9,404 @@
 
 #{ $chat },
 #{ $threadSidebar } {
-	background-color: var(--chat-color) !important;
+  background-color: var(--chat-color) !important;
 }
 
 #{ $chat } {
-	border-top-right-radius: var(--card-radius-big);
-	border-block-start: none;
+  border-top-right-radius: var(--card-radius-big);
+  border-block-start: none;
 
-	&#{ $threadSidebarOpen } {
-		border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
-		border-inline-end: none;
-	}
+  &#{ $threadSidebarOpen } {
+    border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
+    border-inline-end: none;
+  }
 
-	&:has(#{ $callWrapperSidebarOpen }) {
-        background-color: transparent !important;
-    }
+  &:has(#{ $callWrapperSidebarOpen }) {
+    background-color: transparent !important;
+  }
 
-	&[data-has-border=true] {
-		border-block-start: none;
-	}
+  &[data-has-border="true"] {
+    border-block-start: none;
+  }
 }
 
 #{ $channelChatWrapper } {
-    background: transparent;
+  background: transparent;
 }
 
 #{ $noChannel } {
-	background-color: var(--chat-color);
-	border-top-right-radius: var(--card-radius-big);
+  background-color: var(--chat-color);
+  border-top-right-radius: var(--card-radius-big);
 }
 
 #{ $chatNsfwScroller } {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $chatContent } {
-	background: transparent !important;
+  background: transparent !important;
 }
 
 #{ $chatHeaderBar } {
-	background-color: var(--chat-color);
-	border-block-end: none;
+  background-color: var(--chat-color);
+  border-block-end: none;
 
-	&:after {
-		display: none
-	}
+  &:after {
+    display: none;
+  }
 }
 
 #{ $chatGradientBase } {
-    transition: var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) background;
+  transition:
+    var(--default-time) var(--default-animation) height,
+    var(--default-time) var(--default-animation) background;
 }
 
 #{ $chatGradient } {
-    background: linear-gradient(to bottom, transparent, var(--chat-color));
+  background: linear-gradient(to bottom, transparent, var(--chat-color));
 }
 
 #{ $chatTypingGradientAtBottom } {
-    height: var(--space-16);
-    background: linear-gradient(to bottom, transparent, var(--chat-color) var(--space-8), var(--chat-color) 100%);
+  height: var(--space-16);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--chat-color) var(--space-8),
+    var(--chat-color) 100%
+  );
 }
 
 #{ $chatTypingGradientNotAtBottom } {
-    height: var(--space-32);
-    background: linear-gradient(to bottom, transparent, var(--chat-color) var(--space-16), var(--chat-color) 100%);
+  height: var(--space-32);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--chat-color) var(--space-16),
+    var(--chat-color) 100%
+  );
 }
 
 #{ $threadSidebar } {
-	border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
+  border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
 }
 
 #{ $chatOptionButton } {
-	--button-padding-start: 12px;
-	--button-padding-end: 12px;
+  --button-padding-start: 12px;
+  --button-padding-end: 12px;
 
-	color: var(--button-link-text-color);
+  color: var(--button-link-text-color);
 }
 
 #{ $channelroles } {
-	background-color: var(--message-color);
-	border-radius: 12px;
+  background-color: var(--message-color);
+  border-radius: 12px;
 }
 
 #{ $chatStartIconWrapper } {
-    background-color: var(--card-color-filled);
+  background-color: var(--card-color-filled);
 }
 
 #{ $chatRole } {
-    background-color: var(--card-button-color);
-    border-radius: 12px;
-    transition: var(--default-time) var(--default-animation) background-color;
+  background-color: var(--card-button-color);
+  border-radius: 12px;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-button-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-button-color-hover);
+  }
 }
 
 /* CHAT AREA -> WELCOME SERVER OPTIONS */
 
 #{ $chatWelcomeOptionsInner } {
-    gap: 2px;
+  gap: 2px;
 }
 
 #{ $chatWelcomeOptionsCardWrapper } {
-    &:nth-of-type(2) {
-        #{ $chatWelcomeOptionsCard } {
-            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-        }
+  &:nth-of-type(2) {
+    #{ $chatWelcomeOptionsCard } {
+      border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
     }
+  }
 
-    &:last-of-type {
-        #{ $chatWelcomeOptionsCard } {
-            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-        }
+  &:last-of-type {
+    #{ $chatWelcomeOptionsCard } {
+      border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
     }
+  }
 }
 
 #{ $chatWelcomeOptionsCard } {
-    margin-block-start: 0;
-    background-color: var(--card-color-filled);
-    border-radius: 4px;
-	transition: var(--default-time) var(--default-animation) background-color;
+  margin-block-start: 0;
+  background-color: var(--card-color-filled);
+  border-radius: 4px;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 }
 
 /* CHAT AREA -> PLACEHOLDER */
 
 #{ $chatLoadingWrapper } {
-	background: var(--chat-color) !important;
+  background: var(--chat-color) !important;
 }
 
 #{ $chatLoadingMessageWrapper } {
-	background: transparent !important;
+  background: transparent !important;
 }
 
 #{ $chatLoadingAttachment },
 #{ $chatLoadingAvatar },
 #{ $chatLoadingBlob } {
-	background: hsl(0,0%,100%) !important;
+  background: hsl(0, 0%, 100%) !important;
 }
 
 /* CHAT AREA -> NEW MESSAGES PILL */
 
 #{ $newMessagesPill },
 #{ $newMessagesClear } {
-	background-color: hsl(var(--accent-hsl--material-you)) !important;
-	box-shadow: var(--shadow-medium);
+  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  box-shadow: var(--shadow-medium);
 }
 
 #{ $newMessagesPill } {
-	position: relative;
-	padding-block: 9px;
-	padding-inline: 16px;
-	border-radius: 18px;
+  position: relative;
+  padding-block: 9px;
+  padding-inline: 16px;
+  border-radius: 18px;
 
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 40px;
-		height: 36px;
-		inset-block-start: 0;
-		inset-inline-end: -24px;
-		z-index: -1;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 40px;
+    height: 36px;
+    inset-block-start: 0;
+    inset-inline-end: -24px;
+    z-index: -1;
+  }
 
-	#{ $defaultColor } {
-		color: var(--accent-text-color--material-you);
-	}
+  #{ $defaultColor } {
+    color: var(--accent-text-color--material-you);
+  }
 }
 
 #{ $newMessagesClear } {
-	margin-inline-start: 8px;
-	padding: 10px;
-	border-radius: 18px;
-	border-inline-start: none;
+  margin-inline-start: 8px;
+  padding: 10px;
+  border-radius: 18px;
+  border-inline-start: none;
 
-	#{ $newMessagesClearIcon } {
-		color: var(--accent-text-color--material-you);
-	}
+  #{ $newMessagesClearIcon } {
+    color: var(--accent-text-color--material-you);
+  }
 }
 
 /* CHAT AREA -> NEW MESSAGES BAR */
 
 #{ $barBase } {
-	&:not(#{ $jumpToPresentBar }, #{ $messagesErrorBar }) {
-		height: auto;
-	    inset-block-start: var(--space-16);
-	    inset-inline-start: 50%;
-	    inset-inline-end: unset;
-	    gap: var(--space-8);
-	    padding: var(--space-8);
-	    background-color: var(--popout-color);
-	    border-radius: calc(var(--button-radius) + var(--space-8));
-	    box-shadow: none;
-		border: none;
-	    cursor: default;
-	    opacity: 1;
-		z-index: 4;
-		transform: translateX(-50%);
-	    transition: var(--default-time) var(--default-animation) box-shadow;
+  &:not(#{ $jumpToPresentBar }, #{ $messagesErrorBar }) {
+    height: auto;
+    inset-block-start: var(--space-16);
+    inset-inline-start: 50%;
+    inset-inline-end: unset;
+    gap: var(--space-8);
+    padding: var(--space-8);
+    background-color: var(--popout-color);
+    border-radius: calc(var(--button-radius) + var(--space-8));
+    box-shadow: none;
+    border: none;
+    cursor: default;
+    opacity: 1;
+    z-index: 4;
+    transform: translateX(-50%);
+    transition: var(--default-time) var(--default-animation) box-shadow;
 
-		&:hover {
-			box-shadow: var(--shadow-soft);
-		}
+    &:hover {
+      box-shadow: var(--shadow-soft);
+    }
 
-	    &:active {
-	        padding-block-start: var(--space-8);
-	    }
-	}
+    &:active {
+      padding-block-start: var(--space-8);
+    }
+  }
 }
 
 #{ $barButtonBase } {
-    min-width: var(--button-height);
-    height: var(--button-height);
-    line-height: 18px;
+  min-width: var(--button-height);
+  height: var(--button-height);
+  line-height: 18px;
+  background-color: hsl(var(--accent-hsl--material-you));
+  border-radius: var(--button-radius);
+  color: var(--accent-text-color--material-you);
+  pointer-events: all;
+  cursor: pointer;
+
+  &#{ $barButtonMain } {
+    flex: 0 1 auto;
+    padding: 0 16px;
+    background-color: var(--accent-secondary-color);
+    color: var(--accent-secondary-text-color);
+  }
+
+  &#{ $barButtonAlt } {
+    position: relative;
+    padding: 0;
     background-color: hsl(var(--accent-hsl--material-you));
-    border-radius: var(--button-radius);
     color: var(--accent-text-color--material-you);
-    pointer-events: all;
-	cursor: pointer;
+    font-size: 0;
+    justify-content: center;
 
-	&#{ $barButtonMain } {
-        flex: 0 1 auto;
-        padding: 0 16px;
-        background-color: var(--accent-secondary-color);
-        color: var(--accent-secondary-text-color);
-	}
+    #{ $barButtonIcon } {
+      inset-block-start: 0;
+      margin: 0;
 
-	&#{ $barButtonAlt } {
-        position: relative;
-        padding: 0;
-		background-color: hsl(var(--accent-hsl--material-you));
-		color: var(--accent-text-color--material-you);
-        font-size: 0;
-        justify-content: center;
-
-        #{ $barButtonIcon } {
-            inset-block-start: 0;
-            margin: 0;
-
-            path {
-                d: path('M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z');
-            }
-        }
-	}
+      path {
+        d: path(
+          "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"
+        );
+      }
+    }
+  }
 }
 
 /* CHAT AREA -> NAVIGATOR */
 
 #{ $highlightContainer } {
-	inset-inline-end: 20px;
-	justify-content: flex-end;
+  inset-inline-end: 20px;
+  justify-content: flex-end;
 }
 
 #{ $highlightNavigator } {
-	background: hsl(var(--accent-hsl--material-you)) !important;
-	border-radius: 30%;
-	box-shadow: var(--shadow-medium);
+  background: hsl(var(--accent-hsl--material-you)) !important;
+  border-radius: 30%;
+  box-shadow: var(--shadow-medium);
 
-	#{ $highlightNavigatorButton } {
-		width: 48px;
-		height: 48px;
-		padding: 0;
-		border-radius: inherit;
-		background: transparent !important;
-		color: var(--accent-text-color--material-you) !important;
-	}
+  #{ $highlightNavigatorButton } {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: inherit;
+    background: transparent !important;
+    color: var(--accent-text-color--material-you) !important;
+  }
 
-	#{ $highlightNavigatorIcon } {
-		width: 100%;
-		height: 100%;
-	}
+  #{ $highlightNavigatorIcon } {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /* CHAT AREA -> JUMP TO PRESENT / NAVIGATOR */
 
 #{ $jumpToPresentBar } {
-	--button-height: 56px;
-	--button-padding-start: 16px;
-	--button-padding-end: 16px;
-	--button-radius: 20px;
-	--button-font-size: 16px;
+  --button-height: 56px;
+  --button-padding-start: 16px;
+  --button-padding-end: 16px;
+  --button-radius: 20px;
+  --button-font-size: 16px;
 
-	width: auto;
-	height: var(--button-height);
-	min-width: var(--button-height);
-	gap: var(--space-8);
-	inset-block-end: var(--space-16);
-	inset-inline-start: unset;
-	inset-inline-end: var(--space-16);
-	margin: 0;
-	padding-inline-start: var(--button-padding-start);
-	padding-inline-end: var(--button-padding-end);
-	background: hsl(var(--accent-hsl--material-you)) !important;
-	border-radius: var(--button-radius);
-	border: none;
-	box-shadow: var(--shadow-soft);
-	transition: var(--default-time) var(--default-animation) box-shadow;
-	opacity: 1;
-	z-index: 3;
+  width: auto;
+  height: var(--button-height);
+  min-width: var(--button-height);
+  gap: var(--space-8);
+  inset-block-end: var(--space-16);
+  inset-inline-start: unset;
+  inset-inline-end: var(--space-16);
+  margin: 0;
+  padding-inline-start: var(--button-padding-start);
+  padding-inline-end: var(--button-padding-end);
+  background: hsl(var(--accent-hsl--material-you)) !important;
+  border-radius: var(--button-radius);
+  border: none;
+  box-shadow: var(--shadow-soft);
+  transition: var(--default-time) var(--default-animation) box-shadow;
+  opacity: 1;
+  z-index: 3;
 
-	&:hover {
-		box-shadow: var(--shadow-medium);
+  &:hover {
+    box-shadow: var(--shadow-medium);
 
-		&:after {
-			opacity: var(--button-action-hover);
-		}
-	}
-
-	&:active {
-		margin-block: 0;
-		margin-inline: auto;
-
-		&:after {
-			opacity: var(--button-action-active);
-		}
-	}
-
-	&:before {
-		content: " ";
-		position: relative;
-		width: 24px;
-		height: 24px;
-		inset-block-end: 0;
-		inset-inline-start: unset;
-		inset-inline-end: 0;
-		box-sizing: border-box;
-		@include add-icon(var(--accent-text-color--material-you), expand, solid);
-		-webkit-mask-position: center;
-		mask-position: center;
-		-webkit-mask-origin: content-box;
-		mask-size: 150%;
-		transform: none;
-	}
-
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		background-color: var(--button-action-color);
-		border-radius: var(--button-radius);
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
-
-	#{ $jumpToPresentBarButtonBase } {
-		display: none;
-	}
-
-	#{ $button } {
-		--button-height: 24px;
-
-		padding: 0;
-		font-weight: 400;
-
-		&:after {
-			display: none;
-		}
-	}
-
-	#{ $buttonV2 } {
-        --button-padding-start: 0;
-		--button-padding-end: 0;
+    &:after {
+      opacity: var(--button-action-hover);
     }
+  }
 
-	#{ $spinner } {
-		position: absolute;
-		width: 100%;
-		inset-inline-start: 0;
-		inset-inline-end: 0;
-		margin-block: 0;
-		margin-inline: auto;
-		padding: 0;
-		background-color: hsl(var(--accent-hsl--material-you));
-		border-radius: 50%;
-		z-index: 3;
+  &:active {
+    margin-block: 0;
+    margin-inline: auto;
 
-		#{ $spinnerPulsingEllipsis } {
-			vertical-align: middle;
-		}
-	}
+    &:after {
+      opacity: var(--button-action-active);
+    }
+  }
+
+  &:before {
+    content: " ";
+    position: relative;
+    width: 24px;
+    height: 24px;
+    inset-block-end: 0;
+    inset-inline-start: unset;
+    inset-inline-end: 0;
+    box-sizing: border-box;
+    @include add-icon(var(--accent-text-color--material-you), expand, solid);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-origin: content-box;
+    mask-size: 150%;
+    transform: none;
+  }
+
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: var(--button-action-color);
+    border-radius: var(--button-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
+
+  #{ $jumpToPresentBarButtonBase } {
+    display: none;
+  }
+
+  #{ $button } {
+    --button-height: 24px;
+
+    padding: 0;
+    font-weight: 400;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  #{ $buttonV2 } {
+    --button-padding-start: 0;
+    --button-padding-end: 0;
+  }
+
+  #{ $spinner } {
+    position: absolute;
+    width: 100%;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    margin-block: 0;
+    margin-inline: auto;
+    padding: 0;
+    background-color: hsl(var(--accent-hsl--material-you));
+    border-radius: 50%;
+    z-index: 3;
+
+    #{ $spinnerPulsingEllipsis } {
+      vertical-align: middle;
+    }
+  }
 }

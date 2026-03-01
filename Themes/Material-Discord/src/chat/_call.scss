@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,123 +7,128 @@
  */
 
 #{ $voiceCallActionsWrapper } {
-    --button-height: 48px;
-    --button-radius: calc(var(--button-height) / 2);
-    --button-small-radius: 4px;
+  --button-height: 48px;
+  --button-radius: calc(var(--button-height) / 2);
+  --button-small-radius: 4px;
 }
 
 #{ $voiceCallActionsButtonSection } {
-    background-color: hsl(from var(--popout-color) h s l / 0.75);
-    border-radius: calc(var(--button-height) + 4px);
-    border: none;
+  background-color: hsl(from var(--popout-color) h s l / 0.75);
+  border-radius: calc(var(--button-height) + 4px);
+  border: none;
 }
 
 #{ $voiceCallAttachedCaretButtonContainer } {
-    gap: 2px;
+  gap: 2px;
 
-    #{ $callButtonColorable } {
-        position: relative;
-        width: var(--button-height);
-        height: var(--button-height);
-        padding: 0;
+  #{ $callButtonColorable } {
+    position: relative;
+    width: var(--button-height);
+    height: var(--button-height);
+    padding: 0;
+    border-radius: var(--button-radius);
+
+    &#{ $voiceCallAttachedButtonContainer } {
+      border-radius: var(--button-radius) var(--button-small-radius)
+        var(--button-small-radius) var(--button-radius);
+    }
+
+    &#{ $voiceCallActionsContextMenuNub } {
+      width: var(--button-height);
+      margin-inline-start: 0;
+      border-radius: var(--button-small-radius) var(--button-radius)
+        var(--button-radius) var(--button-small-radius);
+      transition: calc(var(--default-time) / 1.5) var(--default-animation)
+        border-radius;
+
+      &#{ $callButtonActive } {
         border-radius: var(--button-radius);
+      }
 
-        &#{ $voiceCallAttachedButtonContainer } {
-            border-radius: var(--button-radius) var(--button-small-radius) var(--button-small-radius) var(--button-radius);
+      &:before {
+        position: absolute;
+        content: " ";
+        width: 100%;
+        height: 100%;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        background-color: var(--button-text-color);
+        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_down.svg);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: 50%;
+        -webkit-mask-position: center;
+        transition: calc(var(--default-time) / 1.5) var(--default-animation)
+          transform;
+      }
+
+      &#{ $voiceCallActionsContextMenuNubActive } {
+        &:before {
+          transform: rotate(180deg);
         }
+      }
 
-        &#{ $voiceCallActionsContextMenuNub } {
-            width: var(--button-height);
-            margin-inline-start: 0;
-            border-radius: var(--button-small-radius) var(--button-radius) var(--button-radius) var(--button-small-radius);
-            transition: calc(var(--default-time) / 1.5) var(--default-animation) border-radius;
-
-            &#{ $callButtonActive } {
-                border-radius: var(--button-radius);
-            }
-
-            &:before {
-                position: absolute;
-                content: " ";
-                width: 100%;
-                height: 100%;
-                inset-block-start: 0;
-                inset-inline-start: 0;
-                background-color: var(--button-text-color);
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_down.svg);
-            	-webkit-mask-repeat: no-repeat;
-                -webkit-mask-size: 50%;
-                -webkit-mask-position: center;
-                transition: calc(var(--default-time) / 1.5) var(--default-animation) transform;
-            }
-
-            &#{ $voiceCallActionsContextMenuNubActive } {
-                &:before {
-                    transform: rotate(180deg);
-                }
-            }
-
-            #{ $voiceCallContextMenuCaret } {
-                display: none;
-            }
-        }
-
-        &:after {
-            border-radius: inherit;
-        }
+      #{ $voiceCallContextMenuCaret } {
+        display: none;
+      }
     }
 
-    &#{ $voiceCallDisconnect } {
-        background-color: hsl(from var(--popout-color) h s l / 0.75);
-        border-radius: calc(var(--button-radius) + 4px);
-        border: none;
-
-        #{ $callCenterButton } {
-            border-radius: var(--button-radius) var(--button-small-radius) var(--button-small-radius) var(--button-radius);
-        }
-
-        #{ $voiceCallDisconnect } {
-            background-color: hsl(var(--alert-hsl)) !important;
-
-            #{ $callCenterIcon } {
-                color: var(--alert-text-color) !important;
-            }
-
-            &:before {
-                background-color: var(--alert-text-color) !important;
-            }
-        }
+    &:after {
+      border-radius: inherit;
     }
+  }
+
+  &#{ $voiceCallDisconnect } {
+    background-color: hsl(from var(--popout-color) h s l / 0.75);
+    border-radius: calc(var(--button-radius) + 4px);
+    border: none;
+
+    #{ $callCenterButton } {
+      border-radius: var(--button-radius) var(--button-small-radius)
+        var(--button-small-radius) var(--button-radius);
+    }
+
+    #{ $voiceCallDisconnect } {
+      background-color: hsl(var(--alert-hsl)) !important;
+
+      #{ $callCenterIcon } {
+        color: var(--alert-text-color) !important;
+      }
+
+      &:before {
+        background-color: var(--alert-text-color) !important;
+      }
+    }
+  }
 }
 
 #{ $voiceCallAttachedCaretButtonContainer } {
-    #{ $voiceCallFullRegionButton }#{ $voiceCallDisconnect } {
-        --button-background: hsl(var(--alert-hsl));
-        --button-text-color: var(--alert-text-color);
-        --button-leave-height: calc(var(--button-height) + 4px);
-        --button-radius: calc(var(--button-leave-height) / 2);
+  #{ $voiceCallFullRegionButton }#{ $voiceCallDisconnect } {
+    --button-background: hsl(var(--alert-hsl));
+    --button-text-color: var(--alert-text-color);
+    --button-leave-height: calc(var(--button-height) + 4px);
+    --button-radius: calc(var(--button-leave-height) / 2);
 
-        width: var(--button-leave-height);
-        height: var(--button-leave-height);
-    }
+    width: var(--button-leave-height);
+    height: var(--button-leave-height);
+  }
 }
 
 #{ $voiceCallAvSpacing } {
-    display: none;
+  display: none;
 }
 
 /* VOICE & VIDEO CALL -> ANSWER CALL POPOUT */
 
 #{ $callCenterButton } {
-    width: 56px;
-    height: 56px;
-    padding: 0;
+  width: 56px;
+  height: 56px;
+  padding: 0;
 
-    &:after {
-        display: none;
-    }
+  &:after {
+    display: none;
+  }
 }
 
 #{ $callCenterIcon } {
-    padding: 0;
+  padding: 0;
 }

@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,273 +7,299 @@
  */
 
 #{ $panels } {
-    z-index: 103;
+  z-index: 103;
 }
 
 #{ $accountPanelAvatarWrapper } {
-    flex-direction: row-reverse;
-    min-width: 32px;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  flex-direction: row-reverse;
+  min-width: 32px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 
-    &:hover {
-        background-color: transparent;
-    }
+  &:hover {
+    background-color: transparent;
+  }
 }
 
 #{ $noticeStreamerMode } + #{ $contentMain } {
-    #{ $accountPanel } {
-        top: calc(var(--notice-bar-height) + var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin));
+  #{ $accountPanel } {
+    top: calc(
+      var(--notice-bar-height) + var(--window-title-bar-height) +
+        var(--app-card-top-margin) + var(--app-card-margin)
+    );
 
-        #{ $panelButton }[role="switch"] {
-            &:before {
-                --icon-yposition: calc(var(--notice-bar-height) + var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin) + 11px);
-            }
-        }
+    #{ $panelButton }[role="switch"] {
+      &:before {
+        --icon-yposition: calc(
+          var(--notice-bar-height) + var(--window-title-bar-height) +
+            var(--app-card-top-margin) + var(--app-card-margin) + 11px
+        );
+      }
     }
+  }
 }
 
 #{ $bdNotices }:not(:empty) + #{ $contentMain } {
-    #{ $accountPanel } {
-        top: calc(var(--window-title-bar-height) + var(--app-card-top-margin) + var(--app-card-margin) + var(--notice-bar-height));
-    }
+  #{ $accountPanel } {
+    top: calc(
+      var(--window-title-bar-height) + var(--app-card-top-margin) +
+        var(--app-card-margin) + var(--notice-bar-height)
+    );
+  }
 }
 
 #{ $notice }:not(:empty) + #{ $layers } {
-    #{ $accountPanel } {
-        top: calc(var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) + var(--notice-bar-height));
-    }
+  #{ $accountPanel } {
+    top: calc(
+      var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) +
+        var(--notice-bar-height)
+    );
+  }
 
-    #{ $bdNotices }:not(:empty) + #{ $contentMain } {
-        #{ $accountPanel } {
-            top: calc(var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) + var(--app-card-margin) + (var(--notice-bar-height) * 2));
-        }
+  #{ $bdNotices }:not(:empty) + #{ $contentMain } {
+    #{ $accountPanel } {
+      top: calc(
+        var(--window-title-bar-height) + (var(--app-card-top-margin) * 2) +
+          var(--app-card-margin) + (var(--notice-bar-height) * 2)
+      );
     }
+  }
 }
 
 #{ $accountPanel } {
-    --account-panel-height: 44px;
+  --account-panel-height: 44px;
 
-    position: fixed;
-    width: var(--account-panel-height);
-    height: var(--account-panel-height);
-    top: calc( var(--custom-app-top-bar-height) + var(--app-card-top-margin) + ((var(--header-bar-height) - var(--account-panel-height)) / 2) );
-    right: calc(var(--app-card-margin) + var(--space-4));
-    margin-bottom: 0;
-    padding: 0 4px;
-    background-color: var(--app-background) !important;
-    border-radius: 22px;
-    justify-content: flex-end;
-    transition: var(--default-time) var(--default-animation) width;
+  position: fixed;
+  width: var(--account-panel-height);
+  height: var(--account-panel-height);
+  top: calc(
+    var(--custom-app-top-bar-height) + var(--app-card-top-margin) +
+      ((var(--header-bar-height) - var(--account-panel-height)) / 2)
+  );
+  right: calc(var(--app-card-margin) + var(--space-4));
+  margin-bottom: 0;
+  padding: 0 4px;
+  background-color: var(--app-background) !important;
+  border-radius: 22px;
+  justify-content: flex-end;
+  transition: var(--default-time) var(--default-animation) width;
 
-    #{ $avatarWrapper } {
-        width: 32px !important;
-        height: 32px !important;
-        z-index: 103;
+  #{ $avatarWrapper } {
+    width: 32px !important;
+    height: 32px !important;
+    z-index: 103;
 
-        #{ $avatarMask } {
-            width: 36px !important;
-            height: 36px !important;
-        }
-
-        #{ $avatarStatusDecoration } {
-            width: 40px !important;
-            height: 40px !important;
-        }
+    #{ $avatarMask } {
+      width: 36px !important;
+      height: 36px !important;
     }
 
+    #{ $avatarStatusDecoration } {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+
+  #{ $accountPanelNameTag } {
+    width: calc(100% - 32px);
+    top: calc((var(--header-bar-height) / 2) - (38px / 2));
+    right: 7px;
+    margin-right: 0;
+    padding: 0;
+    border-radius: 19px;
+    transition:
+      var(--default-time) var(--default-animation) width,
+      var(--default-time) var(--default-animation) padding,
+      var(--default-time) var(--default-animation) box-shadow;
+
+    #{ $accountPanelUsername },
+    #{ $accountPanelDiscriminator } {
+      opacity: 0;
+      transition: var(--default-time) var(--default-animation) opacity;
+    }
+
+    #{ $accountPanelUsernameContainer } {
+      max-width: 100px;
+    }
+
+    #{ $accountPanelDiscriminator } {
+      line-height: 12px;
+    }
+  }
+
+  #{ $accountPanelButtons } {
+    position: absolute;
+    flex-direction: column;
+    width: auto;
+    top: calc(var(--account-panel-height) + var(--space-8));
+    right: var(--space-4);
+    padding: 4px;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+
+    &:before {
+      position: absolute;
+      content: " ";
+      width: 100%;
+      height: var(--space-8);
+      top: calc(var(--space-8) * -1);
+      left: 0;
+    }
+  }
+
+  #{ $panelButton } {
+    display: grid;
+    grid-template-columns: 20px max-content;
+    grid-template-rows: auto;
+    gap: 8px;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 9px 12px;
+    border-radius: calc(var(--popout-radius) - 2px);
+    justify-content: left;
+    color: var(--menu-text-color);
+    pointer-events: none;
+
+    &:after,
+    #{ $buttonContents } {
+      opacity: 0;
+    }
+
+    &#{ $panelButtonEnabled } {
+      &:hover {
+        background-color: var(--background-tinted-hover) !important;
+      }
+    }
+
+    &[role="switch"] {
+      &:before {
+        --icon-xposition: calc(var(--app-card-margin) + 8px);
+        --icon-yposition: calc(
+          (var(--app-card-top-margin) + var(--custom-app-top-bar-height)) +
+            ((var(--header-bar-height) - 34px) / 2)
+        );
+
+        position: fixed;
+        content: " ";
+        width: 34px;
+        height: 34px;
+        top: var(--icon-yposition);
+        right: var(--icon-xposition);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60%;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 104;
+        transition:
+          var(--default-time) var(--default-animation) background-color,
+          var(--default-time) var(--default-animation) background-image;
+      }
+    }
+
+    &#{ $accountPanelButtonChevron } {
+      display: flex;
+      min-width: 32px;
+      max-width: 32px;
+      padding: 9px 0;
+      justify-content: center;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &:after {
+      position: relative;
+      content: attr(aria-label);
+      width: auto;
+      line-height: 20px;
+      text-align: left;
+    }
+  }
+
+  #{ $accountPanelMicButtonParent } {
+    &#{ $accountPanelMicButtonHasColorGlow } {
+      #{ $panelButton }[aria-checked="true"] {
+        &:before {
+          background-color: hsla(0, 0%, 0%, 0.6);
+          backdrop-filter: blur(2px);
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuNyAxMUg1QzUgMTIuMTkgNS4zNCAxMy4zIDUuOSAxNC4yOEw3LjEzIDEzLjA1QzYuODYgMTIuNDMgNi43IDExLjc0IDYuNyAxMVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNOS4wMSAxMS4wODVDOS4wMTUgMTEuMTEyNSA5LjAyIDExLjE0IDkuMDIgMTEuMTdMMTUgNS4xOFY1QzE1IDMuMzQgMTMuNjYgMiAxMiAyQzEwLjM0IDIgOSAzLjM0IDkgNVYxMUM5IDExLjAzIDkuMDA1IDExLjA1NzUgOS4wMSAxMS4wODVaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTExLjcyMzcgMTYuMDkyN0wxMC45NjMyIDE2Ljg1MzFMMTAuMjUzMyAxNy41Njg4QzEwLjQ5NzggMTcuNjMzIDEwLjc0NyAxNy42ODM5IDExIDE3LjcyVjIySDEzVjE3LjcyQzE2LjI4IDE3LjIzIDE5IDE0LjQxIDE5IDExSDE3LjNDMTcuMyAxNCAxNC43NiAxNi4xIDEyIDE2LjFDMTEuOTA3NiAxNi4xIDExLjgxNTUgMTYuMDk3NSAxMS43MjM3IDE2LjA5MjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTIxIDQuMjdMMTkuNzMgM0wzIDE5LjczTDQuMjcgMjFMOC40NiAxNi44Mkw5LjY5IDE1LjU4TDExLjM1IDEzLjkyTDE0Ljk5IDEwLjI4TDIxIDQuMjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PC9zdmc+");
+        }
+      }
+
+      + #{ $accountPanelMicButtonHasColorGlow } {
+        #{ $panelButton }[aria-checked="true"] {
+          &:before {
+            background-color: hsla(0, 0%, 0%, 0.2);
+            backdrop-filter: blur(2px);
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuMTYyMDQgMTUuMDA2NUM2LjEwODU5IDE1LjAwMjIgNi4wNTQ1NSAxNSA2IDE1SDRWMTJDNCA3LjU4OCA3LjU4OSA0IDEyIDRDMTMuNDgwOSA0IDE0Ljg2OTEgNC40MDQzOSAxNi4wNTk5IDUuMTA4NTlMMTcuNTEwMiAzLjY1ODM1QzE1LjkyOTIgMi42MTA2NCAxNC4wMzQ2IDIgMTIgMkM2LjQ4NiAyIDIgNi40ODUgMiAxMlYxOS4xNjg1TDYuMTYyMDQgMTUuMDA2NVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNMTkuNzI1IDkuOTE2ODZDMTkuOTA0MyAxMC41ODEzIDIwIDExLjI3OTYgMjAgMTJWMTVIMThDMTYuODk2IDE1IDE2IDE1Ljg5NiAxNiAxN1YyMEMxNiAyMS4xMDQgMTYuODk2IDIyIDE4IDIySDIwQzIxLjEwNSAyMiAyMiAyMS4xMDQgMjIgMjBWMTJDMjIgMTAuNzA3NSAyMS43NTM2IDkuNDcxNDkgMjEuMzA1MyA4LjMzNjU4TDE5LjcyNSA5LjkxNjg2WiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPjxwYXRoIGQ9Ik0zLjIwMTAxIDIzLjYyNDNMMS43ODY4IDIyLjIxMDFMMjEuNTg1OCAyLjQxMTEzTDIzIDMuODI1MzVMMy4yMDEwMSAyMy42MjQzWiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPj48L3N2Zz4=");
+          }
+        }
+      }
+    }
+  }
+
+  #{ $panelButtonBlur } {
+    &:hover {
+      backdrop-filter: none;
+    }
+  }
+
+  &:hover {
+    width: 176px;
+    padding: 0 4px 0 12px;
+
     #{ $accountPanelNameTag } {
-        width: calc(100% - 32px);
-        top: calc( (var(--header-bar-height) / 2) - (38px / 2) );
-        right: 7px;
-        margin-right: 0;
-        padding: 0;
-        border-radius: 19px;
-        transition: var(--default-time) var(--default-animation) width, var(--default-time) var(--default-animation) padding, var(--default-time) var(--default-animation) box-shadow;
+      width: calc(100% - 48px);
+      box-shadow: var(--elevation-high);
 
-        #{ $accountPanelUsername },
-        #{ $accountPanelDiscriminator } {
-            opacity: 0;
-            transition: var(--default-time) var(--default-animation) opacity;
-        }
-
-        #{ $accountPanelUsernameContainer } {
-            max-width: 100px;
-        }
-
-        #{ $accountPanelDiscriminator } {
-            line-height: 12px;
-        }
+      #{ $accountPanelUsername },
+      #{ $accountPanelDiscriminator } {
+        opacity: 1;
+      }
     }
 
     #{ $accountPanelButtons } {
-        position: absolute;
-        flex-direction: column;
-        width: auto;
-        top: calc(var(--account-panel-height) + var(--space-8));
-        right: var(--space-4);
-        padding: 4px;
-        pointer-events: none;
-        transition: var(--default-time) var(--default-animation) opacity;
-
-        &:before {
-            position: absolute;
-            content: " ";
-            width: 100%;
-            height: var(--space-8);
-            top: calc(var(--space-8) * -1);
-            left: 0;
-        }
+      background-color: var(--popout-color);
+      border-radius: var(--popout-radius);
+      box-shadow: var(--default-shadow);
+      pointer-events: all;
     }
 
     #{ $panelButton } {
-        display: grid;
-        grid-template-columns: 20px max-content;
-        grid-template-rows: auto;
-        gap: 8px;
-        width: 100%;
-        height: auto;
-        margin: 0;
-        padding: 9px 12px;
-        border-radius: calc(var(--popout-radius) - 2px);
-        justify-content: left;
-        color: var(--menu-text-color);
-        pointer-events: none;
+      pointer-events: all;
 
-        &:after,
-        #{ $buttonContents } {
-            opacity: 0;
-        }
-
-        &#{ $panelButtonEnabled } {
-            &:hover {
-                background-color: var(--background-tinted-hover) !important;
-            }
-        }
-
-        &[role="switch"] {
-            &:before {
-                --icon-xposition: calc(var(--app-card-margin) + 8px);
-                --icon-yposition: calc((var(--app-card-top-margin) + var(--custom-app-top-bar-height)) + ((var(--header-bar-height)  - 34px) / 2));
-
-                position: fixed;
-                content: " ";
-                width: 34px;
-                height: 34px;
-                top: var(--icon-yposition);
-                right: var(--icon-xposition);
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: 60%;
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 104;
-                transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) background-image;
-            }
-        }
-
-        &#{ $accountPanelButtonChevron } {
-            display: flex;
-            min-width: 32px;
-            max-width: 32px;
-            padding: 9px 0;
-            justify-content: center;
-
-            &:after {
-                display: none;
-            }
-        }
-
-        &:after {
-            position: relative;
-            content: attr(aria-label);
-            width: auto;
-            line-height: 20px;
-            text-align: left;
-        }
+      &:after,
+      #{ $buttonContents } {
+        opacity: 1;
+      }
     }
-
-    #{ $accountPanelMicButtonParent } {
-        &#{ $accountPanelMicButtonHasColorGlow } {
-            #{ $panelButton }[aria-checked="true"] {
-                &:before {
-                    background-color: hsla(0,0%,0%,0.6);
-                    backdrop-filter: blur(2px);
-                    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuNyAxMUg1QzUgMTIuMTkgNS4zNCAxMy4zIDUuOSAxNC4yOEw3LjEzIDEzLjA1QzYuODYgMTIuNDMgNi43IDExLjc0IDYuNyAxMVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNOS4wMSAxMS4wODVDOS4wMTUgMTEuMTEyNSA5LjAyIDExLjE0IDkuMDIgMTEuMTdMMTUgNS4xOFY1QzE1IDMuMzQgMTMuNjYgMiAxMiAyQzEwLjM0IDIgOSAzLjM0IDkgNVYxMUM5IDExLjAzIDkuMDA1IDExLjA1NzUgOS4wMSAxMS4wODVaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTExLjcyMzcgMTYuMDkyN0wxMC45NjMyIDE2Ljg1MzFMMTAuMjUzMyAxNy41Njg4QzEwLjQ5NzggMTcuNjMzIDEwLjc0NyAxNy42ODM5IDExIDE3LjcyVjIySDEzVjE3LjcyQzE2LjI4IDE3LjIzIDE5IDE0LjQxIDE5IDExSDE3LjNDMTcuMyAxNCAxNC43NiAxNi4xIDEyIDE2LjFDMTEuOTA3NiAxNi4xIDExLjgxNTUgMTYuMDk3NSAxMS43MjM3IDE2LjA5MjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PHBhdGggZD0iTTIxIDQuMjdMMTkuNzMgM0wzIDE5LjczTDQuMjcgMjFMOC40NiAxNi44Mkw5LjY5IDE1LjU4TDExLjM1IDEzLjkyTDE0Ljk5IDEwLjI4TDIxIDQuMjdaIiBmaWxsPSIjZWQ0MjQ1Ij48L3BhdGg+PC9zdmc+');
-                }
-            }
-
-            + #{ $accountPanelMicButtonHasColorGlow } {
-                #{ $panelButton }[aria-checked="true"] {
-                    &:before {
-                        background-color: hsla(0,0%,0%,0.2);
-                        backdrop-filter: blur(2px);
-                        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCI+PHBhdGggZD0iTTYuMTYyMDQgMTUuMDA2NUM2LjEwODU5IDE1LjAwMjIgNi4wNTQ1NSAxNSA2IDE1SDRWMTJDNCA3LjU4OCA3LjU4OSA0IDEyIDRDMTMuNDgwOSA0IDE0Ljg2OTEgNC40MDQzOSAxNi4wNTk5IDUuMTA4NTlMMTcuNTEwMiAzLjY1ODM1QzE1LjkyOTIgMi42MTA2NCAxNC4wMzQ2IDIgMTIgMkM2LjQ4NiAyIDIgNi40ODUgMiAxMlYxOS4xNjg1TDYuMTYyMDQgMTUuMDA2NVoiIGZpbGw9IiNlZDQyNDUiPjwvcGF0aD48cGF0aCBkPSJNMTkuNzI1IDkuOTE2ODZDMTkuOTA0MyAxMC41ODEzIDIwIDExLjI3OTYgMjAgMTJWMTVIMThDMTYuODk2IDE1IDE2IDE1Ljg5NiAxNiAxN1YyMEMxNiAyMS4xMDQgMTYuODk2IDIyIDE4IDIySDIwQzIxLjEwNSAyMiAyMiAyMS4xMDQgMjIgMjBWMTJDMjIgMTAuNzA3NSAyMS43NTM2IDkuNDcxNDkgMjEuMzA1MyA4LjMzNjU4TDE5LjcyNSA5LjkxNjg2WiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPjxwYXRoIGQ9Ik0zLjIwMTAxIDIzLjYyNDNMMS43ODY4IDIyLjIxMDFMMjEuNTg1OCAyLjQxMTEzTDIzIDMuODI1MzVMMy4yMDEwMSAyMy42MjQzWiIgZmlsbD0iI2VkNDI0NSI+PC9wYXRoPj48L3N2Zz4=');
-                    }
-                }
-            }
-        }
-    }
-
-    #{ $panelButtonBlur } {
-        &:hover {
-            backdrop-filter: none;
-        }
-    }
-
-    &:hover {
-        width: 176px;
-        padding: 0 4px 0 12px;
-
-        #{ $accountPanelNameTag } {
-            width: calc(100% - 48px);
-            box-shadow: var(--elevation-high);
-
-            #{ $accountPanelUsername },
-            #{ $accountPanelDiscriminator } {
-                opacity: 1;
-            }
-        }
-
-        #{ $accountPanelButtons } {
-            background-color: var(--popout-color);
-            border-radius: var(--popout-radius);
-            box-shadow: var(--default-shadow);
-            pointer-events: all;
-        }
-
-        #{ $panelButton } {
-            pointer-events: all;
-
-            &:after,
-            #{ $buttonContents } {
-                opacity: 1;
-            }
-        }
-    }
+  }
 }
 
 #{ $accountPanelButtons } {
-    gap: 0;
+  gap: 0;
 }
 
 #{ $accountPanelMicButtonParent } {
-    gap: var(--space-4);
+  gap: var(--space-4);
 }
 
 #{ $panelButtonPlateMuted } {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 #{ $panelButtonPlateMuted },
 #{ $panelButtonPlated }:hover {
-    backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 #{ $visualRefresh } {
-    #{ $guildsWrapper },
-    #{ $sidebarList } {
-        height: calc(100% - var(--custom-app-panels-height, 0)) !important;
-    }
+  #{ $guildsWrapper },
+  #{ $sidebarList } {
+    height: calc(100% - var(--custom-app-panels-height, 0)) !important;
+  }
 }

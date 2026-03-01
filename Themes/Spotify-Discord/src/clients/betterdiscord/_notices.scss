@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,73 +7,73 @@
  */
 
 #{ $bdNotices } {
-    position: absolute;
-    top: var(--space-8);
-    right: var(--space-8);
-    z-index: 1001;
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  z-index: 1001;
 
-    &:has(#{ $bdNotice }) {
-        width: auto;
-        left: unset;
-    }
+  &:has(#{ $bdNotice }) {
+    width: auto;
+    left: unset;
+  }
 }
 
 #{ $base } {
-    &:has(#{ $bdNotices } #{ $bdNotice }) {
-        margin-top: 0;
-    }
+  &:has(#{ $bdNotices } #{ $bdNotice }) {
+    margin-top: 0;
+  }
 }
 
 #{ $bdNotice } {
-    display: flex;
-    max-width: 25vw;
-    height: auto;
-    line-height: normal;
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-    background-color: var(--popout-color);
+  display: flex;
+  max-width: 25vw;
+  height: auto;
+  line-height: normal;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--default-shadow);
+
+  &:first-child {
     border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+  }
 
-    &:first-child {
-        border-radius: var(--popout-radius);
-    }
+  #{ $bdNoticeClose } {
+    width: 18px;
+    height: 18px;
+    top: 20px;
+    right: 16px;
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
+    -webkit-mask-repeat: no-repeat;
+    background-color: var(--header-secondary);
+    background-image: none;
+    -webkit-mask-position: center;
+    mask-position: center;
+    opacity: 1;
+  }
 
-    #{ $bdNoticeClose } {
-        width: 18px;
-        height: 18px;
-        top: 20px;
-        right: 16px;
-        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/close.svg);
-    	-webkit-mask-repeat: no-repeat;
-        background-color: var(--header-secondary);
-        background-image: none;
-    	-webkit-mask-position: center;
-    			mask-position: center;
-        opacity: 1;
-    }
+  #{ $bdNoticeContent } {
+    margin-right: 30px;
+    font-size: 1.25em;
+    font-weight: 400;
+    color: var(--header-primary) !important;
+    text-align: left;
+  }
 
-    #{ $bdNoticeContent } {
-        margin-right: 30px;
-        font-size: 1.25em;
-        font-weight: 400;
-        color: var(--header-primary) !important;
-        text-align: left;
-    }
-
-    #{ $bdNoticeButton } {
-        display: flex;
-        height: var(--button-height);
-        line-height: var(--button-height);
-        top: 0;
-        margin: 0;
-        justify-content: center;
-        background-color: hsl(var(--accent-hsl)) !important;
-        border-radius: var(--button-radius);
-        border: none;
-        color: var(--accent-text-color);
-        font-size: 1em;
-        font-weight: 700;
-    }
+  #{ $bdNoticeButton } {
+    display: flex;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    top: 0;
+    margin: 0;
+    justify-content: center;
+    background-color: hsl(var(--accent-hsl)) !important;
+    border-radius: var(--button-radius);
+    border: none;
+    color: var(--accent-text-color);
+    font-size: 1em;
+    font-weight: 700;
+  }
 }

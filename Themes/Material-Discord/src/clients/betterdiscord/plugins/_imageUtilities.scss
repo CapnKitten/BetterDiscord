@@ -1,5 +1,5 @@
-@use '../../../classes' as *;
-@use '../../../mixins' as *;
+@use "../../../classes" as *;
+@use "../../../mixins" as *;
 
 /*
  *
@@ -8,39 +8,39 @@
  */
 
 #{ $menuPopout } {
-    #{ $menuPopoutItem } {
-        $icons: (
-            'message-imageutilities-copy-link':         'content_copy',
-            'message-imageutilities-copy-media-link':   'content_copy',
-            'message-imageutilities-open-link':         'open_in_new',
-            'message-imageutilities-copy-file':         'image_copy',
-            'message-imageutilities-view-file':         'image_view'
-        );
+  #{ $menuPopoutItem } {
+    $icons: (
+      "message-imageutilities-copy-link": "content_copy",
+      "message-imageutilities-copy-media-link": "content_copy",
+      "message-imageutilities-open-link": "open_in_new",
+      "message-imageutilities-copy-file": "image_copy",
+      "message-imageutilities-view-file": "image_view",
+    );
 
-        @each $option, $icon in $icons {
-            &##{$option} {
-                &:after {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
-                }
-            }
+    @each $option, $icon in $icons {
+      &##{$option} {
+        &:after {
+          -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
         }
-
-        /* SUBMENU WITH ARROW */
-
-        $icons: (
-            'message-imageutilities-download-file-as':  'save',
-            'message-imageutilities-submenu-search':    'search',
-            'message-imageutilities-main-subitem':      'image_view',
-
-            'user-context-imageutilities-main-subitem': 'image_view'
-        );
-
-        @each $option, $icon in $icons {
-            &##{$option} {
-                &:before {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
-                }
-            }
-        }
+      }
     }
+
+    /* SUBMENU WITH ARROW */
+
+    $icons: (
+      "message-imageutilities-download-file-as": "save",
+      "message-imageutilities-submenu-search": "search",
+      "message-imageutilities-main-subitem": "image_view",
+
+      "user-context-imageutilities-main-subitem": "image_view",
+    );
+
+    @each $option, $icon in $icons {
+      &##{$option} {
+        &:before {
+          -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+        }
+      }
+    }
+  }
 }

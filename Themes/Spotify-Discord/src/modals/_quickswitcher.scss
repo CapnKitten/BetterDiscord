@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,25 +8,25 @@
  */
 
 #{ $quickswitcher } {
-    --input-height: 56px;
+  --input-height: 56px;
 
-    @include modal-format;
+  @include modal-format;
 
-    #{ $quickswitcherInput } {
-        @include input-format;
+  #{ $quickswitcherInput } {
+    @include input-format;
+  }
+
+  #{ $quickswitcherScroller } {
+    background-color: transparent;
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent !important;
     }
+  }
 
-    #{ $quickswitcherScroller } {
-        background-color: transparent;
-
-        &::-webkit-scrollbar-track {
-            background-color: transparent !important;
-        }
+  #{ $quickswitcherResult } {
+    &[aria-selected="true"] {
+      background-color: var(--background-tinted-active);
     }
-
-    #{ $quickswitcherResult } {
-        &[aria-selected="true"] {
-            background-color: var(--background-tinted-active);
-        }
-    }
+  }
 }

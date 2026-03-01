@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,113 +7,114 @@
  */
 
 #{ $playerVideoControls } {
-    --progress-bar-height: 3px;
-    --progress-bar-hover-height: 8px;
-    --progress-grabber-size: calc(var(--progress-bar-hover-height) * 2);
+  --progress-bar-height: 3px;
+  --progress-bar-hover-height: 8px;
+  --progress-grabber-size: calc(var(--progress-bar-hover-height) * 2);
 
-    height: 46px;
-    background-color: transparent;
-    background: linear-gradient(0deg, hsl(0,0%,0%,0.65) 0%, transparent 100%);
+  height: 46px;
+  background-color: transparent;
+  background: linear-gradient(0deg, hsl(0, 0%, 0%, 0.65) 0%, transparent 100%);
 
-    #{ $playerVideoButton } {
-        margin-inline-start: 12px;
+  #{ $playerVideoButton } {
+    margin-inline-start: 12px;
+  }
+
+  #{ $playerDurationTimeWrapper } {
+    margin-inline-start: 48px;
+  }
+
+  #{ $flexHorizontal } {
+    position: absolute;
+    inset-block-start: -8px;
+
+    #{ $playerMediaBarInteraction },
+    #{ $playerMediaBarInteractionDragging } {
+      height: var(--progress-bar-height);
+      margin: 0 12px;
+      padding: calc(var(--progress-bar-height) * 2) 0;
     }
 
-    #{ $playerDurationTimeWrapper } {
-        margin-inline-start: 48px;
-    }
-
-    #{ $flexHorizontal } {
-        position: absolute;
-        inset-block-start: -8px;
-
-        #{ $playerMediaBarInteraction },
-        #{ $playerMediaBarInteractionDragging } {
-            height: var(--progress-bar-height);
-            margin: 0 12px;
-            padding: calc(var(--progress-bar-height) * 2) 0;
-        }
-
-        #{ $playerMediaBarInteraction } {
-            &:hover {
-                #{ $playerMediaBarWrapper } {
-                    height: var(--progress-bar-hover-height);
-                }
-            }
-        }
-
-        #{ $playerMediaBarInteractionDragging } {
-            #{ $playerMediaBarWrapper } {
-                height: var(--progress-bar-hover-height);
-            }
-        }
-
+    #{ $playerMediaBarInteraction } {
+      &:hover {
         #{ $playerMediaBarWrapper } {
-            height: var(--progress-bar-height);
-            transition: var(--default-time) var(--default-animation) height;
-            box-shadow: none;
+          height: var(--progress-bar-hover-height);
         }
-
-        #{ $playerMediaBarWrapperFakeEdges } {
-            &:before,
-            &:after {
-                border-radius: 0;
-            }
-        }
-
-        #{ $playerMediaBarProgress } {
-            background-color: hsl(var(--accent-hsl));
-
-            &:before,
-            &:after {
-                background-color: inherit;
-                border-radius: 0;
-            }
-        }
-
-        #{ $playerMediaBarGrabber } {
-            width: var(--progress-grabber-size);
-            height: var(--progress-grabber-size);
-            margin: calc((var(--progress-grabber-size) / 2) * -1) calc((var(--progress-grabber-size) / 2) * -1) 0 0;
-            border-radius: calc(var(--progress-grabber-size) / 2);
-            background-color: hsl(var(--accent-hsl));
-        }
+      }
     }
 
-    #{ $flex } {
-        position: absolute;
-        inset-inline-start: 48px;
-
-        #{ $playerVolumeSlider } {
-            z-index: 3;
-        }
+    #{ $playerMediaBarInteractionDragging } {
+      #{ $playerMediaBarWrapper } {
+        height: var(--progress-bar-hover-height);
+      }
     }
 
-    > div:not([class]) {
-        position: absolute;
-        inset-inline-end: 12px;
+    #{ $playerMediaBarWrapper } {
+      height: var(--progress-bar-height);
+      transition: var(--default-time) var(--default-animation) height;
+      box-shadow: none;
     }
 
-    #{ $playerMediaBarBuffer } {
-        opacity: 0.2;
+    #{ $playerMediaBarWrapperFakeEdges } {
+      &:before,
+      &:after {
+        border-radius: 0;
+      }
     }
-}
 
-#{ $playerMediaBarInteractiveVolume } {
     #{ $playerMediaBarProgress } {
-        background-color: hsl(var(--accent-hsl));
+      background-color: hsl(var(--accent-hsl));
 
-        &:before,
-        &:after {
-            background-color: inherit;
-        }
+      &:before,
+      &:after {
+        background-color: inherit;
+        border-radius: 0;
+      }
     }
 
     #{ $playerMediaBarGrabber } {
-        background-color: hsl(var(--accent-hsl));
+      width: var(--progress-grabber-size);
+      height: var(--progress-grabber-size);
+      margin: calc((var(--progress-grabber-size) / 2) * -1)
+        calc((var(--progress-grabber-size) / 2) * -1) 0 0;
+      border-radius: calc(var(--progress-grabber-size) / 2);
+      background-color: hsl(var(--accent-hsl));
     }
+  }
+
+  #{ $flex } {
+    position: absolute;
+    inset-inline-start: 48px;
+
+    #{ $playerVolumeSlider } {
+      z-index: 3;
+    }
+  }
+
+  > div:not([class]) {
+    position: absolute;
+    inset-inline-end: 12px;
+  }
+
+  #{ $playerMediaBarBuffer } {
+    opacity: 0.2;
+  }
+}
+
+#{ $playerMediaBarInteractiveVolume } {
+  #{ $playerMediaBarProgress } {
+    background-color: hsl(var(--accent-hsl));
+
+    &:before,
+    &:after {
+      background-color: inherit;
+    }
+  }
+
+  #{ $playerMediaBarGrabber } {
+    background-color: hsl(var(--accent-hsl));
+  }
 }
 
 #{ $playerVideoButton } {
-    margin-inline-end: 0;
+  margin-inline-end: 0;
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,231 +8,230 @@
  */
 
 #{ $settingsSidebar } {
-    #{ $item }[data-tab-id] {
-        display: flex;
-        gap: 12px;
-        padding-inline-start: 12px;
-        align-items: center;
+  #{ $item }[data-tab-id] {
+    display: flex;
+    gap: 12px;
+    padding-inline-start: 12px;
+    align-items: center;
 
-        &:before {
-    		position: relative;
-    		content: " ";
-    		width: 20px;
-    		height: 20px;
-            flex-shrink: 0;
-    		background-repeat: no-repeat;
-    		background-position: center;
-            background-color: var(--interactive-text-default);
-            @include add-icon(null, settings);
-            -webkit-mask-repeat: no-repeat;
-            mask-size: 100%;
-    		opacity: 0.8;
-    	}
-
-        img {
-            display: none;
-        }
+    &:before {
+      position: relative;
+      content: " ";
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: var(--interactive-text-default);
+      @include add-icon(null, settings);
+      -webkit-mask-repeat: no-repeat;
+      mask-size: 100%;
+      opacity: 0.8;
     }
+
+    img {
+      display: none;
+    }
+  }
 }
 
 #{ $settingsTabBarItemContainer } {
-    width: 100%;
+  width: 100%;
 }
 
 #{ $settingsSidebar } {
-    #{ $item } {
-        $icons: (
-            // USER SETTINGS
+  #{ $item } {
+    $icons: (
+      // USER SETTINGS
+      "My Account": "person",
+      "Games": "stadia_controller",
+      "Profile Customization": "account_circle",
+      "Content & Social": "assignment",
+      "Data & Privacy": "shield_lock",
+      "Family Center": "family",
+      "Authorized Apps": "apps",
+      "Sessions": "devices",
+      "Connections": "link",
+      "Settings Clips": "movie",
 
-            'My Account':                       'person',
-            'Games':                            'stadia_controller',
-            'Profile Customization':            'account_circle',
-            'Content & Social':                 'assignment',
-            'Data & Privacy':                   'shield_lock',
-            'Family Center':                    'family',
-            'Authorized Apps':                  'apps',
-            'Sessions':                         'devices',
-            'Connections':                      'link',
-            'Settings Clips':                   'movie',
+      "Discord Nitro": "nitro",
+      "Nitro Server Boost": "server_boost",
+      "Subscriptions": "subscription",
+      "Library Inventory": "gift",
+      "Billing": "payment",
 
-            'Discord Nitro':                    'nitro',
-            'Nitro Server Boost':               'server_boost',
-            'Subscriptions':                    'subscription',
-            'Library Inventory':                'gift',
-            'Billing':                          'payment',
+      "Appearance": "chat",
+      "Accessibility": "accessibility",
+      "Voice & Video": "mic",
+      "Text & Images": "keyboard",
+      "Notifications": "notifications",
+      "Keybinds": "space_bar",
+      "Language": "language",
+      "Windows": "windows",
+      "Linux": "linux",
+      "Streamer Mode": "live_tv",
+      "Advanced": "integrations",
 
-            'Appearance':                       'chat',
-            'Accessibility':                    'accessibility',
-            'Voice & Video':                    'mic',
-            'Text & Images':                    'keyboard',
-            'Notifications':                    'notifications',
-            'Keybinds':                         'space_bar',
-            'Language':                         'language',
-            'Windows':                          'windows',
-            'Linux':                            'linux',
-            'Streamer Mode':                    'live_tv',
-            'Advanced':                         'integrations',
+      "Activity Privacy": "shield_lock",
+      "Game Activity": "stadia_controller",
+      "Overlay": "layers",
 
-            'Activity Privacy':                 'shield_lock',
-            'Game Activity':                    'stadia_controller',
-            'Overlay':                          'layers',
+      "Settings": "settings",
+      "updates": "update",
+      "customcss": "code",
+      "plugins": "plugins",
+      "themes": "themes",
+      "pluginrepo": "plugins",
+      "themerepo": "themes",
 
-            'Settings':                         'settings',
-            'updates':                          'update',
-            'customcss':                        'code',
-            'plugins':                          'plugins',
-            'themes':                           'themes',
-            'pluginrepo':                       'plugins',
-            'themerepo':                        'themes',
+      "EquicordPlugins": "plugins",
+      "EquicordThemes": "themes",
+      "EquicordChangelog": "checklist",
+      "EquicordCloud": "cloud",
+      "settings/tabsSync": "backup",
 
-            'EquicordPlugins':                  'plugins',
-            'EquicordThemes':                   'themes',
-            'EquicordChangelog':                'checklist',
-            'EquicordCloud':                    'cloud',
-            'settings/tabsSync':                'backup',
+      "changelog": "checklist",
+      "merchandise": "casino",
+      "Hypesquad Online": "hypesquad",
+      "Experiments": "experiment",
+      "Developer Options": "code",
 
-            'changelog':                        'checklist',
-            'merchandise':                      'casino',
-            'Hypesquad Online':                 'hypesquad',
-            'Experiments':                      'experiment',
-            'Developer Options':                'code',
+      "logout": "exit_to_app",
 
-            'logout':                           'exit_to_app',
+      // SERVER SETTINGS
+      "PROFILE": "badge",
+      "ENGAGEMENT": "diversity_1",
+      "BOOST_PERKS": "workspace_premium",
 
-            // SERVER SETTINGS
+      "OVERVIEW": "dashboard",
+      "ROLES": "person",
+      "EMOJI": "emoji",
+      "STICKERS": "sticker-emoji",
+      "WIDGET": "widgets",
+      "SOUNDBOARD": "volume_up",
+      "GUILD_TEMPLATES": "template",
+      "VANITY_URL": "link",
+      "ACCESS": "lock_open",
 
-            'PROFILE':                          'badge',
-            'ENGAGEMENT':                       'diversity_1',
-            'BOOST_PERKS':                      'workspace_premium',
+      "INTEGRATIONS": "integrations",
+      "APP_DIRECTORY": "apps",
 
-            'OVERVIEW':                         'dashboard',
-            'ROLES':                            'person',
-            'EMOJI':                            'emoji',
-            'STICKERS':                         'sticker-emoji',
-            'WIDGET':                           'widgets',
-            'SOUNDBOARD':                       'volume_up',
-            'GUILD_TEMPLATES':                  'template',
-            'VANITY_URL':                       'link',
-            'ACCESS':                           'lock_open',
+      "SAFETY": "shield_lock",
+      "AUDIT_LOG": "audit_log",
+      "BANS": "hardware",
 
-            'INTEGRATIONS':                     'integrations',
-            'APP_DIRECTORY':                    'apps',
+      "COMMUNITY": "dashboard",
+      "ONBOARDING": "handshake",
+      "ANALYTICS": "analytics",
+      "DISCOVERY": "discovery",
+      "COMMUNITY_WELCOME": "partner_program",
 
-            'SAFETY':                           'shield_lock',
-            'AUDIT_LOG':                        'audit_log',
-            'BANS':                             'hardware',
+      "ROLE_SUBSCRIPTIONS": "monetization_on",
+      "GUILD_PRODUCTS": "inventory",
+      "ROLE_SUBSCRIPTIONS_STORE_PAGE": "sale",
 
-            'COMMUNITY':                        'dashboard',
-            'ONBOARDING':                       'handshake',
-            'ANALYTICS':                        'analytics',
-            'DISCOVERY':                        'discovery',
-            'COMMUNITY_WELCOME':                'partner_program',
+      "GUILD_PREMIUM": "server_boost",
 
-            'ROLE_SUBSCRIPTIONS':               'monetization_on',
-            'GUILD_PRODUCTS':                   'inventory',
-            'ROLE_SUBSCRIPTIONS_STORE_PAGE':    'sale',
+      "MEMBERS": "people",
+      "INVITES": "person_add",
+      "DELETE": "delete"
+    );
 
-            'GUILD_PREMIUM':                    'server_boost',
-
-            'MEMBERS':                          'people',
-            'INVITES':                          'person_add',
-            'DELETE':                           'delete'
-        );
-
-        @each $tab, $icon in $icons {
-			&[data-tab-id="#{$tab}"]:before {
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
-			}
-		}
+    @each $tab, $icon in $icons {
+      &[data-tab-id="#{$tab}"]:before {
+        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+      }
     }
+  }
 }
 
 /* SIDEBAR ICONS V2 */
 
 #{ $itemV2 } {
-    #{ $itemV2Content }:not(:empty) {
-        svg {
-            display: none;
-        }
+  #{ $itemV2Content }:not(:empty) {
+    svg {
+      display: none;
+    }
 
+    &:before {
+      position: relative;
+      content: " ";
+      width: 18px;
+      height: 18px;
+      background-color: currentColor;
+      -webkit-mask-repeat: no-repeat;
+      mask-size: 100%;
+    }
+  }
+
+  $icons: (
+    "settings-sidebar___account_sidebar_item": "person",
+    "settings-sidebar___content_and_social_sidebar_item": "assignment",
+    "settings-sidebar___data_and_privacy_sidebar_item": "shield_lock",
+    "settings-sidebar___family_center_sidebar_item": "family",
+    "settings-sidebar___authorized_apps_sidebar_item": "apps",
+    "settings-sidebar___sessions_sidebar_item": "devices",
+    "settings-sidebar___connections_sidebar_item": "link",
+    "settings-sidebar___notifications_sidebar_item": "notifications",
+    "settings-sidebar___clips_sidebar_item": "movie",
+
+    "settings-sidebar___nitro_sidebar_item": "nitro",
+    "settings-sidebar___premium_guild_subscriptions_sidebar_item":
+      "server_boost",
+    "settings-sidebar___subscriptions_sidebar_item": "subscription",
+    "settings-sidebar___gift_sidebar_item": "gift",
+    "settings-sidebar___billing_sidebar_item": "payment",
+
+    "settings-sidebar___appearance_sidebar_item": "chat",
+    "settings-sidebar___accessibility_sidebar_item": "accessibility",
+    "settings-sidebar___voice_and_video_sidebar_item": "mic",
+    "settings-sidebar___chat_sidebar_item": "keyboard",
+    "settings-sidebar___legacy_notifications_sidebar_item": "notifications",
+    "settings-sidebar___keybinds_sidebar_item": "space_bar",
+    "settings-sidebar___language_and_time_sidebar_item": "language",
+    "settings-sidebar___windows_sidebar_item": "windows",
+    "settings-sidebar___linux_sidebar_item": "linux",
+    "settings-sidebar___streamer_mode_sidebar_item": "live_tv",
+    "settings-sidebar___advanced_sidebar_item": "integrations",
+
+    "settings-sidebar___activity_privacy_sidebar_item": "verified_user",
+    "settings-sidebar___registered_games_sidebar_item": "stadia_controller",
+    "settings-sidebar___overlay_sidebar_item": "picture_in_picture",
+
+    "settings-sidebar___betterdiscord_settings_sidebarItem": "betterdiscord",
+    "settings-sidebar___betterdiscord_updates_sidebarItem": "update",
+    "settings-sidebar___betterdiscord_customcss_tab_sidebarItem": "code",
+    "settings-sidebar___betterdiscord_themes_sidebarItem": "themes",
+    "settings-sidebar___betterdiscord_plugins_sidebarItem": "plugins",
+
+    "settings-sidebar___vencord_plugins": "plugins",
+    "settings-sidebar___vencord_themes": "themes",
+    "settings-sidebar___vencord_updater": "update",
+    "settings-sidebar___vencord_cloud": "cloud",
+    "settings-sidebar___vencord_backup_restore": "backup_restore",
+
+    "settings-sidebar___experiments_sidebar_item": "experiment",
+    "settings-sidebar___developer_options_sidebar_item": "code",
+    "settings-sidebar___legacy_settings_sidebar_item": "settings",
+
+    "settings-sidebar___logout_sidebar_item": "exit_to_app",
+  );
+
+  &[role="listitem"] {
+    #{ $itemV2Content } {
+      &:before {
+        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
+      }
+    }
+  }
+
+  @each $option, $icon in $icons {
+    &[data-list-item-id="#{$option}"] {
+      #{ $itemV2Content } {
         &:before {
-            position: relative;
-            content: " ";
-            width: 18px;
-            height: 18px;
-            background-color: currentColor;
-            -webkit-mask-repeat: no-repeat;
-            mask-size: 100%;
+          -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
         }
+      }
     }
-
-    $icons: (
-        'settings-sidebar___account_sidebar_item':                      'person',
-        'settings-sidebar___content_and_social_sidebar_item':           'assignment',
-        'settings-sidebar___data_and_privacy_sidebar_item':             'shield_lock',
-        'settings-sidebar___family_center_sidebar_item':                'family',
-        'settings-sidebar___authorized_apps_sidebar_item':              'apps',
-        'settings-sidebar___sessions_sidebar_item':                     'devices',
-        'settings-sidebar___connections_sidebar_item':                  'link',
-        'settings-sidebar___notifications_sidebar_item':                'notifications',
-        'settings-sidebar___clips_sidebar_item':                        'movie',
-
-        'settings-sidebar___nitro_sidebar_item':                        'nitro',
-        'settings-sidebar___premium_guild_subscriptions_sidebar_item':  'server_boost',
-        'settings-sidebar___subscriptions_sidebar_item':                'subscription',
-        'settings-sidebar___gift_sidebar_item':                         'gift',
-        'settings-sidebar___billing_sidebar_item':                      'payment',
-
-        'settings-sidebar___appearance_sidebar_item':                   'chat',
-        'settings-sidebar___accessibility_sidebar_item':                'accessibility',
-        'settings-sidebar___voice_and_video_sidebar_item':              'mic',
-        'settings-sidebar___chat_sidebar_item':                         'keyboard',
-        'settings-sidebar___legacy_notifications_sidebar_item':         'notifications',
-        'settings-sidebar___keybinds_sidebar_item':                     'space_bar',
-        'settings-sidebar___language_and_time_sidebar_item':            'language',
-        'settings-sidebar___windows_sidebar_item':                      'windows',
-        'settings-sidebar___linux_sidebar_item':                        'linux',
-        'settings-sidebar___streamer_mode_sidebar_item':                'live_tv',
-        'settings-sidebar___advanced_sidebar_item':                     'integrations',
-
-        'settings-sidebar___activity_privacy_sidebar_item':             'verified_user',
-        'settings-sidebar___registered_games_sidebar_item':             'stadia_controller',
-        'settings-sidebar___overlay_sidebar_item':                      'picture_in_picture',
-
-        'settings-sidebar___betterdiscord_settings_sidebarItem':        'betterdiscord',
-        'settings-sidebar___betterdiscord_updates_sidebarItem':         'update',
-        'settings-sidebar___betterdiscord_customcss_tab_sidebarItem':   'code',
-        'settings-sidebar___betterdiscord_themes_sidebarItem':          'themes',
-        'settings-sidebar___betterdiscord_plugins_sidebarItem':         'plugins',
-
-        'settings-sidebar___vencord_plugins':                           'plugins',
-        'settings-sidebar___vencord_themes':                            'themes',
-        'settings-sidebar___vencord_updater':                           'update',
-        'settings-sidebar___vencord_cloud':                             'cloud',
-        'settings-sidebar___vencord_backup_restore':                    'backup_restore',
-
-        'settings-sidebar___experiments_sidebar_item':                  'experiment',
-        'settings-sidebar___developer_options_sidebar_item':            'code',
-        'settings-sidebar___legacy_settings_sidebar_item':              'settings',
-
-        'settings-sidebar___logout_sidebar_item':                       'exit_to_app',
-    );
-
-    &[role="listitem"] {
-        #{ $itemV2Content } {
-            &:before {
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
-            }
-        }
-    }
-
-    @each $option, $icon in $icons {
-        &[data-list-item-id="#{$option}"] {
-            #{ $itemV2Content } {
-                &:before {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
-                }
-            }
-        }
-    }
+  }
 }

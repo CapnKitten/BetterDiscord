@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,86 +8,86 @@
  */
 
 #{ $messageRequestContainer } {
-    padding: 0 8px;
+  padding: 0 8px;
 
-    #{ $messageRequestsContent } {
-        height: auto !important;
-        margin-block-start: 24px;
-        @include card-format(false, 0, true);
-        overflow: hidden;
+  #{ $messageRequestsContent } {
+    height: auto !important;
+    margin-block-start: 24px;
+    @include card-format(false, 0, true);
+    overflow: hidden;
 
-        > div[style="height: 24px;"] {
-            display: none;
-        }
+    > div[style="height: 24px;"] {
+      display: none;
     }
+  }
 
-    #{ $messageRequestsSectionTitle } {
-        margin: 0;
-        padding: 0 16px 16px;
-    	line-height: normal;
-    	color: var(--card-header-text-color);
-    	font-weight: 400;
-        @include remove-caps(1.25em);
-    }
+  #{ $messageRequestsSectionTitle } {
+    margin: 0;
+    padding: 0 16px 16px;
+    line-height: normal;
+    color: var(--card-header-text-color);
+    font-weight: 400;
+    @include remove-caps(1.25em);
+  }
 }
 
 #{ $messageRequestItem } {
-    padding: 16px;
-    @include card-format--list;
+  padding: 16px;
+  @include card-format--list;
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) background-color;
+
+  &:not(#{ $messageRequestFirstItem }) {
+    border-block-start: none;
+  }
+
+  &:hover,
+  &#{ $messageRequestItemActive },
+  &#{ $messageRequestItemSelected } {
     border-radius: var(--card-radius-big);
-    transition: var(--default-time) var(--default-animation) background-color;
-
-    &:not(#{ $messageRequestFirstItem }) {
-        border-block-start: none;
-    }
-
-    &:hover,
-    &#{ $messageRequestItemActive },
-    &#{ $messageRequestItemSelected } {
-        border-radius: var(--card-radius-big);
-
-        #{ $messageRequestItemActionButton } {
-            background-color: var(--card-color-alt);
-        }
-    }
-
-    &:hover,
-    &#{ $messageRequestItemActive } {
-        background-color: var(--card-color-hover);
-    }
-
-    &#{ $messageRequestItemSelected } {
-        background-color: var(--card-color-active);
-    }
-
-    &:after {
-        display: none;
-    }
 
     #{ $messageRequestItemActionButton } {
-        background-color: var(--card-color-hover);
+      background-color: var(--card-color-alt);
     }
+  }
 
-    #{ $button } {
-        &#{ $buttonPrimary } {
-            --button-padding-start: 12px;
-			--button-padding-end: 12px;
-            --button-background: transparent;
-            --button-text-color: hsl(var(--accent-hsl--material-you));
-            --accent-button-action-hover: 0.14;
-        	--accent-button-action-active: 0.21;
+  &:hover,
+  &#{ $messageRequestItemActive } {
+    background-color: var(--card-color-hover);
+  }
 
-        	&:after {
-        		background-color: hsl(var(--button-link-accent-color));
-        	}
-        }
+  &#{ $messageRequestItemSelected } {
+    background-color: var(--card-color-active);
+  }
+
+  &:after {
+    display: none;
+  }
+
+  #{ $messageRequestItemActionButton } {
+    background-color: var(--card-color-hover);
+  }
+
+  #{ $button } {
+    &#{ $buttonPrimary } {
+      --button-padding-start: 12px;
+      --button-padding-end: 12px;
+      --button-background: transparent;
+      --button-text-color: hsl(var(--accent-hsl--material-you));
+      --accent-button-action-hover: 0.14;
+      --accent-button-action-active: 0.21;
+
+      &:after {
+        background-color: hsl(var(--button-link-accent-color));
+      }
     }
+  }
 }
 
 /* MESSAGE REQUESTS -> PREVIEW */
 
 #{ $dmChat } {
-    &:before {
-        display: none;
-    }
+  &:before {
+    display: none;
+  }
 }

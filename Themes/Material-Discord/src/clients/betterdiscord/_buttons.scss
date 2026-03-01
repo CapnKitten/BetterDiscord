@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,97 +7,99 @@
  */
 
 #{ $bdButton } {
-	--button-background: hsl(var(--accent-hsl--material-you));
-	--button-text-color: var(--accent-text-color--material-you);
-	--button-shadow: none;
-	--button-outline: none;
+  --button-background: hsl(var(--accent-hsl--material-you));
+  --button-text-color: var(--accent-text-color--material-you);
+  --button-shadow: none;
+  --button-outline: none;
 
-	background-color: var(--button-background) !important;
-	border-radius: var(--button-radius);
-	border: var(--button-outline) !important;
-	box-shadow: var(--button-shadow);
-	color: var(--button-text-color) !important;
+  background-color: var(--button-background) !important;
+  border-radius: var(--button-radius);
+  border: var(--button-outline) !important;
+  box-shadow: var(--button-shadow);
+  color: var(--button-text-color) !important;
 
-	&:hover {
-		--button-shadow: none;
-	}
+  &:hover {
+    --button-shadow: none;
+  }
 
-	&:active {
-		--button-shadow: none;
-	}
+  &:active {
+    --button-shadow: none;
+  }
 
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		background-color: var(--button-action-color);
-		border-radius: var(--button-radius);
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
 
-	&:hover {
-		&:after {
-			opacity: var(--button-action-hover);
-		}
-	}
+    inset-block-start: 0;
 
-	&:active {
-		&:after {
-			opacity: var(--button-action-active);
-		}
-	}
+    inset-inline-start: 0;
+    background-color: var(--button-action-color);
+    border-radius: var(--button-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
 
-	&:disabled {
-		opacity: 0.5 !important;
+  &:hover {
+    &:after {
+      opacity: var(--button-action-hover);
+    }
+  }
 
-		&:after {
-			display: none;
-		}
-	}
+  &:active {
+    &:after {
+      opacity: var(--button-action-active);
+    }
+  }
 
-	#{ $bdButtonContent } {
-		background-image: none !important;
-	}
+  &:disabled {
+    opacity: 0.5 !important;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  #{ $bdButtonContent } {
+    background-image: none !important;
+  }
 }
 
 #{ $bdButtonFilled } {
-	&#{ $bdButtonColorRed },
-	&#{ $bdButtonDanger } {
-		--button-background: hsl(var(--alert-hsl));
-		--button-text-color: var(--alert-text-color);
-	}
+  &#{ $bdButtonColorRed },
+  &#{ $bdButtonDanger } {
+    --button-background: hsl(var(--alert-hsl));
+    --button-text-color: var(--alert-text-color);
+  }
 }
 
 #{ $bdButtonLink } {
-	--button-padding-start: 12px;
-	--button-padding-end: 12px;
-	--button-background: transparent;
-	--button-shadow: none !important;
+  --button-padding-start: 12px;
+  --button-padding-end: 12px;
+  --button-background: transparent;
+  --button-shadow: none !important;
 
-	&:after {
-		--button-action-color: hsl(var(--accent-hsl--material-you));
-	}
+  &:after {
+    --button-action-color: hsl(var(--accent-hsl--material-you));
+  }
 
-	&#{ $bdButtonColorBrand },
-	&#{ $bdButtonColorPrimary } {
-		--button-text-color: hsl(var(--accent-hsl--material-you));
-	}
+  &#{ $bdButtonColorBrand },
+  &#{ $bdButtonColorPrimary } {
+    --button-text-color: hsl(var(--accent-hsl--material-you));
+  }
 }
 
 #{ $bdButtonBlank } {
-	--button-background: transparent;
-	--button-shadow: none !important;
-	--button-text-color: var(--interactive-text-default);
+  --button-background: transparent;
+  --button-shadow: none !important;
+  --button-text-color: var(--interactive-text-default);
 }
 
 #{ $bdButtonMedium },
 #{ $bdButtonLarge } {
-	min-width: var(--button-height);
-	height: var(--button-height);
-	min-height: var(--button-height);
+  min-width: var(--button-height);
+  height: var(--button-height);
+  min-height: var(--button-height);
 }

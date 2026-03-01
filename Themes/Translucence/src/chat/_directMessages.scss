@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,76 +7,79 @@
  */
 
 #{ $callWrapper } {
-    &#{ $callMinimum },
-    &#{ $callWrapperVideo } {
-        background-color: transparent;
-        box-shadow: var(--popout-header-shadow);
-    }
+  &#{ $callMinimum },
+  &#{ $callWrapperVideo } {
+    background-color: transparent;
+    box-shadow: var(--popout-header-shadow);
+  }
 
-    #{ $callRoot },
-    #{ $callContainer } {
-        background-color: transparent;
-    }
+  #{ $callRoot },
+  #{ $callContainer } {
+    background-color: transparent;
+  }
 
-    #{ $callContainer } {
-        border: none;
-    }
+  #{ $callContainer } {
+    border: none;
+  }
 
-    #{ $headerBar } {
-        box-shadow: none;
-    }
+  #{ $headerBar } {
+    box-shadow: none;
+  }
 
-    #{ $callTile } {
-        border-radius: var(--card-radius);
-    }
+  #{ $callTile } {
+    border-radius: var(--card-radius);
+  }
 }
 
 #{ $callControlButton } {
-    svg {
-        filter: none;
-    }
+  svg {
+    filter: none;
+  }
 }
 
 #{ $callTileBorder } {
-    border-radius: var(--card-radius);
+  border-radius: var(--card-radius);
 
-    &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower);"] {
-        box-shadow: 0 0 0 0px hsl(var(--accent-hsl)), inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-base-lower) !important;
-    }
+  &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower);"] {
+    box-shadow:
+      0 0 0 0px hsl(var(--accent-hsl)),
+      inset 0 0 0 2px hsl(var(--accent-hsl)),
+      inset 0 0 0 3px var(--background-base-lower) !important;
+  }
 }
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
 #{ $dmProfilePanel }[style] {
+  border-radius: 0;
+
+  &:not(#{ $userProfileOuterThemed }) {
+    background-color: var(--sidebar-color);
+  }
+
+  #{ $userProfileInner } {
     border-radius: 0;
 
-    &:not(#{ $userProfileOuterThemed }) {
-        background-color: var(--sidebar-color);
+    #{ $userProfileBanner } {
+      border-radius: 0;
     }
 
-    #{ $userProfileInner } {
-        border-radius: 0;
-
-        #{ $userProfileBanner } {
-            border-radius: 0;
-        }
-
-        * {
-        	text-shadow: none;
-        }
-
-        svg {
-        	filter: none;
-        }
+    * {
+      text-shadow: none;
     }
+
+    svg {
+      filter: none;
+    }
+  }
 }
 
 #{ $dmProfilePanelConnections } {
-    #{ $button } {
-        --button-height: 36px !important;
-        --button-padding: 0 12px;
-        --button-background: transparent !important;
-        --button-text-color: var(--text-normal);
-        --button-action-color: transparent;
-    }
+  #{ $button } {
+    --button-height: 36px !important;
+    --button-padding: 0 12px;
+    --button-background: transparent !important;
+    --button-text-color: var(--text-normal);
+    --button-action-color: transparent;
+  }
 }

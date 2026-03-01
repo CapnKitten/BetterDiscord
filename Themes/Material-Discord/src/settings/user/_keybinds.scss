@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,158 +8,158 @@
  */
 
 #{ $keybindSystemServiceContainer } {
-    --accent-secondary-color: hsl(var(--warning-hsl));
-    --accent-secondary-text-color: var(--warning-text-color);
-    --text-muted: var(--text-normal);
+  --accent-secondary-color: hsl(var(--warning-hsl));
+  --accent-secondary-text-color: var(--warning-text-color);
+  --text-muted: var(--text-normal);
 
-    background-color: hsl(from hsl(var(--warning-hsl)) h s l / 0.3);
-    border-radius: var(--card-radius-big);
+  background-color: hsl(from hsl(var(--warning-hsl)) h s l / 0.3);
+  border-radius: var(--card-radius-big);
 
-    #{ $keybindSystemServiceIconContainer } {
-        width: auto;
-        background-color: transparent;
-        color: hsl(var(--warning-hsl));
+  #{ $keybindSystemServiceIconContainer } {
+    width: auto;
+    background-color: transparent;
+    color: hsl(var(--warning-hsl));
 
-        path {
-			fill: currentColor;
-		}
+    path {
+      fill: currentColor;
     }
+  }
 
-    #{ $anchor } {
-        color: hsl(var(--warning-hsl));
-    }
+  #{ $anchor } {
+    color: hsl(var(--warning-hsl));
+  }
 }
 
 #{ $keybindGroup } {
-    &:before {
-        background-color: var(--card-color-filled);
-        border-radius: var(--card-radius-big);
-        border: none;
-    }
+  &:before {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+    border: none;
+  }
 }
 
 #{ $removeKeybindFloating } {
-    inset-block-start: 8px;
-    inset-inline-end: -12px;
+  inset-block-start: 8px;
+  inset-inline-end: -12px;
 }
 
 #{ $keybindRecordContainer } {
-    min-height: var(--button-height);
+  min-height: var(--button-height);
 }
 
 #{ $keybindButtonContainer } {
-    max-width: 150px;
-    padding: 0;
+  max-width: 150px;
+  padding: 0;
 }
 
 #{ $keybindShortcutKey } {
-    height: 24px;
-    padding: 0 8px;
-    background-color: var(--card-color-active);
-    border-radius: 12px;
-    border: none !important;
-    box-shadow: none !important;
-    line-height: 24px;
-	color: var(--interactive-text-default);
+  height: 24px;
+  padding: 0 8px;
+  background-color: var(--card-color-active);
+  border-radius: 12px;
+  border: none !important;
+  box-shadow: none !important;
+  line-height: 24px;
+  color: var(--interactive-text-default);
 
-	g {
-		fill: var(--interactive-text-default);
-	}
+  g {
+    fill: var(--interactive-text-default);
+  }
 }
 
 #{ $keybindRecorderContainer } {
-	background-color: transparent;
-    border-radius: var(--button-radius);
-	border: none;
+  background-color: transparent;
+  border-radius: var(--button-radius);
+  border: none;
 
-    &#{ $keybindRecorderContainerRecording } {
-        box-shadow: none;
-        animation: none;
-
-        #{ $keybindInput } {
-            --input-color: hsl(from hsl(var(--alert-hsl)) h s l / 0.1);
-
-            animation: keybind-edit 1200ms ease-in-out;
-            animation-iteration-count: infinite;
-        }
-    }
+  &#{ $keybindRecorderContainerRecording } {
+    box-shadow: none;
+    animation: none;
 
     #{ $keybindInput } {
-		@include input-format(true, false, true);
-        padding: 8px 8px 8px 12px;
-        transition: var(--default-time) var(--default-animation) background-color;
+      --input-color: hsl(from hsl(var(--alert-hsl)) h s l / 0.1);
 
-        &::-webkit-input-placeholder {
-            font-family: var(--app-font);
-        }
+      animation: keybind-edit 1200ms ease-in-out;
+      animation-iteration-count: infinite;
     }
+  }
 
-    #{ $keybindEditIcon } {
-        background-image: none;
-        @include add-icon(currentColor, keyboard);
+  #{ $keybindInput } {
+    @include input-format(true, false, true);
+    padding: 8px 8px 8px 12px;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &::-webkit-input-placeholder {
+      font-family: var(--app-font);
     }
+  }
+
+  #{ $keybindEditIcon } {
+    background-image: none;
+    @include add-icon(currentColor, keyboard);
+  }
 }
 
 #{ $keybindRecorderLayout } {
-    gap: 8px;
+  gap: 8px;
 }
 
 #{ $keybindAddButton } {
-    margin: 0;
-    transition: var(--default-time) var(--default-animation) width;
+  margin: 0;
+  transition: var(--default-time) var(--default-animation) width;
 }
 
 /* KEYBINDS -> DEFAULT */
 
 #{ $keybindDefaultGroup } {
-    margin: 24px 0 0;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-	border: none;
+  margin: 24px 0 0;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  border: none;
 
-    #{ $keybindDefault } {
-        + #{ $keybindDivider } {
-            display: block;
-        }
+  #{ $keybindDefault } {
+    + #{ $keybindDivider } {
+      display: block;
     }
+  }
 
-    #{ $keybindDivider } {
-        width: calc(100% - 32px);
-        margin: 0 16px;
-        border-top-color: var(--card-border-color);
+  #{ $keybindDivider } {
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    border-top-color: var(--card-border-color);
 
-        &:last-of-type {
-            display: none;
-        }
+    &:last-of-type {
+      display: none;
     }
+  }
 }
 
 #{ $keybindDefault } {
-    padding: 0 16px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  padding: 0 16px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 
-    + #{ $keybindDivider } {
-        display: none;
-    }
+  + #{ $keybindDivider } {
+    display: none;
+  }
 }
 
 #{ $keybindDefaultGroupHeader } {
-    margin-block-end: 0;
-    padding: 16px 16px 0;
-    @include remove-caps(18px);
-    font-weight: 500;
+  margin-block-end: 0;
+  padding: 16px 16px 0;
+  @include remove-caps(18px);
+  font-weight: 500;
 
-    + #{ $keybindDivider } {
-        display: none;
-    }
+  + #{ $keybindDivider } {
+    display: none;
+  }
 }
 
 #{ $keybindDefaultGroupDescription } {
-    margin-block-end: 0;
-    padding: 16px 16px 0;
+  margin-block-end: 0;
+  padding: 16px 16px 0;
 
-    + #{ $keybindDivider } {
-        display: none;
-    }
+  + #{ $keybindDivider } {
+    display: none;
+  }
 }

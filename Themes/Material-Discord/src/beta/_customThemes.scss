@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,148 +7,186 @@
  */
 
 #{ $themeDark } {
-    --background-base-high: color-mix(in oklab,var(--neutral-58) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
-    --background-base-higher: color-mix(in oklab,var(--neutral-52) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
-    --background-base-highest: color-mix(in oklab,var(--neutral-47) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+  --background-base-high: color-mix(
+    in oklab,
+    var(--neutral-58) 100%,
+    var(--custom-theme-base-color, #000)
+      var(--custom-theme-base-color-amount, 0%)
+  );
+  --background-base-higher: color-mix(
+    in oklab,
+    var(--neutral-52) 100%,
+    var(--custom-theme-base-color, #000)
+      var(--custom-theme-base-color-amount, 0%)
+  );
+  --background-base-highest: color-mix(
+    in oklab,
+    var(--neutral-47) 100%,
+    var(--custom-theme-base-color, #000)
+      var(--custom-theme-base-color-amount, 0%)
+  );
 }
 
 #{ $themeLight } {
-    --background-base-high: color-mix(in oklab,var(--neutral-1) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
-    --background-base-higher: color-mix(in oklab,var(--neutral-6) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
-    --background-base-highest: color-mix(in oklab,var(--neutral-9) 100%,var(--custom-theme-base-color,#000) var(--custom-theme-base-color-amount,0%));
+  --background-base-high: color-mix(
+    in oklab,
+    var(--neutral-1) 100%,
+    var(--custom-theme-base-color, #000)
+      var(--custom-theme-base-color-amount, 0%)
+  );
+  --background-base-higher: color-mix(
+    in oklab,
+    var(--neutral-6) 100%,
+    var(--custom-theme-base-color, #000)
+      var(--custom-theme-base-color-amount, 0%)
+  );
+  --background-base-highest: color-mix(
+    in oklab,
+    var(--neutral-9) 100%,
+    var(--custom-theme-base-color, #000)
+      var(--custom-theme-base-color-amount, 0%)
+  );
 }
 
 #{ $themeDark },
 #{ $themeLight } {
-    --app-bg: var(--background-gradient-app-frame, var(--background-base-lowest));
+  --app-bg: var(--background-gradient-app-frame, var(--background-base-lowest));
 
-    --popout-color: var(--background-base-high);
-    --popout-color-alt: var(--background-base-lower);
+  --popout-color: var(--background-base-high);
+  --popout-color-alt: var(--background-base-lower);
 
-    --card-color-filled: var(--background-base-high);
-    --card-color-hover: var(--background-base-higher);
-    --card-color-active: var(--background-base-highest);
-    --card-color-alt: var(--background-base-higher);
-    --card-border-color: var(--background-base-highest);
-    --card-button-color: var(--background-base-highest);
+  --card-color-filled: var(--background-base-high);
+  --card-color-hover: var(--background-base-higher);
+  --card-color-active: var(--background-base-highest);
+  --card-color-alt: var(--background-base-higher);
+  --card-border-color: var(--background-base-highest);
+  --card-button-color: var(--background-base-highest);
 }
 
 /* CUSTOM THEMES -> CHANNELS LIST */
 
 #{ $channelsContainer } {
-    background: var(--background-gradient-chat, var(--background-base-lowest));
+  background: var(--background-gradient-chat, var(--background-base-lowest));
 }
 
 #{ $channelsHeaderContainer } {
-    background-color: transparent;
+  background-color: transparent;
 
-    &:not(#{ $channelHasBanner }) {
-        #{ $channelsHeader } {
-
-            &,
-            &:hover {
-                background-color: transparent;
-            }
-        }
+  &:not(#{ $channelHasBanner }) {
+    #{ $channelsHeader } {
+      &,
+      &:hover {
+        background-color: transparent;
+      }
     }
+  }
 }
 
 /* CUSTOM THEMES -> HEADER BAR */
 
 #{ $headerBar } {
-    &#{ $headerBarThemed } {
-        background: transparent;
-    }
+  &#{ $headerBarThemed } {
+    background: transparent;
+  }
 }
 
 /* CUSTOM THEMES -> MESSAGES */
 
 #{ $messagesWrapper } {
-    --message-color: var(--background-gradient-high, var(--background-base-lowest));
-    --message-color-hover: var(--background-gradient-higher, var(--background-base-lowest));
+  --message-color: var(
+    --background-gradient-high,
+    var(--background-base-lowest)
+  );
+  --message-color-hover: var(
+    --background-gradient-higher,
+    var(--background-base-lowest)
+  );
 
-    background: var(--message-color) !important;
+  background: var(--message-color) !important;
 
-    &:hover {
-		background: var(--message-color-hover) !important;
-	}
+  &:hover {
+    background: var(--message-color-hover) !important;
+  }
 }
 
 #{ $messageButtonWrapper } {
-    background: var(--background-base-higher);
+  background: var(--background-base-higher);
 }
 
 #{ $barBase } {
-    &:not(#{ $jumpToPresentBar }, #{ $messagesErrorBar }) {
-        background: var(--background-base-lower);
-    }
+  &:not(#{ $jumpToPresentBar }, #{ $messagesErrorBar }) {
+    background: var(--background-base-lower);
+  }
 }
 
 #{ $barButtonBase } {
-    &#{ $barButtonMain } {
-        background: var(--background-accent);
-    }
+  &#{ $barButtonMain } {
+    background: var(--background-accent);
+  }
 }
 
 /* CUSTOM THEMES -> CHAT BOX */
 
 #{ $chatForm } {
-    #{ $channelTextAreaTyping } {
-        background: var(--background-gradient-chat, var(--background-base-lowest));
-    }
+  #{ $channelTextAreaTyping } {
+    background: var(--background-gradient-chat, var(--background-base-lowest));
+  }
 
-    #{ $textAreaSlate} {
-        background: var(--background-gradient-higher, var(--background-base-lowest));
-    }
+  #{ $textAreaSlate} {
+    background: var(
+      --background-gradient-higher,
+      var(--background-base-lowest)
+    );
+  }
 }
 
 /* CUSTOM THEMES -> SETTINGS */
 
 #{ $settingsModalContent } {
-    background: var(--background-base-lowest);
+  background: var(--background-base-lowest);
 }
 
 #{ $settingsSidebarScroller } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $settingsV2ContentHeader } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $settingsV2Content } {
-    background: var(--background-base-lower);
+  background: var(--background-base-lower);
 }
 
 /* CUSTOM THEMES -> POPOUTS */
 
 #{ $menuPopout } {
-    #{ $menuPopoutItem } {
-        &:hover,
-        &#{ $menuPopoutItemHover } {
-            background: var(--background-base-higher);
-        }
+  #{ $menuPopoutItem } {
+    &:hover,
+    &#{ $menuPopoutItemHover } {
+      background: var(--background-base-higher);
     }
+  }
 }
 
 #{ $contextMenuQuickReaction } {
-    background: var(--background-base-higher);
+  background: var(--background-base-higher);
 
-    &:hover {
-        background: var(--background-base-highest);
-    }
+  &:hover {
+    background: var(--background-base-highest);
+  }
 }
 
 /* CUSTOM THEMES -> MODALS */
 
 #{ $userProfileOuter } {
-	&:not(#{ $userProfileOuterThemed }) {
-        --popout-color: var(--background-base-high);
-        --popout-color-alt: var(--background-base-low);
+  &:not(#{ $userProfileOuterThemed }) {
+    --popout-color: var(--background-base-high);
+    --popout-color-alt: var(--background-base-low);
 
-        --card-color-filled: var(--background-base-low);
-        --card-color-hover: var(--background-base-lowest);
+    --card-color-filled: var(--background-base-low);
+    --card-color-hover: var(--background-base-lowest);
 
-        --input-color: var(--background-base-highest) !important;
-    }
+    --input-color: var(--background-base-highest) !important;
+  }
 }

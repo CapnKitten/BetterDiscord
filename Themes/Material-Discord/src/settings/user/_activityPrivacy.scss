@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,53 +8,57 @@
  */
 
 #{ $activityPrivacyGuildsWrapper } {
-    margin-block-start: var(--space-8);
-    @include card-format(false, var(--space-8) var(--space-16) var(--space-16), true);
+  margin-block-start: var(--space-8);
+  @include card-format(
+    false,
+    var(--space-8) var(--space-16) var(--space-16),
+    true
+  );
 }
 
 #{ $activityPrivacyHeaderContainer } {
-    width: calc(100% + var(--space-16));
-    margin: 0 calc(var(--space-8) * -1);
-    padding: var(--space-8) var(--space-8) 0;
-    background-color: var(--card-color-filled);
-    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
+  width: calc(100% + var(--space-16));
+  margin: 0 calc(var(--space-8) * -1);
+  padding: var(--space-8) var(--space-8) 0;
+  background-color: var(--card-color-filled);
+  border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
 
-    #{ $inputContainer } {
-        @include input-transform;
-    }
+  #{ $inputContainer } {
+    @include input-transform;
+  }
 }
 
 #{ $activityPrivacyGuildsList } {
-    #{ $stack } {
-        position: relative;
+  #{ $stack } {
+    position: relative;
 
-        &:hover {
-            &:before {
-                opacity: 1;
-            }
-        }
-
-        &:before {
-            position: absolute;
-            content: " ";
-            width: calc(100% + var(--space-16));
-            height: calc(100% + var(--space-16));
-            inset-block-start: calc(var(--space-8) * -1);
-            inset-inline-start: calc(var(--space-8) * -1);
-            background-color: var(--card-color-hover);
-            border-radius: calc(var(--card-radius-big) / 1.65);
-            opacity: 0;
-            pointer-events: none;
-            transition: var(--default-time) var(--default-animation) opacity;
-        }
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
     }
 
-    #{ $settingsV2CardLabelContainer } {
-        margin-block-end: 0;
-        z-index: 2;
+    &:before {
+      position: absolute;
+      content: " ";
+      width: calc(100% + var(--space-16));
+      height: calc(100% + var(--space-16));
+      inset-block-start: calc(var(--space-8) * -1);
+      inset-inline-start: calc(var(--space-8) * -1);
+      background-color: var(--card-color-hover);
+      border-radius: calc(var(--card-radius-big) / 1.65);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--default-time) var(--default-animation) opacity;
     }
+  }
 
-    #{ $settingsV2CardControl } {
-        justify-content: center;
-    }
+  #{ $settingsV2CardLabelContainer } {
+    margin-block-end: 0;
+    z-index: 2;
+  }
+
+  #{ $settingsV2CardControl } {
+    justify-content: center;
+  }
 }

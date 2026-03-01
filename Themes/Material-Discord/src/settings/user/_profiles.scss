@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,358 +8,414 @@
  */
 
 #{ $settingsProfileTabBar } {
-	#{ $settingsProfileTabBarItem } {
-		border-block-end: none;
+  #{ $settingsProfileTabBarItem } {
+    border-block-end: none;
 
-		&#{ $settingsProfileTabBarItemSelected } {
-			@include tab-border(90%);
-		}
-	}
+    &#{ $settingsProfileTabBarItemSelected } {
+      @include tab-border(90%);
+    }
+  }
 }
 
 #{ $settingsProfilesBaseLayout } {
-	gap: 16px;
+  gap: 16px;
 }
 
 #{ $settingsProfileNotice } {
-	@include card-format(false, 8px);
+  @include card-format(false, 8px);
 }
 
 #{ $settingsUpsellOverlayContainer },
 #{ $settingsUpsellTextContainer } {
-	border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $settingsUpsellOverlayContainer } {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 #{ $settingsProfileShopCard } {
-    border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $settingsProfileCard } {
-	--input-color: var(--input-color-alt);
+  --input-color: var(--input-color-alt);
 
-	margin-block-end: 16px;
-	@include card-format(false, 16px, true);
+  margin-block-end: 16px;
+  @include card-format(false, 16px, true);
 
-	&:last-child {
-		&:not(#{ $settingsProfileCardWithDivider }) {
-			padding-block-end: 16px;
-		}
-	}
+  &:last-child {
+    &:not(#{ $settingsProfileCardWithDivider }) {
+      padding-block-end: 16px;
+    }
+  }
 
-	&#{ $settingsProfileCardHideDivider } {
-        padding-block-end: 16px;
+  &#{ $settingsProfileCardHideDivider } {
+    padding-block-end: 16px;
+  }
+
+  &#{ $settingsPreviewProfileThemes } {
+    max-width: unset;
+  }
+
+  &#{ $settingsProfileThemeSectionPremiumBorder } {
+    margin: 0 0 16px;
+    background:
+      linear-gradient(var(--main-color), var(--main-color)) padding-box,
+      linear-gradient(
+          45deg,
+          hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%),
+          hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)
+        )
+        border-box;
+    border-width: 2px;
+
+    + #{ $settingsProfileCardDivider } {
+      display: none;
     }
 
-	&#{ $settingsPreviewProfileThemes } {
-		max-width: unset;
-	}
+    .inlineUpsell-3zPTgw {
+      @include card-format(false, 16px);
+    }
+  }
 
-	&#{ $settingsProfileThemeSectionPremiumBorder } {
-		margin: 0 0 16px;
-		background: linear-gradient(var(--main-color),var(--main-color)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
-		border-width: 2px;
+  &#{ $settingsProfilePreview } {
+    #{ $settingsProfileHeader } {
+      display: none;
+    }
+  }
 
-		+ #{ $settingsProfileCardDivider } {
-			display: none;
-		}
+  #{ $settingsProfileCard } {
+    padding: 0;
+  }
 
-		.inlineUpsell-3zPTgw {
-			@include card-format(false, 16px);
-		}
-	}
+  #{ $settingsProfileHeader } {
+    margin: -16px -16px 0;
+    @include card-format--header(false, true);
 
-	&#{ $settingsProfilePreview } {
-		#{ $settingsProfileHeader } {
-			display: none;
-		}
-	}
-
-	#{ $settingsProfileCard } {
-		padding: 0;
-	}
-
-	#{ $settingsProfileHeader } {
-		margin: -16px -16px 0;
-		@include card-format--header(false, true);
-
-		#{ $settingsProfileHeaderText } {
-			@include card-format--header-fix;
-		}
-	}
+    #{ $settingsProfileHeaderText } {
+      @include card-format--header-fix;
+    }
+  }
 }
 
 #{ $settingsProfileCardButtonsContainer } {
-    gap: 16px;
+  gap: 16px;
 }
 
 #{ $settingsProfileCardRemoveButton } {
-    margin-inline-start: 0;
+  margin-inline-start: 0;
 }
 
 #{ $settingsProfileCustomizationSectionBorder } {
-    margin: -16px;
-    background: linear-gradient(var(--card-color-filled),var(--card-color-filled)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
-    border-radius: var(--card-radius-big);
+  margin: -16px;
+  background:
+    linear-gradient(var(--card-color-filled), var(--card-color-filled))
+      padding-box,
+    linear-gradient(
+        45deg,
+        hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%),
+        hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)
+      )
+      border-box;
+  border-radius: var(--card-radius-big);
 
-    #{ $settingsProfileCustomizationBackground } {
-        padding: 16px;
-    }
+  #{ $settingsProfileCustomizationBackground } {
+    padding: 16px;
+  }
 
-    #{ $settingsProfileNitroWheel } {
-        height: 22px;
-    }
+  #{ $settingsProfileNitroWheel } {
+    height: 22px;
+  }
 }
 
 #{ $settingsProfileBioTextArea } {
-	--input-padding: 0 12px;
+  --input-padding: 0 12px;
 
-	@include input-format(false, false, true, 136px, 136px);
-	border-radius: 19px !important;
+  @include input-format(false, false, true, 136px, 136px);
+  border-radius: 19px !important;
 
-	#{ $channelTextAreaWithoutAttachment } {
-		padding: 12px 0;
-	}
+  #{ $channelTextAreaWithoutAttachment } {
+    padding: 12px 0;
+  }
 }
 
 #{ $settingsProfileBannerPreview } {
-	@include popout-format;
+  @include popout-format;
 
-	#{ $avatarUploaderInner } {
-		background-color: transparent;
-		border: none;
-		box-shadow: var(--shadow-medium);
-	}
+  #{ $avatarUploaderInner } {
+    background-color: transparent;
+    border: none;
+    box-shadow: var(--shadow-medium);
+  }
 }
 
 #{ $decorationGridItem } {
-	@include card-option-select(40px, true, "#{ $decorationGridItemSelected }", "#{ $textXsNormal }");
+  @include card-option-select(
+    40px,
+    true,
+    "#{ $decorationGridItemSelected }",
+    "#{ $textXsNormal }"
+  );
 }
 
 #{ $effectGridItem } {
-	@include card-option-select(34px, false, "#{ $effectGridItemSelected }");
+  @include card-option-select(34px, false, "#{ $effectGridItemSelected }");
 }
 
 #{ $presetEffectBackground },
 #{ $presetEffectImg } {
-    border-radius: inherit;
+  border-radius: inherit;
 }
 
 #{ $settingsProfileDecorationPreview } {
-    @include card-format(false, 0, true);
+  @include card-format(false, 0, true);
 }
 
 #{ $settingsProfileSmallDecorationPreviewsContainer } {
-    @include card-format(false, 8px, true);
+  @include card-format(false, 8px, true);
 }
 
 #{ $settingsProfileEffectDescriptionBorderWithGradient } {
-    border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 
-    #{ $settingsProfileEffectDescriptionContainer } {
-        background-color: var(--card-color-filled);
-        border-radius: calc(var(--card-radius-big) - 2px);
-    }
+  #{ $settingsProfileEffectDescriptionContainer } {
+    background-color: var(--card-color-filled);
+    border-radius: calc(var(--card-radius-big) - 2px);
+  }
 }
 
 #{ $settingsProfileEffectDescriptionNoGradient } {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 
-    #{ $settingsProfileEffectDescriptionContainer } {
-        @include card-format(false, 8px, true);
-    }
+  #{ $settingsProfileEffectDescriptionContainer } {
+    @include card-format(false, 8px, true);
+  }
 }
 
 #{ $settingsShopPreviewContainer } {
-    background: linear-gradient(var(--card-color-filled), var(--card-color-filled)) padding-box, var(--custom-premium-colors-premium-gradient-tier-2-diagonal) border-box;
-    border-radius: var(--card-radius-big);
+  background:
+    linear-gradient(var(--card-color-filled), var(--card-color-filled))
+      padding-box,
+    var(--custom-premium-colors-premium-gradient-tier-2-diagonal) border-box;
+  border-radius: var(--card-radius-big);
 
-    #{ $settingsShopPreviewBanner } {
-		background-color: var(--card-color-active);
-        border-radius: calc(var(--card-radius-big) - 2px);
-    }
+  #{ $settingsShopPreviewBanner } {
+    background-color: var(--card-color-active);
+    border-radius: calc(var(--card-radius-big) - 2px);
+  }
 }
 
 /* USER SETTINGS PROFILES -> TRY OUT NITRO SECTION */
 
 #{ $settingsProfileTryItOutSection } {
-    position: relative;
-    margin: 16px 0 0;
-    padding: 0;
+  position: relative;
+  margin: 16px 0 0;
+  padding: 0;
+  border-radius: var(--card-radius-big);
+  border: none;
+
+  &:before {
+    position: absolute;
+    content: " ";
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background:
+      linear-gradient(var(--main-alt), var(--main-alt)) padding-box,
+      linear-gradient(
+          45deg,
+          hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%),
+          hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)
+        )
+        border-box;
+    border-radius: inherit;
+    border: 2px solid transparent;
+  }
+
+  #{ $settingsProfilePremiumBackground } {
+    padding: 16px;
+    background: var(--card-color-filled);
     border-radius: var(--card-radius-big);
-    border: none;
-
-    &:before {
-        position: absolute;
-        content: " ";
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-		inset-block-start: 0;
-		inset-inline-start: 0;
-        background: linear-gradient(var(--main-alt),var(--main-alt)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
-        border-radius: inherit;
-        border: 2px solid transparent;
-    }
-
-    #{ $settingsProfilePremiumBackground } {
-        padding: 16px;
-        background: var(--card-color-filled);
-        border-radius: var(--card-radius-big);
-    }
+  }
 }
 
 /* USER SETTINGS PROFILES -> NAMEPLATES */
 
 #{ $nameplateInventoryControlsButton } {
-    @include card-option-select(40px, true, "#{ $nameplateInventoryControlsButtonSelected }", "#{ $textXsNormal }");
+  @include card-option-select(
+    40px,
+    true,
+    "#{ $nameplateInventoryControlsButtonSelected }",
+    "#{ $textXsNormal }"
+  );
 }
 
 #{ $nameplateInventory } {
-    padding-inline-start: 3px;
+  padding-inline-start: 3px;
 }
 
 #{ $nameplateItem } {
-    border-radius: 24px;
-    transition: var(--default-time) var(--default-animation) box-shadow, var(--default-time) var(--default-animation) border-radius;
+  border-radius: 24px;
+  transition:
+    var(--default-time) var(--default-animation) box-shadow,
+    var(--default-time) var(--default-animation) border-radius;
 
-    &:has(#{ $nameplateItemOverlaySelected }) {
-        border-radius: var(--card-radius-big);
-    }
+  &:has(#{ $nameplateItemOverlaySelected }) {
+    border-radius: var(--card-radius-big);
+  }
 
-    #{ $nameplatePreview },
-    > div[role="img"] {
-        border-radius: inherit;
-    }
+  #{ $nameplatePreview },
+  > div[role="img"] {
+    border-radius: inherit;
+  }
 }
 
 #{ $nameplateItemOverlay } {
-    border-radius: 0;
-    border-radius: inherit;
+  border-radius: 0;
+  border-radius: inherit;
 
-    &#{ $nameplateItemOverlaySelected } {
-        box-shadow: 0 0 0 2px hsl(var(--accent-hsl--material-you)), inset 0 0 0 2px var(--popout-color);
-    }
+  &#{ $nameplateItemOverlaySelected } {
+    box-shadow:
+      0 0 0 2px hsl(var(--accent-hsl--material-you)),
+      inset 0 0 0 2px var(--popout-color);
+  }
 }
 
 #{ $nameplateIconBadge } {
-    width: var(--space-32);
-    height: var(--space-32);
-	inset-block-start: 0;
-	inset-inline-end: 0;
-	inset-block-end: 0;
-    margin: auto var(--space-8);
-    background-color: var(--card-button-color) !important;
+  width: var(--space-32);
+  height: var(--space-32);
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  margin: auto var(--space-8);
+  background-color: var(--card-button-color) !important;
 }
 
 #{ $nameplatePreviewBorder } {
-    border-radius: var(--card-radius-big);
+  border-radius: var(--card-radius-big);
 
-    &:before {
-        background-color: var(--card-color-filled);
-        border-radius: calc(var(--card-radius-big) + 2px);
-    }
+  &:before {
+    background-color: var(--card-color-filled);
+    border-radius: calc(var(--card-radius-big) + 2px);
+  }
 }
 
 #{ $nameplatePreviewBox } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 }
 
 /* USER SETTINGS PROFILES -> DISPLAY NAME STYLE */
 
 #{ $fontZillaSlab } {
-    --app-font: "Zilla Slab";
+  --app-font: "Zilla Slab";
 }
 
 #{ $fontCherryBomb } {
-    --app-font: "Cherry Bomb One";
+  --app-font: "Cherry Bomb One";
 }
 
 #{ $fontChicle } {
-    --app-font: "Chicle";
+  --app-font: "Chicle";
 }
 
 #{ $fontMuseoModerno } {
-    --app-font: "Museo Moderno";
+  --app-font: "Museo Moderno";
 }
 
 #{ $fontNeoCastel } {
-    --app-font: "Neo Castel";
+  --app-font: "Neo Castel";
 }
 
 #{ $fontPixelify } {
-    --app-font: "Pixelify Sans";
+  --app-font: "Pixelify Sans";
 }
 
 #{ $fontSinistre } {
-    --app-font: "Sinistre";
+  --app-font: "Sinistre";
 }
 
 #{ $displayFontButton } {
-    @include card-option-select(34px, true, "#{ $displayFontButtonSelected }", "#{ $textLgSemibold }");
+  @include card-option-select(
+    34px,
+    true,
+    "#{ $displayFontButtonSelected }",
+    "#{ $textLgSemibold }"
+  );
 }
 
 #{ $displayEffectContainer } {
-    @include card-option-select(34px, true, "#{ $displayEffectContainerSelected }");
+  @include card-option-select(
+    34px,
+    true,
+    "#{ $displayEffectContainerSelected }"
+  );
 }
 
 #{ $displayEffectContainer } {
-    &#{ $displayEffectContainerSelected } {
-        #{ $displayEffectTextContainer } {
-            &#{ $displayEffectTextShowEffect } {
-                #{ $displayEffectPop } {
-                    color: var(--accent-text-color--material-you);
-                }
-            }
-
-            #{ $displayEffectSolid } {
-                color: var(--accent-text-color--material-you);
-            }
-
-            #{ $displayEffectGradient } {
-                background: linear-gradient(to bottom right, var(--accent-text-color--material-you) 10%, hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%);
-                background-clip: text;
-            }
-        }
-    }
-
+  &#{ $displayEffectContainerSelected } {
     #{ $displayEffectTextContainer } {
-        #{ $displayEffectGradient } {
-            background: linear-gradient(to bottom right, hsl(var(--accent-hsl--material-you)) 10%, hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%);
-            background-clip: text;
-            transition: var(--default-time) var(--default-animation) background;
+      &#{ $displayEffectTextShowEffect } {
+        #{ $displayEffectPop } {
+          color: var(--accent-text-color--material-you);
         }
+      }
+
+      #{ $displayEffectSolid } {
+        color: var(--accent-text-color--material-you);
+      }
+
+      #{ $displayEffectGradient } {
+        background: linear-gradient(
+          to bottom right,
+          var(--accent-text-color--material-you) 10%,
+          hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%
+        );
+        background-clip: text;
+      }
     }
+  }
+
+  #{ $displayEffectTextContainer } {
+    #{ $displayEffectGradient } {
+      background: linear-gradient(
+        to bottom right,
+        hsl(var(--accent-hsl--material-you)) 10%,
+        hsl(from var(--accent-text-color--material-you) calc(h - 180) s l) 90%
+      );
+      background-clip: text;
+      transition: var(--default-time) var(--default-animation) background;
+    }
+  }
 }
 
 #{ $settingsProfileSelectionSection } {
-    #{ $settingsProfileSelectionSectionHeader } {
-        padding: 0;
-        border-radius: 0;
-    }
+  #{ $settingsProfileSelectionSectionHeader } {
+    padding: 0;
+    border-radius: 0;
+  }
 }
 
 #{ $settingsProfilePreviewSection } {
-    border-radius: var(--popout-radius-big);
+  border-radius: var(--popout-radius-big);
 }
 
 #{ $settingsProfilePreviewCards } {
-    #{ $settingsProfileChatMessagePreview } {
-        background-color: var(--message-color) !important;
-        border: none;
-    }
+  #{ $settingsProfileChatMessagePreview } {
+    background-color: var(--message-color) !important;
+    border: none;
+  }
 
-    #{ $settingsProfileNameplatePreview } {
-        margin-block-start: var(--space-4);
-        background-color: var(--chat-color);
-        border: none;
-    }
+  #{ $settingsProfileNameplatePreview } {
+    margin-block-start: var(--space-4);
+    background-color: var(--chat-color);
+    border: none;
+  }
 }
 
 #{ $settingsProfileSubscriberButtonContainer } {
-    width: auto;
+  width: auto;
 }

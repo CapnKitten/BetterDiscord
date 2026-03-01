@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,51 +8,53 @@
  */
 
 #{ $reactors } {
-    background-color: transparent !important;
+  background-color: transparent !important;
 
-    #{ $reactor } {
-        box-shadow: none;
+  #{ $reactor } {
+    box-shadow: none;
 
-        @include card-format--list;
-    }
+    @include card-format--list;
+  }
 }
 
 #{ $reactionSpacer } {
-    padding-block-start: 0;
+  padding-block-start: 0;
 }
 
 #{ $reactionContainer } {
-    padding-inline-start: 0;
+  padding-inline-start: 0;
 }
 
 #{ $reactionList } {
-    margin-block: var(--space-8);
-    margin-inline: var(--space-8);
-    padding-block-start: var(--space-12);
-    padding-inline-start: var(--space-12);
-    padding-inline-end: calc(var(--space-12) - var(--scrollbar-thin-width)) !important;
-    background-color: var(--attachment-color);
-    border-radius: calc(var(--popout-radius-big) / 1.5);
+  margin-block: var(--space-8);
+  margin-inline: var(--space-8);
+  padding-block-start: var(--space-12);
+  padding-inline-start: var(--space-12);
+  padding-inline-end: calc(
+    var(--space-12) - var(--scrollbar-thin-width)
+  ) !important;
+  background-color: var(--attachment-color);
+  border-radius: calc(var(--popout-radius-big) / 1.5);
 
-    #{ $reactionDefault },
-    #{ $reactionSelected } {
-        border-radius: calc(var(--popout-radius-big) / 2.25);
+  #{ $reactionDefault },
+  #{ $reactionSelected } {
+    border-radius: calc(var(--popout-radius-big) / 2.25);
+  }
+
+  #{ $reactionDefault } {
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+      background-color: var(--menu-item-hover);
     }
+  }
 
-    #{ $reactionDefault } {
-        transition: var(--default-time) var(--default-animation) background-color;
-
-        &:hover {
-            background-color: var(--menu-item-hover);
-        }
-    }
-
-    #{ $reactionSelected } {
-        background-color: var(--menu-item-select);
-    }
+  #{ $reactionSelected } {
+    background-color: var(--menu-item-select);
+  }
 }
 
 #{ $reactorContainer } {
-    border-bottom-right-radius: var(--popout-radius-big);
-    overflow: hidden;
+  border-bottom-right-radius: var(--popout-radius-big);
+  overflow: hidden;
 }

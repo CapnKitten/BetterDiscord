@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,683 +8,691 @@
  */
 
 #{ $userProfileOuter } {
-	&:not(#{ $userProfileOuterThemed }) {
-		--background-surface-high: var(--popout-color) !important;
-		--user-profile-overlay-background: var(--card-color-filled) !important;
+  &:not(#{ $userProfileOuterThemed }) {
+    --background-surface-high: var(--popout-color) !important;
+    --user-profile-overlay-background: var(--card-color-filled) !important;
 
-		--profile-gradient-primary-color: var(--popout-color) !important;
-		--profile-gradient-secondary-color: var(--popout-color) !important;
-		--profile-avatar-border-color: var(--popout-color) !important;
-		--profile-body-background-color: var(--popout-color-alt) !important;
-		--profile-gradient-button-color: hsl(var(--accent-hsl--material-you)) !important;
-		--profile-gradient-button-text-color: var(--accent-text-color--material-you) !important;
+    --profile-gradient-primary-color: var(--popout-color) !important;
+    --profile-gradient-secondary-color: var(--popout-color) !important;
+    --profile-avatar-border-color: var(--popout-color) !important;
+    --profile-body-background-color: var(--popout-color-alt) !important;
+    --profile-gradient-button-color: hsl(
+      var(--accent-hsl--material-you)
+    ) !important;
+    --profile-gradient-button-text-color: var(
+      --accent-text-color--material-you
+    ) !important;
 
-		--bg-surface-overlay: var(--profile-gradient-primary-color) !important;
-	    --bg-mod-faint: var(--profile-body-background-color) !important;
+    --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+    --bg-mod-faint: var(--profile-body-background-color) !important;
 
-		--input-color: var(--input-color-alt) !important;
-	}
+    --input-color: var(--input-color-alt) !important;
+  }
 }
 
 #{ $userProfileOuterThemed } {
-	--popout-color-alt: var(--profile-gradient-secondary-color) !important;
-    --card-color-filled: var(--user-profile-background-hover) !important;
-	--card-color-hover: var(--user-profile-background-hover) !important;
-	--card-border-color: var(--user-profile-border) !important;
-    --menu-item-hover: var(--user-profile-background-hover) !important;
-	--user-profile-overlay-background: var(--profile-body-background-color) !important;
-	--input-color: rgb(var(--bg-overlay-color-inverse)/.1) !important;
-	--input-placeholder-color: var(--profile-gradient-primary-color);
+  --popout-color-alt: var(--profile-gradient-secondary-color) !important;
+  --card-color-filled: var(--user-profile-background-hover) !important;
+  --card-color-hover: var(--user-profile-background-hover) !important;
+  --card-border-color: var(--user-profile-border) !important;
+  --menu-item-hover: var(--user-profile-background-hover) !important;
+  --user-profile-overlay-background: var(
+    --profile-body-background-color
+  ) !important;
+  --input-color: rgb(var(--bg-overlay-color-inverse)/0.1) !important;
+  --input-placeholder-color: var(--profile-gradient-primary-color);
 
-    #{ $channelTextAreaFontPadding } {
-		color: var(--interactive-text-default) !important;
-	}
+  #{ $channelTextAreaFontPadding } {
+    color: var(--interactive-text-default) !important;
+  }
 
-    #{ $spriteGreyscale } {
-        background-color: var(--interactive-text-default);
+  #{ $spriteGreyscale } {
+    background-color: var(--interactive-text-default);
+  }
+
+  #{ $userProfileBanner } {
+    border-radius: calc(var(--popout-radius-big) - 4px);
+  }
+
+  #{ $statusBubbleInner } {
+    --text-default: var(--profile-gradient-primary-color);
+  }
+
+  #{ $buttonFilled } {
+    --button-background: var(--profile-gradient-button-color) !important;
+    --button-text-color: var(--white-500) !important;
+    --accent-button-action: var(--white-500) !important;
+  }
+
+  #{ $buttonV2Primary } {
+    --button-background: var(--control-primary-background-default);
+    --button-text-color: var(--control-primary-text-default);
+  }
+
+  #{ $buttonV2Secondary } {
+    --button-background: var(--control-secondary-background-default);
+    --button-text-color: var(--control-secondary-text-default);
+  }
+
+  #{ $userProfileModalConnectedAccounts } {
+    #{ $userProfileModalConnectedAccount } {
+      --card-color-filled: var(--profile-body-background-color);
     }
+  }
 
-	#{ $userProfileBanner } {
-		border-radius: calc(var(--popout-radius-big) - 4px);
-	}
+  #{ $spoilerContent } {
+    --attachment-color: var(--profile-role-pill-background-color);
 
-	#{ $statusBubbleInner } {
-        --text-default: var(--profile-gradient-primary-color);
+    &#{ $spoilerHidden } {
+      --attachment-color: var(--profile-gradient-secondary-color);
     }
+  }
 
-	#{ $buttonFilled } {
-		--button-background: var(--profile-gradient-button-color) !important;
-        --button-text-color: var(--white-500) !important;
-        --accent-button-action: var(--white-500) !important;
-	}
+  #{ $userProfileNoteTextArea },
+  #{ $inputWrapper } #{ $input } {
+    --input-color: var(--profile-body-background-color) !important;
+  }
 
-	#{ $buttonV2Primary } {
-        --button-background: var(--control-primary-background-default);
-        --button-text-color: var(--control-primary-text-default);
+  #{ $input } {
+    --input-color: var(--opacity-white-12) !important;
+  }
+
+  #{ $listRow } {
+    --menu-item-hover: var(--profile-body-background-hover);
+  }
+
+  #{ $markup } a {
+    color: var(--profile-gradient-secondary-color);
+  }
+
+  #{ $flowerStar } {
+    path {
+      fill: var(--profile-gradient-button-color);
     }
+  }
 
-    #{ $buttonV2Secondary } {
-        --button-background: var(--control-secondary-background-default);
-        --button-text-color: var(--control-secondary-text-default);
+  #{ $flowerStarChild } {
+    path {
+      fill: var(--white-500);
     }
-
-	#{ $userProfileModalConnectedAccounts } {
-		#{ $userProfileModalConnectedAccount } {
-			--card-color-filled: var(--profile-body-background-color);
-		}
-	}
-
-	#{ $spoilerContent } {
-        --attachment-color: var(--profile-role-pill-background-color);
-
-        &#{ $spoilerHidden } {
-            --attachment-color: var(--profile-gradient-secondary-color);
-        }
-    }
-
-    #{ $userProfileNoteTextArea },
-	#{ $inputWrapper } #{ $input } {
-		--input-color: var(--profile-body-background-color) !important;
-	}
-
-	#{ $input } {
-        --input-color: var(--opacity-white-12) !important;
-    }
-
-	#{ $listRow } {
-	    --menu-item-hover: var(--profile-body-background-hover);
-	}
-
-	#{ $markup } a {
-		color: var(--profile-gradient-secondary-color);
-	}
-
-	#{ $flowerStar } {
-	    path {
-	        fill: var(--profile-gradient-button-color);
-	    }
-	}
-
-	#{ $flowerStarChild } {
-	    path {
-	        fill: var(--white-500);
-	    }
-	}
+  }
 }
 
 #{ $profileCustomThemeBackground } {
-    #{ $menuPopout } {
-        border: none;
-    }
+  #{ $menuPopout } {
+    border: none;
+  }
 }
 
 #{ $userProfileOuter },
 #{ $biteSizeOuter } {
-	border-radius: var(--popout-radius-big);
-	box-shadow: var(--shadow-medium);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--shadow-medium);
 
-	#{ $channelTextArea } {
-		border-radius: var(--main-textarea-radius);
-		border: none;
-	}
+  #{ $channelTextArea } {
+    border-radius: var(--main-textarea-radius);
+    border: none;
+  }
 }
 
 #{ $userProfileBanner } {
-    border-radius: var(--popout-radius-big);
+  border-radius: var(--popout-radius-big);
 }
 
 #{ $userProfileBannerButton } {
-    border: none;
+  border: none;
 }
 
 #{ $biteSizeInnerThemed } {
-    padding-block-end: 0;
-    background-color: var(--popout-color);
+  padding-block-end: 0;
+  background-color: var(--popout-color);
 
-    &:before {
-        border-radius: calc(var(--popout-radius-big) / 1.25);
-    }
+  &:before {
+    border-radius: calc(var(--popout-radius-big) / 1.25);
+  }
 }
 
 #{ $userProfileEffectsInner } {
-    border-radius: var(--popout-radius-big);
+  border-radius: var(--popout-radius-big);
 }
 
 #{ $userProfileInner } {
-	border-radius: calc(var(--popout-radius-big) / 1.25);
+  border-radius: calc(var(--popout-radius-big) / 1.25);
 }
 
 #{ $userProfileIconButton } {
-	--button-background: var(--redesign-button-overlay-alpha-background);
-    --button-text-color: var(--white);
+  --button-background: var(--redesign-button-overlay-alpha-background);
+  --button-text-color: var(--white);
 
-	#{ $buttonContents } {
-		--button-height: var(--custom-button-button-sm-height);
-	}
+  #{ $buttonContents } {
+    --button-height: var(--custom-button-button-sm-height);
+  }
 }
 
 #{ $userProfileBody } {
-    --scrollbar-width: var(--scrollbar-thin-width);
+  --scrollbar-width: var(--scrollbar-thin-width);
 
-    max-height: 60vh;
-    padding-inline-end: calc(16px - var(--scrollbar-width)) !important;
+  max-height: 60vh;
+  padding-inline-end: calc(16px - var(--scrollbar-width)) !important;
 }
 
 #{ $userProfileUpsellContainer } {
-    &,
-    > div {
-        border-radius: calc(var(--popout-radius-big) / 1.5);
-    }
+  &,
+  > div {
+    border-radius: calc(var(--popout-radius-big) / 1.5);
+  }
 }
 
 #{ $userProfileUsernameRow } {
-    #{ $biteSizeIconButton } {
-        #{ $buttonContents } {
-            --button-height: 16px;
-        }
+  #{ $biteSizeIconButton } {
+    #{ $buttonContents } {
+      --button-height: 16px;
     }
+  }
 }
 
 #{ $userProfileCard } {
-    border-radius: calc(var(--popout-radius-big) / 1.6);
-    transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: calc(var(--popout-radius-big) / 1.6);
+  transition: var(--default-time) var(--default-animation) background-color;
 }
 
 #{ $userProfileOverlay } {
-    background-color: var(--card-color-filled);
-	border-radius: calc(var(--popout-radius-big) / 1.5);
+  background-color: var(--card-color-filled);
+  border-radius: calc(var(--popout-radius-big) / 1.5);
 }
 
 #{ $userProfileMenuOverlay } {
-    padding: var(--context-menu-padding);
+  padding: var(--context-menu-padding);
 
-	#{ $userProfileMenuItemInner } {
-		min-height: 32px;
-		line-height: 18px;
-        padding-block: 10px;
-        padding-inline: 12px;
-		transition: var(--default-time) var(--default-animation) background-color;
-	}
+  #{ $userProfileMenuItemInner } {
+    min-height: 32px;
+    line-height: 18px;
+    padding-block: 10px;
+    padding-inline: 12px;
+    transition: var(--default-time) var(--default-animation) background-color;
+  }
 }
 
 #{ $userProfileOverlayBackground } {
-	border-radius: calc(var(--popout-radius-big) / 1.5);
-	border: none;
+  border-radius: calc(var(--popout-radius-big) / 1.5);
+  border: none;
 }
 
 #{ $userProfileAvatarReplyContainer } {
-    @include popout-format;
+  @include popout-format;
 
-    #{ $channelTextAreaScrollable } {
-        background-color: var(--input-color);
-        border-radius: calc(var(--popout-radius-big) / 1.5);
-    }
+  #{ $channelTextAreaScrollable } {
+    background-color: var(--input-color);
+    border-radius: calc(var(--popout-radius-big) / 1.5);
+  }
 }
 
 /* USER POPOUT ->  BANNER BUTTONS */
 
 #{ $biteSizeBannerButtonsWrapper } {
-    #{ $button } {
-        padding: 0;
+  #{ $button } {
+    padding: 0;
 
-        #{ $buttonContents } {
-            min-width: var(--button-height);
-            min-height: var(--button-height);
+    #{ $buttonContents } {
+      min-width: var(--button-height);
+      min-height: var(--button-height);
 
-			svg {
-                margin: 0 auto;
-            }
-        }
+      svg {
+        margin: 0 auto;
+      }
     }
+  }
 }
 
 /* USER POPOUT -> STATUS BUBBLE */
 
 #{ $statusBubbleOuter } {
-    background-color: var(--popout-color-alt);
-    border-radius: var(--popout-radius-big);
+  background-color: var(--popout-color-alt);
+  border-radius: var(--popout-radius-big);
+  border: none !important;
+  box-shadow: none;
+
+  &:before,
+  &:after {
+    background-color: inherit !important;
     border: none !important;
     box-shadow: none;
+  }
 
-    &:before,
-    &:after {
-        background-color: inherit !important;
-        border: none !important;
-        box-shadow: none;
-    }
-
-    &:hover {
-        #{ $statusBubbleInner } {
-            color: var(--white-500);
-        }
-    }
-
+  &:hover {
     #{ $statusBubbleInner } {
-        background-color: inherit;
-        color: var(--white-500);
-
-		#{ $statusContent },
-	    #{ $statusText } {
-	        color: inherit;
-	    }
+      color: var(--white-500);
     }
+  }
+
+  #{ $statusBubbleInner } {
+    background-color: inherit;
+    color: var(--white-500);
+
+    #{ $statusContent },
+    #{ $statusText } {
+      color: inherit;
+    }
+  }
 }
 
 #{ $statusBubbleAddStatusIcon } {
-    fill: currentColor;
+  fill: currentColor;
 
-    path {
-        fill: inherit !important;
-    }
+  path {
+    fill: inherit !important;
+  }
 }
 
 #{ $statusBubbleAddStatusPrompt } {
-    color: inherit !important;
+  color: inherit !important;
 }
 
 /* USER POPOUT -> BADGE LIST */
 
 #{ $badgeListContainer } {
-    height: 24px;
-	margin: 0;
-    padding: 0 6px !important;
-    background-color: var(--card-color-filled) !important;
-    border-radius: 12px;
-    border: none;
+  height: 24px;
+  margin: 0;
+  padding: 0 6px !important;
+  background-color: var(--card-color-filled) !important;
+  border-radius: 12px;
+  border: none;
 }
 
 /* USER POPOUT -> ACTIVITY */
 
 #{ $biteSizeActivity } {
-	padding: 12px;
-    background-color: var(--popout-color-alt);
-    border-radius: calc(var(--popout-radius-big) / 1.5);
-    border: none;
+  padding: 12px;
+  background-color: var(--popout-color-alt);
+  border-radius: calc(var(--popout-radius-big) / 1.5);
+  border: none;
 }
 
 /* USER POPOUT -> SPOTIFY */
 
 #{ $userProfileSyncButton } {
-	--button-padding-start: 0;
-	--button-padding-end: 0;
+  --button-padding-start: 0;
+  --button-padding-end: 0;
 
+  min-width: var(--button-height);
+
+  #{ $userProfileSyncButtonInner } {
     min-width: var(--button-height);
-
-    #{ $userProfileSyncButtonInner } {
-        min-width: var(--button-height);
-        max-width: var(--button-height);
-        min-height: var(--button-height);
-        max-height: var(--button-height);
-    }
+    max-width: var(--button-height);
+    min-height: var(--button-height);
+    max-height: var(--button-height);
+  }
 }
 
 #{ $userProfileAssetsLargeImageSpotify } {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 /* USER POPOUT -> ROLES */
 
 #{ $role } {
-    min-width: 28px;
-    height: 28px;
-    gap: 6px;
-    padding: 0 12px 0 6px;
-    background-color: transparent;
-    border-radius: 8px;
-    border: 1px solid var(--card-border-color);
+  min-width: 28px;
+  height: 28px;
+  gap: 6px;
+  padding: 0 12px 0 6px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid var(--card-border-color);
 
-    > :first-child {
-        margin-inline-start: 0;
-        margin-inline-end: 0;
-    }
+  > :first-child {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
 }
 
 #{ $roleCircle } {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 #{ $rolePill } {
-    height: 28px;
-    padding: 0 6px;
-    background-color: var(--card-color-filled);
-    border-radius: 8px;
-    border: none;
-    box-sizing: border-box;
-    transition: var(--default-time) var(--default-animation) background-color;
+  height: 28px;
+  padding: 0 6px;
+  background-color: var(--card-color-filled);
+  border-radius: 8px;
+  border: none;
+  box-sizing: border-box;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 
-    #{ $textXsMedium } {
-        line-height: 28px;
-    }
+  #{ $textXsMedium } {
+    line-height: 28px;
+  }
 }
 
 #{ $roleRoot } {
-    > div:only-child {
-        #{ $roleAddButton } {
-            padding: 0 8px 0 4px;
-        }
+  > div:only-child {
+    #{ $roleAddButton } {
+      padding: 0 8px 0 4px;
     }
+  }
 }
 
 #{ $roleAddButton } {
-	height: 28px;
-    padding: 0;
+  height: 28px;
+  padding: 0;
 
-    #{ $buttonContents } {
-        --button-height: 28px;
+  #{ $buttonContents } {
+    --button-height: 28px;
 
-        min-width: 28px;
-        max-height: 28px;
-        min-height: 28px;
-        max-height: 28px;
-    }
+    min-width: 28px;
+    max-height: 28px;
+    min-height: 28px;
+    max-height: 28px;
+  }
 
-	svg {
-		margin: 0 auto;
-	}
+  svg {
+    margin: 0 auto;
+  }
 }
 
 #{ $roleExpandPill } {
-    min-width: 28px;
-    height: 28px;
-    padding: 0 6px;
-    border-radius: 14px;
-    box-sizing: border-box;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  border-radius: 14px;
+  box-sizing: border-box;
 
-    #{ $textXsMedium } {
-        line-height: 28px;
-    }
+  #{ $textXsMedium } {
+    line-height: 28px;
+  }
 }
 
 /* USER POPOUT ->  MESSAGE */
 
 #{ $userProfileMessageInner } {
-    background-color: var(--input-color) !important;
-    border-radius: var(--input-radius) !important;
+  background-color: var(--input-color) !important;
+  border-radius: var(--input-radius) !important;
 
-    #{ $textArea } {
-        min-height: var(--input-height);
-        height: var(--input-height);
-    }
+  #{ $textArea } {
+    min-height: var(--input-height);
+    height: var(--input-height);
+  }
 
-    #{ $channelTextAreaFontPadding } {
-        padding-block-start: calc((var(--input-height) - 1.57em) / 2);
-        padding-block-end: calc((var(--input-height) - 1.57em) / 2);
-    }
+  #{ $channelTextAreaFontPadding } {
+    padding-block-start: calc((var(--input-height) - 1.57em) / 2);
+    padding-block-end: calc((var(--input-height) - 1.57em) / 2);
+  }
 
-    #{ $channelTextAreaButtonsContainer } {
-        height: var(--input-height);
-    }
+  #{ $channelTextAreaButtonsContainer } {
+    height: var(--input-height);
+  }
 }
 
 #{ $userProfileFooter } {
-	#{ $textAreaPlaceholder } {
-        color: var(--input-placeholder-color);
-		font-weight: 500;
-    }
+  #{ $textAreaPlaceholder } {
+    color: var(--input-placeholder-color);
+    font-weight: 500;
+  }
 
-	#{ $forwardInlineContainer } {
-		background-color: var(--input-color);
-	}
+  #{ $forwardInlineContainer } {
+    background-color: var(--input-color);
+  }
 }
 
 /* USER POPOUT -> SELF PROFILE */
 
 #{ $userProfileMenus } {
-    > #{ $menuPopout } {
-        background-color: var(--popout-color-alt);
-        border-radius: calc(var(--popout-radius-big) / 1.5);
-        border: none;
-        box-shadow: none;
-    }
+  > #{ $menuPopout } {
+    background-color: var(--popout-color-alt);
+    border-radius: calc(var(--popout-radius-big) / 1.5);
+    border: none;
+    box-shadow: none;
+  }
 }
 
 /* USER POPOUT -> QUEST AVAILABLE POPOUT */
 
 #{ $userProfileQuestWrapper } {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big) !important;
-    box-shadow: var(--shadow-medium);
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big) !important;
+  box-shadow: var(--shadow-medium);
 }
 
 #{ $userProfileQuestContainer } {
-    background-color: unset;
+  background-color: unset;
 }
 
 /* USER POPOUT -> V2 PROFILE */
 
 #{ $userProfileModalV2 } {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big);
-    border: none;
-    box-shadow: var(--shadow-hard);
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  border: none;
+  box-shadow: var(--shadow-hard);
 
-    &:not(#{ $userProfileOuterThemed }) {
-        #{ $userProfileModalV2Profile } {
-            --background-surface-high: var(--popout-color-alt);
-
-            outline: none;
-        }
-    }
-
-    #{ $userProfileInner } {
-        padding: var(--space-32);
-		gap: var(--space-32);
-    }
-
+  &:not(#{ $userProfileOuterThemed }) {
     #{ $userProfileModalV2Profile } {
-        border-radius: calc(var(--popout-radius-big) / 1.3);
-        border: none;
-        box-shadow: var(--shadow-soft);
+      --background-surface-high: var(--popout-color-alt);
+
+      outline: none;
+    }
+  }
+
+  #{ $userProfileInner } {
+    padding: var(--space-32);
+    gap: var(--space-32);
+  }
+
+  #{ $userProfileModalV2Profile } {
+    border-radius: calc(var(--popout-radius-big) / 1.3);
+    border: none;
+    box-shadow: var(--shadow-soft);
+  }
+
+  #{ $userProfileBanner } {
+    border-radius: calc(var(--popout-radius-big) / 1.3);
+  }
+
+  #{ $userProfileEffectsInner } {
+    border-radius: var(--popout-radius-big);
+  }
+
+  #{ $userProfileModalV2ProfileBody } {
+    padding: 4px 24px 24px;
+    padding-inline-end: calc(24px - var(--scrollbar-width)) !important;
+  }
+
+  #{ $userProfileOverlay } {
+    background-color: var(--card-color-hover);
+    border-radius: calc(var(--popout-radius-big) / 1.4);
+  }
+
+  /* recent activity */
+
+  #{ $userProfileModalV2ActivityScroller } {
+    padding-block-end: 0;
+    border-radius: var(--card-radius-big);
+
+    #{ $userProfileModalHeadings } {
+      //padding-block-start: var(--space-12);
+    }
+  }
+
+  #{ $userProfileModalV2ActivityCards } {
+    gap: 2px;
+
+    > li {
+      border-radius: 4px;
+      overflow: hidden;
+
+      &:first-child {
+        border-top-left-radius: var(--card-radius-big);
+        border-top-right-radius: var(--card-radius-big);
+      }
+
+      &:last-child {
+        border-bottom-left-radius: var(--card-radius-big);
+        border-bottom-right-radius: var(--card-radius-big);
+      }
     }
 
-    #{ $userProfileBanner } {
-        border-radius: calc(var(--popout-radius-big) / 1.3);
+    #{ $messageButtonWrapper } {
+      height: 28px;
+      inset-block-start: 0 !important;
+      inset-block-end: 0;
+      margin: auto 0;
+      background-color: hsl(
+        from var(--user-profile-toolbar-background) h s l / 0.23
+      );
+      box-shadow: var(--shadow-soft) !important;
+    }
+  }
+
+  #{ $userProfileModalV2ActivityCard } {
+    border-radius: 0;
+  }
+
+  #{ $memberActivityImageContainer } {
+    border-radius: 50%;
+  }
+
+  #{ $userProfileModalV2SideContainer } {
+    --custom-gutter-left: 0;
+
+    height: 100%;
+    gap: var(--space-16);
+    margin: 0;
+    padding: 0;
+
+    #{ $userProfileModalV2SideHeaderScroller } {
+      margin: 0;
+      padding: 0;
     }
 
-    #{ $userProfileEffectsInner } {
-        border-radius: var(--popout-radius-big);
+    #{ $discoverHeaderTopBar } {
+      #{ $item } {
+        line-height: 48px;
+      }
     }
+  }
 
-	#{ $userProfileModalV2ProfileBody } {
-        padding: 4px 24px 24px;
-        padding-inline-end: calc(24px - var(--scrollbar-width)) !important;
+  #{ $userProfileModalHeadings } {
+    padding-block-start: 0;
+
+    #{ $textXsMedium } {
+      font-size: 14px;
     }
-
-	#{ $userProfileOverlay } {
-        background-color: var(--card-color-hover);
-        border-radius: calc(var(--popout-radius-big) / 1.4);
-    }
-
-    /* recent activity */
-
-    #{ $userProfileModalV2ActivityScroller } {
-        padding-block-end: 0;
-        border-radius: var(--card-radius-big);
-
-        #{ $userProfileModalHeadings } {
-            //padding-block-start: var(--space-12);
-        }
-    }
-
-    #{ $userProfileModalV2ActivityCards } {
-        gap: 2px;
-
-        > li {
-            border-radius: 4px;
-            overflow: hidden;
-
-            &:first-child {
-                border-top-left-radius: var(--card-radius-big);
-                border-top-right-radius: var(--card-radius-big);
-            }
-
-            &:last-child {
-                border-bottom-left-radius: var(--card-radius-big);
-                border-bottom-right-radius: var(--card-radius-big);
-            }
-        }
-
-        #{ $messageButtonWrapper } {
-            height: 28px;
-			inset-block-start: 0 !important;
-			inset-block-end: 0;
-            margin: auto 0;
-            background-color: hsl(from var(--user-profile-toolbar-background) h s l / 0.23);
-            box-shadow: var(--shadow-soft) !important;
-        }
-    }
-
-    #{ $userProfileModalV2ActivityCard } {
-        border-radius: 0;
-    }
-
-	#{ $memberActivityImageContainer } {
-        border-radius: 50%;
-    }
-
-	#{ $userProfileModalV2SideContainer } {
-		--custom-gutter-left: 0;
-
-		height: 100%;
-        gap: var(--space-16);
-        margin: 0;
-        padding: 0;
-
-        #{ $userProfileModalV2SideHeaderScroller } {
-            margin: 0;
-            padding: 0;
-        }
-
-        #{ $discoverHeaderTopBar } {
-            #{ $item } {
-                line-height: 48px;
-            }
-        }
-	}
-
-	#{ $userProfileModalHeadings } {
-        padding-block-start: 0;
-
-		#{ $textXsMedium } {
-			font-size: 14px;
-		}
-    }
+  }
 }
 
 #{ $userProfileModalV2SaveChangesContainer } {
-    padding: var(--space-8) var(--space-8) var(--space-8) var(--space-16);
-    background-color: var(--popout-color);
-    border-radius: 6px;
-    border: none;
-    box-shadow: var(--shadow-soft);
+  padding: var(--space-8) var(--space-8) var(--space-8) var(--space-16);
+  background-color: var(--popout-color);
+  border-radius: 6px;
+  border: none;
+  box-shadow: var(--shadow-soft);
 }
 
 #{ $userProfileModalV2TabPanelScroller } {
-	padding-block-start: 0;
-    padding-inline-start: var(--space-12);
-    gap: 2px;
+  padding-block-start: 0;
+  padding-inline-start: var(--space-12);
+  gap: 2px;
 
-	section {
-        &:first-of-type {
-            #{ $userProfileModalV2WidgetContainer } {
-                border-top-left-radius: var(--card-radius-big);
-                border-top-right-radius: var(--card-radius-big);
-            }
-        }
-
-        &:nth-last-of-type(1) {
-            #{ $userProfileModalV2WidgetContainer } {
-                border-bottom-left-radius: var(--card-radius-big);
-                border-bottom-right-radius: var(--card-radius-big);
-            }
-        }
+  section {
+    &:first-of-type {
+      #{ $userProfileModalV2WidgetContainer } {
+        border-top-left-radius: var(--card-radius-big);
+        border-top-right-radius: var(--card-radius-big);
+      }
     }
+
+    &:nth-last-of-type(1) {
+      #{ $userProfileModalV2WidgetContainer } {
+        border-bottom-left-radius: var(--card-radius-big);
+        border-bottom-right-radius: var(--card-radius-big);
+      }
+    }
+  }
 }
 
 #{ $userProfileModalV2TabPanelRow } {
-    margin: 0;
-    padding: var(--space-8);
-    background-color: var(--card-color-filled);
-    border-radius: 4px;
-    transition: var(--default-time) var(--default-animation) background-color;
+  margin: 0;
+  padding: var(--space-8);
+  background-color: var(--card-color-filled);
+  border-radius: 4px;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-color-hover);
+  }
 
-    &:first-child {
-        border-top-left-radius: var(--card-radius-big);
-        border-top-right-radius: var(--card-radius-big);
-    }
+  &:first-child {
+    border-top-left-radius: var(--card-radius-big);
+    border-top-right-radius: var(--card-radius-big);
+  }
 
-    &:nth-last-child(-n + 2) {
-        border-bottom-left-radius: var(--card-radius-big);
-        border-bottom-right-radius: var(--card-radius-big);
-    }
+  &:nth-last-child(-n + 2) {
+    border-bottom-left-radius: var(--card-radius-big);
+    border-bottom-right-radius: var(--card-radius-big);
+  }
 }
 
 #{ $userProfileModalV2TabListScroller } {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #{ $userProfileModalV2TabBarPanel } {
-    padding-inline-start: 0;
+  padding-inline-start: 0;
 
-    #{ $userProfileModalV2TabBarScroller } {
-        margin-inline-start: -16px;
-        padding-inline-start: 28px;
-    }
+  #{ $userProfileModalV2TabBarScroller } {
+    margin-inline-start: -16px;
+    padding-inline-start: 28px;
+  }
 }
 
 #{ $userProfileModalV2WidgetDragHandleButton } {
-	inset-inline-start: 8px;
+  inset-inline-start: 8px;
 }
 
 #{ $userProfileModalV2WidgetContainer } {
-	padding: var(--space-16);
-    background-color: var(--card-color-hover);
-    border-radius: 4px;
-    border: none;
+  padding: var(--space-16);
+  background-color: var(--card-color-hover);
+  border-radius: 4px;
+  border: none;
 }
 
 #{ $userProfileWidgetAddButtonContainer } {
-    background-color: var(--card-color-hover);
-    border-radius: calc(var(--popout-radius-big) / 1.75);
+  background-color: var(--card-color-hover);
+  border-radius: calc(var(--popout-radius-big) / 1.75);
 
-    &:has(#{ $userProfileWidgetAddButtonContent }:hover) {
-        background-color: var(--card-color-active);
-    }
+  &:has(#{ $userProfileWidgetAddButtonContent }:hover) {
+    background-color: var(--card-color-active);
+  }
 }
 
 #{ $userProfileWidgetCard } {
-    &:has(#{ $userProfileWidgetRemoveGameButton }) {
-        &:before {
-            inset: 0;
-            border-radius: calc(var(--card-radius-big) / 1.6);
-        }
-
-        &:hover {
-            &:before {
-                background-color: var(--card-color-hover);
-            }
-        }
+  &:has(#{ $userProfileWidgetRemoveGameButton }) {
+    &:before {
+      inset: 0;
+      border-radius: calc(var(--card-radius-big) / 1.6);
     }
 
-    #{ $userProfileWidgetGameCover } {
-        border-radius: calc(var(--card-radius-big) / 1.6);
+    &:hover {
+      &:before {
+        background-color: var(--card-color-hover);
+      }
     }
+  }
+
+  #{ $userProfileWidgetGameCover } {
+    border-radius: calc(var(--card-radius-big) / 1.6);
+  }
 }
 
 #{ $userProfileWidgetCoverContainer } {
-    box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-soft);
 }
 
 #{ $userProfileWidgetGameCover } {
-    border-radius: calc(var(--card-radius-big) / 2.5);
+  border-radius: calc(var(--card-radius-big) / 2.5);
 }

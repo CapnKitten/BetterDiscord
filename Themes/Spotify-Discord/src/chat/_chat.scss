@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,154 +7,167 @@
  */
 
 #{ $base } {
-    width: calc( calc(72px + calc(var(--app-card-margin) * 2)) - 100vw);
-    margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size) 0;
-    overflow: visible;
+  width: calc(calc(72px + calc(var(--app-card-margin) * 2)) - 100vw);
+  margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-bar-size)
+    0;
+  overflow: visible;
 }
 
 #{ $guildsWrapperHidden } + #{ $base } {
-    margin: 0;
+  margin: 0;
 }
 
 #{ $chat },
 #{ $threadContainer } {
-    border-radius: var(--app-card-radius);
-    background-color: var(--app-foreground) !important;
-    overflow: visible;
+  border-radius: var(--app-card-radius);
+  background-color: var(--app-foreground) !important;
+  overflow: visible;
 
-    #{ $chatContentWrapper } {
-        border-bottom-right-radius: var(--app-card-radius);
-    }
+  #{ $chatContentWrapper } {
+    border-bottom-right-radius: var(--app-card-radius);
+  }
 }
 
 #{ $chat } {
-    &#{ $threadSidebarOpen } {
-        border-radius: var(--app-card-radius);
-    }
+  &#{ $threadSidebarOpen } {
+    border-radius: var(--app-card-radius);
+  }
 
-    &:has(#{ $callWrapperSidebarOpen }) {
-        background-color: transparent !important;
-    }
+  &:has(#{ $callWrapperSidebarOpen }) {
+    background-color: transparent !important;
+  }
 }
 
 #{ $chatContent } {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $channelChatWrapper } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $chatContentWrapper } {
-    &:before {
-        display: none;
-    }
+  &:before {
+    display: none;
+  }
 }
 
 #{ $chatGradientBase } {
-    transition: var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) background;
+  transition:
+    var(--default-time) var(--default-animation) height,
+    var(--default-time) var(--default-animation) background;
 }
 
 #{ $chatGradient } {
-    background: linear-gradient(to bottom, transparent, var(--app-foreground));
+  background: linear-gradient(to bottom, transparent, var(--app-foreground));
 }
 
 #{ $chatTypingGradientAtBottom } {
-    height: var(--space-16);
-    background: linear-gradient(to bottom, transparent, var(--app-foreground) var(--space-8), var(--app-foreground) 100%);
+  height: var(--space-16);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--app-foreground) var(--space-8),
+    var(--app-foreground) 100%
+  );
 }
 
 #{ $chatTypingGradientNotAtBottom } {
-    height: var(--space-32);
-    background: linear-gradient(to bottom, transparent, var(--app-foreground) var(--space-16), var(--app-foreground) 100%);
+  height: var(--space-32);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--app-foreground) var(--space-16),
+    var(--app-foreground) 100%
+  );
 }
 
 #{ $messagesScrollerSpacer } {
-    height: 28px;
+  height: 28px;
 }
 
 #{ $threadResizeHandle } {
-    background-color: var(--app-background);
+  background-color: var(--app-background);
 }
 
 #{ $chatHeaderBar } {
-    background-color: var(--background-tinted-active);
+  background-color: var(--background-tinted-active);
 
-    &:after {
-        display: none;
-    }
+  &:after {
+    display: none;
+  }
 }
 
 /* CHAT AREA -> DIVIDERS */
 
 #{ $divider } {
-    --divider-color: var(--popout-color);
-    --divider-text-color: var(--menu-text-color);
+  --divider-color: var(--popout-color);
+  --divider-text-color: var(--menu-text-color);
 
-    border-top-color: var(--divider-color);
+  border-top-color: var(--divider-color);
 
-    &#{ $dividerUnread } {
-        --divider-color: hsl(var(--alert-hsl));
-        --divider-text-color: var(--alert-text-color);
-    }
+  &#{ $dividerUnread } {
+    --divider-color: hsl(var(--alert-hsl));
+    --divider-text-color: var(--alert-text-color);
+  }
 
-    #{ $dividerDate },
-    #{ $unreadPill } {
-        background: var(--divider-color);
-        color: var(--divider-text-color);
-    }
+  #{ $dividerDate },
+  #{ $unreadPill } {
+    background: var(--divider-color);
+    color: var(--divider-text-color);
+  }
 
-    #{ $dividerDate } {
-        padding: 4px 8px;
-        border-radius: 11px;
-    }
+  #{ $dividerDate } {
+    padding: 4px 8px;
+    border-radius: 11px;
+  }
 }
 
 /* CHAT AREA -> NEW MESSAGES BAR */
 
 #{ $barBase } {
-    border: none;
+  border: none;
 
-    &:not(#{ $jumpToPresentBar }) {
-        padding: 0 var(--space-12);
-        top: var(--space-8);
-        left: var(--space-16);
-        border-radius: 16px;
-        background-color: hsl(var(--accent-hsl));
-        box-shadow: var(--default-shadow);
-        gap: var(--space-12);
+  &:not(#{ $jumpToPresentBar }) {
+    padding: 0 var(--space-12);
+    top: var(--space-8);
+    left: var(--space-16);
+    border-radius: 16px;
+    background-color: hsl(var(--accent-hsl));
+    box-shadow: var(--default-shadow);
+    gap: var(--space-12);
 
-        #{ $barButtonBase } {
-            padding: 0;
-            color: var(--accent-text-color);
-        }
+    #{ $barButtonBase } {
+      padding: 0;
+      color: var(--accent-text-color);
     }
+  }
 }
 
 /* CHAT AREA -> JUMP TO PRESENT BUTTON */
 
 #{ $jumpToPresentBar } {
-    margin-bottom: 8px;
-    padding-bottom: 0;
-    border-radius: 4px;
+  margin-bottom: 8px;
+  padding-bottom: 0;
+  border-radius: 4px;
 
-    &:active {
-        margin-bottom: 6px;
-    }
+  &:active {
+    margin-bottom: 6px;
+  }
 }
 
 /* CHAT AREA -> PLACEHOLDER */
 
 #{ $chatLoadingWrapper } {
-	background: var(--app-foreground) !important;
+  background: var(--app-foreground) !important;
 }
 
 #{ $chatLoadingMessageWrapper } {
-	background: transparent !important;
+  background: transparent !important;
 }
 
 #{ $chatLoadingAttachment },
 #{ $chatLoadingAvatar },
 #{ $chatLoadingBlob } {
-	background: hsl(0,0%,100%) !important;
+  background: hsl(0, 0%, 100%) !important;
 }

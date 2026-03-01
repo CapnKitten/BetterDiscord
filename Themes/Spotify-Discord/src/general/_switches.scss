@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,23 +7,23 @@
  */
 
 #{ $switchIndicator } {
-	background-color: var(--switch-slider-color) !important;
+  background-color: var(--switch-slider-color) !important;
 
-    // Switch in on state
-    &:has(#{ $switchThumb }[style="left: 24px;"]) {
-        --switch-slider-color: hsl(var(--accent-hsl));
-        --switch-knob-color: var(--accent-text-color);
+  // Switch in on state
+  &:has(#{ $switchThumb }[style="left: 24px;"]) {
+    --switch-slider-color: hsl(var(--accent-hsl));
+    --switch-knob-color: var(--accent-text-color);
+  }
+
+  #{ $switchThumb } {
+    rect {
+      fill: var(--switch-knob-color) !important;
     }
 
-    #{ $switchThumb } {
-        rect {
-            fill: var(--switch-knob-color) !important;
-        }
-
-        svg {
-            path {
-                fill: var(--switch-slider-color);
-            }
-        }
+    svg {
+      path {
+        fill: var(--switch-slider-color);
+      }
     }
+  }
 }

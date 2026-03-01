@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,251 +8,253 @@
  */
 
 #{ $message } {
-	border-radius: var(--message-radius);
+  border-radius: var(--message-radius);
 }
 
 #{ $messageBackgroundFlash } {
-	&:not([style$="0);"]) {
-		background-color: hsla(var(--accent-hsl),0.3) !important;
-		transition: 200ms ease-out background-color;
-	}
+  &:not([style$="0);"]) {
+    background-color: hsla(var(--accent-hsl), 0.3) !important;
+    transition: 200ms ease-out background-color;
+  }
 
-	&[style="background-color: rgba(148, 156, 247, 0);"] {
-		background-color: hsla(var(--accent-hsl),0.0) !important;
-		transition: 400ms background-color;
-	}
+  &[style="background-color: rgba(148, 156, 247, 0);"] {
+    background-color: hsla(var(--accent-hsl), 0) !important;
+    transition: 400ms background-color;
+  }
 }
 
 #{ $mouseModeFullMotion } {
-	#{ $messagesWrapper } {
-		&:hover {
-			background-color: var(--message-color-hover) !important;
-		}
-	}
+  #{ $messagesWrapper } {
+    &:hover {
+      background-color: var(--message-color-hover) !important;
+    }
+  }
 }
 
 #{ $messagesWrapper } {
-	margin-inline-start: 68px;
-	margin-inline-end: 16px;
-	background-color: var(--message-color) !important;
-	border-radius: var(--message-radius);
-	transition: 300ms ease background-color;
+  margin-inline-start: 68px;
+  margin-inline-end: 16px;
+  background-color: var(--message-color) !important;
+  border-radius: var(--message-radius);
+  transition: 300ms ease background-color;
 
-	&:not(#{ $messageGroupStart }),
-    &#{ $messageCompact } {
-    	margin-block-start: 2px;
+  &:not(#{ $messageGroupStart }),
+  &#{ $messageCompact } {
+    margin-block-start: 2px;
+  }
+
+  &#{ $messageCozy },
+  &#{ $messageCompact } {
+    padding-block: var(--message-padding-top) !important;
+    padding-inline: var(--message-padding-side) !important;
+    border: 2px solid transparent;
+  }
+
+  &#{ $messageCozy } {
+    #{ $messageTimestamp } {
+      &#{ $messageTimestampAlt } {
+        inset-inline-start: -62px;
+      }
+    }
+  }
+
+  &#{ $messageCompact } {
+    padding: 4px;
+    padding-inline-start: 6px;
+
+    #{ $messageTimestamp } {
+      margin-inline-end: 0.75rem;
+    }
+  }
+
+  &#{ $hasReply } {
+    #{ $avatarLarge } {
+      inset-block-start: 28px;
     }
 
-	&#{ $messageCozy },
-	&#{ $messageCompact } {
-		padding-block: var(--message-padding-top) !important;
-		padding-inline: var(--message-padding-side) !important;
-		border: 2px solid transparent;
-	}
+    #{ $avatarDecoration } {
+      inset-block-start: 26px;
+    }
+  }
 
-	&#{ $messageCozy } {
-		#{ $messageTimestamp } {
-			&#{ $messageTimestampAlt } {
-				inset-inline-start: -62px;
-			}
-		}
-	}
+  #{ $messageTimestamp } {
+    color: var(--text-normal);
 
-	&#{ $messageCompact } {
-		padding: 4px;
-		padding-inline-start: 6px;
+    &#{ $messageTimestampAlt } {
+      color: var(--text-normal);
+    }
+  }
 
-		#{ $messageTimestamp } {
-			margin-inline-end: 0.75rem;
-		}
-	}
+  #{ $channelTextArea } {
+    margin: 2px 0;
+  }
 
-	&#{ $hasReply } {
-        #{ $avatarLarge } {
-            inset-block-start: 28px;
-        }
+  &#{ $mentioned } {
+    border-color: hsla(var(--mention-hsl), var(--mention-opacity));
+    box-shadow: 0px 0px 13px 4px
+      hsla(var(--mention-hsl), var(--mention-opacity));
 
-        #{ $avatarDecoration } {
-            inset-block-start: 26px;
-        }
+    &:before {
+      display: none;
     }
 
-	#{ $messageTimestamp } {
-		color: var(--text-normal);
-
-		&#{ $messageTimestampAlt }  {
-			color: var(--text-normal);
-		}
-	}
-
-	#{ $channelTextArea } {
-        margin: 2px 0;
+    #{ $messageReplied } {
+      &:before {
+        border-color: hsl(var(--mention-hsl));
+      }
     }
 
-	&#{ $mentioned } {
-        border-color: hsla(var(--mention-hsl),var(--mention-opacity));
-    	box-shadow: 0px 0px 13px 4px hsla(var(--mention-hsl),var(--mention-opacity));
-
-        &:before {
-            display: none;
-        }
-
-		#{ $messageReplied } {
-			&:before {
-				border-color: hsl(var(--mention-hsl));
-			}
-		}
-
-		#{ $messageRepliedSpine } {
-	        --message-color: hsl(var(--mention-hsl));
-	        --message-color-hover: hsl(var(--mention-hsl));
-	    }
+    #{ $messageRepliedSpine } {
+      --message-color: hsl(var(--mention-hsl));
+      --message-color-hover: hsl(var(--mention-hsl));
     }
+  }
 
-    &#{ $replyingToIndicator } {
-        border-color: hsla(var(--reply-hsl),var(--reply-opacity));
-    	box-shadow: 0px 0px 13px 4px hsla(var(--reply-hsl),var(--reply-opacity));
+  &#{ $replyingToIndicator } {
+    border-color: hsla(var(--reply-hsl), var(--reply-opacity));
+    box-shadow: 0px 0px 13px 4px hsla(var(--reply-hsl), var(--reply-opacity));
 
-        &:before {
-            display: none;
-        }
+    &:before {
+      display: none;
     }
+  }
 }
 
 #{ $messagesScrollerSpacer } {
-	height: var(--space-16);
+  height: var(--space-16);
 }
 
 #{ $messageHasThread } {
-	&:after {
-		display: none;
-	}
+  &:after {
+    display: none;
+  }
 }
 
 #{ $avatarLarge } {
-	width: 40px;
-	height: 40px;
-	inset-block-start: 0;
-	inset-inline-start: -50px;
-	margin-block-start: 0;
+  width: 40px;
+  height: 40px;
+  inset-block-start: 0;
+  inset-inline-start: -50px;
+  margin-block-start: 0;
 }
 
 #{ $avatarDecoration } {
-	inset-block-start: -2px;
-	inset-inline-start: -54px;
+  inset-block-start: -2px;
+  inset-inline-start: -54px;
 }
 
 #{ $a11yFontScaledDown } {
-	#{ $cozy } {
-		#{ $messageRepliedSpine } {
-			--gutter: var(--custom-message-margin-horizontal);
-		}
-	}
+  #{ $cozy } {
+    #{ $messageRepliedSpine } {
+      --gutter: var(--custom-message-margin-horizontal);
+    }
+  }
 
-	#{ $avatarLarge } {
-		&:not(#{ $messageCompact }) {
-			inset-block-start: 0;
-			inset-inline-start: -50px;
-		}
-	}
+  #{ $avatarLarge } {
+    &:not(#{ $messageCompact }) {
+      inset-block-start: 0;
+      inset-inline-start: -50px;
+    }
+  }
 
-    #{ $avatarDecoration } {
-        &:not(#{ $messageCompact }) {
-            inset-block-start: 0;
-        	inset-inline-start: -54px;
-        }
+  #{ $avatarDecoration } {
+    &:not(#{ $messageCompact }) {
+      inset-block-start: 0;
+      inset-inline-start: -54px;
+    }
+  }
+
+  #{ $hasReply } {
+    #{ $avatarLarge } {
+      &:not(#{ $messageCompact }) {
+        inset-block-start: 28px;
+      }
     }
 
-	#{ $hasReply } {
-		#{ $avatarLarge } {
-			&:not(#{ $messageCompact }) {
-				inset-block-start: 28px;
-			}
-		}
-
-	    #{ $avatarDecoration } {
-	        &:not(#{ $messageCompact }) {
-	            inset-block-start: 28px;
-	        }
-	    }
-	}
+    #{ $avatarDecoration } {
+      &:not(#{ $messageCompact }) {
+        inset-block-start: 28px;
+      }
+    }
+  }
 }
 
 #{ $messageListItem },
 #{ $divider } {
-	+ #{ $messagesWrapper } {
-		margin-block-start: 2px;
-	}
+  + #{ $messagesWrapper } {
+    margin-block-start: 2px;
+  }
 }
 
 #{ $divider }#{ $hasContent } {
-	border-top: none;
+  border-top: none;
 
-	&:before,
-	&:after {
-		position: absolute;
-		content: " ";
-		width: calc(50% - 60px);
-		height: 1px;
-		inset-block-start: 0;
-		inset-block-end: 0;
-		margin: auto 0;
-		background-color: var(--background-modifier-accent);
-	}
+  &:before,
+  &:after {
+    position: absolute;
+    content: " ";
+    width: calc(50% - 60px);
+    height: 1px;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    margin: auto 0;
+    background-color: var(--background-modifier-accent);
+  }
 
-	&:before {
-		inset-inline-start: 0;
-	}
+  &:before {
+    inset-inline-start: 0;
+  }
 
-	&:after {
-		inset-inline-end: 0;
-	}
+  &:after {
+    inset-inline-end: 0;
+  }
 }
 
 #{ $dividerDate } {
-	width: 120px;
-	padding-block: 2px;
-	padding-inline: 0;
-	background-color: var(--message-color);
-	text-align: center;
+  width: 120px;
+  padding-block: 2px;
+  padding-inline: 0;
+  background-color: var(--message-color);
+  text-align: center;
 }
 
 #{ $dividerUnread } {
-	border-color: hsla(var(--accent-hsl),var(--accent-opacity));
+  border-color: hsla(var(--accent-hsl), var(--accent-opacity));
 
-	#{ $unreadPill } {
-		background-color: hsla(var(--accent-hsl),var(--accent-opacity));
-		color: var(--accent-text-color);
-		text-shadow: none;
-	}
+  #{ $unreadPill } {
+    background-color: hsla(var(--accent-hsl), var(--accent-opacity));
+    color: var(--accent-text-color);
+    text-shadow: none;
+  }
 
-	#{ $unreadPillCap } {
-        filter: none;
-    }
+  #{ $unreadPillCap } {
+    filter: none;
+  }
 
-	#{ $unreadPillCapStroke } {
-		color: hsla(var(--accent-hsl),var(--accent-opacity));
-		fill: hsla(var(--accent-hsl),var(--accent-opacity));
-	}
+  #{ $unreadPillCapStroke } {
+    color: hsla(var(--accent-hsl), var(--accent-opacity));
+    fill: hsla(var(--accent-hsl), var(--accent-opacity));
+  }
 }
 
 #{ $messageReplied } {
-	&:before {
-		border-color: var(--message-color);
-		transform: translateX(-6px);
-    }
+  &:before {
+    border-color: var(--message-color);
+    transform: translateX(-6px);
+  }
 }
 
 #{ $messageRepliedSpine } {
-    margin-inline: calc(var(--spine-width)*-1/2) calc(var(--reply-spacing) * 2.3);
-    border-color: var(--message-color);
-	transition: 300ms ease border-color;
+  margin-inline: calc(var(--spine-width) * -1 / 2)
+    calc(var(--reply-spacing) * 2.3);
+  border-color: var(--message-color);
+  transition: 300ms ease border-color;
 
-	&#{ $messageRepliedSpineHovered } {
-        border-color: var(--message-color-hover);
-    }
+  &#{ $messageRepliedSpineHovered } {
+    border-color: var(--message-color-hover);
+  }
 }
 
 #{ $messageEmojiPopout } {
-    @include add-translucence(before, true);
+  @include add-translucence(before, true);
 }

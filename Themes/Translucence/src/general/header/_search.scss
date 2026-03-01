@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,86 +7,89 @@
  */
 
 #{ $chatSearch } {
-    #{ $chatSearchRoot } {
-        #{ $chatSearchContainer } {
-            height: var(--chat-search-size);
-        }
-
-        #{ $chatSearchContentContainer } {
-            display: flex;
-            height: var(--chat-search-size);
-            line-height: var(--chat-search-size);
-            font-size: 15px;
-
-            span {
-                line-height: var(--chat-search-size);
-                font-size: 15px;
-            }
-        }
+  #{ $chatSearchRoot } {
+    #{ $chatSearchContainer } {
+      height: var(--chat-search-size);
     }
 
-    #{ $chatSearchPlaceholder } {
-        #{ $chatSearchPlaceholderInner } {
-            height: var(--chat-search-size);
-            line-height: var(--chat-search-size);
-            font-size: 15px;
-        }
-    }
+    #{ $chatSearchContentContainer } {
+      display: flex;
+      height: var(--chat-search-size);
+      line-height: var(--chat-search-size);
+      font-size: 15px;
 
-    #{ $chatSearchContent } {
-        > div[data-contents=true] {
-          height: inherit;
-        }
+      span {
+        line-height: var(--chat-search-size);
+        font-size: 15px;
+      }
     }
+  }
+
+  #{ $chatSearchPlaceholder } {
+    #{ $chatSearchPlaceholderInner } {
+      height: var(--chat-search-size);
+      line-height: var(--chat-search-size);
+      font-size: 15px;
+    }
+  }
+
+  #{ $chatSearchContent } {
+    > div[data-contents="true"] {
+      height: inherit;
+    }
+  }
 }
 
 #{ $chatSearchBar } {
-    height: var(--chat-search-size);
-    padding-block: 0;
-    padding-inline: 4px;
-    background-color: rgba(var(--textarea-color), var(--textarea-alpha));
-    border-radius: calc(var(--chat-search-size) / 2);
-    border: none;
+  height: var(--chat-search-size);
+  padding-block: 0;
+  padding-inline: 4px;
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha));
+  border-radius: calc(var(--chat-search-size) / 2);
+  border: none;
 }
 
 #{ $chatSearchContainer } {
-    height: var(--chat-search-size);
+  height: var(--chat-search-size);
 }
 
 #{ $chatSearchToken },
 #{ $chatSearchFilter } + span[data-offset-key],
 #{ $chatSearchAnswer } span[data-offset-key] {
-    --chat-search-size: var(--chat-search-pill-size);
+  --chat-search-size: var(--chat-search-pill-size);
 
-    display: flex;
-    height: var(--chat-search-pill-size);
-    margin-block: auto;
-    margin-inline: 0;
-    background-color: var(--textarea-block-color);
-    border: none;
-    color: var(--textarea-block-text-color);
+  display: flex;
+  height: var(--chat-search-pill-size);
+  margin-block: auto;
+  margin-inline: 0;
+  background-color: var(--textarea-block-color);
+  border: none;
+  color: var(--textarea-block-text-color);
 }
 
 #{ $chatSearchToken } {
-    &#{ $chatSearchFilter } {
-        padding-block: 0;
-        padding-inline: 8px 4px;
-        border-radius: calc(var(--chat-search-pill-size) / 2) 0 0 calc(var(--chat-search-pill-size) / 2);
-    }
+  &#{ $chatSearchFilter } {
+    padding-block: 0;
+    padding-inline: 8px 4px;
+    border-radius: calc(var(--chat-search-pill-size) / 2) 0 0
+      calc(var(--chat-search-pill-size) / 2);
+  }
 
-    &#{ $chatSearchAnswer } {
-        border-radius: 0 calc(var(--chat-search-pill-size) / 2) calc(var(--chat-search-pill-size) / 2) 0;
+  &#{ $chatSearchAnswer } {
+    border-radius: 0 calc(var(--chat-search-pill-size) / 2)
+      calc(var(--chat-search-pill-size) / 2) 0;
 
-        span[data-offset-key] {
-            margin-block-start: -1px;
-            padding-inline-end: 4px;
-            background-color: transparent;
-        }
+    span[data-offset-key] {
+      margin-block-start: -1px;
+      padding-inline-end: 4px;
+      background-color: transparent;
     }
+  }
 }
 
 #{ $chatSearchFilter } + span[data-offset-key],
 #{ $chatSearchAnswer } span[data-offset-key] {
-    padding-inline-end: 4px;
-    border-radius: 0 calc(var(--chat-search-pill-size) / 2) calc(var(--chat-search-pill-size) / 2) 0;
+  padding-inline-end: 4px;
+  border-radius: 0 calc(var(--chat-search-pill-size) / 2)
+    calc(var(--chat-search-pill-size) / 2) 0;
 }
