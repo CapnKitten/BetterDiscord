@@ -110,29 +110,39 @@
     gap: 2px;
 }
 
-#{ $chatWelcomeOptionsCardWrapper } {
-    &:nth-of-type(2) {
-        #{ $chatWelcomeOptionsCard } {
-            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-        }
-    }
+#{ $chat } {
+	#{ $settingsCardWrapper } {
+		border: none;
 
-    &:last-of-type {
-        #{ $chatWelcomeOptionsCard } {
-            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-        }
-    }
-}
+		#{ $settingsCardWrapperInner } {
+		    margin-block-start: 0;
+			gap: var(--space-12);
+		    background-color: var(--card-color-filled);
+		    border-radius: 4px;
+			border: none;
+			transition: var(--default-time) var(--default-animation) background-color;
 
-#{ $chatWelcomeOptionsCard } {
-    margin-block-start: 0;
-    background-color: var(--card-color-filled);
-    border-radius: 4px;
-	transition: var(--default-time) var(--default-animation) background-color;
+		    &:hover {
+		        background-color: var(--card-color-hover);
+		    }
+		}
 
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
+		&:nth-of-type(2) {
+	        #{ $settingsCardWrapperInner } {
+	            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+	        }
+	    }
+
+	    &:last-of-type {
+	        #{ $settingsCardWrapperInner } {
+	            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+	        }
+	    }
+
+		#{ $textSmNormal } {
+			margin-inline: 0;
+		}
+	}
 }
 
 /* CHAT AREA -> PLACEHOLDER */
@@ -390,9 +400,5 @@
 		background-color: hsl(var(--accent-hsl--material-you));
 		border-radius: 50%;
 		z-index: 3;
-
-		#{ $spinnerPulsingEllipsis } {
-			vertical-align: middle;
-		}
 	}
 }

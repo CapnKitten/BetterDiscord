@@ -116,6 +116,57 @@
 	}
 }
 
+#{ $selectField } {
+	height: var(--input-height);
+
+    &:not(#{ $selectFieldIsInert }) {
+        &#{ $selectFieldFocused },
+		&:focus-within {
+            outline: none;
+        }
+    }
+
+	#{ $selectFieldSelectButton },
+    #{ $selectDropdownListBoxItemContent },
+    #{ $selectFieldChevronButton } {
+        padding: 0;
+    }
+
+	#{ $selectFieldChevronButton } {
+        margin-inline-end: calc(var(--input-padding) * -1);
+    }
+}
+
+#{ $selectDropdown } {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    border: none;
+    box-shadow: var(--shadow-medium);
+}
+
+#{ $selectDropdownListBox } {
+    padding: var(--context-menu-padding);
+}
+
+#{ $selectDropdownListBoxItem } {
+    border-radius: calc(var(--popout-radius) - var(--context-menu-padding));
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:hover {
+		&:not([aria-disabled]) {
+			background-color: var(--menu-item-hover) !important;
+		}
+    }
+
+	&[aria-selected="true"] {
+		background-color: var(--menu-item-select) !important;
+	}
+
+    #{ $selectDropdownListBoxItemContent } {
+        color: var(--menu-item-text-color);
+    }
+}
+
 /* SELECT MENUS -> PILLS */
 
 #{ $optionPillButton } {

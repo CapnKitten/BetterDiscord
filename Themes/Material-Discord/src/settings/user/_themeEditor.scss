@@ -6,55 +6,45 @@
  *
  */
 
-#{ $themeEditor } {
-    margin-inline-start: 8px;
-    padding: 0;
-    background-color: var(--chat-color);
-    border-radius: var(--card-radius-big) var(--card-radius-big) 0 var(--card-radius-big);
+#{ $themeEditor },
+#{ $themeEditorContainer } {
+    height: auto;
+    margin: var(--space-16);
+    background-color: var(--card-color-filled);
+    border-radius: var(--popout-radius-big);
     border-inline-start: none;
+    overflow: hidden;
+}
 
-    &:before,
-    &:after {
-        position: absolute;
-        content: " ";
-        width: var(--card-radius-big);
-        height: var(--card-radius-big);
-        inset-inline-start: calc( calc(var(--card-radius-big) + 8px) * -1);
-        inset-block-end: 0;
-        pointer-events: none;
-    }
+#{ $themeEditorCreateThemeCard } {
+    margin-block: var(--space-16);
+    padding: var(--space-16);
+    background-color: var(--card-color-hover);
+    border-radius: var(--card-radius-big);
+}
 
-    &:before {
-        background-color: var(--main-alt);
-    }
+#{ $themeEditorBody } {
+    margin-block-start: 0;
+    padding-block: var(--space-16);
+    padding-inline: var(--space-16) calc(var(--space-16) - var(--scrollbar-width));
 
-    &:after {
-        background-color: var(--chat-color);
-        border-bottom-right-radius: var(--card-radius-big);
-    }
-
-    #{ $themeEditorHeader } {
-        padding: 16px;
-    }
-
-    #{ $themeEditorFooter } {
-        padding: 0 16px 16px;
-    }
-
-    #{ $headingLgExtrabold } {
-    	font-size: 1.25em;
-    	line-height: normal;
-    	color: var(--card-header-text-color);
-    	font-weight: 400;
-    }
-
-    #{ $themeEditorSelectionGroup } {
-        margin-block-start: 0;
-    }
-
-    div[role=radiogroup] {
-        margin-block-end: 24px;
-        background-color: transparent;
+    #{ $pillContainer } {
+        height: auto;
         border: none;
     }
+}
+
+#{ $themeEditorHexInputContainer} {
+    background-color: var(--card-color-filled);
+    border-radius: var(--card-radius-big);
+    border: none;
+
+    #{ $themeEditorHexColorPreview } {
+        border-radius: calc(var(--card-radius-big) / 1.9);
+        border: none;
+    }
+}
+
+#{ $themeEditorResetButton } {
+    margin-block-start: 0;
 }
