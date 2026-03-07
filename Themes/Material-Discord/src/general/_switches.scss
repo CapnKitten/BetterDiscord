@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,54 +7,59 @@
  */
 
 #{ $switchIndicator } {
-	width: var(--switch-width);
-	height: var(--switch-height);
-	background-color: var(--switch-slider-color) !important;
-    border-radius: var(--switch-radius);
-    border: var(--switch-border-size) solid var(--switch-knob-color) !important;
-    transition: 250ms cubic-bezier(0,0.3,0.7,1) background-color, 250ms cubic-bezier(0,0.3,0.7,1) border-color;
-	overflow: visible;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  background-color: var(--switch-slider-color) !important;
+  border-radius: var(--switch-radius);
+  border: var(--switch-border-size) solid var(--switch-knob-color) !important;
+  transition:
+    250ms cubic-bezier(0, 0.3, 0.7, 1) background-color,
+    250ms cubic-bezier(0, 0.3, 0.7, 1) border-color;
+  overflow: visible;
 
-    // Switch in on state
-    &:has(#{ $switchThumb }[style="left: 24px;"]) {
-        --switch-slider-color: var(--switch-slider-checked);
-        --switch-knob-color: var(--switch-slider-color);
-
-        #{ $switchThumb } {
-            inset-block-start: -1px;
-            inset-inline-start: calc(var(--switch-radius) + var(--switch-border-size)) !important;
-
-            rect {
-                --switch-knob-color: var(--switch-knob-checked);
-                --switch-knob-size: var(--switch-knob-checked-size);
-
-                y: 0 !important;
-                x: 0 !important;
-            }
-        }
-    }
+  // Switch in on state
+  &:has(#{ $switchThumb }[style="left: 24px;"]) {
+    --switch-slider-color: var(--switch-slider-checked);
+    --switch-knob-color: var(--switch-slider-color);
 
     #{ $switchThumb } {
-        --scaler: 1.03;
+      inset-block-start: -1px;
+      inset-inline-start: calc(
+        var(--switch-radius) + var(--switch-border-size)
+      ) !important;
 
-        transform: scale(var(--scaler)) translate(var(--switch-border-size), var(--switch-border-size));
-        transition: 250ms cubic-bezier(0,0.3,0.7,1) inset-inline-start;
+      rect {
+        --switch-knob-color: var(--switch-knob-checked);
+        --switch-knob-size: var(--switch-knob-checked-size);
 
-        rect {
-            width: calc(var(--switch-knob-size) / var(--scaler)) !important;
-            height: calc(var(--switch-knob-size) / var(--scaler)) !important;
-            fill: var(--switch-knob-color) !important;
-            y: 4 !important;
-            x: 4 !important;
-            rx: calc((var(--switch-knob-size) / var(--scaler)) / 2);
-        }
-
-        svg {
-            transform: translate(-1px, -1px);
-
-            path {
-                fill: var(--switch-slider-color);
-            }
-        }
+        y: 0 !important;
+        x: 0 !important;
+      }
     }
+  }
+
+  #{ $switchThumb } {
+    --scaler: 1.03;
+
+    transform: scale(var(--scaler))
+      translate(var(--switch-border-size), var(--switch-border-size));
+    transition: 250ms cubic-bezier(0, 0.3, 0.7, 1) inset-inline-start;
+
+    rect {
+      width: calc(var(--switch-knob-size) / var(--scaler)) !important;
+      height: calc(var(--switch-knob-size) / var(--scaler)) !important;
+      fill: var(--switch-knob-color) !important;
+      y: 4 !important;
+      x: 4 !important;
+      rx: calc((var(--switch-knob-size) / var(--scaler)) / 2);
+    }
+
+    svg {
+      transform: translate(-1px, -1px);
+
+      path {
+        fill: var(--switch-slider-color);
+      }
+    }
+  }
 }

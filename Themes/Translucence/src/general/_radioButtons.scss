@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,27 +7,27 @@
  */
 
 #{ $radioGroupOption } {
-    &[data-selected] {
+  &[data-selected] {
+    #{ $radioOuterBase },
+    #{ $radioOuterFill } {
+      fill: hsla(var(--accent-hsl), var(--accent-opacity));
+    }
+
+    #{ $radioInnerDot} {
+      fill: var(--accent-text-color);
+    }
+
+    &:not([data-disabled]) {
+      &:hover {
         #{ $radioOuterBase },
         #{ $radioOuterFill } {
-            fill: hsla(var(--accent-hsl),var(--accent-opacity));
+          fill: hsla(var(--accent-hsl));
         }
 
         #{ $radioInnerDot} {
-            fill: var(--accent-text-color);
+          fill: var(--accent-text-color);
         }
-
-		&:not([data-disabled]) {
-            &:hover {
-                #{ $radioOuterBase },
-                #{ $radioOuterFill } {
-                    fill: hsla(var(--accent-hsl));
-                }
-
-                #{ $radioInnerDot} {
-                    fill: var(--accent-text-color);
-                }
-            }
-        }
+      }
     }
+  }
 }

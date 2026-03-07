@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,45 +8,45 @@
  */
 
 #{ $selectMenuWrapper } {
-	&#{ $selectMenuWrapperWithBg } {
-        min-height: var(--input-height);
-        height: var(--input-height);
-    	padding: var(--input-padding);
-        background-color: var(--input-color);
-    	border-radius: var(--input-radius);
-    	border: none;
-    }
+  &#{ $selectMenuWrapperWithBg } {
+    min-height: var(--input-height);
+    height: var(--input-height);
+    padding: var(--input-padding);
+    background-color: var(--input-color);
+    border-radius: var(--input-radius);
+    border: none;
+  }
 }
 
 #{ $selectMenu } {
-	padding-block: 6px;
-	padding-inline: 12px 6px;
+  padding-block: 6px;
+  padding-inline: 12px 6px;
 
-    #{ $selectMenuSubtitle } {
-        color: var(--text-muted);
-    }
+  #{ $selectMenuSubtitle } {
+    color: var(--text-muted);
+  }
 }
 
 #{ $selectMenuPopout } {
-    @include add-translucence(null, true);
-    border: none;
+  @include add-translucence(null, true);
+  border: none;
 
-    &:not(#{ $selectMenuPopoutPositionTop }) {
-        margin-block-start: 8px;
+  &:not(#{ $selectMenuPopoutPositionTop }) {
+    margin-block-start: 8px;
+  }
+
+  &#{ $selectMenuPopoutPositionTop } {
+    margin-block-end: 8px;
+    border-radius: var(--popout-radius);
+  }
+
+  #{ $selectMenuOption } {
+    &:hover {
+      background-color: var(--background-modifier-hover);
     }
 
-    &#{ $selectMenuPopoutPositionTop } {
-        margin-block-end: 8px;
-        border-radius: var(--popout-radius);
+    &[aria-selected="true"] {
+      background-color: var(--background-modifier-selected) !important;
     }
-
-    #{ $selectMenuOption } {
-        &:hover {
-            background-color: var(--background-modifier-hover);
-        }
-
-        &[aria-selected=true] {
-            background-color: var(--background-modifier-selected) !important;
-        }
-    }
+  }
 }

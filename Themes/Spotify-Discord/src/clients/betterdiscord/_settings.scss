@@ -1,4 +1,4 @@
-@use '../../mixins' as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -7,57 +7,57 @@
  */
 
 %bdAddonSearchBar {
-    @include input-format(auto);
+  @include input-format(auto);
 
-    %bdAddonSearchInput {
-        color: var(--input-text-color);
+  %bdAddonSearchInput {
+    color: var(--input-text-color);
 
-        &::-webkit-input-placeholder {
-            color: var(--input-placeholder-color);
-        }
+    &::-webkit-input-placeholder {
+      color: var(--input-placeholder-color);
     }
+  }
 }
 
 %bdButton {
+  background-color: hsla(var(--accent-hsl), var(--accent-opacity));
+  border-radius: var(--button-radius);
+  color: var(--accent-text-color);
+  text-shadow: none;
+
+  &:hover {
     background-color: hsla(var(--accent-hsl), var(--accent-opacity));
-    border-radius: var(--button-radius);
-    color: var(--accent-text-color);
-    text-shadow: none;
+  }
 
-    &:hover {
-        background-color: hsla(var(--accent-hsl), var(--accent-opacity));
+  &.selected {
+    background-color: hsla(var(--accent-hsl), var(--accent-opacity)) !important;
+
+    svg {
+      fill: var(--accent-text-color) !important;
+      filter: none;
     }
-
-    &.selected {
-        background-color: hsla(var(--accent-hsl), var(--accent-opacity)) !important;
-
-        svg {
-            fill: var(--accent-text-color) !important;
-            filter: none;
-        }
-    }
+  }
 }
 
 %bdAddonList {
-    %bdAddonCard {
-        @include card-format;
+  %bdAddonCard {
+    @include card-format;
+  }
+
+  %bdAddonCardHeader {
+    @include card-format--header;
+  }
+
+  %bdAddonCardControls {
+    background-color: var(--card-color);
+    border-radius: var(--button-radius);
+    overflow: hidden;
+
+    %bdButton {
+      background-color: transparent;
+
+      &:hover {
+        background-color: var(--background-modifier-selected);
+      }
     }
-
-    %bdAddonCardHeader {
-        @include card-format--header;
-    }
-
-    %bdAddonCardControls {
-        background-color: var(--card-color);
-        border-radius: var(--button-radius);
-        overflow: hidden;
-
-        %bdButton {
-            background-color: transparent;
-
-            &:hover {
-                background-color: var(--background-modifier-selected);
-            }
-        }
-    }
+  }
 }

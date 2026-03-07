@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,53 +7,60 @@
  */
 
 #{ $vencordSwitchContainer } {
-    width: var(--switch-width);
-	height: var(--switch-height);
-    background-color: var(--switch-slider-color);
-    border-radius: var(--switch-radius);
-    border: var(--switch-border-size) solid var(--switch-knob-color);
-    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  background-color: var(--switch-slider-color);
+  border-radius: var(--switch-radius);
+  border: var(--switch-border-size) solid var(--switch-knob-color);
+  transition:
+    var(--default-time) var(--default-animation) background-color,
+    var(--default-time) var(--default-animation) border;
 
-    &#{ $vencordSwitchChecked } {
-        background-color: hsl(var(--accent-hsl--material-you));
-        border-color: hsl(var(--accent-hsl--material-you));
+  &#{ $vencordSwitchChecked } {
+    background-color: hsl(var(--accent-hsl--material-you));
+    border-color: hsl(var(--accent-hsl--material-you));
 
-        #{ $vencordSwitchSlider } {
-            --switch-knob-size: var(--switch-knob-checked-size);
-            --switch-knob-x-position: calc(var(--switch-radius) + var(--switch-border-size) * 2);
+    #{ $vencordSwitchSlider } {
+      --switch-knob-size: var(--switch-knob-checked-size);
+      --switch-knob-x-position: calc(
+        var(--switch-radius) + var(--switch-border-size) * 2
+      );
 
-            transform: translateX(var(--switch-knob-x-position)) !important;
+      transform: translateX(var(--switch-knob-x-position)) !important;
 
-            rect {
-                fill: var(--accent-text-color--material-you);
-            }
+      rect {
+        fill: var(--accent-text-color--material-you);
+      }
 
-            path {
-                fill: hsl(var(--accent-hsl--material-you));
-            }
-        }
+      path {
+        fill: hsl(var(--accent-hsl--material-you));
+      }
     }
+  }
 }
 
 #{ $vencordSwitchSlider } {
-    width: var(--switch-knob-size);
-    height: var(--switch-knob-size);
-    inset-block-start: 0;
-    inset-block-end: 0;
-    margin: auto 0;
-    transform: translateX(4px) !important;
-    transition: var(--default-time) var(--default-animation) width, var(--default-time) var(--default-animation) height, var(--default-time) var(--default-animation) transform;
+  width: var(--switch-knob-size);
+  height: var(--switch-knob-size);
+  inset-block-start: 0;
+  inset-block-end: 0;
+  margin: auto 0;
+  transform: translateX(4px) !important;
+  transition:
+    var(--default-time) var(--default-animation) width,
+    var(--default-time) var(--default-animation) height,
+    var(--default-time) var(--default-animation) transform;
 
-    rect {
-        fill: var(--switch-knob-color);
-    }
+  rect {
+    fill: var(--switch-knob-color);
+  }
 
-    path {
-        fill: var(--switch-slider-color);
-    }
+  path {
+    fill: var(--switch-slider-color);
+  }
 
-    path,
-    rect {
-        transform: scale(1.4) translate(-4px, -3px);
-    }
+  path,
+  rect {
+    transform: scale(1.4) translate(-4px, -3px);
+  }
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,79 +8,84 @@
  */
 
 #{ $privateChannels } {
-    background-color: var(--main-color);
+  background-color: var(--main-color);
 
-    #{ $privateChannelsScroller } {
-        background-color: transparent;
-    }
+  #{ $privateChannelsScroller } {
+    background-color: transparent;
+  }
 }
 
 #{ $privateChannelsSearchBar } {
-    border-block-end:  none !important;
-    box-shadow: var(--shadow-ledge);
+  border-block-end: none !important;
+  box-shadow: var(--shadow-ledge);
 
-    #{ $privateChannelsSearchBarComponent } {
-        height: 32px;
-        padding: 0 10px;
-        background-color: var(--input-color);
-        border-radius: 16px;
+  #{ $privateChannelsSearchBarComponent } {
+    height: 32px;
+    padding: 0 10px;
+    background-color: var(--input-color);
+    border-radius: 16px;
+  }
+
+  #{ $buttonV2 } {
+    --button-height: 32px;
+    --button-background: var(--input-color);
+    --button-text-color: var(--input-text-color);
+
+    #{ $textSmMedium } {
+      margin: 0;
+      overflow: hidden;
     }
-
-    #{ $buttonV2 } {
-        --button-height: 32px;
-        --button-background: var(--input-color);
-        --button-text-color: var(--input-text-color);
-
-        #{ $textSmMedium } {
-            margin: 0;
-            overflow: hidden;
-        }
-    }
+  }
 }
 
 #{ $themeLight } {
-    #{ $privateChannelsSearchBar } {
-        #{ $buttonV2 } {
-            --button-background: hsl(from var(--input-color) h s calc(l * 1.075));
-        }
+  #{ $privateChannelsSearchBar } {
+    #{ $buttonV2 } {
+      --button-background: hsl(from var(--input-color) h s calc(l * 1.075));
     }
+  }
 }
 
 #{ $friendsButtonContainer } {
-    margin-block-start: 8px;
+  margin-block-start: 8px;
 }
 
 #{ $privateChannel } {
-    margin: 2px 0 0 8px;
-    padding: 0;
-    border-radius: var(--channel-radius);
+  margin: 2px 0 0 8px;
+  padding: 0;
+  border-radius: var(--channel-radius);
 
-    #{ $privateChannelInteractive } {
-        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+  #{ $privateChannelInteractive } {
+    transition:
+      var(--default-time) var(--default-animation) background-color,
+      var(--default-time) var(--default-animation) color;
 
-        &:hover {
-            background-color: var(--menu-item-hover);
-        }
-
-        &#{ $privateChannelSelected } {
-            background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-        }
+    &:hover {
+      background-color: var(--menu-item-hover);
     }
 
-    &:not(#{ $privateChannelDm }) {
-        #{ $privateChannelLink } {
-            padding: 0 var(--space-16);
-        }
+    &#{ $privateChannelSelected } {
+      background-color: hsl(
+        var(--accent-hsl),
+        var(--menu-item-select-accent-opacity)
+      );
     }
+  }
+
+  &:not(#{ $privateChannelDm }) {
+    #{ $privateChannelLink } {
+      padding: 0 var(--space-16);
+    }
+  }
 }
 
 #{ $privateChannelsHeader } {
-    height: auto;
-    padding: var(--space-8) calc(var(--space-xs) + var(--space-8)) var(--space-4);
-    @include remove-caps(14px);
+  height: auto;
+  padding: var(--space-8) calc(var(--space-xs) + var(--space-8)) var(--space-4);
+  @include remove-caps(14px);
 }
 
 #{ $privateChannelSectionDivider } {
-    width: calc(100% - ((var(--space-xs) + var(--space-8)) * 2));
-    margin: var(--space-12) calc(var(--space-xs) + var(--space-8));
+  width: calc(100% - ((var(--space-xs) + var(--space-8)) * 2));
+  margin: var(--space-12) calc(var(--space-xs) + var(--space-8));
 }

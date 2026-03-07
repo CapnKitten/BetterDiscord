@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -9,121 +9,123 @@
 
 #{ $emojiWrapper },
 #{ $emojiPicker } {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $emojiWrapper } {
-    @include add-translucence(before, true);
-	border: none;
-	box-shadow: none;
+  @include add-translucence(before, true);
+  border: none;
+  box-shadow: none;
 }
 
 #{ $emojiWrapperChat } {
-    &:not(#{ $emojiPickerHasTabWrapper }) {
-        @include add-translucence(before, true);
-    }
+  &:not(#{ $emojiPickerHasTabWrapper }) {
+    @include add-translucence(before, true);
+  }
 }
 
 /* EMOJI PICKER -> HEADER */
 
 #{ $emojiPickerNavButton } {
-	&:hover {
-		background-color: var(--background-modifier-hover);
-	}
+  &:hover {
+    background-color: var(--background-modifier-hover);
+  }
 
-	&#{ $emojiPickerNavButtonActive } {
-		background-color: var(--background-modifier-selected);
-	}
+  &#{ $emojiPickerNavButtonActive } {
+    background-color: var(--background-modifier-selected);
+  }
 }
 
 #{ $emojiPickerNavGif },
 #{ $emojiPickerNavSticker },
 #{ $emojiPickerNavEmoji } {
-	background-color: transparent;
-    box-shadow: var(--popout-header-shadow) !important;
+  background-color: transparent;
+  box-shadow: var(--popout-header-shadow) !important;
 }
 
 #{ $emojiPickerDiversitySelectorPopout } {
-    @include add-translucence(null, true);
-    border: none;
-    overflow: hidden;
+  @include add-translucence(null, true);
+  border: none;
+  overflow: hidden;
 }
 
 /* EMOJI PICKER -> HEADER -> SEARCH BAR */
 
 #{ $emojiPickerSearchBar } {
-    @include input-format;
+  @include input-format;
 }
 
 /* EMOJI PICKER -> EMOJIS */
 
 #{ $emojiGifContainer } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $emojiPickerCategoryHeaderWrapper } {
-	position: sticky;
-	background-color: transparent;
-	backdrop-filter: blur(var(--popout-blur));
+  position: sticky;
+  background-color: transparent;
+  backdrop-filter: blur(var(--popout-blur));
 }
 
 #{ $emojiPickerInspector } {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $emojiCategoryWrapper } {
-	inset-block-start: 60px;
-    background-color: var(--sidebar-color);
+  inset-block-start: 60px;
+  background-color: var(--sidebar-color);
 
-    #{ $emojiCategoryUnicodeShortcut } {
-        @include add-translucence(null, true);
-        border-radius: 0;
-    }
+  #{ $emojiCategoryUnicodeShortcut } {
+    @include add-translucence(null, true);
+    border-radius: 0;
+  }
 }
 
 #{ $emojiPickerHasTabWrapper } {
-	#{ $emojiCategoryWrapper } {
-		inset-block-start: 52px;
-	}
+  #{ $emojiCategoryWrapper } {
+    inset-block-start: 52px;
+  }
 }
 
 #{ $emojiPickerItem } {
-    border-radius: var(--card-radius);
+  border-radius: var(--card-radius);
 
-    &#{ $emojiPickerItemSelected } {
-        background-color: var(--background-modifier-hover);
-    }
+  &#{ $emojiPickerItemSelected } {
+    background-color: var(--background-modifier-hover);
+  }
 }
 
 /* EMOJI PICKER -> GIFS */
 
 #{ $gifPickerSearchBar } {
-	@include input-format;
+  @include input-format;
 }
 
 #{ $gifPickerResult } {
-    border-radius: var(--card-radius);
+  border-radius: var(--card-radius);
 
+  &:after {
+    border-radius: inherit;
+  }
+
+  &:hover {
     &:after {
-        border-radius: inherit;
+      box-shadow:
+        inset 0 0 0 2px hsl(var(--accent-hsl)),
+        inset 0 0 0 3px #2f3136 !important;
     }
+  }
 
-    &:hover {
-        &:after {
-            box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)),inset 0 0 0 3px #2f3136 !important;
-        }
-    }
+  #{ $gifPickerGif } {
+    border-radius: inherit;
+  }
 
-    #{ $gifPickerGif } {
-        border-radius: inherit;
-    }
+  #{ $gifPickerCategoryFade },
+  #{ $gifPickerCategoryFadeBlurple } {
+    border-radius: inherit;
+  }
 
-    #{ $gifPickerCategoryFade },
-    #{ $gifPickerCategoryFadeBlurple } {
-        border-radius: inherit
-    }
-
-    #{ $gifPickerCategoryFadeBlurple } {
-        background-color: hsla(var(--accent-hsl),0.8) !important;
-    }
+  #{ $gifPickerCategoryFadeBlurple } {
+    background-color: hsla(var(--accent-hsl), 0.8) !important;
+  }
 }

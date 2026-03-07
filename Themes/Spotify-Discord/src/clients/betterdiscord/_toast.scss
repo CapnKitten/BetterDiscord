@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,68 +7,80 @@
  */
 
 #{ $bdToast } {
-    display: flex;
-    height: 40px;
-    padding: 0 16px;
-    border-radius: 20px;
+  display: flex;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 20px;
+  background-color: var(--popout-color);
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--text-default);
+
+  &#{ $bdToastSuccess },
+  &#{ $bdToastError },
+  &#{ $bdToastInfo } {
+    gap: var(--space-8);
     background-color: var(--popout-color);
-    justify-content: center;
-    align-items: center;
-    box-shadow: none;
-	font-size: 1em;
-	font-weight: 400;
     color: var(--text-default);
 
-    &#{ $bdToastSuccess },
-    &#{ $bdToastError },
-    &#{ $bdToastInfo } {
-        gap: var(--space-8);
-        background-color: var(--popout-color);
-        color: var(--text-default);
-
-        &:before {
-            display: flex;
-            position: relative;
-            content: " ";
-            width: 18px;
-            height: 18px;
-        	-webkit-mask-repeat: no-repeat;
-            mask-size: 100%;
-            background-color: var(--text-default);
-        }
+    &:before {
+      display: flex;
+      position: relative;
+      content: " ";
+      width: 18px;
+      height: 18px;
+      -webkit-mask-repeat: no-repeat;
+      mask-size: 100%;
+      background-color: var(--text-default);
     }
+  }
 
-    svg {
-        display: none;
+  svg {
+    display: none;
+  }
+
+  span {
+    line-height: 40px;
+    padding: 0;
+  }
+
+  $toasts: (
+    success: (
+      class: bdToastSuccess,
+      bg: hsl(var(--success-hsl)),
+      text: var(--success-text-color),
+      icon: check_circle,
+    ),
+    error: (
+      class: bdToastError,
+      bg: hsl(var(--alert-hsl)),
+      text: var(--alert-text-color),
+      icon: cancel,
+    ),
+    info: (
+      class: bdToastInfo,
+      bg: hsl(var(--accent-hsl)),
+      text: var(--accent-text-color),
+      icon: info,
+    ),
+  );
+
+  @each $toast, $value in $toasts {
+    &%#{map-get($value, class)} {
+      --popout-color: #{map-get($value, bg)};
+      --text-normal: #{map-get($value, text)};
+
+      &:before {
+        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{map-get($value, icon)}.svg);
+      }
     }
+  }
 
-    span {
-        line-height: 40px;
-        padding: 0;
-    }
-
-    $toasts: (
-        success:
-            (class: bdToastSuccess, bg: hsl(var(--success-hsl)), text: var(--success-text-color), icon: check_circle),
-        error:
-            (class: bdToastError, bg: hsl(var(--alert-hsl)), text: var(--alert-text-color), icon: cancel),
-        info:
-            (class: bdToastInfo, bg: hsl(var(--accent-hsl)), text: var(--accent-text-color), icon: info),
-    );
-
-    @each $toast, $value in $toasts {
-        &%#{map-get($value, class)} {
-            --popout-color: #{map-get($value, bg)};
-            --text-normal: #{map-get($value, text)};
-
-            &:before {
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{map-get($value, icon)}.svg);
-            }
-        }
-    }
-
-    &#{ $bdToastIcon } {
-        padding-left: 36px;
-        background-position: 10px 50%;
-    }
+  &#{ $bdToastIcon } {
+    padding-left: 36px;
+    background-position: 10px 50%;
+  }
 }

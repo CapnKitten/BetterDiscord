@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,83 +8,83 @@
  */
 
 #{ $paymentSourceRow } {
-    @include card-format(false, 16px, true);
+  @include card-format(false, 16px, true);
 }
 
 #{ $paymentPane } {
-    @include card-format(true, 0, true);
+  @include card-format(true, 0, true);
 
-    #{ $paymentRowHeader } {
-        padding: 16px;
-    }
+  #{ $paymentRowHeader } {
+    padding: 16px;
+  }
 
-    #{ $paymentBottomDivider } {
-        border: none;
-    }
+  #{ $paymentBottomDivider } {
+    border: none;
+  }
 
-    #{ $paymentPageActions } {
-        padding: 16px 0;
-    }
+  #{ $paymentPageActions } {
+    padding: 16px 0;
+  }
 }
 
 #{ $paymentRow } {
-    &:not(#{ $payment }) {
-        border-block-end: none;
-    }
+  &:not(#{ $payment }) {
+    border-block-end: none;
+  }
 }
 
 #{ $payment } {
-    background-color: var(--card-color-filled) !important;
+  background-color: var(--card-color-filled) !important;
 
-    &:not(#{ $paymentHoverable }) {
-        padding-block-end: 1px;
-    }
+  &:not(#{ $paymentHoverable }) {
+    padding-block-end: 1px;
+  }
 }
 
 #{ $paymentPaginator } {
-    background-color: transparent !important;
+  background-color: transparent !important;
 
-    #{ $paymentDescriptionIcon } {
-        border-radius: 50%;
+  #{ $paymentDescriptionIcon } {
+    border-radius: 50%;
+  }
+
+  #{ $paymentExpandedInfo } {
+    --card-color-filled: var(--card-color-alt);
+    @include card-format(false, 16px, true);
+
+    #{ $paymentHeader } {
+      border-color: var(--card-border-color);
     }
-
-    #{ $paymentExpandedInfo } {
-        --card-color-filled: var(--card-color-alt);
-        @include card-format(false, 16px, true);
-
-        #{ $paymentHeader } {
-            border-color: var(--card-border-color);
-        }
-    }
+  }
 }
 
 #{ $paymentPageButtonPrev },
 #{ $paymentPageButtonNext } {
-    width: var(--button-height);
-    height: var(--button-height);
-    padding: 0;
-    line-height: var(--button-height);
-    border-color: var(--card-border-color);
-    text-align: center;
+  width: var(--button-height);
+  height: var(--button-height);
+  padding: 0;
+  line-height: var(--button-height);
+  border-color: var(--card-border-color);
+  text-align: center;
 
-    &#{ $paymentPageButtonDisabled } {
-        border-color: var(--card-border-color);
-    }
+  &#{ $paymentPageButtonDisabled } {
+    border-color: var(--card-border-color);
+  }
 }
 
 #{ $paymentPageButtonPrev } {
-    border-radius: var(--button-radius) 0 0 var(--button-radius);
+  border-radius: var(--button-radius) 0 0 var(--button-radius);
 }
 
 #{ $paymentPageButtonNext } {
-    border-radius: 0 var(--button-radius) var(--button-radius) 0;
+  border-radius: 0 var(--button-radius) var(--button-radius) 0;
 }
 
 #{ $paymentPageIndicator } {
-    height: var(--button-height);
-    border-color: var(--card-border-color);
+  height: var(--button-height);
+  border-color: var(--card-border-color);
 }
 
 #{ $codeRedemptionRedirect } {
-    @include card-format(true, 16px);
+  @include card-format(true, 16px);
 }

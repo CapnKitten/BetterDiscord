@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,158 +8,160 @@
  */
 
 #{ $guildsWrapper } {
-	background-color: var(--server-color) !important;
+  background-color: var(--server-color) !important;
 
-	#{ $guilds } {
-		background-color: transparent;
-	}
+  #{ $guilds } {
+    background-color: transparent;
+  }
 
-	#{ $guildsTree } {
-		&:focus {
-			outline: none;
-		}
-	}
+  #{ $guildsTree } {
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 #{ $guildLink } {
-	border-radius: var(--avatar-radius);
-    overflow: hidden;
+  border-radius: var(--avatar-radius);
+  overflow: hidden;
 
-	#{ $guildChildWrapper } {
-		background-color: hsl(var(--accent-hsl--material-you));
-		border-radius: var(--avatar-radius);
-		color: var(--accent-text-color--material-you);
-	}
+  #{ $guildChildWrapper } {
+    background-color: hsl(var(--accent-hsl--material-you));
+    border-radius: var(--avatar-radius);
+    color: var(--accent-text-color--material-you);
+  }
 
-	&#{ $guildLinkSelected } {
-		#{ $guildChildWrapper } {
-			background-color: hsl(var(--accent-hsl--material-you)) !important;
-			color: var(--accent-text-color--material-you) !important;
-		}
-	}
+  &#{ $guildLinkSelected } {
+    #{ $guildChildWrapper } {
+      background-color: hsl(var(--accent-hsl--material-you)) !important;
+      color: var(--accent-text-color--material-you) !important;
+    }
+  }
 
-	&:hover #{ $guildChildWrapper } {
-		background-color: hsl(var(--accent-hsl--material-you)) !important;
-		color: var(--accent-text-color--material-you) !important;
-	}
+  &:hover #{ $guildChildWrapper } {
+    background-color: hsl(var(--accent-hsl--material-you)) !important;
+    color: var(--accent-text-color--material-you) !important;
+  }
 }
 
 #{ $guildSVG } {
-    defs {
-        > path {
-            d: path("M7.981 40.019h32.038V7.981H7.981v32.038z");
-            transform: scale(1.49825) translate(-8px, -8px);
-        }
+  defs {
+    > path {
+      d: path("M7.981 40.019h32.038V7.981H7.981v32.038z");
+      transform: scale(1.49825) translate(-8px, -8px);
     }
+  }
 }
 
 #{ $favoriteIcon } {
-	path {
-		d: path("M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z");
-	}
+  path {
+    d: path(
+      "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+    );
+  }
 }
 
 #{ $circleIconButton } {
-	border-radius: var(--avatar-radius) !important;
-	background-color: hsl(var(--accent-hsl--material-you));
-	color: var(--accent-text-color--material-you);
+  border-radius: var(--avatar-radius) !important;
+  background-color: hsl(var(--accent-hsl--material-you));
+  color: var(--accent-text-color--material-you);
 
-	&#{ $circleIconButtonSelected } {
-		background-color: hsl(var(--accent-hsl--material-you)) !important;
-		color: var(--accent-text-color--material-you);
-	}
+  &#{ $circleIconButtonSelected } {
+    background-color: hsl(var(--accent-hsl--material-you)) !important;
+    color: var(--accent-text-color--material-you);
+  }
 }
 
 #{ $guildChildWrapper } {
-	rect {
-		rx: var(--avatar-radius);
-	}
+  rect {
+    rx: var(--avatar-radius);
+  }
 }
 
 #{ $channelsMentionIndicator } {
-	background-color: hsl(var(--alert-hsl));
-	color: var(--alert-text-color);
+  background-color: hsl(var(--alert-hsl));
+  color: var(--alert-text-color);
 }
 
 /* SERVER LIST -> SERVER */
 
 #{ $guild } {
-	#{ $guildWrapper } {
-		border-radius: var(--avatar-radius);
+  #{ $guildWrapper } {
+    border-radius: var(--avatar-radius);
 
-		#{ $guildIcon } {
-			border-radius: var(--avatar-radius);
-		}
+    #{ $guildIcon } {
+      border-radius: var(--avatar-radius);
+    }
 
-		#{ $guildBadgeLower } {
-			width: auto;
-			height: auto;
+    #{ $guildBadgeLower } {
+      width: auto;
+      height: auto;
 
-			&.unread-badge {
-				inset-inline-end: unset;
-				inset-inline-start: -2px;
+      &.unread-badge {
+        inset-inline-end: unset;
+        inset-inline-start: -2px;
 
-				#{ $numberBadge } {
-					background-color: hsl(var(--accent-hsl--material-you)) !important;
-					color: var(--accent-text-color--material-you) !important;
-				}
-			}
-		}
+        #{ $numberBadge } {
+          background-color: hsl(var(--accent-hsl--material-you)) !important;
+          color: var(--accent-text-color--material-you) !important;
+        }
+      }
+    }
 
-		#{ $guildBadgeUpper } {
-			#{ $guildBadge } {
-				background-color: hsl(var(--accent-hsl--material-you));
-				color: var(--accent-text-color--material-you);
-				border-radius: 50%;
+    #{ $guildBadgeUpper } {
+      #{ $guildBadge } {
+        background-color: hsl(var(--accent-hsl--material-you));
+        color: var(--accent-text-color--material-you);
+        border-radius: 50%;
 
-				&#{ $guildBadgeParticipating } {
-					background-color: hsl(var(--accent-hsl--material-you));
-					color: var(--accent-text-color--material-you);
-				}
-			}
-		}
-	}
+        &#{ $guildBadgeParticipating } {
+          background-color: hsl(var(--accent-hsl--material-you));
+          color: var(--accent-text-color--material-you);
+        }
+      }
+    }
+  }
 
-	&#{ $guildFrame } {
-		#{ $guildChildWrapper } {
-			padding: 0 6px;
-			border-radius: 12px;
-			text-transform: capitalize;
-			font-weight: 500;
-		}
-	}
+  &#{ $guildFrame } {
+    #{ $guildChildWrapper } {
+      padding: 0 6px;
+      border-radius: 12px;
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+  }
 }
 
 #{ $numberBadge } {
-	background-color: hsl(var(--alert-hsl)) !important;
-	color: var(--alert-text-color) !important;
+  background-color: hsl(var(--alert-hsl)) !important;
+  color: var(--alert-text-color) !important;
 }
 
 #{ $guildUnavailableBadge } {
-    background-color: hsl(var(--warning-hsl)) !important;
-    color: var(--warning-text-color) !important;
+  background-color: hsl(var(--warning-hsl)) !important;
+  color: var(--warning-text-color) !important;
 }
 
 #{ $guildDragInner } {
-	border-radius: var(--avatar-radius);
+  border-radius: var(--avatar-radius);
 }
 
 #{ $guildFolder },
 #{ $guildFolderIconWrapper } {
-	border-radius: var(--avatar-radius) !important;
+  border-radius: var(--avatar-radius) !important;
 }
 
 #{ $guildTarget },
 #{ $guildCenterTarget } {
-	&#{ $guildDragOver } {
-		&:before {
-			background-color: hsl(var(--accent-hsl--material-you));
-			box-shadow: var(--shadow-soft);
-		}
-	}
+  &#{ $guildDragOver } {
+    &:before {
+      background-color: hsl(var(--accent-hsl--material-you));
+      box-shadow: var(--shadow-soft);
+    }
+  }
 }
 
 #{ $guildDiscoverFooter } {
-	width: calc(100% - 1px);
-	background-color: var(--main-alt);
+  width: calc(100% - 1px);
+  background-color: var(--main-alt);
 }

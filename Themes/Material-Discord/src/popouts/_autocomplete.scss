@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,160 +8,160 @@
  */
 
 #{ $autocomplete } {
-	@include popout-format(true);
+  @include popout-format(true);
 
-	#{ $autocompleteCategoryHeader } {
-		background-color: var(--emoji-category-header);
-	}
+  #{ $autocompleteCategoryHeader } {
+    background-color: var(--emoji-category-header);
+  }
 
-	#{ $autocompleteRow } {
-		padding: 0;
+  #{ $autocompleteRow } {
+    padding: 0;
 
-		&[aria-disabled="false"] {
-			#{ $autocompleteBase } {
-				&:hover {
-					background-color: var(--menu-item-hover);
-				}
-			}
-		}
-
-		&[aria-selected="true"] {
-			#{ $autocompleteBase } {
-				background-color: var(--menu-item-select);
-			}
-		}
-
-		#{ $autocompleteBase } {
-			padding: 8px 12px;
-			border-radius: 0;
-			transition: var(--default-time) var(--default-animation) background-color;
-
-			&#{ $autocompleteBaseSelected } {
-				background-color: var(--menu-item-hover) !important;
-			}
-		}
-	}
-
-    #{ $autocompleteTitle } {
-        @include remove-caps(14px);
+    &[aria-disabled="false"] {
+      #{ $autocompleteBase } {
+        &:hover {
+          background-color: var(--menu-item-hover);
+        }
+      }
     }
 
-	#{ $autocompleteDivider } {
-		padding: 8px 0;
-		&:after {
-			background-color: var(--card-border-color);
-		}
-	}
+    &[aria-selected="true"] {
+      #{ $autocompleteBase } {
+        background-color: var(--menu-item-select);
+      }
+    }
 
-	#{ $autocompleteListWrapper } {
-		position: relative;
-		background-color: var(--attachment-color);
+    #{ $autocompleteBase } {
+      padding: 8px 12px;
+      border-radius: 0;
+      transition: var(--default-time) var(--default-animation) background-color;
 
-		#{ $emojiCategoryWrapper } {
-	        width: 100%;
+      &#{ $autocompleteBaseSelected } {
+        background-color: var(--menu-item-hover) !important;
+      }
+    }
+  }
 
-	        #{ $scroller } {
-	            --scrollbar-width: 0;
-	        }
-	    }
+  #{ $autocompleteTitle } {
+    @include remove-caps(14px);
+  }
 
-		#{ $emojiCategoryWrapper } {
-			width: 100%;
-			background-color: transparent;
+  #{ $autocompleteDivider } {
+    padding: 8px 0;
+    &:after {
+      background-color: var(--card-border-color);
+    }
+  }
 
-			#{ $scroller } {
-				--scrollbar-width: 0;
-			}
+  #{ $autocompleteListWrapper } {
+    position: relative;
+    background-color: var(--attachment-color);
 
-			#{ $autocompleteListItems } {
-				inset-inline-start: 12px !important;
-				inset-inline-end: 12px !important;
-			}
-		}
-	}
+    #{ $emojiCategoryWrapper } {
+      width: 100%;
 
-	#{ $autocompleteListItems } {
-		inset-inline-start: 0 !important;
-		inset-inline-end: 0 !important;
-	}
+      #{ $scroller } {
+        --scrollbar-width: 0;
+      }
+    }
+
+    #{ $emojiCategoryWrapper } {
+      width: 100%;
+      background-color: transparent;
+
+      #{ $scroller } {
+        --scrollbar-width: 0;
+      }
+
+      #{ $autocompleteListItems } {
+        inset-inline-start: 12px !important;
+        inset-inline-end: 12px !important;
+      }
+    }
+  }
+
+  #{ $autocompleteListItems } {
+    inset-inline-start: 0 !important;
+    inset-inline-end: 0 !important;
+  }
 }
 
 /* AUTOCOMPLETE -> ROLES POPOUT */
 
 #{ $autocompletePopout } {
-	@include popout-format;
+  @include popout-format;
 
-	#{ $autocompletePopoutArrow } {
-		background-color: var(--popout-color);
-	}
+  #{ $autocompletePopoutArrow } {
+    background-color: var(--popout-color);
+  }
 
-	#{ $autocompletePopoutHeader } {
-		background-color: transparent;
-		border-block-end: 1px solid var(--card-border-color);
-	}
+  #{ $autocompletePopoutHeader } {
+    background-color: transparent;
+    border-block-end: 1px solid var(--card-border-color);
+  }
 
-	#{ $autocompletePopoutHeaderText } {
-		margin-inline-end: 0;
-	}
+  #{ $autocompletePopoutHeaderText } {
+    margin-inline-end: 0;
+  }
 
-	#{ $autocompletePopoutInput } {
-        width: 100%;
-        margin-block-end: 0;
-    }
+  #{ $autocompletePopoutInput } {
+    width: 100%;
+    margin-block-end: 0;
+  }
 
-	#{ $autocompletePopoutSectionTag } {
-		background-color: transparent !important;
-	}
+  #{ $autocompletePopoutSectionTag } {
+    background-color: transparent !important;
+  }
 
-	#{ $autocompletePopoutSection } {
-		line-height: 36px;
-		padding: 0 16px;
-		@include remove-caps(14px);
-	}
+  #{ $autocompletePopoutSection } {
+    line-height: 36px;
+    padding: 0 16px;
+    @include remove-caps(14px);
+  }
 
-	#{ $autocompletePopoutShadow } {
-		display: none;
-	}
+  #{ $autocompletePopoutShadow } {
+    display: none;
+  }
 
-	#{ $autocompletePopoutArrow } {
-		background-color: var(--popout-color);
-	}
+  #{ $autocompletePopoutArrow } {
+    background-color: var(--popout-color);
+  }
 
-	#{ $autocompletePopoutHeader } {
-        padding: 0 16px;
-        gap: 8px;
-        justify-content: flex-start;
-		background-color: transparent;
-		border-block-end: 1px solid var(--card-border-color);
-	}
+  #{ $autocompletePopoutHeader } {
+    padding: 0 16px;
+    gap: 8px;
+    justify-content: flex-start;
+    background-color: transparent;
+    border-block-end: 1px solid var(--card-border-color);
+  }
 
-	#{ $autocompletePopoutSectionTag } {
-		background-color: transparent !important;
-	}
+  #{ $autocompletePopoutSectionTag } {
+    background-color: transparent !important;
+  }
 
-	#{ $autocompletePopoutSection } {
-		line-height: 36px;
-		padding: 0 16px;
-		@include remove-caps(14px);
-	}
+  #{ $autocompletePopoutSection } {
+    line-height: 36px;
+    padding: 0 16px;
+    @include remove-caps(14px);
+  }
 }
 
 #{ $autocompletePopoutShadow },
 #{ $autocompletePopoutHeaderBackground } {
-	display: none;
+  display: none;
 }
 
 #{ $autocompletePopoutRow } {
-	padding-inline-start: var(--scrollbar-thin-width);
+  padding-inline-start: var(--scrollbar-thin-width);
 
-	&#{ $autocompletePopoutSelected } {
-		#{ $autocompletePopoutRowInner } {
-			background-color: var(--menu-item-hover);
-		}
-	}
+  &#{ $autocompletePopoutSelected } {
+    #{ $autocompletePopoutRowInner } {
+      background-color: var(--menu-item-hover);
+    }
+  }
 
-	#{ $autocompletePopoutRowInner } {
-		border-radius: var(--popout-radius);
-		transition: var(--default-time) var(--default-animation) background-color;
-	}
+  #{ $autocompletePopoutRowInner } {
+    border-radius: var(--popout-radius);
+    transition: var(--default-time) var(--default-animation) background-color;
+  }
 }

@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,121 +8,121 @@
  */
 
 #{ $auditLogList } {
-    gap: 0;
+  gap: 0;
 }
 
 #{ $auditLog } {
-    position: relative;
-    margin: 0;
-    background-color: var(--card-color-filled);
-    border-radius: 0;
-    border: none;
+  position: relative;
+  margin: 0;
+  background-color: var(--card-color-filled);
+  border-radius: 0;
+  border: none;
 
-    &:first-of-type {
-        border-top-left-radius: var(--card-radius-big);
-        border-top-right-radius: var(--card-radius-big);
-	}
+  &:first-of-type {
+    border-top-left-radius: var(--card-radius-big);
+    border-top-right-radius: var(--card-radius-big);
+  }
 
-	&:last-of-type {
-        border-bottom-left-radius: var(--card-radius-big);
-        border-bottom-right-radius: var(--card-radius-big);
+  &:last-of-type {
+    border-bottom-left-radius: var(--card-radius-big);
+    border-bottom-right-radius: var(--card-radius-big);
 
-        #{ $auditLogHeader } {
-            margin: 8px;
+    #{ $auditLogHeader } {
+      margin: 8px;
 
-            &:after {
-                height: calc(100% - 16px);
-            }
+      &:after {
+        height: calc(100% - 16px);
+      }
 
-            &#{ $auditLogHeaderExpanded } {
-                margin: 8px 8px 0;
-            }
-        }
-
-        #{ $auditLogChangeDetails } {
-            margin-block-end: 8px;
-        }
+      &#{ $auditLogHeaderExpanded } {
+        margin: 8px 8px 0;
+      }
     }
 
-    &:hover {
-        #{ $auditLogHeader } {
-            &:after {
-                background-color: var(--card-color-hover);
-            }
-        }
+    #{ $auditLogChangeDetails } {
+      margin-block-end: 8px;
     }
+  }
+
+  &:hover {
+    #{ $auditLogHeader } {
+      &:after {
+        background-color: var(--card-color-hover);
+      }
+    }
+  }
 }
 
 #{ $auditLogHeader } {
+  width: calc(100% - 16px);
+  margin: 8px 8px 0;
+  border-radius: calc(var(--card-radius-big) / 1.5);
+  background-color: transparent !important;
+  z-index: 2;
+
+  &:after {
+    position: absolute;
+    content: " ";
     width: calc(100% - 16px);
-    margin: 8px 8px 0;
+    height: calc(100% - 8px);
+    inset-block-start: 8px;
+    inset-inline-start: 8px;
     border-radius: calc(var(--card-radius-big) / 1.5);
-    background-color: transparent !important;
-    z-index: 2;
+    transition: var(--default-time) var(--default-animation) background-color;
+    z-index: -1;
+    pointer-events: none;
+  }
 
+  &#{ $auditLogHeaderExpanded } {
     &:after {
-        position: absolute;
-        content: " ";
-        width: calc(100% - 16px);
-        height: calc(100% - 8px);
-        inset-block-start: 8px;
-        inset-inline-start: 8px;
-        border-radius: calc(var(--card-radius-big) / 1.5);
-        transition: var(--default-time) var(--default-animation) background-color;
-        z-index: -1;
-        pointer-events: none;
+      background-color: var(--card-color-active) !important;
     }
-
-    &#{ $auditLogHeaderExpanded } {
-        &:after {
-            background-color: var(--card-color-active) !important;
-        }
-    }
+  }
 }
 
 #{ $auditLogDivider } {
-    display: none;
+  display: none;
 }
 
 #{ $auditLogChangeDetails } {
-    width: calc(100% - 16px);
-    margin: 0 8px;
-    background-color: transparent !important;
-    z-index: 2;
+  width: calc(100% - 16px);
+  margin: 0 8px;
+  background-color: transparent !important;
+  z-index: 2;
 
-    #{ $auditLogDetail } {
-        &:first-of-type {
-            margin-block-start: 0;
-        }
+  #{ $auditLogDetail } {
+    &:first-of-type {
+      margin-block-start: 0;
     }
+  }
 }
 
 #{ $auditLogIcon } {
-	&:after {
-		width: 9px;
-		height: 9px;
-        inset-block-start: unset;
-        inset-inline-start: unset;
-        inset-inline-end: 2px;
-        inset-block-end: 2px;
-		border-radius: 50%;
-	}
+  &:after {
+    width: 9px;
+    height: 9px;
+    inset-block-start: unset;
+    inset-inline-start: unset;
+    inset-inline-end: 2px;
+    inset-block-end: 2px;
+    border-radius: 50%;
+  }
 
-	&#{ $auditLogTypeCreate } {
-		&:after {
-			background: #389c59;
-		}
-	}
+  &#{ $auditLogTypeCreate } {
+    &:after {
+      background: #389c59;
+    }
+  }
 
-	&#{ $auditLogTypeUpdate } {
-		&:after {
-			background: #ec9d1a;
-		}
-	}
+  &#{ $auditLogTypeUpdate } {
+    &:after {
+      background: #ec9d1a;
+    }
+  }
 
-	&#{ $auditLogTypeDelete } {
-		&:after {
-			background: #9d3235;
-		}
-	}
+  &#{ $auditLogTypeDelete } {
+    &:after {
+      background: #9d3235;
+    }
+  }
 }

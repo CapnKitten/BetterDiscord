@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,721 +7,740 @@
  */
 
 #{ $visualRefresh } {
-    &#{ $refreshFastFollowGuildBg } {
-        #{ $bg } {
-            background-color: var(--app-background);
-        }
-
-        #{ $guildsWrapper } {
-            background: var(--app-foreground);
-        }
-    }
-
+  &#{ $refreshFastFollowGuildBg } {
     #{ $bg } {
-        background-color: var(--app-background);
+      background-color: var(--app-background);
     }
-
-    #{ $base } {
-        margin: var(--app-card-top-margin) var(--app-card-margin) var(--app-card-margin);
-    }
-
-    #{ $promptMain } {
-        border-radius: var(--app-card-radius);
-    }
-
-    /* servers */
 
     #{ $guildsWrapper } {
-        height: calc(100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin))) !important;
-        margin: 0 var(--app-card-margin) calc(var(--custom-app-panels-height, 0) + 8px) 0 !important;
-        background-color: var(--app-foreground);
+      background: var(--app-foreground);
+    }
+  }
+
+  #{ $bg } {
+    background-color: var(--app-background);
+  }
+
+  #{ $base } {
+    margin: var(--app-card-top-margin) var(--app-card-margin)
+      var(--app-card-margin);
+  }
+
+  #{ $promptMain } {
+    border-radius: var(--app-card-radius);
+  }
+
+  /* servers */
+
+  #{ $guildsWrapper } {
+    height: calc(
+      100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin))
+    ) !important;
+    margin: 0 var(--app-card-margin)
+      calc(var(--custom-app-panels-height, 0) + 8px) 0 !important;
+    background-color: var(--app-foreground);
+  }
+
+  #{ $circleIconButton } {
+    &:not(#{ $circleIconButtonDisabled }) {
+      &#{ $circleIconButtonSelected } {
+        background-color: hsl(var(--accent-hsl));
+        color: var(--accent-text-color);
+      }
+    }
+  }
+
+  /* channels */
+
+  #{ $sidebarList } {
+    height: calc(
+      100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin))
+    );
+    border: none;
+
+    #{ $scroller } {
+      margin: 0;
+    }
+  }
+
+  #{ $channelsSidebar } {
+    overflow: visible;
+
+    &:after {
+      display: none;
     }
 
-    #{ $circleIconButton } {
-        &:not(#{ $circleIconButtonDisabled }) {
-            &#{ $circleIconButtonSelected } {
-                background-color: hsl(var(--accent-hsl));
-                color: var(--accent-text-color);
-            }
-        }
+    &#{ $channelsSidebarChannelListHidden } {
+      margin-right: 0;
     }
 
-    /* channels */
+    overflow: visible;
 
-    #{ $sidebarList } {
-        height: calc(100% - calc(var(--custom-app-panels-height, 0) + var(--app-card-margin)));
-        border: none;
+    &:has(#{ $spotifyPanel }),
+    &:has(#{ $vencordSpotifyPlayer }) {
+      margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
+    }
+  }
 
-        #{ $scroller } {
-            margin: 0;
-        }
+  #{ $channelMentionsContainerBottom } {
+    bottom: 0;
+  }
+
+  #{ $sidebarResizeHandle } {
+    width: var(--app-card-margin);
+    right: calc(var(--app-card-margin) * -1);
+
+    &:before {
+      position: absolute;
+      content: " ";
+      width: 1px;
+      height: calc(100% - (var(--app-card-radius) * 2));
+      left: 0;
+      right: 0;
+      margin: var(--app-card-radius) auto;
+      background-color: hsl(from var(--app-foreground) h s calc(l * 4.5));
+      opacity: 0;
+      transition: 200ms ease opacity;
     }
 
-    #{ $channelsSidebar } {
-        overflow: visible;
+    &:hover,
+    &:active {
+      background-color: transparent;
 
-        &:after {
-            display: none;
-        }
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
 
-        &#{ $channelsSidebarChannelListHidden } {
-            margin-right: 0;
-        }
+  #{ $channelsContainer },
+  #{ $privateChannels } {
+    background-color: var(--app-foreground);
+    border-radius: var(--app-card-radius);
+  }
 
-        overflow: visible;
+  #{ $channelsHeaderContainer } {
+    border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+  }
 
-        &:has(#{ $spotifyPanel }),
-        &:has(#{ $vencordSpotifyPlayer }) {
-            margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
-        }
+  #{ $channelsHeader } {
+    padding: 0 16px;
+    border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+    border-bottom: none;
+  }
+
+  #{ $channelsContainer } {
+    padding-bottom: 0;
+  }
+
+  #{ $panels } {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: var(--app-foreground);
+    border-radius: var(--app-card-radius);
+    border: none;
+    overflow: visible !important;
+  }
+
+  /* connection panel */
+
+  #{ $connectionPanelWrapper } {
+    &:not(:empty) {
+      border-bottom: 1px solid var(--sidebar-panel-border);
+    }
+  }
+
+  /* spotify panel */
+
+  #{ $spotifyPanel } {
+    #{ $panelButton } {
+      width: var(--button-height);
+      height: var(--button-height);
+      margin: 0;
     }
 
-    #{ $channelMentionsContainerBottom } {
-        bottom: 0;
+    #{ $spotifyPanelTimeline } {
+      height: 16px;
+      margin: 0 0 0 calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
     }
 
-    #{ $sidebarResizeHandle } {
-        width: var(--app-card-margin);
-        right: calc(var(--app-card-margin) * -1);
-
-        &:before {
-            position: absolute;
-            content: " ";
-            width: 1px;
-            height: calc(100% - (var(--app-card-radius) * 2));
-            left: 0;
-            right: 0;
-            margin: var(--app-card-radius) auto;
-            background-color: hsl(from var(--app-foreground) h s calc(l * 4.5));
-            opacity: 0;
-            transition: 200ms ease opacity;
-        }
-
-        &:hover,
-        &:active {
-            background-color: transparent;
-
-            &:before {
-                opacity: 1;
-            }
-        }
+    #{ $spotifyPanelTimelineBar } {
+      top: 6px;
+      margin-bottom: 0;
     }
 
-    #{ $channelsContainer },
-    #{ $privateChannels } {
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
+    #{ $spotifyPanelTimelineBarText } {
+      top: 0;
+    }
+  }
+
+  #{ $spotifyPanel },
+  #{ $vencordSpotifyPlayer } {
+    --panel-height: calc(var(--app-bar-size) - (var(--app-card-margin) * 2));
+    --button-height: 32px;
+
+    width: 100%;
+    height: var(--panel-height);
+    left: unset;
+    bottom: calc((var(--app-bar-size) - var(--app-card-margin)) * -1);
+    padding: 0;
+    gap: 8px;
+  }
+
+  #{ $spotifyPanelCoverWrapper },
+  #{ $vencordSpotifyAlbumImage } {
+    width: calc(var(--panel-height) - 10px);
+    height: calc(var(--panel-height) - 10px);
+    transform: translate(var(--app-card-margin), 0) !important;
+  }
+
+  #{ $spotifyPanelDetails },
+  #{ $vencordSpotifyTitles } {
+    margin-left: calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
+  }
+
+  /* spotify panel vencord */
+
+  #{ $vencordSpotifyInfoWrapper } {
+    width: calc(100% - (180px + 4px));
+    height: calc(var(--panel-height) - 20px);
+    margin: 0;
+  }
+
+  #{ $vencordSpotifyAlbumImage } {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto 0;
+  }
+
+  #{ $vencordSpotifyButtonRow } {
+    height: calc(var(--panel-height) - 20px);
+    top: 0;
+    margin-top: 0;
+    align-items: center;
+  }
+
+  #{ $vencordSpotifyProgressBar } {
+    display: flex;
+    width: auto;
+    margin: 0 0 0 calc(var(--panel-height) + var(--app-card-margin) * 1.5);
+    padding: 0 4px 0 2px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    #{ $vencordSpotifyProgressTime } {
+      position: relative;
+      width: 36px;
+      top: 0;
+      margin-top: 0;
+      text-align: center;
     }
 
-    #{ $channelsHeaderContainer } {
-        border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+    #{ $slider } {
+      height: 16px !important;
     }
 
-    #{ $channelsHeader } {
-        padding: 0 16px;
-        border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
-        border-bottom: none;
+    #{ $sliderBar } {
+      top: calc(12px - 12px / 2 + var(--bar-offset)) !important;
     }
+  }
 
-    #{ $channelsContainer } {
-        padding-bottom: 0;
+  /* private channels */
+
+  #{ $privateChannelsSearchBar } {
+    border-bottom: none;
+
+    #{ $buttonFilled }#{ $buttonPrimary } {
+      --button-background: var(--background-tinted-hover);
+      --button-text-color: var(--text-default);
+
+      &:hover,
+      &:active {
+        transform: none;
+      }
     }
+  }
 
-    #{ $panels } {
-        width: 100%;
-        left: 0;
-        bottom: 0;
-        background-color: var(--app-foreground);
-        border-radius: var(--app-card-radius);
-        border: none;
-        overflow: visible !important;
-    }
+  /* chat */
 
-    /* connection panel */
+  #{ $chat } {
+    height: calc(100% - (var(--app-bar-size) - var(--app-card-margin)));
+  }
 
-    #{ $connectionPanelWrapper } {
-        &:not(:empty) {
-            border-bottom: 1px solid var(--sidebar-panel-border);
-        }
-    }
+  #{ $chatContent } {
+    background: transparent;
+  }
 
-    /* spotify panel */
+  #{ $headerBar } {
+    border-bottom: none;
+  }
 
-    #{ $spotifyPanel } {
-        #{ $panelButton } {
-            width: var(--button-height);
-            height: var(--button-height);
-            margin: 0;
-        }
-
-        #{ $spotifyPanelTimeline } {
-            height: 16px;
-            margin: 0 0 0 calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
-        }
-
-        #{ $spotifyPanelTimelineBar } {
-            top: 6px;
-            margin-bottom: 0;
-        }
-
-        #{ $spotifyPanelTimelineBarText } {
-            top: 0;
-        }
-    }
-
-    #{ $spotifyPanel },
-    #{ $vencordSpotifyPlayer } {
-        --panel-height: calc(var(--app-bar-size) - (var(--app-card-margin) * 2));
-        --button-height: 32px;
-
-        width: 100%;
-        height: var(--panel-height);
-        left: unset;
-        bottom: calc((var(--app-bar-size) - var(--app-card-margin)) * -1);
-        padding: 0;
-        gap: 8px;
-    }
-
-    #{ $spotifyPanelCoverWrapper },
-    #{ $vencordSpotifyAlbumImage } {
-        width: calc(var(--panel-height) - 10px);
-        height: calc(var(--panel-height) - 10px);
-        transform: translate(var(--app-card-margin), 0) !important;
-    }
-
-    #{ $spotifyPanelDetails },
-    #{ $vencordSpotifyTitles } {
-        margin-left: calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
-    }
-
-    /* spotify panel vencord */
-
-    #{ $vencordSpotifyInfoWrapper } {
-        width: calc(100% - (180px + 4px));
-        height: calc(var(--panel-height) - 20px);
-        margin: 0;
-    }
-
-    #{ $vencordSpotifyAlbumImage } {
-        top: 0;
-        left: 0;
-        bottom: 0;
-        margin: auto 0;
-    }
-
-    #{ $vencordSpotifyButtonRow } {
-        height: calc(var(--panel-height) - 20px);
-        top: 0;
-        margin-top: 0;
-        align-items: center;
-    }
-
-    #{ $vencordSpotifyProgressBar } {
-        display: flex;
-        width: auto;
-        margin: 0 0 0 calc(var(--panel-height) + var(--app-card-margin) * 1.5);
-        padding: 0 4px 0 2px;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-
-        #{ $vencordSpotifyProgressTime } {
-            position: relative;
-            width: 36px;
-            top: 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        #{ $slider } {
-            height: 16px !important;
-        }
-
-        #{ $sliderBar } {
-            top: calc(12px - 12px / 2 + var(--bar-offset)) !important;
-        }
-    }
-
-    /* private channels */
-
-    #{ $privateChannelsSearchBar } {
-        border-bottom: none;
-
-        #{ $buttonFilled }#{ $buttonPrimary } {
-            --button-background: var(--background-tinted-hover);
-            --button-text-color: var(--text-default);
-
-            &:hover,
-            &:active {
-                transform: none;
-            }
-        }
-    }
-
-    /* chat */
-
-    #{ $chat } {
-        height: calc(100% - (var(--app-bar-size) - var(--app-card-margin)));
-    }
-
-    #{ $chatContent } {
-        background: transparent;
-    }
-
-    #{ $headerBar } {
-        border-bottom: none;
-    }
-
-    #{ $chatForm } {
-        bottom: calc(((var(--app-bar-size) + var(--main-textarea-min-height)) / 2) * -1);
-        margin-top: calc( var(--main-textarea-min-height) * -1);
-
-        #{ $channelTextArea } {
-            margin-bottom: 0;
-        }
-
-        #{ $textArea } {
-            &[style*="height: 56px"] {
-                height: var(--main-textarea-min-height) !important;
-            }
-        }
-
-        #{ $slateTextArea } {
-            padding: calc((var(--main-textarea-min-height) - var(--chat-markup-line-height)) / 2) 0;
-        }
-    }
+  #{ $chatForm } {
+    bottom: calc(
+      ((var(--app-bar-size) + var(--main-textarea-min-height)) / 2) * -1
+    );
+    margin-top: calc(var(--main-textarea-min-height) * -1);
 
     #{ $channelTextArea } {
-        background-color: var(--main-textarea-color);
-        border: none;
+      margin-bottom: 0;
+    }
 
-        #{ $channelTextAreaFontPadding } {
-            padding: var(--textarea-text-padding) 0;
-        }
+    #{ $textArea } {
+      &[style*="height: 56px"] {
+        height: var(--main-textarea-min-height) !important;
+      }
     }
 
     #{ $slateTextArea } {
-        min-height: var(--main-textarea-min-height);
+      padding: calc(
+          (var(--main-textarea-min-height) - var(--chat-markup-line-height)) / 2
+        )
+        0;
+    }
+  }
+
+  #{ $channelTextArea } {
+    background-color: var(--main-textarea-color);
+    border: none;
+
+    #{ $channelTextAreaFontPadding } {
+      padding: var(--textarea-text-padding) 0;
+    }
+  }
+
+  #{ $slateTextArea } {
+    min-height: var(--main-textarea-min-height);
+  }
+
+  #{ $channelTextAreaAttachButton } {
+    padding: var(--space-12) var(--space-4) var(--space-12) var(--space-md);
+  }
+
+  #{ $channelTextAreaTyping } {
+    width: calc(100% - var(--scrollbar-width));
+    top: calc(
+      (((var(--app-bar-size) - var(--main-textarea-min-height)) / 2) + 16px) *
+        -1
+    );
+    left: 0;
+    bottom: unset;
+    padding: 0 var(--space-4) 0 var(--space-8);
+    background-color: hsl(from var(--app-foreground) h s l / 0.8);
+    border-bottom-left-radius: var(--app-card-radius);
+  }
+
+  #{ $channelTextAreaStackedBars } {
+    background-color: transparent;
+  }
+
+  #{ $channelTextAreaUpload } {
+    background-color: var(--card-color);
+    border-radius: calc(var(--main-textarea-radius) / 1.5);
+    border: none;
+    box-shadow: none;
+  }
+
+  #{ $channelAppLauncher } {
+    #{ $channelAppLauncherButton } {
+      background-color: transparent;
+    }
+  }
+
+  #{ $chatOuterSearchContainer } {
+    min-width: var(--space-32);
+    min-height: var(--space-32);
+  }
+
+  #{ $chatSearchBar } {
+    width: 24px;
+    padding: 0;
+    border-radius: 12px;
+    border: none;
+
+    #{ $chatSearchRoot } {
+      padding: 0;
     }
 
-    #{ $channelTextAreaAttachButton } {
-        padding: var(--space-12) var(--space-4) var(--space-12) var(--space-md);
+    #{ $chatSearchIconWrapper } {
+      width: 20px;
+      height: 20px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
     }
+  }
 
-    #{ $channelTextAreaTyping } {
-        width: calc(100% - var(--scrollbar-width));
-        top: calc((((var(--app-bar-size) - var(--main-textarea-min-height)) / 2) + 16px) * -1);
-        left: 0;
-        bottom: unset;
-        padding: 0 var(--space-4) 0 var(--space-8);
-        background-color: hsl(from var(--app-foreground) h s l / 0.8);
-        border-bottom-left-radius: var(--app-card-radius);
+  #{ $chatSearch } {
+    &#{ $chatSearchOpen },
+    &#{ $chatSearchFocused } {
+      #{ $chatSearchRoot } {
+        padding: 0 8px 0 4px;
+      }
     }
+  }
 
-    #{ $channelTextAreaStackedBars } {
-        background-color: transparent;
+  #{ $messageButtonWrapper } {
+    padding: 4px 6px;
+    background-color: var(--popout-color);
+    border: none;
+    box-shadow: var(--default-shadow);
+  }
+
+  #{ $messagesScrollerSpacer } {
+    height: var(--space-16);
+  }
+
+  #{ $jumpToPresentBar } {
+    padding: var(--space-8);
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    box-shadow: var(--default-shadow);
+    border: none;
+  }
+
+  /* markup */
+
+  #{ $markup } {
+    code {
+      background-color: var(--background-tinted-active);
+      border-radius: var(--card-radius);
+      border: none;
     }
+  }
 
-    #{ $channelTextAreaUpload } {
-        background-color: var(--card-color);
-        border-radius: calc(var(--main-textarea-radius) / 1.5);
-        border: none;
-        box-shadow: none;
+  /* chat area search */
+
+  #{ $searchPopout } {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    border: none;
+    box-shadow: var(--default-shadow);
+  }
+
+  /* search results */
+
+  #{ $searchResultsWrap } {
+    background-color: transparent;
+    border-left-color: var(--card-color-hover);
+  }
+
+  #{ $searchResult } {
+    background-color: var(--message-color-hover);
+    border: none;
+  }
+
+  /* voice call */
+
+  #{ $callWrapper } {
+    background-color: transparent;
+
+    &#{ $callWrapperNoChat } {
+      #{ $callContainer } {
+        height: auto;
+      }
     }
+  }
 
-    #{ $channelAppLauncher } {
-        #{ $channelAppLauncherButton } {
-            background-color: transparent;
-        }
+  #{ $callContainer } {
+    border: none;
+  }
+
+  /* forum */
+
+  #{ $forumContainer } {
+    background-color: transparent;
+  }
+
+  #{ $forumHeader },
+  #{ $forumHeaderMatchingPostsRow },
+  #{ $forumGuidelinesContainer } {
+    background-color: var(--card-color);
+    border: none;
+  }
+
+  #{ $postContainer } {
+    background-color: var(--card-color);
+    border: none;
+
+    &:hover {
+      background-color: var(--card-color-hover);
     }
+  }
 
-    #{ $chatOuterSearchContainer } {
-        min-width: var(--space-32);
-        min-height: var(--space-32);
+  #{ $postContentPreview } {
+    background-color: var(--background-tinted-hover);
+    border: none;
+
+    #{ $postTextContentFooter } {
+      background: none;
     }
+  }
 
-    #{ $chatSearchBar } {
-        width: 24px;
-        padding: 0;
-        border-radius: 12px;
-        border: none;
+  #{ $threadResizeHandle } {
+    background-color: var(--app-background);
+  }
 
-        #{ $chatSearchRoot } {
-            padding: 0;
-        }
+  #{ $threadContainer } {
+    background-color: transparent !important;
+    border: none;
 
-        #{ $chatSearchIconWrapper } {
-            width: 20px;
-            height: 20px;
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-        }
+    #{ $chatContent } {
+      margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
+      background-color: var(--app-foreground);
+      border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
     }
+  }
 
-    #{ $chatSearch } {
-        &#{ $chatSearchOpen },
-        &#{ $chatSearchFocused } {
-            #{ $chatSearchRoot } {
-                padding: 0 8px 0 4px;
-            }
-        }
+  /* message reactions */
+
+  #{ $reaction } {
+    &#{ $reactionMe } {
+      background-color: hsla(var(--accent-hsl), 0.3);
+      border-color: hsla(var(--accent-hsl), 0.2);
+
+      &:hover {
+        background-color: hsla(var(--accent-hsl), 0.4);
+      }
+
+      #{ $reactionCount } {
+        color: hsl(var(--accent-hsl));
+      }
     }
+  }
 
-    #{ $messageButtonWrapper } {
-        padding: 4px 6px;
-        background-color: var(--popout-color);
-        border: none;
-        box-shadow: var(--default-shadow);
+  /* message attachments */
+
+  #{ $threadEmbed },
+  #{ $inviteWrapper } {
+    background-color: var(--background-tinted-active);
+    border-radius: var(--card-radius);
+    border: none;
+  }
+
+  /* emoji picker */
+
+  #{ $emojiWrapper } {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    border: none;
+    box-shadow: var(--default-shadow);
+  }
+
+  #{ $emojiWrapperChat } {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+
+    #{ $emojiCategoryList } {
+      top: 65px;
     }
+  }
 
-    #{ $messagesScrollerSpacer } {
-        height: var(--space-16);
+  #{ $emojiPicker } {
+    background-color: transparent;
+  }
+
+  #{ $emojiPickerNavEmoji },
+  #{ $emojiPickerNavSticker },
+  #{ $emojiPickerNavGif } {
+    background-color: transparent;
+    border-bottom-color: var(--popout-border-color);
+  }
+
+  #{ $emojiCategoryWrapper } {
+    background-color: var(--app-foreground);
+  }
+
+  #{ $emojiPickerHasTabWrapper } {
+    #{ $emojiCategoryList } {
+      top: 49px;
     }
+  }
 
-    #{ $jumpToPresentBar } {
-        padding: var(--space-8);
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius);
-        box-shadow: var(--default-shadow);
-        border: none;
+  #{ $emojiStickerContainer } {
+    #{ $stickerCategoryList } {
+      top: 49px;
     }
+  }
 
-    /* markup */
+  #{ $emojiPickerCategoryHeaderWrapper } {
+    background-color: hsl(from var(--popout-color) h s l / 0.9);
+  }
 
-    #{ $markup } {
-    	code {
-    		background-color: var(--background-tinted-active);
-    		border-radius: var(--card-radius);
-    		border: none;
-    	}
+  #{ $emojiPickerInspector } {
+    background-color: var(--popout-color);
+    border-top-color: var(--popout-border-color);
+  }
+
+  /* members list */
+
+  #{ $membersWrap } {
+    background-color: transparent;
+  }
+
+  #{ $memberActivityContainer } {
+    background-color: var(--background-tinted-hover);
+    border: none;
+
+    &#{ $memberActivityContainerSelected } {
+      background-color: var(--background-tinted-active);
     }
+  }
 
-    /* chat area search */
+  /* friends list */
 
-    #{ $searchPopout } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius);
-        border: none;
-        box-shadow: var(--default-shadow);
-    }
+  #{ $friends } {
+    height: 100%;
+    background-color: var(--app-foreground);
+    border-top: none;
+  }
 
-    /* search results */
+  #{ $friendsTabBody } {
+    background-color: transparent;
+  }
 
-    #{ $searchResultsWrap } {
-        background-color: transparent;
-        border-left-color: var(--card-color-hover);
-    }
+  /* active now */
 
-    #{ $searchResult } {
-        background-color: var(--message-color-hover);
-        border: none;
-    }
+  #{ $activeNowCardInteractive } {
+    background-color: var(--card-color);
+  }
 
-    /* voice call */
+  /* modals */
 
-    #{ $callWrapper } {
-        background-color: transparent;
+  #{ $modalRoot } {
+    border: none;
+  }
 
-        &#{ $callWrapperNoChat } {
-            #{ $callContainer } {
-                height: auto;
-            }
-        }
-    }
+  /* pinned messages popout */
 
-    #{ $callContainer } {
-        border: none;
-    }
+  #{ $messagesPopoutWrap },
+  #{ $recentMentionsPopout } {
+    background-color: var(--popout-color);
+  }
 
-    /* forum */
+  #{ $messagesPopoutHeader },
+  #{ $messagesPopoutContentContainer } {
+    background-color: transparent;
+  }
 
-    #{ $forumContainer } {
-        background-color: transparent;
-    }
+  /* tab bar */
 
-    #{ $forumHeader },
-    #{ $forumHeaderMatchingPostsRow },
-    #{ $forumGuidelinesContainer } {
-        background-color: var(--card-color);
-        border: none;
-    }
+  #{ $tabBar } {
+    #{ $item } {
+      margin: 0;
 
-    #{ $postContainer } {
-        background-color: var(--card-color);
-        border: none;
-
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
-    }
-
-    #{ $postContentPreview } {
+      &:hover {
         background-color: var(--background-tinted-hover);
-        border: none;
+      }
 
-        #{ $postTextContentFooter } {
-            background: none;
-        }
-    }
-
-    #{ $threadResizeHandle } {
-        background-color: var(--app-background);
-    }
-
-    #{ $threadContainer } {
-        background-color: transparent !important;
-        border: none;
-
-        #{ $chatContent } {
-            margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
-            background-color: var(--app-foreground);
-            border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
-        }
-    }
-
-    /* message reactions */
-
-    #{ $reaction } {
-    	&#{ $reactionMe } {
-    		background-color: hsla(var(--accent-hsl),0.3);
-    		border-color: hsla(var(--accent-hsl),0.2);
-
-    		&:hover {
-    			background-color: hsla(var(--accent-hsl),0.4);
-    		}
-
-    		#{ $reactionCount } {
-    			color: hsl(var(--accent-hsl));
-    		}
-    	}
-    }
-
-    /* message attachments */
-
-    #{ $threadEmbed },
-    #{ $inviteWrapper } {
+      &#{ $itemSelected } {
         background-color: var(--background-tinted-active);
-        border-radius: var(--card-radius);
-        border: none;
-    }
+        color: var(--text-primary);
+      }
 
-    /* emoji picker */
+      &#{ $itemThemed } {
+        &#{ $itemAddFriend } {
+          background-color: transparent;
 
-    #{ $emojiWrapper } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius);
-        border: none;
-        box-shadow: var(--default-shadow);
-    }
+          &:hover {
+            background-color: var(--background-tinted-hover);
+          }
 
-    #{ $emojiWrapperChat } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius);
-
-        #{ $emojiCategoryList } {
-            top: 65px;
-        }
-    }
-
-    #{ $emojiPicker } {
-        background-color: transparent;
-    }
-
-    #{ $emojiPickerNavEmoji },
-    #{ $emojiPickerNavSticker },
-    #{ $emojiPickerNavGif } {
-        background-color: transparent;
-        border-bottom-color: var(--popout-border-color);
-    }
-
-    #{ $emojiCategoryWrapper } {
-        background-color: var(--app-foreground);
-    }
-
-    #{ $emojiPickerHasTabWrapper } {
-        #{ $emojiCategoryList } {
-            top: 49px;
-        }
-    }
-
-    #{ $emojiStickerContainer } {
-        #{ $stickerCategoryList } {
-            top: 49px;
-        }
-    }
-
-    #{ $emojiPickerCategoryHeaderWrapper } {
-        background-color: hsl(from var(--popout-color) h s l / 0.9);
-    }
-
-    #{ $emojiPickerInspector } {
-        background-color: var(--popout-color);
-        border-top-color: var(--popout-border-color);
-    }
-
-    /* members list */
-
-    #{ $membersWrap } {
-        background-color: transparent;
-    }
-
-    #{ $memberActivityContainer } {
-        background-color: var(--background-tinted-hover);
-        border: none;
-
-        &#{ $memberActivityContainerSelected } {
+          &#{ $itemSelected } {
             background-color: var(--background-tinted-active);
+            color: var(--text-primary);
+          }
         }
+      }
     }
+  }
 
-    /* friends list */
+  /* context menu */
 
-    #{ $friends } {
-        height: 100%;
-        background-color: var(--app-foreground);
-        border-top: none;
+  #{ $menuPopout } {
+    border: none;
+  }
+
+  #{ $menuPopoutColorDefault } {
+    #{ $menuPopoutLabel } {
+      color: var(--menu-text-color);
     }
+  }
 
-    #{ $friendsTabBody } {
-        background-color: transparent;
-    }
+  /* tooltip */
 
-    /* active now */
+  #{ $tooltip } {
+    border: none;
+  }
 
-    #{ $activeNowCardInteractive } {
-        background-color: var(--card-color);
-    }
+  /* settings */
 
-    /* modals */
+  #{ $standardSidebarView } {
+    margin: var(--app-card-margin);
+    gap: var(--app-card-margin);
+    background-color: var(--app-background);
+  }
 
-    #{ $modalRoot } {
-        border: none;
-    }
+  #{ $settingsSidebarRegion } {
+    width: auto;
+    flex: 1 0 1;
+    margin: 0;
+  }
 
-    /* pinned messages popout */
+  #{ $settingsSidebar } {
+    padding: 60px
+      var(--custom-standard-sidebar-view-sidebar-content-scrollbar-padding) 60px
+      8px;
+  }
 
-    #{ $messagesPopoutWrap },
-    #{ $recentMentionsPopout } {
-        background-color: var(--popout-color);
-    }
+  #{ $settingsContentRegion } {
+    margin: 0;
+  }
 
-    #{ $messagesPopoutHeader },
-    #{ $messagesPopoutContentContainer } {
-        background-color: transparent;
-    }
+  /* vencord notification */
 
-    /* tab bar */
-
-    #{ $tabBar } {
-        #{ $item } {
-            margin: 0;
-
-            &:hover {
-                background-color: var(--background-tinted-hover);
-            }
-
-            &#{ $itemSelected } {
-                background-color: var(--background-tinted-active);
-                color: var(--text-primary);
-            }
-
-            &#{ $itemThemed } {
-                &#{ $itemAddFriend } {
-                    background-color: transparent;
-
-                    &:hover {
-                        background-color: var(--background-tinted-hover);
-                    }
-
-                    &#{ $itemSelected } {
-                        background-color: var(--background-tinted-active);
-                        color: var(--text-primary);
-                    }
-                }
-            }
-        }
-    }
-
-    /* context menu */
-
-    #{ $menuPopout } {
-        border: none;
-    }
-
-    #{ $menuPopoutColorDefault } {
-        #{ $menuPopoutLabel } {
-            color: var(--menu-text-color);
-        }
-    }
-
-    /* tooltip */
-
-    #{ $tooltip } {
-        border: none;
-    }
-
-    /* settings */
-
-    #{ $standardSidebarView } {
-        margin: var(--app-card-margin);
-        gap: var(--app-card-margin);
-        background-color: var(--app-background);
-    }
-
-    #{ $settingsSidebarRegion } {
-        width: auto;
-        flex: 1 0 1;
-        margin: 0;
-    }
-
-    #{ $settingsSidebar } {
-        padding: 60px var(--custom-standard-sidebar-view-sidebar-content-scrollbar-padding) 60px 8px;
-    }
-
-    #{ $settingsContentRegion } {
-        margin: 0;
-    }
-
-    /* vencord notification */
-
-    #{ $vencordNotificationRoot } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius);
-        box-shadow: var(--default-shadow);
-    }
+  #{ $vencordNotificationRoot } {
+    background-color: var(--popout-color);
+    border-radius: var(--popout-radius);
+    box-shadow: var(--default-shadow);
+  }
 }
 
 #{ $alignChatInput } {
-    #{ $guildsWrapper },
-    #{ $channelsContainer } {
-        mask: none;
-    }
+  #{ $guildsWrapper },
+  #{ $channelsContainer } {
+    mask: none;
+  }
 
-    #{ $accountPanel } {
-        height: calc((var(--app-bar-size) - (var(--app-card-margin) + 1px) * 2));
-        padding: 0 var(--space-12);
-    }
+  #{ $accountPanel } {
+    height: calc((var(--app-bar-size) - (var(--app-card-margin) + 1px) * 2));
+    padding: 0 var(--space-12);
+  }
 
-    #{ $channelTextAreaTyping } {
-        top: calc((((var(--app-bar-size) - var(--main-textarea-min-height)) / 2) + 16px) * -1) !important;
-    }
+  #{ $channelTextAreaTyping } {
+    top: calc(
+      (((var(--app-bar-size) - var(--main-textarea-min-height)) / 2) + 16px) *
+        -1
+    ) !important;
+  }
 
-    #{ $channelTextAreaAttachWrapper } {
-        padding: 0;
-    }
+  #{ $channelTextAreaAttachWrapper } {
+    padding: 0;
+  }
 
-    #{ $channelTextAreaAttachButtonInner },
-    #{ $channelTextAreaButtonInner }:not(#{ $channelTextAreaButtonInnerNoHover }),
-    #{ $channelTextAreaEmojiButton } {
-        border-radius: var(--space-16);
-    }
+  #{ $channelTextAreaAttachButtonInner },
+  #{ $channelTextAreaButtonInner }:not(#{ $channelTextAreaButtonInnerNoHover }),
+  #{ $channelTextAreaEmojiButton } {
+    border-radius: var(--space-16);
+  }
 
-    #{ $channelTextAreaButtonInner } {
-        &:not(#{ $channelTextAreaButtonInnerNoHover }) {
-            &:hover {
-                background-color: transparent;
-            }
-        }
+  #{ $channelTextAreaButtonInner } {
+    &:not(#{ $channelTextAreaButtonInnerNoHover }) {
+      &:hover {
+        background-color: transparent;
+      }
     }
+  }
 }

@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,201 +8,203 @@
  */
 
 #{ $bdAddonSearchBar } {
-	padding: 0 8px;
-	background-color: var(--input-color);
-	border-radius: 13px;
+  padding: 0 8px;
+  background-color: var(--input-color);
+  border-radius: 13px;
 
-	#{ $bdAddonSearchInput } {
-		padding: 0;
-		line-height: 26px;
-		color: var(--interactive-text-default);
+  #{ $bdAddonSearchInput } {
+    padding: 0;
+    line-height: 26px;
+    color: var(--interactive-text-default);
 
-		&::-webkit-input-placeholder {
-			font-family: var(--app-font);
-		}
-	}
+    &::-webkit-input-placeholder {
+      font-family: var(--app-font);
+    }
+  }
 }
 
 #{ $themeLight } {
-	#{ $bdAddonSearchBar } {
-		background-color: hsl(from var(--input-color) h s calc(l * 1.075));
-	}
+  #{ $bdAddonSearchBar } {
+    background-color: hsl(from var(--input-color) h s calc(l * 1.075));
+  }
 }
 
 #{ $bdAddonTitle } {
-    > span {
-        border-radius: 8px;
-    }
+  > span {
+    border-radius: 8px;
+  }
 
-    &[data-showing-store=true] {
-        > span:first-child {
-            transition: var(--default-time) var(--default-animation) background-color;
+  &[data-showing-store="true"] {
+    > span:first-child {
+      transition: var(--default-time) var(--default-animation) background-color;
 
-            &:hover {
-                background-color: var(--menu-item-hover);
-            }
-        }
+      &:hover {
+        background-color: var(--menu-item-hover);
+      }
     }
+  }
 }
 
 #{ $bdAddonViews } {
-	#{ $bdAddonViewsButton } {
-		background-color: transparent !important;
+  #{ $bdAddonViewsButton } {
+    background-color: transparent !important;
 
-		&:not(#{ $bdAddonViewsButtonSelected }) {
-            svg[fill] {
-                fill: var(--interactive-text-default);
-            }
-        }
+    &:not(#{ $bdAddonViewsButtonSelected }) {
+      svg[fill] {
+        fill: var(--interactive-text-default);
+      }
+    }
 
-		&#{ $bdAddonViewsButtonSelected } {
-			background-color: hsl(var(--accent-hsl--material-you)) !important;
+    &#{ $bdAddonViewsButtonSelected } {
+      background-color: hsl(var(--accent-hsl--material-you)) !important;
 
-			svg {
-				fill: var(--accent-text-color--material-you);
-			}
-		}
-	}
+      svg {
+        fill: var(--accent-text-color--material-you);
+      }
+    }
+  }
 }
 
 #{ $bdAddonControls } {
-	+ #{ $bdAddonList } {
-		margin-block-start: 16px;
-	}
+  + #{ $bdAddonList } {
+    margin-block-start: 16px;
+  }
 }
 
 #{ $bdThemesTab } {
-	#{ $bdAddonControls } {
-		&:after {
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			content: "Theme Add-ons\A\AMaterial Discord has a few add-on themes to either enhance or revert\Asome features that can be located at bit.ly/MaterialDiscordAddons.\A\A - Solid Icons\A - Old Message Bubbles\A - Material You";
-			width: 100%;
-			margin-block-start: 16px;
-			@include card-format(false, 16px, true);
-			color: var(--interactive-text-default);
-			box-sizing: border-box;
-			white-space: pre;
-			word-wrap: break-word;
-			line-height: 18px;
-		}
-	}
+  #{ $bdAddonControls } {
+    &:after {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      content: "Theme Add-ons\A\AMaterial Discord has a few add-on themes to either enhance or revert\Asome features that can be located at bit.ly/MaterialDiscordAddons.\A\A - Solid Icons\A - Old Message Bubbles\A - Material You";
+      width: 100%;
+      margin-block-start: 16px;
+      @include card-format(false, 16px, true);
+      color: var(--interactive-text-default);
+      box-sizing: border-box;
+      white-space: pre;
+      word-wrap: break-word;
+      line-height: 18px;
+    }
+  }
 }
 
 #{ $bdEmptyImageContainer } {
-	margin-block-start: 24px;
-	max-width: unset;
+  margin-block-start: 24px;
+  max-width: unset;
 }
 
 #{ $bdAddonList } {
-    &#{ $bdAddonListGridView } {
-        margin: 16px 0 32px 0;
-        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-        gap: 16px clamp(8px, 2vw, 16px);
-        justify-content: center;
-    }
+  &#{ $bdAddonListGridView } {
+    margin: 16px 0 32px 0;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px clamp(8px, 2vw, 16px);
+    justify-content: center;
+  }
 
-	#{ $bdAddonCard } {
-		margin-block-end: 16px;
-	}
+  #{ $bdAddonCard } {
+    margin-block-end: 16px;
+  }
 }
 
 #{ $bdAddonCard } {
-	@include card-format(true, 0, true);
+  @include card-format(true, 0, true);
 
-	#{ $bdAddonCardHeader } {
-		@include card-format--header(false, true);
-		gap: 8px;
+  #{ $bdAddonCardHeader } {
+    @include card-format--header(false, true);
+    gap: 8px;
 
-		#{ $bdAddonCardHeaderIcon } {
-	        margin-inline-end: 0;
-	    }
+    #{ $bdAddonCardHeaderIcon } {
+      margin-inline-end: 0;
+    }
 
-		#{ $bdAddonCardLink } {
-			color: hsl(var(--accent-hsl));
-		}
+    #{ $bdAddonCardLink } {
+      color: hsl(var(--accent-hsl));
+    }
 
-		#{ $bdAddonCardHeaderMeta } {
-			display: block;
-			font-size: 12px;
-		}
-	}
+    #{ $bdAddonCardHeaderMeta } {
+      display: block;
+      font-size: 12px;
+    }
+  }
 
-	#{ $bdAddonCardDescriptionWrap } {
-		padding: 0 16px;
-	}
+  #{ $bdAddonCardDescriptionWrap } {
+    padding: 0 16px;
+  }
 
-	#{ $bdAddonCardDescription } {
-		padding: 0;
-	}
+  #{ $bdAddonCardDescription } {
+    padding: 0;
+  }
 
-	#{ $bdAddonCardFooter } {
-		background-color: transparent;
-	}
+  #{ $bdAddonCardFooter } {
+    background-color: transparent;
+  }
 
-	#{ $bdAddonCardControls } {
-		background-color: transparent;
-		border-radius: 14px;
-		overflow: hidden;
+  #{ $bdAddonCardControls } {
+    background-color: transparent;
+    border-radius: 14px;
+    overflow: hidden;
 
-		#{ $bdButton } {
-			padding: 3px 8px;
-			background-color: var(--card-button-color) !important;
-			color: var(--interactive-text-default);
+    #{ $bdButton } {
+      padding: 3px 8px;
+      background-color: var(--card-button-color) !important;
+      color: var(--interactive-text-default);
 
-			&:not([disabled]) {
-				&:hover {
-					background-color: var(--card-button-color-hover) !important;
-				}
-			}
-		}
-	}
+      &:not([disabled]) {
+        &:hover {
+          background-color: var(--card-button-color-hover) !important;
+        }
+      }
+    }
+  }
 
-	path[d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"] {
-	    d: path("M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612");
-	    transform: scale(1.25) translate(2px,2px);
-	}
+  path[d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"] {
+    d: path(
+      "M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"
+    );
+    transform: scale(1.25) translate(2px, 2px);
+  }
 }
 
 #{ $bdAddonCardLinks } {
-    gap: 10px;
+  gap: 10px;
 
-    #{ $bdAddonCardLinkButton } + #{ $bdAddonCardLinkButton } {
-        margin: 0;
-    }
+  #{ $bdAddonCardLinkButton } + #{ $bdAddonCardLinkButton } {
+    margin: 0;
+  }
 }
 
 #{ $bdAddonCardDescriptionWrap } #{ $bdAddonBanner } {
-    margin-block-end: 16px;
-    padding: 8px;
-    border-radius: calc(var(--card-radius-big) / 1.5);
-    border: none;
-	color: var(--interactive-text-default);
+  margin-block-end: 16px;
+  padding: 8px;
+  border-radius: calc(var(--card-radius-big) / 1.5);
+  border: none;
+  color: var(--interactive-text-default);
 }
 
 #{ $bdAddonBanner } {
-    &#{ $bdAddonBannerDanger } {
-        background-color: hsl(var(--alert-hsl),0.3);
+  &#{ $bdAddonBannerDanger } {
+    background-color: hsl(var(--alert-hsl), 0.3);
 
-        #{ $bdAddonBannerIcon } {
-            fill: hsl(var(--alert-hsl));
-        }
+    #{ $bdAddonBannerIcon } {
+      fill: hsl(var(--alert-hsl));
     }
+  }
 }
 
 /* BETTERDISCORD ADDONS -> BD ADDON MODAL */
 
 #{ $bdAddonModal } {
-    #{ $bdAddonModalHeader } {
-        h1 {
-            font-size: 22px;
-            font-weight: 400;
-        }
+  #{ $bdAddonModalHeader } {
+    h1 {
+      font-size: 22px;
+      font-weight: 400;
     }
+  }
 
-    #{ $bdSelect } {
-        @include input-format(false, false, true);
-        font-size: 1em;
-    }
+  #{ $bdSelect } {
+    @include input-format(false, false, true);
+    font-size: 1em;
+  }
 }

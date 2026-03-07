@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,53 +7,53 @@
  */
 
 #{ $selectMenu } {
-	min-height: var(--input-height);
-    height: var(--input-height);
-    padding: var(--input-padding) !important;
-    border-radius: var(--input-radius) !important;
-    border: 1px solid transparent !important;
-    transition: var(--default-time) var(--default-animation) border-color;
+  min-height: var(--input-height);
+  height: var(--input-height);
+  padding: var(--input-padding) !important;
+  border-radius: var(--input-radius) !important;
+  border: 1px solid transparent !important;
+  transition: var(--default-time) var(--default-animation) border-color;
 
-	&#{ $selectMenuWrapperWithBg } {
-        background-color: var(--input-color);
-    }
+  &#{ $selectMenuWrapperWithBg } {
+    background-color: var(--input-color);
+  }
 
-    #{ $selectMenu } {
-        padding: 0;
-    }
+  #{ $selectMenu } {
+    padding: 0;
+  }
 
-    &#{ $selectMenuOpen } {
-        border-color: var(--input-border-color) !important;
-    }
+  &#{ $selectMenuOpen } {
+    border-color: var(--input-border-color) !important;
+  }
 
-	&#{ $selectMenuMulti } {
-		min-height: var(--input-height);
-		height: auto;
-	}
+  &#{ $selectMenuMulti } {
+    min-height: var(--input-height);
+    height: auto;
+  }
 }
 
 #{ $selectMenuPopout } {
-	margin: 4px 0;
-	background-color: var(--popout-color);
-	border-radius: var(--popout-radius) !important;
-	border: none;
-	box-shadow: var(--default-shadow);
+  margin: 4px 0;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius) !important;
+  border: none;
+  box-shadow: var(--default-shadow);
 
-	#{ $selectMenuOption } {
-		color: var(--menu-text-color);
+  #{ $selectMenuOption } {
+    color: var(--menu-text-color);
 
-		&:hover {
-			background-color: var(--background-tinted-hover);
-		}
+    &:hover {
+      background-color: var(--background-tinted-hover);
+    }
 
-		&[aria-selected=true] {
-            &:not(#{ $selectMenuOption }#{ $selectMenuMulti }) {
-    			background-color: var(--background-tinted-active);
+    &[aria-selected="true"] {
+      &:not(#{ $selectMenuOption }#{ $selectMenuMulti }) {
+        background-color: var(--background-tinted-active);
 
-    			#{ $selectMenuOptionSelectedIcon } {
-    				color: hsl(var(--accent-hsl));
-    			}
-            }
-		}
-	}
+        #{ $selectMenuOptionSelectedIcon } {
+          color: hsl(var(--accent-hsl));
+        }
+      }
+    }
+  }
 }

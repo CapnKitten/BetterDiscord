@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,73 +7,81 @@
  */
 
 #{ $connectionPanel } {
-	margin: 0 0 2px;
-	padding: 8px;
-	background-color: var(--sidebar-panel-color);
-	border-radius: var(--sidebar-panel-radius-small);
-    border-block-end: none !important;
+  margin: 0 0 2px;
+  padding: 8px;
+  background-color: var(--sidebar-panel-color);
+  border-radius: var(--sidebar-panel-radius-small);
+  border-block-end: none !important;
 
-    #{ $connectionPanelActionButtons } {
-        #{ $button } {
-			--button-padding-start: 12px;
-			--button-padding-end: 12px;
-        }
+  #{ $connectionPanelActionButtons } {
+    #{ $button } {
+      --button-padding-start: 12px;
+      --button-padding-end: 12px;
     }
+  }
 
-    #{ $connectionPanelMaskSecondary } {
-        border-color: var(--sidebar-panel-color);
+  #{ $connectionPanelMaskSecondary } {
+    border-color: var(--sidebar-panel-color);
+  }
+
+  #{ $rtcConnectionStatus } {
+    #{ $button } {
+      --button-height: 24px;
     }
-
-	#{ $rtcConnectionStatus } {
-		#{ $button } {
-			--button-height: 24px;
-		}
-	}
+  }
 }
 
 #{ $connectionPanelActionButtons } {
-    #{ $button } {
-        path {
-            &[fill] {
-                fill: currentColor !important;
-            }
+  #{ $button } {
+    path {
+      &[fill] {
+        fill: currentColor !important;
+      }
 
-            &[stroke] {
-                stroke: currentColor !important;
-            }
-        }
+      &[stroke] {
+        stroke: currentColor !important;
+      }
     }
+  }
 }
 
 #{ $rtcPing } {
-    &#{ $rtcLargePing } {
-        border-radius: calc(var(--sidebar-panel-radius-big) - 8px);
-        box-shadow: none;
-    }
+  &#{ $rtcLargePing } {
+    border-radius: calc(var(--sidebar-panel-radius-big) - 8px);
+    box-shadow: none;
+  }
 }
 
 #{ $alignChatInput } {
-    #{ $rtcConnectionQualityFine } {
-        #{ $rtcLargePing } {
-            background-color: hsl(from var(--background-feedback-positive) h s l / 0.2);
-        }
+  #{ $rtcConnectionQualityFine } {
+    #{ $rtcLargePing } {
+      background-color: hsl(
+        from var(--background-feedback-positive) h s l / 0.2
+      );
     }
+  }
 
-    #{ $rtcConnectionQualityAverage } {
-        #{ $rtcLargePing } {
-            background-color: hsl(from var(--background-feedback-warning) h s l / 0.18);
-        }
+  #{ $rtcConnectionQualityAverage } {
+    #{ $rtcLargePing } {
+      background-color: hsl(
+        from var(--background-feedback-warning) h s l / 0.18
+      );
     }
+  }
 
-    #{ $rtcConnectionQualityBad } {
-        #{ $rtcLargePing } {
-            background-color: hsl(from var(--background-feedback-critical) h s l / 0.19);
-        }
+  #{ $rtcConnectionQualityBad } {
+    #{ $rtcLargePing } {
+      background-color: hsl(
+        from var(--background-feedback-critical) h s l / 0.19
+      );
     }
+  }
 }
 
 #{ $voiceUserAvatar } {
-    &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower)"] {
-        box-shadow: inset 0 0 0 2px hsl(var(--accent-hsl)), inset 0 0 0 3px var(--background-base-lower) !important;
-    }
+  &[style*="box-shadow: 0 0 0 0px var(--status-speaking), inset 0 0 0 2px var(--status-speaking), inset 0 0 0 3px var(--background-base-lower)"] {
+    box-shadow:
+      inset 0 0 0 2px hsl(var(--accent-hsl)),
+      inset 0 0 0 3px var(--background-base-lower) !important;
+  }
 }

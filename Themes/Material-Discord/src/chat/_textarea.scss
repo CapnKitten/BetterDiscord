@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,474 +8,502 @@
  */
 
 #{ $chatForm } {
-	margin-block-start: 0 !important;
-	padding: 0;
+  margin-block-start: 0 !important;
+  padding: 0;
 
-	&:before,
-	&:after {
-		display: none;
-	}
+  &:before,
+  &:after {
+    display: none;
+  }
 
-	#{ $channelTextArea } {
-		margin-block: 12px;
-		margin-inline: 0;
-		background-color: var(--main-textarea-color);
-		border-radius: var(--main-textarea-radius);
-		border: none;
-		box-shadow: none;
+  #{ $channelTextArea } {
+    margin-block: 12px;
+    margin-inline: 0;
+    background-color: var(--main-textarea-color);
+    border-radius: var(--main-textarea-radius);
+    border: none;
+    box-shadow: none;
 
-		&#{ $channelTextAreaDisabled } {
-			opacity: 0.8;
+    &#{ $channelTextAreaDisabled } {
+      opacity: 0.8;
 
-			#{ $channelTextAreaScrollable } {
-				margin-inline-end: var(--main-textarea-inner-padding);
-				scrollbar-width: none;
-			}
+      #{ $channelTextAreaScrollable } {
+        margin-inline-end: var(--main-textarea-inner-padding);
+        scrollbar-width: none;
+      }
 
-			#{ $channelTextAreaInner } {
-				padding-inline: 0;
-			}
+      #{ $channelTextAreaInner } {
+        padding-inline: 0;
+      }
 
-			#{ $slateTextArea } {
-				margin-inline-start: var(--space-16);
-			}
+      #{ $slateTextArea } {
+        margin-inline-start: var(--space-16);
+      }
 
-			#{ $textAreaSlate } {
-				width: calc(100% + var(--scrollbar-width));
-				height: var(--custom-channel-textarea-text-area-height) !important;
-				margin-inline: 0;
-			}
+      #{ $textAreaSlate } {
+        width: calc(100% + var(--scrollbar-width));
+        height: var(--custom-channel-textarea-text-area-height) !important;
+        margin-inline: 0;
+      }
 
-			#{ $textAreaPlaceholder } {
-				line-height: var(--custom-channel-textarea-text-area-height);
-				padding: 0;
-			}
-		}
-	}
+      #{ $textAreaPlaceholder } {
+        line-height: var(--custom-channel-textarea-text-area-height);
+        padding: 0;
+      }
+    }
+  }
 
-	#{ $channelTextAreaScrollable } {
-		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-		margin-block: var(--main-textarea-inner-padding);
-		margin-inline: var(--main-textarea-inner-padding) 0;
-		background-color: var(--main-textarea-color);
-		border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
-		opacity: 1;
+  #{ $channelTextAreaScrollable } {
+    min-height: calc(
+      var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)
+    );
+    margin-block: var(--main-textarea-inner-padding);
+    margin-inline: var(--main-textarea-inner-padding) 0;
+    background-color: var(--main-textarea-color);
+    border-radius: calc(
+      var(--main-textarea-radius) - var(--main-textarea-inner-padding)
+    );
+    opacity: 1;
 
+    &#{ $channelTextAreaHasStackedBar } {
+      border-radius: 0 0 var(--main-textarea-radius)
+        calc(var(--main-textarea-radius) / 2);
+    }
+  }
 
-		&#{ $channelTextAreaHasStackedBar } {
-			border-radius: 0 0 var(--main-textarea-radius) calc(var(--main-textarea-radius) / 2);
-		}
-	}
+  #{ $textAreaSlate } {
+    min-height: calc(
+      var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)
+    );
+    margin-inline-start: calc(var(--main-textarea-inner-padding) * 2);
+    margin-inline-end: var(--main-textarea-inner-padding);
+    background-color: var(--main-textarea-inner-color);
+    border-radius: calc(
+      var(--main-textarea-radius) - var(--main-textarea-inner-padding)
+    );
+  }
 
-	#{ $textAreaSlate } {
-		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-		margin-inline-start: calc(var(--main-textarea-inner-padding) * 2);
-		margin-inline-end: var(--main-textarea-inner-padding);
-		background-color: var(--main-textarea-inner-color);
-		border-radius: calc(var(--main-textarea-radius) - var(--main-textarea-inner-padding));
-	}
+  #{ $slateTextArea } {
+    min-height: calc(
+      var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)
+    );
+    margin-inline-start: var(--main-textarea-height);
+    padding-block: calc(
+      (
+          (
+              var(--main-textarea-height) -
+                (var(--main-textarea-inner-padding) * 2)
+            ) - var(--chat-markup-line-height)
+        ) /
+        2
+    );
+    padding-inline: 0 var(--space-16);
+  }
 
-	#{ $slateTextArea } {
-		min-height: calc(var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2));
-		margin-inline-start: var(--main-textarea-height);
-		padding-block: calc(((var(--main-textarea-height) - (var(--main-textarea-inner-padding) * 2)) - var(--chat-markup-line-height)) / 2);
-		padding-inline: 0 var(--space-16);
-	}
+  #{ $textAreaDisabled } {
+    #{ $textAreaPlaceholder } {
+      padding-inline-start: 16px;
+    }
+  }
 
-	#{ $textAreaDisabled } {
-        #{ $textAreaPlaceholder } {
-            padding-inline-start: 16px;
-        }
+  #{ $channelTextAreaInner } {
+    padding-inline-start: var(--main-textarea-inner-padding);
+    padding-inline-end: calc(var(--main-textarea-inner-padding));
+    overflow: hidden;
+  }
+
+  #{ $textAreaEditor } {
+    color: var(--interactive-text-default);
+  }
+
+  #{ $channelTextAreaAttachedBar } {
+    position: relative;
+    background-color: var(--main-textarea-color);
+    border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+    border-block-end: none;
+
+    &:after {
+      position: absolute;
+      content: " ";
+      width: calc(100% - 24px);
+      height: 1px;
+      inset-inline-start: 0;
+      inset-block-end: 0;
+      margin-block: 0;
+      margin-inline: 12px;
+      background-color: var(--main-textarea-border);
     }
 
-	#{ $channelTextAreaInner } {
-		padding-inline-start: var(--main-textarea-inner-padding);
-		padding-inline-end: calc(var(--main-textarea-inner-padding));
-		overflow: hidden;
-	}
+    #{ $replyBar } {
+      background-color: transparent;
+      border-radius: 0;
+    }
 
-	#{ $textAreaEditor } {
-		color: var(--interactive-text-default);
-	}
+    #{ $replySeperator } {
+      background-color: var(--main-textarea-border);
+    }
 
-	#{ $channelTextAreaAttachedBar } {
-		position: relative;
-		background-color: var(--main-textarea-color);
-		border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
-		border-block-end: none;
+    #{ $colorLink } {
+      color: hsl(var(--accent-hsl));
+    }
 
-		&:after {
-			position: absolute;
-			content: " ";
-			width: calc(100% - 24px);
-			height: 1px;
-			inset-inline-start: 0;
-			inset-block-end: 0;
-			margin-block: 0;
-			margin-inline: 12px;
-			background-color: var(--main-textarea-border);
-		}
+    + #{ $channelTextAreaScrollable } {
+      border-radius: 0 0 var(--main-textarea-radius) var(--main-textarea-radius);
+    }
+  }
 
-		#{ $replyBar } {
-			background-color: transparent;
-			border-radius: 0;
-		}
+  #{ $channelTextAreaAttachWrapper } {
+    width: calc(
+      var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2
+    );
+    height: calc(
+      var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2
+    );
+    margin-inline-end: calc(
+      (var(--main-textarea-height) + var(--main-textarea-inner-padding)) * -1
+    );
+    padding: 0;
+    z-index: 2;
+  }
 
-		#{ $replySeperator } {
-			background-color: var(--main-textarea-border);
-		}
+  #{ $channelTextAreaAttachButton } {
+    width: inherit;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+  }
 
-		#{ $colorLink } {
-			color: hsl(var(--accent-hsl));
-		}
+  #{ $channelTextAreaAttachButtonInner } {
+    display: flex;
+    width: inherit;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
 
-		+ #{ $channelTextAreaScrollable } {
-			border-radius: 0 0 var(--main-textarea-radius) var(--main-textarea-radius);
-		}
-	}
+  #{ $channelTextAreaAttachButtonPlus } {
+    d: path(
+      "M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+    );
+    transform: translate(-12px, 12px) scale(0.025);
+  }
 
-	#{ $channelTextAreaAttachWrapper } {
-		width: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
-		height: calc(var(--main-textarea-height) - var(--main-textarea-inner-padding) * 2);
-		margin-inline-end: calc((var(--main-textarea-height) + var(--main-textarea-inner-padding)) * -1);
-		padding: 0;
-		z-index: 2;
-	}
+  #{ $channelTextAreaCommandIconWrapper } {
+    margin-inline-start: 0;
+    margin-inline-end: calc((32px + var(--main-textarea-inner-padding)) * -1);
+    z-index: 2;
+  }
 
-	#{ $channelTextAreaAttachButton } {
-		width: inherit;
-		height: inherit;
-		margin: 0;
-		padding: 0;
-	}
+  #{ $channelTextAreaCommandIcon } {
+    display: flex;
+    width: 32px;
+    height: var(--custom-channel-textarea-text-area-height);
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
 
-	#{ $channelTextAreaAttachButtonInner } {
-		display: flex;
-		width: inherit;
-		height: inherit;
-		align-items: center;
-		justify-content: center;
-		box-sizing: border-box;
-	}
+  #{ $channelTextAreaTyping } {
+    position: absolute;
+    width: calc(100% - (var(--scrollbar-width) + var(--space-32)));
+    inset-block-start: -16px;
+    inset-inline-start: 0;
+    margin-block-start: 0;
+    padding-block: 0;
+    padding-inline: var(--space-16);
+    background-color: var(--typing-color);
+    transition: 200ms ease-in-out;
 
-	#{ $channelTextAreaAttachButtonPlus } {
-		d: path("M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z");
-        transform: translate(-12px, 12px) scale(0.025);
-	}
-
-	#{ $channelTextAreaCommandIconWrapper } {
-		margin-inline-start: 0;
-		margin-inline-end: calc((32px + var(--main-textarea-inner-padding)) * -1);
-		z-index: 2;
-	}
-
-	#{ $channelTextAreaCommandIcon } {
-		display: flex;
-		width: 32px;
-		height: var(--custom-channel-textarea-text-area-height);
-		padding: 0;
-		align-items: center;
-		justify-content: center;
-	}
-
-	#{ $channelTextAreaTyping } {
-		position: absolute;
-		width: calc(100% - (var(--scrollbar-width) + var(--space-32)));
-		inset-block-start: -16px;
-		inset-inline-start: 0;
-		margin-block-start: 0;
-		padding-block: 0;
-		padding-inline: var(--space-16);
-		background-color: var(--typing-color);
-		transition: 200ms ease-in-out;
-
-		#{ $channelTextAreaSlowModeIcon } {
-			margin-inline-end: 8px;
-		}
-	}
+    #{ $channelTextAreaSlowModeIcon } {
+      margin-inline-end: 8px;
+    }
+  }
 }
 
 #{ $textAreaPlaceholder } {
-	color: var(--text-muted);
+  color: var(--text-muted);
 }
 
 #{ $channelTextAreaFloatingBars } {
-    &:empty {
-        + #{ $channelTextAreaStackedBars }:nth-child(2) {
-            border-top-left-radius: var(--main-textarea-radius);
-            border-top-right-radius: var(--main-textarea-radius);
-        }
+  &:empty {
+    + #{ $channelTextAreaStackedBars }:nth-child(2) {
+      border-top-left-radius: var(--main-textarea-radius);
+      border-top-right-radius: var(--main-textarea-radius);
     }
+  }
 }
 
 #{ $channelTextAreaStackedBars } {
-	position: relative;
-    background-color: var(--main-textarea-color);
+  position: relative;
+  background-color: var(--main-textarea-color);
+  border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+
+  &:after {
+    position: absolute;
+    content: " ";
+    width: calc(100% - 24px);
+    height: 1px;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    margin-block: 0;
+    margin-inline: 12px;
+    background-color: var(--separator-color);
+  }
+
+  &:first-child {
     border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
+  }
 
-	&:after {
-		position: absolute;
-		content: " ";
-		width: calc(100% - 24px);
-		height: 1px;
-		inset-block-end: 0;
-		inset-inline-start: 0;
-		margin-block: 0;
-		margin-inline: 12px;
-		background-color: var(--separator-color);
-	}
+  &:not(:last-child) {
+    border-block-end: none;
+  }
 
-	&:first-child {
-		border-radius: var(--main-textarea-radius) var(--main-textarea-radius) 0 0;
-	}
-
-	&:not(:last-child) {
-		border-block-end: none;
-	}
-
-    #{ $replyBar } {
-        background: transparent;
-    }
+  #{ $replyBar } {
+    background: transparent;
+  }
 }
 
 #{ $channelAccessoryBar } {
-	margin-block: 0;
-	margin-inline: 12px;
-	padding-block: 0;
-	padding-inline: 4px;
-	padding: 0 4px;
-	border-color: var(--separator-color);
+  margin-block: 0;
+  margin-inline: 12px;
+  padding-block: 0;
+  padding-inline: 4px;
+  padding: 0 4px;
+  border-color: var(--separator-color);
 }
 
 #{ $channelAttachmentArea } {
-	padding: 12px;
-	background-color: transparent;
+  padding: 12px;
+  background-color: transparent;
 }
 
 #{ $replyMentionButton } {
-	--text-link: hsl(var(--reply-hsl));
+  --text-link: hsl(var(--reply-hsl));
 }
 
 #{ $replySuggestion } {
-	position: relative;
-	background-color: transparent;
-	border: none;
+  position: relative;
+  background-color: transparent;
+  border: none;
 
-	&:before {
-		position: absolute;
-		content: " ";
-		width: calc(100% - 24px);
-		height: 1px;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		margin-block: 0;
-		margin-inline: 12px;
-		background-color: var(--main-textarea-border);
-	}
+  &:before {
+    position: absolute;
+    content: " ";
+    width: calc(100% - 24px);
+    height: 1px;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    margin-block: 0;
+    margin-inline: 12px;
+    background-color: var(--main-textarea-border);
+  }
 
-	#{ $replySuggestionCreateThreadButton } {
-		color: hsl(var(--accent-hsl)) !important;
-	}
+  #{ $replySuggestionCreateThreadButton } {
+    color: hsl(var(--accent-hsl)) !important;
+  }
 }
 
 #{ $channelTextAreaSendButton } {
-	#{ $channelTextAreaSendButtonActive } {
-		color: hsl(var(--accent-hsl--material-you)) !important;
-	}
+  #{ $channelTextAreaSendButtonActive } {
+    color: hsl(var(--accent-hsl--material-you)) !important;
+  }
 
-	#{ $channelTextAreaSendButtonIcon } {
-		padding-block-start: 0;
+  #{ $channelTextAreaSendButtonIcon } {
+    padding-block-start: 0;
 
-		path {
-			d: path("M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z");
-		}
-	}
+    path {
+      d: path(
+        "M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z"
+      );
+    }
+  }
 }
 
 #{ $applicationCommandEducation } {
-	inset-block-start: -12px;
-	inset-block-end: unset;
-	background-color: var(--typing-color);
+  inset-block-start: -12px;
+  inset-block-end: unset;
+  background-color: var(--typing-color);
 
-	#{ $applicationCommandEducationArrow } {
-		transform: rotate(180deg) scaleX(-100%);
-	}
+  #{ $applicationCommandEducationArrow } {
+    transform: rotate(180deg) scaleX(-100%);
+  }
 }
 
 #{ $channelInfo } {
-	height: var(--main-textarea-height);
-	margin-block: 12px;
-	margin-inline: 16px;
-	padding: 0;
-	background-color: var(--main-textarea-color);
-	border-radius: var(--main-textarea-radius);
-	border: none;
+  height: var(--main-textarea-height);
+  margin-block: 12px;
+  margin-inline: 16px;
+  padding: 0;
+  background-color: var(--main-textarea-color);
+  border-radius: var(--main-textarea-radius);
+  border: none;
 
-	#{ $channelInfoButtonContainer } {
-		margin-inline-end: 4px;
-	}
+  #{ $channelInfoButtonContainer } {
+    margin-inline-end: 4px;
+  }
 }
 
 #{ $fakeLink } {
-	color: hsl(var(--accent-hsl));
+  color: hsl(var(--accent-hsl));
 }
 
 #{ $channelTextAreaUpload } {
-	@include card-format(false, 8px, true);
-	box-shadow: none;
+  @include card-format(false, 8px, true);
+  box-shadow: none;
 
-	#{ $channelTextAreaUploadImage } {
-		border-radius: var(--card-radius-big);
-	}
+  #{ $channelTextAreaUploadImage } {
+    border-radius: var(--card-radius-big);
+  }
 
-	#{ $messageButtonWrapper } {
-		background-color: var(--popout-color);
-        box-shadow: var(--shadow-medium) !important;
+  #{ $messageButtonWrapper } {
+    background-color: var(--popout-color);
+    box-shadow: var(--shadow-medium) !important;
 
-		&:hover {
-			box-shadow: var(--shadow-medium);
-		}
-	}
+    &:hover {
+      box-shadow: var(--shadow-medium);
+    }
+  }
 
-	#{ $channelTextAreaUploadAltTag } {
-		border-radius: 10px;
-	}
+  #{ $channelTextAreaUploadAltTag } {
+    border-radius: 10px;
+  }
 }
 
 #{ $channelTextAreaUploadSpoiler } {
-	filter: blur(22px);
+  filter: blur(22px);
 }
 
 #{ $channelBottomBarArea } {
-	margin: 0;
-	padding-block: 0;
-	padding-inline: var(--space-16);
-	gap: 12px;
+  margin: 0;
+  padding-block: 0;
+  padding-inline: var(--space-16);
+  gap: 12px;
 
-	+ span + #{ $channelTextAreaTyping },
-	+ #{ $channelTextAreaTyping } {
-		position: absolute;
-		width: calc(100% - (var(--scrollbar-width) + (var(--space-16) * 3)));
-		inset-inline-start: unset;
-		inset-inline-end: var(--space-16);
-		background-color: var(--typing-color);
-	}
+  + span + #{ $channelTextAreaTyping },
+  + #{ $channelTextAreaTyping } {
+    position: absolute;
+    width: calc(100% - (var(--scrollbar-width) + (var(--space-16) * 3)));
+    inset-inline-start: unset;
+    inset-inline-end: var(--space-16);
+    background-color: var(--typing-color);
+  }
 }
 
 #{ $messagesErrorBar } {
-	background-color: hsl(var(--alert-hsl));
-	border-radius: 22px;
-	border: none;
-	color: var(--alert-text-color);
-	box-shadow: var(--shadow-medium);
+  background-color: hsl(var(--alert-hsl));
+  border-radius: 22px;
+  border: none;
+  color: var(--alert-text-color);
+  box-shadow: var(--shadow-medium);
 }
 
 /* MAIN TEXTAREA -> APPS AND COMMANDS BUTTON */
 
 #{ $channelAppLauncher } {
-	width: var(--space-32);
-	height: auto;
-	margin: 0;
-	padding: 0;
+  width: var(--space-32);
+  height: auto;
+  margin: 0;
+  padding: 0;
 
-    #{ $channelAppLauncherButton } {
-        background-color: transparent;
-        border-radius: 50%;
-        transition: var(--default-time) var(--default-animation) background;
+  #{ $channelAppLauncherButton } {
+    background-color: transparent;
+    border-radius: 50%;
+    transition: var(--default-time) var(--default-animation) background;
 
-		&:hover {
-			background-color: transparent;
-		}
+    &:hover {
+      background-color: transparent;
     }
+  }
 }
 
 /* MAIN TEXTAREA -> BOT COMMANDS */
 
 #{ $channelEntryPointButtonContainer } {
-	margin: auto;
+  margin: auto;
 }
 
 #{ $channelEntryPointAppButtonContainer } {
-    --button-height: var(--main-textarea-height);
-	--button-padding-start: 0;
-	--button-padding-end: 0;
-    --button-radius: calc(var(--button-height) / 2);
+  --button-height: var(--main-textarea-height);
+  --button-padding-start: 0;
+  --button-padding-end: 0;
+  --button-radius: calc(var(--button-height) / 2);
 
-	margin-inline-start: 0;
+  margin-inline-start: 0;
 }
 
 /* MAIN TEXTAREA -> INVITE TO GAME */
 
 #{ $activityInviteEducation } {
-    inset-block-start: -14px;
-	padding-inline-start: calc(22px + var(--main-textarea-inner-padding));
-    overflow: visible;
+  inset-block-start: -14px;
+  padding-inline-start: calc(22px + var(--main-textarea-inner-padding));
+  overflow: visible;
 
-    #{ $activityInviteEducationArrow } {
-        transform: rotateX(180deg) translateY(-2px);
-    }
+  #{ $activityInviteEducationArrow } {
+    transform: rotateX(180deg) translateY(-2px);
+  }
 
-    span {
-		padding-block: 2px;
-		padding-inline: 8px;
-        background-color: var(--popout-color);
-        border-radius: 12px;
-        box-shadow: var(--shadow-medium);
-    }
+  span {
+    padding-block: 2px;
+    padding-inline: 8px;
+    background-color: var(--popout-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+  }
 }
 
 /* MAIN TEXTAREA -> SPAM FILTER */
 
 #{ $timeoutBar } {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	margin-block: 12px;
-	margin-inline: 16px;
-	padding-block: 4px;
-	padding-inline: 8px;
-	background-color: var(--main-textarea-color);
-	border: 1px solid var(--main-textarea-border);
-	border-radius: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-block: 12px;
+  margin-inline: 16px;
+  padding-block: 4px;
+  padding-inline: 8px;
+  background-color: var(--main-textarea-color);
+  border: 1px solid var(--main-textarea-border);
+  border-radius: 28px;
 
-	#{ $timeoutBarTextContainer } {
-		margin-block: 0;
-		margin-inline: 0 8px;
-	}
+  #{ $timeoutBarTextContainer } {
+    margin-block: 0;
+    margin-inline: 0 8px;
+  }
 
-	#{ $timeoutBarActionButtons } {
-		width: auto;
-		margin: 0;
-	}
+  #{ $timeoutBarActionButtons } {
+    width: auto;
+    margin: 0;
+  }
 }
 
 /* MAIN TEXTAREA -> INTRODUCTION */
 
 #{ $chatIntroductionBanner } {
-    margin-block-start: 12px;
-	padding-block: 12px;
-	padding-inline: 16px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  margin-block-start: 12px;
+  padding-block: 12px;
+  padding-inline: 16px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 
-    #{ $textMdSemibold } {
-        font-weight: 500;
+  #{ $textMdSemibold } {
+    font-weight: 500;
+  }
+
+  #{ $iconCircle } {
+    width: var(--button-height);
+    height: var(--button-height);
+    background-color: hsl(var(--accent-hsl--material-you));
+    border-radius: var(--button-radius);
+
+    #{ $nextIcon } {
+      width: 20px;
+      height: 20px;
+
+      polygon {
+        fill: var(--accent-text-color--material-you);
+      }
     }
-
-    #{ $iconCircle } {
-        width: var(--button-height);
-        height: var(--button-height);
-        background-color: hsl(var(--accent-hsl--material-you));
-        border-radius: var(--button-radius);
-
-        #{ $nextIcon } {
-            width: 20px;
-            height: 20px;
-
-			polygon {
-				fill: var(--accent-text-color--material-you);
-			}
-        }
-    }
+  }
 }
 
 /* MAIN TEXTAREA -> BUTTONS */
@@ -483,17 +511,17 @@
 #{ $channelTextAreaButton },
 #{ $channelAppLauncherButton },
 #{ $spriteGreyscale } {
-	--interactive-text-default: var(--main-textarea-button-color);
-	--interactive-hover: var(--main-textarea-button-color);
-	--interactive-active: var(--main-textarea-button-color);
+  --interactive-text-default: var(--main-textarea-button-color);
+  --interactive-hover: var(--main-textarea-button-color);
+  --interactive-active: var(--main-textarea-button-color);
 }
 
 #{ $channelTextAreaButton },
 #{ $channelAppLauncherButton } {
-	display: flex;
-	min-height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  min-height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
+  justify-content: center;
+  align-items: center;
 }
 
 /* MAIN TEXTAREA -> BUTTON RIPPLE */
@@ -501,37 +529,37 @@
 #{ $channelTextAreaButtonInner },
 #{ $channelTextAreaEmojiButton },
 #{ $channelAppLauncher } {
-    @include md-ripple(hover, before, 1.0);
+  @include md-ripple(hover, before, 1);
 }
 
 #{ $channelTextAreaButtonInner } {
-    &#{ $channelTextAreaAttachButton } {
-        &:hover {
-			&:before {
-				transform: scale(0.8);
-			}
-		}
+  &#{ $channelTextAreaAttachButton } {
+    &:hover {
+      &:before {
+        transform: scale(0.8);
+      }
     }
+  }
 }
 
 #{ $channelTextAreaButtonInner }:not(#{ $channelTextAreaButtonInnerNoHover }),
 #{ $channelTextAreaAttachButtonInner },
 #{ $channelTextAreaEmojiButton },
 #{ $channelAppLauncherButtonContainer } {
-    &:hover {
-        background-color: transparent;
-    }
+  &:hover {
+    background-color: transparent;
+  }
 }
 
 #{ $channelTextAreaButtonsContainer } {
-	gap: var(--space-4);
-	align-items: center;
-	justify-content: center;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: center;
 
-    #{ $channelTextAreaButtonInner },
-    #{ $channelTextAreaEmojiButton },
-    #{ $channelAppLauncher } {
-		height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
-        min-width: calc(var(--custom-channel-textarea-text-area-height) - 6px);
-    }
+  #{ $channelTextAreaButtonInner },
+  #{ $channelTextAreaEmojiButton },
+  #{ $channelAppLauncher } {
+    height: calc(var(--custom-channel-textarea-text-area-height) - 6px);
+    min-width: calc(var(--custom-channel-textarea-text-area-height) - 6px);
+  }
 }

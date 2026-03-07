@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,172 +8,172 @@
  */
 
 #{ $clipsSettingsButton } {
-    width: var(--button-height);
-    height: var(--button-height);
-    margin-inline-end: 32px;
+  width: var(--button-height);
+  height: var(--button-height);
+  margin-inline-end: 32px;
 
-    + #{ $modalCloseButton } {
-        inset-block-start: 28px !important;
-    }
+  + #{ $modalCloseButton } {
+    inset-block-start: 28px !important;
+  }
 }
 
 #{ $clipItem } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  filter: none;
+  transition: var(--default-time) var(--default-animation) background-color;
+
+  &:hover {
+    background-color: var(--card-color-active);
     filter: none;
-    transition: var(--default-time) var(--default-animation) background-color;
+  }
 
-    &:hover {
-        background-color: var(--card-color-active);
-        filter: none;
-    }
+  &:focus-within {
+    background-color: var(--card-color-active);
+  }
 
-    &:focus-within {
-        background-color: var(--card-color-active);
-    }
-
-    #{ $input } {
-        --input-color: var(--card-color-hover) !important;
-    }
+  #{ $input } {
+    --input-color: var(--card-color-hover) !important;
+  }
 }
 
 #{ $clipThumb } {
-    background-color: var(--card-color-alt);
-    border-radius: calc(var(--card-radius-big) / 1.8);
+  background-color: var(--card-color-alt);
+  border-radius: calc(var(--card-radius-big) / 1.8);
 }
 
 #{ $clipBadge } {
-    background-color: var(--card-button-color);
-    border-radius: calc(var(--card-radius-big) / 3);
+  background-color: var(--card-button-color);
+  border-radius: calc(var(--card-radius-big) / 3);
 }
 
 #{ $clipItemButtonContainer } {
-    display: flex;
+  display: flex;
 
-    #{ $button } {
-        width: var(--button-height);
-        height: var(--button-height);
-        padding: 0;
+  #{ $button } {
+    width: var(--button-height);
+    height: var(--button-height);
+    padding: 0;
 
-        &:first-child {
-            --button-background: hsl(var(--alert-hsl));
-            --button-text-color: var(--alert-text-color);
-        }
+    &:first-child {
+      --button-background: hsl(var(--alert-hsl));
+      --button-text-color: var(--alert-text-color);
     }
+  }
 }
 
 /* CLIPS MODALS -> EDIT CLIP */
 
 #{ $timelineCenterWrapper } {
-    transform: translateY(6px);
+  transform: translateY(6px);
 }
 
 #{ $timePillBackground } {
-    background-color: hsl(var(--accent-hsl--material-you));
+  background-color: hsl(var(--accent-hsl--material-you));
 
-    #{ $timePillText } {
-        font-weight: 500;
-        color: var(--accent-text-color--material-you) !important;
-    }
+  #{ $timePillText } {
+    font-weight: 500;
+    color: var(--accent-text-color--material-you) !important;
+  }
 }
 
 #{ $playPauseButtonWrapper } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
 }
 
 #{ $playerTimelineBackground } {
-    border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
+  border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
 }
 
 #{ $playerDragBox } {
-    border-color: hsl(var(--accent-hsl--material-you));
+  border-color: hsl(var(--accent-hsl--material-you));
 }
 
 #{ $playerDragHandle } {
-    background-color: hsl(var(--accent-hsl--material-you));
+  background-color: hsl(var(--accent-hsl--material-you));
 
-    &#{ $playerDragHandleLeft } {
-        border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
-    }
+  &#{ $playerDragHandleLeft } {
+    border-radius: var(--card-radius-big) 0 0 var(--card-radius-big);
+  }
 
-    &#{ $playerDragHandleRight } {
-        border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
-    }
+  &#{ $playerDragHandleRight } {
+    border-radius: 0 var(--card-radius-big) var(--card-radius-big) 0;
+  }
 
-    #{ $playerCropLeftArrow },
-    #{ $playerCropRightArrow } {
-        width: 20px;
-        height: 20px;
-        background-image: none;
-        background-color: var(--accent-text-color--material-you);
-        -webkit-mask-repeat: no-repeat;
-    }
+  #{ $playerCropLeftArrow },
+  #{ $playerCropRightArrow } {
+    width: 20px;
+    height: 20px;
+    background-image: none;
+    background-color: var(--accent-text-color--material-you);
+    -webkit-mask-repeat: no-repeat;
+  }
 
-    #{ $playerCropLeftArrow } {
-        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_left.svg);
-    }
+  #{ $playerCropLeftArrow } {
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_left.svg);
+  }
 
-    #{ $playerCropRightArrow } {
-        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_right.svg);
-    }
+  #{ $playerCropRightArrow } {
+    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/chevron_right.svg);
+  }
 }
 
 #{ $playhead } {
-    background-color: hsl(var(--accent-hsl--material-you));
-    box-shadow: var(--shadow-2dp);
+  background-color: hsl(var(--accent-hsl--material-you));
+  box-shadow: var(--shadow-2dp);
 }
 
 #{ $clipForm } {
-    @include card-format(false, 0, true);
+  @include card-format(false, 0, true);
 
-    #{ $modalSettingsContainer } {
-        margin-block-end: 16px !important;
+  #{ $modalSettingsContainer } {
+    margin-block-end: 16px !important;
+  }
+
+  #{ $clipFormRoot },
+  #{ $clipFormUserList } {
+    background-color: var(--card-color-active);
+    border-radius: var(--card-radius-big);
+  }
+
+  #{ $clipFormNameSection } {
+    border-block-end: none;
+  }
+
+  #{ $clipFormTimeContainer } {
+    padding: 0 8px 8px;
+    gap: 8px;
+
+    > div {
+      position: relative;
+      height: auto;
+      padding: 12px;
+      background-color: var(--card-color-filled);
+      border-radius: calc(var(--card-radius-big) / 1.8);
+      text-align: center;
+
+      &:first-child {
+        border-inline-end: none;
+      }
     }
+  }
 
-    #{ $clipFormRoot },
-    #{ $clipFormUserList } {
-        background-color: var(--card-color-active);
-        border-radius: var(--card-radius-big);
-    }
-
-    #{ $clipFormNameSection } {
-        border-block-end: none;
-    }
-
-    #{ $clipFormTimeContainer } {
-        padding: 0 8px 8px;
-        gap: 8px;
-
-        > div {
-            position: relative;
-            height: auto;
-            padding: 12px;
-            background-color: var(--card-color-filled);
-            border-radius: calc(var(--card-radius-big) / 1.8);
-            text-align: center;
-
-            &:first-child {
-                border-inline-end: none;
-            }
-        }
-    }
-
-    #{ $clipFormUserCountPill } {
-        background-color: var(--card-color-filled);
-    }
+  #{ $clipFormUserCountPill } {
+    background-color: var(--card-color-filled);
+  }
 }
 
 /* CLIPS MODAL -> RECENT CLIPS POPOUT */
 
 #{ $recentClipsPopout } {
-    @include popout-format;
+  @include popout-format;
 
-    &:after {
-        border-top-color: var(--popout-color);
-    }
+  &:after {
+    border-top-color: var(--popout-color);
+  }
 
-    #{ $recentClipsThumbnail } {
-        border-radius: var(--card-radius);
-    }
+  #{ $recentClipsThumbnail } {
+    border-radius: var(--card-radius);
+  }
 }

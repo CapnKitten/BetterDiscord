@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,105 +7,107 @@
  */
 
 #{ $modViewProfileThemedContainer } {
-    border-radius: var(--card-radius-big) !important;
+  border-radius: var(--card-radius-big) !important;
 
-    #{ $keybindKeyComboContainer } {
-        background-color: transparent;
+  #{ $keybindKeyComboContainer } {
+    background-color: transparent;
+  }
+
+  #{ $keybindShortcutKey } {
+    background-color: var(--profile-gradient-primary-color);
+    color: var(--interactive-text-default) !important;
+  }
+
+  #{ $searchResult } {
+    background-color: transparent !important;
+    box-shadow: none;
+
+    #{ $messagesWrapper } {
+      --message-color: var(--profile-gradient-overlay-color);
+      --message-color-hover: var(--profile-gradient-overlay-color);
+
+      margin: 0 0 0 50px !important;
     }
+  }
 
-    #{ $keybindShortcutKey } {
-        background-color: var(--profile-gradient-primary-color);
-        color: var(--interactive-text-default) !important;
+  #{ $searchResultsButtonsContainer } {
+    background-color: transparent !important;
+    box-shadow: none;
+
+    #{ $searchResultJumpButton } {
+      background-color: var(--profile-gradient-button-color);
+      color: var(--white-500);
     }
-
-    #{ $searchResult } {
-        background-color: transparent !important;
-        box-shadow: none;
-
-        #{ $messagesWrapper } {
-            --message-color: var(--profile-gradient-overlay-color);
-            --message-color-hover: var(--profile-gradient-overlay-color);
-
-            margin: 0 0 0 50px !important;
-        }
-    }
-
-    #{ $searchResultsButtonsContainer } {
-        background-color: transparent !important;
-        box-shadow: none;
-
-        #{ $searchResultJumpButton } {
-            background-color: var(--profile-gradient-button-color);
-            color: var(--white-500);
-        }
-    }
+  }
 }
 
 #{ $modViewTopUserInfoContainer } {
-    background-color: var(--profile-gradient-overlay-color);
+  background-color: var(--profile-gradient-overlay-color);
+  border-radius: calc(var(--card-radius-big) / 1.75);
+  box-shadow: none;
+
+  + div:not([class]) {
     border-radius: calc(var(--card-radius-big) / 1.75);
-    box-shadow: none;
+  }
 
-    + div:not([class]) {
-        border-radius: calc(var(--card-radius-big) / 1.75);
+  #{ $modViewTopRow },
+  #{ $modViewBottomRowAction } {
+    background-color: transparent !important;
+  }
+
+  #{ $modViewBottomRow } {
+    margin: 8px;
+  }
+
+  #{ $modViewInnerBottomRowAction } {
+    border-radius: calc((var(--card-radius-big) / 1.75) / 1.5);
+    transition:
+      var(--default-time) var(--default-animation) background-color,
+      var(--default-time) var(--default-animation) color;
+
+    &:hover {
+      background-color: var(--profile-gradient-overlay-color);
     }
-
-    #{ $modViewTopRow },
-    #{ $modViewBottomRowAction } {
-        background-color: transparent !important;
-    }
-
-    #{ $modViewBottomRow } {
-        margin: 8px;
-    }
-
-    #{ $modViewInnerBottomRowAction } {
-        border-radius: calc((var(--card-radius-big) / 1.75) / 1.5);
-        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
-
-        &:hover {
-            background-color: var(--profile-gradient-overlay-color);
-        }
-    }
+  }
 }
 
 #{ $modViewBottomUserInfoContainer } {
-    background-color: var(--profile-gradient-overlay-color) !important;
-    border-radius: calc(var(--card-radius-big) / 1.75);
+  background-color: var(--profile-gradient-overlay-color) !important;
+  border-radius: calc(var(--card-radius-big) / 1.75);
 
-    #{ $modViewBottomUserInfoHeader } {
-        background-color: transparent !important;
-        box-shadow: none;
-    }
+  #{ $modViewBottomUserInfoHeader } {
+    background-color: transparent !important;
+    box-shadow: none;
+  }
 }
 
 #{ $modViewModInfoItemContainer } {
+  box-shadow: none;
+
+  #{ $modViewModInfoItem } {
+    margin-block-end: 2px;
+    background-color: var(--profile-gradient-overlay-color);
+    border-radius: 4px;
     box-shadow: none;
 
-    #{ $modViewModInfoItem } {
-        margin-block-end: 2px;
-        background-color: var(--profile-gradient-overlay-color);
-        border-radius: 4px;
-        box-shadow: none;
-
-        &:first-child {
-            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
-        }
-
-        &:last-child {
-            margin-block-end: 0;
-            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
-        }
-
-        &:only-child {
-            margin-block-end: 0;
-            border-radius: var(--card-radius-big);
-        }
+    &:first-child {
+      border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
     }
 
-    #{ $modViewModInfoAction } {
-        &:hover {
-            background-color: var(--profile-gradient-primary-color);
-        }
+    &:last-child {
+      margin-block-end: 0;
+      border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
     }
+
+    &:only-child {
+      margin-block-end: 0;
+      border-radius: var(--card-radius-big);
+    }
+  }
+
+  #{ $modViewModInfoAction } {
+    &:hover {
+      background-color: var(--profile-gradient-primary-color);
+    }
+  }
 }

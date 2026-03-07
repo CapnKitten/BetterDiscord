@@ -32,70 +32,103 @@
 @else@*/
 
 module.exports = (() => {
-	const config = {
-		info: {
-			name: "HideChannels",
-			authors: [
-				{
-					name: "CapnKitten",
-					discord_id: "405126960902176768",
-					github_username: "CapnKitten"
-				}
-			],
-			version: "1.0.7",
-			description: "Allows you to hide the channels list in servers and DMs.",
-			github: "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/HideChannels/HideChannels.plugin.js",
-			github_raw: "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js"
-		},
-		changelog: [
-			{
-				title: "Discord Fixes",
-				type: "added",
-				items: [
-					"Fixed the stuff Discord broke"
-				]
-			}
-		]
-	};
+  const config = {
+    info: {
+      name: "HideChannels",
+      authors: [
+        {
+          name: "CapnKitten",
+          discord_id: "405126960902176768",
+          github_username: "CapnKitten",
+        },
+      ],
+      version: "1.0.7",
+      description: "Allows you to hide the channels list in servers and DMs.",
+      github:
+        "https://github.com/CapnKitten/BetterDiscord/blob/master/Plugins/HideChannels/HideChannels.plugin.js",
+      github_raw:
+        "https://raw.githubusercontent.com/CapnKitten/BetterDiscord/master/Plugins/HideChannels/HideChannels.plugin.js",
+    },
+    changelog: [
+      {
+        title: "Discord Fixes",
+        type: "added",
+        items: ["Fixed the stuff Discord broke"],
+      },
+    ],
+  };
 
-	return !global.ZeresPluginLibrary ? class {
-		constructor() { this._config = config; }
-		getName() { return config.info.name; }
-		getAuthor() { return config.info.authors.map(a => a.name).join(", "); }
-		getDescription() { return config.info.description; }
-		getVersion() { return config.info.version; }
-		load() {
-			BdApi.showConfirmationModal("Library plugin is needed",
-				[`The library plugin needed for ${config.info.name} is missing. Please click Download Now to install it.`], {
-				confirmText: "Download",
-				cancelText: "Cancel",
-				onConfirm: () => {
-					require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
-					if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
-						await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
-					});
-				}
-			});
-		}
-		start() { }
-		stop() { }
-	} : (([Plugin, Api]) => {
-		const plugin = (Plugin, Api) => {
-			const { Settings, PluginUtilities, Patcher } = Api;
-			const { SettingPanel, SettingGroup, SettingField, Textbox, Switch } = Settings;
+  return !global.ZeresPluginLibrary
+    ? class {
+        constructor() {
+          this._config = config;
+        }
+        getName() {
+          return config.info.name;
+        }
+        getAuthor() {
+          return config.info.authors.map((a) => a.name).join(", ");
+        }
+        getDescription() {
+          return config.info.description;
+        }
+        getVersion() {
+          return config.info.version;
+        }
+        load() {
+          BdApi.showConfirmationModal(
+            "Library plugin is needed",
+            [
+              `The library plugin needed for ${config.info.name} is missing. Please click Download Now to install it.`,
+            ],
+            {
+              confirmText: "Download",
+              cancelText: "Cancel",
+              onConfirm: () => {
+                require("request").get(
+                  "https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js",
+                  async (error, response, body) => {
+                    if (error)
+                      return require("electron").shell.openExternal(
+                        "https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js",
+                      );
+                    await new Promise((r) =>
+                      require("fs").writeFile(
+                        require("path").join(
+                          BdApi.Plugins.folder,
+                          "0PluginLibrary.plugin.js",
+                        ),
+                        body,
+                        r,
+                      ),
+                    );
+                  },
+                );
+              },
+            },
+          );
+        }
+        start() {}
+        stop() {}
+      }
+    : (([Plugin, Api]) => {
+        const plugin = (Plugin, Api) => {
+          const { Settings, PluginUtilities, Patcher } = Api;
+          const { SettingPanel, SettingGroup, SettingField, Textbox, Switch } =
+            Settings;
 
-			const buttonName = 'toggleChannels',
-				buttonHideName = 'channelsVisible',
-				buttonShowName = 'channelsHidden',
-				hideElementsName = 'hideElement',
-				targetElement = '.container-ZMc96U',
-				sidebarName = '.sidebar-1tnWFu';
+          const buttonName = "toggleChannels",
+            buttonHideName = "channelsVisible",
+            buttonShowName = "channelsHidden",
+            hideElementsName = "hideElement",
+            targetElement = ".container-ZMc96U",
+            sidebarName = ".sidebar-1tnWFu";
 
-			return class HideChannels extends Plugin {
-
-				onStart() {
-					PluginUtilities.addStyle(config.info.name + 'CSS',
-						`
+          return class HideChannels extends Plugin {
+            onStart() {
+              PluginUtilities.addStyle(
+                config.info.name + "CSS",
+                `
 						#toggleChannels { position: absolute; width: 24px; height: 24px; top: 0; left: 8px; bottom: 0; margin: auto 0; background-position: center; background-size: 100%; opacity: 0.8; z-index: 2; cursor: pointer; }
 						.theme-dark #toggleChannels.channelsVisible { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTE4LjQxIDE2LjU5TDEzLjgyIDEybDQuNTktNC41OUwxNyA2bC02IDYgNiA2ek02IDZoMnYxMkg2eiIvPjxwYXRoIGQ9Ik0yNCAyNEgwVjBoMjR2MjR6IiBmaWxsPSJub25lIi8+PC9zdmc+); }
 						.theme-dark #toggleChannels.channelsHidden { background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTUuNTkgNy40MUwxMC4xOCAxMmwtNC41OSA0LjU5TDcgMThsNi02LTYtNnpNMTYgNmgydjEyaC0yeiIvPjwvc3ZnPg==); }
@@ -109,108 +142,110 @@ module.exports = (() => {
 						.sidebar-1tnWFu.hideElement + .chat-3bRxxu .messagesWrapper-1sRNjr + .form-2fGMdU { margin-left: 240px; }
 						.sidebar-1tnWFu, .hideElement { transition: width 400ms ease; }
 						.children-3xh0VB { padding-left: 24px; }
-						.form-2fGMdU:before { background: var(--background-primary) !important; }`
-					);
+						.form-2fGMdU:before { background: var(--background-primary) !important; }`,
+              );
 
-					this.renderButton();
-					this.addExtras();
-				}
+              this.renderButton();
+              this.addExtras();
+            }
 
-				onStop() {
-					PluginUtilities.removeStyle(config.info.name + 'CSS');
-					Patcher.unpatchAll();
+            onStop() {
+              PluginUtilities.removeStyle(config.info.name + "CSS");
+              Patcher.unpatchAll();
 
-					this.removeExtras();
-				}
+              this.removeExtras();
+            }
 
-				onSwitch() {
-					const checkButton = document.getElementById(buttonName);
-					if (!checkButton) this.renderButton();
-				}
+            onSwitch() {
+              const checkButton = document.getElementById(buttonName);
+              if (!checkButton) this.renderButton();
+            }
 
-				renderButton() {
-					const button = document.createElement('div'),
-						titleBar = document.querySelector(targetElement),
-						settings = this.loadSettings();
+            renderButton() {
+              const button = document.createElement("div"),
+                titleBar = document.querySelector(targetElement),
+                settings = this.loadSettings();
 
-					var buttonClass;
+              var buttonClass;
 
-					if (settings.HideChannels.channelsHidden == true)
-						buttonClass = buttonShowName;
-					else
-						buttonClass = buttonHideName;
+              if (settings.HideChannels.channelsHidden == true)
+                buttonClass = buttonShowName;
+              else buttonClass = buttonHideName;
 
-					button.setAttribute('id', buttonName);
-					button.setAttribute('class', buttonClass);
+              button.setAttribute("id", buttonName);
+              button.setAttribute("class", buttonClass);
 
-					titleBar.append(button);
+              titleBar.append(button);
 
-					let buttonAction = document.getElementById(buttonName);
-					buttonAction.addEventListener('click', ()=> this.toggleChannels());
+              let buttonAction = document.getElementById(buttonName);
+              buttonAction.addEventListener("click", () =>
+                this.toggleChannels(),
+              );
+            }
 
-				}
+            toggleChannels() {
+              const button = document.getElementById(buttonName),
+                sidebar = document.querySelector(sidebarName);
 
-				toggleChannels() {
-					const button = document.getElementById(buttonName),
-						sidebar = document.querySelector(sidebarName);
+              if (button.classList.contains(buttonHideName)) {
+                button.setAttribute("class", buttonShowName);
+                sidebar.classList.add(hideElementsName);
 
-					if (button.classList.contains(buttonHideName)) {
-						button.setAttribute('class', buttonShowName);
-						sidebar.classList.add(hideElementsName);
+                this.saveSettings(true);
+              } else if (button.classList.contains(buttonShowName)) {
+                button.setAttribute("class", buttonHideName);
+                sidebar.classList.remove(hideElementsName);
 
-						this.saveSettings(true);
-					} else if (button.classList.contains(buttonShowName)) {
-						button.setAttribute('class', buttonHideName);
-						sidebar.classList.remove(hideElementsName);
+                this.saveSettings(false);
+              }
+            }
 
-						this.saveSettings(false);
-					}
-				}
+            addExtras() {
+              const sidebar = document.querySelector(sidebarName),
+                settings = this.loadSettings();
 
-				addExtras() {
-					const sidebar = document.querySelector(sidebarName),
-						settings = this.loadSettings();
+              if (settings.HideChannels.channelsHidden == true) {
+                setTimeout(function () {
+                  sidebar.classList.add(hideElementsName);
+                }, 2500);
+              }
+            }
 
-					if (settings.HideChannels.channelsHidden == true) {
-						setTimeout(function() {
-							sidebar.classList.add(hideElementsName);
-						}, 2500);
-					}
-				}
+            removeExtras() {
+              const button = document.getElementById(buttonName);
+              if (button) button.remove();
 
-				removeExtras() {
-					const button = document.getElementById(buttonName);
-					if (button) button.remove();
+              const sidebar = document.querySelector(sidebarName);
+              if (sidebar.classList.contains(hideElementsName))
+                sidebar.classList.remove(hideElementsName);
+            }
 
-					const sidebar = document.querySelector(sidebarName);
-					if (sidebar.classList.contains(hideElementsName))
-						sidebar.classList.remove(hideElementsName);
-				}
+            get defaultSettings() {
+              return {
+                HideChannels: {
+                  channelsHidden: false,
+                },
+              };
+            }
 
-				get defaultSettings() {
-					return {
-						HideChannels: {
-							channelsHidden: false
-						}
-					}
-				}
+            loadSettings() {
+              BdApi.loadData(this.getName(), "settings");
+              var settings = BdApi.loadData(this.getName(), "settings")
+                ? BdApi.loadData(this.getName(), "settings")
+                : this.defaultSettings;
 
-				loadSettings() {
-					BdApi.loadData(this.getName(), 'settings');
-					var settings = (BdApi.loadData(this.getName(), 'settings')) ? BdApi.loadData(this.getName(), 'settings') : this.defaultSettings;
+              return settings;
+            }
 
-					return settings;
-				}
+            saveSettings(status) {
+              const settings = this.loadSettings();
 
-				saveSettings(status) {
-					const settings = this.loadSettings();
+              settings.HideChannels.channelsHidden = status;
+              BdApi.saveData(this.getName(), "settings", settings);
+            }
+          };
+        };
 
-					settings.HideChannels.channelsHidden = status;
-					BdApi.saveData(this.getName(), 'settings', settings);
-				}
-			};
-		};
-
-		return plugin(Plugin, Api);
-	})(global.ZeresPluginLibrary.buildPlugin(config));
+        return plugin(Plugin, Api);
+      })(global.ZeresPluginLibrary.buildPlugin(config));
 })();

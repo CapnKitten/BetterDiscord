@@ -1,0 +1,72 @@
+name: Update and Format
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update_class]
+
+permissions:
+  contents: write
+
+jobs:
+  update-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+
+      - name: Get date key
+        id: get-date
+        run: echo "date=$(date +'%Y-%U')" >> $GITHUB_OUTPUT
+
+      - name: Update all classes
+        id: update-all
+        uses: flowerey/class-update@main
+        with:
+          folder: "."
+          ext: css
+
+      - name: Run Prettier
+        id: prettier
+        run: npx prettier --write .
+
+      - name: Generate run summary
+        if: always()
+        run: |
+          STATUS=$(git status --porcelain)
+          echo "## Workflow Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "Date: $(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -n "$STATUS" ]; then
+            echo "### Modified Files" >> $GITHUB_STEP_SUMMARY
+            echo "The following changes were detected and formatted:" >> $GITHUB_STEP_SUMMARY
+            echo '```text' >> $GITHUB_STEP_SUMMARY
+            echo "$STATUS" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "Status: No changes detected. Repository is up to date." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .
+
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "chore: update classes and format code"
+            git push origin HEAD:master --force-with-lease
+          else
+            echo "No changes to commit"
+          fi

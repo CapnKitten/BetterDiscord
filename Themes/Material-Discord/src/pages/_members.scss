@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,135 +8,137 @@
  */
 
 #{ $membersPageContainer } {
-    padding: 32px;
-    background-color: var(--chat-color) !important;
+  padding: 32px;
+  background-color: var(--chat-color) !important;
 }
 
 #{ $membersPageMainTableContainer } {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 #{ $membersPageSearchHeaderContainer } {
-    margin-block-end: 16px;
-    padding: 0;
+  margin-block-end: 16px;
+  padding: 0;
 
-    #{ $headingMdMedium } {
-        font-weight: 400;
-        font-size: 1.25em;
-    }
+  #{ $headingMdMedium } {
+    font-weight: 400;
+    font-size: 1.25em;
+  }
 
-    #{ $inputContainer } {
-        @include input-transform;
-    }
+  #{ $inputContainer } {
+    @include input-transform;
+  }
 
-    #{ $input } {
-        font-size: 1.1em;
-    }
+  #{ $input } {
+    font-size: 1.1em;
+  }
 }
 
 #{ $membersPageTable } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-    border-block-start: none;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
+  border-block-start: none;
 
-    tbody {
-        &:before {
-            content: " ";
-            display: block;
-            height: 8px;
-        }
+  tbody {
+    &:before {
+      content: " ";
+      display: block;
+      height: 8px;
     }
+  }
 }
 
 #{ $membersPageTableHeaderRow } {
-    &:first-child {
-        &:after {
-            inset-block-end: 0;
-            box-shadow: 0 1px 0 0 var(--card-border-color);
-        }
+  &:first-child {
+    &:after {
+      inset-block-end: 0;
+      box-shadow: 0 1px 0 0 var(--card-border-color);
     }
+  }
 }
 
 #{ $membersPageTableHeaderCellContainer } {
-    padding: 12px 8px;
+  padding: 12px 8px;
 }
 
 #{ $membersPageMemberRowContainer } {
-    transition: var(--default-time) var(--default-animation) background-color;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-color-alt-hover) !important;
+  &:hover {
+    background-color: var(--card-color-alt-hover) !important;
+  }
+
+  td {
+    padding: 12px 8px;
+    background-color: transparent !important;
+
+    &:after {
+      display: none;
     }
 
-    td {
-        padding: 12px 8px;
-        background-color: transparent !important;
-
-        &:after {
-            display: none;
-        }
-
-        &:first-child {
-            border-radius: calc(var(--card-radius-big) / 1.5) 0 0 calc(var(--card-radius-big) / 1.5);
-        }
-
-        &:last-child {
-            border-radius: 0 calc(var(--card-radius-big) / 1.5) calc(var(--card-radius-big) / 1.5) 0;
-        }
+    &:first-child {
+      border-radius: calc(var(--card-radius-big) / 1.5) 0 0
+        calc(var(--card-radius-big) / 1.5);
     }
+
+    &:last-child {
+      border-radius: 0 calc(var(--card-radius-big) / 1.5)
+        calc(var(--card-radius-big) / 1.5) 0;
+    }
+  }
 }
 
 #{ $membersPageMemberNewMembersNotice } {
-    inset-block-start: 0;
+  inset-block-start: 0;
+  background-color: hsl(var(--accent-hsl--material-you));
+
+  &:hover {
     background-color: hsl(var(--accent-hsl--material-you));
+  }
 
-    &:hover {
-        background-color: hsl(var(--accent-hsl--material-you));
+  td {
+    &:first-child {
+      border-radius: 18px 0 0 18px;
     }
 
-    td {
-        &:first-child {
-            border-radius: 18px 0 0 18px;
-        }
-
-        &:last-child {
-            border-radius: 0 18px 18px 0;
-        }
+    &:last-child {
+      border-radius: 0 18px 18px 0;
     }
+  }
 
-    #{ $textSmNormal } {
-        color: var(--accent-text-color--material-you) !important;
-        font-weight: 500;
-    }
+  #{ $textSmNormal } {
+    color: var(--accent-text-color--material-you) !important;
+    font-weight: 500;
+  }
 
-    #{ $button } {
-        --button-text-color: var(--accent-text-color--material-you);
-    }
+  #{ $button } {
+    --button-text-color: var(--accent-text-color--material-you);
+  }
 }
 
 #{ $membersPageMemberOtherRoles } {
-    background-color: var(--card-color-filled);
-    border-radius: 50%;
-    transition: var(--default-time) var(--default-animation) opacity;
+  background-color: var(--card-color-filled);
+  border-radius: 50%;
+  transition: var(--default-time) var(--default-animation) opacity;
 
-    #{ $membersPageMemberAddRoleIcon } {
-        color: var(--interactive-text-default);
-    }
+  #{ $membersPageMemberAddRoleIcon } {
+    color: var(--interactive-text-default);
+  }
 }
 
 #{ $membersPageMemberButton } {
-    background-color: var(--card-button-color);
-    transition: var(--default-time) var(--default-animation) background-color;
+  background-color: var(--card-button-color);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--card-button-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-button-color-hover);
+  }
 }
 
 #{ $membersPagePaginationContainer } {
-    margin-block-start: 8px;
-    padding: 0;
-    border-block-start: none;
+  margin-block-start: 8px;
+  padding: 0;
+  border-block-start: none;
 }

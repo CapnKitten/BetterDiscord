@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,115 +7,115 @@
  */
 
 #{ $bdButton } {
-    --button-background: hsl(var(--accent-hsl));
-    --button-text-color: var(--accent-text-color);
+  --button-background: hsl(var(--accent-hsl));
+  --button-text-color: var(--accent-text-color);
 
-    padding: var(--button-padding);
-    background-color: var(--button-background) !important;
-	border-radius: var(--button-radius);
-    border: var(--button-outline) !important;
-    color: var(--button-text-color) !important;
+  padding: var(--button-padding);
+  background-color: var(--button-background) !important;
+  border-radius: var(--button-radius);
+  border: var(--button-outline) !important;
+  color: var(--button-text-color) !important;
 
-    &#{ $bdButtonTitle } {
-        line-height: var(--button-height);
+  &#{ $bdButtonTitle } {
+    line-height: var(--button-height);
 
-        &:hover {
-            opacity: 0.95;
-			transform: scale(1.05);
-		}
-
-        &:active {
-            opacity: 0.75;
-
-			&:hover {
-				transform: scale(1);
-			}
-		}
+    &:hover {
+      opacity: 0.95;
+      transform: scale(1.05);
     }
 
-	&:disabled {
-		opacity: 0.5 !important;
-	}
+    &:active {
+      opacity: 0.75;
 
-    #{ $bdButtonContent } {
-		background-image: none !important;
-	}
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
 
-    #{ $bdButtonContent } {
-        font-size: 14px;
-    	font-weight: 700;
+  &:disabled {
+    opacity: 0.5 !important;
+  }
 
-		svg:not([fill]) {
-			.fill {
-				fill: currentColor;
-			}
-		}
+  #{ $bdButtonContent } {
+    background-image: none !important;
+  }
 
-		svg[fill] {
-			fill: currentColor;
-		}
-	}
+  #{ $bdButtonContent } {
+    font-size: 14px;
+    font-weight: 700;
+
+    svg:not([fill]) {
+      .fill {
+        fill: currentColor;
+      }
+    }
+
+    svg[fill] {
+      fill: currentColor;
+    }
+  }
 }
 
 #{ $bdButtonFilled } {
-	&#{ $bdButtonColorRed },
-	&#{ $bdButtonDanger } {
-		--button-background: hsl(var(--alert-hsl));
-		--button-text-color: var(--alert-text-color);
-	}
+  &#{ $bdButtonColorRed },
+  &#{ $bdButtonDanger } {
+    --button-background: hsl(var(--alert-hsl));
+    --button-text-color: var(--alert-text-color);
+  }
 
-    &:not([disabled]) {
-        &:hover {
-			box-shadow: none;
-            opacity: 0.95;
-			transform: scale(1.05);
+  &:not([disabled]) {
+    &:hover {
+      box-shadow: none;
+      opacity: 0.95;
+      transform: scale(1.05);
 
-			#{ $buttonContents } {
-				background-image: none;
-			}
-		}
-
-        &:active {
-            opacity: 0.75;
-
-			&:hover {
-				transform: scale(1);
-			}
-		}
+      #{ $buttonContents } {
+        background-image: none;
+      }
     }
+
+    &:active {
+      opacity: 0.75;
+
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
 }
 
 #{ $bdButtonLink } {
-	--button-padding: 0 12px;
-	--button-shadow: none !important;
+  --button-padding: 0 12px;
+  --button-shadow: none !important;
 
-	&:after {
-		--button-action-color: hsl(var(--accent-hsl--material-you));
-	}
+  &:after {
+    --button-action-color: hsl(var(--accent-hsl--material-you));
+  }
 
-	&#{ $bdButtonColorBrand },
-	&#{ $bdButtonColorPrimary } {
-		--button-text-color: hsl(var(--accent-hsl--material-you));
-	}
+  &#{ $bdButtonColorBrand },
+  &#{ $bdButtonColorPrimary } {
+    --button-text-color: hsl(var(--accent-hsl--material-you));
+  }
 }
 
 #{ $bdButtonBlank } {
-	--button-background: transparent;
-	--button-text-color: var(--interactive-normal);
+  --button-background: transparent;
+  --button-text-color: var(--interactive-normal);
 
-    &#{ $bdButtonIcon } {
-        --button-height: 24px;
-    }
+  &#{ $bdButtonIcon } {
+    --button-height: 24px;
+  }
 }
 
 #{ $bdButtonIcon } {
-    --button-padding: 0;
+  --button-padding: 0;
 }
 
 #{ $bdButtonMedium },
 #{ $bdButtonLarge },
 #{ $bdButtonIcon } {
-    min-width: var(--button-height);
-	height: var(--button-height);
-	min-height: var(--button-height);
+  min-width: var(--button-height);
+  height: var(--button-height);
+  min-height: var(--button-height);
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,158 +8,158 @@
  */
 
 #{ $bar } {
-	padding-inline-start: 0;
-	padding-inline-end: var(--space-4);
+  padding-inline-start: 0;
+  padding-inline-end: var(--space-4);
 
-	#{ $barLeading } {
-		padding-inline-start: var(--space-8);
-	}
+  #{ $barLeading } {
+    padding-inline-start: var(--space-8);
+  }
 
-	#{ $barTitle } {
-		line-height: var(--custom-app-top-bar-height);
-		padding: 0 10px;
-		gap: 0;
+  #{ $barTitle } {
+    line-height: var(--custom-app-top-bar-height);
+    padding: 0 10px;
+    gap: 0;
 
-		&:before,
-		&:after {
-			font-size: 0.925em;
-			color: var(--interactive-text-default);
-		}
+    &:before,
+    &:after {
+      font-size: 0.925em;
+      color: var(--interactive-text-default);
+    }
 
-		&:before {
-			content: var(--app-watermark-one);
-			font-weight: 700;
-		}
+    &:before {
+      content: var(--app-watermark-one);
+      font-weight: 700;
+    }
 
-		&:after {
-			content: var(--app-watermark-two);
-		}
+    &:after {
+      content: var(--app-watermark-two);
+    }
 
-		#{ $barGuildIcon },
-		#{ $textSmMedium },
-		svg {
-			display: none;
-		}
-	}
+    #{ $barGuildIcon },
+    #{ $textSmMedium },
+    svg {
+      display: none;
+    }
+  }
 
-	#{ $headerBarIconBadge } {
-		box-shadow: 0 0 0 4px var(--main-alt);
-	}
+  #{ $headerBarIconBadge } {
+    box-shadow: 0 0 0 4px var(--main-alt);
+  }
 }
 
 /* APP TITLE BAR -> BUTTONS */
 
 #{ $titlebarWin } {
-	&#{ $titlebarWithFrame } {
-		height: var(--app-title-bar-height);
-		margin-block-start: 0;
-	}
+  &#{ $titlebarWithFrame } {
+    height: var(--app-title-bar-height);
+    margin-block-start: 0;
+  }
 }
 
 #{ $titlebarWinButtons } {
-    padding-inline-end: var(--space-xxs);
+  padding-inline-end: var(--space-xxs);
 }
 
 #{ $titlebarWinButton } {
-	--app-title-bar-height: var(--custom-app-top-bar-height);
+  --app-title-bar-height: var(--custom-app-top-bar-height);
 
-	width: calc(var(--app-title-bar-height) / 1.325);
-	inset-block-start: 0;
+  width: calc(var(--app-title-bar-height) / 1.325);
+  inset-block-start: 0;
 
-	&:before {
-		position: absolute;
-		content: " ";
-		width: 12px;
-		height: 12px;
-		background-position: center;
-		-webkit-mask-size: contain;
-		mask-size: contain;
-		filter: brightness(40%);
-		z-index: 2;
-		opacity: 0;
-		transition: var(--default-time) var(--default-animation) opacity;
-		pointer-events: none;
-	}
+  &:before {
+    position: absolute;
+    content: " ";
+    width: 12px;
+    height: 12px;
+    background-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    filter: brightness(40%);
+    z-index: 2;
+    opacity: 0;
+    transition: var(--default-time) var(--default-animation) opacity;
+    pointer-events: none;
+  }
 
-	&:hover {
-		&:before {
-			opacity: 1;
-		}
-	}
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
 
-	&:after {
-		position: absolute;
-		content: " ";
-		width: 16px;
-		height: 16px;
-		border-radius: 50%;
-		background-color: var(--app-button-active);
-		transition: var(--default-time) var(--default-animation);
-		pointer-events: none;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--app-button-active);
+    transition: var(--default-time) var(--default-animation);
+    pointer-events: none;
+  }
 
-	&:active:after {
-		opacity: 0.65;
-	}
+  &:active:after {
+    opacity: 0.65;
+  }
 
-	&#{ $titlebarWinButtonMinMax } {
-		&:nth-of-type(1) {
-			&:hover {
-				&:after {
-					background-color: var(--app-button-min);
-				}
-			}
+  &#{ $titlebarWinButtonMinMax } {
+    &:nth-of-type(1) {
+      &:hover {
+        &:after {
+          background-color: var(--app-button-min);
+        }
+      }
 
-			&:before {
-				@include add-icon(var(--app-button-min), window_minimize);
-			}
-		}
+      &:before {
+        @include add-icon(var(--app-button-min), window_minimize);
+      }
+    }
 
-		&:nth-of-type(2) {
-			&:hover {
-				&:after {
-					background-color: var(--app-button-max);
-				}
-			}
+    &:nth-of-type(2) {
+      &:hover {
+        &:after {
+          background-color: var(--app-button-max);
+        }
+      }
 
-			&:before {
-				@include add-icon(var(--app-button-max), window_maximize);
-			}
-		}
-	}
+      &:before {
+        @include add-icon(var(--app-button-max), window_maximize);
+      }
+    }
+  }
 
-	&#{ $titlebarWinButtonClose } {
-		&:hover {
-			&:after {
-				background-color: var(--app-button-close);
-			}
-		}
+  &#{ $titlebarWinButtonClose } {
+    &:hover {
+      &:after {
+        background-color: var(--app-button-close);
+      }
+    }
 
-		&:before {
-			@include add-icon(var(--app-button-close), window_close);
-		}
-	}
+    &:before {
+      @include add-icon(var(--app-button-close), window_close);
+    }
+  }
 
-	&:hover,
-	&:active {
-		background-color: transparent;
-	}
+  &:hover,
+  &:active {
+    background-color: transparent;
+  }
 
-	svg {
-		display: none;
-	}
+  svg {
+    display: none;
+  }
 }
 
 html:not(#{ $appFocused }) {
-	#{ $titlebarWinButton } {
-		&:after {
-			background-color: var(--app-button-inactive);
-		}
+  #{ $titlebarWinButton } {
+    &:after {
+      background-color: var(--app-button-inactive);
+    }
 
-		&#{ $titlebarWinButtonMinMax } {
-			&:after {
-				background-color: var(--app-button-inactive);
-			}
-		}
-	}
+    &#{ $titlebarWinButtonMinMax } {
+      &:after {
+        background-color: var(--app-button-inactive);
+      }
+    }
+  }
 }

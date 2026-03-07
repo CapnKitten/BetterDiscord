@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,56 +8,56 @@
  */
 
 #{ $inputWrapper } {
-    @include input-format($height: var(--input-height), $important: false);
+  @include input-format($height: var(--input-height), $important: false);
 
-    #{ $input } {
-        background-color: transparent;
+  #{ $input } {
+    background-color: transparent;
 
-        &::-webkit-input-placeholder {
-            color: var(--input-placeholder-color);
-        }
+    &::-webkit-input-placeholder {
+      color: var(--input-placeholder-color);
     }
+  }
 }
 
 #{ $multiInput } {
-    #{ $inputWrapper } {
-        margin-inline-end: 8px;
-    }
+  #{ $inputWrapper } {
+    margin-inline-end: 8px;
+  }
 }
 
 #{ $multiInputLast } {
-    &:before {
-        display: none;
-    }
+  &:before {
+    display: none;
+  }
 }
 
 #{ $fileUploadInput } {
-    width: auto;
+  width: auto;
 }
 
 #{ $fileUploadButton } {
-    padding-block: 0;
-    padding-inline: 12px;
+  padding-block: 0;
+  padding-inline: 12px;
 }
 
 /* INPUTS -> OPTION PILLS */
 
 #{ $optionPill } {
+  background-color: var(--textarea-block-color) !important;
+  border-radius: var(--button-radius);
+  border-color: transparent !important;
+
+  &#{ $optionPillSelected } {
+    border-color: hsl(var(--accent-hsl)) !important;
+  }
+
+  &#{ $optionPillErrored } {
+    border-color: hsl(var(--alert-hsl)) !important;
+  }
+
+  #{ $optionPillKey } {
     background-color: var(--textarea-block-color) !important;
-    border-radius: var(--button-radius);
-    border-color: transparent !important;
-
-    &#{ $optionPillSelected } {
-        border-color: hsl(var(--accent-hsl)) !important;
-    }
-
-    &#{ $optionPillErrored } {
-        border-color: hsl(var(--alert-hsl)) !important;
-    }
-
-    #{ $optionPillKey } {
-        background-color: var(--textarea-block-color) !important;
-        border-top-left-radius: inherit;
-        border-bottom-left-radius: inherit;
-    }
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
 }

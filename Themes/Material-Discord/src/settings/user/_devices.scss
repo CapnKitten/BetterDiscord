@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,74 +8,74 @@
  */
 
 #{ $deviceSessions } {
-    #{ $fieldset } {
-        #{ $stack } {
-            @include card-format(true, 8px 0 0, true);
-            gap: var(--space-8) !important;
-        }
+  #{ $fieldset } {
+    #{ $stack } {
+      @include card-format(true, 8px 0 0, true);
+      gap: var(--space-8) !important;
     }
+  }
 }
 
 #{ $deviceSession } {
-    position: relative;
-    padding: 16px;
-    gap: 16px;
-    border-block-end: none;
+  position: relative;
+  padding: 16px;
+  gap: 16px;
+  border-block-end: none;
+
+  &:before {
+    position: absolute;
+    content: " ";
+    width: calc(100% - 16px);
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 8px;
+    background-color: var(--card-color-hover);
+    border-radius: calc(var(--card-radius-big) / 1.65);
+    opacity: 0;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
+
+  &:last-of-type {
+    padding-block-end: 24px;
 
     &:before {
-        position: absolute;
-        content: " ";
-        width: calc(100% - 16px);
-        height: 100%;
-        inset-block-start: 0;
-        inset-inline-start: 8px;
-        background-color: var(--card-color-hover);
-        border-radius: calc(var(--card-radius-big) / 1.65);
-        opacity: 0;
-        transition: var(--default-time) var(--default-animation) opacity;
+      height: calc(100% - 8px);
+    }
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  #{ $deviceSessionIcon },
+  #{ $deviceSessionInfo },
+  #{ $deviceSessionMoreButton } {
+    z-index: 2;
+  }
+
+  #{ $deviceSessionIcon } {
+    background-color: hsl(var(--accent-hsl--material-you));
+    color: var(--accent-text-color--material-you);
+  }
+
+  #{ $deviceSessionInfoRow } {
+    &:not(#{ $deviceSessionInfoEyebrow }) {
+      color: var(--text-muted);
     }
 
-    &:last-of-type {
-        padding-block-end: 24px;
-
-        &:before {
-            height: calc(100% - 8px);
-        }
+    #{ $buttonLink } {
+      --button-height: 20px;
+      padding: 0 4px;
     }
+  }
 
-    &:hover {
-        &:before {
-            opacity: 1;
-        }
-    }
+  #{ $deviceSessionInfoEyebrow } {
+    @include remove-caps(14px);
+  }
 
-    #{ $deviceSessionIcon },
-    #{ $deviceSessionInfo },
-    #{ $deviceSessionMoreButton } {
-        z-index: 2;
-    }
-
-    #{ $deviceSessionIcon } {
-        background-color: hsl(var(--accent-hsl--material-you));
-        color: var(--accent-text-color--material-you);
-    }
-
-    #{ $deviceSessionInfoRow } {
-        &:not(#{ $deviceSessionInfoEyebrow }) {
-            color: var(--text-muted);
-        }
-
-        #{ $buttonLink } {
-            --button-height: 20px;
-            padding: 0 4px;
-        }
-    }
-
-    #{ $deviceSessionInfoEyebrow } {
-        @include remove-caps(14px);
-    }
-
-    #{ $deviceSessionSeparator } {
-        display: none;
-    }
+  #{ $deviceSessionSeparator } {
+    display: none;
+  }
 }
