@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,30 +7,32 @@
  */
 
 #{ $checkboxIndicator } {
-	background-color: transparent;
-	border-width: 2px;
-    border-radius: 4px;
-	transition: var(--default-time) var(--default-animation) border-color, var(--default-time) var(--default-animation) background-color;
+  background-color: transparent;
+  border-width: 2px;
+  border-radius: 4px;
+  transition:
+    var(--default-time) var(--default-animation) border-color,
+    var(--default-time) var(--default-animation) background-color;
 }
 
 #{ $checkboxOption } {
-	&[data-selected] {
-		&:hover {
-			&:not([data-disabled]) {
-				#{ $checkboxIndicator } {
-					background-color: hsl(var(--accent-hsl--material-you));
-				}
-			}
-		}
-		
-		#{ $checkboxIndicator } {
-			background-color: hsl(var(--accent-hsl--material-you));
-			border-color: hsl(var(--accent-hsl--material-you));
-		}
+  &[data-selected] {
+    &:hover {
+      &:not([data-disabled]) {
+        #{ $checkboxIndicator } {
+          background-color: hsl(var(--accent-hsl--material-you));
+        }
+      }
+    }
 
-		#{ $checkboxCheckmark },
-		#{ $checkboxCheckStroke} {
-			color: var(--accent-text-color--material-you);
-		}
-	}
+    #{ $checkboxIndicator } {
+      background-color: hsl(var(--accent-hsl--material-you));
+      border-color: hsl(var(--accent-hsl--material-you));
+    }
+
+    #{ $checkboxCheckmark },
+    #{ $checkboxCheckStroke} {
+      color: var(--accent-text-color--material-you);
+    }
+  }
 }

@@ -1,159 +1,170 @@
 @mixin add-translucence($pseudo, $filter: false, $bg: true, $important: false) {
-	$imp: if($important, !important, null);
-	$bg: #{if($bg, 'var(--popout-color)', 'transparent')};
+  $imp: if($important, !important, null);
+  $bg: #{if($bg, "var(--popout-color)", "transparent")};
 
-	@if $pseudo != null {
-		background-color: transparent $imp;
-		border-radius: var(--popout-radius) $imp;
-		box-shadow: none $imp;
-		overflow: hidden;
+  @if $pseudo != null {
+    background-color: transparent $imp;
+    border-radius: var(--popout-radius) $imp;
+    box-shadow: none $imp;
+    overflow: hidden;
 
-		&:#{$pseudo} {
-			position: absolute;
-			content: " ";
-			width: 100%;
-			height: 100%;
-			inset-block-start: 0;
-			inset-inline-start: 0;
-			background-color: $bg;
-			border-radius: var(--popout-radius);
-			box-shadow: var(--popout-shadow);
+    &:#{$pseudo} {
+      position: absolute;
+      content: " ";
+      width: 100%;
+      height: 100%;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      background-color: $bg;
+      border-radius: var(--popout-radius);
+      box-shadow: var(--popout-shadow);
 
-			@if $filter == true {
-				backdrop-filter: blur(var(--popout-blur));
-			}
+      @if $filter == true {
+        backdrop-filter: blur(var(--popout-blur));
+      }
 
-			pointer-events: none;
-			z-index: -1;
-		}
-	} @else {
-		background-color: $bg $imp;
-		border-radius: var(--popout-radius) $imp;
-		box-shadow: var(--popout-shadow) $imp;
-		border: none $imp;
+      pointer-events: none;
+      z-index: -1;
+    }
+  } @else {
+    background-color: $bg $imp;
+    border-radius: var(--popout-radius) $imp;
+    box-shadow: var(--popout-shadow) $imp;
+    border: none $imp;
 
-		@if $filter == true {
-			backdrop-filter: blur(var(--popout-blur));
-		}
-	}
+    @if $filter == true {
+      backdrop-filter: blur(var(--popout-blur));
+    }
+  }
 }
 
 @mixin add-translucence-bg($pseudo, $bg: false) {
-	$bg: #{if($bg, 'var(--popout-color)', 'transparent')};
+  $bg: #{if($bg, "var(--popout-color)", "transparent")};
 
-	overflow: hidden;
+  overflow: hidden;
 
-	&:#{$pseudo} {
-		content: " ";
-		position: absolute;
-		width: calc(100% + (var(--app-margin) * 2));
-		height: calc(100% + (var(--app-margin) * 2) + 24px);
-		inset-block-start: calc((var(--app-margin) + 24px) * -1);
-		inset-inline-start: calc(var(--app-margin) * -1);
-		background-color: $bg;
-		background-image: var(--app-bg);
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-		background-attachment: fixed;
-		box-shadow: inset 0 0 0 100vmax var(--main-content-color);
-		filter: blur(var(--app-blur));
-		z-index: -1;
-		pointer-events: none;
-	}
+  &:#{$pseudo} {
+    content: " ";
+    position: absolute;
+    width: calc(100% + (var(--app-margin) * 2));
+    height: calc(100% + (var(--app-margin) * 2) + 24px);
+    inset-block-start: calc((var(--app-margin) + 24px) * -1);
+    inset-inline-start: calc(var(--app-margin) * -1);
+    background-color: $bg;
+    background-image: var(--app-bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 0 100vmax var(--main-content-color);
+    filter: blur(var(--app-blur));
+    z-index: -1;
+    pointer-events: none;
+  }
 }
 
-@mixin input-format($height: var(--input-height), $radius: var(--input-radius), $important: false) {
-	$imp: if($important, !important, null);
+@mixin input-format(
+  $height: var(--input-height),
+  $radius: var(--input-radius),
+  $important: false
+) {
+  $imp: if($important, !important, null);
 
-	min-height: $height;
-	height: $height;
-	border-radius: $radius;
-    background-color: rgba(var(--textarea-color),var(--textarea-alpha)) $imp;
-	border: none $imp;
-	color: var(--textarea-text-color);
-	transition: var(--transition-time) var(--transition-type);
+  min-height: $height;
+  height: $height;
+  border-radius: $radius;
+  background-color: rgba(var(--textarea-color), var(--textarea-alpha)) $imp;
+  border: none $imp;
+  color: var(--textarea-text-color);
+  transition: var(--transition-time) var(--transition-type);
 
-	&:has(input:focus, textarea:focus) {
-		background-color: rgba(var(--textarea-color),var(--textarea-alpha-focus)) $imp;
-		outline: none !important;
-	}
+  &:has(input:focus, textarea:focus) {
+    background-color: rgba(var(--textarea-color), var(--textarea-alpha-focus))
+      $imp;
+    outline: none !important;
+  }
 }
 
 @mixin card-format($important: false, $hover: false) {
-	$imp: if($important, !important, null);
+  $imp: if($important, !important, null);
 
-	background-color: var(--card-color) $imp;
-	border-radius: var(--card-radius) $imp;
-	border: none $imp;
+  background-color: var(--card-color) $imp;
+  border-radius: var(--card-radius) $imp;
+  border: none $imp;
 
-	@if $hover == true {
-		&:hover {
-			background-color: var(--card-color-hover) $imp;
-			border: none;
-		}
-	}
+  @if $hover == true {
+    &:hover {
+      background-color: var(--card-color-hover) $imp;
+      border: none;
+    }
+  }
 }
 
 @mixin card-format--header($important: false) {
-	$imp: if($important, !important, null);
+  $imp: if($important, !important, null);
 
-	background-color: transparent $imp;
-	box-shadow: var(--card-header-shadow);
-	border: none $imp;
+  background-color: transparent $imp;
+  box-shadow: var(--card-header-shadow);
+  border: none $imp;
 }
 
-@mixin add-button-style($type, $important: false, $innerText: '.contents-3ca1mk', $bg: var(--button-color), $textColor: var(--button-text-color)) {
-	$imp: if($important, !important, null);
+@mixin add-button-style(
+  $type,
+  $important: false,
+  $innerText: ".contents-3ca1mk",
+  $bg: var(--button-color),
+  $textColor: var(--button-text-color)
+) {
+  $imp: if($important, !important, null);
 
-	@if $type == 'solid' {
-		background-color: $bg $imp;
+  @if $type == "solid" {
+    background-color: $bg $imp;
 
-		&:hover,
-		&:active,
-		&:disabled {
-			background-color: $bg $imp;
-		}
-	} @else if $type == 'outline' {
-		border-color: $bg $imp;
-	}
+    &:hover,
+    &:active,
+    &:disabled {
+      background-color: $bg $imp;
+    }
+  } @else if $type == "outline" {
+    border-color: $bg $imp;
+  }
 
-	#{$innerText} {
-		color: $textColor;
-	}
+  #{$innerText} {
+    color: $textColor;
+  }
 }
 
 @mixin add-button-action($bg: var(--button-action-color)) {
-	overflow: hidden;
+  overflow: hidden;
 
-	&:before {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-		background-color: $bg;
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--transition-time) var(--transition-type);
-	}
+  &:before {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: $bg;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-time) var(--transition-type);
+  }
 
-	&:hover:before {
-		opacity: 0.075;
-	}
+  &:hover:before {
+    opacity: 0.075;
+  }
 
-	&:active:before {
-		opacity: 0.15;
-	}
+  &:active:before {
+    opacity: 0.15;
+  }
 }
 
 @mixin app-accents($hasText: true, $important: false) {
-	$imp: if($important, !important, null);
+  $imp: if($important, !important, null);
 
-	background-color: hsla(var(--accent-hsl),var(--accent-opacity)) $imp;
+  background-color: hsla(var(--accent-hsl), var(--accent-opacity)) $imp;
 
-	@if $hasText {
-		color: var(--accent-text-color) $imp;
-	}
+  @if $hasText {
+    color: var(--accent-text-color) $imp;
+  }
 }

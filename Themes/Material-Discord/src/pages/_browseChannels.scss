@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,125 +8,125 @@
  */
 
 #{ $browseChannelsHeader } {
-    margin: 0 46px 0 16px;
-    padding: 16px 0;
+  margin: 0 46px 0 16px;
+  padding: 16px 0;
 }
 
 #{ $browseChannelsScrollerInner } {
-    padding: 0 36px 32px 16px;
+  padding: 0 36px 32px 16px;
 }
 
 #{ $browseChannelsChooseContainer } {
-    background-color: hsl(var(--accent-hsl--material-you));
-    border-radius: var(--card-radius-big);
+  background-color: hsl(var(--accent-hsl--material-you));
+  border-radius: var(--card-radius-big);
 
-    .defaultColor-HXu-5n,
-    .body-2A992B {
-        color: var(--accent-text-color--material-you) !important;
-    }
+  .defaultColor-HXu-5n,
+  .body-2A992B {
+    color: var(--accent-text-color--material-you) !important;
+  }
 }
 
 #{ $pageBody } {
-    padding: 0;
-    background: transparent;
+  padding: 0;
+  background: transparent;
 }
 
 #{ $pageBodyHeader } {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 /*  BROWSE CHANNELS -> CHANNELS */
 
 #{ $browseChannelsCategoryText } {
-    @include remove-caps(14px);
+  @include remove-caps(14px);
 }
 
 #{ $browseChannelsChannelRow } {
-    --button-height: 34px;
+  --button-height: 34px;
 
-    position: relative;
-    padding: 12px 16px;
-    background-color: var(--card-color-filled);
-    border: none;
-    transition: var(--default-time) var(--default-animation) background-color;
+  position: relative;
+  padding: 12px 16px;
+  background-color: var(--card-color-filled);
+  border: none;
+  transition: var(--default-time) var(--default-animation) background-color;
+
+  &:before {
+    position: absolute;
+    content: " ";
+    width: calc(100% - 16px);
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 8px;
+    background-color: var(--card-color-alt-hover);
+    border-radius: calc(var(--card-radius-big) / 1.5);
+    pointer-events: none;
+    opacity: 0;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
+
+  &#{ $browseChannelsFirstChannel } {
+    padding-block-start: 20px;
+    border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
 
     &:before {
-        position: absolute;
-        content: " ";
-        width: calc(100% - 16px);
-        height: 100%;
-        inset-block-start: 0;
-        inset-inline-start: 8px;
-        background-color: var(--card-color-alt-hover);
-        border-radius: calc(var(--card-radius-big) / 1.5);
-        pointer-events: none;
-        opacity: 0;
-        transition: var(--default-time) var(--default-animation) opacity;
-    }
-
-    &#{ $browseChannelsFirstChannel } {
-        padding-block-start: 20px;
-        border-radius: var(--card-radius-big) var(--card-radius-big) 0 0;
-
-        &:before {
-            height: calc(100% - 8px);
-            inset-block-start: 8px;
-        }
-
-        &#{ $browseChannelsLastChannel } {
-            border-radius: var(--card-radius-big);
-        }
+      height: calc(100% - 8px);
+      inset-block-start: 8px;
     }
 
     &#{ $browseChannelsLastChannel } {
-        padding-block-end: 20px;
-        border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
-
-        &:before {
-            height: calc(100% - 8px);
-        }
+      border-radius: var(--card-radius-big);
     }
+  }
 
-    &:not(#{ $browseChannelsChannelDisabled }) {
-        &:hover {
-            background-color: var(--card-color-filled);
+  &#{ $browseChannelsLastChannel } {
+    padding-block-end: 20px;
+    border-radius: 0 0 var(--card-radius-big) var(--card-radius-big);
 
-            &:before {
-                opacity: 1;
-            }
-        }
+    &:before {
+      height: calc(100% - 8px);
     }
+  }
 
+  &:not(#{ $browseChannelsChannelDisabled }) {
     &:hover {
-        &:not(#{ $browseChannelsChannelDisabled }) {
-            background-color: var(--card-color-filled);
-        }
+      background-color: var(--card-color-filled);
 
-        #{ $browseChannelsViewChannelButton } {
-            opacity: 1;
-            visibility: visible;
-            transition: var(--default-time) var(--default-animation) opacity;
-        }
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover {
+    &:not(#{ $browseChannelsChannelDisabled }) {
+      background-color: var(--card-color-filled);
     }
 
     #{ $browseChannelsViewChannelButton } {
-        display: block;
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--default-time) var(--default-animation) opacity;
+      opacity: 1;
+      visibility: visible;
+      transition: var(--default-time) var(--default-animation) opacity;
     }
+  }
 
-    #{ $browseChannelsChannelName } {
-        gap: 8px;
-    }
+  #{ $browseChannelsViewChannelButton } {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
+
+  #{ $browseChannelsChannelName } {
+    gap: 8px;
+  }
 }
 
 #{ $browseChannelsChannelInfo },
 #{ $browseChannelsChannelActions } {
-    z-index: 2;
+  z-index: 2;
 }
 
 #{ $browseChannelsChannelSeparator } {
-    display: none;
-    //background-color: var(--card-border-color);
+  display: none;
+  //background-color: var(--card-border-color);
 }

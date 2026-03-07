@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,81 +7,80 @@
  */
 
 #{ $avatarWrapper } {
+  border-radius: var(--avatar-radius);
+
+  mask {
+    circle[fill="white"] {
+      r: 32;
+    }
+  }
+
+  #{ $avatarImage } {
     border-radius: var(--avatar-radius);
-
-    mask {
-        circle[fill="white"] {
-            r: 32;
-        }
-    }
-
-    #{ $avatarImage } {
-        border-radius: var(--avatar-radius);
-    }
+  }
 }
 
 #svg-mask-avatar-default,
 #svg-mask-avatar-status-round-32,
 #svg-mask-avatar-status-round-80,
 #svg-mask-avatar-status-round-120 {
-    circle[fill="white"] {
-        r: 1;
-    }
+  circle[fill="white"] {
+    r: 1;
+  }
 }
 
 #{ $settingsUserInfo },
 #{ $userProfileHeader },
 #{ $userProfileModalInner } {
-    #{ $avatarWrapper },
-    #{ $avatarImage } {
-        border-radius: var(--avatar-radius-large);
-    }
+  #{ $avatarWrapper },
+  #{ $avatarImage } {
+    border-radius: var(--avatar-radius-large);
+  }
 
-    #{ $avatarWrapper } {
-        --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 1.6);
+  #{ $avatarWrapper } {
+    --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 1.6);
 
-        background-color: var(--popout-color);
-        border: 8px solid var(--popout-color);
-    }
+    background-color: var(--popout-color);
+    border: 8px solid var(--popout-color);
+  }
 
-    #{ $avatarImage } {
-        --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 2);
-    }
+  #{ $avatarImage } {
+    --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 2);
+  }
 }
 
 #{ $settingsUserInfo } {
-    #{ $avatarWrapper } {
-        background-color: var(--card-color-filled);
-        border-color: var(--card-color-filled);
-    }
+  #{ $avatarWrapper } {
+    background-color: var(--card-color-filled);
+    border-color: var(--card-color-filled);
+  }
 }
 
 #{ $userProfileModalInner } {
-    #{ $avatarWrapper } {
-        --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 1.15);
-    }
+  #{ $avatarWrapper } {
+    --avatar-radius-large: calc((var(--avatar-radius) * 3.33333) / 1.15);
+  }
 
-    #{ $avatarImage } {
-        --avatar-radius-large: calc((var(--avatar-radius) * 5) / 2);
-    }
+  #{ $avatarImage } {
+    --avatar-radius-large: calc((var(--avatar-radius) * 5) / 2);
+  }
 }
 
 #{ $settingsUserBannerSVGWrapper } {
-    mask {
-        circle[fill="black"] {
-            display: none;
-        }
+  mask {
+    circle[fill="black"] {
+      display: none;
     }
+  }
 }
 
 #{ $userProfileHeader },
 #{ $userProfileInner } {
-    #{ $avatarWrapper } {
-        transform: translate(-6px, -6px);
-    }
+  #{ $avatarWrapper } {
+    transform: translate(-6px, -6px);
+  }
 }
 
-
 #{ $userProfileOuterThemed } {
-    --popout-color: var(--profile-gradient-primary-color);
+  --popout-color: var(--profile-gradient-primary-color);
 }

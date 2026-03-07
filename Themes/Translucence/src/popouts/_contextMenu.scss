@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,62 +8,62 @@
  */
 
 #{ $menuPopout } {
-    @include add-translucence(before, true);
-    border: none;
+  @include add-translucence(before, true);
+  border: none;
 
-    #{ $menuPopoutItem } {
-        border-radius: var(--popout-radius);
+  #{ $menuPopoutItem } {
+    border-radius: var(--popout-radius);
 
-        &#{ $menuPopoutItemHover } {
-            background-color: var(--background-modifier-selected);
-        }
+    &#{ $menuPopoutItemHover } {
+      background-color: var(--background-modifier-selected);
     }
+  }
 
-    #{ $contextMenuQuickReaction } {
-        background-color: var(--card-color);
+  #{ $contextMenuQuickReaction } {
+    background-color: var(--card-color);
 
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
+    &:hover {
+      background-color: var(--card-color-hover);
     }
+  }
 
-    /* CONTEXT MENU -> NESTED WORKAROUND */
-    &#image-context {
-        background-color: var(--popout-color);
-        backdrop-filter: blur(var(--popout-blur));
-        box-shadow: var(--popout-shadow);
+  /* CONTEXT MENU -> NESTED WORKAROUND */
+  &#image-context {
+    background-color: var(--popout-color);
+    backdrop-filter: blur(var(--popout-blur));
+    box-shadow: var(--popout-shadow);
 
-        &:before {
-            display: none;
-        }
+    &:before {
+      display: none;
     }
+  }
 }
 
 #{ $submenuContainer } {
-    &:before {
-        width: calc(100% - var(--space-16));
-        inset-inline: var(--space-8);
-    }
+  &:before {
+    width: calc(100% - var(--space-16));
+    inset-inline: var(--space-8);
+  }
 }
 
 #{ $layerContainer } {
-    #{ $backdrop } {
-        + #{ $popoutLayerAlt } + #{ $popoutLayer } {
-            #{ $menuPopout } {
-                backdrop-filter: blur(var(--popout-blur));
-            }
-        }
+  #{ $backdrop } {
+    + #{ $popoutLayerAlt } + #{ $popoutLayer } {
+      #{ $menuPopout } {
+        backdrop-filter: blur(var(--popout-blur));
+      }
     }
+  }
 }
 
 #{ $popoutLayer } ~ #{ $popoutLayer } {
-    #{ $menuPopout } {
-        backdrop-filter: blur(var(--popout-blur));
-    }
+  #{ $menuPopout } {
+    backdrop-filter: blur(var(--popout-blur));
+  }
 }
 
 /* CONTEXT MENU -> CHECKBOX */
 
 #{ $menuPopoutIcon } {
-    filter: none !important;
+  filter: none !important;
 }

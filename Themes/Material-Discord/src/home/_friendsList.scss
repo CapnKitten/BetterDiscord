@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,121 +8,123 @@
  */
 
 #{ $friends } {
-	background-color: var(--chat-color) !important;
-	border-top-right-radius: var(--card-radius-big);
-	border-block-start: none;
+  background-color: var(--chat-color) !important;
+  border-top-right-radius: var(--card-radius-big);
+  border-block-start: none;
 }
 
 #{ $friendsTabBody } {
-	background-color: transparent;
+  background-color: transparent;
 
-	&:before {
-		display: none;
-	}
+  &:before {
+    display: none;
+  }
 }
 
 #{ $friendsBlockedIgnoredSettingsNotice } {
-    margin: 16px 16px 4px 16px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
+  margin: 16px 16px 4px 16px;
+  background-color: var(--card-color-filled);
+  border-radius: var(--card-radius-big);
 }
 
 #{ $friendsSectionTitle } {
-	@include remove-caps(12px);
+  @include remove-caps(12px);
 }
 
 #{ $friendsList } {
-	padding-block-end: 12px;
+  padding-block-end: 12px;
 }
 
 #{ $friendsColumn } {
-	#{ $scroller } {
-		margin-block-start: 0;
-	}
+  #{ $scroller } {
+    margin-block-start: 0;
+  }
 
-	#{ $friendsOnlineTitle } {
-		height: 40px;
-		margin: 0;
-		padding: 0 16px;
-		line-height: 40px;
-		@include remove-caps(14px);
-	}
+  #{ $friendsOnlineTitle } {
+    height: 40px;
+    margin: 0;
+    padding: 0 16px;
+    line-height: 40px;
+    @include remove-caps(14px);
+  }
 }
 
 #{ $friendsSearchBar } {
-	margin: 16px 16px 8px 16px;
-	@include input-format(false, false, true);
-	padding: 0;
+  margin: 16px 16px 8px 16px;
+  @include input-format(false, false, true);
+  padding: 0;
 
-	#{ $inputContainer } {
-		&:not(#{ $selectMenuContainer }) {
-			@include input-transform;
-		}
-	}
+  #{ $inputContainer } {
+    &:not(#{ $selectMenuContainer }) {
+      @include input-transform;
+    }
+  }
 }
 
 #{ $themeLight } {
-	#{ $friendsSearchBar } {
-		#{ $inputContainer } {
-			&:not(#{ $selectMenuContainer }) {
-				background-color: hsl(from var(--input-color) h s calc(l * 1.075));
-			}
-		}
-	}
+  #{ $friendsSearchBar } {
+    #{ $inputContainer } {
+      &:not(#{ $selectMenuContainer }) {
+        background-color: hsl(from var(--input-color) h s calc(l * 1.075));
+      }
+    }
+  }
 }
 
 #{ $friendsItem } {
-	margin: 0 8px !important;
-	padding: 0 16px !important;
-	border-radius: var(--card-radius-big) !important;
-	border: none;
-	transition: var(--default-time) var(--default-animation) background-color;
+  margin: 0 8px !important;
+  padding: 0 16px !important;
+  border-radius: var(--card-radius-big) !important;
+  border: none;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--menu-item-hover);
-	}
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 
-	&#{ $friendsItemActive } {
-		background-color: var(--menu-item-select);
-	}
+  &#{ $friendsItemActive } {
+    background-color: var(--menu-item-select);
+  }
 
-	#{ $friendActionButton } {
-		background-color: transparent;
-		@include md-ripple(hover, after, 1.0);
+  #{ $friendActionButton } {
+    background-color: transparent;
+    @include md-ripple(hover, after, 1);
 
-		#{ $friendActionButtonIcon } {
-			transform: scale(1.2);
+    #{ $friendActionButtonIcon } {
+      transform: scale(1.2);
 
-			path {
-				&[d="M4.79805 3C3.80445 3 2.99805 3.8055 2.99805 4.8V15.6C2.99805 16.5936 3.80445 17.4 4.79805 17.4H7.49805V21L11.098 17.4H19.198C20.1925 17.4 20.998 16.5936 20.998 15.6V4.8C20.998 3.8055 20.1925 3 19.198 3H4.79805Z"] {
-					d: path('M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z');
-				}
-			}
-		}
-	}
+      path {
+        &[d="M4.79805 3C3.80445 3 2.99805 3.8055 2.99805 4.8V15.6C2.99805 16.5936 3.80445 17.4 4.79805 17.4H7.49805V21L11.098 17.4H19.198C20.1925 17.4 20.998 16.5936 20.998 15.6V4.8C20.998 3.8055 20.1925 3 19.198 3H4.79805Z"] {
+          d: path(
+            "M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"
+          );
+        }
+      }
+    }
+  }
 }
 
 #{ $friendDiscriminator } {
-    opacity: 0;
-    transition: var(--default-time) var(--default-animation) opacity;
+  opacity: 0;
+  transition: var(--default-time) var(--default-animation) opacity;
 }
 
 #{ $friendUserInfo } {
-    &#{ $friendUserInfoHovered } {
-        #{ $friendDiscriminator } {
-            opacity: 1;
-        }
+  &#{ $friendUserInfoHovered } {
+    #{ $friendDiscriminator } {
+      opacity: 1;
     }
+  }
 }
 
 /* FRIENDS LIST -> SPAM REQUESTS */
 
 #{ $spamRequest } {
-    &:not(:nth-last-of-type(2)) {
-        border-block-end: none;
-    }
+  &:not(:nth-last-of-type(2)) {
+    border-block-end: none;
+  }
 
-    #{ $friendsItem } {
-        margin: 0 !important;
-    }
+  #{ $friendsItem } {
+    margin: 0 !important;
+  }
 }

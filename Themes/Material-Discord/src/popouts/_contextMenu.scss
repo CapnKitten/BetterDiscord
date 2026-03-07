@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,181 +8,189 @@
  */
 
 #{ $menuPopout } {
-    --context-menu-radius: calc(var(--context-menu-radius-big) / 2.25);
-    --context-menu-radius-big: calc(var(--popout-radius-big) / 1.25);
-    --context-menu-radius-big-inner: calc(var(--context-menu-radius-big) - var(--context-menu-padding));
+  --context-menu-radius: calc(var(--context-menu-radius-big) / 2.25);
+  --context-menu-radius-big: calc(var(--popout-radius-big) / 1.25);
+  --context-menu-radius-big-inner: calc(
+    var(--context-menu-radius-big) - var(--context-menu-padding)
+  );
 
-    padding: 0;
-    background-color: var(--popout-color);
-    border-radius: var(--context-menu-radius-big);
-    box-shadow: var(--shadow-medium);
-    border: none;
-    animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
-	transform-origin: top;
-    overflow: hidden;
+  padding: 0;
+  background-color: var(--popout-color);
+  border-radius: var(--context-menu-radius-big);
+  box-shadow: var(--shadow-medium);
+  border: none;
+  animation:
+    opacity 100ms ease,
+    open-context-menu 300ms var(--default-animation);
+  transform-origin: top;
+  overflow: hidden;
 
-    #{ $scroller } {
-        --scrollbar-width: 0;
+  #{ $scroller } {
+    --scrollbar-width: 0;
 
-        padding: var(--context-menu-padding) !important;
-        border-radius: var(--context-menu-radius-big-inner);
+    padding: var(--context-menu-padding) !important;
+    border-radius: var(--context-menu-radius-big-inner);
+  }
+
+  #{ $menuPopoutGroupLabel } {
+    @include remove-caps(14px);
+  }
+
+  #{ $menuPopoutItem } {
+    min-height: 32px;
+    margin: 0;
+    line-height: 18px;
+    padding-block: 10px;
+    padding-inline: 12px;
+    gap: 12px;
+    border-radius: var(--context-menu-radius-big-inner);
+    color: var(--menu-item-text-color) !important;
+    transition: var(--default-time) var(--default-animation) background-color;
+    flex-direction: row-reverse;
+
+    &#{ $menuPopoutColorDanger } {
+      --menu-item-text-color: hsl(var(--alert-hsl));
     }
 
-    #{ $menuPopoutGroupLabel } {
-        @include remove-caps(14px);
+    &:hover,
+    &#{ $menuPopoutItemHover } {
+      background-color: var(--menu-item-hover);
+
+      #{ $menuPopoutCaret } {
+        color: var(--menu-item-text-color);
+
+        path {
+          fill: currentColor;
+        }
+      }
     }
 
-    #{ $menuPopoutItem } {
-        min-height: 32px;
-		margin: 0;
-		line-height: 18px;
-        padding-block: 10px;
-        padding-inline: 12px;
-        gap: 12px;
-		border-radius: var(--context-menu-radius-big-inner);
-		color: var(--menu-item-text-color) !important;
-		transition: var(--default-time) var(--default-animation) background-color;
-        flex-direction: row-reverse;
+    &#{ $menuPopoutItemPremium } {
+      transition: var(--default-time) var(--default-animation) background;
 
-        &#{ $menuPopoutColorDanger } {
-            --menu-item-text-color: hsl(var(--alert-hsl));
-        }
-
-        &:hover,
-        &#{ $menuPopoutItemHover } {
-            background-color: var(--menu-item-hover);
-
-            #{ $menuPopoutCaret } {
-                color: var(--menu-item-text-color);
-
-                path {
-                    fill: currentColor;
-                }
-            }
-        }
-
-        &#{ $menuPopoutItemPremium } {
-            transition: var(--default-time) var(--default-animation) background;
-
-            &#{ $menuPopoutItemHover } {
-                background: var(--menu-item-hover);
-            }
-        }
-
-        &:active:not(#{ $menuPopoutHideInteraction }) {
-            background-color: var(--menu-item-select);
-        }
-
-        &#{ $menuPopoutHideInteraction } {
-            #{ $menuPopoutLabelContainer } {
-                padding-block: 0 var(--space-8);
-                padding-inline: 0;
-            }
-
-            #{ $menuPopoutSliderContainer } {
-                margin-block-end: -6px;
-                padding: 0;
-            }
-        }
-
-        #{ $menuPopoutLabelContainer } {
-            min-height: unset;
-            padding: 0;
-        }
-
-        #{ $menuPopoutIconContainer },
-        #{ $menuPopoutImageContainer } {
-            margin: 0;
-        }
-
-        #{ $menuPopoutIcon } {
-            path {
-                fill: currentColor;
-            }
-        }
-
-        #{ $accountSwitcherUserMenuText } {
-            color: inherit;
-        }
+      &#{ $menuPopoutItemHover } {
+        background: var(--menu-item-hover);
+      }
     }
 
-    #{ $menuPopoutLabel } {
-        color: inherit;
+    &:active:not(#{ $menuPopoutHideInteraction }) {
+      background-color: var(--menu-item-select);
     }
 
-    #{ $menuPopoutCustomItem } {
-        #{ $textMdBold } {
-            padding: 12px;
-            font-weight: 500;
-        }
+    &#{ $menuPopoutHideInteraction } {
+      #{ $menuPopoutLabelContainer } {
+        padding-block: 0 var(--space-8);
+        padding-inline: 0;
+      }
+
+      #{ $menuPopoutSliderContainer } {
+        margin-block-end: -6px;
+        padding: 0;
+      }
     }
 
-    #{ $menuPopoutSeparator } {
-        margin-block: var(--context-menu-padding);
-        margin-inline: calc(var(--context-menu-radius-big-inner) - var(--context-menu-padding));
-        border-color: var(--card-border-color);
+    #{ $menuPopoutLabelContainer } {
+      min-height: unset;
+      padding: 0;
     }
 
-    #{ $menuPopoutInnerLabel } {
-        gap: 8px;
+    #{ $menuPopoutIconContainer },
+    #{ $menuPopoutImageContainer } {
+      margin: 0;
     }
+
+    #{ $menuPopoutIcon } {
+      path {
+        fill: currentColor;
+      }
+    }
+
+    #{ $accountSwitcherUserMenuText } {
+      color: inherit;
+    }
+  }
+
+  #{ $menuPopoutLabel } {
+    color: inherit;
+  }
+
+  #{ $menuPopoutCustomItem } {
+    #{ $textMdBold } {
+      padding: 12px;
+      font-weight: 500;
+    }
+  }
+
+  #{ $menuPopoutSeparator } {
+    margin-block: var(--context-menu-padding);
+    margin-inline: calc(
+      var(--context-menu-radius-big-inner) - var(--context-menu-padding)
+    );
+    border-color: var(--card-border-color);
+  }
+
+  #{ $menuPopoutInnerLabel } {
+    gap: 8px;
+  }
 }
 
 #{ $themeLight } {
-    #{ $menuPopout } {
-        #{ $menuPopoutItem } {
-            &:hover,
-            &#{ $menuPopoutItemHover } {
-                background-color: hsl(from var(--menu-item-hover) h s calc(l * 0.875));
-            }
-        }
-    }
-
-    #{ $contextMenuQuickReaction } {
+  #{ $menuPopout } {
+    #{ $menuPopoutItem } {
+      &:hover,
+      &#{ $menuPopoutItemHover } {
         background-color: hsl(from var(--menu-item-hover) h s calc(l * 0.875));
-
-        &:hover {
-    		background-color: hsl(from var(--menu-item-select) h s calc(l * 0.815));
-    	}
+      }
     }
+  }
+
+  #{ $contextMenuQuickReaction } {
+    background-color: hsl(from var(--menu-item-hover) h s calc(l * 0.875));
+
+    &:hover {
+      background-color: hsl(from var(--menu-item-select) h s calc(l * 0.815));
+    }
+  }
 }
 
 #{ $menuPopoutCaret } {
-    path {
-        d: path("M400-280v-400l200 200-200 200Z");
-        transform: translate(0, 24px) scale(0.025);
-    }
+  path {
+    d: path("M400-280v-400l200 200-200 200Z");
+    transform: translate(0, 24px) scale(0.025);
+  }
 }
 
 #{ $menuPopoutQuickReactionsWrapper } {
-    padding: 0;
-    margin-block-end: var(--context-menu-padding);
+  padding: 0;
+  margin-block-end: var(--context-menu-padding);
 }
 
 #{ $contextMenuQuickReaction } {
-    background-color: var(--menu-item-hover);
-    border-radius: var(--context-menu-radius-big-inner);
-    transition: var(--default-time) var(--default-animation) background-color;
+  background-color: var(--menu-item-hover);
+  border-radius: var(--context-menu-radius-big-inner);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--menu-item-select);
-	}
+  &:hover {
+    background-color: var(--menu-item-select);
+  }
 }
 
 #{ $submenuPaddingContainer } {
-    margin-inline: -4px;
-    animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
-    transform-origin: top;
+  margin-inline: -4px;
+  animation:
+    opacity 100ms ease,
+    open-context-menu 300ms var(--default-animation);
+  transform-origin: top;
 }
 
 body:active #{ $menuPopout }:not(:active) {
-	opacity: 0;
-	transition: 150ms ease all;
+  opacity: 0;
+  transition: 150ms ease all;
 }
 
 /* CONTEXT MENU -> SERVER OPTIONS */
 
 #{ $menuPopout }#guild-header-popout {
-	animation: top-pop-out 400ms var(--default-animation);
-	overflow: hidden;
+  animation: top-pop-out 400ms var(--default-animation);
+  overflow: hidden;
 }

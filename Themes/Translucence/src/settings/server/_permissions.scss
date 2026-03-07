@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,52 +8,62 @@
  */
 
 #{ $permissionsSettingCard } {
+  @include card-format;
+
+  &#{ $permissionsSettingCardActive } {
     @include card-format;
+    overflow: hidden;
 
-    &#{ $permissionsSettingCardActive } {
-        @include card-format;
-        overflow: hidden;
-
-        #{ $permissionsCardContent } {
-            box-shadow: var(--card-header-shadow);
-        }
+    #{ $permissionsCardContent } {
+      box-shadow: var(--card-header-shadow);
     }
+  }
 }
 
 #{ $permissionsCardFolder } {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #{ $radioPillGroup } {
-    @include card-format;
-    overflow: hidden;
+  @include card-format;
+  overflow: hidden;
 }
 
 #{ $radioPillItem } {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #{ $radioPillItemSelected } {
-    &#{ $radioPillItemDeny } {
-        background-color: hsla(359,calc(var(--saturation-factor, 1)*82.6%),59.4%,0.65);
-        border-radius: var(--card-radius) 0 0 var(--card-radius);
-    }
+  &#{ $radioPillItemDeny } {
+    background-color: hsla(
+      359,
+      calc(var(--saturation-factor, 1) * 82.6%),
+      59.4%,
+      0.65
+    );
+    border-radius: var(--card-radius) 0 0 var(--card-radius);
+  }
 
-    &#{ $radioPillItemPassthrough } {
-        background-color: hsla(217,8%,41%,0.65);
-    }
+  &#{ $radioPillItemPassthrough } {
+    background-color: hsla(217, 8%, 41%, 0.65);
+  }
 
-    &#{ $radioPillItemAllow } {
-        background-color: hsl(139,calc(var(--saturation-factor, 1)*47.3%),43.9%,0.65);
-        border-radius: 0 var(--card-radius) var(--card-radius) 0;
-    }
+  &#{ $radioPillItemAllow } {
+    background-color: hsl(
+      139,
+      calc(var(--saturation-factor, 1) * 47.3%),
+      43.9%,
+      0.65
+    );
+    border-radius: 0 var(--card-radius) var(--card-radius) 0;
+  }
 }
 
 #{ $permissionsSidebarRoleDotBackground } {
-    padding: 0;
-    background-color: transparent;
+  padding: 0;
+  background-color: transparent;
 }
 
 #{ $permissionsSidebarRoleDot } {
-    box-shadow: none;
+  box-shadow: none;
 }

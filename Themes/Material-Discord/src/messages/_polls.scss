@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,133 +7,136 @@
  */
 
 #{ $pollContainer } {
-    background-color: var(--attachment-color);
-    border-radius: var(--media-radius);
-    border: none;
+  background-color: var(--attachment-color);
+  border-radius: var(--media-radius);
+  border: none;
 
-    #{ $pollAnswersContainer } {
-        padding: 0;
-        background-color: transparent;
-    }
+  #{ $pollAnswersContainer } {
+    padding: 0;
+    background-color: transparent;
+  }
 
-    #{ $pollRadioBackground } {
-        fill: hsl(var(--accent-hsl--material-you));
-    }
+  #{ $pollRadioBackground } {
+    fill: hsl(var(--accent-hsl--material-you));
+  }
 
-    #{ $buttonBlank } {
-    	&#{ $buttonBrand } {
-    		color: hsl(var(--accent-hsl--material-you));
-    	}
+  #{ $buttonBlank } {
+    &#{ $buttonBrand } {
+      color: hsl(var(--accent-hsl--material-you));
     }
+  }
 }
 
 #{ $pollAnswer } {
-    &#{ $pollAnswerVotedStyles } {
-        #{ $pollAnswerInner } {
-            outline-color: hsl(var(--accent-hsl--material-you));
-        }
+  &#{ $pollAnswerVotedStyles } {
+    #{ $pollAnswerInner } {
+      outline-color: hsl(var(--accent-hsl--material-you));
     }
+  }
 
-    &:not(#{ $pollAnswerVotedStyles }) {
-        #{ $pollAnswerInner } {
-            outline-color: transparent !important;
-        }
+  &:not(#{ $pollAnswerVotedStyles }) {
+    #{ $pollAnswerInner } {
+      outline-color: transparent !important;
     }
+  }
 }
 
 #{ $pollAnswerInner } {
-    background-color: var(--card-color-filled);
-    border-radius: calc(var(--media-radius) / 1.65);
+  background-color: var(--card-color-filled);
+  border-radius: calc(var(--media-radius) / 1.65);
 
-    &#{ $pollCurrentlyVoting } {
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
-
-        &#{ $pollAnswerSelected } {
-            background-color: var(--card-color-active);
-
-            circle,
-            path {
-                fill: hsl(var(--accent-hsl--material-you));
-            }
-        }
-
-        path {
-            fill: var(--interactive-text-default);
-        }
+  &#{ $pollCurrentlyVoting } {
+    &:hover {
+      background-color: var(--card-color-hover);
     }
-}
 
-#{ $pollVotePercentageBar } {
-    background-color: hsl(from hsl(var(--accent-hsl--material-you)) h calc(s * 1.5) l / 0.25);
-}
+    &#{ $pollAnswerSelected } {
+      background-color: var(--card-color-active);
 
-#{ $pollAnswerSelectionIcon } {
-    circle {
-        fill: var(--accent-text-color--material-you);
+      circle,
+      path {
+        fill: hsl(var(--accent-hsl--material-you));
+      }
     }
 
     path {
-        fill: hsl(var(--accent-hsl--material-you));
+      fill: var(--interactive-text-default);
     }
+  }
+}
+
+#{ $pollVotePercentageBar } {
+  background-color: hsl(
+    from hsl(var(--accent-hsl--material-you)) h calc(s * 1.5) l / 0.25
+  );
+}
+
+#{ $pollAnswerSelectionIcon } {
+  circle {
+    fill: var(--accent-text-color--material-you);
+  }
+
+  path {
+    fill: hsl(var(--accent-hsl--material-you));
+  }
 }
 
 #{ $pollEndedContainer } {
-    background-color: var(--attachment-color);
-    border-radius: var(--media-radius);
-    border: none;
+  background-color: var(--attachment-color);
+  border-radius: var(--media-radius);
+  border: none;
 
-    #{ $pollEndedImageContainer } {
-        background-color: var(--card-color-active);
-        border-radius: calc(var(--media-radius) - 4px);
-    }
+  #{ $pollEndedImageContainer } {
+    background-color: var(--card-color-active);
+    border-radius: calc(var(--media-radius) - 4px);
+  }
 }
 
 /* POLLS -> VOTES */
 
 #{ $pollVoterQuestion } {
-    margin-inline-end: 36px;
+  margin-inline-end: 36px;
 
-    + #{ $textMdMedium } {
-        color: hsl(var(--accent-hsl--material-you)) !important;
-    }
+  + #{ $textMdMedium } {
+    color: hsl(var(--accent-hsl--material-you)) !important;
+  }
 }
 
 #{ $pollVoterContent } {
-    #{ $pollVotersScroller } {
-        flex: 0 1 auto;
-        width: 200px;
-        padding: 0 8px 24px 24px;
+  #{ $pollVotersScroller } {
+    flex: 0 1 auto;
+    width: 200px;
+    padding: 0 8px 24px 24px;
+  }
+
+  #{ $pollVoters } {
+    flex: 0 1 auto;
+    width: 400px;
+  }
+
+  #{ $pollVotersScroller },
+  #{ $pollVoters } {
+    background-color: transparent;
+  }
+
+  #{ $pollVoter } {
+    margin-inline-end: calc(24px - var(--scrollbar-thin-width));
+  }
+
+  #{ $settingsSide } {
+    #{ $item } {
+      padding: 6px 10px;
+      border-radius: 22px;
+
+      &:hover {
+        background-color: var(--menu-item-hover);
+        transition: var(--default-time) var(--default-animation)
+          background-color;
+      }
+
+      &#{ $itemSelected } {
+        background-color: var(--menu-item-select);
+      }
     }
-
-    #{ $pollVoters } {
-        flex: 0 1 auto;
-        width: 400px;
-    }
-
-    #{ $pollVotersScroller },
-    #{ $pollVoters } {
-        background-color: transparent;
-    }
-
-    #{ $pollVoter } {
-        margin-inline-end: calc(24px - var(--scrollbar-thin-width));
-    }
-
-    #{ $settingsSide } {
-        #{ $item } {
-            padding: 6px 10px;
-            border-radius: 22px;
-
-            &:hover {
-                background-color: var(--menu-item-hover);
-                transition: var(--default-time) var(--default-animation) background-color;
-            }
-
-            &#{ $itemSelected } {
-                background-color: var(--menu-item-select);
-            }
-        }
-    }
+  }
 }

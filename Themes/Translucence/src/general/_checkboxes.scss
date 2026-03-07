@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,32 +7,34 @@
  */
 
 #{ $checkboxIndicator } {
-	background-color: transparent;
-	border-width: 2px;
-    border-radius: 4px;
-	border-color: hsla(var(--accent-hsl),var(--accent-opacity));
-	transition: var(--default-time) var(--default-animation) border-color, var(--default-time) var(--default-animation) background-color;
+  background-color: transparent;
+  border-width: 2px;
+  border-radius: 4px;
+  border-color: hsla(var(--accent-hsl), var(--accent-opacity));
+  transition:
+    var(--default-time) var(--default-animation) border-color,
+    var(--default-time) var(--default-animation) background-color;
 }
 
 #{ $checkboxOption } {
-	&[data-selected] {
-		&:hover {
-			&:not([data-disabled]) {
-				#{ $checkboxIndicator } {
-					background-color: hsla(var(--accent-hsl),var(--accent-opacity));
-				}
-			}
-		}
+  &[data-selected] {
+    &:hover {
+      &:not([data-disabled]) {
+        #{ $checkboxIndicator } {
+          background-color: hsla(var(--accent-hsl), var(--accent-opacity));
+        }
+      }
+    }
 
-		#{ $checkboxIndicator } {
-			background-color: hsla(var(--accent-hsl),var(--accent-opacity));
-			background-color: hsla(var(--accent-hsl),var(--accent-opacity));
-		}
+    #{ $checkboxIndicator } {
+      background-color: hsla(var(--accent-hsl), var(--accent-opacity));
+      background-color: hsla(var(--accent-hsl), var(--accent-opacity));
+    }
 
-		#{ $checkboxCheckmark },
-		#{ $checkboxCheckStroke} {
-			color: var(--accent-text-color);
-			filter: none;
-		}
-	}
+    #{ $checkboxCheckmark },
+    #{ $checkboxCheckStroke} {
+      color: var(--accent-text-color);
+      filter: none;
+    }
+  }
 }

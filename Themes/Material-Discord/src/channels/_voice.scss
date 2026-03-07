@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,125 +7,128 @@
  */
 
 #{ $channelVoiceList } {
-    padding: 0 2px 8px 36px;
+  padding: 0 2px 8px 36px;
 }
 
 #{ $voiceUserList } {
-	#{ $voiceUserContent } {
-		min-height: 30px;
-		margin: 2px 0 0;
-	    padding: 0 3px;
-	    gap: 8px;
+  #{ $voiceUserContent } {
+    min-height: 30px;
+    margin: 2px 0 0;
+    padding: 0 3px;
+    gap: 8px;
 
-	    #{ $voiceUserAvatar } {
-	        margin: 0;
-	    }
+    #{ $voiceUserAvatar } {
+      margin: 0;
+    }
 
-	    #{ $voiceUserIcons } {
-	        margin-inline-end: 0;
-	    }
-	}
+    #{ $voiceUserIcons } {
+      margin-inline-end: 0;
+    }
+  }
 
-	#{ $voiceUserClickable } {
-		&:hover {
-			#{ $voiceUserContent } {
-				background-color: var(--menu-item-hover);
-			}
-		}
+  #{ $voiceUserClickable } {
+    &:hover {
+      #{ $voiceUserContent } {
+        background-color: var(--menu-item-hover);
+      }
+    }
 
-		&#{ $voiceUserSelected } {
-			#{ $voiceUserContent } {
-				background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-			}
-		}
-	}
+    &#{ $voiceUserSelected } {
+      #{ $voiceUserContent } {
+        background-color: hsl(
+          var(--accent-hsl),
+          var(--menu-item-select-accent-opacity)
+        );
+      }
+    }
+  }
 }
 
 #{ $voiceUserName } {
-	transition: var(--default-time) var(--default-animation) color;
+  transition: var(--default-time) var(--default-animation) color;
 }
 
 #{ $voiceUserAvatarImage } {
-    border-radius: var(--avatar-radius);
+  border-radius: var(--avatar-radius);
 }
 
 #{ $voiceUserOverlap } {
-	#{ $voiceUserAvatarImage } {
-		border-color: var(--main-color);
-	}
+  #{ $voiceUserAvatarImage } {
+    border-color: var(--main-color);
+  }
 }
 
 #{ $voiceUserOptionsButton } {
-    border-radius: 50%;
+  border-radius: 50%;
 
-    &:hover {
-        background-color: var(--card-button-color-hover);
-    }
+  &:hover {
+    background-color: var(--card-button-color-hover);
+  }
 }
 
 /* CHANNEL LIST VOICE -> CUSTOM VC ACTIVITY */
 
 #{ $voiceUserCustomActivityIconSpacing } {
-    margin-inline-start: 0;
+  margin-inline-start: 0;
 }
 
 #{ $voiceUserSelfHangStatus } {
-    margin-inline-end: 0;
-    background-color: var(--card-button-color);
-    border-radius: 13px;
-    border: none;
-    transition: var(--default-time) var(--default-animation) background-color;
+  margin-inline-end: 0;
+  background-color: var(--card-button-color);
+  border-radius: 13px;
+  border: none;
+  transition: var(--default-time) var(--default-animation) background-color;
 }
 
 #{ $voiceUserActivityPopout } {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big);
-    box-shadow: var(--shadow-medium);
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--shadow-medium);
 
-    #{ $voiceUserActivityIconWidget } {
-        background-color: var(--card-button-color) !important;
-        border-radius: 50%;
-        border: none;
-        transition: var(--default-time) var(--default-animation) background-color;
+  #{ $voiceUserActivityIconWidget } {
+    background-color: var(--card-button-color) !important;
+    border-radius: 50%;
+    border: none;
+    transition: var(--default-time) var(--default-animation) background-color;
 
-        &:hover {
-            background-color: var(--card-button-color-hover) !important;
-        }
-
-        &#{ $voiceUserActivitySelectedWidget } {
-            background-color: var(--card-color-filled) !important;
-        }
+    &:hover {
+      background-color: var(--card-button-color-hover) !important;
     }
 
-    #{ $voiceUserActivityDivider } {
-        margin: 16px 0;
-        background-color: var(--popout-header-border);
+    &#{ $voiceUserActivitySelectedWidget } {
+      background-color: var(--card-color-filled) !important;
+    }
+  }
+
+  #{ $voiceUserActivityDivider } {
+    margin: 16px 0;
+    background-color: var(--popout-header-border);
+  }
+
+  #{ $voiceUserActivityIconContainer } {
+    padding: 0;
+  }
+
+  #{ $voiceUserActivitySetCutomButton } {
+    height: var(--button-height);
+    padding: 0 20px;
+    background-color: hsl(var(--accent-hsl--material-you));
+    border-radius: var(--button-radius);
+    border: none;
+    color: var(--accent-text-color--material-you);
+    justify-content: center;
+
+    svg {
+      display: none;
     }
 
-    #{ $voiceUserActivityIconContainer } {
-        padding: 0;
+    #{ $voiceUserActivityEditIconColor } {
+      color: inherit;
     }
 
-    #{ $voiceUserActivitySetCutomButton } {
-        height: var(--button-height);
-        padding: 0 20px;
-        background-color: hsl(var(--accent-hsl--material-you));
-        border-radius: var(--button-radius);
-        border: none;
-        color: var(--accent-text-color--material-you);
-        justify-content: center;
-
-        svg {
-            display: none;
-        }
-
-        #{ $voiceUserActivityEditIconColor } {
-            color: inherit;
-        }
-
-        #{ $textXsMedium } {
-            color: inherit !important;
-            font-size: var(--button-font-size);
-        }
+    #{ $textXsMedium } {
+      color: inherit !important;
+      font-size: var(--button-font-size);
     }
+  }
 }

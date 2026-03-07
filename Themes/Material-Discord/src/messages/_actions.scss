@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,96 +8,98 @@
  */
 
 #{ $messageButtons } {
-	max-width: 32px;
-	inset-block-start: -36px;
-	opacity: 0;
-	visibility: visible;
-	pointer-events: none;
-	transition: var(--default-time) var(--default-animation) opacity, var(--default-time) var(--default-animation) max-width;
+  max-width: 32px;
+  inset-block-start: -36px;
+  opacity: 0;
+  visibility: visible;
+  pointer-events: none;
+  transition:
+    var(--default-time) var(--default-animation) opacity,
+    var(--default-time) var(--default-animation) max-width;
 }
 
 #{ $message } {
-	&:hover #{ $messageButtons } {
-		max-width: 380px;
-		opacity: 1;
-		pointer-events: all;
-	}
+  &:hover #{ $messageButtons } {
+    max-width: 380px;
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 
 #{ $messageButtonWrapper } {
-	height: auto;
-	padding: 4px;
-	background-color: var(--popout-color);
-	border-radius: 19px;
-	box-shadow: var(--shadow-medium) !important;
-	border: none;
-	overflow: hidden;
-	z-index: 2;
+  height: auto;
+  padding: 4px;
+  background-color: var(--popout-color);
+  border-radius: 19px;
+  box-shadow: var(--shadow-medium) !important;
+  border: none;
+  overflow: hidden;
+  z-index: 2;
 
-	&:hover {
-        border: none;
-    }
+  &:hover {
+    border: none;
+  }
 }
 
 #{ $messageButton } {
-	width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    box-sizing: border-box;
-	transition: var(--default-time) var(--default-animation) background-color;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--menu-item-hover);
-	}
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 
-	#{ $messageButtonSelected } {
-		background-color: var(--menu-item-select);
-	}
+  #{ $messageButtonSelected } {
+    background-color: var(--menu-item-select);
+  }
 }
 
 #{ $themeLight } {
-	#{ $messageButton } {
-		&:hover {
-			background-color: hsl(from var(--menu-item-hover) h s calc(l * 0.875));
-		}
+  #{ $messageButton } {
+    &:hover {
+      background-color: hsl(from var(--menu-item-hover) h s calc(l * 0.875));
+    }
 
-		#{ $messageButtonSelected } {
-			background-color: hsl(from var(--menu-item-select) h s calc(l * 0.815));
-		}
-	}
+    #{ $messageButtonSelected } {
+      background-color: hsl(from var(--menu-item-select) h s calc(l * 0.815));
+    }
+  }
 }
 
 #{ $fullMotion } {
-	#{ $messageButtonWrapper } {
-		&:hover {
-			box-shadow: var(--shadow-2dp);
-		}
-	}
+  #{ $messageButtonWrapper } {
+    &:hover {
+      box-shadow: var(--shadow-2dp);
+    }
+  }
 }
 
 #{ $messagePopoverReactionHoverBar } {
-    &:hover {
-        border: none;
-    }
+  &:hover {
+    border: none;
+  }
 
-    #{ $messageHoverBarButton } {
-        border-radius: 28px;
-    }
+  #{ $messageHoverBarButton } {
+    border-radius: 28px;
+  }
 }
 
 /* MESSAGES -> ACTIONS -> DELETE MESSAGE */
 
 #{ $messageAlt } {
-	padding: 0;
-	background-color: transparent !important;
-	box-shadow: none !important;
+  padding: 0;
+  background-color: transparent !important;
+  box-shadow: none !important;
 
-	#{ $messagesWrapper } {
-		margin: 0 0 0 52px !important;
-		background-color: var(--message-color-alt) !important;
+  #{ $messagesWrapper } {
+    margin: 0 0 0 52px !important;
+    background-color: var(--message-color-alt) !important;
 
-		#{ $avatarLarge } {
-			inset-inline-start: -52px !important;
-		}
-	}
+    #{ $avatarLarge } {
+      inset-inline-start: -52px !important;
+    }
+  }
 }

@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -9,394 +9,398 @@
 
 #{ $messagesPopoutWrap },
 #{ $recentMentionsPopout } {
-	--unread-radius: calc(var(--message-radius) + var(--space-12));
+  --unread-radius: calc(var(--message-radius) + var(--space-12));
 
-	max-height: 80vh !important;
-	@include popout-format;
-	animation: top-pop-out 400ms var(--default-animation);
+  max-height: 80vh !important;
+  @include popout-format;
+  animation: top-pop-out 400ms var(--default-animation);
 
-	#{ $messagesWrapper } {
-		&#{ $messageCozy } {
-			overflow: visible;
+  #{ $messagesWrapper } {
+    &#{ $messageCozy } {
+      overflow: visible;
 
-			&:before,
-			&:after {
-				display: none;
-			}
+      &:before,
+      &:after {
+        display: none;
+      }
 
-			#{ $avatarLarge } {
-				inset-inline-start: -50px;
-			}
+      #{ $avatarLarge } {
+        inset-inline-start: -50px;
+      }
 
-			#{ $embedContainer } {
-				overflow: hidden;
-			}
-		}
-	}
+      #{ $embedContainer } {
+        overflow: hidden;
+      }
+    }
+  }
 }
 
 body:active {
-	#{ $messagesPopoutWrap },
-	#{ $recentMentionsPopout } {
-		&:not(:active) {
-			opacity: 0;
-			transition: 150ms ease all;
-		}
-	}
+  #{ $messagesPopoutWrap },
+  #{ $recentMentionsPopout } {
+    &:not(:active) {
+      opacity: 0;
+      transition: 150ms ease all;
+    }
+  }
 }
 
 #{ $messagesPopoutHeader } {
-	height: auto;
-	min-height: unset;
-	padding-block: var(--space-24) var(--space-16);
-	padding-inline: var(--space-24);
-	background-color: transparent;
-	border-block-end: none;
+  height: auto;
+  min-height: unset;
+  padding-block: var(--space-24) var(--space-16);
+  padding-inline: var(--space-24);
+  background-color: transparent;
+  border-block-end: none;
 
-	&#{ $recentMentionsHeader } {
-		padding-block-end: 0;
-	}
+  &#{ $recentMentionsHeader } {
+    padding-block-end: 0;
+  }
 
-	#{ $headingMdMedium },
-	#{ $textLgSemibold } {
-		line-height: 24px;
-		font-size: 20px;
-		font-weight: 400;
-		color: var(--header-primary);
-	}
+  #{ $headingMdMedium },
+  #{ $textLgSemibold } {
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--header-primary);
+  }
 
-	#{ $headingMdMedium } {
-		margin-block-end: 16px;
-	}
+  #{ $headingMdMedium } {
+    margin-block-end: 16px;
+  }
 
-	#{ $messagesPopoutExpandedInboxHeader } {
-		padding-block-end: 0;
-	}
+  #{ $messagesPopoutExpandedInboxHeader } {
+    padding-block-end: 0;
+  }
 
-	#{ $messagesPopoutExpandedTabSection } {
-		height: 48px;
-	}
+  #{ $messagesPopoutExpandedTabSection } {
+    height: 48px;
+  }
 
-	#{ $messagesPopoutHeaderFriendRequestButton },
-	#{ $messagesPopoutHeaderButton }:not(#{ $messagesPopoutHeaderButtonDisabled }) {
-		height: var(--button-height);
-		padding-inline: var(--button-padding);
-		background-color: hsl(from var(--accent-secondary-color) h s l / 0.3);
-		border-radius: var(--button-radius);
-		border: none;
-		transition: var(--default-time) var(--default-animation) background-color;
+  #{ $messagesPopoutHeaderFriendRequestButton },
+  #{
+    $messagesPopoutHeaderButton
+    }:not(#{ $messagesPopoutHeaderButtonDisabled }) {
+    height: var(--button-height);
+    padding-inline: var(--button-padding);
+    background-color: hsl(from var(--accent-secondary-color) h s l / 0.3);
+    border-radius: var(--button-radius);
+    border: none;
+    transition: var(--default-time) var(--default-animation) background-color;
 
-		&:hover {
-			background-color: hsl(from var(--accent-secondary-color) h s l / 0.45);
-		}
-	}
+    &:hover {
+      background-color: hsl(from var(--accent-secondary-color) h s l / 0.45);
+    }
+  }
 }
 
 #{ $messagesPopoutContentContainer } {
-	padding: 16px calc(16px - var(--scrollbar-width)) 16px 16px !important;
-	background-color: transparent;
+  padding: 16px calc(16px - var(--scrollbar-width)) 16px 16px !important;
+  background-color: transparent;
 }
 
 #{ $messagesPopoutRow } {
-	border-radius: calc(var(--popout-radius-big) / 1.4);
-	transition: var(--default-time) var(--default-animation) background-color;
+  border-radius: calc(var(--popout-radius-big) / 1.4);
+  transition: var(--default-time) var(--default-animation) background-color;
 
-	&:hover {
-		background-color: var(--menu-item-hover);
-	}
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
 }
 
 #{ $unreadChannelList } > :first-child #{ $unreadChannel } {
-	margin-block-start: 16px;
+  margin-block-start: 16px;
 }
 
 #{ $recentMentionsHeaderTabs } {
-	margin: 0 -24px;
+  margin: 0 -24px;
 
-	#{ $messagesPopoutTabBar } {
-		padding: 0 16px;
-	}
+  #{ $messagesPopoutTabBar } {
+    padding: 0 16px;
+  }
 }
 
 /* MESSAGES POPOUT -> FRIEND REQUEST ROW */
 
 #{ $messagesPopoutFriendRequestContainer } {
-	#{ $button } {
-		padding-inline-start: var(--button-padding-start);
-		padding-inline-end: var(--button-padding-end);
+  #{ $button } {
+    padding-inline-start: var(--button-padding-start);
+    padding-inline-end: var(--button-padding-end);
 
-		#{ $textSmMedium } {
-			line-height: var(--button-height);
-		}
-	}
+    #{ $textSmMedium } {
+      line-height: var(--button-height);
+    }
+  }
 
-	#{ $buttonGreen } {
-		margin-inline-end: 8px;
+  #{ $buttonGreen } {
+    margin-inline-end: 8px;
 
-		#{ $textSmMedium } {
-			color: var(--button-text-color) !important;
-		}
-	}
+    #{ $textSmMedium } {
+      color: var(--button-text-color) !important;
+    }
+  }
 
-	#{ $buttonPrimary } {
-		--button-padding-start: 12px;
-		--button-padding-end: 12px;
-		--button-background: transparent !important;
-		--button-text-color: var(--button-link-accent-text-color) !important;
+  #{ $buttonPrimary } {
+    --button-padding-start: 12px;
+    --button-padding-end: 12px;
+    --button-background: transparent !important;
+    --button-text-color: var(--button-link-accent-text-color) !important;
 
-		--accent-button-action-hover: 0.14;
-		--accent-button-action-active: 0.21;
+    --accent-button-action-hover: 0.14;
+    --accent-button-action-active: 0.21;
 
-		&:after {
-			background-color: hsl(var(--button-link-accent-color));
-		}
+    &:after {
+      background-color: hsl(var(--button-link-accent-color));
+    }
 
-		#{ $textSmMedium } {
-			font-size: 1em;
-			color: var(--button-text-color) !important;
-		}
-	}
+    #{ $textSmMedium } {
+      font-size: 1em;
+      color: var(--button-text-color) !important;
+    }
+  }
 }
 
 /* MESSAGES POPOUT -> INNER */
 
 #{ $messagesPopoutInner } {
-	padding: 0 calc(var(--space-24) - var(--scrollbar-width)) var(--space-24) var(--space-24) !important;
+  padding: 0 calc(var(--space-24) - var(--scrollbar-width)) var(--space-24)
+    var(--space-24) !important;
 
-	#{ $pinnedMessageGroupWrapper } {
-		margin-block: 0 16px;
-		margin-inline: 0;
-		background-color: transparent;
-		border: none;
-		overflow: visible;
+  #{ $pinnedMessageGroupWrapper } {
+    margin-block: 0 16px;
+    margin-inline: 0;
+    background-color: transparent;
+    border: none;
+    overflow: visible;
 
-		&:last-of-type {
-			margin-block-end: 0;
-		}
-
-		&:hover {
-            #{ $pinnedActionButtons } {
-                opacity: 1;
-            }
-        }
-
-		#{ $messagesWrapper } {
-			margin-block: 0;
-			margin-inline: 50px 0;
-			padding: var(--message-padding-top) var(--message-padding-side) !important;
-			background-color: var(--message-color-alt) !important;
-			border-radius: var(--message-radius);
-		}
-
-		#{ $unreadMessagesJumpButton } {
-            margin-block-start: var(--space-8);
-            margin-inline-end: var(--space-12);
-        }
-	}
-
-    #{ $pinnedActionButtons } {
-        display: flex;
-		inset-block-start: var(--space-8);
-		inset-inline-end: var(--space-8);
-        gap: 2px !important;
-        opacity: 0;
-        transition: var(--default-time) var(--default-animation) opacity;
-
-		#{ $pinnedJumpButton } {
-			border-radius: 9px;
-		}
+    &:last-of-type {
+      margin-block-end: 0;
     }
 
-    #{ $pinnedActionButtonContainer } {
-        background: transparent;
-
-        #{ $buttonV2 } {
-            --button-height: var(--space-32);
-            --button-padding-start: var(--space-8);
-            --button-padding-end: var(--space-8);
-        }
-
-        &:first-of-type {
-            --button-radius: calc(var(--button-height) / 2) 4px 4px calc(var(--button-height) / 2);
-        }
-
-        &:last-of-type {
-            --button-radius: 4px calc(var(--button-height) / 2) calc(var(--button-height) / 2) 4px;
-        }
-
-        &:only-child {
-            --button-radius: calc(var(--button-height) / 2);
-        }
+    &:hover {
+      #{ $pinnedActionButtons } {
+        opacity: 1;
+      }
     }
+
+    #{ $messagesWrapper } {
+      margin-block: 0;
+      margin-inline: 50px 0;
+      padding: var(--message-padding-top) var(--message-padding-side) !important;
+      background-color: var(--message-color-alt) !important;
+      border-radius: var(--message-radius);
+    }
+
+    #{ $unreadMessagesJumpButton } {
+      margin-block-start: var(--space-8);
+      margin-inline-end: var(--space-12);
+    }
+  }
+
+  #{ $pinnedActionButtons } {
+    display: flex;
+    inset-block-start: var(--space-8);
+    inset-inline-end: var(--space-8);
+    gap: 2px !important;
+    opacity: 0;
+    transition: var(--default-time) var(--default-animation) opacity;
+
+    #{ $pinnedJumpButton } {
+      border-radius: 9px;
+    }
+  }
+
+  #{ $pinnedActionButtonContainer } {
+    background: transparent;
+
+    #{ $buttonV2 } {
+      --button-height: var(--space-32);
+      --button-padding-start: var(--space-8);
+      --button-padding-end: var(--space-8);
+    }
+
+    &:first-of-type {
+      --button-radius: calc(var(--button-height) / 2) 4px 4px
+        calc(var(--button-height) / 2);
+    }
+
+    &:last-of-type {
+      --button-radius: 4px calc(var(--button-height) / 2)
+        calc(var(--button-height) / 2) 4px;
+    }
+
+    &:only-child {
+      --button-radius: calc(var(--button-height) / 2);
+    }
+  }
 }
 
 #{ $messagesPopoutFooter } {
-	background-color: transparent;
-	border-block-start: 1px solid var(--popout-header-border);
+  background-color: transparent;
+  border-block-start: 1px solid var(--popout-header-border);
 }
 
 #{ $messagesPopoutChannelHeader } {
-	padding: 12px 16px;
-	background-color: var(--message-color-alt);
-	border-radius: var(--unread-radius) var(--unread-radius) 0 0;
-	border-block-end: none;
+  padding: 12px 16px;
+  background-color: var(--message-color-alt);
+  border-radius: var(--unread-radius) var(--unread-radius) 0 0;
+  border-block-end: none;
 
-	&:only-child {
-		border-radius: var(--message-radius);
-	}
+  &:only-child {
+    border-radius: var(--message-radius);
+  }
 
-	#{ $messagesPopoutChannelHeaderButton } {
-		background-color: var(--menu-item-hover);
+  #{ $messagesPopoutChannelHeaderButton } {
+    background-color: var(--menu-item-hover);
 
-		&:hover {
-			background-color: var(--menu-item-select);
-		}
-	}
+    &:hover {
+      background-color: var(--menu-item-select);
+    }
+  }
 }
 
 /* MESSAGES POPOUT -> RECENT MENTIONS */
 
 #{ $recentMentionsContainer } {
-	padding-inline: 0;
-	background-color: var(--message-color-alt);
-    border-radius: var(--unread-radius);
+  padding-inline: 0;
+  background-color: var(--message-color-alt);
+  border-radius: var(--unread-radius);
 
-	&:first-child {
-		margin-block-start: 16px;
-	}
+  &:first-child {
+    margin-block-start: 16px;
+  }
 
-	#{ $recentMentionsMessagesContainer } {
-		margin-inline-start: 0;
-		background-color: var(--message-color-alt);
-		border-radius: 0 0 var(--unread-radius) var(--unread-radius);
-		border: none;
+  #{ $recentMentionsMessagesContainer } {
+    margin-inline-start: 0;
+    background-color: var(--message-color-alt);
+    border-radius: 0 0 var(--unread-radius) var(--unread-radius);
+    border: none;
 
-		#{ $messagesWrapper } {
-			--message-color: var(--message-color-hover);
+    #{ $messagesWrapper } {
+      --message-color: var(--message-color-hover);
 
-			&#{ $messageCozy } {
-				margin-block: 0;
-				margin-inline: 66px 0;
-				border-radius: var(--message-radius);
-				overflow: visible;
-			}
-		}
-	}
+      &#{ $messageCozy } {
+        margin-block: 0;
+        margin-inline: 66px 0;
+        border-radius: var(--message-radius);
+        overflow: visible;
+      }
+    }
+  }
 }
 
-
 #{ $unreadMessagesJumpButton } {
-	--button-height: var(--space-32);
+  --button-height: var(--space-32);
 
-	height: var(--button-height);
-	inset-block-start: unset;
-	inset-inline-end: unset;
-	inset-block-start: var(--space-8);
-	inset-inline-end: var(--space-8);
-	padding-block: 0;
-	padding-inline: var(--space-8);
-	background-color: var(--accent-secondary-color);
-	border-radius: calc(var(--button-height) / 2);
-	border: none;
-	backdrop-filter: none;
-	box-shadow: var(--shadow-soft);
+  height: var(--button-height);
+  inset-block-start: unset;
+  inset-inline-end: unset;
+  inset-block-start: var(--space-8);
+  inset-inline-end: var(--space-8);
+  padding-block: 0;
+  padding-inline: var(--space-8);
+  background-color: var(--accent-secondary-color);
+  border-radius: calc(var(--button-height) / 2);
+  border: none;
+  backdrop-filter: none;
+  box-shadow: var(--shadow-soft);
 
-	&:hover {
-		background-color: var(--accent-secondary-color);
-	}
+  &:hover {
+    background-color: var(--accent-secondary-color);
+  }
 
-	#{ $textXsMedium } {
-		font-size: var(--button-font-size);
-		line-height: var(--button-height);
-	}
+  #{ $textXsMedium } {
+    font-size: var(--button-font-size);
+    line-height: var(--button-height);
+  }
 }
 
 #{ $recentMentionsHeader } {
-	border-block-end: 1px solid var(--popout-header-border);
+  border-block-end: 1px solid var(--popout-header-border);
 }
 
 #{ $recentMentionsJumpButton } {
-	inset-block-start: 22px;
-	inset-inline-end: 22px;
-	padding: 4px 6px;
-	border-radius: 12px;
+  inset-block-start: 22px;
+  inset-inline-end: 22px;
+  padding: 4px 6px;
+  border-radius: 12px;
 }
 
 /* MESSAGES POPOUT -> UNREADS */
 
 #{ $unreadTutorial } {
-	@include card-format(false, 16px);
+  @include card-format(false, 16px);
 }
 
 #{ $unreadChannel } {
-	#{ $messagesPopoutChannelHeader } {
-		gap: var(--space-12);
-		padding: var(--space-12) var(--space-16);
+  #{ $messagesPopoutChannelHeader } {
+    gap: var(--space-12);
+    padding: var(--space-12) var(--space-16);
 
-		&:only-child {
-			border-radius: calc(var(--message-radius) + var(--space-12));
-			border-block-end: none;
-		}
-	}
+    &:only-child {
+      border-radius: calc(var(--message-radius) + var(--space-12));
+      border-block-end: none;
+    }
+  }
 
-	#{ $messagesPopoutCollapseButton } {
-		display: flex;
-		height: var(--button-height);
-		min-width: var(--button-height);
-		padding: 0;
-		background-color: var(--accent-secondary-color);
-		border-radius: var(--button-radius);
-		justify-content: center;
-		align-items: center;
-	}
+  #{ $messagesPopoutCollapseButton } {
+    display: flex;
+    height: var(--button-height);
+    min-width: var(--button-height);
+    padding: 0;
+    background-color: var(--accent-secondary-color);
+    border-radius: var(--button-radius);
+    justify-content: center;
+    align-items: center;
+  }
 
-	#{ $messagesPopoutChannelIcon } {
-		margin-inline-end: 0;
-	}
+  #{ $messagesPopoutChannelIcon } {
+    margin-inline-end: 0;
+  }
 }
 
 #{ $unreadMessages } {
-	padding: var(--space-16);
-	padding-block-start: var(--space-8);
-	background-color: var(--message-color-alt);
-	border-radius: 0 0 var(--unread-radius) var(--unread-radius);
-	border: none;
+  padding: var(--space-16);
+  padding-block-start: var(--space-8);
+  background-color: var(--message-color-alt);
+  border-radius: 0 0 var(--unread-radius) var(--unread-radius);
+  border: none;
 
-	#{ $messagesWrapper } {
-		--message-color: var(--message-color-hover);
+  #{ $messagesWrapper } {
+    --message-color: var(--message-color-hover);
 
-		&#{ $messageCozy } {
-			overflow: visible;
+    &#{ $messageCozy } {
+      overflow: visible;
 
-			&#{ $messageGroupStart } {
-				margin-inline-start: 48px;
-				margin-inline-end: 0;
-			}
+      &#{ $messageGroupStart } {
+        margin-inline-start: 48px;
+        margin-inline-end: 0;
+      }
 
-			&:not(#{ $messageGroupStart }) {
-				margin-block: 4px 0;
-				margin-inline: 48px 0;
-			}
-		}
+      &:not(#{ $messageGroupStart }) {
+        margin-block: 4px 0;
+        margin-inline: 48px 0;
+      }
+    }
 
-		#{ $messageSpine } {
-			&:before {
-				margin-inline: 0 calc(var(--message-padding-side));
-				border-color: var(--message-color-hover);
-			}
-		}
-	}
+    #{ $messageSpine } {
+      &:before {
+        margin-inline: 0 calc(var(--message-padding-side));
+        border-color: var(--message-color-hover);
+      }
+    }
+  }
 }
 
 #{ $messagesPopoutThreadContainer } {
-    --unread-radius: calc(var(--message-radius) + var(--space-12));
+  --unread-radius: calc(var(--message-radius) + var(--space-12));
 
-    padding-block-end: var(--space-16);
-    padding-inline: var(--space-16);
-    background-color: var(--message-color-alt);
-    border-radius: 0 0 var(--unread-radius) var(--unread-radius);
+  padding-block-end: var(--space-16);
+  padding-inline: var(--space-16);
+  background-color: var(--message-color-alt);
+  border-radius: 0 0 var(--unread-radius) var(--unread-radius);
 
-    #{ $postContainer } {
-        background-color: var(--message-color-hover);
-    }
+  #{ $postContainer } {
+    background-color: var(--message-color-hover);
+  }
 }

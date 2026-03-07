@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,38 +7,38 @@
  */
 
 #{ $formatToolbar } {
-    padding: 4px;
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+  padding: 4px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--default-shadow);
 
-    &:before {
-        border-top-color: var(--popout-color);
-    }
+  &:before {
+    border-top-color: var(--popout-color);
+  }
 
-    #{ $formatToolbarButtons } {
-        height: auto;
-    }
+  #{ $formatToolbarButtons } {
+    height: auto;
+  }
 
-    #{ $button } {
-        --button-background: transparent;
-        --button-padding: 0;
-        --button-radius: calc(var(--popout-radius) - 2px);
+  #{ $button } {
+    --button-background: transparent;
+    --button-padding: 0;
+    --button-radius: calc(var(--popout-radius) - 2px);
+    --button-text-color: var(--menu-text-color);
+
+    transition: none;
+
+    &:not([disabled]) {
+      &:hover {
+        --button-background: var(--background-tinted-hover);
         --button-text-color: var(--menu-text-color);
 
-        transition: none;
-
-        &:not([disabled]) {
-            &:hover {
-                --button-background: var(--background-tinted-hover);
-    			--button-text-color: var(--menu-text-color);
-
-                transform: none;
-            }
-        }
+        transform: none;
+      }
     }
+  }
 
-    #{ $formatToolbarDivider } {
-        border-left-color: var(--popout-border-color);
-    }
+  #{ $formatToolbarDivider } {
+    border-left-color: var(--popout-border-color);
+  }
 }

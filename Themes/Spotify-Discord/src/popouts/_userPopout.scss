@@ -1,5 +1,5 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -8,210 +8,225 @@
  */
 
 #{ $userProfileOuter } {
-	&:not(#{ $userProfileOuterThemed }) {
-        --background-surface-high: var(--popout-color) !important;
-        --user-profile-overlay-background: var(--profile-gradient-primary-color) !important;
+  &:not(#{ $userProfileOuterThemed }) {
+    --background-surface-high: var(--popout-color) !important;
+    --user-profile-overlay-background: var(
+      --profile-gradient-primary-color
+    ) !important;
 
-		--profile-gradient-primary-color: var(--popout-color) !important;
-		--profile-gradient-secondary-color: var(--popout-color) !important;
-		--profile-avatar-border-color: var(--popout-color) !important;
-		--profile-body-background-color: var(--popout-color-alt) !important;
+    --profile-gradient-primary-color: var(--popout-color) !important;
+    --profile-gradient-secondary-color: var(--popout-color) !important;
+    --profile-avatar-border-color: var(--popout-color) !important;
+    --profile-body-background-color: var(--popout-color-alt) !important;
 
-		--bg-surface-overlay: var(--profile-gradient-primary-color) !important;
-	    --bg-mod-faint: var(--profile-body-background-color) !important;
+    --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+    --bg-mod-faint: var(--profile-body-background-color) !important;
 
-		#{ $channelTextArea },
-	    #{ $channelTextAreaScrollable } {
-			background-color: hsl(from var(--main-textarea-color) h s calc(l * 1.6)) !important;
-		}
-	}
+    #{ $channelTextArea },
+    #{ $channelTextAreaScrollable } {
+      background-color: hsl(
+        from var(--main-textarea-color) h s calc(l * 1.6)
+      ) !important;
+    }
+  }
 }
 
 #{ $userProfileOuterThemed } {
-	--profile-gradient-button-color: hsl(var(--accent-hsl));
-	--profile-gradient-button-text-color: hsl(0,calc(var(--saturation-factor, 1)*0%),100%);
+  --profile-gradient-button-color: hsl(var(--accent-hsl));
+  --profile-gradient-button-text-color: hsl(
+    0,
+    calc(var(--saturation-factor, 1) * 0%),
+    100%
+  );
 
-	--card-color: var(--bg-surface-overlay) !important;
+  --card-color: var(--bg-surface-overlay) !important;
 
-	--main-textarea-color: rgb(var(--bg-overlay-color-inverse)/.1) !important;
-    --main-textarea-text-color: rgb(var(--bg-overlay-color-inverse)/var(--bg-overlay-opacity-1)) !important;
-    --main-textarea-placeholder-color: rgb(var(--bg-overlay-color-inverse)/var(--bg-overlay-opacity-4)) !important;
+  --main-textarea-color: rgb(var(--bg-overlay-color-inverse)/0.1) !important;
+  --main-textarea-text-color: rgb(
+    var(--bg-overlay-color-inverse)/var(--bg-overlay-opacity-1)
+  ) !important;
+  --main-textarea-placeholder-color: rgb(
+    var(--bg-overlay-color-inverse)/var(--bg-overlay-opacity-4)
+  ) !important;
 
-	#{ $userProfileBanner } {
-		border-radius: calc(var(--popout-radius-big) - 4px) calc(var(--popout-radius-big) - 4px) 0 0;
-	}
+  #{ $userProfileBanner } {
+    border-radius: calc(var(--popout-radius-big) - 4px)
+      calc(var(--popout-radius-big) - 4px) 0 0;
+  }
 
-	#{ $userProfileNoteTextArea },
-	#{ $inputWrapper } #{ $input } {
-		--input-color: var(--profile-body-background-color) !important;
-	}
+  #{ $userProfileNoteTextArea },
+  #{ $inputWrapper } #{ $input } {
+    --input-color: var(--profile-body-background-color) !important;
+  }
 
-	#{ $markup } {
-        color: var(--main-textarea-text-color);
+  #{ $markup } {
+    color: var(--main-textarea-text-color);
+  }
+
+  #{ $buttonFilled } {
+    --button-background: var(--profile-gradient-button-color);
+    --button-text-color: var(--white-500);
+  }
+
+  #{ $markup } a {
+    color: var(--profile-gradient-button-color);
+  }
+
+  #{ $flowerStar } {
+    path {
+      fill: var(--profile-gradient-button-color);
     }
+  }
 
-	#{ $buttonFilled } {
-		--button-background: var(--profile-gradient-button-color);
-        --button-text-color: var(--white-500);
-	}
+  #{ $flowerStarChild } {
+    path {
+      fill: var(--white-500);
+    }
+  }
 
-	#{ $markup } a {
-		color: var(--profile-gradient-button-color);
-	}
-
-	#{ $flowerStar } {
-	    path {
-	        fill: var(--profile-gradient-button-color);
-	    }
-	}
-
-	#{ $flowerStarChild } {
-	    path {
-	        fill: var(--white-500);
-	    }
-	}
-
-	#{ $role } {
-		background-color: transparent;
-	}
+  #{ $role } {
+    background-color: transparent;
+  }
 }
 
 #{ $userProfileOuter } {
-	border-radius: var(--popout-radius-big);
-	box-shadow: var(--default-shadow);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--default-shadow);
 }
 
 #{ $userProfileInner } {
-	border-radius: calc(var(--popout-radius-big) / 1.25);
+  border-radius: calc(var(--popout-radius-big) / 1.25);
 
-	&:before {
-		border-radius: inherit;
-	}
+  &:before {
+    border-radius: inherit;
+  }
 
-    #{ $avatarWrapper } {
-		circle {
-			fill: var(--profile-avatar-border-color);
-		}
-	}
-
-	#{ $channelTextArea } {
-        margin-bottom: 0;
+  #{ $avatarWrapper } {
+    circle {
+      fill: var(--profile-avatar-border-color);
     }
+  }
+
+  #{ $channelTextArea } {
+    margin-bottom: 0;
+  }
 }
 
 #{ $userProfileOverlayBackground } {
-	> #{ $menuPopout } {
-		background-color: transparent;
+  > #{ $menuPopout } {
+    background-color: transparent;
 
-		#{ $menuPopoutItem } {
-			color: var(--interactive-normal);
-		}
-	}
+    #{ $menuPopoutItem } {
+      color: var(--interactive-normal);
+    }
+  }
 }
 
 #{ $userProfileNitroUpsellWrapper } {
-	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
+  border-radius: calc(var(--popout-radius-big) / 1.25)
+    calc(var(--popout-radius-big) / 1.25) 0 0;
 }
 
 #{ $userProfileBanner } {
-	border-radius: calc(var(--popout-radius-big) / 1.25) calc(var(--popout-radius-big) / 1.25) 0 0;
+  border-radius: calc(var(--popout-radius-big) / 1.25)
+    calc(var(--popout-radius-big) / 1.25) 0 0;
 }
 
 #{ $biteSizeBannerButtonsWrapper } {
-    #{ $userProfileIconButton } {
-        min-width: var(--custom-button-button-sm-height);
-        max-width: var(--custom-button-button-sm-height);
-        min-height: var(--custom-button-button-sm-height);
-        max-height: var(--custom-button-button-sm-height);
-        margin: 0;
+  #{ $userProfileIconButton } {
+    min-width: var(--custom-button-button-sm-height);
+    max-width: var(--custom-button-button-sm-height);
+    min-height: var(--custom-button-button-sm-height);
+    max-height: var(--custom-button-button-sm-height);
+    margin: 0;
 
-        svg {
-            margin: auto;
-        }
+    svg {
+      margin: auto;
     }
+  }
 }
 
 #{ $userProfileSyncButtonInner } {
-    min-width: var(--button-height);
-    max-width: var(--button-height);
-    min-height: var(--button-height);
-    max-height: var(--button-height);
+  min-width: var(--button-height);
+  max-width: var(--button-height);
+  min-height: var(--button-height);
+  max-height: var(--button-height);
 }
 
 #{ $userProfileBadges } {
-	border-radius: 15px;
+  border-radius: 15px;
 }
 
 #{ $userProfileOverlayBackground } {
-	border-radius: calc(var(--popout-radius-big) / 1.25);
+  border-radius: calc(var(--popout-radius-big) / 1.25);
 }
 
 #{ $statusBubbleOuter } {
+  border: none !important;
+
+  &:before,
+  &:after {
+    background-color: var(--card-color) !important;
     border: none !important;
+  }
 
-    &:before,
-    &:after {
-        background-color: var(--card-color) !important;
-        border: none !important;
-    }
-
-    #{ $statusBubble } {
-        background-color: var(--card-color);
-    }
+  #{ $statusBubble } {
+    background-color: var(--card-color);
+  }
 }
 
 #{ $biteSizeIconButton } {
-    --button-padding: 0;
+  --button-padding: 0;
 
-    min-width: 24px;
+  min-width: 24px;
 }
 
 #{ $userProfileAvatarActionIcon } {
-    color: var(--menu-text-color);
+  color: var(--menu-text-color);
 
-    path[fill] {
-        fill: currentColor;
-    }
+  path[fill] {
+    fill: currentColor;
+  }
 }
 
 /* USER POPOUT -> STATUS AREA */
 
 #{ $userProfileStatusMenu } {
-    padding: 0;
-    background-color: transparent;
-    box-shadow: none;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
 
-    > #{ $scroller } {
-        padding: 0 4px 8px 4px !important;
+  > #{ $scroller } {
+    padding: 0 4px 8px 4px !important;
+  }
+
+  #{ $menuPopoutItem } {
+    &[id*="account-divider-"] {
+      min-height: unset;
+      padding: 0;
+
+      #{ $menuPopoutDivider } {
+        margin: 8px 12px;
+      }
     }
-
-    #{ $menuPopoutItem } {
-		&[id*="account-divider-"] {
-			min-height: unset;
-			padding: 0;
-
-			#{ $menuPopoutDivider } {
-				margin: 8px 12px;
-			}
-		}
-	}
+  }
 }
 
 #{ $biteSizeActivity } {
-	border-radius: var(--popout-radius);
+  border-radius: var(--popout-radius);
 }
 
 /* USER POPOUT -> BOT COMMANDS */
 
 #{ $userProfileList } {
-    #{ $buttonSizeIcon } {
-        --button-padding: 0 8px;
-    }
+  #{ $buttonSizeIcon } {
+    --button-padding: 0 8px;
+  }
 }
 
 /* USER POPOUT -> ROLES */
 
 #{ $role } {
-    background-color: var(--card-color-active);
-    border-radius: 12px;
+  background-color: var(--card-color-active);
+  border-radius: 12px;
 }

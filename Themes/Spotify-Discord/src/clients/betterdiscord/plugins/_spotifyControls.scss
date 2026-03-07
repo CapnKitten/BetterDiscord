@@ -1,4 +1,4 @@
-@use '../../../classes' as *;
+@use "../../../classes" as *;
 
 /*
  *
@@ -7,197 +7,203 @@
  */
 
 #{ $spotifyPanel } {
-    --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
+  --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
 
+  position: absolute;
+  width: calc(240px + var(--panel-placement));
+  height: var(--app-bar-size);
+  left: calc((72px + (var(--app-card-margin) * 2)) * -1);
+  bottom: calc(var(--app-bar-size) * -1);
+  margin-bottom: 0;
+  padding: 0 0 0 16px;
+  border-bottom: none;
+
+  &#{ $spotifyPanelWithTimeline } {
+    padding-top: 0;
+  }
+
+  #{ $spotifyPanelCoverWrapper } {
     position: absolute;
-    width: calc(240px + var(--panel-placement));
-    height: var(--app-bar-size);
-    left: calc((72px + (var(--app-card-margin) * 2)) * -1);
-    bottom: calc(var(--app-bar-size) * -1);
-    margin-bottom: 0;
-    padding: 0 0 0 16px;
-    border-bottom: none;
+    width: 52px;
+    height: 52px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto 0;
+    transition:
+      var(--default-time) ease width,
+      var(--default-time) ease height,
+      var(--default-time) ease transform,
+      var(--default-time) ease border-radius;
+    transform: translate(18px, 0) !important;
+  }
 
-    &#{ $spotifyPanelWithTimeline } {
-        padding-top: 0;
-    }
+  #{ $spotifyPanelDetails } {
+    margin-left: 72px;
+  }
 
+  #{ $spotifyPanelDetails } {
+    transition: var(--default-time) ease margin-left;
+  }
+
+  #{ $spotifyPanelTimeline } {
+    position: relative;
+    margin: 10px 0 0 72px;
+    transition:
+      var(--default-time) ease margin-left,
+      var(--default-time) ease margin-bottom;
+  }
+
+  #{ $spotifyPanelTimelineBar } {
+    width: calc(100% - 68px);
+    left: 34px;
+  }
+
+  #{ $spotifyPanelTimelineBarText } {
+    position: absolute;
+    width: 100%;
+    top: -5px;
+  }
+
+  &#{ $spotifyPanelMaximized } {
     #{ $spotifyPanelCoverWrapper } {
-        position: absolute;
-        width: 52px;
-        height: 52px;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        margin: auto 0;
-        transition: var(--default-time) ease width, var(--default-time) ease height, var(--default-time) ease transform, var(--default-time) ease border-radius;
-        transform: translate(18px, 0) !important;
+      --left: calc(72px + calc(var(--app-card-margin) * 2));
+      --bottom: -292px;
+
+      width: 240px;
+      height: 240px;
+      margin: 0;
+      border-radius: var(--app-card-radius);
+      transform: translate(var(--left), var(--bottom)) !important;
+    }
+
+    + #{ $connectionPanelWrapper } {
+      margin-bottom: 240px;
+    }
+
+    #{ $spotifyPanelInner } {
+      --button-height: 28px;
     }
 
     #{ $spotifyPanelDetails } {
-        margin-left: 72px;
+      margin-left: 0;
     }
 
     #{ $spotifyPanelDetails } {
-        transition: var(--default-time) ease margin-left;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 4px 0 0;
+
+      #{ $accountPanelDiscriminator } {
+        margin-left: 4px;
+        line-height: 18px;
+        font-size: 14px;
+      }
     }
 
     #{ $spotifyPanelTimeline } {
-        position: relative;
-        margin: 10px 0 0 72px;
-        transition: var(--default-time) ease margin-left, var(--default-time) ease margin-bottom;
+      margin: 4px 0 8px;
     }
 
     #{ $spotifyPanelTimelineBar } {
-        width: calc(100% - 68px);
-        left: 34px;
+      margin: 0;
     }
+  }
 
-    #{ $spotifyPanelTimelineBarText } {
-        position: absolute;
-        width: 100%;
-        top: -5px;
-    }
-
-    &#{ $spotifyPanelMaximized } {
-        #{ $spotifyPanelCoverWrapper } {
-            --left: calc(72px + calc(var(--app-card-margin) * 2));
-            --bottom: -292px;
-
-            width: 240px;
-            height: 240px;
-            margin: 0;
-            border-radius: var(--app-card-radius);
-            transform: translate(var(--left), var(--bottom)) !important;
-        }
-
-        + #{ $connectionPanelWrapper } {
-            margin-bottom: 240px;
-        }
-
-        #{ $spotifyPanelInner } {
-            --button-height: 28px;
-        }
-
-        #{ $spotifyPanelDetails } {
-            margin-left: 0;
-        }
-
-        #{ $spotifyPanelDetails } {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin: 4px 0 0;
-
-            #{ $accountPanelDiscriminator } {
-                margin-left: 4px;
-                line-height: 18px;
-                font-size: 14px;
-            }
-        }
-
-        #{ $spotifyPanelTimeline } {
-            margin: 4px 0 8px;
-        }
-
-        #{ $spotifyPanelTimelineBar } {
-            margin: 0;
-        }
-    }
-
-    #{ $textSmNormal } {
-        color: var(--text-subtle);
-    }
+  #{ $textSmNormal } {
+    color: var(--text-subtle);
+  }
 }
 
 /* BETTERDISCORD PLUGIN -> SpotifyControls -> VENCORD */
 
 #{ $vencordSpotifyPlayer } {
-    --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
+  --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
 
-    position: absolute;
-    width: calc(240px + var(--panel-placement));
-    height: var(--app-bar-size);
-    left: calc((72px + (var(--app-card-margin) * 2)) * -1);
-    bottom: calc(var(--app-bar-size) * -1);
-    padding: 0 0 0 16px;
-    background: transparent !important;
-    border-bottom: none;
-    box-sizing: border-box;
+  position: absolute;
+  width: calc(240px + var(--panel-placement));
+  height: var(--app-bar-size);
+  left: calc((72px + (var(--app-card-margin) * 2)) * -1);
+  bottom: calc(var(--app-bar-size) * -1);
+  padding: 0 0 0 16px;
+  background: transparent !important;
+  border-bottom: none;
+  box-sizing: border-box;
 }
 
 #{ $vencordSpotifyInfoWrapper } {
-    width: calc(100% - ((var(--app-card-margin) * 2) + 52px + 160px));
-    height: auto;
-    margin-top: 8px;
-    margin-left: calc((var(--app-card-margin) * 2) + 52px);
-    gap: 0;
+  width: calc(100% - ((var(--app-card-margin) * 2) + 52px + 160px));
+  height: auto;
+  margin-top: 8px;
+  margin-left: calc((var(--app-card-margin) * 2) + 52px);
+  gap: 0;
 }
 
 #{ $vencordSpotifyAlbumImage } {
-    position: absolute;
-    width: 52px;
-    height: 52px !important;
-    left: 18px;
-    top: 14px;
+  position: absolute;
+  width: 52px;
+  height: 52px !important;
+  left: 18px;
+  top: 14px;
 }
 
 #{ $vencordSpotifyTitles } {
-    #{ $vencordSpotifyEllipoverflow } {
-        &:last-of-type {
-            display: none;
-        }
+  #{ $vencordSpotifyEllipoverflow } {
+    &:last-of-type {
+      display: none;
     }
+  }
 }
 
 #{ $vencordSpotifyProgressBar } {
-    width: calc(100% - 72px);
-    margin: 8px 0 0 72px;
+  width: calc(100% - 72px);
+  margin: 8px 0 0 72px;
 
-    #{ $settingsV2Card } {
-        --card-color: transparent;
-        margin-bottom: 0;
-    }
+  #{ $settingsV2Card } {
+    --card-color: transparent;
+    margin-bottom: 0;
+  }
 
-    #{ $menuPopoutSliderContainer } {
-        width: calc(100% - 84px);
-        margin: 0 auto;
-    }
+  #{ $menuPopoutSliderContainer } {
+    width: calc(100% - 84px);
+    margin: 0 auto;
+  }
 
-    #{ $slider } {
-        &:hover {
-            #{ $sliderBarFill } {
-                background-color: hsl(var(--accent-hsl));
-            }
-        }
+  #{ $slider } {
+    &:hover {
+      #{ $sliderBarFill } {
+        background-color: hsl(var(--accent-hsl));
+      }
     }
+  }
 
-    #{ $sliderBarFill } {
-        background-color: var(--interactive-normal);
-    }
+  #{ $sliderBarFill } {
+    background-color: var(--interactive-normal);
+  }
 
-    #{ $sliderGrabber } {
-        --grabber-size: 12px;
-        top: 8px;
-    }
+  #{ $sliderGrabber } {
+    --grabber-size: 12px;
+    top: 8px;
+  }
 
-    #{ $vencordSpotifyProgressTime } {
-        top: -4px;
-    }
+  #{ $vencordSpotifyProgressTime } {
+    top: -4px;
+  }
 }
 
 #{ $vencordSpotifyProgressTime } {
-    top: -4px;
+  top: -4px;
 }
 
 #{ $vencordSpotifyButtonRow } {
-    position: absolute;
-    top: 12px;
-    right: 0;
-    gap: 2px !important;
-    background-color: var(--app-background);
+  position: absolute;
+  top: 12px;
+  right: 0;
+  gap: 2px !important;
+  background-color: var(--app-background);
 }
 
 #{ $vencordSpotifyButton } {
-    margin: 0;
+  margin: 0;
 }

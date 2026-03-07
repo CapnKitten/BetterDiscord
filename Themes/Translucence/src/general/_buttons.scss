@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,241 +7,248 @@
  */
 
 #{ $button } {
-    border-radius: var(--button-radius) !important;
+  border-radius: var(--button-radius) !important;
 
-    * {
-        text-shadow: none;
-    }
+  * {
+    text-shadow: none;
+  }
 
-    #{ $textSmMedium },
-	#{ $textSmSemibold },
-	#{ $textSmBold },
-	#{ $textMdSemibold },
-    #{ $buttonContents } {
-        color: inherit !important;
-        font-weight: 500;
-    }
+  #{ $textSmMedium },
+  #{ $textSmSemibold },
+  #{ $textSmBold },
+  #{ $textMdSemibold },
+  #{ $buttonContents } {
+    color: inherit !important;
+    font-weight: 500;
+  }
 }
 
 #{ $buttonSizeSmall },
 #{ $buttonSizeMedium },
 #{ $buttonSizeLarge },
 #{ $buttonSizeXlarge } {
-    height: var(--button-height);
-    min-height: var(--button-height);
-    min-width: var(--button-height);
-    padding: var(--button-padding);
+  height: var(--button-height);
+  min-height: var(--button-height);
+  min-width: var(--button-height);
+  padding: var(--button-padding);
 }
 
 #{ $buttonFilled },
 #{ $buttonOutlined },
 #{ $buttonLink },
 #{ $buttonInverted } {
-    --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
-	--button-text-color: var(--accent-text-color);
-    --button-outline: none;
+  --button-background: hsla(var(--accent-hsl), var(--accent-opacity));
+  --button-text-color: var(--accent-text-color);
+  --button-outline: none;
 
-	background-color: var(--button-background) !important;
-	border: var(--button-outline) !important;
-	color: var(--button-text-color) !important;
-    border: var(--button-outline) !important;
-	//overflow: hidden;
+  background-color: var(--button-background) !important;
+  border: var(--button-outline) !important;
+  color: var(--button-text-color) !important;
+  border: var(--button-outline) !important;
+  //overflow: hidden;
 
-    &:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-        background-color: var(--button-action-color);
-        border-radius: var(--button-radius);
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: var(--button-action-color);
+    border-radius: var(--button-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
 
-    &:hover:after {
-		opacity: 0.075;
-	}
+  &:hover:after {
+    opacity: 0.075;
+  }
 
-	&:active:after {
-		opacity: 0.15;
-	}
+  &:active:after {
+    opacity: 0.15;
+  }
 
-    #{ $buttonContents },
-    #{ $defaultColor } {
-        color: var(--button-text-color);
+  #{ $buttonContents },
+  #{ $defaultColor } {
+    color: var(--button-text-color);
 
-        svg {
-            filter: none;
-        }
+    svg {
+      filter: none;
     }
+  }
 }
 
 #{ $buttonLink } {
-    --button-background: transparent;
-    --button-text-color: hsla(var(--accent-hsl),var(--accent-opacity));
-    --button-action-color: transparent;
+  --button-background: transparent;
+  --button-text-color: hsla(var(--accent-hsl), var(--accent-opacity));
+  --button-action-color: transparent;
 
-    &:hover {
-        #{ $buttonContents } {
-            background-image: linear-gradient(0deg,transparent,transparent 1px,hsl(var(--accent-hsl)) 0,hsl(var(--accent-hsl)) 2px,transparent 0) !important;
-        }
+  &:hover {
+    #{ $buttonContents } {
+      background-image: linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        hsl(var(--accent-hsl)) 0,
+        hsl(var(--accent-hsl)) 2px,
+        transparent 0
+      ) !important;
     }
+  }
 }
 
 /* BUTTONS -> CALL BUTTONS */
 
 #{ $callButtonColorable } {
-    --button-background: var(--background-modifier-hover);
-	--button-text-color: #fff;
-    --button-radius: 50%;
+  --button-background: var(--background-modifier-hover);
+  --button-text-color: #fff;
+  --button-radius: 50%;
 
-	background-color: var(--button-background) !important;
-	color: var(--button-text-color) !important;
+  background-color: var(--button-background) !important;
+  color: var(--button-text-color) !important;
 
-    &:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-        background-color: var(--button-action-color);
-        border-radius: 50%;
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: var(--button-action-color);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
 
-    &:hover:after {
-		opacity: 0.075;
-	}
+  &:hover:after {
+    opacity: 0.075;
+  }
 
-	&:active:after {
-		opacity: 0.15;
-	}
+  &:active:after {
+    opacity: 0.15;
+  }
 
-    &#{ $callButtonPrimaryDark } {
-        --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
-    	--button-text-color: var(--accent-text-color);
-    }
+  &#{ $callButtonPrimaryDark } {
+    --button-background: hsla(var(--accent-hsl), var(--accent-opacity));
+    --button-text-color: var(--accent-text-color);
+  }
 
-    &#{ $callButtonRed } {
-        --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
-        --button-text-color: var(--alert-text-color);
-	}
+  &#{ $callButtonRed } {
+    --button-background: hsla(var(--alert-hsl), var(--alert-opacity));
+    --button-text-color: var(--alert-text-color);
+  }
 
-    &#{ $callButtonWhite } {
-		--button-background: #fff;
-		--button-text-color: #060607;
-	}
+  &#{ $callButtonWhite } {
+    --button-background: #fff;
+    --button-text-color: #060607;
+  }
 
-	&#{ $callButtonLight } {
-		--button-text-color: #060607;
-	}
+  &#{ $callButtonLight } {
+    --button-text-color: #060607;
+  }
 
-	&#{ $callButtonLightActive } {
-		--button-background: var(--background-modifier-active);
-		--button-text-color: #060607;
-	}
+  &#{ $callButtonLightActive } {
+    --button-background: var(--background-modifier-active);
+    --button-text-color: #060607;
+  }
 
-    #{ $callCenterIcon } {
-		color: var(--button-text-color) !important;
-	}
+  #{ $callCenterIcon } {
+    color: var(--button-text-color) !important;
+  }
 }
 
 #{ $buttonRed } {
-    --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
-    --button-text-color: var(--alert-text-color);
-    --button-action-color: var(--alert-action-color);
+  --button-background: hsla(var(--alert-hsl), var(--alert-opacity));
+  --button-text-color: var(--alert-text-color);
+  --button-action-color: var(--alert-action-color);
 }
 
 #{ $buttonQuestionMark } {
-    background-color: hsla(var(--accent-hsl),var(--accent-opacity));
-    border-radius: 50%;
+  background-color: hsla(var(--accent-hsl), var(--accent-opacity));
+  border-radius: 50%;
 
-    #{ $buttongQuestionMarkIcon } {
-        color: var(--accent-text-color);
-        filter: none;
-    }
+  #{ $buttongQuestionMarkIcon } {
+    color: var(--accent-text-color);
+    filter: none;
+  }
 }
 
 /* BUTTONS -> BUTTON V2 */
 
 #{ $buttonV2 } {
-    --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
-	--button-text-color: var(--accent-text-color);
-    --button-outline: none;
+  --button-background: hsla(var(--accent-hsl), var(--accent-opacity));
+  --button-text-color: var(--accent-text-color);
+  --button-outline: none;
 
-	background-color: var(--button-background) !important;
-	border: var(--button-outline) !important;
-	color: var(--button-text-color) !important;
-    border: var(--button-outline) !important;
+  background-color: var(--button-background) !important;
+  border: var(--button-outline) !important;
+  color: var(--button-text-color) !important;
+  border: var(--button-outline) !important;
 
-    &:after {
-		position: absolute;
-		content: " ";
-		width: 100%;
-		height: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
-        background-color: var(--button-action-color);
-        border-radius: var(--button-radius);
-		opacity: 0;
-		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
-	}
+  &:after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: var(--button-action-color);
+    border-radius: var(--button-radius);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) opacity;
+  }
 
-    &:hover:after {
-		opacity: 0.075;
-	}
+  &:hover:after {
+    opacity: 0.075;
+  }
 
-	&:active:after {
-		opacity: 0.15;
-	}
+  &:active:after {
+    opacity: 0.15;
+  }
 
-    #{ $buttonV2ChildrenWrapper } {
-        min-width: 0 !important;
-        height: var(--button-height);
-		padding: 0 !important;
-		line-height: var(--button-height);
-		color: inherit;
-		overflow: visible;
+  #{ $buttonV2ChildrenWrapper } {
+    min-width: 0 !important;
+    height: var(--button-height);
+    padding: 0 !important;
+    line-height: var(--button-height);
+    color: inherit;
+    overflow: visible;
 
-		svg {
-			height: var(--button-height);
-		}
+    svg {
+      height: var(--button-height);
     }
+  }
 
-    #{ $textSmMedium },
-    #{ $textMdMedium },
-    #{ $textLgMedium } {
-        text-shadow: none;
-    }
+  #{ $textSmMedium },
+  #{ $textMdMedium },
+  #{ $textLgMedium } {
+    text-shadow: none;
+  }
 }
 
 /* BUTTONS -> BUTTON V2 -> COLORS */
 
 #{ $buttonV2Primary } {
-    --button-background: hsl(var(--accent-hsl));
-    --button-text-color: var(--accent-text-color);
+  --button-background: hsl(var(--accent-hsl));
+  --button-text-color: var(--accent-text-color);
 }
 
 #{ $buttonV2Secondary } {
-    --button-background: var(--accent-secondary-color);
-    --button-text-color: var(--accent-secondary-text-color);
+  --button-background: var(--accent-secondary-color);
+  --button-text-color: var(--accent-secondary-text-color);
 }
 
 #{ $buttonV2CriticalPrimary } {
-    --button-background: hsl(var(--alert-hsl));
-    --button-text-color: var(--alert-text-color);
+  --button-background: hsl(var(--alert-hsl));
+  --button-text-color: var(--alert-text-color);
 }
 
 #{ $buttonV2CriticalSecondary } {
-    --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
-    --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
+  --button-background: hsl(from hsl(var(--alert-hsl)) h s l / 0.25);
+  --button-text-color: hsl(from hsl(var(--alert-hsl)) h s calc(l * 0.96));
 }
 
 /* BUTTONS -> BUTTON V2 -> SIZES */
@@ -249,17 +256,17 @@
 #{ $buttonV2Small },
 #{ $buttonV2Medium },
 #{ $buttonV2Large } {
-    min-width: var(--button-height) !important;
-	height: var(--button-height) !important;
-	min-height: var(--button-height) !important;
-	padding: var(--button-padding) !important;
-	line-height: var(--button-height) !important;
-	border-radius: var(--button-radius) !important;
+  min-width: var(--button-height) !important;
+  height: var(--button-height) !important;
+  min-height: var(--button-height) !important;
+  padding: var(--button-padding) !important;
+  line-height: var(--button-height) !important;
+  border-radius: var(--button-radius) !important;
 }
 
 #{ $buttonV2 } {
-    #{ $buttonContents },
-    #{ $textSmMedium } {
-        font-weight: 500 !important;
-    }
+  #{ $buttonContents },
+  #{ $textSmMedium } {
+    font-weight: 500 !important;
+  }
 }

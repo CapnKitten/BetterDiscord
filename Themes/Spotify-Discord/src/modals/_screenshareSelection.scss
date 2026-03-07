@@ -1,43 +1,43 @@
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
  *  SCREENSARE SELECTION MODAL
  *
  */
- 
+
 #{ $segmentedButton } {
-    background-color: var(--card-color);
-    border-color: var(--card-border-color) !important;
+  background-color: var(--card-color);
+  border-color: var(--card-border-color) !important;
 
-    &:first-child {
-        border-radius: var(--card-radius) 0 0 var(--card-radius);
+  &:first-child {
+    border-radius: var(--card-radius) 0 0 var(--card-radius);
+  }
+
+  &:last-child {
+    border-radius: 0 var(--card-radius) var(--card-radius) 0;
+  }
+
+  &:not(#{ $segmentedButtonPremiumRequired }) {
+    &:hover {
+      background-color: var(--card-color-hover);
     }
 
-    &:last-child {
-        border-radius: 0 var(--card-radius) var(--card-radius) 0;
+    &#{ $segmentedButtonSelected } {
+      background-color: var(--card-color-active);
     }
-
-    &:not(#{ $segmentedButtonPremiumRequired }) {
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
-
-        &#{ $segmentedButtonSelected } {
-            background-color: var(--card-color-active);
-        }
-    }
+  }
 }
 
 /* SCREENSARE SELECTION MODAL -> RECENT CLIPS POPOUT */
 
 #{ $recentClipsPopout } {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius);
-    box-shadow: var(--default-shadow);
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--default-shadow);
 
-    &:after {
-        border-top-color: var(--popout-color);
-    }
+  &:after {
+    border-top-color: var(--popout-color);
+  }
 }

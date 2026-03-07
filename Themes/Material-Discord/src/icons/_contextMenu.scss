@@ -1,6 +1,6 @@
-@use 'sass:map';
-@use '../classes' as *;
-@use '../mixins' as *;
+@use "sass:map";
+@use "../classes" as *;
+@use "../mixins" as *;
 
 /*
  *
@@ -9,624 +9,625 @@
  */
 
 #{ $menuPopout } {
-    #{ $menuPopoutItem } {
-        #{ $menuPopoutLabel } {
-            flex: 1 18 auto;
-        }
-
-        /* CONTEXT MENU ICONS -> ADD ICONS */
-
-        &[id*="user-context-"][role="menuitem"],
-        &[id*="guild-context-"],
-        &[id*="channel-context-"],
-        &[id*="gdm-context-"],
-        &[id*="-image"],
-        &[id*="-native-link"],
-        &[id*="thread-context-"],
-        &[id*="text-context-"],
-        &[id*="user-settings-cog-"],
-        &[id*="user-profile-actions-"],
-        &[id*="user-profile-overflow-menu-"],
-        &[id*="quests-entry-"],
-        &[id*="friend-row-"],
-        &#manage-streams-report-stream-problem,
-        &#clips-context-clips-settings,
-        &#message-favorite,
-        &#message-unfavorite,
-        &#message-search-google,
-        &#message-remove-reactions,
-        &#message-remove-emoji-reactions,
-        &#message-actions-remove-reactions,
-        &#textarea-context-add-to-dictionary,
-        &#textarea-context-languages {
-            display: flex;
-
-            &:after {
-                position: relative;
-                content: " ";
-                width: 18px;
-                height: 18px;
-                background-color: currentColor;
-                -webkit-mask-repeat: no-repeat;
-                mask-size: 100%;
-            }
-        }
-
-        &#user-settings-cog-Accessibility--input,
-        &#user-settings-cog-Voice___Video--input,
-        &#user-settings-cog-Voice___Video--output,
-        &#user-settings-cog-Experiments--experiments-search {
-            display: block;
-        }
-
-        &[aria-haspopup="true"],
-        &[role="menuitemcheckbox"],
-        &[role="menuitemradio"],
-        &[id*="devmode-copy-id"],
-        &[id*="channel-context-mute-channel"],
-        &[id*="user-context-invite-to-server"],
-        &[id*="user-context-voice-move"],
-        &[id*="user-context-dev"] {
-            &:after {
-                display: none;
-            }
-        }
-
-        &#user-context-user-volume {
-            display: block;
-        }
-
-        &#gdm-context-change-icon {
-            min-height: 36px;
-
-            #{ $menuPopoutLabelContainer },
-            &:after {
-                position: absolute;
-            }
-
-            #{ $menuPopoutLabelContainer } {
-                inset-inline-start: 42px;
-            }
-
-            &:after {
-                inset-inline-start: 12px;
-            }
-        }
-
-        &[id*="image-context-commands-popout"] {
-            flex-direction: row;
-
-            &:before {
-                display: none;
-            }
-
-            &[aria-haspopup="true"] {
-                &:before {
-                    display: none;
-                }
-
-                #{ $menuPopoutIconContainerLeft } {
-                    position: relative;
-                }
-            }
-        }
-
-        $icons: (
-            'user-context-mark-channel-read':                   'visibility',
-            'user-context-user-profile':                        'person',
-            'user-context-mention':                             'mention',
-            'user-context-message-user':                        'chat_bubble',
-            'user-context-call':                                'call',
-            'user-context-ring':                                'notifications_active',
-            'user-context-stop-ringing':                        'notifications_off',
-            'user-context-note':                                'edit',
-            'user-context-Permissions':                         'lock_open',
-            'user-context-add-friend-nickname':                 'add_circle',
-            'user-context-edit-friend-nickname':                'edit',
-            'user-context-invite-to-listen':                    'spotify',
-            'user-context-remove':                              'remove_circle',
-            'user-context-make-dm-owner':                       'crown',
-            'user-context-join':                                'add_circle',
-            'user-context-add-friend':                          'person_add',
-            'user-context-remove-friend':                       'person_remove',
-            'user-context-manage-integration':                  'settings',
-            'user-context-ignore':                              'remove_circle',
-            'user-context-block':                               'block',
-            'user-context-unmute-channel':                      'volume_up',
-            'user-context-change-video-background':             'videocam',
-            'user-context-focus-video':                         'center_focus',
-            'user-context-change-nickname':                     'edit',
-            'user-context-timeout':                             'timer',
-            'user-context-removetimeout':                       'timer_off',
-            'user-context-mod-view':                            'visibility',
-            'user-context-verify':                              'verified_user',
-            'user-context-kick':                                'remove_circle',
-            'user-context-ban':                                 'hardware',
-            'user-context-close-dm':                            'cancel',
-            'user-context-voice-disconnect':                    'power_off',
-            'user-context-transfer-ownership':                  'transfer',
-            'user-context-pin-dm':                              'pin',
-
-            'gdm-context-instant-invites':                      'person_add',
-            'gdm-context-mark-channel-read':                    'visibility',
-            'gdm-context-favorite-channel':                     'favorite',
-            'gdm-context-set-channel-nickname':                 'edit',
-            'gdm-context-change-icon':                          'edit',
-            'gdm-context-remove-icon':                          'remove_circle',
-            'gdm-context-unmute-channel':                       'volume_up',
-            'gdm-context-leave-channel':                        'logout',
-
-            'message-favorite':                                 'favorite',
-            'message-unfavorite':                               'unfavorite',
-            'message-search-google':                            'search',
-            'message-remove-reactions':                         'remove_circle',
-            'message-copy-image':                               'content_copy',
-            'message-save-image':                               'save',
-            'message-copy-native-link':                         'content_copy',
-            'message-open-native-link':                         'open_in_new',
-            'message-actions-remove-reactions':                 'remove_circle',
-
-            'text-context-search-google':                       'search',
-            'text-context-copy':                                'content_copy',
-
-            'thread-context-mark-channel-read':                 'visibility',
-            'thread-context-channel-copy-link':                 'content_copy',
-            'thread-context-unarchive-thread':                  'unarchive',
-            'thread-context-delete-channel':                    'delete',
-            'thread-context-leave-thread':                      'message-minus',
-            'thread-context-edit-thread':                       'edit',
-            'thread-context-pin-thread':                        'pin',
-            'thread-context-unpin-thread':                      'pin',
-            'thread-context-archive-thread':                    'archive',
-            'thread-context-archive-lock-thread':               'lock',
-            'thread-context-lock-thread':                       'lock',
-            'thread-context-join-thread':                       'message-check',
-            'thread-context-open':                              'open_in_new',
-            'thread-context-mute-disabled':                     'volume_up',
-            'thread-context-notifications-disabled':            'notifications',
-
-            'image-context-copy-image':                         'content_copy',
-            'image-context-save-image':                         'save',
-            'image-context-copy-native-link':                   'content_copy',
-            'image-context-open-native-link':                   'open_in_new',
-            'image-context-imageutilities-copy-link':           'content_copy',
-            'image-context-imageutilities-open-link':           'open_in_new',
-            'image-context-imageutilities-copy-file':           'file_copy',
-
-            'textarea-context-add-to-dictionary':               'library_add',
-            'textarea-context-languages':                       'language',
-
-            'guild-context-mark-guild-read':                    'visibility',
-            'guild-context-Permissions':                        'lock_open',
-            'guild-context-guild-profile':                      'badge',
-            'guild-context-invite-people':                      'person_add',
-            'guild-context-unmute-guild':                       'volume_off',
-            'guild-context-privacy':                            'security',
-            'guild-context-change-nickname':                    'edit',
-            'guild-context-leave-guild':                        'logout',
-            'guild-context-create-channel':                     'add_circle',
-            'guild-context-create-category':                    'list_add',
-            'guild-context-create-event':                       'event',
-            'guild-context-mark-folder-read':                   'visibility',
-            'guild-context-folder-settings':                    'settings',
-            'guild-context-folder-collapse':                    'cancel',
-            'guild-context-join':                               'person_add',
-            'guild-context-create':                             'add_circle',
-            'guild-context-server-lockdown':                    'shield_lock',
-
-            'channel-context-mark-channel-read':                'visibility',
-            'channel-context-Permissions':                      'lock_open',
-            'channel-context-unmute-channel':                   'volume_off',
-            'channel-context-open-chat':                        'open_in_new',
-            'channel-context-edit-channel':                     'edit',
-            'channel-context-collapse-all-categories':          'collapse',
-            'channel-context-invite-people':                    'person_add',
-            'channel-context-opt-in-favorite-channel':          'favorite',
-            'channel-context-opt-into-channel':                 'remove_circle',
-            'channel-context-opt-out-category':                 'message-minus',
-            'channel-context-clone-channel':                    'content_copy',
-            'channel-context-create-text-channel':              'add_circle',
-            'channel-context-create-voice-channel':             'add_circle',
-            'channel-context-channel-copy-link':                'content_copy',
-            'channel-context-copy-channel-topic':               'content_copy',
-            'channel-context-delete-channel':                   'delete',
-            'channel-context-favorite-channel':                 'favorite',
-            'channel-context-go-to-original-guild':             'open_in_new',
-            'channel-context-set-channel-nickname':             'edit',
-            'channel-context-invite-to-listen':                 'spotify',
-
-            'user-profile-actions-user-remove':                 'person_remove',
-            'user-profile-actions-user-block':                  'block',
-            'user-profile-actions-user-message':                'chat_bubble',
-            'user-profile-overflow-menu-view-profile':          'person',
-            'user-profile-overflow-menu-ignore':                'remove_circle',
-            'user-profile-overflow-menu-block':                 'block',
-            'user-profile-overflow-menu-report-user':           'report',
-
-            'quests-entry-play-game':                           'open_in_new',
-            'quests-entry-share-link':                          'share',
-            'quests-entry-learn-more':                          'quests',
-            'quests-entry-display-disclosure':                  'help',
-            'quests-entry-hide-entrypoint':                     'visibility_off',
-
-            'friend-row-start-video-call':                      'videocam',
-            'friend-row-start-voice-call':                      'phone_called',
-            'friend-row-remove-friend':                         'cancel',
-
-            'manage-streams-report-stream-problem':             'warning',
-            'clips-context-clips-settings':                     'settings',
-
-            'user-settings-cog-My_Account':                     'person',
-            'user-settings-cog-Profile_Customization':          'account_circle',
-            'user-settings-cog-Content___Social':               'assignment',
-            'user-settings-cog-Data___Privacy':                 'shield_lock',
-            'user-settings-cog-Family_Center':                  'family',
-            'user-settings-cog-Authorized_Apps':                'apps',
-            'user-settings-cog-Sessions':                       'devices',
-            'user-settings-cog-Passport':                       'link',
-            'user-settings-cog-Connections':                    'link',
-            'user-settings-cog-Settings_Clips':                 'movie',
-            'user-settings-cog-Friend_Requests':                'person_add',
-            'user-settings-cog-Discord_Nitro':                  'nitro',
-            'user-settings-cog-Nitro_Server_Boost':             'server_boost',
-            'user-settings-cog-Subscriptions':                  'subscription',
-            'user-settings-cog-Library_Inventory':              'gift',
-            'user-settings-cog-Billing':                        'payment',
-            'user-settings-cog-Text___Images':                  'keyboard',
-            'user-settings-cog-Notifications':                  'notifications',
-            'user-settings-cog-Keybinds':                       'space_bar',
-            'user-settings-cog-Language':                       'language',
-            'user-settings-cog-Windows':                        'windows',
-            'user-settings-cog-Linux':                          'linux',
-            'user-settings-cog-Advanced':                       'integrations',
-            'user-settings-cog-Activity_Privacy':               'verified_user',
-            'user-settings-cog-Game_Activity':                  'stadia_controller',
-            'user-settings-cog-Overlay':                        'picture_in_picture',
-            'user-settings-cog-changelog':                      'checklist',
-            'user-settings-cog-merchandise':                    'storefront',
-            'user-settings-cog-Hypesquad_Online':               'hypesquad',
-
-            'user-settings-cog-VencordPlugins':                 'plugins',
-            'user-settings-cog-VencordThemes':                  'themes',
-            'user-settings-cog-VencordUpdater':                 'update',
-            'user-settings-cog-VencordCloud':                   'cloud',
-            'user-settings-cog-VencordSettingsSync':            'cloud_done',
-
-            'user-settings-cog-BetterDiscord--updates':         'update',
-            'user-settings-cog-BetterDiscord--customcss':       'code',
-
-            'guild-context-guild-settings--PROFILE':                        'badge',
-            'guild-context-guild-settings--TAG':                            'settings',
-            'guild-context-guild-settings--ENGAGEMENT':                     'diversity_1',
-            'guild-context-guild-settings--BOOST_PERKS':                    'workspace_premium',
-            'guild-context-guild-settings--EMOJI':                          'emoji',
-            'guild-context-guild-settings--STICKERS':                       'sticker-emoji',
-            'guild-context-guild-settings--SOUNDBOARD':                     'volume_up',
-            'guild-context-guild-settings--MEMBERS':                        'people',
-            'guild-context-guild-settings--ROLES':                          'person',
-            'guild-context-guild-settings--INVITES':                        'person_add',
-            'guild-context-guild-settings--ACCESS':                         'lock_open',
-            'guild-context-guild-settings--INTEGRATIONS':                   'integrations',
-            'guild-context-guild-settings--APP_DIRECTORY':                  'apps',
-            'guild-context-guild-settings--SAFETY':                         'shield_lock',
-            'guild-context-guild-settings--AUDIT_LOG':                      'audit_log',
-            'guild-context-guild-settings--BANS':                           'hardware',
-            'guild-context-guild-settings--COMMUNITY':                      'dashboard',
-            'guild-context-guild-settings--ONBOARDING':                     'handshake',
-            'guild-context-guild-settings--ANALYTICS':                      'analytics',
-            'guild-context-guild-settings--ROLE_SUBSCRIPTIONS':             'monetization_on',
-            'guild-context-guild-settings--GUILD_PRODUCTS':                 'inventory',
-            'guild-context-guild-settings--GUILD_TEMPLATES':                'template',
-            'guild-context-guild-settings--ROLE_SUBSCRIPTIONS_STORE_PAGE':  'monetization_on'
-        );
-
-        &[id] {
-            &:after {
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
-            }
-        }
-
-        @each $option, $icon in $icons {
-            &##{$option} {
-                &:after {
-                	-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
-                }
-            }
-        }
-
-        /* CONTEXT MENU ICONS -> REMOVE DUPLICATE ICONS WHERE SAME IDS MAY OR MAY NOT HAVE SVG ICON */
-
-        $icons: (
-            'user-context-user-profile',
-            'user-context-message-user',
-            'quests-entry-play-game',
-            'quests-entry-share-link',
-            'quests-entry-learn-more'
-        );
-
-        @each $option, $icon in $icons {
-            &##{$option} {
-                svg {
-                    display: none;
-                }
-
-                #{ $menuPopoutIconContainer } {
-                    display: none;
-                }
-            }
-        }
-
-        /* CONTEXT MENU ICONS -> DISCORD IS DUMB */
-
-        $icons: (
-            'user-context-Start Event':         'play',
-            'user-context-Edit Event':          'edit',
-            'user-context-Cancel Event':        'remove_circle',
-            'user-context-Copy Event Link':     'content_copy'
-        );
-
-        @each $option, $icon in $icons {
-            &[id="#{$option}"] {
-                &:after {
-                    @include add-icon(null, $icon);
-                }
-            }
-        }
-
-        $spotifyIcons: (
-            'spotify-play': 'spotify',
-            'spotify-sync': 'listen_along',
-        );
-
-        @each $option, $icon in $spotifyIcons {
-            &[id*="user-context-#{$option}"] {
-                &:after {
-                    @include add-icon(null, $icon);
-                }
-            }
-        }
-
-        /* CONTEXT MENU ICONS -> REPLACE HINTS WITH ICONS */
-
-        &#message-copy,
-        &[id*="textarea-context-"] {
-            #{ $menuPopoutHintContainer } {
-                width: 18px;
-                height: 18px;
-                margin: 0;
-                background-color: currentColor;
-                -webkit-mask-repeat: no-repeat;
-                mask-size: 100%;
-                font-size: 0;
-            }
-        }
-
-        $icons: (
-            'message-copy':             'content_copy',
-            'textarea-context-copy':    'content_copy',
-            'textarea-context-cut':     'content_cut',
-            'textarea-context-paste':   'paste'
-        );
-
-        @each $option, $icon in $icons {
-            &##{$option} {
-                #{ $menuPopoutHintContainer } {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
-                }
-            }
-        }
+  #{ $menuPopoutItem } {
+    #{ $menuPopoutLabel } {
+      flex: 1 18 auto;
     }
 
-    /* CONTEXT MENU ICONS -> SUBMENU WITH ARROW */
+    /* CONTEXT MENU ICONS -> ADD ICONS */
 
-    #{ $menuPopoutItem }[aria-haspopup="true"] {
-        flex-direction: row;
+    &[id*="user-context-"][role="menuitem"],
+    &[id*="guild-context-"],
+    &[id*="channel-context-"],
+    &[id*="gdm-context-"],
+    &[id*="-image"],
+    &[id*="-native-link"],
+    &[id*="thread-context-"],
+    &[id*="text-context-"],
+    &[id*="user-settings-cog-"],
+    &[id*="user-profile-actions-"],
+    &[id*="user-profile-overflow-menu-"],
+    &[id*="quests-entry-"],
+    &[id*="friend-row-"],
+    &#manage-streams-report-stream-problem,
+    &#clips-context-clips-settings,
+    &#message-favorite,
+    &#message-unfavorite,
+    &#message-search-google,
+    &#message-remove-reactions,
+    &#message-remove-emoji-reactions,
+    &#message-actions-remove-reactions,
+    &#textarea-context-add-to-dictionary,
+    &#textarea-context-languages {
+      display: flex;
 
+      &:after {
+        position: relative;
+        content: " ";
+        width: 18px;
+        height: 18px;
+        background-color: currentColor;
+        -webkit-mask-repeat: no-repeat;
+        mask-size: 100%;
+      }
+    }
+
+    &#user-settings-cog-Accessibility--input,
+    &#user-settings-cog-Voice___Video--input,
+    &#user-settings-cog-Voice___Video--output,
+    &#user-settings-cog-Experiments--experiments-search {
+      display: block;
+    }
+
+    &[aria-haspopup="true"],
+    &[role="menuitemcheckbox"],
+    &[role="menuitemradio"],
+    &[id*="devmode-copy-id"],
+    &[id*="channel-context-mute-channel"],
+    &[id*="user-context-invite-to-server"],
+    &[id*="user-context-voice-move"],
+    &[id*="user-context-dev"] {
+      &:after {
+        display: none;
+      }
+    }
+
+    &#user-context-user-volume {
+      display: block;
+    }
+
+    &#gdm-context-change-icon {
+      min-height: 36px;
+
+      #{ $menuPopoutLabelContainer },
+      &:after {
+        position: absolute;
+      }
+
+      #{ $menuPopoutLabelContainer } {
+        inset-inline-start: 42px;
+      }
+
+      &:after {
+        inset-inline-start: 12px;
+      }
+    }
+
+    &[id*="image-context-commands-popout"] {
+      flex-direction: row;
+
+      &:before {
+        display: none;
+      }
+
+      &[aria-haspopup="true"] {
         &:before {
-            display: block;
-            position: relative;
-            content: " ";
-            width: 18px;
-            height: 18px;
-            background-color: currentColor;
-            -webkit-mask-repeat: no-repeat;
-            mask-size: 100%;
+          display: none;
         }
 
-        $icons: (
-            'user-context-apps':                                            'apps',
-            'user-context-favorite-channel':                                'favorite',
-            'user-context-invite-to-server':                                'add_circle',
-            'user-context-roles':                                           'person',
-            'user-context-voice-move':                                      'move',
-            'user-context-mute-channel':                                    'volume_off',
-
-            'gdm-context-favorite-channel':                                 'favorite',
-            'gdm-context-mute-channel':                                     'volume_up',
-
-            'message-add-reaction':                                         'emoji',
-            'message-add-reaction-0':                                       'emoji',
-            'message-add-reaction-1':                                       'burst_reaction',
-            'message-translate':                                            'translate',
-            'message-apps':                                                 'apps',
-            'message-guild-feed-feature':                                   'feature',
-            'message-guild-automod-add-selection':                          'filter',
-            'message-copy-message':                                         'content_copy',
-            'message-remove-emoji-reactions':                               'remove_circle',
-            'message-save-for-later':                                       'bookmark',
-
-            'message-actions-apps':                                         'apps',
-            'message-actions-add-reaction':                                 'emoji',
-            'message-actions-add-reaction-0':                               'emoji',
-            'message-actions-add-reaction-1':                               'burst_reaction',
-            'message-actions-remove-emoji-reactions':                       'remove_circle',
-            'message-actions-guild-feed-feature':                           'feature',
-            'message-actions-save-for-later':                               'bookmark',
-
-            'image-context-imageutilities-download-file-as':                'save',
-            'image-context-imageutilities-submenu-search':                  'search',
-
-            'image-menu-media-viewer-details':                              'info',
-
-            'thread-context-mute-channel':                                  'volume_up',
-            'thread-context-thread-notifications':                          'notifications',
-            'thread-context-edit-tags':                                     'edit',
-            'thread-context-auto-archive-thread':                           'archive',
-            'thread-context-guild-feed-feature':                            'feature',
-
-            'textarea-context-suggestions':                                 'lightbulb',
-
-            'guild-context-mute-guild':                                     'volume_up',
-            'guild-context-guild-notifications':                            'notifications',
-            'guild-context-guild-settings':                                 'settings',
-            'guild-context-ChannelTabs':                                    'folder',
-
-            'channel-context-mute-channel':                                 'volume_up',
-            'channel-context-channel-notifications':                        'notifications',
-            'channel-context-favorite-channel':                             'favorite',
-
-            'user-settings-cog-Games':                                      'stadia_controller',
-            'user-settings-cog-Appearance':                                 'chat',
-            'user-settings-cog-Accessibility':                              'accessibility',
-            'user-settings-cog-Voice___Video':                              'mic',
-            'user-settings-cog-Text___Images':                              'keyboard',
-            'user-settings-cog-Streamer_Mode':                              'live_tv',
-            'user-settings-cog-Experiments':                                'experiment',
-            'user-settings-cog-Developer_Options':                          'code',
-
-            'user-settings-cog-BetterDiscord':                              'betterdiscord',
-            'user-settings-cog-BetterDiscord--plugin':                      'plugins',
-            'user-settings-cog-BetterDiscord--theme':                       'themes',
-
-            'user-settings-cog-BetterDiscord--settings--addons':            'plugins',
-            'user-settings-cog-BetterDiscord--settings--store':             'storefront',
-            'user-settings-cog-BetterDiscord--settings--customcss':         'code',
-            'user-settings-cog-BetterDiscord--settings--editor':            'code_blocks',
-            'user-settings-cog-BetterDiscord--settings--window':            'window',
-            'user-settings-cog-BetterDiscord--settings--developer':         'code',
-
-            'user-profile-overflow-menu-invite-to-server':                  'add_circle',
-
-            'audio-device-context-audioinput-devices':                      'mic',
-            'audio-device-context-input-profiles':                          'headset_mic',
-            'audio-device-context-audiooutput-devices':                     'volume_up',
-            'audio-device-context-input-devices':                           'mic',
-            'audio-device-context-output-devices':                          'volume_up',
-            'video-device-context-video-devices':                           'videocam',
-
-            'manage-streams-stream-settings':                               'settings',
-            'clips-context-clips-duration':                                 'width'
-        );
-
-        &[id] {
-            &:before {
-                -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
-            }
+        #{ $menuPopoutIconContainerLeft } {
+          position: relative;
         }
-
-        @each $option, $icon in $icons {
-            &##{$option} {
-                &:before {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
-                }
-            }
-        }
-
-        $icons: (
-            'user-context-Add to Calendar':             'add_circle'
-        );
-
-        @each $option, $icon in $icons {
-            &[id="#{$option}"] {
-                &:before {
-                    @include add-icon(null, $icon);
-                }
-            }
-        }
-
-        /* CONTEXT MENU ICONS -> SUBMENU WITH ARROW -> REMOVE ICONS DUE TO DUPLICATES */
-
-        $icons: (
-            'set-status-submenu-idle':      false,
-            'set-status-submenu-dnd':       false,
-            'set-status-submenu-invisible': false,
-            'user-context-apps-':           true,
-            'message-apps-':                true,
-            'message-actions-apps-':        true
-        );
-
-        @each $id, $value in $icons {
-            $operator: if($value, '*=', '=');
-
-            &[id#{ $operator }"#{ $id }"]:before {
-                display: none;
-            }
-        }
+      }
     }
 
-    #{ $submenuItemSubMenuAlt } {
-        #{ $menuPopoutItem } {
-            &:before,
-            &:after {
-                display: none;
-            }
-        }
+    $icons: (
+      "user-context-mark-channel-read": "visibility",
+      "user-context-user-profile": "person",
+      "user-context-mention": "mention",
+      "user-context-message-user": "chat_bubble",
+      "user-context-call": "call",
+      "user-context-ring": "notifications_active",
+      "user-context-stop-ringing": "notifications_off",
+      "user-context-note": "edit",
+      "user-context-Permissions": "lock_open",
+      "user-context-add-friend-nickname": "add_circle",
+      "user-context-edit-friend-nickname": "edit",
+      "user-context-invite-to-listen": "spotify",
+      "user-context-remove": "remove_circle",
+      "user-context-make-dm-owner": "crown",
+      "user-context-join": "add_circle",
+      "user-context-add-friend": "person_add",
+      "user-context-remove-friend": "person_remove",
+      "user-context-manage-integration": "settings",
+      "user-context-ignore": "remove_circle",
+      "user-context-block": "block",
+      "user-context-unmute-channel": "volume_up",
+      "user-context-change-video-background": "videocam",
+      "user-context-focus-video": "center_focus",
+      "user-context-change-nickname": "edit",
+      "user-context-timeout": "timer",
+      "user-context-removetimeout": "timer_off",
+      "user-context-mod-view": "visibility",
+      "user-context-verify": "verified_user",
+      "user-context-kick": "remove_circle",
+      "user-context-ban": "hardware",
+      "user-context-close-dm": "cancel",
+      "user-context-voice-disconnect": "power_off",
+      "user-context-transfer-ownership": "transfer",
+      "user-context-pin-dm": "pin",
+
+      "gdm-context-instant-invites": "person_add",
+      "gdm-context-mark-channel-read": "visibility",
+      "gdm-context-favorite-channel": "favorite",
+      "gdm-context-set-channel-nickname": "edit",
+      "gdm-context-change-icon": "edit",
+      "gdm-context-remove-icon": "remove_circle",
+      "gdm-context-unmute-channel": "volume_up",
+      "gdm-context-leave-channel": "logout",
+
+      "message-favorite": "favorite",
+      "message-unfavorite": "unfavorite",
+      "message-search-google": "search",
+      "message-remove-reactions": "remove_circle",
+      "message-copy-image": "content_copy",
+      "message-save-image": "save",
+      "message-copy-native-link": "content_copy",
+      "message-open-native-link": "open_in_new",
+      "message-actions-remove-reactions": "remove_circle",
+
+      "text-context-search-google": "search",
+      "text-context-copy": "content_copy",
+
+      "thread-context-mark-channel-read": "visibility",
+      "thread-context-channel-copy-link": "content_copy",
+      "thread-context-unarchive-thread": "unarchive",
+      "thread-context-delete-channel": "delete",
+      "thread-context-leave-thread": "message-minus",
+      "thread-context-edit-thread": "edit",
+      "thread-context-pin-thread": "pin",
+      "thread-context-unpin-thread": "pin",
+      "thread-context-archive-thread": "archive",
+      "thread-context-archive-lock-thread": "lock",
+      "thread-context-lock-thread": "lock",
+      "thread-context-join-thread": "message-check",
+      "thread-context-open": "open_in_new",
+      "thread-context-mute-disabled": "volume_up",
+      "thread-context-notifications-disabled": "notifications",
+
+      "image-context-copy-image": "content_copy",
+      "image-context-save-image": "save",
+      "image-context-copy-native-link": "content_copy",
+      "image-context-open-native-link": "open_in_new",
+      "image-context-imageutilities-copy-link": "content_copy",
+      "image-context-imageutilities-open-link": "open_in_new",
+      "image-context-imageutilities-copy-file": "file_copy",
+
+      "textarea-context-add-to-dictionary": "library_add",
+      "textarea-context-languages": "language",
+
+      "guild-context-mark-guild-read": "visibility",
+      "guild-context-Permissions": "lock_open",
+      "guild-context-guild-profile": "badge",
+      "guild-context-invite-people": "person_add",
+      "guild-context-unmute-guild": "volume_off",
+      "guild-context-privacy": "security",
+      "guild-context-change-nickname": "edit",
+      "guild-context-leave-guild": "logout",
+      "guild-context-create-channel": "add_circle",
+      "guild-context-create-category": "list_add",
+      "guild-context-create-event": "event",
+      "guild-context-mark-folder-read": "visibility",
+      "guild-context-folder-settings": "settings",
+      "guild-context-folder-collapse": "cancel",
+      "guild-context-join": "person_add",
+      "guild-context-create": "add_circle",
+      "guild-context-server-lockdown": "shield_lock",
+
+      "channel-context-mark-channel-read": "visibility",
+      "channel-context-Permissions": "lock_open",
+      "channel-context-unmute-channel": "volume_off",
+      "channel-context-open-chat": "open_in_new",
+      "channel-context-edit-channel": "edit",
+      "channel-context-collapse-all-categories": "collapse",
+      "channel-context-invite-people": "person_add",
+      "channel-context-opt-in-favorite-channel": "favorite",
+      "channel-context-opt-into-channel": "remove_circle",
+      "channel-context-opt-out-category": "message-minus",
+      "channel-context-clone-channel": "content_copy",
+      "channel-context-create-text-channel": "add_circle",
+      "channel-context-create-voice-channel": "add_circle",
+      "channel-context-channel-copy-link": "content_copy",
+      "channel-context-copy-channel-topic": "content_copy",
+      "channel-context-delete-channel": "delete",
+      "channel-context-favorite-channel": "favorite",
+      "channel-context-go-to-original-guild": "open_in_new",
+      "channel-context-set-channel-nickname": "edit",
+      "channel-context-invite-to-listen": "spotify",
+
+      "user-profile-actions-user-remove": "person_remove",
+      "user-profile-actions-user-block": "block",
+      "user-profile-actions-user-message": "chat_bubble",
+      "user-profile-overflow-menu-view-profile": "person",
+      "user-profile-overflow-menu-ignore": "remove_circle",
+      "user-profile-overflow-menu-block": "block",
+      "user-profile-overflow-menu-report-user": "report",
+
+      "quests-entry-play-game": "open_in_new",
+      "quests-entry-share-link": "share",
+      "quests-entry-learn-more": "quests",
+      "quests-entry-display-disclosure": "help",
+      "quests-entry-hide-entrypoint": "visibility_off",
+
+      "friend-row-start-video-call": "videocam",
+      "friend-row-start-voice-call": "phone_called",
+      "friend-row-remove-friend": "cancel",
+
+      "manage-streams-report-stream-problem": "warning",
+      "clips-context-clips-settings": "settings",
+
+      "user-settings-cog-My_Account": "person",
+      "user-settings-cog-Profile_Customization": "account_circle",
+      "user-settings-cog-Content___Social": "assignment",
+      "user-settings-cog-Data___Privacy": "shield_lock",
+      "user-settings-cog-Family_Center": "family",
+      "user-settings-cog-Authorized_Apps": "apps",
+      "user-settings-cog-Sessions": "devices",
+      "user-settings-cog-Passport": "link",
+      "user-settings-cog-Connections": "link",
+      "user-settings-cog-Settings_Clips": "movie",
+      "user-settings-cog-Friend_Requests": "person_add",
+      "user-settings-cog-Discord_Nitro": "nitro",
+      "user-settings-cog-Nitro_Server_Boost": "server_boost",
+      "user-settings-cog-Subscriptions": "subscription",
+      "user-settings-cog-Library_Inventory": "gift",
+      "user-settings-cog-Billing": "payment",
+      "user-settings-cog-Text___Images": "keyboard",
+      "user-settings-cog-Notifications": "notifications",
+      "user-settings-cog-Keybinds": "space_bar",
+      "user-settings-cog-Language": "language",
+      "user-settings-cog-Windows": "windows",
+      "user-settings-cog-Linux": "linux",
+      "user-settings-cog-Advanced": "integrations",
+      "user-settings-cog-Activity_Privacy": "verified_user",
+      "user-settings-cog-Game_Activity": "stadia_controller",
+      "user-settings-cog-Overlay": "picture_in_picture",
+      "user-settings-cog-changelog": "checklist",
+      "user-settings-cog-merchandise": "storefront",
+      "user-settings-cog-Hypesquad_Online": "hypesquad",
+
+      "user-settings-cog-VencordPlugins": "plugins",
+      "user-settings-cog-VencordThemes": "themes",
+      "user-settings-cog-VencordUpdater": "update",
+      "user-settings-cog-VencordCloud": "cloud",
+      "user-settings-cog-VencordSettingsSync": "cloud_done",
+
+      "user-settings-cog-BetterDiscord--updates": "update",
+      "user-settings-cog-BetterDiscord--customcss": "code",
+
+      "guild-context-guild-settings--PROFILE": "badge",
+      "guild-context-guild-settings--TAG": "settings",
+      "guild-context-guild-settings--ENGAGEMENT": "diversity_1",
+      "guild-context-guild-settings--BOOST_PERKS": "workspace_premium",
+      "guild-context-guild-settings--EMOJI": "emoji",
+      "guild-context-guild-settings--STICKERS": "sticker-emoji",
+      "guild-context-guild-settings--SOUNDBOARD": "volume_up",
+      "guild-context-guild-settings--MEMBERS": "people",
+      "guild-context-guild-settings--ROLES": "person",
+      "guild-context-guild-settings--INVITES": "person_add",
+      "guild-context-guild-settings--ACCESS": "lock_open",
+      "guild-context-guild-settings--INTEGRATIONS": "integrations",
+      "guild-context-guild-settings--APP_DIRECTORY": "apps",
+      "guild-context-guild-settings--SAFETY": "shield_lock",
+      "guild-context-guild-settings--AUDIT_LOG": "audit_log",
+      "guild-context-guild-settings--BANS": "hardware",
+      "guild-context-guild-settings--COMMUNITY": "dashboard",
+      "guild-context-guild-settings--ONBOARDING": "handshake",
+      "guild-context-guild-settings--ANALYTICS": "analytics",
+      "guild-context-guild-settings--ROLE_SUBSCRIPTIONS": "monetization_on",
+      "guild-context-guild-settings--GUILD_PRODUCTS": "inventory",
+      "guild-context-guild-settings--GUILD_TEMPLATES": "template",
+      "guild-context-guild-settings--ROLE_SUBSCRIPTIONS_STORE_PAGE":
+        "monetization_on",
+    );
+
+    &[id] {
+      &:after {
+        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
+      }
     }
+
+    @each $option, $icon in $icons {
+      &##{$option} {
+        &:after {
+          -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+        }
+      }
+    }
+
+    /* CONTEXT MENU ICONS -> REMOVE DUPLICATE ICONS WHERE SAME IDS MAY OR MAY NOT HAVE SVG ICON */
+
+    $icons: (
+      "user-context-user-profile",
+      "user-context-message-user",
+      "quests-entry-play-game",
+      "quests-entry-share-link",
+      "quests-entry-learn-more"
+    );
+
+    @each $option, $icon in $icons {
+      &##{$option} {
+        svg {
+          display: none;
+        }
+
+        #{ $menuPopoutIconContainer } {
+          display: none;
+        }
+      }
+    }
+
+    /* CONTEXT MENU ICONS -> DISCORD IS DUMB */
+
+    $icons: (
+      "user-context-Start Event": "play",
+      "user-context-Edit Event": "edit",
+      "user-context-Cancel Event": "remove_circle",
+      "user-context-Copy Event Link": "content_copy",
+    );
+
+    @each $option, $icon in $icons {
+      &[id="#{$option}"] {
+        &:after {
+          @include add-icon(null, $icon);
+        }
+      }
+    }
+
+    $spotifyIcons: (
+      "spotify-play": "spotify",
+      "spotify-sync": "listen_along",
+    );
+
+    @each $option, $icon in $spotifyIcons {
+      &[id*="user-context-#{$option}"] {
+        &:after {
+          @include add-icon(null, $icon);
+        }
+      }
+    }
+
+    /* CONTEXT MENU ICONS -> REPLACE HINTS WITH ICONS */
+
+    &#message-copy,
+    &[id*="textarea-context-"] {
+      #{ $menuPopoutHintContainer } {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        background-color: currentColor;
+        -webkit-mask-repeat: no-repeat;
+        mask-size: 100%;
+        font-size: 0;
+      }
+    }
+
+    $icons: (
+      "message-copy": "content_copy",
+      "textarea-context-copy": "content_copy",
+      "textarea-context-cut": "content_cut",
+      "textarea-context-paste": "paste",
+    );
+
+    @each $option, $icon in $icons {
+      &##{$option} {
+        #{ $menuPopoutHintContainer } {
+          -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+        }
+      }
+    }
+  }
+
+  /* CONTEXT MENU ICONS -> SUBMENU WITH ARROW */
+
+  #{ $menuPopoutItem }[aria-haspopup="true"] {
+    flex-direction: row;
+
+    &:before {
+      display: block;
+      position: relative;
+      content: " ";
+      width: 18px;
+      height: 18px;
+      background-color: currentColor;
+      -webkit-mask-repeat: no-repeat;
+      mask-size: 100%;
+    }
+
+    $icons: (
+      "user-context-apps": "apps",
+      "user-context-favorite-channel": "favorite",
+      "user-context-invite-to-server": "add_circle",
+      "user-context-roles": "person",
+      "user-context-voice-move": "move",
+      "user-context-mute-channel": "volume_off",
+
+      "gdm-context-favorite-channel": "favorite",
+      "gdm-context-mute-channel": "volume_up",
+
+      "message-add-reaction": "emoji",
+      "message-add-reaction-0": "emoji",
+      "message-add-reaction-1": "burst_reaction",
+      "message-translate": "translate",
+      "message-apps": "apps",
+      "message-guild-feed-feature": "feature",
+      "message-guild-automod-add-selection": "filter",
+      "message-copy-message": "content_copy",
+      "message-remove-emoji-reactions": "remove_circle",
+      "message-save-for-later": "bookmark",
+
+      "message-actions-apps": "apps",
+      "message-actions-add-reaction": "emoji",
+      "message-actions-add-reaction-0": "emoji",
+      "message-actions-add-reaction-1": "burst_reaction",
+      "message-actions-remove-emoji-reactions": "remove_circle",
+      "message-actions-guild-feed-feature": "feature",
+      "message-actions-save-for-later": "bookmark",
+
+      "image-context-imageutilities-download-file-as": "save",
+      "image-context-imageutilities-submenu-search": "search",
+
+      "image-menu-media-viewer-details": "info",
+
+      "thread-context-mute-channel": "volume_up",
+      "thread-context-thread-notifications": "notifications",
+      "thread-context-edit-tags": "edit",
+      "thread-context-auto-archive-thread": "archive",
+      "thread-context-guild-feed-feature": "feature",
+
+      "textarea-context-suggestions": "lightbulb",
+
+      "guild-context-mute-guild": "volume_up",
+      "guild-context-guild-notifications": "notifications",
+      "guild-context-guild-settings": "settings",
+      "guild-context-ChannelTabs": "folder",
+
+      "channel-context-mute-channel": "volume_up",
+      "channel-context-channel-notifications": "notifications",
+      "channel-context-favorite-channel": "favorite",
+
+      "user-settings-cog-Games": "stadia_controller",
+      "user-settings-cog-Appearance": "chat",
+      "user-settings-cog-Accessibility": "accessibility",
+      "user-settings-cog-Voice___Video": "mic",
+      "user-settings-cog-Text___Images": "keyboard",
+      "user-settings-cog-Streamer_Mode": "live_tv",
+      "user-settings-cog-Experiments": "experiment",
+      "user-settings-cog-Developer_Options": "code",
+
+      "user-settings-cog-BetterDiscord": "betterdiscord",
+      "user-settings-cog-BetterDiscord--plugin": "plugins",
+      "user-settings-cog-BetterDiscord--theme": "themes",
+
+      "user-settings-cog-BetterDiscord--settings--addons": "plugins",
+      "user-settings-cog-BetterDiscord--settings--store": "storefront",
+      "user-settings-cog-BetterDiscord--settings--customcss": "code",
+      "user-settings-cog-BetterDiscord--settings--editor": "code_blocks",
+      "user-settings-cog-BetterDiscord--settings--window": "window",
+      "user-settings-cog-BetterDiscord--settings--developer": "code",
+
+      "user-profile-overflow-menu-invite-to-server": "add_circle",
+
+      "audio-device-context-audioinput-devices": "mic",
+      "audio-device-context-input-profiles": "headset_mic",
+      "audio-device-context-audiooutput-devices": "volume_up",
+      "audio-device-context-input-devices": "mic",
+      "audio-device-context-output-devices": "volume_up",
+      "video-device-context-video-devices": "videocam",
+
+      "manage-streams-stream-settings": "settings",
+      "clips-context-clips-duration": "width",
+    );
+
+    &[id] {
+      &:before {
+        -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/settings.svg);
+      }
+    }
+
+    @each $option, $icon in $icons {
+      &##{$option} {
+        &:before {
+          -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+        }
+      }
+    }
+
+    $icons: (
+      "user-context-Add to Calendar": "add_circle",
+    );
+
+    @each $option, $icon in $icons {
+      &[id="#{$option}"] {
+        &:before {
+          @include add-icon(null, $icon);
+        }
+      }
+    }
+
+    /* CONTEXT MENU ICONS -> SUBMENU WITH ARROW -> REMOVE ICONS DUE TO DUPLICATES */
+
+    $icons: (
+      "set-status-submenu-idle": false,
+      "set-status-submenu-dnd": false,
+      "set-status-submenu-invisible": false,
+      "user-context-apps-": true,
+      "message-apps-": true,
+      "message-actions-apps-": true,
+    );
+
+    @each $id, $value in $icons {
+      $operator: if($value, "*=", "=");
+
+      &[id#{ $operator }"#{ $id }"]:before {
+        display: none;
+      }
+    }
+  }
+
+  #{ $submenuItemSubMenuAlt } {
+    #{ $menuPopoutItem } {
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
 }
 
 /* CONTEXT MENU ICONS -> SERVER OPTIONS */
 
 #{ $menuPopout }#guild-header-popout {
-    #{ $menuPopoutItem } {
-        $icons: (
-            insights: (
-                'M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z',
-                false
-            ),
-            create-channel: (
-                'M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z',
-                false
-            ),
-            create-category: (
-                'M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z',
-                false
-            ),
-            create-event: (
-                'M680-80v-120H560v-80h120v-120h80v120h120v80H760v120h-80Zm-480-80q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h40v-80h80v80h240v-80h80v80h40q33 0 56.5 23.5T760-720v244q-20-3-40-3t-40 3v-84H200v320h280q0 20 3 40t11 40H200Zm0-480h480v-80H200v80Zm0 0v-80 80Z',
-                true
-            ),
-            application-directory: (
-                'M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm240 0q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm240 0q-33 0-56.5-23.5T640-240q0-33 23.5-56.5T720-320q33 0 56.5 23.5T800-240q0 33-23.5 56.5T720-160ZM240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400ZM240-640q-33 0-56.5-23.5T160-720q0-33 23.5-56.5T240-800q33 0 56.5 23.5T320-720q0 33-23.5 56.5T240-640Zm240 0q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Zm240 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640Z',
-                false
-            ),
-            privacy: (
-                'M420-360h120l-23-129q20-10 31.5-29t11.5-42q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 23 11.5 42t31.5 29l-23 129Zm60 280q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z',
-                false
-            ),
-            server-lockdown: (
-                'M480-480Zm0 400q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 10-.5 20t-1.5 20q-9-2-18.5-3t-19.5-1q-11 0-21 1t-21 3q1-10 1.5-19.5t.5-20.5v-189l-240-90-240 90v189q0 121 68 220t172 132q21-7 41-17t39-23v94q-19 10-39 17.5T480-80Zm194 0q-14 0-24-10t-10-24v-132q0-14 10-24t24-10h6v-40q0-33 23.5-56.5T760-400q33 0 56.5 23.5T840-320v40h6q14 0 24 10t10 24v132q0 14-10 24t-24 10H674Zm46-200h80v-40q0-17-11.5-28.5T760-360q-17 0-28.5 11.5T720-320v40Z',
-                false
-            ),
-            report-raid: (
-                'M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240ZM330-120 120-330v-300l210-210h300l210 210v300L630-120H330Zm34-80h232l164-164v-232L596-760H364L200-596v232l164 164Zm116-280Z',
-                false
-            )
-        );
+  #{ $menuPopoutItem } {
+    $icons: (
+      insights: (
+        "M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z",
+        false,
+      ),
+      create-channel: (
+        "M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z",
+        false,
+      ),
+      create-category: (
+        "M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z",
+        false,
+      ),
+      create-event: (
+        "M680-80v-120H560v-80h120v-120h80v120h120v80H760v120h-80Zm-480-80q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h40v-80h80v80h240v-80h80v80h40q33 0 56.5 23.5T760-720v244q-20-3-40-3t-40 3v-84H200v320h280q0 20 3 40t11 40H200Zm0-480h480v-80H200v80Zm0 0v-80 80Z",
+        true,
+      ),
+      application-directory: (
+        "M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm240 0q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm240 0q-33 0-56.5-23.5T640-240q0-33 23.5-56.5T720-320q33 0 56.5 23.5T800-240q0 33-23.5 56.5T720-160ZM240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400ZM240-640q-33 0-56.5-23.5T160-720q0-33 23.5-56.5T240-800q33 0 56.5 23.5T320-720q0 33-23.5 56.5T240-640Zm240 0q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Zm240 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640Z",
+        false,
+      ),
+      privacy: (
+        "M420-360h120l-23-129q20-10 31.5-29t11.5-42q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 23 11.5 42t31.5 29l-23 129Zm60 280q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z",
+        false,
+      ),
+      server-lockdown: (
+        "M480-480Zm0 400q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 10-.5 20t-1.5 20q-9-2-18.5-3t-19.5-1q-11 0-21 1t-21 3q1-10 1.5-19.5t.5-20.5v-189l-240-90-240 90v189q0 121 68 220t172 132q21-7 41-17t39-23v94q-19 10-39 17.5T480-80Zm194 0q-14 0-24-10t-10-24v-132q0-14 10-24t24-10h6v-40q0-33 23.5-56.5T760-400q33 0 56.5 23.5T840-320v40h6q14 0 24 10t10 24v132q0 14-10 24t-24 10H674Zm46-200h80v-40q0-17-11.5-28.5T760-360q-17 0-28.5 11.5T720-320v40Z",
+        false,
+      ),
+      report-raid: (
+        "M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240ZM330-120 120-330v-300l210-210h300l210 210v300L630-120H330Zm34-80h232l164-164v-232L596-760H364L200-596v232l164 164Zm116-280Z",
+        false,
+      ),
+    );
 
-        @each $key, $value in $icons {
-            $icon:      nth($value, 1);
-            $remove:    nth($value, 2);
+    @each $key, $value in $icons {
+      $icon: nth($value, 1);
+      $remove: nth($value, 2);
 
-            &#guild-header-popout-#{$key} path {
-                d: path($icon);
-                transform: translate(0, 24px) scale(0.025);
+      &#guild-header-popout-#{$key} path {
+        d: path($icon);
+        transform: translate(0, 24px) scale(0.025);
 
-                @if $remove == true {
-                    ~ path {
-                        display: none;
-                    }
-                }
-            }
+        @if $remove == true {
+          ~ path {
+            display: none;
+          }
         }
+      }
     }
+  }
 }

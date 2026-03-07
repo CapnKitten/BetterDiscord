@@ -1,14 +1,17 @@
 # [Add-on] Material You - [![Paypal][paypal-logo]][paypal-url] [![GitHub][github-logo]][github-url] [![Discord][discord-logo]][discord-url]
+
 #### An add-on theme that changes the entire UI color scheme based on the accent color. Based on Google's Material You. Requires Material Discord as the base theme.
 
 <hr>
 
 [Download here](https://capnkitten.github.io/BetterDiscord/Download/?theme=Material-Discord&addon=material-you) or use as import with the code below.
+
 ```css
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css);
 ```
 
 Vencord link
+
 ```
 https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css
 ```
@@ -21,24 +24,24 @@ You may want to play around with the values below to get your desired look.
 
 ```css
 :root {
-    --accent-hue: 224;
-    --accent-saturation: 71%;
-    --accent-lightness: 61%;
-    
-    --accent-text-color: #fff;
+  --accent-hue: 224;
+  --accent-saturation: 71%;
+  --accent-lightness: 61%;
+
+  --accent-text-color: #fff;
 }
 
 .theme-dark {
-    --saturation-modifier: 0.31;
-    --lightness-modifier: 0.225;
-    --text-lightness-modifier: 1.0;
-    --ui-darkness-modifier: 1.0;
+  --saturation-modifier: 0.31;
+  --lightness-modifier: 0.225;
+  --text-lightness-modifier: 1;
+  --ui-darkness-modifier: 1;
 }
 
 .theme-light {
-    --saturation-modifier: 0.74;
-    --lightness-modifier: 2.125;
-    --text-lightness-modifier: 1.0;
+  --saturation-modifier: 0.74;
+  --lightness-modifier: 2.125;
+  --text-lightness-modifier: 1;
 }
 ```
 
@@ -56,9 +59,7 @@ You may want to play around with the values below to get your desired look.
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
-
 [github-logo]: https://img.shields.io/static/v1?label=GitHub&message=Sponsor&style=flat&logo=github&color=black
 [github-url]: https://github.com/sponsors/CapnKitten
-
 [discord-logo]: https://img.shields.io/static/v1?label=Discord&message=Server&style=flat&logo=discord&color=blue
 [discord-url]: https://discord.gg/jzJkA6Z

@@ -1,4 +1,4 @@
-@use '../../../classes' as *;
+@use "../../../classes" as *;
 
 /*
  *
@@ -7,127 +7,134 @@
  */
 
 #{ $channelTabsContainer } {
-    padding: 4px 8px 0 8px !important;
+  padding: 4px 8px 0 8px !important;
 }
 
 #{ $channelTabsTabContainer } {
+  gap: 4px;
+
+  #{ $channelTabsTabNav } {
     gap: 4px;
+    margin: 0 4px 0 0 !important;
 
-    #{ $channelTabsTabNav } {
-        gap: 4px;
-        margin: 0 4px 0 0 !important;
+    > div {
+      width: 28px;
+      height: 28px;
+      margin-inline-end: 0 !important;
+      border-radius: 16px !important;
+      transition:
+        var(--default-time) var(--default-animation) background-color,
+        var(--default-time) var(--default-animation) color;
+      cursor: pointer;
 
-        > div {
-            width: 28px;
-            height: 28px;
-            margin-inline-end: 0 !important;
-            border-radius: 16px !important;
-            transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
-            cursor: pointer;
-
-            &:hover {
-                background-color: var(--menu-item-hover) !important;
-            }
-        }
+      &:hover {
+        background-color: var(--menu-item-hover) !important;
+      }
     }
+  }
 }
 
 #{ $channelTabsTab } {
-    --inverted-curve-size: 16px;
+  --inverted-curve-size: 16px;
 
-    position: relative;
-    margin-block-end: 0 !important;
-    border-radius: 12px 12px 0 0 !important;
-    transition: var(--default-time) var(--default-animation) background-color;
+  position: relative;
+  margin-block-end: 0 !important;
+  border-radius: 12px 12px 0 0 !important;
+  transition: var(--default-time) var(--default-animation) background-color;
 
-    &:hover {
-        background-color: var(--menu-item-hover) !important;
-
-        &:before,
-        &:after {
-            box-shadow: 0 calc((var(--inverted-curve-size) / 2) * -1) 0 0 var(--menu-item-hover);
-        }
-    }
-
-    &#{ $channelTabsTabSelected } {
-        background: var(--main-color) !important;
-        z-index: 2;
-
-        &:before,
-        &:after {
-            box-shadow: 0 calc((var(--inverted-curve-size) / 2) * -1) 0 0 var(--main-color);
-        }
-    }
+  &:hover {
+    background-color: var(--menu-item-hover) !important;
 
     &:before,
     &:after {
-        position: absolute;
-        content: " ";
-        width: calc(var(--inverted-curve-size) / 2);
-        height: var(--inverted-curve-size);
-        inset-block-end: 0;
-        background-color: transparent;
-        transform: rotate(180deg);
-        pointer-events: none;
-        transition: var(--default-time) var(--default-animation) box-shadow;
+      box-shadow: 0 calc((var(--inverted-curve-size) / 2) * -1) 0 0
+        var(--menu-item-hover);
     }
+  }
 
-    &:before {
-        inset-inline-start: calc((var(--inverted-curve-size) / 2) * -1);
-        border-top-left-radius: calc(var(--inverted-curve-size) / 2);
-    }
+  &#{ $channelTabsTabSelected } {
+    background: var(--main-color) !important;
+    z-index: 2;
 
-    &:after {
-        inset-inline-end: calc((var(--inverted-curve-size) / 2) * -1);
-        border-top-right-radius: calc(var(--inverted-curve-size) / 2);
+    &:before,
+    &:after {
+      box-shadow: 0 calc((var(--inverted-curve-size) / 2) * -1) 0 0
+        var(--main-color);
     }
+  }
 
-    #{ $channelTabsTabName } {
-        margin-inline-end: 0 !important;
-        font-weight: 500;
-        transition: var(--default-time) var(--default-animation) color;
-    }
+  &:before,
+  &:after {
+    position: absolute;
+    content: " ";
+    width: calc(var(--inverted-curve-size) / 2);
+    height: var(--inverted-curve-size);
 
-    #{ $channelTabsGridContainer } {
-        gap: 6px;
-        margin-inline-end: 0;
-    }
+    inset-block-end: 0;
+    background-color: transparent;
+    transform: rotate(180deg);
+    pointer-events: none;
+    transition: var(--default-time) var(--default-animation) box-shadow;
+  }
+
+  &:before {
+    inset-inline-start: calc((var(--inverted-curve-size) / 2) * -1);
+    border-top-left-radius: calc(var(--inverted-curve-size) / 2);
+  }
+
+  &:after {
+    inset-inline-end: calc((var(--inverted-curve-size) / 2) * -1);
+    border-top-right-radius: calc(var(--inverted-curve-size) / 2);
+  }
+
+  #{ $channelTabsTabName } {
+    margin-inline-end: 0 !important;
+    font-weight: 500;
+    transition: var(--default-time) var(--default-animation) color;
+  }
+
+  #{ $channelTabsGridContainer } {
+    gap: 6px;
+    margin-inline-end: 0;
+  }
 }
 
 #{ $channelTabsUnreadBadge } {
-    background-color: hsl(var(--accent-hsl--material-you)) !important;
-    color: var(--accent-text-color--material-you) !important;
+  background-color: hsl(var(--accent-hsl--material-you)) !important;
+  color: var(--accent-text-color--material-you) !important;
 }
 
 #{ $channelTabsMentionBadge } {
-    background-color: hsl(var(--alert-hsl)) !important;
-    color: var(--alert-text-color) !important;
+  background-color: hsl(var(--alert-hsl)) !important;
+  color: var(--alert-text-color) !important;
 }
 
 #{ $channelTabsCloseTab } {
-    border-radius: 8px !important;
-    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+  border-radius: 8px !important;
+  transition:
+    var(--default-time) var(--default-animation) background-color,
+    var(--default-time) var(--default-animation) color;
 }
 
 #{ $channelTabsNewTab } {
-    width: 28px !important;
-    height: 28px !important;
-    margin: 0 0 0 4px !important;
-    border-radius: 14px !important;
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 0 4px !important;
+  border-radius: 14px !important;
 }
 
 #{ $channelTabsFavContainer } {
-    position: relative;
-    background-color: var(--main-alt);
-    z-index: 3;
+  position: relative;
+  background-color: var(--main-alt);
+  z-index: 3;
 
-    #{ $channelTabsFav } {
-        border-radius: 14px;
-        transition: var(--default-time) var(--default-animation) background-color;
-        cursor: pointer;
+  #{ $channelTabsFav } {
+    border-radius: 14px;
+    transition: var(--default-time) var(--default-animation) background-color;
+    cursor: pointer;
 
-        &:hover {
-            background-color: var(--menu-item-hover);
-        }
+    &:hover {
+      background-color: var(--menu-item-hover);
     }
+  }
 }

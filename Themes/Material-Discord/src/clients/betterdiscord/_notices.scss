@@ -1,5 +1,5 @@
-@use '../../classes' as *;
-@use '../../mixins' as *;
+@use "../../classes" as *;
+@use "../../mixins" as *;
 
 /*
  *
@@ -8,115 +8,116 @@
  */
 
 #{ $bdNotices } {
-    position: absolute;
-    inset-block-start: var(--space-8);
-    inset-inline-end: var(--space-8);
-    z-index: 1001;
+  position: absolute;
+  inset-block-start: var(--space-8);
+  inset-inline-end: var(--space-8);
+  z-index: 1001;
 
-    &:has(#{ $bdNotice }) {
-        width: auto;
-        inset-inline-start: unset;
-    }
+  &:has(#{ $bdNotice }) {
+    width: auto;
+    inset-inline-start: unset;
+  }
 }
 
 #{ $base } {
-    &:has(#{ $bdNotices } #{ $bdNotice }) {
-        margin-block-start: 0;
-    }
+  &:has(#{ $bdNotices } #{ $bdNotice }) {
+    margin-block-start: 0;
+  }
 }
 
 #{ $bdNotice } {
-    display: flex;
-    max-width: 25vw;
-    height: auto;
-    line-height: normal;
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-    background-color: var(--popout-color);
+  display: flex;
+  max-width: 25vw;
+  height: auto;
+  line-height: normal;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  box-shadow: var(--shadow-medium);
+
+  &:first-child {
     border-radius: var(--popout-radius-big);
-    box-shadow: var(--shadow-medium);
+  }
 
-    &:first-child {
-        border-radius: var(--popout-radius-big);
-    }
+  &:not(:only-child):last-child {
+    margin-block-start: 8px;
+  }
 
-    &:not(:only-child):last-child {
-        margin-block-start: 8px;
-    }
+  #{ $bdNoticeClose } {
+    width: 18px;
+    height: 18px;
+    inset-block-start: 16px;
+    inset-inline-end: 16px;
+    @include add-icon(var(--header-secondary), close);
+    background-image: none;
+    -webkit-mask-position: center;
+    mask-position: center;
+    opacity: 0.75;
+  }
 
-    #{ $bdNoticeClose } {
-        width: 18px;
-        height: 18px;
-        inset-block-start: 16px;
-        inset-inline-end: 16px;
-        @include add-icon(var(--header-secondary), close);
-        background-image: none;
-    	-webkit-mask-position: center;
-    			mask-position: center;
-        opacity: 0.75;
-    }
+  #{ $bdNoticeContent } {
+    margin-inline-end: 30px;
+    font-size: 1.25em;
+    font-weight: 400;
+    color: var(--header-primary) !important;
+    text-align: left;
+  }
 
-    #{ $bdNoticeContent } {
-        margin-inline-end: 30px;
-        font-size: 1.25em;
-        font-weight: 400;
-        color: var(--header-primary) !important;
-        text-align: left;
-    }
-
-    #{ $bdNoticeButton } {
-        display: flex;
-        height: var(--button-height);
-        line-height: var(--button-height);
-        inset-block-start: 0;
-        margin: 0;
-        justify-content: center;
-        background-color: hsl(var(--accent-hsl--material-you)) !important;
-        border-radius: var(--button-radius);
-        border: none;
-        color: var(--accent-text-color--material-you);
-        font-size: 1em;
-        font-weight: 500;
-    }
+  #{ $bdNoticeButton } {
+    display: flex;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    inset-block-start: 0;
+    margin: 0;
+    justify-content: center;
+    background-color: hsl(var(--accent-hsl--material-you)) !important;
+    border-radius: var(--button-radius);
+    border: none;
+    color: var(--accent-text-color--material-you);
+    font-size: 1em;
+    font-weight: 500;
+  }
 }
 
 #{ $bdNotificationRoot } {
-    padding: 0;
+  padding: 0;
 }
 
 #{ $bdNotificationTopRight } {
-    inset-block-start: calc(var(--custom-app-top-bar-height) + var(--space-16));
-    inset-inline-end: var(--space-16);
+  inset-block-start: calc(var(--custom-app-top-bar-height) + var(--space-16));
+  inset-inline-end: var(--space-16);
 }
 
 #{ $bdNotification } {
-    background-color: var(--popout-color);
-    border-radius: var(--popout-radius-big);
-    border: none;
-    box-shadow: var(--shadow-medium);
-    overflow: hidden;
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  border: none;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
 }
 
 #{ $bdNotificationClose } {
-    inset-block-start: var(--space-16);
-    inset-inline-end: var(--space-16);
+  inset-block-start: var(--space-16);
+  inset-inline-end: var(--space-16);
 }
 
 #{ $bdNotificationContent } {
-    padding: var(--space-24) var(--space-24) 0;
+  padding: var(--space-24) var(--space-24) 0;
 }
 
 #{ $bdNotificationFooter } {
-    padding: var(--space-16) var(--space-24) calc(var(--space-24) - var(--space-4));
-    background-color: transparent;
+  padding: var(--space-16) var(--space-24)
+    calc(var(--space-24) - var(--space-4));
+  background-color: transparent;
 }
 
 #{ $bdNotificationProgress } {
-    height: var(--space-4);
-    margin-block-start: 0;
+  height: var(--space-4);
+  margin-block-start: 0;
 
-    &[style*="background-color: var(--bd-brand)"] {
-        background-color: hsl(var(--accent-hsl)) !important;
-    }
+  &[style*="background-color: var(--bd-brand)"] {
+    background-color: hsl(var(--accent-hsl)) !important;
+  }
 }

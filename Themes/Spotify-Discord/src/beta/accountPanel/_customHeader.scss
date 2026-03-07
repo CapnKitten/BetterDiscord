@@ -1,4 +1,4 @@
-@use '../../classes' as *;
+@use "../../classes" as *;
 
 /*
  *
@@ -7,128 +7,140 @@
  */
 
 #{ $contentMain } {
-    border-radius: var(--app-card-radius);
-    overflow: hidden;
+  border-radius: var(--app-card-radius);
+  overflow: hidden;
 }
 
 #{ $sidebarList } {
-    overflow: visible;
-    z-index: 101;
+  overflow: visible;
+  z-index: 101;
 }
 
 #{ $headerBar } {
-    --header-secondary: var(--text-default);
-    --interactive-normal: var(--text-default);
+  --header-secondary: var(--text-default);
+  --interactive-normal: var(--text-default);
 
-    height: var(--header-bar-height);
-    border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
-    z-index: 102;
+  height: var(--header-bar-height);
+  border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+  z-index: 102;
 
-    &#{ $headerBarThemed } {
-        background-color: transparent;
-
-        #{ $headerBarChildren } {
-            &:after {
-                display: none;
-            }
-        }
-    }
+  &#{ $headerBarThemed } {
+    background-color: transparent;
 
     #{ $headerBarChildren } {
-        //overflow: visible;
-    }
-
-    #{ $toolbar } {
-        margin-left: 8px;
-        padding-right: 46px;
-        gap: 16px;
-
-        #{ $headerBarIconWrapper } {
-            margin: 0;
-        }
-    }
-
-    #{ $anchor } {
+      &:after {
         display: none;
+      }
     }
+  }
+
+  #{ $headerBarChildren } {
+    //overflow: visible;
+  }
+
+  #{ $toolbar } {
+    margin-left: 8px;
+    padding-right: 46px;
+    gap: 16px;
+
+    #{ $headerBarIconWrapper } {
+      margin: 0;
+    }
+  }
+
+  #{ $anchor } {
+    display: none;
+  }
 }
 
 #{ $threadSidebarOpen } {
-    #{ $headerBar } {
-        #{ $toolbar } {
-            padding-right: 8px;
-        }
+  #{ $headerBar } {
+    #{ $toolbar } {
+      padding-right: 8px;
     }
+  }
 }
 
 /* BETA - CHANNELS LIST ACCOUNT PANEL -> COLORED BAR */
 
 #{ $channelsContainer },
 #{ $privateChannels } {
-    &[aria-label] {
-        &:after {
-            position: fixed;
-            content: " ";
-            width: 100vw;
-            height: var(--header-bar-height);
-            top: 0;
-            left: calc(100% + var(--app-card-margin));
-            background-color: var(--header-bar-color);
-            border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
-            z-index: 101;
-            pointer-events: none;
-        }
+  &[aria-label] {
+    &:after {
+      position: fixed;
+      content: " ";
+      width: 100vw;
+      height: var(--header-bar-height);
+      top: 0;
+      left: calc(100% + var(--app-card-margin));
+      background-color: var(--header-bar-color);
+      border-radius: var(--app-card-radius) var(--app-card-radius) 0 0;
+      z-index: 101;
+      pointer-events: none;
     }
+  }
 }
 
 #{ $noticeStreamerMode } + #{ $contentMain } {
-    #{ $channelsContainer },
-    #{ $privateChannels } {
-        &[aria-label] {
-            &:after {
-                --header-bar-yposition: calc(var(--window-title-bar-height) + var(--notice-bar-height) + var(--app-card-margin) + var(--app-card-top-margin));
-            }
-        }
+  #{ $channelsContainer },
+  #{ $privateChannels } {
+    &[aria-label] {
+      &:after {
+        --header-bar-yposition: calc(
+          var(--window-title-bar-height) + var(--notice-bar-height) +
+            var(--app-card-margin) + var(--app-card-top-margin)
+        );
+      }
     }
+  }
 }
 
 #{ $notice } {
-    + #{ $layers } {
-        #{ $bdNotices }:not(:empty) + #{ $contentMain } {
-            #{ $channelsContainer },
-            #{ $privateChannels } {
-                &[aria-label] {
-                    &:after {
-                        --header-bar-yposition: calc(var(--window-title-bar-height) + (var(--notice-bar-height) * 2) + var(--app-card-margin) + (var(--app-card-top-margin) * 2));
-                    }
-                }
-            }
+  + #{ $layers } {
+    #{ $bdNotices }:not(:empty) + #{ $contentMain } {
+      #{ $channelsContainer },
+      #{ $privateChannels } {
+        &[aria-label] {
+          &:after {
+            --header-bar-yposition: calc(
+              var(--window-title-bar-height) + (var(--notice-bar-height) * 2) +
+                var(--app-card-margin) + (var(--app-card-top-margin) * 2)
+            );
+          }
         }
-
-        #{ $channelsContainer },
-        #{ $privateChannels } {
-            &[aria-label] {
-                &:after {
-                    --header-bar-yposition: calc(var(--window-title-bar-height) + var(--notice-bar-height) + var(--app-card-margin));
-                }
-            }
-        }
+      }
     }
+
+    #{ $channelsContainer },
+    #{ $privateChannels } {
+      &[aria-label] {
+        &:after {
+          --header-bar-yposition: calc(
+            var(--window-title-bar-height) + var(--notice-bar-height) +
+              var(--app-card-margin)
+          );
+        }
+      }
+    }
+  }
 }
 
 #{ $bdNotices }:not(:empty) + #{ $contentMain } {
-    #{ $channelsContainer },
-    #{ $privateChannels } {
-        &[aria-label] {
-            &:after {
-                --header-bar-yposition: calc(var(--window-title-bar-height) + var(--notice-bar-height) + var(--app-card-margin) + var(--app-card-top-margin));
-            }
-        }
+  #{ $channelsContainer },
+  #{ $privateChannels } {
+    &[aria-label] {
+      &:after {
+        --header-bar-yposition: calc(
+          var(--window-title-bar-height) + var(--notice-bar-height) +
+            var(--app-card-margin) + var(--app-card-top-margin)
+        );
+      }
     }
+  }
 }
 
 #{ $channelsContainer } {
-    &[aria-label*="CapnKitten"] {
-        --header-bar-color: hsl(212,70%,31%);
-    }
+  &[aria-label*="CapnKitten"] {
+    --header-bar-color: hsl(212, 70%, 31%);
+  }
 }

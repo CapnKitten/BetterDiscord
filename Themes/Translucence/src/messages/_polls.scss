@@ -1,4 +1,4 @@
-@use '../classes' as *;
+@use "../classes" as *;
 
 /*
  *
@@ -7,49 +7,49 @@
  */
 
 #{ $pollContainer } {
-	background-color: var(--textarea-block-color);
-	border-radius: var(--card-radius);
-	border: none;
+  background-color: var(--textarea-block-color);
+  border-radius: var(--card-radius);
+  border: none;
 }
 
 #{ $pollAnswer } {
-    &#{ $pollAnswerVotedStyles } {
-        #{ $pollAnswerInner } {
-            outline-color: hsl(var(--accent-hsl));
-        }
+  &#{ $pollAnswerVotedStyles } {
+    #{ $pollAnswerInner } {
+      outline-color: hsl(var(--accent-hsl));
     }
+  }
 
-    &:not(#{ $pollAnswerVotedStyles }) {
-        #{ $pollAnswerInner } {
-            outline-color: transparent !important;
-        }
+  &:not(#{ $pollAnswerVotedStyles }) {
+    #{ $pollAnswerInner } {
+      outline-color: transparent !important;
     }
+  }
 }
 
 #{ $pollAnswerInner } {
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
+  background-color: var(--card-color);
+  border-radius: var(--card-radius);
 
-    &#{ $pollCurrentlyVoting } {
-        &:hover {
-            background-color: var(--card-color-hover);
-        }
-
-        &#{ $pollAnswerSelected } {
-            background-color: var(--card-color-select);
-
-            circle,
-            path {
-                fill: hsl(var(--accent-hsl));
-            }
-        }
-
-        path {
-            fill: var(--text-normal);
-        }
+  &#{ $pollCurrentlyVoting } {
+    &:hover {
+      background-color: var(--card-color-hover);
     }
+
+    &#{ $pollAnswerSelected } {
+      background-color: var(--card-color-select);
+
+      circle,
+      path {
+        fill: hsl(var(--accent-hsl));
+      }
+    }
+
+    path {
+      fill: var(--text-normal);
+    }
+  }
 }
 
 #{ $pollVotePercentageBar } {
-    background-color: hsl(from hsl(var(--accent-hsl)) h calc(s * 1.5) l / 0.25);
+  background-color: hsl(from hsl(var(--accent-hsl)) h calc(s * 1.5) l / 0.25);
 }
