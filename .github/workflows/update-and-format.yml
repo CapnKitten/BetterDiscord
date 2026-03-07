@@ -28,14 +28,6 @@ jobs:
         id: get-date
         run: echo "date=$(date +'%Y-%U')" >> $GITHUB_OUTPUT
 
-      - name: Cache Prettier state
-        uses: actions/cache@v5
-        with:
-          path: .prettiercache
-          key: ${{ runner.os }}-prettier-${{ steps.get-date.outputs.date }}-${{ hashFiles('.github/workflows/*.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-prettier-${{ steps.get-date.outputs.date }}-
-
       - name: Update all classes
         id: update-all
         uses: flowerey/class-update@main
@@ -45,7 +37,7 @@ jobs:
 
       - name: Run Prettier
         id: prettier
-        run: npx prettier --write . --cache --cache-location .prettiercache
+        run: npx prettier --write .
 
       - name: Generate run summary
         if: always()
