@@ -18,12 +18,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+
+      - name: Get date key
+        id: get-date
+        run: echo "date=$(date +'%Y-%U')" >> $GITHUB_OUTPUT
+
+      - name: Cache Prettier state
+        uses: actions/cache@v5
         with:
-          version: latest
+          path: .prettiercache
+          key: ${{ runner.os }}-prettier-${{ steps.get-date.outputs.date }}-${{ hashFiles('.github/workflows/*.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-prettier-${{ steps.get-date.outputs.date }}-
 
       - name: Update all classes
         id: update-all
@@ -32,18 +43,18 @@ jobs:
           folder: "."
           ext: css
 
-      - name: Run Biome
-        id: biome
-        run: biome check --write
+      - name: Run Prettier
+        id: prettier
+        run: npx prettier --write . --cache --cache-location .prettiercache
 
-      - name: Generate Run Summary
+      - name: Generate run summary
         if: always()
         run: |
           STATUS=$(git status --porcelain)
           echo "## Workflow Execution Summary" >> $GITHUB_STEP_SUMMARY
           echo "Date: $(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ -n "$STATUS" ]; then
             echo "### Modified Files" >> $GITHUB_STEP_SUMMARY
             echo "The following changes were detected and formatted:" >> $GITHUB_STEP_SUMMARY
@@ -54,14 +65,15 @@ jobs:
             echo "Status: No changes detected. Repository is up to date." >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: Commit and Push changes
+      - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          git add .
+
           if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "chore: update classes and format with biome"
+            git commit -m "chore: update classes and format code"
             git push origin HEAD:master --force-with-lease
           else
             echo "No changes to commit"
