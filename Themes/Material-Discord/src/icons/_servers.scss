@@ -1,0 +1,70 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+@use 'config' as *;
+@use 'placeholders' as *;
+
+/*
+ *
+ *  SERVER ACTION ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        /* SERVER ACTION ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS */
+        
+        $icons: (
+            'premium-subscribe':        'server_boost',
+            'mark-guild-read':          'mark_chat_read',
+            'invite-people':            'person_add',
+            'settings':                 'settings',
+            'insights':                 'data_exploration',
+            'mute-guild':               'volume_up',
+            'unmute-guild':             'volume_off',
+            'guild-notifications':      'notifications',
+            'guild-settings':           'settings',
+            'notifications':            'notifications',
+            'privacy':                  'shield_lock',
+            'change-nickname':          'edit',
+            'create-channel':           'add_circle',
+            'create-category':          'list_add',
+            'create-event':             'event',
+            'active-threads':           'thread',
+            'application-directory':    'apps',
+            'server-lockdown':          'shield_lock',
+            'report-raid':              'report',
+            'leave-guild':              'logout',
+            'mark-folder-read':         'mark_chat_read',
+            'folder-settings':          'settings',
+            'folder-collapse':          'cancel',
+            'Permissions':              'lock_open',
+            'guild-profile':            'badge'
+        );
+
+        @each $option, $icon in $icons {
+            &#guild-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+
+        /* SERVER ACTION ICONS -> REPLACE DEFAULT ICONS */
+
+        @each $option, $icon in $icons {
+            &#guild-header-popout-#{ $option } {
+                @extend %iconWithContainerBase;
+
+                #{ $menuPopoutIconContainer } {
+                    &:before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                    }
+                }
+            }
+        }
+    }
+}

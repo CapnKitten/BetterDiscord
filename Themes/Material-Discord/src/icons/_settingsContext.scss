@@ -1,0 +1,81 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+@use 'config' as *;
+@use 'placeholders' as *;
+
+
+/*
+ *
+ *  SETTINGS CONTEXT MENU ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        /* SETTINGS CONTEXT MENU ICONS -> REPLACE DEFAULT ICONS */
+
+        $icons: (
+            'account_sidebar_item':                       'person',
+            'content_and_social_sidebar_item':            'assignment',
+            'data_and_privacy_sidebar_item':              'shield_lock',
+            'family_center_sidebar_item':                 'family',
+            'authorized_apps_sidebar_item':               'apps',
+            'sessions_sidebar_item':                      'devices',
+            'connections_sidebar_item':                   'link',
+            'notifications_sidebar_item':                 'notifications',
+            'clips_sidebar_item':                         'movie',
+
+            'nitro_sidebar_item':                         'nitro',
+            'premium_guild_subscriptions_sidebar_item':   'server_boost',
+            'subscriptions_sidebar_item':                 'subscription',
+            'gift_sidebar_item':                          'gift',
+            'billing_sidebar_item':                       'payment',
+
+            'appearance_sidebar_item':                    'chat',
+            'accessibility_sidebar_item':                 'accessibility',
+            'voice_and_video_sidebar_item':               'mic',
+            'chat_sidebar_item':                          'keyboard',
+            'keybinds_sidebar_item':                      'space_bar',
+            'language_and_time_sidebar_item':             'language',
+            'windows_sidebar_item':                       'windows',
+            'linux_sidebar_item':                         'linux',
+            'streamer_mode_sidebar_item':                 'live_tv',
+            'advanced_sidebar_item':                      'integrations',
+
+            'activity_privacy_sidebar_item':              'shield_lock',
+            'registered_games_sidebar_item':              'stadia_controller',
+            'overlay_sidebar_item':                       'layers',
+
+            'betterdiscord_settings_sidebarItem':         'betterdiscord',
+            'betterdiscord_updates_sidebarItem':          'update',
+            'betterdiscord_customcss_tab_sidebarItem':    'code',
+            'betterdiscord_plugins_sidebarItem':          'plugins',
+            'betterdiscord_themes_sidebarItem':           'themes',
+
+            'experiments_sidebar_item':                   'experiment',
+            'developer_options_sidebar_item':             'code',
+
+            'logout_sidebar_item':                        'exit_to_app',
+        );
+
+        @each $option, $icon in $icons {
+            &#settings-menu-#{$option} {
+                @extend %iconWithLeftContainerBase;
+                @extend %iconReverseDirection;
+
+                #{ $menuPopoutIconContainerLeft } {
+                    &:before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                    }
+                }
+            }
+        }
+
+        &[id*="settings-menu-experiments"],
+        &[id*="settings-menu-developer_options"] {
+            @extend %iconReverseDirection;
+        }
+    }
+}

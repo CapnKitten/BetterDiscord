@@ -1,0 +1,76 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+@use 'config' as *;
+@use 'placeholders' as *;
+
+/*
+ *
+ *  TEXTAREA CONTEXT MENU ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        /* TEXTAREA CONTEXT MENU ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS */
+
+        $icons: (
+            'upload-file':      'upload_file',
+            'clips':            'movie',
+            'THREAD':           'thread',
+            'poll':             'add_chart',
+            'SLASH_COMMAND':    'apps',
+            'listen':           'spotify',
+        );
+
+        @each $option, $icon in $icons {
+            &#channel-attach-#{ $option } {
+                @extend %iconWithContainerBase;
+                @extend %iconReverseDirection;
+
+                #{ $menuPopoutIconContainer } {
+                    &:before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                    }
+                }
+            }
+        }
+
+        /* TEXTAREA CONTEXT MENU ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS */
+
+        $icons: (
+            'suggestions':  'lightbulb',
+            'languages':    'translate',
+            'translate':    'translate'
+        );
+
+        @each $option, $icon in $icons {
+            &#textarea-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+
+        /* TEXTAREA CONTEXT MENU ICONS -> REPLACE TEXT SHORTCUT HINTS WITH ICONS */
+
+        $icons: (
+            'cut':      'content_cut',
+            'copy':     'content_copy',
+            'paste':    'paste',
+        );
+
+        @each $option, $icon in $icons {
+            &#textarea-context-#{ $option } {
+                @extend %iconWithShortcutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+    }
+}

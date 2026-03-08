@@ -1,0 +1,71 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+@use 'config' as *;
+
+/* Replaces context menu icons that already exist in an icon container */
+
+%iconWithContainerBase {
+    #{ $menuPopoutIconContainer } {
+        @include addIconBase('before');
+
+        &:before {
+            -webkit-mask-image: url('#{ $iconBaseUrl }settings.svg');
+        }
+    }
+
+    #{ $menuPopoutIcon } {
+        display: none;
+    }
+}
+
+%iconWithLeftContainerBase {
+    #{ $menuPopoutIconContainerLeft } {
+        @include addIconBase('before');
+
+        &:before {
+            -webkit-mask-image: url('#{ $iconBaseUrl }settings.svg');
+        }
+    }
+
+    #{ $menuPopoutIcon } {
+        display: none;
+    }
+}
+
+/* Adds icons to context menu options that do not natively have an icon */
+
+%iconWithoutContainerBase {
+    flex-direction: row;
+    @include addIconBase('before');
+
+    &:before {
+        -webkit-mask-image: url('#{ $iconBaseUrl }settings.svg');
+    }
+}
+
+/* Replaces SVG icons that are typically in a button and are not in icon container */
+
+%iconWithSvgWithoutContainerBase {
+    @include addIconBase('before', var(--icon-size, 24px));
+
+    svg {
+        display: none;
+    }
+}
+
+/* Replaces text shortcuts with an icon */
+
+%iconWithShortcutContainerBase {
+    flex-direction: row;
+    @include addIconBase('before');
+
+    #{ $menuPopoutShortcutContainer } {
+        display: none;
+    }
+}
+
+/* Changes the direction of the flex box */
+
+%iconReverseDirection {
+    flex-direction: row;
+}

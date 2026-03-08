@@ -1,0 +1,50 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+@use 'config' as *;
+@use 'placeholders' as *;
+
+
+/*
+ *
+ *  AUDIO CONTEXT MENU ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+        &[id*="audio-device-context-"] {
+            #{ $menuPopoutLabel } {
+                flex: 1 18 auto;
+            }
+        }
+
+        /* AUDIO CONTEXT MENU ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS */
+
+        $icons: (
+            'audioinput-devices':   'mic',
+            'input-profiles':       'headset_mic',
+            'audiooutput-devices':  'volume_up'
+        );
+
+        @each $option, $icon in $icons {
+            &#audio-device-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+
+        &#audio-device-context-voice-settings {
+            @extend %iconWithContainerBase;
+
+            #{ $menuPopoutIconContainer } {
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }settings.svg');
+                }
+            }
+        }
+    }
+}

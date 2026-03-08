@@ -1,0 +1,50 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+@use 'config' as *;
+@use 'placeholders' as *;
+
+/*
+ *
+ *  FRIENDS LIST ICONS
+ *
+ */
+
+#{ $friendActionButton } {
+    --icon-size: 24px;
+
+    $icons: (
+        'M12 22a10 10 0': 'chat',
+        'M10 4a2 2 0 1':  'more_vert',
+    );
+
+    @each $option, $icon in $icons {
+        &:has(path[d^="#{ $option }"]) {
+            @extend %iconWithSvgWithoutContainerBase;
+
+            &:before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+            }
+        }
+    }
+}
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+        $icons: (
+            'start-video-call': 'videocam',
+            'start-voice-call': 'phone_called',
+            'remove-friend':    'cancel',
+        );
+
+        @each $option, $icon in $icons {
+            &#friend-row-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+    }
+}

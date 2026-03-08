@@ -1,0 +1,90 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+@use 'config' as *;
+@use 'placeholders' as *;
+
+
+/*
+ *
+ *  IMAGE CONTEXT MENU ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        /* IMAGE CONTEXT MENU ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS */
+
+        $icons: (
+            'copy-image':       'image_copy',
+            'save-image':       'save',
+            'copy-native-link': 'content_copy',
+            'open-native-link': 'open_in_new'
+        );
+
+        @each $option, $icon in $icons {
+            &#image-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+
+        /* IMAGE CONTEXT MENU ICONS -> IMAGE MENU ICONS */
+
+        $icons: (
+            'copy-image':   'image_copy',
+            'copy-link':    'link',
+        );
+
+        @each $option, $icon in $icons {
+            &#image-menu-media-viewer-#{ $option } {
+                @extend %iconWithContainerBase;
+
+                #{ $menuPopoutIconContainer } {
+                    &:before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                    }
+                }
+            }
+        }
+
+        &#image-menu-media-viewer-details {
+            @extend %iconWithoutContainerBase;
+
+            &:before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }info.svg');
+            }
+        }
+    }
+}
+
+/* IMAGE CONTEXT MENU ICONS -> IMAGE VIEWER ACTION ICONS */
+
+#{ $imageViewerActionButtons } {
+    #{ $buttonV2Children } {
+        --icon-size: 20px;
+
+        $icons: (
+            'M11 7a1 1 0 1': 'zoom_in',
+            'M6 10a1 1 0 0': 'zoom_out',
+            'M21.7 7.3a1 1': 'forward',
+            'M12 2a1 1 0 0': 'download',
+            'M15 2a1 1 0 0': 'open_in_new',
+            'M4 14a2 2 0 1': 'more_horiz'
+        );
+
+        @each $option, $icon in $icons {
+            &:has(path[d^="#{ $option }"]) {
+                @extend %iconWithSvgWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+    }
+}
