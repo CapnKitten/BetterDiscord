@@ -4,7 +4,6 @@
 
 * [Material Discord Customization](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/MaterialDiscordCustomization)
 * [Discord Experiments](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/DiscordExperiments)
-* [Hide Channels](https://github.com/CapnKitten/BetterDiscord/tree/master/Plugins/HideChannels)
 
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
