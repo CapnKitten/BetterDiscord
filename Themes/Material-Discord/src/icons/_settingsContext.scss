@@ -14,7 +14,7 @@
 #{ $menuPopout } {
     #{ $menuPopoutItem } {
 
-        /* SETTINGS CONTEXT MENU ICONS -> REPLACE DEFAULT ICONS */
+        // SETTINGS CONTEXT MENU ICONS -> REPLACE DEFAULT ICONS
 
         $icons: (
             'account_sidebar_item':                       'person',
@@ -72,6 +72,30 @@
                 }
             }
         }
+
+        // SETTINGS CONTEXT MENU ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
+
+        $icons: (
+            'general':      'settings',
+            'addons':       'plugins',
+            'store':        'storefront',
+            'customcss':    'code',
+            'editor':       'code_blocks',
+            'window':       'window',
+            'developer':    'experiment',
+        );
+
+        @each $option, $icon in $icons {
+            &#settings-menu-betterdiscord_settings_sidebarItem--#{$option} {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+
+        // SETTINGS CONTEXT MENU ICONS -> REVERSE FLEX DIRECTION TO PUT CARET ON RIGHT SIDE
 
         &[id*="settings-menu-experiments"],
         &[id*="settings-menu-developer_options"] {

@@ -14,7 +14,7 @@
 #{ $menuPopout } {
     #{ $menuPopoutItem } {
 
-        /* MESSAGE ACTION ICONS -> REPLACE DEFAULT ICONS */
+        // MESSAGE ACTION ICONS -> REPLACE DEFAULT ICONS
 
         $icons: (
             'edit':                             'edit',
@@ -44,7 +44,7 @@
             }
         }
 
-        /* MESSAGE ACTION ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS */
+        // MESSAGE ACTION ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
 
         $icons: (
             'add-reaction':     'emoji',
@@ -66,10 +66,25 @@
                 }
             }
         }
+
+        $icons: (
+            'search-google':    'search',
+            'copy':             'content_copy'
+        );
+
+        @each $option, $icon in $icons {
+            &#text-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
     }
 }
 
-/* MESSAGE ACTION ICONS -> HORIZONTAL MESSAGE ACTIONS BAR */
+// MESSAGE ACTION ICONS -> HORIZONTAL MESSAGE ACTIONS BAR
 
 #{ $messageHoverBarButton } {
     --icon-size: 20px;

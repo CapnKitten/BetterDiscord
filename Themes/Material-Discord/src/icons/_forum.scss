@@ -1,0 +1,52 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+@use 'config' as *;
+@use 'placeholders' as *;
+
+
+/*
+ *
+ *  FORUM ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        // FORUM ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
+
+        $icons: (
+            'mark-channel-read':        'visibility',
+            'channel-copy-link':        'content_copy',
+            'unarchive-thread':         'unarchive',
+            'delete-channel':           'delete',
+            'leave-thread':             'message-minus',
+            'edit-thread':              'edit',
+            'mute-channel':             'volume_up',
+            'thread-notifications':     'notifications',
+            'pin-thread':               'pin',
+            'unpin-thread':             'pin',
+            'archive-thread':           'archive',
+            'archive-lock-thread':      'lock',
+            'lock-thread':              'lock',
+            'edit-tags':                'edit',
+            'join-thread':              'message-check',
+            'open':                     'open_in_new',
+            'mute-disabled':            'volume_up',
+            'notifications-disabled':   'notifications',
+            'auto-archive-thread':      'archive',
+            'guild-feed-feature':       'feature'
+        );
+
+        @each $option, $icon in $icons {
+            &#thread-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+    }
+}

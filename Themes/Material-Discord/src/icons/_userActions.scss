@@ -13,47 +13,49 @@
 #{ $menuPopout } {
     #{ $menuPopoutItem } {
 
-        /* USER ACTION ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS */
+        // USER ACTION ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
 
         $icons: (
-            'mark-channel-read':        'mark_chat_read',
-            'user-profile':             'person',
-            'mention':                  'mention',
-            'message-user':             'chat_bubble',
-            'call':                     'call',
-            'ring':                     'notifications_active',
-            'stop-ringing':             'notifications_off',
-            'note':                     'edit',
-            'Permissions':              'lock_open',
-            'add-friend-nickname':      'add_circle',
-            'edit-friend-nickname':     'edit',
-            'invite-to-listen':         'spotify',
-            'remove':                   'remove_circle',
-            'make-dm-owner':            'crown',
-            'join':                     'add_circle',
-            'apps':                     'apps',
-            'invite-to-server':         'add_circle',
-            'add-friend':               'person_add',
-            'remove-friend':            'person_remove',
-            'manage-integration':       'settings',
-            'ignore':                   'remove_circle',
-            'block':                    'block',
-            'mute-channel':             'volume_off',
-            'roles':                    'person',
-            'unmute-channel':           'volume_up',
-            'change-video-background':  'videocam',
-            'focus-video':              'center_focus',
-            'change-nickname':          'edit',
-            'timeout':                  'timer',
-            'removetimeout':            'timer_off',
-            'mod-view':                 'visibility',
-            'verify':                   'verified_user',
-            'kick':                     'remove_circle',
-            'ban':                      'hardware',
-            'close-dm':                 'cancel',
-            'voice-disconnect':         'power_off',
-            'transfer-ownership':       'transfer',
-            'pin-dm':                   'pin',
+            'mark-channel-read':                'mark_chat_read',
+            'user-profile':                     'person',
+            'mention':                          'mention',
+            'message-user':                     'chat_bubble',
+            'call':                             'call',
+            'ring':                             'notifications_active',
+            'stop-ringing':                     'notifications_off',
+            'note':                             'edit',
+            'Permissions':                      'lock_open',
+            'add-friend-nickname':              'add_circle',
+            'edit-friend-nickname':             'edit',
+            'invite-to-listen':                 'spotify',
+            'remove':                           'remove_circle',
+            'make-dm-owner':                    'crown',
+            'join':                             'add_circle',
+            'apps':                             'apps',
+            'invite-to-server':                 'add_circle',
+            'add-friend':                       'person_add',
+            'remove-friend':                    'person_remove',
+            'manage-integration':               'settings',
+            'ignore':                           'remove_circle',
+            'block':                            'block',
+            'mute-channel':                     'volume_off',
+            'roles':                            'person',
+            'unmute-channel':                   'volume_up',
+            'change-video-background':          'videocam',
+            'focus-video':                      'center_focus',
+            'secure-frames-user-verification':  'visibility_lock',
+            'change-nickname':                  'edit',
+            'timeout':                          'timer',
+            'removetimeout':                    'timer_off',
+            'mod-view':                         'visibility',
+            'verify':                           'verified_user',
+            'kick':                             'remove_circle',
+            'ban':                              'hardware',
+            'close-dm':                         'cancel',
+            'voice-disconnect':                 'power_off',
+            'transfer-ownership':               'transfer',
+            'pin-dm':                           'pin',
+            'voice-move':                       'move'
         );
 
         @each $option, $icon in $icons {
@@ -65,6 +67,29 @@
                 }
             }
         }
+
+        // USER ACTION ICONS -> REPLACE DEFAULT ICONS
+
+        $icons: (
+            'view-avatar':          'image_view',
+            'vc-view-user-raw':     'code',
+            'vc-rdb-user-reviews':  'open_in_new',
+            'vc-copy-user-url':     'link'
+        );
+
+        @each $option, $icon in $icons {
+            &#user-context-#{ $option } {
+                @extend %iconWithContainerBase;
+
+                #{ $menuPopoutIconContainer } {
+                    &:before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                    }
+                }
+            }
+        }
+
+        // USER ACTION ICONS -> REVERSE FLEX DIRECTION TO PUT CARET ON RIGHT SIDE
 
         &[id*="set-status-submenu"] {
             @extend %iconReverseDirection;

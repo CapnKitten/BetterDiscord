@@ -1,4 +1,5 @@
 @use '../classes' as *;
+@use '../mixins' as *;
 
 /*
  *
@@ -126,6 +127,25 @@
         #{ $textXsMedium } {
             color: inherit !important;
             font-size: var(--button-font-size);
+        }
+    }
+}
+
+#{ $voiceCallInvitePopover } {
+    @include popout-format;
+}
+
+#{ $voiceCallInvitePopoverInner } {
+    padding: var(--context-menu-padding);
+}
+
+#{ $voiceCallInviteRow } {
+    border-radius: calc(var(--popout-radius-big) - var(--context-menu-padding));
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &#{ $voiceCallInviteRowClickable } {
+        &:hover {
+            background-color: var(--menu-item-hover);
         }
     }
 }
