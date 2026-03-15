@@ -1,10 +1,32 @@
 @use '../classes' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
 
 /*
  *
  *	PANEL ICONS
  *
  */
+
+#{ $connectionPanel } {
+    #{ $lottieIcon } {
+        --icon-size: 20px;
+
+        $icons: (
+            ' M9.335000038146973': 'call_end'
+        );
+
+        @each $option, $icon in $icons {
+            &:has(path[d^="#{ $option }"]) {
+                @extend %iconWithSvgWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+    }
+}
 
 #{ $accountPanel } {
     #{ $panelButton } {
@@ -46,7 +68,7 @@
     }
 }
 
-#{ $panelButtonLottieIcon } {
+#{ $lottieIcon } {
     &:hover {
         animation: rotate-panel-icon 800ms ease;
     }

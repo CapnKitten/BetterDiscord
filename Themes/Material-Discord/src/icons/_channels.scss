@@ -1,8 +1,6 @@
-@use 'sass:map';
 @use '../classes' as *;
-
-@use 'config' as *;
-@use 'placeholders' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
 
 /*
  *
@@ -10,46 +8,10 @@
  *
  */
 
-#{ $menuPopout } {
-    #{ $menuPopoutItem } {
-
-        // CHANNEL ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
-
-        $icons: (
-            'mark-channel-read':        'mark_chat_read',
-            'invite-people':            'add_circle',
-            'opt-in-favorite-channel':  'pin',
-            'opt-into-channel':         'remove_circle',
-            'channel-copy-link':        'content_copy',
-            'mute-channel':             'volume_off',
-            'unmute-channel':           'volume_up',
-            'channel-notifications':    'notifications',
-            'edit-channel':             'edit',
-            'clone-channel':            'file_copy',
-            'create-text-channel':      'hashtag',
-            'create-voice-channel':     'volume_up',
-            'delete-channel':           'delete',
-            'invite-to-listen':         'spotify',
-            'copy-channel-topic':       'content_copy',
-            'open-chat':                'chat',
-            'set-status':               'edit'
-        );
-
-        @each $option, $icon in $icons {
-            &#channel-context-#{ $option } {
-                @extend %iconWithoutContainerBase;
-
-                &:before {
-                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
-                }
-            }
-        }
-    }
-}
-
-// CHANNEL ICONS -> REPLACE CHANNEL HEADER AND LISTS ICONS
-
 #{ $channelsContainer } {
+
+    // CHANNEL ICONS -> REPLACE CHANNEL HEADER AND LISTS ICONS
+
     #{ $channelsHeaderInviteButton } {
         --icon-size: 20px;
         @extend %iconWithSvgWithoutContainerBase;
@@ -58,7 +20,6 @@
             -webkit-mask-image: url('#{ $iconBaseUrl }person_add.svg');
         }
     }
-
 
     #{ $channelIconContainer } {
         --icon-size: 20px;
@@ -88,6 +49,8 @@
             'M18.91 12.98a5.45':                                'forum',
             'M13.58 3.23c.24-':                                 'forum_lock',
             'M14.8 3.34a.48.48':                                'forum_warn',
+            'M19.61 18.25a1.08':                                'podcasts',
+            'M21.92 14.08c.32':                                 'podcasts_lock',
             'M6 9h1V6a5 5 0 0 1':                               'lock'
         );
 
@@ -140,6 +103,31 @@
         'M23 8.8a.5.5 0':           'inbox',
         'M16.23 12c0 1.29-.95':     'nitro',
         'M2.63 4.19A3 3 0':         'storefront'
+    );
+
+    @each $option, $icon in $icons {
+        &:has(path[d^="#{ $option }"]) {
+            @extend %iconWithSvgWithoutContainerBase;
+
+            &:before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+            }
+        }
+    }
+}
+
+/**/
+
+#{ $radioLabel } {
+    --icon-size: 20px;
+
+    $icons: (
+        'M10.99 3.16A1 1 0': 'hashtag',
+        'M12 3a1 1 0 0': 'volume_up',
+        'M18.91 12.98a5.45': 'forum',
+        'M2 5a3 3 0 0 1': 'image_view',
+        'M19.56 2a3 3 0 0': 'campaign',
+        'M19.61 18.25a1.08': 'podcasts'
     );
 
     @each $option, $icon in $icons {

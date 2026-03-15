@@ -1,8 +1,6 @@
-@use '../classes' as *;
-@use '../mixins' as *;
-
-@use 'config' as *;
-@use 'placeholders' as *;
+@use '../../classes' as *;
+@use '../../config' as *;
+@use '../../placeholders' as *;
 
 /*
  *
@@ -23,7 +21,7 @@
             'call':                             'call',
             'ring':                             'notifications_active',
             'stop-ringing':                     'notifications_off',
-            'note':                             'edit',
+            'note':                             'note_stack_add',
             'Permissions':                      'lock_open',
             'add-friend-nickname':              'add_circle',
             'edit-friend-nickname':             'edit',
@@ -40,6 +38,7 @@
             'block':                            'block',
             'mute-channel':                     'volume_off',
             'roles':                            'person',
+            'perm-viewer-permissions':          'key',
             'unmute-channel':                   'volume_up',
             'change-video-background':          'videocam',
             'focus-video':                      'center_focus',
@@ -60,6 +59,23 @@
 
         @each $option, $icon in $icons {
             &#user-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+
+        $icons: (
+            'view-main-profile': 'account_circle',
+            'ignore': 'remove_circle',
+            'block': 'block',
+            'report-app': 'flag',
+        );
+
+        @each $option, $icon in $icons {
+            &#user-bot-profile-overflow-menu-#{ $option } {
                 @extend %iconWithoutContainerBase;
 
                 &:before {

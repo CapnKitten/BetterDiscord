@@ -1,0 +1,38 @@
+@use '../classes' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
+
+/*
+ *
+ *  MESSAGE ICONS
+ *
+ */
+
+#{ $messageHoverBarButton } {
+    --icon-size: 20px;
+
+    $icons: (
+        'M15.3 14.48c-.46':         'content_copy',
+        'm13.96 5.46 4.58 4.58a1':  'edit',
+        'M16.32 14.72a1 1 0':       'link',
+        'M12.93 21.96c.25-.03.43':  'mark_chat_unread',
+        'M19.38 11.38a3 3':         'pin',
+        'M12 2.81a1 1 0':           'thread',
+        'M12.9297 3.25007C12.7343': 'code',
+        'M12 23a11 11 0 1':         'emoji',
+        'M2.3 7.3a1 1 0':           'reply',
+        'M21.7 7.3a1 1 0':          'forward',
+        'M4 14a2 2 0 1':            'more_horiz',
+        'M14.25 1c.41 0':           'delete'
+    );
+
+    @each $option, $icon in $icons {
+        &:has(path[d^="#{ $option }"]) {
+            @extend %iconWithSvgWithoutContainerBase;
+
+            &:before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+            }
+        }
+    }
+}

@@ -1,12 +1,10 @@
 @use '../classes' as *;
-@use '../mixins' as *;
-
-@use 'config' as *;
-@use 'placeholders' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
 
 /*
  *
- *  FRIENDS LIST ICONS
+ *	HOME ICONS
  *
  */
 
@@ -24,26 +22,6 @@
 
             &:before {
                 -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
-            }
-        }
-    }
-}
-
-#{ $menuPopout } {
-    #{ $menuPopoutItem } {
-        $icons: (
-            'start-video-call': 'videocam',
-            'start-voice-call': 'phone_called',
-            'remove-friend':    'cancel',
-        );
-
-        @each $option, $icon in $icons {
-            &#friend-row-#{ $option } {
-                @extend %iconWithoutContainerBase;
-
-                &:before {
-                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
-                }
             }
         }
     }
