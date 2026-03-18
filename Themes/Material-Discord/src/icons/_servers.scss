@@ -1,0 +1,30 @@
+@use '../classes' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
+
+/*
+ *
+ *	SERVER ICONS
+ *
+ */
+
+#{ $guildBadge } {
+    --icon-size: 14px;
+
+    $icons: (
+        'M12 3a1 1 0 0':    'volume_up',
+        'M4 4a3 3 0 0':     'videocam',
+        'M5 2a3 3 0 0':     'desktop_windows',
+        'M7 1a1 1 0 0':     'event'
+    );
+
+    @each $option, $icon in $icons {
+        &:has(path[d^="#{ $option }"]) {
+            @extend %iconWithSvgWithoutContainerBase;
+
+            &:before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+            }
+        }
+    }
+}
