@@ -22,13 +22,14 @@
 }
 
 #{ $friendsBlockedIgnoredSettingsNotice } {
-    margin: 16px 16px 4px 16px;
+	margin-block: var(--space-16) var(--space-4);
+	margin-inline: var(--space-16);
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
 }
 
 #{ $friendsSectionTitle } {
-	@include remove-caps(12px);
+	@include remove-caps($font-size: 12px);
 }
 
 #{ $friendsList } {
@@ -45,13 +46,14 @@
 		margin: 0;
 		padding: 0 16px;
 		line-height: 40px;
-		@include remove-caps(14px);
+		@include remove-caps($font-size: 14px);
 	}
 }
 
 #{ $friendsSearchBar } {
-	margin: 16px 16px 8px 16px;
-	@include input-format(false, false, true);
+	margin-block: var(--space-16) var(--space-8);
+	margin-inline: var(--space-16);
+	@include input-format($rounded: true);
 	padding: 0;
 
 	#{ $inputContainer } {
@@ -88,7 +90,7 @@
 
 	#{ $friendActionButton } {
 		background-color: transparent;
-		@include md-ripple(hover, after, 1.0);
+		@include md-ripple($type: 'hover', $pseudo: 'after', $scale: 1.0);
 
 		#{ $friendActionButtonIcon } {
 			transform: scale(1.2);

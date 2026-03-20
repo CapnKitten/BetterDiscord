@@ -21,11 +21,12 @@
 }
 
 #{ $serverShopHeroCard } {
-    @include card-format(false, 0, true);
+    @include card-format($filled: true);
     box-shadow: none;
 
     #{ $serverShopHeroInfoContainer } {
-        padding: 0 16px 16px;
+        padding-block: 0 var(--space-16);
+        padding-inline: var(--space-16);
     }
 
     #{ $serverShopHeroCoverImage } {
@@ -46,7 +47,7 @@
 }
 
 #{ $serverShopHeader } {
-    @include remove-caps(14px);
+    @include remove-caps($font-size: 14px);
 }
 
 #{ $serverShopTab } {
@@ -60,7 +61,7 @@
 }
 
 #{ $serverShopProductCard } {
-    @include card-format(true, 0, true, true);
+    @include card-format($important: true, $filled: true, $hover: true);
 
     #{ $serverShopProductThumbnail } {
         border-radius: var(--card-radius-big);
@@ -81,7 +82,8 @@
 
 #{ $serverShopProductModalHeaderImage } {
     width: calc(100% + 48px);
-    margin: -24px -24px -16px;
+    margin-block: -24px -16px;
+    margin-inline: -24px;
     border-radius: var(--card-radius-big);
 }
 

@@ -8,7 +8,7 @@
  */
 
 #{ $input } {
-    @include input-format(false, false);
+    @include input-format;
 
     &#{ $multiInput } {
         padding: 0;
@@ -35,7 +35,7 @@
     background-color: var(--input-color);
 
     &:not(#{ $selectMenuContainer }) {
-        @include input-format(false, true, false);
+        @include input-format($focus-within: true);
 
         #{ $inputWrapper } {
             min-height: auto;
@@ -181,7 +181,7 @@
 }
 
 #{ $copyInput } {
-    @include input-format(true, false, true);
+    @include input-format($important: true, $rounded: true);
 
     &:hover {
         #{ $button } {
@@ -254,7 +254,7 @@
 
 /*#{ $inputContainer } {
     #{ $inputWrapper } {
-        @include input-format(false, true, true);
+        @include input-format($focus-within: true, $rounded: true);
     }
 }*/
 

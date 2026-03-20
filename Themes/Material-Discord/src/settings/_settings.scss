@@ -23,7 +23,7 @@
 }
 
 #{ $settingsCloseButton } {
-	@include md-ripple(hover, after, 1.2);
+	@include md-ripple($type: 'hover', $pseudo: 'after', $scale: 1.2);
 	border: none;
 
 	&:hover {
@@ -47,7 +47,8 @@
 }
 
 #{ $settingsNoticeContainer } {
-    padding: var(--space-8) var(--space-8) var(--space-8) var(--space-16);
+    padding-block: var(--space-8);
+    padding-inline: var(--space-16) var(--space-8);
     background-color: var(--popout-color);
     border-radius: 6px;
     box-shadow: var(--shadow-soft);
@@ -90,7 +91,7 @@
         content: " ";
         width: 18px;
         height: 18px;
-        @include add-icon(var(--interactive-text-default), close);
+        @include add-icon($color: var(--interactive-text-default), $icon: 'close');
         transform: scale(1.333333);
     }
 

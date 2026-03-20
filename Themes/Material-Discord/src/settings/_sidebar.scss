@@ -22,7 +22,8 @@
 
 	width: var(--sidebar-width);
 	margin: 0;
-	padding: 60px 0 40px;
+	padding-block: 60px 40px;
+	padding-inline: 0;
 
 	#{ $settingsSide } {
 		width: inherit;
@@ -105,14 +106,15 @@
 
     #{ $settingsSideHeader },
 	#{ $bdSidebarHeader } {
-		margin: 10px 28px 12px;
+		margin-block: 10px 12px;
+		margin-inline: 28px;
 		padding: 0;
         color: var(--text-muted) !important;
     }
 
 	#{ $settingsSideHeaderEyebrow },
 	#{ $bdSidebarHeaderLabel } {
-		@include remove-caps(0.8em);
+		@include remove-caps($font-size: 0.8em);
 	}
 
 	#{ $bdSidebarHeaderLabel } {
@@ -124,7 +126,8 @@
     #{ $tabBarSeparator } {
 		position: relative;
 		height: 1px;
-		margin: 10px 22px 10px 28px;
+		margin-block: 10px;
+		margin-inline: 28px 22px;
 		background: transparent;
 
 		&:before {
@@ -146,7 +149,8 @@
 
 #{ $settingsSocialLinks },
 #{ $settingsDiscordInfo } {
-	padding: 8px 12px 8px 26px
+	padding-block: 8px;
+	padding-inline: 26px 12px;
 }
 
 /* SIDEBAR -> LIGHT THEME WITH DARK SIDEBAR */
@@ -236,7 +240,8 @@
 }
 
 #{ $settingsV2SidebarLabel } {
-    margin: var(--space-8) var(--space-16) var(--space-4);
+	margin-block: var(--space-8) var(--space-4);
+	margin-inline: var(--space-16);
     color: var(--text-muted) !important;
 }
 
