@@ -175,8 +175,8 @@
 
         &#{ $accountPanelButtonChevron } {
             display: flex;
-            min-width: 32px;
-            max-width: 32px;
+            min-width: var(--button-height);
+            max-width: var(--button-height);
             padding: 9px 0;
             justify-content: center;
 
@@ -194,8 +194,8 @@
         }
     }
 
-    #{ $accountPanelMicButtonParent } {
-        &#{ $accountPanelMicButtonHasColorGlow } {
+    #{ $accountPanelAudioButtonParent } {
+        &#{ $accountPanelAudioButtonHasColorGlow } {
             #{ $panelButton }[aria-checked="true"] {
                 &:before {
                     background-color: hsla(0,0%,0%,0.6);
@@ -204,7 +204,7 @@
                 }
             }
 
-            + #{ $accountPanelMicButtonHasColorGlow } {
+            + #{ $accountPanelAudioButtonHasColorGlow } {
                 #{ $panelButton }[aria-checked="true"] {
                     &:before {
                         background-color: hsla(0,0%,0%,0.2);
@@ -222,7 +222,8 @@
         }
     }
 
-    &:hover {
+    &:hover,
+    &:has(#{ $accountPanelAudioPopoutOpen }) {
         width: 176px;
         padding: 0 4px 0 12px;
 
@@ -258,7 +259,7 @@
     gap: 0;
 }
 
-#{ $accountPanelMicButtonParent } {
+#{ $accountPanelAudioButtonParent } {
     gap: var(--space-4);
 }
 
