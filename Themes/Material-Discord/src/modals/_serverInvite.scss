@@ -8,35 +8,63 @@
  */
 
 #{ $inviteModal } {
-	border-radius: var(--popout-radius-big);
-	box-shadow: var(--shadow-medium);
+	@include popout-format;
+
+	#{ $buttonV2 } {
+		#{ $buttonV2ChildrenWrapper } {
+			--button-height: 16px;
+		}
+	}
 }
 
 #{ $inviteModalContentWrapper } {
-	background-color: var(--popout-color) !important;
-	border-radius: var(--popout-radius-big) 0 0 var(--popout-radius-big);
-
-	&:only-child {
-		border-radius: var(--popout-radius-big);
-	}
-
 	#{ $headlingXlSemibold } {
-		font-weight: 400;
+		--app-font-roundness: 25;
 	}
-}
-
-#{ $inviteModalContent } {
-	min-height: unset;
-}
-
-#{ $inviteModalEditProfileContainer } {
-    @include card-format(true, var(--space-16), true, true);
-}
-
-#{ $inviteModalHeaderIconWrapper } {
-    background-color: var(--card-button-color);
 }
 
 #{ $inviteModalSplash } {
 	border-radius: var(--popout-radius-big);
+}
+
+#{ $inviteModalAccordionContainer } {
+	@include card-format($filled: true);
+}
+
+#{ $inviteModalAccordionHeader },
+#{ $inviteModalAccordionContent } {
+	background-color: transparent;
+}
+
+#{ $inviteModalAccordionHeader } {
+	position: relative;
+
+	&:before {
+		position: absolute;
+		content: " ";
+		width: calc(100% - (var(--space-4) * 2));
+		height: calc(100% - (var(--space-4) * 2));
+		top: var(--space-4);
+		left: var(--space-4);
+		background-color: var(--card-color-hover);
+		border-radius: calc(var(--card-radius-big) - var(--space-4));
+		pointer-events: none;
+		opacity: 0;
+		transition: var(--default-time) var(--default-animation) opacity;
+	}
+
+	> div {
+		z-index: 2;
+	}
+
+	&:hover {
+		&:before {
+			opacity: 1;
+		}
+	}
+}
+
+#{ $inviteModalAccordionHeaderIconWrapper } {
+	background-color: var(--card-button-color);
+	border-radius: 50%;
 }
