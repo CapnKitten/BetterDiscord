@@ -1,5 +1,6 @@
 @use '../classes' as *;
 @use '../mixins' as *;
+@use '../placeholders' as *;
 
 /*
  *
@@ -149,11 +150,26 @@
     border-radius: var(--emoji-radius);
 }
 
+#{ $emojiPickerItem } {
+    border-radius: var(--card-radius);
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &#{ $emojiPickerItemSelected } {
+        background-color: var(--card-color-active);
+    }
+}
+
 #{ $emojiPickerInspector } {
     position: relative;
     padding-inline: var(--space-12);
     border-end-start-radius: var(--emoji-radius);
     border-end-end-radius: var(--emoji-radius);
+    border-block-start: none;
+    box-shadow: 0 -2px 18px hsl(0,0%,0%,0.2);
+}
+
+#{ $emojiPickerBadgeLabel } {
+    border-radius: 13px;
 }
 
 #{ $emojiPickerCategoryHeaderWrapper } {
@@ -166,10 +182,13 @@
     inset-block-start: 52px;
     background-color: var(--card-color-filled);
     border-radius: var(--emoji-radius);
+}
 
-    #{ $emojiCategoryUnicodeShortcut } {
-        background-color: var(--card-color-filled);
-    }
+#{ $emojiCategoryUnicodeShortcut },
+#{ $emojiStandardStickerShortcut } {
+    background-color: var(--card-color-filled);
+    border-block-start: none;
+    box-shadow: 0 -2px 18px hsl(0,0%,0%,0.2);
 }
 
 #{ $emojiWrapper } {
@@ -195,15 +214,37 @@
 }
 
 #{ $emojiCategoryItemDefaultCategory } {
-    border-radius: 50%;
+    @extend %categoryItemBase;
 
-    &:hover {
-        background-color: var(--card-button-color);
+    &#{ $emojiCategoryItemDefaultCategorySelected } {
+        @extend %categoryItemSelected;
     }
 }
 
-#{ $emojiCategoryItemDefaultCategorySelected } {
-    background-color: var(--card-button-color-hover);
+#{ $stickerCategoryGeneric } {
+    @extend %categoryItemBase;
+
+    &#{ $stickerCategoryGenericSelected } {
+        @extend %categoryItemSelected;
+    }
+}
+
+#{ $emojiCategoryItem } {
+    foreignObject {
+        mask: none !important;
+    }
+
+    #{ $emojiCategoryGuildIcon } {
+        border-radius: 50%;
+        transition: var(--default-time) var(--default-animation) border-radius;
+    }
+
+    &:hover,
+    &:has([mask="url(#svg-mask-squircle)"]) {
+        #{ $emojiCategoryGuildIcon } {
+            border-radius: calc(var(--emoji-radius) - 6px);
+        }
+    }
 }
 
 /* EMOJI PICKER -> GIFS */
