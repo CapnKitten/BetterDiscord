@@ -57,7 +57,7 @@
 
 #{ $a11yFontScaledDown } {
 	#{ $messageCozy } {
-		&#{ $messagesWrapper } {
+		&#{ $messageWrapper } {
 			padding-inline-start: var(--message-padding-side);
 			padding-inline-end: var(--message-padding-side) !important;
 		}
@@ -147,9 +147,10 @@
     }
 }
 
-#{ $messagesWrapper } {
+#{ $messageWrapper } {
 	position: relative;
 	background-color: var(--message-color) !important;
+	border-radius: var(--message-radius);
 	transition: var(--default-time) var(--default-animation) background-color;
 
 	&:hover {
@@ -178,7 +179,7 @@
 
 	&#{ $messageGroupStart } {
 		position: relative;
-		border-radius: var(--message-radius);
+		//border-radius: var(--message-radius);
 
 		#{ $avatarLarge } {
 			width: 40px;
@@ -201,7 +202,8 @@
 	}
 
 	&:not(#{ $messageGroupStart }) {
-		border-radius: 0 0 var(--message-radius) var(--message-radius);
+		border-start-start-radius: 0;
+		border-start-end-radius: 0;
 
 		&:before,
 		&:after {
@@ -253,34 +255,6 @@
 		}
 	}
 
-	#{ $messageButtonContainer } {
-		margin-block-start: 8px;
-		margin-inline-start: 0;
-		z-index: 3;
-
-		#{ $button } {
-			--button-height: 24px;
-			--button-padding-start: 6px;
-			--button-padding-end: 6px;
-
-			#{ $textXsNormal } {
-				color: hsl(var(--accent-hsl--material-you)) !important;
-			}
-		}
-
-		#{ $messageButtonFooterAction } {
-			height: var(--button-height);
-
-			#{ $messageButtonFooterIcon } {
-				color: hsl(var(--accent-hsl--material-you));
-
-				path {
-					fill: currentColor;
-				}
-			}
-		}
-	}
-
 	#{ $messageButtonDot } {
 		margin: 0 4px;
 	}
@@ -299,7 +273,7 @@
 		+ #{ $messageListItem },
 		+ #{ $messageBackgroundFlash },
 		+ #{ $newMessagesDivider } + #{ $messageListItem } {
-			#{ $messagesWrapper } {
+			#{ $messageWrapper } {
 				&:not(#{ $messageGroupStart }) {
 					&:before,
 					&:after {
@@ -496,16 +470,7 @@
 	& {
 		+ #{ $newMessagesDivider } {
 			margin-inline-start: 80px;
-
-			/*&:not(#{ $newMessagesDividerBeforeGroup }) {
-				inset-block-start: -11px;
-			}*/
 		}
-
-		/*+ &:not(#{ $message }) {
-			margin-block: 16px 0;
-			margin-inline: 70px 20px;
-		}*/
 	}
 }
 
@@ -564,6 +529,11 @@
 	> a {
 		color: hsl(var(--accent-hsl));
 	}
+}
+
+#{ $messagesScroller } {
+    margin-block-end: -36px;
+    padding-block-end: 36px;
 }
 
 #{ $messagesScrollerSpacer } {

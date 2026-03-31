@@ -1,0 +1,30 @@
+@use '../classes' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
+
+/*
+ *
+ *  CALL ICONS
+ *
+ */
+
+#{ $callCenterButton } {
+    #{ $buttonContents } {
+		display: flex;
+
+        $icons: (
+            'M17.3 18.7a1 1 0 0':   'call_end',
+            'M2 7.4A5.4 5.4 0':     'phone_in_talk'
+        );
+
+        @each $option, $icon in $icons {
+            &:has(path[d^="#{ $option }"]) {
+                @extend %iconWithSvgWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }#{ $icon }.svg');
+                }
+            }
+        }
+    }
+}

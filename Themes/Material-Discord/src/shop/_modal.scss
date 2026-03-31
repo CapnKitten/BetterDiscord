@@ -1,0 +1,74 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+/*
+ *
+ *	DISCORD SHOP MODALS
+ *
+ */
+ 
+#{ $shopPreviewModalContent } {
+    padding: 0 !important;
+    border-radius: var(--popout-radius-big) !important;
+
+    &::-webkit-scrollbar {
+        --scrollbar-width: 0;
+        --scrollbar-thin-width: 0;
+    }
+
+    #{ $shopCollectibleInfoContainer } {
+        background-color: var(--popout-color);
+        border-radius: var(--popout-radius-big);
+
+        #{ $buttonFilled } {
+            background: var(--button-background) !important;
+
+            #{ $buttonContents } {
+                svg {
+                    height: 24px;
+                }
+            }
+        }
+    }
+
+    #{ $shopCollectibleCategoryBanner } {
+        width: calc(100% + var(--popout-radius-big));
+        inset-inline-start: calc(var(--popout-radius-big) * -1);
+    }
+}
+
+#{ $shopPreviewContainer } {
+    border-radius: var(--popout-radius-big);
+}
+
+#{ $shopNameplateRightPanePreviewContainer } {
+    background-color: var(--chat-color);
+    border-radius: var(--popout-radius-big);
+    box-shadow: var(--shadow-soft);
+}
+
+#{ $shopNameplatePreview } {
+    border-radius: 29px;
+}
+
+#{ $shopWishlistButton } {
+    --interactive-icon-default: var(--accent-secondary-text-color);
+
+    width: var(--button-height);
+    height: var(--button-height);
+    background-color: var(--accent-secondary-color);
+    border-radius: var(--button-radius);
+    border: none;
+
+    &[aria-pressed="true"] {
+        border-radius: calc(var(--button-radius) / 1.75);
+    }
+
+    &:not(#{ $shopWishlistButtonDisabled }) {
+        transition: var(--default-time) var(--default-animation) border-radius !important;
+
+        &:hover {
+            background-color: var(--accent-secondary-color);
+        }
+    }
+}

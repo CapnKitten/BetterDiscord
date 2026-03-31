@@ -30,6 +30,12 @@
 	border-radius: var(--card-radius-big);
 }
 
+@media (min-width: 937px) {
+    #{ $settingsProfileSectionsContainer } {
+        max-width: none;
+    }
+}
+
 #{ $settingsUpsellOverlayContainer } {
 	overflow: hidden;
 }
@@ -41,17 +47,17 @@
 #{ $settingsProfileCard } {
 	--input-color: var(--input-color-alt);
 
-	margin-block-end: 16px;
-	@include card-format(false, 16px, true);
+	margin-block-end: var(--space-16);
+	@include card-format($padding: var(--space-16), $filled: true);
 
 	&:last-child {
 		&:not(#{ $settingsProfileCardWithDivider }) {
-			padding-block-end: 16px;
+			padding-block-end: var(--space-16);
 		}
 	}
 
 	&#{ $settingsProfileCardHideDivider } {
-        padding-block-end: 16px;
+        padding-block-end: var(--space-16);
     }
 
 	&#{ $settingsPreviewProfileThemes } {
@@ -59,8 +65,9 @@
 	}
 
 	&#{ $settingsProfileThemeSectionPremiumBorder } {
-		margin: 0 0 16px;
-		background: linear-gradient(var(--main-color),var(--main-color)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
+		margin-block: 0 var(--space-16);
+		margin-inline: 0;
+		background: linear-gradient(var(--main-color), var(--main-color)) padding-box, linear-gradient(45deg, hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%), hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)) border-box;
 		border-width: 2px;
 
 		+ #{ $settingsProfileCardDivider } {
@@ -68,7 +75,7 @@
 		}
 
 		.inlineUpsell-3zPTgw {
-			@include card-format(false, 16px);
+			@include card-format($padding: 16px);
 		}
 	}
 
@@ -83,17 +90,23 @@
 	}
 
 	#{ $settingsProfileHeader } {
-		margin: -16px -16px 0;
-		@include card-format--header(false, true);
+		margin-block-start: calc(var(--space-16) * -1);
+		margin-inline: calc(var(--space-16) * -1);
+		@include card-format--header($filled: true);
 
 		#{ $settingsProfileHeaderText } {
 			@include card-format--header-fix;
 		}
 	}
-}
 
-#{ $settingsProfileCardButtonsContainer } {
-    gap: 16px;
+	[class^="buttonsContainer_"],
+	#{ $settingsProfileCardSection } {
+		gap: var(--space-16);
+	}
+
+	[class^="removeButton_"] {
+		margin-inline-start: 0;
+	}
 }
 
 #{ $settingsProfileCardRemoveButton } {
@@ -101,12 +114,12 @@
 }
 
 #{ $settingsProfileCustomizationSectionBorder } {
-    margin: -16px;
-    background: linear-gradient(var(--card-color-filled),var(--card-color-filled)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
+    margin: calc(var(--space-16) * -1);
+    background: linear-gradient(var(--card-color-filled), var(--card-color-filled)) padding-box, linear-gradient(45deg, hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%), hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)) border-box;
     border-radius: var(--card-radius-big);
 
     #{ $settingsProfileCustomizationBackground } {
-        padding: 16px;
+        padding: var(--space-16);
     }
 
     #{ $settingsProfileNitroWheel } {
@@ -115,13 +128,14 @@
 }
 
 #{ $settingsProfileBioTextArea } {
-	--input-padding: 0 12px;
+	--input-padding: 0 var(--space-12);
 
-	@include input-format(false, false, true, 136px, 136px);
+	@include input-format($rounded: true, $height: 136px, $max-height: 136px);
 	border-radius: 19px !important;
 
 	#{ $channelTextAreaWithoutAttachment } {
-		padding: 12px 0;
+		padding-block: var(--space-12);
+		padding-inline: 0;
 	}
 }
 
@@ -136,11 +150,11 @@
 }
 
 #{ $decorationGridItem } {
-	@include card-option-select(40px, true, "#{ $decorationGridItemSelected }", "#{ $textXsNormal }");
+	@include card-option-select($radius-unselected: 40px, $selector: "#{ $decorationGridItemSelected }", $text: "#{ $textXsNormal }");
 }
 
 #{ $effectGridItem } {
-	@include card-option-select(34px, false, "#{ $effectGridItemSelected }");
+	@include card-option-select($radius-unselected: 34px, $filled: false, $selector: "#{ $effectGridItemSelected }", $text: "#{ $textXsNormal }", $svg: true);
 }
 
 #{ $presetEffectBackground },
@@ -149,11 +163,11 @@
 }
 
 #{ $settingsProfileDecorationPreview } {
-    @include card-format(false, 0, true);
+    @include card-format($filled: true);
 }
 
 #{ $settingsProfileSmallDecorationPreviewsContainer } {
-    @include card-format(false, 8px, true);
+    @include card-format($padding: var(--space-8), $filled: true);
 }
 
 #{ $settingsProfileEffectDescriptionBorderWithGradient } {
@@ -170,7 +184,7 @@
     border: none;
 
     #{ $settingsProfileEffectDescriptionContainer } {
-        @include card-format(false, var(--space-16), true);
+        @include card-format($padding: var(--space-16), $filled: true);
     }
 }
 
@@ -200,13 +214,13 @@
         height: calc(100% - 4px);
 		inset-block-start: 0;
 		inset-inline-start: 0;
-        background: linear-gradient(var(--main-alt),var(--main-alt)) padding-box,linear-gradient(45deg,hsl(269,calc(var(--saturation-factor, 1)*52.7%),52.7%),hsl(325,calc(var(--saturation-factor, 1)*31.7%),51.8%)) border-box;
+        background: linear-gradient(var(--main-alt), var(--main-alt)) padding-box, linear-gradient(45deg, hsl(269, calc(var(--saturation-factor, 1) * 52.7%), 52.7%), hsl(325, calc(var(--saturation-factor, 1) * 31.7%), 51.8%)) border-box;
         border-radius: inherit;
         border: 2px solid transparent;
     }
 
     #{ $settingsProfilePremiumBackground } {
-        padding: 16px;
+        padding: var(--space-16);
         background: var(--card-color-filled);
         border-radius: var(--card-radius-big);
     }
@@ -215,7 +229,7 @@
 /* USER SETTINGS PROFILES -> NAMEPLATES */
 
 #{ $nameplateInventoryControlsButton } {
-    @include card-option-select(40px, true, "#{ $nameplateInventoryControlsButtonSelected }", "#{ $textXsNormal }");
+    @include card-option-select($radius-unselected: 40px, $selector: "#{ $nameplateInventoryControlsButtonSelected }", $text: "#{ $textXsNormal }", $svg: true);
 }
 
 #{ $nameplateInventory } {
@@ -300,11 +314,11 @@
 }
 
 #{ $displayFontButton } {
-    @include card-option-select(34px, true, "#{ $displayFontButtonSelected }", "#{ $textLgSemibold }");
+    @include card-option-select($selector: "#{ $displayFontButtonSelected }", $text: "#{ $textLgSemibold }");
 }
 
 #{ $displayEffectContainer } {
-    @include card-option-select(34px, true, "#{ $displayEffectContainerSelected }");
+    @include card-option-select($selector: "#{ $displayEffectContainerSelected }");
 }
 
 #{ $displayEffectContainer } {

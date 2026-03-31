@@ -27,14 +27,15 @@
     // EMOJI PICKER ICONS -> REPLACE DEFAULT ICONS WITH NO ICON CONTAINER
 
     $icons: (
-        'M12 23a11 11 0': 'emoji',
-		'M9.8 14.6c-.45': 'local_florist',
-		'M7 1a1 1 0 0': 'ramen_dining',
-		'M20.97 4.06c0': 'stadia_controller',
-		'M15 4a1 1 0 0': 'pedal_bike',
-		'M10.41 3.59 11.6': 'floor_lamp',
-		'M12.47 21.73a.92': 'favorite',
-		'M3 1a1 1 0 0': 'flag',
+		'M8 20a1 1 0 0 0-1': 	'trophy',
+        'M12 23a11 11 0': 		'emoji',
+		'M9.8 14.6c-.45': 		'local_florist',
+		'M7 1a1 1 0 0': 		'ramen_dining',
+		'M20.97 4.06c0': 		'stadia_controller',
+		'M15 4a1 1 0 0': 		'pedal_bike',
+		'M10.41 3.59 11.6': 	'floor_lamp',
+		'M12.47 21.73a.92': 	'favorite',
+		'M3 1a1 1 0 0': 		'flag',
     );
 
     @each $option, $icon in $icons {
@@ -46,4 +47,30 @@
             }
         }
     }
+}
+
+#{ $emojiCategoryUnicodeShortcut },
+#{ $emojiStandardStickerShortcut },
+#{ $stickerCategoryGeneric } {
+	@extend %iconWithSvgWithoutContainerBase;
+}
+
+#{ $emojiCategoryUnicodeShortcut } {
+	&:before {
+		-webkit-mask-image: url('#{ $iconBaseUrl }emoji.svg');
+	}
+}
+
+#{ $emojiStandardStickerShortcut } {
+	&:before {
+		-webkit-mask-image: url('#{ $iconBaseUrl }sticker.svg');
+	}
+}
+
+#{ $stickerCategoryGeneric } {
+	display: flex;
+
+	&:before {
+		-webkit-mask-image: url('#{ $iconBaseUrl }schedule.svg');
+	}
 }
