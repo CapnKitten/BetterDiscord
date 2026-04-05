@@ -35,6 +35,12 @@
 	}
 }
 
+#{ $recentMentionsPopout } {
+	#{ $scroller } {
+		padding-inline: var(--space-16) calc(var(--space-16) - var(--scrollbar-width)) !important;
+	}
+}
+
 body:active {
 	#{ $messagesPopoutWrap },
 	#{ $recentMentionsPopout } {
@@ -76,19 +82,19 @@ body:active {
 	#{ $messagesPopoutExpandedTabSection } {
 		height: 48px;
 	}
+}
 
-	#{ $messagesPopoutHeaderFriendRequestButton },
-	#{ $messagesPopoutHeaderButton }:not(#{ $messagesPopoutHeaderButtonDisabled }) {
-		height: var(--button-height);
-		padding-inline: var(--button-padding);
-		background-color: hsl(from var(--accent-secondary-color) h s l / 0.3);
-		border-radius: var(--button-radius);
-		border: none;
-		transition: var(--default-time) var(--default-animation) background-color;
+#{ $messagesPopoutHeaderFriendRequestButton },
+#{ $messagesPopoutHeaderButton }:not(#{ $messagesPopoutHeaderButtonDisabled }) {
+	height: var(--button-height);
+	padding-inline: var(--button-padding-has-icon);
+	background-color: hsl(from var(--accent-secondary-color) h s l / 0.3);
+	border-radius: var(--button-radius);
+	border: none;
+	transition: var(--default-time) var(--default-animation) background-color;
 
-		&:hover {
-			background-color: hsl(from var(--accent-secondary-color) h s l / 0.45);
-		}
+	&:hover {
+		background-color: hsl(from var(--accent-secondary-color) h s l / 0.45);
 	}
 }
 

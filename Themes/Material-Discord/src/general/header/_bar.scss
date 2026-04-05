@@ -59,13 +59,27 @@
 }
 
 #{ $headerBarIconWrapper } {
-	&#{ $headerBarIconClickable } {
-		@include md-ripple(hover, after, 1.5);
-	}
+	@include md-ripple;
 
 	foreignObject {
 		mask: none !important;
 	}
+}
+
+#{ $headerBarIconClickable } {
+    padding-inline: var(--space-4);
+    border-radius: 12px;
+    transition: var(--default-time) var(--default-animation) background-color;
+
+    &:not(#{ $headerBarIconClickableDisabled }) {
+        &:hover {
+            background-color: var(--card-button-color);
+        }
+
+        &#{ $headerBarIconClickableSelected } {
+            background-color: var(--card-button-color-hover);
+        }
+    }
 }
 
 #{ $headerBarTopic } a {

@@ -260,7 +260,10 @@
 		position: absolute;
 		content: " ";
 		width: #{$width};
-		height: 3px;inset-inline-start: 0;inset-inline-end: 0;inset-block-end: 0;
+		height: 3px;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		inset-block-end: 0;
 		margin: 0 auto;
 		background: var(--tab-border-color);
 		border-radius: 3px;
@@ -268,65 +271,60 @@
 	}
 }
 
-@mixin md-ripple($type, $pseudo, $scale, $colored: false) {
-	@if $colored == true {
-		--md-ripple-color: var(--accent-hsl);
-	}
+@mixin md-ripple($type: 'hover', $pseudo: 'after', $scale: 1.2, $colored: false) {
+    @if $colored == true {
+        --md-ripple-color: var(--accent-hsl);
+    }
 
-	position: relative;
+    position: relative;
 
-	&:#{$pseudo} {
-		content: " ";
-		position: absolute;
-		width: 100%;
-		height: 100%;inset-block-start: 0;inset-inline-start: 0;
-		background-color: hsl(var(--md-ripple-color),0.1);
-		border-radius: 50%;
-		opacity: 0;
-		pointer-events: none;
-		transform: scale(1.2);
-		transition: 300ms ease;
-		z-index: 4;
-	}
+    &:#{$pseudo} {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        background-color: hsl(var(--md-ripple-color), 0.1);
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(1.2);
+        pointer-events: none;
+        transition: 300ms ease;
+        z-index: 4;
+    }
 
-	@if $type == hover {
-		&:hover {
-			&:#{$pseudo} {
-				opacity: 1;
-				transform: scale(#{$scale});
-				animation: scale 150ms var(--default-animation), opacity 150ms ease;
-			}
-		}
+    @if $type == 'hover' {
+        &:hover:#{$pseudo} {
+            opacity: 1;
+            transform: scale(#{$scale});
+            animation: md-ripple-scale 150ms var(--default-animation);
+            transition: opacity 150ms ease;
+        }
 
-		&:active {
-			&:#{$pseudo} {
-				background-color: hsl(var(--md-ripple-color),0.2);
-			}
-		}
-	} @else if $type == click {
-		&:active {
-			&:#{$pseudo} {
-				opacity: 1;
-				transform: scale(#{$scale});
-				animation: scale 150ms var(--default-animation), opacity 150ms ease;
-			}
-		}
-	} @else if $type == hover_click {
-		&:hover,
-		&:active {
-			&:#{$pseudo} {
-				opacity: 1;
-				transform: scale(#{$scale});
-				animation: scale 150ms var(--default-animation), opacity 150ms ease;
-			}
-		}
+        &:active:#{$pseudo} {
+            background-color: hsl(var(--md-ripple-color), 0.2);
+        }
+    } @else if $type == 'click' {
+        &:active:#{$pseudo} {
+            opacity: 1;
+            transform: scale(#{$scale});
+            animation: md-ripple-scale 150ms var(--default-animation);
+            transition: opacity 150ms ease;
+        }
+    } @else if $type == 'hover_click' {
+        &:hover:#{$pseudo},
+        &:active:#{$pseudo} {
+            opacity: 1;
+            transform: scale(#{$scale});
+            animation: md-ripple-scale 150ms var(--default-animation);
+            transition: opacity 150ms ease;
+        }
 
-		&:active {
-			&:#{$pseudo} {
-				background-color: hsl(var(--md-ripple-color),0.2);
-			}
-		}
-	}
+        &:active:#{$pseudo} {
+            background-color: hsl(var(--md-ripple-color), 0.2);
+        }
+    }
 }
 
 @mixin add-icon($color, $icon, $type: 'outline') {

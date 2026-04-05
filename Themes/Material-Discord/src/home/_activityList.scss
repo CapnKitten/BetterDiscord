@@ -15,7 +15,8 @@
 
 		#{ $nowPlayingColumnScroller } {
 			margin-inline-start: 0;
-			padding: 16px 16px 12px;
+			padding-block: var(--space-16) var(--space-12);
+			padding-inline: var(--space-16);
 			border-inline-start: none;
 		}
 	}
@@ -35,11 +36,13 @@
 	}
 
 	#{ $size14 } {
-		padding: 16px 16px 0;
+		padding-block: var(--space-16) 0;
+		padding-inline: var(--space-16);
 	}
 
 	#{ $activeNowPrivacyCardButtonContainer } {
-		padding: 0 16px 16px;
+		padding-block: 0 var(--space-16);
+		padding-inline: var(--space-16);
 	}
 }
 
@@ -56,14 +59,19 @@
 	}
 
 	#{ $emptyActiveNowText } {
-		padding: 0 16px 16px;
+		padding-block: 0 var(--space-16);
+		padding-inline: var(--space-16);
 		text-align: left;
 	}
 }
 
 #{ $activeNowRefresh } {
+	--activity-card-padding: var(--space-8);
+	--activity-card-radius: calc(var(--card-radius-big) - var(--activity-card-padding));
+
 	#{ $activeNowCardInteractive } {
-		margin: 0 0 2px;
+		margin-block: 0 2px;
+		margin-inline: 0;
 		background-color: var(--activity-card-color);
 		border-radius: 4px;
 		border: none;
@@ -71,7 +79,8 @@
 		transition: var(--default-time) var(--default-animation) background-color;
 
 		&:first-of-type {
-			border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+			border-start-start-radius: var(--card-radius-big);
+			border-start-end-radius: var(--card-radius-big);
 
 			&:nth-last-child(1) {
 				border-radius: var(--card-radius-big);
@@ -79,7 +88,8 @@
 		}
 
 		&:nth-last-child(1) {
-			border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+			border-end-start-radius: var(--card-radius-big);
+			border-end-end-radius: var(--card-radius-big);
 		}
 
 		&:hover {
@@ -87,12 +97,12 @@
 		}
 
 		#{ $activeNowCardInset } {
-			&:not(:empty) {
-				padding-block: var(--space-4) var(--space-8);
-				padding-inline: var(--space-16);
-			}
-
 			background-color: transparent;
+
+			&:not(:empty) {
+				padding-block: 0 var(--activity-card-padding);
+				padding-inline: var(--activity-card-padding);
+			}
 		}
 
 		#{ $activeNowOuterCard } {
@@ -100,22 +110,27 @@
 	    }
 
 		#{ $activeNowCardSection } {
-			margin-block-end: 2px;
 	        background-color: var(--activity-card-color--inset);
 	        border-radius: 4px;
 			border: none;
 
 			&:first-of-type {
-	            border-radius: var(--card-radius-big) var(--card-radius-big) 4px 4px;
+				border-start-start-radius: var(--activity-card-radius);
+				border-start-end-radius: var(--activity-card-radius);
 	        }
 
 	        &:not(:first-of-type):last-of-type {
 	            margin-block-end: 0;
-	            border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+				border-end-start-radius: var(--activity-card-radius);
+				border-end-end-radius: var(--activity-card-radius);
 	        }
 
+			&:not(:only-child) {
+				margin-block-end: 2px;
+			}
+
 	        &:only-child {
-	            border-radius: var(--card-radius-big);
+	            border-radius: var(--activity-card-radius);
 	        }
 		}
 
@@ -156,7 +171,8 @@
     }
 
     #{ $activeNowQuestPromotedTag } {
-        padding: 3px 6px 2px;
+		padding-block: 3px 2px;
+		padding-inline: 6px;
     }
 
     #{ $activeNowQuestPromotedTagBackground } {
@@ -173,7 +189,8 @@
 
 #{ $activeNowCardSeparator } {
     + #{ $activeNowQuestWrapper } {
-        border-radius: 4px 4px var(--card-radius-big) var(--card-radius-big);
+		border-end-start-radius: var(--card-radius-big);
+		border-end-end-radius: var(--card-radius-big);
     }
 }
 
