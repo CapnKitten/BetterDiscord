@@ -1,4 +1,5 @@
 @use '../../../classes' as *;
+@use '../../../config' as *;
 @use '../../../mixins' as *;
 
 /*
@@ -20,7 +21,7 @@
         @each $option, $icon in $icons {
             &##{$option} {
                 &:after {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+                    -webkit-mask-image: url('#{ $iconBaseUrl }/#{$icon}.svg');
                 }
             }
         }
@@ -38,7 +39,7 @@
         @each $option, $icon in $icons {
             &##{$option} {
                 &:before {
-                    -webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/outline/#{$icon}.svg);
+                    -webkit-mask-image: url('#{ $iconBaseUrl }/#{$icon}.svg');
                 }
             }
         }

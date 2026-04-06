@@ -1,3 +1,5 @@
+@use 'config' as *;
+
 @mixin popout-format($important: false) {
 	$imp: if($important, !important, null);
 
@@ -327,8 +329,8 @@
     }
 }
 
-@mixin add-icon($color, $icon, $type: 'outline') {
-	-webkit-mask-image: url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/files/icons/#{$type}/#{$icon}.svg);
+@mixin add-icon($color, $icon) {
+	-webkit-mask-image: url('#{ $iconBaseUrl }/#{$icon}.svg');
 	-webkit-mask-repeat: no-repeat;
 
 	@if $color != null {
