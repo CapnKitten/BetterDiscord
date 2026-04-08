@@ -1,4 +1,5 @@
 @use '../classes' as *;
+@use '../mixins' as *;
 
 /*
  *
@@ -69,4 +70,39 @@
 
 #{ $gameProfileGradientRight } {
     background: linear-gradient(270deg, var(--popout-color) 0%, transparent 100%);
+}
+
+/* GAME PROFILE -> NEW INFO LAYOUT */
+
+#{ $gameProfileCompactBarBorder } {
+    display: none;
+}
+
+#{ $gameProfileCompactBarBg } {
+    background-color: var(--popout-color);
+    box-shadow: var(--shadow-soft);
+}
+
+#{ $gameProfileTwoColumnMainContent } {
+    background: linear-gradient(to bottom, transparent 0, var(--popout-color) 200px);
+}
+
+#{ $gameProfileMainCard },
+#{ $gameProfileSmallCard } {
+    @include card-format($padding: var(--space-16), $filled: true);
+}
+
+#{ $gameProfileCommunityContainer },
+#{ $gameProfileReviewsContainer },
+#{ $gameProfileDetailsContainer } {
+    @include card-format($filled: true);
+}
+
+#{ $gameProfileCommunityInviteSplash } {
+    border-radius: var(--card-radius-big);
+}
+
+#{ $gameProfileCommunityGuildIcon } {
+    border-color: var(--card-color-filled);
+    border-radius: 28px;
 }
