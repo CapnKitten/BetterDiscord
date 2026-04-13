@@ -1,4 +1,5 @@
 @use '../classes' as *;
+@use '../placeholders' as *;
 
 /*
  *
@@ -6,114 +7,131 @@
  *
  */
 
-#{ $playerVideoControls } {
-    --progress-bar-height: 3px;
-    --progress-bar-hover-height: 8px;
-    --progress-grabber-size: calc(var(--progress-bar-hover-height) * 2);
-
-    height: 46px;
-    background-color: transparent;
-    background: linear-gradient(0deg, hsl(0,0%,0%,0.65) 0%, transparent 100%);
-
-    #{ $playerVideoButton } {
-        margin-inline-start: 12px;
-    }
-
-    #{ $playerDurationTimeWrapper } {
-        margin-inline-start: 48px;
-    }
-
-    #{ $flexHorizontal } {
-        position: absolute;
-        inset-block-start: -8px;
-
-        #{ $playerMediaBarInteraction },
-        #{ $playerMediaBarInteractionDragging } {
-            height: var(--progress-bar-height);
-            margin: 0 12px;
-            padding: calc(var(--progress-bar-height) * 2) 0;
-        }
-
-        #{ $playerMediaBarInteraction } {
-            &:hover {
-                #{ $playerMediaBarWrapper } {
-                    height: var(--progress-bar-hover-height);
-                }
-            }
-        }
-
-        #{ $playerMediaBarInteractionDragging } {
-            #{ $playerMediaBarWrapper } {
-                height: var(--progress-bar-hover-height);
-            }
-        }
-
-        #{ $playerMediaBarWrapper } {
-            height: var(--progress-bar-height);
-            transition: var(--default-time) var(--default-animation) height;
-            box-shadow: none;
-        }
-
-        #{ $playerMediaBarWrapperFakeEdges } {
-            &:before,
-            &:after {
-                border-radius: 0;
-            }
-        }
-
-        #{ $playerMediaBarProgress } {
-            background-color: hsl(var(--accent-hsl));
-
-            &:before,
-            &:after {
-                background-color: inherit;
-                border-radius: 0;
-            }
-        }
-
-        #{ $playerMediaBarGrabber } {
-            width: var(--progress-grabber-size);
-            height: var(--progress-grabber-size);
-            margin: calc((var(--progress-grabber-size) / 2) * -1) calc((var(--progress-grabber-size) / 2) * -1) 0 0;
-            border-radius: calc(var(--progress-grabber-size) / 2);
-            background-color: hsl(var(--accent-hsl));
-        }
-    }
-
-    #{ $flex } {
-        position: absolute;
-        inset-inline-start: 48px;
-
-        #{ $playerVolumeSlider } {
-            z-index: 3;
-        }
-    }
-
-    > div:not([class]) {
-        position: absolute;
-        inset-inline-end: 12px;
-    }
-
-    #{ $playerMediaBarBuffer } {
-        opacity: 0.2;
+#{ $player } {
+    &[data-fullscreen="true"] {
+        --video-controls-fullscreen-scale: 1.35;
     }
 }
 
-#{ $playerMediaBarInteractiveVolume } {
-    #{ $playerMediaBarProgress } {
-        background-color: hsl(var(--accent-hsl));
+#{ $playerControlsHidden } {
+    #{ $playerVideoControls } {
+        transform: translateY(calc(100% + var(--space-12))) !important;
+    }
+}
 
-        &:before,
-        &:after {
-            background-color: inherit;
-        }
+#{ $playerVideoControls } {
+    height: calc(var(--video-controls-height) * var(--video-controls-fullscreen-scale));
+    inset-block-end: 0;
+    padding-block-end: 0;
+    padding-inline: var(--space-8);
+    background-color: transparent;
+    box-sizing: border-box;
+    transition: var(--default-time) var(--default-animation) transform;
+
+    #{ $flexHorizontal } {
+        position: absolute;
+        width: calc(100% - (var(--space-8) * 2));
+        inset-block-start: -8px;
     }
 
-    #{ $playerMediaBarGrabber } {
-        background-color: hsl(var(--accent-hsl));
+    #{ $flex } {
+        @extend %playerVideoButton;
+
+        position: absolute;
+        inset-inline-start: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) + var(--space-16));
+    }
+
+    > div:not([class]) {
+        display: flex;
+        margin-inline-start: auto;
     }
 }
 
 #{ $playerVideoButton } {
-    margin-inline-end: 0;
+    @extend %playerVideoButton;
+
+    margin: 0;
+}
+
+#{ $playerDurationTimeWrapper } {
+    display: flex;
+    height: calc(var(--video-controls-button-size) * var(--video-controls-fullscreen-scale));
+    margin-block: 0;
+    margin-inline: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) + var(--space-16)) 0;
+    padding-inline: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) / 3);
+    background-color: var(--video-controls-button-color);
+    border-radius: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) / 2);
+    vertical-align: middle;
+}
+
+#{ $playerDurationTimeDisplay },
+#{ $playerDurationTimeSeparator } {
+    display: flex;
+    align-items: center;
+}
+
+#{ $playerVolumeContainer },
+#{ $playerVolumeButton } {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+#{ $playerVolumeSlider } {
+    z-index: 3;
+}
+
+#{ $playerMediaBarInteraction },
+#{ $playerMediaBarInteractionDragging } {
+    height: var(--progress-bar-height);
+}
+
+#{ $playerMediaBarInteraction } {
+    &:hover {
+        #{ $playerMediaBarWrapper } {
+            height: var(--progress-bar-hover-height);
+            box-shadow: none;
+        }
+
+        #{ $playerMediaBarGrabber } {
+            background-color: hsl(var(--accent-hsl));
+            transform: scale(1.75);
+            box-shadow: var(--shadow-soft);
+        }
+    }
+}
+
+#{ $playerMediaBarInteractionDragging } {
+    #{ $playerMediaBarWrapper } {
+        height: var(--progress-bar-hover-height);
+    }
+
+    #{ $playerMediaBarGrabber } {
+        background-color: hsl(var(--accent-hsl));
+        transform: scale(1.75);
+    }
+}
+
+#{ $playerMediaBarWrapper } {
+    height: var(--progress-bar-height);
+    transition: var(--default-time) var(--default-animation) height;
+    box-shadow: none;
+}
+
+#{ $playerMediaBarProgress } {
+    background-color: hsl(var(--accent-hsl));
+
+    &:before,
+    &:after {
+        background-color: inherit;
+    }
+}
+
+#{ $playerMediaBarGrabber } {
+    width: var(--progress-grabber-size);
+    height: var(--progress-grabber-size);
+    margin: calc((var(--progress-grabber-size) / 2) * -1) calc((var(--progress-grabber-size) / 2) * -1) 0 0;
+    border-radius: calc(var(--progress-grabber-size) / 2);
+    background-color: hsl(var(--accent-hsl));
+    transform: none;
 }

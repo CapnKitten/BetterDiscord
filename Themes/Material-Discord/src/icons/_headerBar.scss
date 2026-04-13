@@ -45,7 +45,8 @@
         $icons: (
             'M5 2a3 3 0 0':     'inbox',
             'M12 23a11 11 0':   'help',
-            'M2 20.59V19.4a1':  'handyman'
+            'M2 20.59V19.4a1':  'handyman',
+            'M12 2a1 1 0 0':    'download'
         );
 
         @each $option, $icon in $icons {
@@ -56,6 +57,10 @@
                     -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
                 }
             }
+        }
+
+        &:has(path[d^="M12 2a1 1 0 0"]) {
+            color: var(--green-360);
         }
     }
 }
