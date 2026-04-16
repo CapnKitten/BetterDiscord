@@ -1,0 +1,68 @@
+@use '../classes' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
+
+/*
+ *
+ *	PLAYER ICONS
+ *
+ */
+
+#{ $playerVideoButton },
+#{ $playerVolumeButton } {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#{ $playerVideoControls } {
+    #{ $playerVideoButton },
+    #{ $playerVolumeButton } {
+        --icon-size: 80%;
+    }
+}
+
+#{ $playerAudioControls } {
+    #{ $playerVideoButton },
+    #{ $playerVolumeButton } {
+        --icon-size: 24px;
+    }
+}
+
+#{ $playerVideoButton } {
+    $icons: (
+        'M9.25 3.35C7.87':      'play_arrow',
+        'M6 4a1 1 0 0 0-1':     'pause',
+        'M12,5 L12,1 L7,6':     'replay',
+        'M4 6c0-1.1.9-2':       'fullscreen',
+        'M8 6a2 2 0 0 1-2':     'fullscreen_exit'
+    );
+
+    @each $option, $icon in $icons {
+        &:has(path[d^="#{ $option }"]) {
+            @extend %iconWithSvgWithoutContainerBase;
+
+            &:before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+            }
+        }
+    }
+}
+
+#{ $playerVolumeButton } {
+    $icons: (
+        '9 0 0 1 0 17.5Z':          'volume_up',
+        '78a4 4 0 0 1 0 6.72Z':     'volume_down',
+        '3a1 1 0 0 0 0-1.4Z':       'volume_off'
+    );
+
+    @each $option, $icon in $icons {
+        &:has(path[d*="#{ $option }"]) {
+            @extend %iconWithSvgWithoutContainerBase;
+
+            &:before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+            }
+        }
+    }
+}

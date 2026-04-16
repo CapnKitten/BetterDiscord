@@ -15,7 +15,7 @@
 
 #{ $playerControlsHidden } {
     #{ $playerVideoControls } {
-        transform: translateY(calc(100% + var(--space-12))) !important;
+        transform: translateY(calc(100% + var(--space-16))) !important;
     }
 }
 
@@ -48,107 +48,108 @@
 
     #{ $playerVolumeContainer },
     #{ $playerVolumeButton } {
+        display: flex;
         width: 100%;
         height: 100%;
         justify-content: center;
     }
-}
 
-#{ $playerVideoButton } {
-    @extend %playerVideoButton;
+    #{ $playerVideoButton } {
+        @extend %playerVideoButton;
 
-    margin: 0;
-}
+        margin: 0;
+    }
 
-#{ $playerDurationTimeWrapper } {
-    display: flex;
-    height: calc(var(--video-controls-button-size) * var(--video-controls-fullscreen-scale));
-    margin-block: 0;
-    margin-inline: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) + var(--space-16)) 0;
-    padding-inline: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) / 3);
-    background-color: var(--video-controls-button-color);
-    border-radius: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) / 2);
-    vertical-align: middle;
-}
+    #{ $playerDurationTimeWrapper } {
+        display: flex;
+        height: calc(var(--video-controls-button-size) * var(--video-controls-fullscreen-scale));
+        margin-block: 0;
+        margin-inline: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) + var(--space-16)) 0;
+        padding-inline: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) / 3);
+        background-color: var(--video-controls-button-color);
+        border-radius: calc((var(--video-controls-button-size) * var(--video-controls-fullscreen-scale)) / 2);
+        vertical-align: middle;
+    }
 
-#{ $playerDurationTimeDisplay },
-#{ $playerDurationTimeSeparator } {
-    display: flex;
-    align-items: center;
-}
+    #{ $playerDurationTimeDisplay },
+    #{ $playerDurationTimeSeparator } {
+        display: flex;
+        align-items: center;
+    }
 
-#{ $playerVolumeSlider } {
-    z-index: 3;
-}
+    #{ $playerVolumeSlider } {
+        z-index: 3;
+    }
 
-#{ $playerMediaBarInteraction },
-#{ $playerMediaBarInteractionDragging } {
-    height: var(--progress-bar-height);
-}
+    #{ $playerMediaBarInteraction },
+    #{ $playerMediaBarInteractionDragging } {
+        height: var(--progress-bar-height);
+    }
 
-#{ $playerMediaBarInteraction } {
-    &:hover {
+    #{ $playerMediaBarInteraction } {
+        &:hover {
+            #{ $playerMediaBarWrapper } {
+                height: var(--progress-bar-hover-height);
+                box-shadow: none;
+            }
+
+            #{ $playerMediaBarGrabber } {
+                background-color: hsl(var(--accent-hsl));
+                transform: scale(1.75);
+                box-shadow: var(--shadow-soft);
+            }
+        }
+    }
+
+    #{ $playerMediaBarInteractionDragging } {
         #{ $playerMediaBarWrapper } {
             height: var(--progress-bar-hover-height);
-            box-shadow: none;
         }
 
         #{ $playerMediaBarGrabber } {
             background-color: hsl(var(--accent-hsl));
             transform: scale(1.75);
-            box-shadow: var(--shadow-soft);
         }
     }
-}
 
-#{ $playerMediaBarInteractionDragging } {
     #{ $playerMediaBarWrapper } {
-        height: var(--progress-bar-hover-height);
+        height: var(--progress-bar-height);
+        transition: var(--default-time) var(--default-animation) height;
+        box-shadow: none;
+    }
+
+    #{ $playerMediaBarProgress } {
+        background-color: hsl(var(--accent-hsl));
+
+        &:before,
+        &:after {
+            background-color: inherit;
+        }
     }
 
     #{ $playerMediaBarGrabber } {
+        width: var(--progress-grabber-size);
+        height: var(--progress-grabber-size);
+        margin: calc((var(--progress-grabber-size) / 2) * -1) calc((var(--progress-grabber-size) / 2) * -1) 0 0;
+        border-radius: calc(var(--progress-grabber-size) / 2);
         background-color: hsl(var(--accent-hsl));
-        transform: scale(1.75);
+        transform: none;
     }
-}
 
-#{ $playerMediaBarWrapper } {
-    height: var(--progress-bar-height);
-    transition: var(--default-time) var(--default-animation) height;
-    box-shadow: none;
-}
+    #{ $playerVolumeSlider } {
+        width: 30px;
+        height: 90px;
+        inset-inline: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0;
 
-#{ $playerMediaBarProgress } {
-    background-color: hsl(var(--accent-hsl));
-
-    &:before,
-    &:after {
-        background-color: inherit;
-    }
-}
-
-#{ $playerMediaBarGrabber } {
-    width: var(--progress-grabber-size);
-    height: var(--progress-grabber-size);
-    margin: calc((var(--progress-grabber-size) / 2) * -1) calc((var(--progress-grabber-size) / 2) * -1) 0 0;
-    border-radius: calc(var(--progress-grabber-size) / 2);
-    background-color: hsl(var(--accent-hsl));
-    transform: none;
-}
-
-#{ $playerVolumeSlider } {
-    width: 30px;
-    height: 90px;
-    inset-inline: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-
-    #{ $playerVolumeMediaBar } {
-        position: relative;
-        width: 90px;
-        height: 30px;
-        inset-block-start: 45%;
-        inset-inline-start: calc(-100% + 1px);
-        transform-origin: unset;
+        #{ $playerVolumeMediaBar } {
+            position: relative;
+            width: 90px;
+            height: 30px;
+            inset-block-start: 45%;
+            inset-inline-start: calc(-100% + 1px);
+            transform-origin: unset;
+        }
     }
 }
