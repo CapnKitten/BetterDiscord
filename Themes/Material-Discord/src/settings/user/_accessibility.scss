@@ -7,28 +7,34 @@
  *
  */
 
-#{ $accessibilityPreview } {
-    @include card-format(true, 16px);
+#{ $accessibilityDecorationWrapper } {
+    z-index: 4;
+
+    &#{ $accessibilityDecorationWrapperSticky }:before {
+        background: var(--chat-color);
+    }
 }
 
-#{ $accessibilityMessagePreview } {
-    padding: 0;
-    background-color: var(--chat-color);
-    border-radius: calc(var(--card-radius-big) / 1.25);
+#{ $accessibilityPreview } {
+    @include card-format($padding: var(--space-32) var(--space-16) var(--space-16));
+}
 
-    #{ $message } {
-        margin-block-start: 0 !important;
-        margin-inline-start: 52px;
-        margin-inline-end: 0;
-        border-radius: var(--message-radius);
+#{ $accessibilityMessages } {
+    margin-inline-start: 56px;
+    gap: 0 !important;
+    translate: unset;
 
-        &:before,
-        &:after {
-            display: none;
-        }
+    li {
+        &:first-child {
+            #{ $message } {
+                border-start-start-radius: var(--message-radius);
+                border-start-end-radius: var(--message-radius);
 
-        #{ $avatarLarge } {
-            inset-inline-start: -50px;
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
         }
     }
 }
