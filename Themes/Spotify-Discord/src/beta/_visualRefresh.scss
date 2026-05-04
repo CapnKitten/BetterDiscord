@@ -65,14 +65,14 @@
         }
 
         &#{ $channelsSidebarChannelListHidden } {
-            margin-right: 0;
+            margin-inline-end: 0;
         }
 
         overflow: visible;
 
         &:has(#{ $spotifyPanel }),
         &:has(#{ $vencordSpotifyPlayer }) {
-            margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
+            margin-block-end: calc(var(--app-bar-size) - var(--app-card-margin));
         }
     }
 
@@ -147,28 +147,6 @@
 
     /* spotify panel */
 
-    #{ $spotifyPanel } {
-        #{ $panelButton } {
-            width: var(--button-height);
-            height: var(--button-height);
-            margin: 0;
-        }
-
-        #{ $spotifyPanelTimeline } {
-            height: 16px;
-            margin: 0 0 0 calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
-        }
-
-        #{ $spotifyPanelTimelineBar } {
-            top: 6px;
-            margin-bottom: 0;
-        }
-
-        #{ $spotifyPanelTimelineBarText } {
-            top: 0;
-        }
-    }
-
     #{ $spotifyPanel },
     #{ $vencordSpotifyPlayer } {
         --panel-height: calc(var(--app-bar-size) - (var(--app-card-margin) * 2));
@@ -191,7 +169,7 @@
 
     #{ $spotifyPanelDetails },
     #{ $vencordSpotifyTitles } {
-        margin-left: calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
+        margin-inline-start: calc(var(--panel-height) + (var(--app-card-margin) * 1.5));
     }
 
     /* spotify panel vencord */
@@ -212,7 +190,7 @@
     #{ $vencordSpotifyButtonRow } {
         height: calc(var(--panel-height) - 20px);
         top: 0;
-        margin-top: 0;
+        margin-block-start: 0;
         align-items: center;
     }
 
@@ -229,7 +207,7 @@
             position: relative;
             width: 36px;
             top: 0;
-            margin-top: 0;
+            margin-block-start: 0;
             text-align: center;
         }
 
@@ -274,10 +252,10 @@
 
     #{ $chatForm } {
         bottom: calc(((var(--app-bar-size) + var(--main-textarea-min-height)) / 2) * -1);
-        margin-top: calc( var(--main-textarea-min-height) * -1);
+        margin-block-start: calc( var(--main-textarea-min-height) * -1);
 
         #{ $channelTextArea } {
-            margin-bottom: 0;
+            margin-block-end: 0;
         }
 
         #{ $textArea } {
@@ -474,7 +452,7 @@
         border: none;
 
         #{ $chatContent } {
-            margin-bottom: calc(var(--app-bar-size) - var(--app-card-margin));
+            margin-block-end: calc(var(--app-bar-size) - var(--app-card-margin));
             background-color: var(--app-foreground);
             border-radius: 0 0 var(--app-card-radius) var(--app-card-radius);
         }
@@ -515,7 +493,7 @@
         box-shadow: var(--default-shadow);
     }
 
-    #{ $emojiWrapperChat } {
+    #{ $emojiWrapper } {
         background-color: var(--popout-color);
         border-radius: var(--popout-radius);
 
@@ -528,9 +506,9 @@
         background-color: transparent;
     }
 
-    #{ $emojiPickerNavEmoji },
-    #{ $emojiPickerNavSticker },
-    #{ $emojiPickerNavGif } {
+    #{ $emojiPickerHeader },
+    #{ $emojiPickerHeaderSticker },
+    #{ $emojiPickerHeaderGif } {
         background-color: transparent;
         border-bottom-color: var(--popout-border-color);
     }
@@ -539,7 +517,7 @@
         background-color: var(--app-foreground);
     }
 
-    #{ $emojiPickerHasTabWrapper } {
+    #{ $emojiWrapperHasTabWrapper } {
         #{ $emojiCategoryWrapper } {
             top: 49px;
         }

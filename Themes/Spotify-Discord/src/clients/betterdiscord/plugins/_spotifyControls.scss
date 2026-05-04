@@ -14,7 +14,7 @@
     height: var(--app-bar-size);
     left: calc((72px + (var(--app-card-margin) * 2)) * -1);
     bottom: calc(var(--app-bar-size) * -1);
-    margin-bottom: 0;
+    margin-block-end: 0;
     padding: 0 0 0 16px;
     border-bottom: none;
 
@@ -35,7 +35,7 @@
     }
 
     #{ $spotifyPanelDetails } {
-        margin-left: 72px;
+        margin-inline-start: 72px;
     }
 
     #{ $spotifyPanelDetails } {
@@ -60,19 +60,22 @@
     }
 
     &#{ $spotifyPanelMaximized } {
-        #{ $spotifyPanelCoverWrapper } {
-            --left: calc(72px + calc(var(--app-card-margin) * 2));
-            --bottom: -292px;
+        overflow: visible;
 
-            width: 240px;
-            height: 240px;
+        #{ $spotifyPanelCoverWrapper } {
+            --cover-size: 240px;
+            --left: 0;
+            --bottom: calc((var(--cover-size) + 64px) * -1);
+
+            width: 100%;
+            height: var(--cover-size);
             margin: 0;
             border-radius: var(--app-card-radius);
             transform: translate(var(--left), var(--bottom)) !important;
         }
 
         + #{ $connectionPanelWrapper } {
-            margin-bottom: 240px;
+            margin-block-end: 240px;
         }
 
         #{ $spotifyPanelInner } {
@@ -80,17 +83,18 @@
         }
 
         #{ $spotifyPanelDetails } {
-            margin-left: 0;
+            margin-inline-start: 0;
         }
 
         #{ $spotifyPanelDetails } {
             display: flex;
+            margin-block: 4px 0;
+            margin-inline: 0;
             flex-direction: row;
             justify-content: center;
-            margin: 4px 0 0;
 
             #{ $accountPanelDiscriminator } {
-                margin-left: 4px;
+                margin-inline-start: 4px;
                 line-height: 18px;
                 font-size: 14px;
             }
@@ -129,8 +133,8 @@
 #{ $vencordSpotifyInfoWrapper } {
     width: calc(100% - ((var(--app-card-margin) * 2) + 52px + 160px));
     height: auto;
-    margin-top: 8px;
-    margin-left: calc((var(--app-card-margin) * 2) + 52px);
+    margin-block-start: 8px;
+    margin-inline-start: calc((var(--app-card-margin) * 2) + 52px);
     gap: 0;
 }
 
@@ -156,7 +160,7 @@
 
     #{ $settingsV2Card } {
         --card-color: transparent;
-        margin-bottom: 0;
+        margin-block-end: 0;
     }
 
     #{ $menuPopoutSliderContainer } {
