@@ -7,89 +7,39 @@
  *
  */
 
-#{ $settingsCardWrapper } {
-    @include card-format;
-
-    #{ $settingsCardWrapperInner } {
-        border-radius: var(--card-radius-big);
-    }
+#{ $settingsNitroActiveBoostCard } {
+    @include card-format($filled: true);
 }
 
-#{ $settingsCardNitro } {
-    border-radius: var(--card-radius-big);
+#{ $settingsNitroActiveBoostCardHeader } {
+    padding: var(--space-16);
+    border-block-end: none;
 }
 
-#{ $settingsServerBoostAppliedBoostContainer } {
-    padding-block-end: 16px;
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-}
-
-#{ $settingsServerBoostContainer } {
-    margin-inline-start: var(--space-16);
-    margin-inline-end: var(--space-16);
-    padding: var(--space-8) var(--space-16);
+#{ $settingsNitroBoostRow } {
+    margin-inline: var(--space-8);
     background-color: var(--card-color-hover);
 
     &:nth-of-type(2) {
-        border-start-start-radius: calc(var(--card-radius-big) / 1.75);
-        border-start-end-radius: calc(var(--card-radius-big) / 1.75);
+        border-start-start-radius: calc(var(--card-radius-big) - var(--space-8));
+        border-start-end-radius: calc(var(--card-radius-big) - var(--space-8));
     }
 
-    &:last-of-type {
-        border-end-start-radius: calc(var(--card-radius-big) / 1.75);
-        border-end-end-radius: calc(var(--card-radius-big) / 1.75);
-    }
-}
-
-#{ $settingsServerBoostContainerSeparator } {
-    display: none;
-}
-
-#{ $settingsServerBoostHeader } {
-    background-color: var(--card-color-filled);
-    border-radius: var(--card-radius-big);
-}
-
-#{ $settingsServerBoostHeaderBorder } {
-    display: none;
-}
-
-#{ $guildSubscriptions } {
-    @include card-format;
-
-    #{ $guildSubscriptionsHeader } {
-        background-color: transparent;
-        border-block-end: 1px solid var(--card-border-color);
+    &#{ $settingsNitroBoostRowLast } {
+        margin-block-end: var(--space-8);
+        border-end-start-radius: calc(var(--card-radius-big) - var(--space-8));
+        border-end-end-radius: calc(var(--card-radius-big) - var(--space-8));
     }
 }
 
-#{ $guildSubscriptionSlots } {
-    padding: 0;
-    background-color: transparent;
-
-    #{ $guildSubscriptionSlot } {
-        padding: 16px;
-        @include card-format--list;
-    }
+#{ $settingsNitroOtherBoostCard } {
+    @include card-format($padding: var(--space-16), $filled: true);
 }
 
-#{ $settingsServerBoostFAQCard } {
-    @include card-format(false, 24px 24px 8px, true);
+#{ $settingsNitroBoostPerksCard } {
+    @include card-format($padding: var(--space-16), $filled: true);
+}
 
-    #{ $settingsServerBoostFAQHeading } {
-        font-weight: 400;
-    }
-
-    #{ $settingsServerBoostFAQList } {
-        border-block-start: none;
-    }
-
-    #{ $settingsServerBoostFAQListItem } {
-        border-bottom-color: var(--card-border-color);
-
-        &:last-child {
-            border-block-end: none;
-        }
-    }
+#{ $settingsNitroBoostFaqListItem } {
+    @include card-format($padding: var(--space-16), $filled: true, $hover: true);
 }
