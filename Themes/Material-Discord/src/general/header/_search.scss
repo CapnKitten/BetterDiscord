@@ -7,13 +7,19 @@
  */
 
 #{ $chatOuterSearchContainer } {
+	min-width: 180px;
 	margin-inline-end: 0;
+	transition: 300ms ease min-width;
+
+	&:has(#{ $chatSearchOpen }) {
+		min-width: 300px;
+	}
 }
 
 #{ $chatSearch } {
 	--input-height: 32px;
 
-	width: 160px;
+	width: auto;
 	transition: 300ms ease width;
 
 	#{ $chatSearchBar } {
@@ -102,10 +108,6 @@
 	#{ $chatSearchIconWrapper } {
 		width: 32px;
 		height: 32px;
-	}
-
-	&#{ $chatSearchOpen } {
-		width: 300px;
 	}
 }
 
