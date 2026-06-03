@@ -19,6 +19,22 @@
 	transition: var(--default-time) var(--default-animation) left;
 
     > div:not(:empty) {
+		+ div:empty {
+			+ div:empty {
+			   + #{ $accountPanel } {
+				   border-start-start-radius: var(--sidebar-panel-radius-small);
+				   border-start-end-radius: var(--sidebar-panel-radius-small);
+			   }
+		   }
+
+		   + div:not(:empty) {
+ 	  			#{ $connectionPanel} {
+ 	  				border-start-start-radius: var(--sidebar-panel-radius-small);
+ 	  				border-start-end-radius: var(--sidebar-panel-radius-small);
+ 	  			}
+			}
+		}
+
         &:first-of-type {
             border-start-start-radius: var(--sidebar-panel-radius-big);
             border-start-end-radius: var(--sidebar-panel-radius-big);
