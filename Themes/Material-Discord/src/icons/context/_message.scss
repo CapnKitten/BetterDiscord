@@ -45,6 +45,9 @@
         // MESSAGE CONTEXT ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
 
         $icons: (
+            'search-google':            'search',
+            'vc-search-text':           'search',
+            'vc-search-custom-engine':  'search',
             'add-reaction':             'emoji',
             'translate':                'translate',
             'apps':                     'apps',
@@ -75,6 +78,22 @@
         @each $option, $icon in $icons {
             &#text-context-#{ $option } {
                 @extend %iconWithoutContainerBase;
+
+                &:before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                }
+            }
+        }
+
+        // MESSAGE CONTEXT ICONS -> REPLACE TEXT SHORTCUTS
+
+        $icons: (
+            'copy': 'content_copy'
+        );
+
+        @each $option, $icon in $icons {
+            &#message-#{ $option } {
+                @extend %iconWithShortcutContainerBase;
 
                 &:before {
                     -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');

@@ -99,7 +99,8 @@ body:active {
 }
 
 #{ $messagesPopoutContentContainer } {
-	padding: 16px calc(16px - var(--scrollbar-width)) 16px 16px !important;
+	padding-block: var(--space-16);
+	padding-inline: var(--space-16) calc(var(--space-16) - var(--scrollbar-width)) !important;
 	background-color: transparent;
 }
 
@@ -121,7 +122,8 @@ body:active {
 
 	#{ $messagesPopoutTabBar } {
 		width: auto;
-		padding: 0 16px;
+		padding-block: 0;
+		padding-inline: var(--space-16);
 	}
 }
 
@@ -168,10 +170,11 @@ body:active {
 /* MESSAGES POPOUT -> INNER */
 
 #{ $messagesPopoutInner } {
-	padding: 0 calc(var(--space-24) - var(--scrollbar-width)) var(--space-24) var(--space-24) !important;
+	padding-block: 0 var(--space-24);
+	padding-inline: var(--space-24) calc(var(--space-24) - var(--scrollbar-width)) !important;
 
 	#{ $pinnedMessageGroupWrapper } {
-		margin-block: 0 16px;
+		margin-block: 0 var(--space-16);
 		margin-inline: 0;
 		background-color: transparent;
 		border: none;
@@ -243,7 +246,8 @@ body:active {
 }
 
 #{ $messagesPopoutChannelHeader } {
-	padding: 12px 16px;
+	padding-block: var(--space-12);
+	padding: var(--space-16);
 	background-color: var(--message-color-alt);
 	border-radius: var(--unread-radius) var(--unread-radius) 0 0;
 	border-block-end: none;
@@ -325,14 +329,15 @@ body:active {
 #{ $recentMentionsJumpButton } {
 	inset-block-start: 22px;
 	inset-inline-end: 22px;
-	padding: 4px 6px;
+	padding-block: var(--space-4);
+	padding-inline: 6px;
 	border-radius: 12px;
 }
 
 /* MESSAGES POPOUT -> UNREADS */
 
 #{ $unreadTutorial } {
-	@include card-format(false, 16px);
+	@include card-format($padding: var(--space-16));
 }
 
 #{ $unreadChannel } {
@@ -366,7 +371,9 @@ body:active {
 	padding: var(--space-16);
 	padding-block-start: var(--space-8);
 	background-color: var(--message-color-alt);
-	border-radius: 0 0 var(--unread-radius) var(--unread-radius);
+	border-radius: 0;
+	border-end-start-radius: var(--unread-radius);
+	border-end-end-radius: var(--unread-radius);
 	border: none;
 
 	#{ $messageWrapper } {
@@ -401,7 +408,9 @@ body:active {
     padding-block-end: var(--space-16);
     padding-inline: var(--space-16);
     background-color: var(--message-color-alt);
-    border-radius: 0 0 var(--unread-radius) var(--unread-radius);
+	border-radius: 0;
+	border-end-start-radius: var(--unread-radius);
+	border-end-end-radius: var(--unread-radius);
 
     #{ $postContainer } {
         background-color: var(--message-color-hover);
