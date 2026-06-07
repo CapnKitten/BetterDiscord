@@ -8,18 +8,19 @@
  */
 
 #{ $postContainer } {
-    background-color: var(--card-color);
-    border-radius: var(--card-radius);
-    border: none !important;
-
-    &:hover {
-        background-color: var(--card-color-hover);
-        box-shadow: none;
-        transform: none;
-    }
+    @include liquidGlassCard($hover: true);
 
     &#{ $postContainerIsOpen } {
-        background-color: var(--card-color-select) !important;
+        background-color: var(--card-color-select);
+        box-shadow: var(--popout-shadow-border);
+    }
+
+    &:not(#{ $postContainerIsOpen }) {
+        &:hover {
+            #{ $postContentPreview } {
+                background-color: var(--card-color);
+            }
+        }
     }
 }
 
@@ -49,22 +50,6 @@
     background: transparent !important;
 }
 
-#{ $postContainer } {
-    background-color: var(--card-color);
-
-    &:hover {
-        background-color: var(--card-color-hover);
-    }
-
-    &:not(#{ $postContainerIsOpen }) {
-        &:hover {
-            #{ $postContentPreview } {
-                background-color: var(--card-color);
-            }
-        }
-    }
-}
-
 #{ $postThreadStartConversationBox } {
     @include card-format;
 
@@ -74,8 +59,8 @@
 }
 
 #{ $postThreadButtonContainer } {
-    background-color: var(--card-color);
-    border-top: none;
+    @include liquidGlassFallback;
+    overflow: hidden;
 }
 
 #{ $postThreadButtons } {

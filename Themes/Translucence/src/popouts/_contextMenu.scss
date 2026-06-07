@@ -8,15 +8,19 @@
  */
 
 #{ $menuPopout } {
-    @include add-translucence(before, true);
-    border: none;
+    @include liquidGlass($pseudo: before);
 
     #{ $menuPopoutItem } {
-        border-radius: var(--popout-radius);
+        border-radius: calc(var(--popout-radius) - var(--space-8));
 
         &#{ $menuPopoutItemHover } {
             background-color: var(--background-modifier-selected);
         }
+    }
+
+    #{ $menuPopoutQuickReactionsWrapper } {
+        margin-block-end: var(--space-8);
+        padding: 0;
     }
 
     #{ $contextMenuQuickReaction } {
@@ -39,12 +43,12 @@
     }
 }
 
-#{ $submenuContainer } {
+/*#{ $submenuContainer } {
     &:before {
         width: calc(100% - var(--space-16));
         inset-inline: var(--space-8);
     }
-}
+}*/
 
 #{ $submenuPaddingContainer } {
     padding: 0;

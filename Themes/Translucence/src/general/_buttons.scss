@@ -30,14 +30,15 @@
     height: var(--button-height);
     min-height: var(--button-height);
     min-width: var(--button-height);
-    padding: var(--button-padding);
+    padding-block: 0 !important;
+	padding-inline: var(--button-padding) !important;
 }
 
 #{ $buttonFilled },
 #{ $buttonOutlined },
 #{ $buttonLink },
 #{ $buttonInverted } {
-    --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
+    --button-background: hsl(var(--accent-hsl),var(--accent-opacity));
 	--button-text-color: var(--accent-text-color);
     --button-outline: none;
 
@@ -45,6 +46,7 @@
 	border: var(--button-outline) !important;
 	color: var(--button-text-color) !important;
     border: var(--button-outline) !important;
+    box-shadow: var(--liquid-glass-shadow) !important;
 	//overflow: hidden;
 
     &:after {
@@ -80,8 +82,8 @@
 }
 
 #{ $buttonLink } {
-    --button-background: transparent;
-    --button-text-color: hsla(var(--accent-hsl),var(--accent-opacity));
+    --button-background: var(--liquid-glass-color-subtle);
+    --button-text-color: hsl(var(--accent-hsl),var(--accent-opacity));
     --button-action-color: transparent;
 
     &:hover {
@@ -124,12 +126,12 @@
 	}
 
     &#{ $callButtonPrimaryDark } {
-        --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
+        --button-background: hsl(var(--accent-hsl),var(--accent-opacity));
     	--button-text-color: var(--accent-text-color);
     }
 
     &#{ $callButtonRed } {
-        --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
+        --button-background: hsl(var(--alert-hsl),var(--alert-opacity));
         --button-text-color: var(--alert-text-color);
 	}
 
@@ -153,13 +155,13 @@
 }
 
 #{ $buttonRed } {
-    --button-background: hsla(var(--alert-hsl),var(--alert-opacity));
+    --button-background: hsl(var(--alert-hsl),var(--alert-opacity));
     --button-text-color: var(--alert-text-color);
     --button-action-color: var(--alert-action-color);
 }
 
 #{ $buttonQuestionMark } {
-    background-color: hsla(var(--accent-hsl),var(--accent-opacity));
+    background-color: hsl(var(--accent-hsl),var(--accent-opacity));
     border-radius: 50%;
 
     #{ $buttongQuestionMarkIcon } {
@@ -171,7 +173,7 @@
 /* BUTTONS -> BUTTON V2 */
 
 #{ $buttonV2 } {
-    --button-background: hsla(var(--accent-hsl),var(--accent-opacity));
+    --button-background: hsl(var(--accent-hsl),var(--accent-opacity));
 	--button-text-color: var(--accent-text-color);
     --button-outline: none;
 
@@ -179,6 +181,7 @@
 	border: var(--button-outline) !important;
 	color: var(--button-text-color) !important;
     border: var(--button-outline) !important;
+    box-shadow: var(--liquid-glass-shadow) !important;
 
     &:after {
 		position: absolute;
@@ -191,7 +194,7 @@
         border-radius: var(--button-radius);
 		opacity: 0;
 		pointer-events: none;
-		transition: var(--default-time) var(--default-animation) opacity;
+		transition: var(--transition-time) var(--transition-type) opacity;
 	}
 
     &:hover:after {
@@ -225,7 +228,7 @@
 /* BUTTONS -> BUTTON V2 -> COLORS */
 
 #{ $buttonV2Primary } {
-    --button-background: hsl(var(--accent-hsl));
+    --button-background: hsl(var(--accent-hsl),var(--accent-opacity));
     --button-text-color: var(--accent-text-color);
 }
 
@@ -235,7 +238,7 @@
 }
 
 #{ $buttonV2CriticalPrimary } {
-    --button-background: hsl(var(--alert-hsl));
+    --button-background: hsl(var(--alert-hsl),var(--alert-opacity));
     --button-text-color: var(--alert-text-color);
 }
 
@@ -252,9 +255,16 @@
     min-width: var(--button-height) !important;
 	height: var(--button-height) !important;
 	min-height: var(--button-height) !important;
-	padding: var(--button-padding) !important;
+    padding-block: 0 !important;
+	padding-inline: var(--button-padding) !important;
 	line-height: var(--button-height) !important;
 	border-radius: var(--button-radius) !important;
+}
+
+#{ $buttonV2IconOnly } {
+	--button-padding: 0;
+    --button-background: var(--liquid-glass-color-subtle);
+    --button-text-color: var(--text-primary);
 }
 
 #{ $buttonV2 } {

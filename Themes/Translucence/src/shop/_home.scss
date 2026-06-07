@@ -1,4 +1,5 @@
 @use '../classes' as *;
+@use '../mixins' as *;
 
 /*
  *
@@ -7,12 +8,23 @@
  */
 
 #{ $shopOuterContainer } {
+    border-start-end-radius: var(--app-radius);
+    border-end-end-radius: var(--app-radius);
+}
+
+#{ $shopContainer },
+#{ $shopOuterContainer } {
     background-color: var(--main-content-color);
 }
 
 #{ $shopPage },
 #{ $shopContainer } {
     background-color: transparent;
+}
+
+#{ $shopHeroBanner },
+#{ $shopBanner } {
+    border-radius: var(--card-radius);
 }
 
 #{ $shopViewWrapper } {
@@ -29,4 +41,38 @@
 
 #{ $shopCardPreview } {
     box-shadow: var(--card-header-shadow);
+}
+
+#{ $shopCard } {
+    @include liquidGlass($background: var(--card-color), $blur: 0px, $shadow: false);
+
+    &:hover {
+        inset-block-start: unset;
+    }
+
+    #{ $shopCardAvatarContainer } {
+        box-shadow: var(--card-header-shadow);
+    }
+
+    #{ $shopCardText } {
+        width: 100%;
+        inset-inline-start: 0;
+        inset-block-end: 0;
+    }
+
+    #{ $shopCardTextBlur } {
+        border-radius: 0 0 var(--card-radius) var(--card-radius);
+    }
+
+    #{ $shopCardBackground } {
+        background-color: transparent !important;
+    }
+}
+
+#{ $shopCardFooterGradient } {
+    --background-base-lowest: var(--card-color-hover);
+}
+
+#{ $shopCardFooterInfoContainer } * {
+    text-shadow: 0px 0px 3px hsl(0,0%,0%,0.6) !important;
 }

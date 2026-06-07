@@ -12,22 +12,28 @@
 }
 
 #{ $forumHeader } {
-    @include card-format;
+    background: rgba(var(--textarea-color),var(--textarea-alpha));
+	border-radius: 24px;
+    border: none;
+    box-shadow: var(--liquid-glass-shadow);
 
-    &#{ $forumHeaderWithMatchingPosts } {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+    #{ $newPostTitle } {
+        &::placeholder {
+            color: var(--textarea-placeholder-color);
+            text-shadow: none;
+        }
     }
 }
 
 #{ $forumHeaderMatchingPostsRow } {
+    margin-block-start: var(--space-4);
     background-color: var(--card-color);
-    border-radius: 0 0 var(--card-radius) var(--card-radius);
+    border-radius: 16px;
     border: none;
 }
 
 #{ $forumGuidelinesContainer } {
-    @include card-format;
+    @include liquidGlassCard;
 }
 
 #{ $forumGuidelinesDescriptionContainer } {
@@ -91,7 +97,7 @@
 #{ $forumFilterContainer } {
     padding-block: 16px 8px;
     padding-inline: 16px;
-    @include add-translucence(null, true, true, true);
+    //@include add-translucence(null, true, true, true);
 
     #{ $forumFilterHeader } {
         padding: 0;

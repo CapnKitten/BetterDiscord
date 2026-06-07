@@ -13,7 +13,7 @@
 }
 
 #{ $browseChannelsChooseContainer } {
-    @include card-format;
+    @include liquidGlassCard;
 }
 
 /* BROWSE CHANNELS -> CHANNELS */
@@ -26,8 +26,9 @@
     transition: var(--default-time) var(--default-animation) background-color;
 
     &#{ $browseChannelsFirstChannel } {
-        border-radius: var(--card-radius) var(--card-radius) 0 0;
-        border-top: 1px solid var(--card-border-color);
+        border-start-start-radius: var(--card-radius);
+        border-start-end-radius: var(--card-radius);
+        border-block-start: 1px solid var(--card-border-color);
 
         &#{ $browseChannelsLastChannel } {
             border-radius: var(--card-radius);
@@ -35,8 +36,8 @@
     }
 
     &#{ $browseChannelsLastChannel } {
-        border-radius: 0 0 var(--card-radius) var(--card-radius);
-        border-bottom: 1px solid var(--card-border-color);
+        border-end-start-radius: var(--card-radius);
+        border-end-end-radius: var(--card-radius);
     }
 
     &:not(#{ $browseChannelsChannelDisabled }) {

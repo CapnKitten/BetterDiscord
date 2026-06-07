@@ -12,16 +12,14 @@
 	background-color: transparent;
 }
 
-#{ $emojiWrapper } {
-    @include add-translucence(before, true);
-	border: none;
-	box-shadow: none;
+#{ $emojiContentWrapper } {
+	@include liquidGlass;
 }
 
-#{ $emojiWrapperChat } {
-    &:not(#{ $emojiPickerHasTabWrapper }) {
-        @include add-translucence(before, true);
-    }
+#{ $emojiWrapper } {
+	&:not(#{ $emojiWrapperHasTabWrapper }) {
+		@include liquidGlass;
+	}
 }
 
 /* EMOJI PICKER -> HEADER */
@@ -36,16 +34,15 @@
 	}
 }
 
-#{ $emojiPickerNavGif },
-#{ $emojiPickerNavSticker },
-#{ $emojiPickerNavEmoji } {
+#{ $emojiPickerHeader },
+#{ $emojiPickerHeaderSticker },
+#{ $emojiPickerHeaderGif } {
 	background-color: transparent;
     box-shadow: var(--popout-header-shadow) !important;
 }
 
 #{ $emojiPickerDiversitySelectorPopout } {
-    @include add-translucence(null, true);
-    border: none;
+	@include liquidGlass;
     overflow: hidden;
 }
 
@@ -72,19 +69,13 @@
 }
 
 #{ $emojiCategoryWrapper } {
-	inset-block-start: 60px;
     background-color: var(--sidebar-color);
 
     #{ $emojiCategoryUnicodeShortcut } {
-        @include add-translucence(null, true);
+		@include liquidGlass;
         border-radius: 0;
+		border-end-start-radius: var(--popout-radius);
     }
-}
-
-#{ $emojiPickerHasTabWrapper } {
-	#{ $emojiCategoryWrapper } {
-		inset-block-start: 52px;
-	}
 }
 
 #{ $emojiPickerItem } {

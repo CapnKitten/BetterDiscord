@@ -7,11 +7,13 @@
  */
 
 #{ $bdButton } {
-	--button-background: hsl(var(--accent-hsl));
+	--button-background: hsl(var(--accent-hsl),var(--accent-opacity));
+	--button-shadow: var(--liquid-glass-shadow);
 	--button-text-color: var(--accent-text-color);
 
 	background-color: var(--button-background) !important;
 	border-radius: var(--button-radius);
+	box-shadow: var(--button-shadow) !important;
 	color: var(--button-text-color) !important;
 
     #{ $bdButtonContent } {
@@ -51,6 +53,16 @@
 #{ $bdButtonBlank } {
     --button-background: transparent;
     --button-text-color: var(--interactive-normal);
+}
+
+#{ $bdButtonIcon } {
+	--button-background: var(--liquid-glass-color-subtle);
+
+	opacity: 1;
+
+	svg {
+		color: var(--button-text-color) !important;
+	}
 }
 
 #{ $bdButtonLink } {

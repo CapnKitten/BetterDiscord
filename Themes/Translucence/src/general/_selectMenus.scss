@@ -18,9 +18,17 @@
     }
 }
 
+#{ $selectMenuContainer } {
+    &[data-variant=text-only] {
+        #{ $selectMenu } {
+            background-color: var(--liquid-glass-color-subtle);
+        }
+    }
+}
+
 #{ $selectMenu } {
-	padding-block: 6px;
-	padding-inline: 12px 6px;
+	padding-block: var(--space-8);
+	padding-inline: var(--space-16) var(--space-8);
 
     #{ $selectMenuSubtitle } {
         color: var(--text-muted);
@@ -28,19 +36,23 @@
 }
 
 #{ $selectMenuPopout } {
-    @include add-translucence(null, true);
-    border: none;
+	@include liquidGlass;
+
+	padding-block: var(--space-8);
+	padding-inline: var(--space-8) !important;
 
     &:not(#{ $selectMenuPopoutPositionTop }) {
-        margin-block-start: 8px;
+        margin-block-start: var(--space-8);
     }
 
     &#{ $selectMenuPopoutPositionTop } {
-        margin-block-end: 8px;
+        margin-block-end: var(--space-8);
         border-radius: var(--popout-radius);
     }
 
     #{ $selectMenuOption } {
+		border-radius: calc(var(--popout-radius) - var(--space-8));
+
         &:hover {
             background-color: var(--background-modifier-hover);
         }

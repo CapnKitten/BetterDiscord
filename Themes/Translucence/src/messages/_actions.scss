@@ -7,8 +7,22 @@
  *
  */
 
-#{ $messageButtonWrapper } {
-	@include add-translucence(null, true, true, true);
+#{ $messagePopover } {
+	&#{ $messagePopover } {
+		@include liquidGlassFallback;
+
+		border: none !important;
+		box-shadow: var(--liquid-glass-shadow), var(--popout-shadow) !important;
+		overflow: hidden;
+
+		&:before {
+			box-shadow: none;
+		}
+
+		&:hover {
+			box-shadow: var(--liquid-glass-shadow), var(--popout-shadow) !important;
+		}
+	}
 }
 
 #{ $messageAlt } {
@@ -16,7 +30,7 @@
 	background-color: transparent !important;
 	box-shadow: none !important;
 
-	#{ $messagesWrapper } {
+	#{ $messageWrapper } {
 		margin-inline-start: 48px;
 		margin-inline-end: 0;
 	}

@@ -7,34 +7,39 @@
  *
  */
 
-#{ $settingsServerBoostBannerGradient } {
-    margin-block-end: 40px;
-    border-radius: var(--card-radius);
+#{ $settingsNitroActiveBoostCard } {
+    @include liquidGlassCard;
 }
 
-#{ $settingsServerBoostHeader } {
-    @include card-format;
+#{ $settingsNitroActiveBoostCardHeader } {
+    padding: var(--space-16);
+    border-block-end: none;
 }
 
-#{ $settingsServerBoostHeaderBorder } {
-    display: none;
-}
+#{ $settingsNitroBoostRow } {
+    margin-inline: var(--space-8);
+    background-color: var(--card-color-hover);
 
-#{ $settingsServerBoostGuildContainer },
-#{ $settingsServerBoostGuildNotSeenWrapper } {
-    @include card-format;
-}
+    &:nth-of-type(2) {
+        border-start-start-radius: calc(var(--card-radius) - var(--space-8));
+        border-start-end-radius: calc(var(--card-radius) - var(--space-8));
+    }
 
-#{ $settingsServerBoostPerksWrapper } {
-    border-radius: var(--card-radius);
-
-    #{ $settingsServerBoostPerksCard } {
-        background-color: var(--card-color-select);
-        border-radius: var(--card-radius);
-        backdrop-filter: blur(var(--app-blur));
+    &#{ $settingsNitroBoostRowLast } {
+        margin-block-end: var(--space-8);
+        border-end-start-radius: calc(var(--card-radius) - var(--space-8));
+        border-end-end-radius: calc(var(--card-radius) - var(--space-8));
     }
 }
 
-#{ $settingsServerBoostFAQCard } {
-    @include card-format;
+#{ $settingsNitroOtherBoostCard } {
+    @include liquidGlassCard;
+}
+
+#{ $settingsNitroBoostPerksCard } {
+    @include liquidGlassCard;
+}
+
+#{ $settingsNitroBoostFaqListItem } {
+    @include liquidGlassCard;
 }

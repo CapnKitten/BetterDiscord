@@ -8,15 +8,14 @@
  */
 
 #{ $formatToolbar } {
-	@include add-translucence(null, true, true, true);
-    overflow: hidden;
+    @include liquidGlass;
+    padding: var(--space-4);
 
-	#{ $button } {
-		--button-radius: 0;
-		--button-background: transparent;
+    &:before {
+        display: none;
+    }
 
-		&:after {
-			--button-action-color: #fff;
-		}
-	}
+	#{ $formatToolbarButton } {
+        border-radius: calc(var(--popout-radius) - var(--space-4));
+    }
 }

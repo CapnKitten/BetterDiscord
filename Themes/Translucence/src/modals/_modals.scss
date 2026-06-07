@@ -8,17 +8,25 @@
  */
 
 #{ $modalRoot } {
-    @include add-translucence(null, false, true, true);
+    @include liquidGlass($blur: calc(var(--popout-blur) * 1.25));
+
+    &#{ $userProfileRoot } {
+        border-radius: var(--popout-radius);
+    }
 
     &#{ $modalSmall } {
         min-height: 75px;
     }
 
     &#{ $modalRootNoBg },
-    &#{ $modalRootTransparent },
-    &#{ $carouselModal } {
+    &#{ $modalRootTransparent } {
         background-color: transparent !important;
         box-shadow: none !important;
+    }
+
+    #{ $modalRootBg } {
+        background-color: var(--popout-color);
+        border-radius: var(--popout-radius);
     }
 
     &#{ $groupInvitePopout } {
@@ -75,6 +83,7 @@
 
     #{ $modalBody } {
         background-color: transparent;
+        border: none;
     }
 
     #{ $modalFooter } {
@@ -89,16 +98,15 @@
 	opacity: 1 !important;
 }
 
+#{ $carouselModal } {
+    --popout-blur: 0px;
+    --popout-shadow: none;
+
+    backdrop-filter: blur(0px) saturate(100%) brightness(1);
+}
+
 /* MODALS -> V2 MODALS */
 
 #{ $modalV2Container } {
-    @include add-translucence(null, true, true, false);
-
-    #{ $modalV2Header } {
-        #{ $buttonV2 } {
-            --button-padding: 0;
-            --button-background: transparent;
-            --button-text-color: var(--control-icon-icon-only-default);
-        }
-    }
+    @include liquidGlass($blur: calc(var(--popout-blur) * 1.25));
 }

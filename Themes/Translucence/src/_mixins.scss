@@ -1,3 +1,79 @@
+@mixin liquidGlass($pseudo: null, $background: var(--popout-color), $radius: var(--popout-radius), $blur: var(--popout-blur), $shadow: true) {
+    $final-shadow: if($shadow, (var(--popout-shadow-border), var(--popout-shadow)), var(--popout-shadow-border));
+	$filter: blur($blur) saturate(var(--liquid-glass-saturation)) brightness(1.1);
+
+    border-radius: $radius;
+    border: none;
+
+    @if $pseudo {
+        position: relative;
+        background-color: transparent;
+        box-shadow: none;
+
+        &:#{ $pseudo } {
+			position: absolute;
+            content: " ";
+            inset: 0;
+            background-color: $background;
+			border-radius: inherit;
+			box-shadow: $final-shadow;
+            backdrop-filter: $filter;
+			pointer-events: none;
+			z-index: -1;
+        }
+    } @else {
+        background-color: $background;
+		box-shadow: $final-shadow;
+        backdrop-filter: $filter;
+    }
+}
+
+@mixin liquidGlassFallback($pseudo: before, $background-color: var(--popout-color), $radius: var(--popout-radius), $blur: var(--popout-blur), $shadow: true) {
+    $final-shadow: if($shadow, (var(--popout-shadow-border), var(--popout-shadow)), var(--popout-shadow-border));
+	$filter: blur($blur) saturate(var(--liquid-glass-saturation)) brightness(1.1);
+
+    background-color: transparent;
+    border-radius: $radius;
+    border: none;
+
+    &:before {
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 100%;
+		inset: 0;
+        background: linear-gradient(hsl(0,0%,0%,0.6)), var(--app-bg);
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		border-radius: inherit;
+        box-shadow: $final-shadow;
+        filter: $filter;
+		pointer-events: none;
+		z-index: -1;
+	}
+}
+
+@mixin liquidGlassCard($important: false, $background: var(--card-color), $radius: var(--popout-radius), $shadow: false, $hover: false) {
+    $imp: if($important, !important, null);
+    $final-shadow: if($shadow, (var(--popout-shadow-border), var(--popout-shadow)), var(--popout-shadow-border));
+
+    background-color: $background $imp;
+    border-radius: $radius $imp;
+    border: none $imp;
+	box-shadow: $final-shadow $imp;
+
+    @if $hover {
+        transition: var(--transition-time) var(--transition-type);
+
+        &:hover {
+            background-color: var(--card-color-hover) $imp;
+            box-shadow: $final-shadow $imp;
+        }
+    }
+}
+
 @mixin add-translucence($pseudo, $filter: false, $bg: true, $important: false) {
 	$imp: if($important, !important, null);
 	$bg: #{if($bg, 'var(--popout-color)', 'transparent')};
@@ -71,6 +147,7 @@
 	border-radius: $radius;
     background-color: rgba(var(--textarea-color),var(--textarea-alpha)) $imp;
 	border: none $imp;
+    box-shadow: var(--liquid-glass-shadow);
 	color: var(--textarea-text-color);
 	transition: var(--transition-time) var(--transition-type);
 

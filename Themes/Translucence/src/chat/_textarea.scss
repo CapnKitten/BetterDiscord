@@ -22,7 +22,7 @@
 
 #{ $channelTextArea },
 #{ $channelInfo } {
-    --textarea-alpha: 0.1;
+    //--textarea-alpha: 0.1;
 
     background: rgba(var(--textarea-color),var(--textarea-alpha));
 	border-radius: var(--textarea-radius);
@@ -43,6 +43,13 @@
 
 #{ $channelTextArea } {
     margin: 0;
+    box-shadow: var(--liquid-glass-shadow);
+    transition: var(--transition-time) var(--transition-type) background-color !important;
+
+    &:focus-within {
+        background-color: rgb(var(--textarea-color), var(--textarea-alpha-focus));
+        box-shadow: var(--liquid-glass-shadow);
+    }
 }
 
 #{ $channelInfo } {
@@ -50,6 +57,7 @@
     margin-inline: 0;
     padding-block: 11px;
     padding-inline: 0;
+    box-shadow: var(--liquid-glass-shadow);
 }
 
 #{ $channelTextAreaDisabled } {

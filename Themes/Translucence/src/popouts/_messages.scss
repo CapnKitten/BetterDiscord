@@ -7,10 +7,10 @@
  *
  */
 
-#{ $messagesPopoutWrap } {
+ #{ $messagesPopoutWrap } {
+     @include liquidGlass($background: var(--popout-color));
+
     max-height: 80vh !important;
-	@include add-translucence(before, true);
-    background-color: transparent;
 }
 
 #{ $messagesPopoutHeader } {
@@ -28,6 +28,15 @@
     background-color: transparent;
 }
 
+#{ $messagesPopoutHeaderFriendRequestButton } {
+    background-color: var(--button-background);
+    border-radius: var(--button-radius);
+	border: var(--button-outline);
+	color: var(--button-text-color);
+    border: var(--button-outline);
+    box-shadow: var(--liquid-glass-shadow)
+}
+
 /* MESSAGES POPOUT -> PINNED MESSAGES */
 
 #{ $pinnedMessageGroupWrapper } {
@@ -35,7 +44,7 @@
     background-color: transparent;
     border: none;
 
-	#{ $messagesWrapper } {
+	#{ $messageWrapper } {
 		margin-inline-start: 56px !important;
 		margin-inline-end: 0 !important;
 		background-color: var(--message-color);
@@ -81,16 +90,16 @@
 /* MESSAGES POPOUT -> MENTIONS */
 
 #{ $messagesPopoutChannelHeader } {
+    @include liquidGlassFallback;
+
     margin-block: 4px;
     margin-inline: 0;
     padding-block: 12px;
     padding-inline: 28px 16px;
-	background-color: var(--popout-color);
-	@include add-translucence(null, true);
+    overflow: hidden;
 
 	&:before {
-		background-color: var(--message-color);
-		border-radius: var(--message-radius);
+        box-shadow: none;
 	}
 }
 
@@ -108,7 +117,7 @@
     background-color: transparent;
     border: none;
 
-	#{ $messagesWrapper } {
+	#{ $messageWrapper } {
 		margin-inline-start: 60px;
 		margin-inline-end: 0;
         overflow: visible;
@@ -118,15 +127,16 @@
 /* MESSAGES POPOUT -> UNREADS */
 
 #{ $recentMentionsPopout } {
-    @include add-translucence(before, true);
+    @include liquidGlass;
 
     #{ $messagesPopoutWrap } {
-        &:before {
-            background-color: transparent;
-        }
+        background-color: unset;
+        border-radius: unset;
+        box-shadow: unset;
+        backdrop-filter: unset;
     }
 
-    #{ $messagesWrapper } {
+    #{ $messageWrapper } {
         overflow: visible;
     }
 }

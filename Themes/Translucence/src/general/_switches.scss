@@ -8,14 +8,17 @@
 
 #{ $switchIndicator } {
 	background-color: var(--switch-slider-color) !important;
+	border: none !important;
+	box-shadow: var(--liquid-glass-shadow);
 
     // Switch in on state
     &:has(#{ $switchThumb }[style="left: 24px;"]) {
-        --switch-slider-color: hsla(var(--accent-hsl),var(--accent-opacity));
-        --switch-knob-color: var(--accent-text-color);
+        --switch-slider-color: hsl(var(--accent-hsl), var(--accent-opacity));
+        --switch-knob-color: hsl(from var(--accent-text-color) h s l / var(--accent-opacity));
     }
 
     #{ $switchThumb } {
+		margin: 0;
         filter: none;
 
         rect {
