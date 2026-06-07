@@ -2,7 +2,7 @@
 #### A translucent/frosted glass Discord theme
 <hr>
 
-Current version: v1.0.6.3 (26/02/2021)
+Current version: v2.0.0 (07/06/2026)
 
 [BetterDiscord download](https://betterdiscord.app/theme/Translucence)
 
@@ -15,53 +15,46 @@ https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css
 
 #### Main chat area
 
-![discord-101](https://user-images.githubusercontent.com/4013216/125158359-b07aec80-e13e-11eb-8a85-01e49d772192.png)
-
-#### User server info
-
-![discord-102](https://user-images.githubusercontent.com/4013216/125158363-b7a1fa80-e13e-11eb-91c0-b95c32b5bf8e.png)
+<img width="1589" height="1038" alt="Image" src="https://github.com/user-attachments/assets/b2ce3205-9f76-4b07-9a4f-bcea0aae6a31" />
 
 #### User info popout
 
-![discord-103](https://user-images.githubusercontent.com/4013216/125158368-bc66ae80-e13e-11eb-912b-7d19a84f42a0.png)
+<img width="1589" height="1038" alt="Image" src="https://github.com/user-attachments/assets/149e15dc-e01b-4c5a-9363-b49944b8c586" />
 
 #### User settings
 
-![discord-104](https://user-images.githubusercontent.com/4013216/125158372-c25c8f80-e13e-11eb-9165-e24880bc47f7.png)
-
-#### DMs
-
-![discord-105](https://user-images.githubusercontent.com/4013216/125158378-c8527080-e13e-11eb-9ad5-a7f2e229ac2b.png)
+<img width="1589" height="1038" alt="Image" src="https://github.com/user-attachments/assets/d44dfd9d-a2f6-46a5-bf83-9cdf0c111c4a" />
 
 ## Variables
 
 #### App elements
- - `--app-bg` - The background image for the entire Discord app. Default: `url(https://i.imgur.com/U8bSjj5.jpg)`
+ - `--app-bg` - The background image for the entire Discord app. Default: `url("https://i.ibb.co/WNrbr1Yz/Alpine-Amnesia.png")`
  - `--app-blur` - The strength of the blur for every element that has one. Default: `6px`
  - `--app-margin` - The margin surrounding the content area. Default: `24px`
- - `--app-radius` - The border radius of the app and every element that has a border radius. Default: `8px`
- - `--sidebar-color` - The background color of the sidebars. Default: `rgba(0,0,0, 0.4)`
- - `--main-content-color` - The background color of the main content areas. Default: `rgba(0,0,0, 0.2)`
+ - `--app-radius` - The border radius of the app and every element that has a border radius. Default: `18px`
+ - `--sidebar-color` - The background color of the sidebars. Default: `hsl(0,0%,0%, 0.34)`
+ - `--main-content-color` - The background color of the main content areas. Default: `hsl(0,0%,0%, 0.27)`
 
 #### Accent color
- - `--accent-hue` - The hue value for the accent color of the theme. Default: `156`
- - `--accent-saturation` - The saturation value for the accent color of the theme. Default: `77.5%`
- - `--accent-lightness` - The lightness value for the accent color of the theme. Default: `47.1%`
- - `--accent-opacity` - The opacity of everything, excluding text, that uses the accent color. Default: `1`
- - `--accent-text-color` - The text color for buttons and other various elements with the accent background color. Default: `#000`
+ - `--accent-hue` - The hue value for the accent color of the theme. Default: `260`
+ - `--accent-saturation` - The saturation value for the accent color of the theme. Default: `83%`
+ - `--accent-lightness` - The lightness value for the accent color of the theme. Default: `72%`
+ - `--accent-opacity` - The opacity of everything, excluding text, that uses the accent color. Default: `0.8`
+ - `--accent-text-color` - The text color for buttons and other various elements with the accent background color. Default: `hsl(0,0%,0%)`
 
 #### Messages
- - `--message-color` - The background color for messages. Default: `rgba(0,0,0, 0.4)`
- - `--message-radius` - The border radius for messages. Default: `8px`
+ - `--message-color` - The background color for messages. Default: `hsl(0,0%,0%,0.19)`
+ - `--message-color-hover` - The background color for hovering over messages. Default: `hsl(0,0%,0%,0.28)`
+ - `--message-radius` - The border radius for messages. Default: `18px`
  - `--message-padding-top` - The top and bottom padding for messages. Default: `8px`
  - `--message-padding-side` - The left and right padding for messages. Default: `8px`
- - `--mention-hue` - The hue value for the message mention color. Default: `156`
- - `--mention-saturation` - The saturation value for the message mention color. Default: `77.5%`
- - `--mention-lightness` - The lightness value for the message mention color. Default: `47.1%`
+ - `--mention-hue` - The hue value for the message mention color. Default: `260`
+ - `--mention-saturation` - The saturation value for the message mention color. Default: `83%`
+ - `--mention-lightness` - The lightness value for the message mention color. Default: `72%`
  - `--mention-opacity` - The opacity of the message mention color. Default: `1`
- - `--reply-hue` - The hue value for the reply message color. Default: `226`
- - `--reply-saturation` - The saturation value for the reply message color. Default: `77.6%`
- - `--reply-lightness` - The lightness value for the reply message color. Default: `61.8%`
+ - `--reply-hue` - The hue value for the reply message color. Default: `328`
+ - `--reply-saturation` - The saturation value for the reply message color. Default: `79%`
+ - `--reply-lightness` - The lightness value for the reply message color. Default: `64%`
  - `--reply-opacity` - The opacity of the reply message color. Default: `1`
 
 #### Textareas and inputs
@@ -73,9 +66,10 @@ https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css
  - `--input-radius` - The border radius for inputs (not textareas). Default: `18px`
 
 #### Cards
- - `--card-color` - The background color for cards. Default: `rgba(0,0,0, 0.4)`
- - `--card-color-hover` - The background color for hovering over cards (if there is a hover animation). Default: `rgba(0,0,0, 0.5)`
- - `--card-radius` - The border radius for cards. Default: `8px`
+ - `--card-color` - The background color for cards. Default: `hsl(0,0%,100%,0.14)`
+ - `--card-color-hover` - The background color for hovering over cards (if there is a hover animation). Default: `hsl(0,0%,100%,0.18)`
+ - `--card-color-select` - The background color for selected/active cards. Default: `hsl(0,0%,100%,0.21)`
+ - `--card-radius` - The border radius for cards. Default: `18px`
 
 #### Buttons
  - `--button-height` - The height for buttons. Default: `32px`
@@ -86,12 +80,15 @@ https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css
  - `--button-radius` - The border radius for buttons. Default: `8px`
 
 #### Popouts and modals
- - `--popout-color` - The background color for modals/popouts. Default: `rgba(0,0,0, 0.55)`
- - `--popout-blur` - The blur strength for modals/popouts. Default: `5px`
- - `--popout-header-opacity` - The header opacity for modals/popouts. Default: `0.3`
- - `--popout-header-shadow`- The shadow for headers in modals/popouts. Default: `0px 3px 9px 0px rgba(0,0,0, 0.25)`
- - `--popout-radius` - The border radius for modals/popouts. Default: `8px`
- - `--popout-shadow` - The shadow for modals/popouts. Default: `0 8px 10px 1px rgba(0,0,0, 0.14)`
+ - `--popout-color` - The background color for modals/popouts. Default: `hsl(0,0%,0%,0.46)`
+ - `--popout-blur` - The blur strength for modals/popouts. Default: `6px`
+ - `--popout-header-shadow`- The shadow for headers in modals/popouts. Default: `0px 3px 9px 0px hsl(0,0%,0%,0.25)`
+ - `--popout-radius` - The border radius for modals/popouts. Default: `18px`
+ - `--popout-shadow` - The shadow for modals/popouts. Default: `0 20px 40px hsl(0,0%,0%,0.44)`
+ - `--popout-shadow-border` The border for modals/popouts. Default: `inset 0 1px 1px hsl(0,100%,100%,0.35), inset 0 -1px 2px hsl(0,0%,0%,0.25), inset 0 0 0 1px hsl(0,100%,100%,0.04)`
+
+#### Liquid glass elements
+ - `--light-angle` - The angle of which the liquid glass effect is applied. Default: `40deg`
  
 [paypal-logo]: https://img.shields.io/static/v1?label=PayPal&message=Donate&style=flat&logo=paypal&color=blue
 [paypal-url]: https://paypal.me/capnkitten
