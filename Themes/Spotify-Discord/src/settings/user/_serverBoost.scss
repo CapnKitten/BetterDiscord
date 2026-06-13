@@ -1,3 +1,4 @@
+@use '../../classes' as *;
 @use '../../mixins' as *;
 
 /*
@@ -6,45 +7,39 @@
  *
  */
 
-%settingsServerBoostBannerGradient {
-    margin-bottom: 40px;
-    border-radius: var(--card-radius);
-}
-
-%settingsServerBoostHeader {
+#{ $settingsNitroActiveBoostCard } {
     @include card-format;
 }
 
-%settingsServerBoostHeaderBorder {
-    display: none;
+#{ $settingsNitroActiveBoostCardHeader } {
+    padding: var(--space-16);
+    border-block-end: none;
 }
 
-%settingsServerBoostGuildContainer,
-%settingsServerBoostGuildNotSeenWrapper {
-    @include card-format;
-}
+#{ $settingsNitroBoostRow } {
+    margin-inline: var(--space-8);
+    background-color: var(--card-color-hover);
 
-%settingsServerBoostPerksWrapper {
-    border-radius: var(--card-radius);
+    &:nth-of-type(2) {
+        border-start-start-radius: calc(var(--card-radius) / 1.75);
+        border-start-end-radius: calc(var(--card-radius) / 1.75);
+    }
 
-    %settingsServerBoostPerksCard {
-        background-color: var(--card-color-select);
-        border-radius: var(--card-radius);
-        backdrop-filter: blur(var(--app-blur));
+    &#{ $settingsNitroBoostRowLast } {
+        margin-block-end: var(--space-8);
+        border-end-start-radius: calc(var(--card-radius) / 1.75);
+        border-end-end-radius: calc(var(--card-radius) / 1.75);
     }
 }
 
-%settingsServerBoostFAQCard {
+#{ $settingsNitroOtherBoostCard } {
     @include card-format;
 }
 
-%serverBoostCircle {
-	&,
-	* {
-		filter: none;
-	}
+#{ $settingsNitroBoostPerksCard } {
+    @include card-format;
+}
 
-	%serverBoostCircleBackgroundAlt {
-		fill: var(--card-color);
-	}
+#{ $settingsNitroBoostFaqListItem } {
+    @include card-format;
 }

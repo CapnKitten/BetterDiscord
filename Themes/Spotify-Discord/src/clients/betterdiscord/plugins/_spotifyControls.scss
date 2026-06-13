@@ -12,10 +12,11 @@
     position: absolute;
     width: calc(240px + var(--panel-placement));
     height: var(--app-bar-size);
-    left: calc((72px + (var(--app-card-margin) * 2)) * -1);
-    bottom: calc(var(--app-bar-size) * -1);
+    inset-inline-start: calc((72px + (var(--app-card-margin) * 2)) * -1);
+    inset-block-end: calc(var(--app-bar-size) * -1);
     margin-block-end: 0;
-    padding: 0 0 0 16px;
+    padding-block: 0;
+    padding-inline: 16px 0;
     border-bottom: none;
 
     &#{ $spotifyPanelWithTimeline } {
@@ -26,9 +27,7 @@
         position: absolute;
         width: 52px;
         height: 52px;
-        top: 0;
-        left: 0;
-        bottom: 0;
+        inset: 0;
         margin: auto 0;
         transition: var(--default-time) ease width, var(--default-time) ease height, var(--default-time) ease transform, var(--default-time) ease border-radius;
         transform: translate(18px, 0) !important;
@@ -44,19 +43,20 @@
 
     #{ $spotifyPanelTimeline } {
         position: relative;
-        margin: 10px 0 0 72px;
+        margin-block: 10px 0;
+        margin-inline: 72px 0;
         transition: var(--default-time) ease margin-left, var(--default-time) ease margin-bottom;
     }
 
     #{ $spotifyPanelTimelineBar } {
         width: calc(100% - 68px);
-        left: 34px;
+        inset-inline-start: 34px;
     }
 
     #{ $spotifyPanelTimelineBarText } {
         position: absolute;
         width: 100%;
-        top: -5px;
+        inset-block-start: -5px;
     }
 
     &#{ $spotifyPanelMaximized } {
@@ -101,7 +101,8 @@
         }
 
         #{ $spotifyPanelTimeline } {
-            margin: 4px 0 8px;
+            margin-block: 0 8px;
+            margin-inline-start: 0;
         }
 
         #{ $spotifyPanelTimelineBar } {
@@ -122,9 +123,10 @@
     position: absolute;
     width: calc(240px + var(--panel-placement));
     height: var(--app-bar-size);
-    left: calc((72px + (var(--app-card-margin) * 2)) * -1);
-    bottom: calc(var(--app-bar-size) * -1);
-    padding: 0 0 0 16px;
+    inset-inline-start: calc((72px + (var(--app-card-margin) * 2)) * -1);
+    inset-block-end: calc(var(--app-bar-size) * -1);
+    padding-block: 0;
+    padding-inline: 16px 0;
     background: transparent !important;
     border-bottom: none;
     box-sizing: border-box;
@@ -142,8 +144,8 @@
     position: absolute;
     width: 52px;
     height: 52px !important;
-    left: 18px;
-    top: 14px;
+    inset-block-start: 14px;
+    inset-inline-start: 18px;
 }
 
 #{ $vencordSpotifyTitles } {
@@ -156,7 +158,8 @@
 
 #{ $vencordSpotifyProgressBar } {
     width: calc(100% - 72px);
-    margin: 8px 0 0 72px;
+    margin-block: 8px 0;
+    margin-inline: 72px 0;
 
     #{ $settingsV2Card } {
         --card-color: transparent;
@@ -165,7 +168,8 @@
 
     #{ $menuPopoutSliderContainer } {
         width: calc(100% - 84px);
-        margin: 0 auto;
+        margin-block: 0;
+        margin-inline: auto;
     }
 
     #{ $slider } {
@@ -182,22 +186,22 @@
 
     #{ $sliderGrabber } {
         --grabber-size: 12px;
-        top: 8px;
+        inset-block-start: 8px;
     }
 
     #{ $vencordSpotifyProgressTime } {
-        top: -4px;
+        inset-block-start: -4px;
     }
 }
 
 #{ $vencordSpotifyProgressTime } {
-    top: -4px;
+    inset-block-start: -4px;
 }
 
 #{ $vencordSpotifyButtonRow } {
     position: absolute;
-    top: 12px;
-    right: 0;
+    inset-block-start: 12px;
+    inset-inline-end: 0;
     gap: 2px !important;
     background-color: var(--app-background);
 }

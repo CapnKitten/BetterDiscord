@@ -6,33 +6,47 @@
  *
  */
 
+#{ $chatOuterSearchContainer } {
+    flex: 0 1 auto;
+	width: var(--space-32);
+	margin-inline-end: 0;
+	transition: 300ms ease width;
+
+	&:has(#{ $chatSearchOpen }) {
+		width: 192px;
+
+        #{ $chatSearchBar} {
+            background-color: var(--input-color);
+        }
+	}
+}
+
 #{ $chatSearch } {
+    --input-height: var(--space-32);
+
     &#{ $chatSearchOpen },
     &#{ $chatSearchFocused } {
-        #{ $chatSearchBar } {
-            width: 192px;
-            height: 32px;
-            padding: 4px 4px 4px 8px;
-            background-color: var(--input-color);
-            border-radius: 16px;
-        }
-
         #{ $chatSearchRoot } {
             flex: 1;
-            padding: 0 8px 0 4px;
+            padding: 0;
         }
     }
 
-    #{ $chatSearchBar } {
-        background-color: transparent;
-        transition: var(--default-time) var(--default-animation) all;
+    #{ $chatSearchRoot } {
+        #{ $chatSearchContainer },
+        #{ $chatSearchPlaceholderInner } {
+            height: var(--input-height);
+            line-height: var(--input-height);
+        }
     }
 }
 
 #{ $chatSearchBar } {
-    width: 24px;
+    width: 100%;
     padding: 0;
-    border-radius: 12px;
+    background-color: transparent;
+    border-radius: 16px;
+    border: none;
     overflow: visible;
     transition: var(--default-time) var(--default-animation) all;
     flex-direction: row-reverse;
@@ -46,6 +60,14 @@
         padding: 0;
         color: var(--header-secondary);
         transition: var(--default-time) var(--default-animation) flex;
+    }
+
+    #{ $chatSearchIconWrapper } {
+        width: var(--space-32);
+        height: var(--space-32);
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
     }
 
     #{ $chatSearchIconContainer } {
