@@ -11890,16 +11890,46 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
  *  CLIPS MODALS
  *
  */
-.settingsButton_f4dc96 {
-  width: var(--button-height);
-  height: var(--button-height);
-  margin-inline-end: 32px;
+.content__578ba {
+  background-color: var(--main-color);
+  border-radius: var(--popout-radius-big);
+  overflow: hidden;
 }
-.settingsButton_f4dc96 + .close__49fc1 {
-  inset-block-start: 28px !important;
+.content__578ba .scrollerBase_d125d2 {
+  padding-block-end: var(--space-24);
+}
+
+.sidebar__75f8c {
+  border-inline-end: none;
+}
+
+.sidebarHeader__75f8c {
+  --background-base-lower: var(--main-alt);
+}
+
+.sidebarItemList__75f8c {
+  gap: 2px;
+}
+
+.gameItem__75f8c {
+  height: 40px;
+  line-height: 40px;
+  padding-block: 0;
+  padding-inline: var(--space-16);
+  border-radius: calc(40px / 2);
+  color: var(--text-secondary);
+  transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+}
+.gameItem__75f8c:hover {
+  background-color: var(--menu-item-hover);
+}
+.gameItem__75f8c.selected__75f8c {
+  background-color: hsl(var(--accent-hsl), var(--menu-item-select-accent-opacity));
+  color: var(--interactive-active);
 }
 
 .clipItem__1d12e {
+  margin: 0;
   background-color: var(--card-color-filled);
   border-radius: var(--card-radius-big);
   filter: none;
@@ -11937,6 +11967,15 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
 .buttonContainer__1d12e .button__201d5:first-child {
   --button-background: hsl(var(--alert-hsl));
   --button-text-color: var(--alert-text-color);
+}
+
+.settingsButton_f4dc96 {
+  width: var(--button-height);
+  height: var(--button-height);
+  margin-inline-end: 32px;
+}
+.settingsButton_f4dc96 + .close__49fc1 {
+  inset-block-start: 28px !important;
 }
 
 /* CLIPS MODALS -> EDIT CLIP */
@@ -11992,6 +12031,19 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
 .playhead__10841 {
   background-color: hsl(var(--accent-hsl--material-you));
   box-shadow: var(--shadow-2dp);
+}
+
+.editorPane__38295 {
+  background-color: transparent;
+}
+
+.dragBox_f18995,
+.dragHandle_f18995 {
+  --brand-500: hsl(var(--accent-hsl));
+}
+
+.dragHandle_f18995 {
+  inset-block-end: -3px;
 }
 
 .clipForm__54978 {
@@ -15341,6 +15393,23 @@ body:active .root__49fc1 .container_d9c882:not(:active) {
   border-radius: var(--popout-radius-big);
   border: none;
   box-shadow: var(--shadow-medium);
+}
+
+/*
+ *
+ *  CLIPS POPOUT
+ *
+ */
+.popout_ab4223 {
+  background-color: var(--popout-color);
+  border-radius: var(--popout-radius-big);
+  border: none;
+  box-shadow: var(--shadow-medium);
+}
+
+.popoutItem__40caf {
+  background-color: var(--card-color);
+  border-radius: calc(var(--popout-radius-big) / 1.6);
 }
 
 /*
@@ -21997,25 +22066,22 @@ body:active .container_d9c882:not(:active) {
 }
 .sidebar__23e6b .item_aa8da2 {
   width: calc(var(--sidebar-width) - 18px);
-  height: 32px;
   margin-inline-start: 12px;
-  padding: 0 16px;
-  line-height: 32px;
-  border-radius: var(--channel-radius);
-  transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
   box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  padding-block: 0;
+  padding-inline: var(--space-16);
+  border-radius: calc(40px / 2);
+  color: var(--text-secondary);
+  transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 }
-.sidebar__23e6b .item_aa8da2.themed_aa8da2:hover:not(.disabled_aa8da2) {
-  background-color: var(--menu-item-hover);
+.sidebar__23e6b .item_aa8da2:hover {
+  background-color: var(--menu-item-hover) !important;
 }
 .sidebar__23e6b .item_aa8da2.selected_aa8da2 {
   background-color: hsl(var(--accent-hsl), var(--menu-item-select-accent-opacity)) !important;
-}
-.sidebar__23e6b .item_aa8da2.selected_aa8da2::before {
-  opacity: 1;
-}
-.sidebar__23e6b .item_aa8da2.selected_aa8da2 .premiumLabel_e681d1 {
-  color: var(--interactive-active) !important;
+  color: var(--interactive-active);
 }
 .sidebar__23e6b .item_aa8da2 svg {
   display: none;
@@ -22163,8 +22229,9 @@ body:active .container_d9c882:not(:active) {
 .item_caf372 {
   height: 40px;
   line-height: 40px;
-  padding: 0 var(--space-16);
-  border-radius: 20px;
+  padding-block: 0;
+  padding-inline: var(--space-16);
+  border-radius: calc(40px / 2);
   color: var(--text-secondary);
   transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 }
