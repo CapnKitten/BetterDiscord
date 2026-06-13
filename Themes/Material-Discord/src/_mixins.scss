@@ -377,3 +377,26 @@
 		backdrop-filter: blur($blur);
 	}
 }
+
+@mixin sidebarItem($important: false, $height: 40px, $selector: null) {
+	$imp: if($important, !important, null);
+
+	height: $height;
+    line-height: $height;
+	padding-block: 0;
+	padding-inline: var(--space-16);
+    border-radius: calc(#{ $height } / 2);
+    color: var(--text-secondary);
+    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
+
+    &:hover {
+        background-color: var(--menu-item-hover) $imp;
+    }
+
+	@if $selector {
+		&#{ $selector } {
+			background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity)) $imp;
+	        color: var(--interactive-active);
+		}
+	}
+}

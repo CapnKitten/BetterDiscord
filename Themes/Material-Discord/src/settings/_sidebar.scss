@@ -56,34 +56,11 @@
 	}
 
     #{ $item } {
-        width: calc(var(--sidebar-width) - 18px);
-    	height: 32px;
+		width: calc(var(--sidebar-width) - 18px);
 		margin-inline-start: 12px;
-    	padding: 0 16px;
-    	line-height: 32px;
-    	border-radius: var(--channel-radius);
-    	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 		box-sizing: border-box;
 
-		&#{ $itemThemed } {
-            &:hover {
-                &:not(#{ $itemDisabled }) {
-                    background-color: var(--menu-item-hover);
-                }
-            }
-        }
-
-        &#{ $itemSelected } {
-			background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity)) !important;
-
-    		&::before {
-    			opacity: 1;
-    		}
-
-			#{ $itemPremiumLabel } {
-				color: var(--interactive-active) !important;
-			}
-    	}
+		@include sidebarItem($important: true, $selector: "#{ $itemSelected }");
 
         svg {
     		display: none;
@@ -246,19 +223,5 @@
 }
 
 #{ $itemV2 } {
-    height: 40px;
-    line-height: 40px;
-    padding: 0 var(--space-16);
-    border-radius: 20px;
-    color: var(--text-secondary);
-    transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
-
-    &:hover {
-        background-color: var(--menu-item-hover);
-    }
-
-    &#{ $itemV2Active } {
-        background-color: hsl(var(--accent-hsl),var(--menu-item-select-accent-opacity));
-        color: var(--interactive-active);
-    }
+	@include sidebarItem($selector: "#{ $itemV2Active }");
 }

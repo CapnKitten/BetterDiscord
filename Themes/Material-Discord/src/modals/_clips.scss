@@ -8,17 +8,34 @@
  *
  */
 
-#{ $clipsSettingsButton } {
-    width: var(--button-height);
-    height: var(--button-height);
-    margin-inline-end: 32px;
+#{ $clipContent } {
+    background-color: var(--main-color);
+    border-radius: var(--popout-radius-big);
+    overflow: hidden;
 
-    + #{ $modalCloseButton } {
-        inset-block-start: 28px !important;
+    #{ $scroller } {
+        padding-block-end: var(--space-24);
     }
 }
 
+#{ $clipsSidebar } {
+    border-inline-end: none;
+}
+
+#{ $clipsSidebarHeader } {
+    --background-base-lower: var(--main-alt);
+}
+
+#{ $clipsSiderbarItemList } {
+    gap: 2px;
+}
+
+#{ $clipsSidebarGameItem } {
+    @include sidebarItem($selector: "#{ $clipsSidebarGameItemSelected }");
+}
+
 #{ $clipItem } {
+    margin: 0;
     background-color: var(--card-color-filled);
     border-radius: var(--card-radius-big);
     filter: none;
@@ -60,6 +77,16 @@
             --button-background: hsl(var(--alert-hsl));
             --button-text-color: var(--alert-text-color);
         }
+    }
+}
+
+#{ $clipsSettingsButton } {
+    width: var(--button-height);
+    height: var(--button-height);
+    margin-inline-end: 32px;
+
+    + #{ $modalCloseButton } {
+        inset-block-start: 28px !important;
     }
 }
 
@@ -123,6 +150,19 @@
 #{ $playhead } {
     background-color: hsl(var(--accent-hsl--material-you));
     box-shadow: var(--shadow-2dp);
+}
+
+#{ $clipEditorPane } {
+    background-color: transparent;
+}
+
+#{ $clipDragBox },
+#{ $clipDragHandle } {
+    --brand-500: hsl(var(--accent-hsl));
+}
+
+#{ $clipDragHandle } {
+    inset-block-end: -3px;
 }
 
 #{ $clipForm } {

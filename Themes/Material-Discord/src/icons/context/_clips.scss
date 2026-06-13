@@ -1,0 +1,45 @@
+@use '../../classes' as *;
+@use '../../config' as *;
+@use '../../placeholders' as *;
+
+/*
+ *
+ *  CLIPS CONTEXT ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        // CLIPS CONTEXT ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
+
+        $icons: (
+            'share':                    'share',
+            'edit':                     'edit',
+            'favorite':                 'favorite',
+            'clips-export-soundboard':  'add_circle',
+            'clips-copy-video':         'content_copy',
+            'clips-export-group':       'drive_file_move',
+            'show-in-folder':           'folder',
+            'open-in-inspector':        'open_in_new',
+            'clips-feedback':           'feedback',
+            'clips-delete':             'delete',
+            'participants':             'people',
+            'years':                    'event',
+
+            'clips-export-group--clips-export-file':        'video_file',
+            'clips-export-group--clips-export-sound-file':  'audio_file'
+        );
+
+        @each $option, $icon in $icons {
+            &#clips-more-options-#{ $option },
+            &#clips-filters-context-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &::before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                }
+            }
+        }
+    }
+}
