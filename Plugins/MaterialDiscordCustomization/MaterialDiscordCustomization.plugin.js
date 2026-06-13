@@ -1,7 +1,7 @@
 /**
  * @name MaterialDiscordCustomization
  * @author CapnKitten
- * @version 1.0.3
+ * @version 1.0.4
  * @description Implements easy customization of the Material Discord theme.
  * @authorId 124276233478471680
  * @website https://github.com/CapnKitten
@@ -13,22 +13,15 @@
 const config = {
     info: {
         name: "MaterialDiscordCustomization",
-        version: "1.0.3",
+        version: "1.0.4",
         description: "Implements easy customization of the Material Discord theme."
     },
     changelog: [
         {
             type: "added",
-            title: "Slider Legends",
+            title: "Popout Blur Setting",
             items: [
-                "Added the unit type to the slider legends."
-            ]
-        },
-        {
-            type: "added",
-            title: "Missing Variable",
-            items: [
-                "Due to the accent text color variable not being customizable with Material You enabled, it was mistakenly left out. It has now been added for those that use just the base theme."
+                "Added a popout blur setting to control the blur intensity."
             ]
         }
     ]
@@ -487,6 +480,25 @@ module.exports = class MaterialDiscordCustomization {
                                     this.saveAndRefresh()
                                 }
                             })
+                        },
+                        {
+                            type: "custom",
+                            id: "blur",
+                            name: "Popout blur",
+                            note: "The blur strength for popouts. Default: 8px",
+                            inline: false,
+                            children: React.createElement(Slider, {
+                                minValue: 0,
+                                maxValue: 16,
+                                markers: markers(0, 17, 1),
+                                stickToMarkers: true,
+                                onMarkerRender: v => v % 2 === 0 || v === 0 ? v + "px" : "",
+                                initialValue: this.settings["popout"].blur,
+                                onValueChange: e => {
+                                    this.settings["popout"].blur = e,
+                                    this.saveAndRefresh()
+                                }
+                            })
                         }
                     ]
                 }
@@ -539,6 +551,7 @@ module.exports = class MaterialDiscordCustomization {
 
                 --popout-radius-small: ${this.settings.popout.radiusSmall}px !important;
                 --popout-radius-big: ${this.settings.popout.radiusBig}px !important;
+                --popout-blur: ${this.settings.popout.blur}px !important;
             }
 
             .theme-dark {
@@ -601,7 +614,8 @@ module.exports = class MaterialDiscordCustomization {
             },
             popout: {
                 radiusSmall: 8,
-                radiusBig: 18
+                radiusBig: 18,
+                blur: 8
             }
         }
 
