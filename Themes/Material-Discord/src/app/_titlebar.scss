@@ -20,18 +20,18 @@
 		padding: 0 10px;
 		gap: 0;
 
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			font-size: 0.925em;
 			color: var(--interactive-text-default);
 		}
 
-		&:before {
+		&::before {
 			content: var(--app-watermark-one);
 			font-weight: 700;
 		}
 
-		&:after {
+		&::after {
 			content: var(--app-watermark-two);
 		}
 
@@ -70,7 +70,7 @@
 	width: calc(var(--app-title-bar-height) / 1.325);
 	inset-block-start: 0;
 
-	&:before {
+	&::before {
 		position: absolute;
 		content: " ";
 		width: 12px;
@@ -86,12 +86,12 @@
 	}
 
 	&:hover {
-		&:before {
+		&::before {
 			opacity: 1;
 		}
 	}
 
-	&:after {
+	&::after {
 		position: absolute;
 		content: " ";
 		width: 16px;
@@ -102,31 +102,31 @@
 		pointer-events: none;
 	}
 
-	&:active:after {
+	&:active::after {
 		opacity: 0.65;
 	}
 
 	&#{ $titlebarWinButtonMinMax } {
 		&:nth-of-type(1) {
 			&:hover {
-				&:after {
+				&::after {
 					background-color: var(--app-button-min);
 				}
 			}
 
-			&:before {
+			&::before {
 				@include add-icon($color: var(--app-button-min), $icon: 'window_minimize');
 			}
 		}
 
 		&:nth-of-type(2) {
 			&:hover {
-				&:after {
+				&::after {
 					background-color: var(--app-button-max);
 				}
 			}
 
-			&:before {
+			&::before {
 				@include add-icon($color: var(--app-button-max), $icon: 'window_maximize');
 			}
 		}
@@ -134,12 +134,12 @@
 
 	&#{ $titlebarWinButtonClose } {
 		&:hover {
-			&:after {
+			&::after {
 				background-color: var(--app-button-close);
 			}
 		}
 
-		&:before {
+		&::before {
 			@include add-icon($color: var(--app-button-close), $icon: 'window_close');
 		}
 	}
@@ -156,12 +156,12 @@
 
 html:not(#{ $appFocused }) {
 	#{ $titlebarWinButton } {
-		&:after {
+		&::after {
 			background-color: var(--app-button-inactive);
 		}
 
 		&#{ $titlebarWinButtonMinMax } {
-			&:after {
+			&::after {
 				background-color: var(--app-button-inactive);
 			}
 		}

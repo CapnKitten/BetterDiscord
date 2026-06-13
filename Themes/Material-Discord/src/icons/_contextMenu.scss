@@ -52,7 +52,7 @@
         &[id*="user-context-invite-to-server"],
         &[id*="user-context-voice-move"],
         &[id*="user-context-dev"] {
-            &:after {
+            &::after {
                 display: none;
             }
         }
@@ -65,7 +65,7 @@
             min-height: 36px;
 
             #{ $menuPopoutLabelContainer },
-            &:after {
+            &::after {
                 position: absolute;
             }
 
@@ -73,7 +73,7 @@
                 inset-inline-start: 42px;
             }
 
-            &:after {
+            &::after {
                 inset-inline-start: 12px;
             }
         }
@@ -81,12 +81,12 @@
         &[id*="image-context-commands-popout"] {
             flex-direction: row;
 
-            &:before {
+            &::before {
                 display: none;
             }
 
             &[aria-haspopup="true"] {
-                &:before {
+                &::before {
                     display: none;
                 }
 
@@ -267,14 +267,14 @@
         );
 
         &[id] {
-            &:after {
+            &::after {
                 -webkit-mask-image: url(#{ $iconBaseUrl }/settings.svg);
             }
         }
 
         @each $option, $icon in $icons {
             &##{$option} {
-                &:after {
+                &::after {
                 	-webkit-mask-image: url(#{ $iconBaseUrl }/#{ $icon }.svg);
                 }
             }
@@ -286,7 +286,7 @@
             flex-direction: row;
 
             &[aria-haspopup="true"] {
-                &:before {
+                &::before {
                     display: none;
                 }
             }
@@ -294,7 +294,7 @@
             #{ $menuPopoutIconContainerLeft } {
                 @include addIconBase('before');
 
-                &:before {
+                &::before {
                     -webkit-mask-image: url(#{ $iconBaseUrl }/settings.svg);
                 }
             }
@@ -306,7 +306,7 @@
 
         &#settings-menu-profile_sidebar_item {
             #{ $menuPopoutIconContainerLeft } {
-                &:before {
+                &::before {
                     display: none;
                 }
             }
@@ -359,7 +359,7 @@
         @each $option, $icon in $icons {
             &#settings-menu-#{$option} {
                 #{ $menuPopoutIconContainerLeft } {
-                    &:before {
+                    &::before {
                         -webkit-mask-image: url(#{ $iconBaseUrl }/#{ $icon }.svg);
                     }
                 }
@@ -399,7 +399,7 @@
 
         @each $option, $icon in $icons {
             &[id="#{$option}"] {
-                &:after {
+                &::after {
                     @include add-icon(null, $icon);
                 }
             }
@@ -412,7 +412,7 @@
 
         @each $option, $icon in $spotifyIcons {
             &[id*="user-context-#{$option}"] {
-                &:after {
+                &::after {
                     @include add-icon(null, $icon);
                 }
             }
@@ -454,7 +454,7 @@
             flex-direction: row;
             @include addIconBase('before');
 
-            &:before {
+            &::before {
                 display: block;
             }
 
@@ -524,14 +524,14 @@
             );
 
             &[id] {
-                &:before {
+                &::before {
                     -webkit-mask-image: url(#{ $iconBaseUrl }/settings.svg);
                 }
             }
 
             @each $option, $icon in $icons {
                 &##{$option} {
-                    &:before {
+                    &::before {
                         -webkit-mask-image: url(#{ $iconBaseUrl }/#{ $icon }.svg);
                     }
                 }
@@ -543,7 +543,7 @@
 
             @each $option, $icon in $icons {
                 &[id="#{$option}"] {
-                    &:before {
+                    &::before {
                         @include add-icon(null, $icon);
                     }
                 }
@@ -563,15 +563,15 @@
             @each $id, $value in $icons {
                 $operator: if($value, '*=', '=');
 
-                &[id#{ $operator }"#{ $id }"]:before {
+                &[id#{ $operator }"#{ $id }"]::before {
                     display: none;
                 }
             }
 
             #{ $submenuItemSubMenuAlt } {
                 #{ $menuPopoutItem } {
-                    &:before,
-                    &:after {
+                    &::before,
+                    &::after {
                         display: none;
                     }
                 }

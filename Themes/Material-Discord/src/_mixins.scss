@@ -90,7 +90,7 @@
 	position: relative;
 	border-block-end: none;
 
-	&:after {
+	&::after {
 		position: absolute;
 		content: " ";
 		width: calc(100% - (#{ $margin } * 2));
@@ -100,7 +100,7 @@
 	}
 
 	&:last-of-type {
-		&:after {
+		&::after {
 			display: none;
 		}
 	}
@@ -160,7 +160,7 @@
 @mixin pill-nav($important: false, $height, $pill-item, $selector, $hover: false) {
 	$imp: if($important, !important, null);
 
-    --nav-button-height: #{$height};
+    --nav-button-height: #{ $height };
     --nav-button-big-radius: calc(var(--nav-button-height) / 2);
     --nav-button-small-radius: calc(var(--nav-button-height) / 5);
 
@@ -169,7 +169,7 @@
     border-radius: 0;
     gap: 2px;
 
-    #{$pill-item} {
+    #{ $pill-item } {
 		display: flex;
 		min-width: calc(var(--button-height) + var(--space-8));
 		height: var(--nav-button-height);
@@ -215,7 +215,7 @@
 
 	@if $rounded {
 		max-height: $max-height $imp;
-		border-radius: calc(#{$height} / 2) $imp;
+		border-radius: calc(#{ $height } / 2) $imp;
 		box-shadow: none;
 
 		&:focus-within {
@@ -244,7 +244,7 @@
 @mixin input-transform($important: false, $height: var(--input-height)) {
 	$imp: if($important, !important, null);
 
-	border-radius: calc(#{$height} / 2) $imp;
+	border-radius: calc(#{ $height } / 2) $imp;
 	border: none $imp;
 	box-shadow: none $imp;
 
@@ -258,10 +258,10 @@
 	background-color: transparent !important;
 	border: none;
 
-	&:after {
+	&::after {
 		position: absolute;
 		content: " ";
-		width: #{$width};
+		width: $width;
 		height: 3px;
 		inset-inline-start: 0;
 		inset-inline-end: 0;
@@ -280,7 +280,7 @@
 
     position: relative;
 
-    &:#{$pseudo} {
+    &::#{ $pseudo } {
         content: " ";
         position: absolute;
         width: 100%;
@@ -297,62 +297,83 @@
     }
 
     @if $type == 'hover' {
-        &:hover:#{$pseudo} {
+        &:hover::#{ $pseudo } {
             opacity: 1;
-            transform: scale(#{$scale});
+            transform: scale($scale);
             animation: md-ripple-scale 150ms var(--default-animation);
             transition: opacity 150ms ease;
         }
 
-        &:active:#{$pseudo} {
+        &:active::#{ $pseudo } {
             background-color: hsl(var(--md-ripple-color), 0.2);
         }
     } @else if $type == 'click' {
-        &:active:#{$pseudo} {
+        &:active::#{ $pseudo } {
             opacity: 1;
-            transform: scale(#{$scale});
+            transform: scale($scale);
             animation: md-ripple-scale 150ms var(--default-animation);
             transition: opacity 150ms ease;
         }
     } @else if $type == 'hover_click' {
-        &:hover:#{$pseudo},
-        &:active:#{$pseudo} {
+        &:hover::#{ $pseudo },
+        &:active::#{ $pseudo } {
             opacity: 1;
-            transform: scale(#{$scale});
+            transform: scale($scale);
             animation: md-ripple-scale 150ms var(--default-animation);
             transition: opacity 150ms ease;
         }
 
-        &:active:#{$pseudo} {
+        &:active::#{ $pseudo } {
             background-color: hsl(var(--md-ripple-color), 0.2);
         }
     }
 }
 
 @mixin add-icon($color, $icon) {
-	-webkit-mask-image: url('#{ $iconBaseUrl }/#{$icon}.svg');
+	-webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
 	-webkit-mask-repeat: no-repeat;
 
 	@if $color != null {
-		background-color: #{$color};
+		background-color: $color;
 	}
 }
 
 @mixin remove-caps($font-size, $important: false) {
 	$imp: if($important, !important, null);
 
-	font-size: #{$font-size} $imp;
+	font-size: $font-size $imp;
 	text-transform: none $imp;
 }
 
 @mixin addIconBase($pseudo: 'after', $size: 18px) {
-    &:#{ $pseudo } {
+    &::#{ $pseudo } {
         position: relative;
         content: " ";
-        width: #{ $size };
-        height: #{ $size };
+        width: $size;
+        height: $size;
         background-color: currentColor;
         -webkit-mask-repeat: no-repeat;
         mask-size: 100%;
     }
+}
+
+@mixin addPopoutBlur($pseudo: null, $background: var(--popout-color-with-blur), $blur: var(--popout-blur)) {
+	@if $pseudo {
+		position: relative;
+		background-color: transparent;
+
+		&::#{ $pseudo } {
+			position: absolute;
+			content: " ";
+			inset: 0;
+			background-color: $background;
+			border-radius: inherit;
+			backdrop-filter: blur($blur);
+			pointer-events: none;
+			z-index: -1;
+		}
+	} @else {
+		background-color: $background;
+		backdrop-filter: blur($blur);
+	}
 }

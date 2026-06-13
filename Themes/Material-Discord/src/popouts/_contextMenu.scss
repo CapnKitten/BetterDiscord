@@ -13,13 +13,14 @@
     --context-menu-radius-big-inner: calc(var(--context-menu-radius-big) - var(--context-menu-padding));
 
     padding: 0;
-    background-color: var(--popout-color);
     border-radius: var(--context-menu-radius-big);
     box-shadow: var(--shadow-medium);
     border: none;
     animation: opacity 100ms ease, open-context-menu 300ms var(--default-animation);
 	transform-origin: top;
     overflow: hidden;
+
+    @include addPopoutBlur($pseudo: before);
 
     #{ $scroller } {
         --scrollbar-width: 0;
