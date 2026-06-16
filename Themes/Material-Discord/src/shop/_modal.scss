@@ -6,39 +6,37 @@
  *	DISCORD SHOP MODALS
  *
  */
- 
-#{ $shopPreviewModalContent } {
-    padding: 0 !important;
-    border-radius: var(--popout-radius-big) !important;
 
-    &::-webkit-scrollbar {
-        --scrollbar-width: 0;
-        --scrollbar-thin-width: 0;
-    }
+#{ $shopPreviewModalRoot } {
+    background-color: var(--popout-color);
+}
 
-    #{ $shopCollectibleInfoContainer } {
-        background-color: var(--popout-color);
-        border-radius: var(--popout-radius-big);
-
-        #{ $buttonFilled } {
-            background: var(--button-background) !important;
-
-            #{ $buttonContents } {
-                svg {
-                    height: 24px;
-                }
-            }
-        }
-    }
-
-    #{ $shopCollectibleCategoryBanner } {
-        width: calc(100% + var(--popout-radius-big));
-        inset-inline-start: calc(var(--popout-radius-big) * -1);
-    }
+#{ $shopPreviewLeftRail } {
+    background-color: var(--popout-color);
 }
 
 #{ $shopPreviewContainer } {
     border-radius: var(--popout-radius-big);
+}
+
+#{ $shopChatPreview } {
+    @include popout-format;
+
+    #{ $messageWrapper } {
+        inset-block-start: 4px;
+        inset-inline-start: 60px;
+        border-radius: var(--message-radius);
+
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+}
+
+#{ $shopMockInput } {
+    background-color: var(--input-color);
+    border-radius: 20px;
 }
 
 #{ $shopNameplateRightPanePreviewContainer } {

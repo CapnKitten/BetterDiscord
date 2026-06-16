@@ -1,0 +1,29 @@
+@use '../classes' as *;
+@use '../config' as *;
+@use '../placeholders' as *;
+
+/*
+ *
+ *  USER PROFILE ICONS
+ *
+ */
+
+#{ $userProfileMenuItemIcon } {
+    --icon-size: 16px;
+
+    $icons: (
+        'm13.96 5.46 4.58 4.58a1':  'edit',
+        'M15.74 5.74a.5.5':         'movie',
+        'M18.46 20.9a12.65':        'account_circle'
+    );
+
+    @each $option, $icon in $icons {
+        &:has(path[d^="#{ $option }"]) {
+            @extend %iconWithSvgWithoutContainerBase;
+
+            &::before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+            }
+        }
+    }
+}

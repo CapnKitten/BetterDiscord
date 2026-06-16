@@ -51,6 +51,44 @@
     gap: var(--space-8);
 }
 
+/* APP TITLE BAR -> NAVIGATION BUTTONS */
+
+#{ $barBackFowardButtons } {
+    gap: var(--space-4);
+
+    #{ $barNavigationButton } {
+        width: var(--space-24);
+        height: var(--space-24);
+        border-radius: calc(var(--space-24) / 2);
+        transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) border-radius;
+
+        &#{ $barNavigationButtonBack },
+        &#{ $barNavigationButtonForward } {
+            padding-inline: 0;
+        }
+
+        &#{ $barNavigationButtonBack } {
+            border-start-start-radius: calc(var(--space-24) / 2);
+            border-end-start-radius: calc(var(--space-24) / 2);
+        }
+
+        &#{ $barNavigationButtonForward } {
+            border-start-end-radius: calc(var(--space-24) / 2);
+            border-end-end-radius: calc(var(--space-24) / 2);
+        }
+
+        &:not(#{ $barNavigationButtonDisabled }) {
+            &:hover {
+                background-color: var(--card-color-filled);
+            }
+
+            &:active {
+                background-color: var(--card-color-active);
+            }
+        }
+    }
+}
+
 /* APP TITLE BAR -> BUTTONS */
 
 #{ $titlebarWin } {
