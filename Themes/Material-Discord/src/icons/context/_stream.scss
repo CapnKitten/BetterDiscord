@@ -1,0 +1,57 @@
+@use '../../classes' as *;
+@use '../../config' as *;
+@use '../../placeholders' as *;
+
+/*
+ *
+ *  STREAM CONTEXT ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        // STREAM CONTEXT ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
+
+        $icons: (
+            'resolution':       '4k',
+            'frame-rate':       '60fps_select',
+            'advanced-items':   'settings'
+        );
+
+        @each $option, $icon in $icons {
+            &#stream-options-#{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &::before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                }
+            }
+        }
+
+        // STREAM CONTEXT ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS ONE OFFS
+
+        $icons: (
+            'manage-streams-stream-settings': '4k',
+            'video-device-context-videoinput-devices': 'photo_camera',
+            'stream-context-stream-settings': '4k',
+            'stream-context-more-options': 'settings',
+        );
+
+        @each $option, $icon in $icons {
+            &##{ $option } {
+                @extend %iconWithoutContainerBase;
+
+                &::before {
+                    -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                }
+            }
+        }
+
+        &#manage-streams-stream-settings {
+            &::before {
+                -webkit-mask-image: url('#{ $iconBaseUrl }/4k.svg');
+            }
+        }
+    }
+}
