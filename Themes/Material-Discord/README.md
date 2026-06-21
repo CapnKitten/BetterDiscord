@@ -10,7 +10,7 @@ Current version: v3.0.4 (24/01/2022)
 
 Vencord link
 ```
-https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/source.css
+https://capnkitten.github.io/Material-Discord/Material-Discord.theme.css
 ```
 
 ## Previews
