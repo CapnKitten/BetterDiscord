@@ -7,6 +7,10 @@
  *
  */
 
+#{ $authAppHeadingCard } {
+    @include card-format($padding: var(--space-24), $filled: true);
+}
+
 #{ $authedAppV2 } {
     margin-block-end: 16px;
     background-color: var(--card-color-filled);
@@ -33,8 +37,17 @@
 
 #{ $authedAppDetailsContainer } {
     #{ $authedAppDetailsSection } {
+        --card-color-filled: var(--card-color-alt);
+        --card-color-hover: var(--card-color-active);
+
         border-block-start: none;
         border-block-end: none;
+
+        @include card-format($padding: var(--space-16), $filled: true, $hover: true);
+
+        &:first-of-type {
+            margin-block-end: var(--space-8);
+        }
     }
 
     #{ $triggerCollapseable } {
