@@ -116,6 +116,7 @@
   --code-font: "Google Sans Code";
   --text-normal: var(--interactive-text-default);
   --custom-channel-header-height: calc(var(--guildbar-avatar-size) + var(--space-8));
+  interpolate-size: allow-keywords;
 }
 
 .theme-dark {
@@ -3600,7 +3601,8 @@ button.button__67645, span.button__67645 {
 
 .container__01ae2 {
   background-color: var(--chat-color);
-  border-radius: var(--card-radius-big) var(--card-radius-big) 0;
+  border-radius: var(--card-radius-big);
+  border-end-end-radius: 0;
   border: none;
 }
 .container__01ae2.floating__01ae2 {
@@ -9373,7 +9375,7 @@ div[role=radiogroup].group__344e6 {
  *	HOME TAB
  *
  */
-.page__1add6, .page__5e434 {
+.page__1add6, .page__5e434[aria-label] {
   background-color: var(--main-color);
   border-block-start: none;
   border-start-end-radius: var(--card-radius-big);
@@ -9909,7 +9911,7 @@ div[role=radiogroup].group__344e6 {
 }
 
 .message__5126c:hover .buttons__5126c {
-  max-width: 380px;
+  max-width: max-content;
   opacity: 1;
   pointer-events: all;
 }
@@ -16320,12 +16322,6 @@ body:active .container__3dde2:not(:active) {
   padding-inline: var(--space-16) calc(var(--space-16) - var(--scrollbar-width)) !important;
 }
 
-body:active .messagesPopoutWrap_e8b59c:not(:active),
-body:active .container_fc561d:not(:active) {
-  opacity: 0;
-  transition: 150ms ease all;
-}
-
 .header_e8b59c {
   height: auto;
   min-height: unset;
@@ -17777,6 +17773,30 @@ body:active .container_d9c882:not(:active) {
   background-color: var(--card-color-hover);
   border-radius: 4px;
   border: none;
+}
+
+/* USER POPOUT -> V2 PROFILE -> EDIT PROFILE */
+.panel_b08638 {
+  background: var(--popout-color);
+  border: none;
+}
+.panel_b08638 + .user-profile-modal-v2 {
+  border-start-start-radius: var(--popout-radius-big);
+  border-end-start-radius: var(--popout-radius-big);
+}
+
+.tile__4e9aa {
+  border-radius: var(--card-radius-big);
+}
+.tile__4e9aa.isInteracting__4e9aa .tileButton__4e9aa {
+  background-color: var(--card-color-active);
+}
+.tile__4e9aa .button_a22cb0 {
+  --button-height: 32px;
+}
+
+.tileButton__4e9aa {
+  background-color: var(--card-color-filled);
 }
 
 .addButtonContainer__4a011 {
@@ -20003,6 +20023,14 @@ body:active .container_d9c882:not(:active) {
  *  USER SETTINGS AUTHORIZED APPS
  *
  */
+.headingCard__92059 {
+  background-color: var(--card-color-filled);
+  border: none;
+  padding: var(--space-24);
+  border-radius: var(--card-radius-big);
+  box-shadow: none;
+}
+
 .authedAppV2__92059 {
   margin-block-end: 16px;
   background-color: var(--card-color-filled);
@@ -20026,8 +20054,21 @@ body:active .container_d9c882:not(:active) {
 }
 
 .appDetailsContainer__92059 .appDetailsSection__92059 {
+  --card-color-filled: var(--card-color-alt);
+  --card-color-hover: var(--card-color-active);
   border-block-start: none;
   border-block-end: none;
+  background-color: var(--card-color-filled);
+  border: none;
+  padding: var(--space-16);
+  border-radius: var(--card-radius-big);
+  transition: var(--default-time) var(--default-animation) background-color;
+}
+.appDetailsContainer__92059 .appDetailsSection__92059:hover {
+  background-color: var(--card-color-hover);
+}
+.appDetailsContainer__92059 .appDetailsSection__92059:first-of-type {
+  margin-block-end: var(--space-8);
 }
 .appDetailsContainer__92059 .collapseable__217b7 {
   margin-block-end: 8px;
@@ -20402,7 +20443,7 @@ body:active .container_d9c882:not(:active) {
  *  USER SETTINGS DISCORD EXPERIMENTS
  *
  */
-.group_bc4a3e {
+.group_f97b59 {
   margin-block-start: 16px;
   background-color: var(--card-color-filled);
   border: none;
@@ -20410,26 +20451,26 @@ body:active .container_d9c882:not(:active) {
   border-radius: var(--card-radius-big);
   box-shadow: none;
 }
-.group_bc4a3e .title_bc4a3e {
+.group_f97b59 .title_f97b59 {
   margin-block-end: 0;
 }
-.group_bc4a3e .eyebrow_b717a1 {
+.group_f97b59 .eyebrow_b717a1 {
   margin-block-start: 16px;
 }
-.group_bc4a3e .experimentDate_bc4a3e {
+.group_f97b59 .experimentDate_f97b59 {
   line-height: 42px;
 }
-.group_bc4a3e .description_bc4a3e {
+.group_f97b59 .description_f97b59 {
   margin: 8px 0;
 }
-.group_bc4a3e .button__201d5 {
+.group_f97b59 .button__201d5 {
   --button-height: 18px;
   --button-padding-start: 0;
   --button-padding-end: 0;
   font-size: 0.875em !important;
   font-weight: 400;
 }
-.group_bc4a3e .divider_bc4a3e {
+.group_f97b59 .divider_f97b59 {
   display: none;
 }
 
@@ -20632,13 +20673,13 @@ body:active .container_d9c882:not(:active) {
   color: hsl(var(--warning-hsl));
 }
 
-.keybindGroup__57111::before {
+.keybindGroup_f82450::before {
   background-color: var(--card-color-filled);
   border-radius: var(--card-radius-big);
   border: none;
 }
 
-.removeKeybindFloating__57111 {
+.removeKeybindFloating_f82450 {
   inset-block-start: 8px;
   inset-inline-end: -12px;
 }
@@ -20714,49 +20755,48 @@ body:active .container_d9c882:not(:active) {
 }
 
 /* KEYBINDS -> DEFAULT */
-.defaultKeybindGroup__57111 {
-  margin: 24px 0 0;
+.defaultKeybindGroup_f82450 {
   background-color: var(--card-color-filled);
   border-radius: var(--card-radius-big);
   border: none;
 }
-.defaultKeybindGroup__57111 .defaultKeybind__57111 + .divider__44f7f {
+.defaultKeybindGroup_f82450 .defaultKeybind_f82450 + .divider__44f7f {
   display: block;
 }
-.defaultKeybindGroup__57111 .divider__44f7f {
+.defaultKeybindGroup_f82450 .divider__44f7f {
   width: calc(100% - 32px);
   margin: 0 16px;
   border-top-color: var(--card-border-color);
 }
-.defaultKeybindGroup__57111 .divider__44f7f:last-of-type {
+.defaultKeybindGroup_f82450 .divider__44f7f:last-of-type {
   display: none;
 }
 
-.defaultKeybind__57111 {
+.defaultKeybind_f82450 {
   padding: 0 16px;
   background-color: var(--card-color-filled);
   border-radius: var(--card-radius-big);
 }
-.defaultKeybind__57111 + .divider__44f7f {
+.defaultKeybind_f82450 + .divider__44f7f {
   display: none;
 }
 
-.defaultKeybindGroupHeader__57111 {
+.defaultKeybindGroupHeader_f82450 {
   margin-block-end: 0;
   padding: 16px 16px 0;
   font-size: 18px;
   text-transform: none;
   font-weight: 500;
 }
-.defaultKeybindGroupHeader__57111 + .divider__44f7f {
+.defaultKeybindGroupHeader_f82450 + .divider__44f7f {
   display: none;
 }
 
-.defaultKeybindGroupDescription__57111 {
+.defaultKeybindGroupDescription_f82450 {
   margin-block-end: 0;
   padding: 16px 16px 0;
 }
-.defaultKeybindGroupDescription__57111 + .divider__44f7f {
+.defaultKeybindGroupDescription_f82450 + .divider__44f7f {
   display: none;
 }
 
