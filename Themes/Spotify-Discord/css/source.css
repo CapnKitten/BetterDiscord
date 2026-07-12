@@ -331,6 +331,9 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar__5e434 {
   border-bottom-right-radius: var(--app-card-radius);
 }
 
+.chat_f75fb0[data-has-border=true] {
+  border-block-start: none;
+}
 .chat_f75fb0.threadSidebarOpen_f75fb0 {
   border-radius: var(--app-card-radius);
 }
@@ -471,20 +474,32 @@ body:not(:has(:is(.container_6sXIoE, #vc-spotify-player))) .sidebar__5e434 {
 }
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
+.chat_f75fb0:has(.aside_f58343) {
+  max-width: calc(100% - (300px + var(--app-card-margin)));
+}
+
 .aside_f58343 {
+  position: fixed;
+  height: calc(100vh - (var(--custom-app-top-bar-height) + var(--app-bar-size)) + var(--app-card-top-margin) + var(--app-card-margin));
+  inset-block-start: calc(var(--custom-app-top-bar-height) - var(--app-card-top-margin));
+  inset-inline-end: 0;
   background: transparent;
 }
 
 .custom-user-profile-theme.user-profile-sidebar.user-profile-sidebar-redesign {
-  border-radius: var(--popout-radius);
+  border-radius: var(--app-card-radius);
 }
 
+.user-profile-sidebar:not(.custom-user-profile-theme) {
+  background-color: var(--app-foreground) !important;
+  border-radius: var(--app-card-radius) !important;
+}
 .user-profile-sidebar[style] {
   background-color: var(--popout-color);
   border-radius: 0 0 var(--app-card-radius) 0;
   box-shadow: none;
 }
-.user-profile-sidebar[style] .banner__68edb {
+.user-profile-sidebar .banner__68edb {
   border-radius: 0;
 }
 
