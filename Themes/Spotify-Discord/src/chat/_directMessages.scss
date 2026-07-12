@@ -29,20 +29,37 @@
 
 /* DIRECT MESSAGES -> SIDEBAR PROFILE */
 
+#{ $chat } {
+    &:has(#{ $dmProfileAside }) {
+        max-width: calc(100% - (300px + var(--app-card-margin)));
+    }
+}
+
 #{ $dmProfileAside } {
+    position: fixed;
+    height: calc(100vh - (var(--custom-app-top-bar-height) + var(--app-bar-size)) + var(--app-card-top-margin) + var(--app-card-margin));
+    inset-block-start: calc(var(--custom-app-top-bar-height) - var(--app-card-top-margin));
+    inset-inline-end: 0;
     background: transparent;
 }
 
 #{ $userProfileOuterThemed } {
     &#{ $dmProfilePanel }#{ $dmProfilePanelRedesign } {
-        border-radius: var(--popout-radius);
+        border-radius: var(--app-card-radius);
     }
 }
 
-#{ $dmProfilePanel }[style] {
-    background-color: var(--popout-color);
-    border-radius: 0 0 var(--app-card-radius) 0;
-    box-shadow: none;
+#{ $dmProfilePanel } {
+    &:not(#{ $userProfileOuterThemed }) {
+        background-color: var(--app-foreground) !important;
+        border-radius: var(--app-card-radius) !important;
+    }
+
+    &[style] {
+        background-color: var(--popout-color);
+        border-radius: 0 0 var(--app-card-radius) 0;
+        box-shadow: none;
+    }
 
     #{ $userProfileBanner } {
         border-radius: 0;
