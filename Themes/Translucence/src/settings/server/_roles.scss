@@ -29,6 +29,25 @@
 
 /* SERVER SETTINGS ROLES -> EDIT ROLE */
 
+#{ $guildSettingsRoleSidebarTitleContainer } {
+    background-color: transparent;
+}
+
+#{ $guildSettingsRoleHeader } {
+    background-color: transparent;
+
+    &#{ $guildSettingsRoleStickyHeader } {
+        --popout-radius: 0;
+        overflow: hidden;
+
+        @include liquidGlassFallback($background-color: var(--popout-color), $shadow: false);
+
+        &::before {
+            filter: blur(var(--app-blur)) saturate(100%) brightness(1);
+        }
+    }
+}
+
 #{ $guildSettingsRoleBackContainer } {
     position: sticky;
     //@include add-translucence-bg(before);
