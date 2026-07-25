@@ -8,11 +8,11 @@
  */
 
 #{ $appsContentWrapper } {
-    //@include add-translucence(before, true, true);
+    @include liquidGlass;
 }
 
 #{ $appsCardContainer } {
-    @include card-format(false, true);
+    @include card-format($hover: true);
 }
 
 #{ $appsRowContainer } {
@@ -42,18 +42,17 @@
 #{ $appProfileAndVideoContainer } {
     border-radius: var(--card-radius);
     border: none;
+}
 
-    #{ $appOverviewContainerNoVideo } {
-        background-color: var(--card-color);
-        border-radius: inherit;
-    }
+#{ $appOverviewContainerNoVideo } {
+    @include liquidGlassCard;
+}
 
-    #{ $appOverviewContainerWithVideo } {
-        margin-block-start: -4px;
-        background-color: var(--card-color);
-        border-bottom-left-radius: var(--card-radius);
-        border-bottom-right-radius: var(--card-radius);
-    }
+#{ $appOverviewContainerWithVideo } {
+    margin-block-start: -4px;
+    background-color: var(--card-color);
+    border-bottom-left-radius: var(--card-radius);
+    border-bottom-right-radius: var(--card-radius);
 }
 
 #{ $appVideoCover } {
