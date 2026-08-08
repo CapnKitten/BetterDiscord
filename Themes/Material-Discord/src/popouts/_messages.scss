@@ -7,10 +7,20 @@
  *
  */
 
+#{ $inboxContainer },
 #{ $messagesPopoutWrap },
 #{ $recentMentionsPopout } {
 	--unread-radius: calc(var(--message-radius) + var(--space-12));
 
+	#{ $messageWrapper } {
+		--message-color: var(--card-color-hover);
+
+		overflow: visible;
+	}
+}
+
+#{ $messagesPopoutWrap },
+#{ $recentMentionsPopout } {
 	max-height: 80vh !important;
 	@include popout-format;
 	animation: top-pop-out 400ms var(--default-animation);
@@ -235,11 +245,22 @@
 	border-block-start: 1px solid var(--popout-header-border);
 }
 
+#{ $messagesPopoutChannelBox } {
+	background-color: var(--message-color-alt);
+	border-radius: var(--unread-radius);
+	border: none;
+
+	&:has(#{ $messageWrapper }) {
+		padding-block-end: var(--space-12);
+	}
+}
+
 #{ $messagesPopoutChannelHeader } {
 	padding-block: var(--space-12);
 	padding: var(--space-16);
 	background-color: var(--message-color-alt);
-	border-radius: var(--unread-radius) var(--unread-radius) 0 0;
+	border-start-start-radius: var(--unread-radius);
+	border-start-end-radius: var(--unread-radius);
 	border-block-end: none;
 
 	&:only-child {
@@ -253,6 +274,10 @@
 			background-color: var(--menu-item-select);
 		}
 	}
+}
+
+#{ $messagesPopoutCollapsible } {
+	background-color: var(--message-color-alt);
 }
 
 /* MESSAGES POPOUT -> RECENT MENTIONS */
@@ -405,4 +430,16 @@
     #{ $postContainer } {
         background-color: var(--message-color-hover);
     }
+}
+
+/* MESSAGES POPOUT -> INBOX */
+
+#{ $inboxContainer } {
+	background-color: var(--popout-color);
+	border-radius: var(--popout-radius-big);
+	box-shadow: var(--shadow-hard);
+}
+
+#{ $inboxIcon } {
+	background-color: var(--card-color-filled);
 }
