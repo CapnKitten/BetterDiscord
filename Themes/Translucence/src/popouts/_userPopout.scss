@@ -43,17 +43,26 @@
 	}
 }
 
+#{ $userProfilePopout } {
+	border-radius: var(--popout-radius);
+
+	&#{ $userProfileOuterThemed } {
+        #{ $userProfileInner } {
+            border-radius: calc(var(--popout-radius) - 2px);
+        }
+    }
+
+	&:not(#{ $userProfileOuterThemed }) {
+		@include liquidGlass;
+	}
+}
+
 #{ $userProfileOuter } {
-	//@include add-translucence(before, true, false);
 	overflow: initial;
 
 	&#{ $userProfileModalV2 } {
 		background-color: transparent;
 		border: none;
-	}
-
-	&#{ $userProfilePopout } {
-		@include liquidGlass;
 	}
 
 	* {
