@@ -15,11 +15,15 @@
         // MESSAGE CONTEXT ICONS -> REPLACE DEFAULT ICONS
 
         $icons: (
+            'add-reaction':                     'add_reaction',
+            'reactions':                        'emoji',
             'edit':                             'edit',
             'reply':                            'reply',
             'forward':                          'forward',
             'thread':                           'thread',
             'copy-text':                        'content_copy',
+            'translate':                        'g_translate',
+            'apps':                             'apps',
             'pin':                              'pin',
             'mark-unread':                      'mark_chat_unread',
             'copy-link':                        'link',
@@ -32,9 +36,10 @@
         @each $option, $icon in $icons {
             &#message-#{ $option },
             &#message-actions-#{ $option } {
-                @extend %iconWithContainerBase;
+                @extend %iconWithLeftContainerBase;
+                @extend %iconReverseDirection;
 
-                #{ $menuPopoutIconContainer } {
+                #{ $menuPopoutIconContainerLeft } {
                     &::before {
                         -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
                     }
@@ -45,18 +50,16 @@
         // MESSAGE CONTEXT ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
 
         $icons: (
-            'search-google':            'search',
-            'vc-search-text':           'search',
-            'vc-search-custom-engine':  'search',
-            'add-reaction':             'emoji',
-            'translate':                'translate',
-            'apps':                     'apps',
-            'remove-emoji-reactions':   'cancel',
-            'remove-reactions':         'remove_circle',
-            'copy-image':               'image_copy',
-            'save-image':               'save',
-            'copy-native-link':         'content_copy',
-            'open-native-link':         'open_in_new'
+            'search-google':                'search',
+            'vc-search-text':               'search',
+            'vc-search-custom-engine':      'search',
+            'translator-translate-message': 'translate',
+            'remove-emoji-reactions':       'cancel',
+            'remove-reactions':             'remove_circle',
+            'copy-image':                   'image_copy',
+            'save-image':                   'save',
+            'copy-native-link':             'content_copy',
+            'open-native-link':             'open_in_new'
         );
 
         @each $option, $icon in $icons {

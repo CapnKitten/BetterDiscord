@@ -23,6 +23,7 @@
             'unmute-guild':             'volume_off',
             'guild-notifications':      'notifications',
             'guild-settings':           'settings',
+            'opt-in':                   'visibility',
             'notifications':            'notifications',
             'privacy':                  'shield_lock',
             'change-nickname':          'account_circle',
@@ -39,7 +40,9 @@
             'folder-settings':          'settings',
             'folder-collapse':          'cancel',
             'Permissions':              'lock_open',
-            'guild-profile':            'badge'
+            'guild-profile':            'badge',
+            'hide-muted-channels':      'visibility_off',
+            'copy-server-info':         'content_copy'
         );
 
         @each $option, $icon in $icons {
@@ -56,9 +59,10 @@
 
         @each $option, $icon in $icons {
             &#guild-header-popout-#{ $option } {
-                @extend %iconWithContainerBase;
+                @extend %iconWithLeftContainerBase;
+                @extend %iconReverseDirection;
 
-                #{ $menuPopoutIconContainer } {
+                #{ $menuPopoutIconContainerLeft } {
                     &::before {
                         -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
                     }
