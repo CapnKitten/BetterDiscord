@@ -12,7 +12,7 @@
 #{ $menuPopout } {
     #{ $menuPopoutItem } {
 
-        // IMAGE CONTEXT ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
+        // IMAGE CONTEXT ICONS -> REPLACE DEFAULT ICONS
 
         $icons: (
             'copy-image':       'image_copy',
@@ -23,10 +23,13 @@
 
         @each $option, $icon in $icons {
             &#image-context-#{ $option } {
-                @extend %iconWithoutContainerBase;
+                @extend %iconWithLeftContainerBase;
+                @extend %iconReverseDirection;
 
-                &::before {
-                    -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                #{ $menuPopoutIconContainerLeft } {
+                    &::before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                    }
                 }
             }
         }
@@ -40,9 +43,10 @@
 
         @each $option, $icon in $icons {
             &#image-menu-media-viewer-#{ $option } {
-                @extend %iconWithContainerBase;
+                @extend %iconWithLeftContainerBase;
+                @extend %iconReverseDirection;
 
-                #{ $menuPopoutIconContainer } {
+                #{ $menuPopoutIconContainerLeft } {
                     &::before {
                         -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
                     }
