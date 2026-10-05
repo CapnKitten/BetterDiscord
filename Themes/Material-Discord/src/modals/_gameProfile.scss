@@ -64,6 +64,10 @@
     }
 }
 
+#{ $gameProfileBackgroundGradient } {
+    background: linear-gradient(to bottom, transparent 0, var(--main-alt) 200px);
+}
+
 #{ $gameProfileGradientLeft } {
     background: linear-gradient(90deg, var(--popout-color) 0%, transparent 100%);
 }
@@ -78,9 +82,10 @@
     display: none;
 }
 
-#{ $gameProfileCompactBarBg } {
-    background-color: var(--popout-color);
+#{ $gameProfileCompactBarBackground } {
+    background-color: color-mix(in srgb, var(--main-alt) 90%, transparent);
     box-shadow: var(--shadow-soft);
+    border-block-end: none;
 }
 
 #{ $gameProfileTwoColumnMainContent } {
@@ -90,6 +95,11 @@
 #{ $gameProfileMainCard },
 #{ $gameProfileSmallCard } {
     @include card-format($padding: var(--space-16), $filled: true);
+}
+
+#{ $gameProfileCardDescriptionFade } {
+    background-color: var(--card-color-filled);
+    mask-image: linear-gradient(to top, var(--card-color-filled) 20%, transparent 100%);
 }
 
 #{ $gameProfileCommunityContainer },
@@ -105,4 +115,8 @@
 #{ $gameProfileCommunityGuildIcon } {
     border-color: var(--card-color-filled);
     border-radius: 28px;
+}
+
+#{ $gameProfileCommunityCardContainer } {
+    @include card-format($filled: true);
 }

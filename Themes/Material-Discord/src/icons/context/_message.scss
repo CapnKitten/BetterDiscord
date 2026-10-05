@@ -59,10 +59,7 @@
         $icons: (
             'search-google':                'search',
             'vc-search-text':               'search',
-            'vc-search-custom-engine':      'search',
-            //'translator-translate-message': 'translate',
-            //'remove-emoji-reactions':       'cancel',
-            //'remove-reactions':             'remove_circle'
+            'vc-search-custom-engine':      'search'
         );
 
         @each $option, $icon in $icons {
@@ -105,6 +102,13 @@
                     -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
                 }
             }
+        }
+
+        // MESSAGE CONTEXT ICONS -> REVERSE FLEX DIRECTION
+
+        &[id^="message-devmode-copy-id-"],
+        &[id^="message-actions-devmode-copy-id-"] {
+            @extend %iconReverseDirection;
         }
     }
 }
