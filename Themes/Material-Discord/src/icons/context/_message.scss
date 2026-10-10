@@ -22,8 +22,11 @@
             'forward':                          'forward',
             'thread':                           'thread',
             'copy-text':                        'content_copy',
+            'search-google':                    'search',
             'translator-translate-message':     'translate',
             'translate':                        'g_translate',
+            'bookmark':                         'bookmark',
+            'reminder':                         'alarm',
             'apps':                             'apps',
             'pin':                              'pin',
             'mark-unread':                      'mark_chat_unread',
@@ -57,7 +60,6 @@
         // MESSAGE CONTEXT ICONS -> ADD ICONS TO OPTIONS WITHOUT DEFAULT ICONS
 
         $icons: (
-            'search-google':                'search',
             'vc-search-text':               'search',
             'vc-search-custom-engine':      'search'
         );
@@ -101,6 +103,10 @@
                 &::before {
                     -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
                 }
+
+                #{ $menuPopoutIconContainer } {
+                    display: none;
+                }
             }
         }
 
@@ -109,6 +115,30 @@
         &[id^="message-devmode-copy-id-"],
         &[id^="message-actions-devmode-copy-id-"] {
             @extend %iconReverseDirection;
+        }
+    }
+
+    // MESSAGE CONTEXT ICONS -> CUSTOM MENU ITEMS
+
+    #{ $menuPopoutCustomItem } {
+        #{ $menuPopoutItem } {
+            @extend %iconReverseDirection;
+        }
+
+        $icons: (
+            'translator-search-translation':    'translate'
+        );
+
+        @each $option, $icon in $icons {
+            &#message-#{ $option } {
+                @extend %iconWithLeftContainerBase;
+
+                #{ $menuPopoutIconContainerLeft } {
+                    &::before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                    }
+                }
+            }
         }
     }
 }
