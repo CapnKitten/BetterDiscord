@@ -1,0 +1,30 @@
+@use '../classes' as *;
+@use '../mixins' as *;
+
+/*
+ *
+ *	BADGES MODAL
+ *
+ */
+
+#{ $badgeDirectoryPanel } {
+    background-color: var(--card-color-active);
+    border-radius: calc(var(--popout-radius-big) / 1.75);
+}
+
+#{ $badgeSlot } {
+    &:hover {
+        background-color: var(--card-color-hover);
+    }
+
+    @include card-option-select($radius-unselected: 24px, $selector: "#{ $badgeSlotSelected }");
+}
+
+#{ $badgeSlotIcon } {
+    filter: drop-shadow(0px 0px 10px hsl(0,0%,0%,0.6));
+}
+
+#{ $badgeDescriptionCard } {
+    background-color: var(--card-color-filled);
+    border-radius: calc(var(--popout-radius-big) / 1.75);
+}

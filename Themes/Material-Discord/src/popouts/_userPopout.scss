@@ -480,8 +480,25 @@
     }
 
     #{ $userProfileInner } {
+		flex-direction: column;
+		overflow: hidden;
         padding: var(--space-32);
-		gap: var(--space-32);
+		gap: var(--space-16);
+    }
+
+	#{ $userProfileModalV2PrivateProfileBanner } {
+        position: relative;
+        width: calc(100% - (var(--button-padding-start) * 2 + var(--space-32)));
+        height: var(--button-height);
+        background-color: var(--card-color-filled);
+        border-radius: var(--button-radius);
+        flex-shrink: 0;
+    }
+
+	#{ $userProfileModalV2ProfileContentColumns } {
+        flex: 1 1 0%;
+        min-height: 0;
+        height: auto;
     }
 
     #{ $userProfileModalV2Profile } {
@@ -565,7 +582,7 @@
 
         #{ $userProfileModalV2TabListScroller } {
             margin-inline-start: var(--space-24);
-			margin-inline-end: var(--space-16);
+			margin-inline-end: calc(var(--button-padding-start) * 2 + 16px);
         }
 
         #{ $discoverHeaderTopBar } {
@@ -582,6 +599,11 @@
 			font-size: 14px;
 		}
     }
+}
+
+#{ $userProfileModalV2HeaderButtons } {
+    inset-block-start: var(--space-32);
+    inset-inline-end: var(--space-32);
 }
 
 #{ $userProfileModalV2SaveChangesContainer } {
@@ -692,7 +714,7 @@
     border-radius: var(--card-radius-big);
 
     &#{ $userProfielModalV2EditProfileTileIsInteracting } {
-        #{ $userProfielModalV2EditProfileTileButton } {
+        #{ $userProfileModalV2EditProfileTileInner } {
             background-color: var(--card-color-active);
         }
     }
@@ -702,7 +724,7 @@
     }
 }
 
-#{ $userProfielModalV2EditProfileTileButton } {
+#{ $userProfileModalV2EditProfileTileInner } {
     background-color: var(--card-color-filled);
 }
 
