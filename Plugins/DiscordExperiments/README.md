@@ -2,7 +2,7 @@
 #### Enables Discord Experiments
 <hr>
 
-Current version: v1.0.0 (04/02/2023)
+Current version: v1.0.1 (06/11/2026)
 
 ## Changelog
 
