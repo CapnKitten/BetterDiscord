@@ -38,11 +38,12 @@
 @mixin input-format($important: false, $focus-within: false) {
 	height: var(--input-height);
 	padding: var(--input-padding);
+	gap: var(--space-8);
     background-color: var(--input-color) important($important);
     border-radius: var(--input-radius);
 	border: 1px solid transparent important($important);
 	color: var(--input-text-color);
-	font-size: 14px;
+	font-size: var(--input-font-size);
 	transition: var(--default-time) var(--default-animation) border-color;
 
     &:hover {
@@ -54,9 +55,12 @@
 			border-color: var(--input-border-color) important($important);
 		}
 	} @else {
-		&:focus {
-			border-color: var(--input-border-color) important($important);
-		}
+		&:not([data-read-only=true]) {
+	        &:has(input:focus,textarea:focus) {
+	            border-color: var(--input-border-color) important($important);
+				outline: none;
+	        }
+	    }
 	}
 
     &::-webkit-input-placeholder {

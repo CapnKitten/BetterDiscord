@@ -9,8 +9,8 @@
 
 #{ $emojiWrapper },
 #{ $emojiContentWrapper } {
-    grid-template-rows: 32px auto;
-    grid-row-gap: 16px;
+    grid-template-rows: var(--space-32) auto;
+    grid-row-gap: var(--space-16);
     background-color: var(--popout-color);
     border-radius: var(--popout-radius);
     box-shadow: var(--default-shadow);
@@ -19,12 +19,15 @@
 /* EMOJI PICKER -> NAV LIST */
 
 #{ $emojiPickerNavList } {
-    gap: 8px;
+    gap: var(--space-8);
 
     #{ $emojiPickerNavButton } {
+        height: var(--space-32);
         margin: 0;
-        padding: 0 12px;
-        border-radius: 18px;
+        padding-block: 0;
+        padding-inline: var(--space-12);
+        border-radius: var(--space-16);
+        line-height: var(--space-32);
 
         &:hover {
             background-color: var(--background-tinted-hover);
@@ -44,15 +47,11 @@
 }
 
 #{ $emojiPickerHeaderGif } {
-    padding-bottom: 16px;
+    padding-bottom: var(--space-16);
     background-color: var(--popout-color);
 }
 
 #{ $emojiPickerSearchBar } {
-    --input-padding: 0 calc(12px - (var(--scrollbar-width) / 2)) 0 12px;
-
-    @include input-format(false, true);
-
     #{ $emojiPickerSearchInner } {
         padding: 0;
 
@@ -77,10 +76,6 @@
     }
 }
 
-#{ $gifPickerSearchBar } {
-    @extend #{ $emojiPickerSearchBar };
-}
-
 /* EMOJI PICKER -> CONTENT */
 
 #{ $emojiCategoryWrapper } {
@@ -100,7 +95,7 @@
 }
 
 #{ $emojiGifContainer } {
-    background-color: var(--popout-color);
+    background-color: transparent;
 }
 
 #{ $emojiPickerItem } {
