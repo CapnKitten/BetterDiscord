@@ -39,7 +39,12 @@
             'copy-channel-topic':           'content_copy',
             'join-muted-custom-join-sound': 'volume_off',
             'open-chat':                    'chat',
-            'set-status':                   'edit'
+            'set-status':                   'edit',
+            'go-to-original-guild':         'open_in_new',
+            'set-channel-nickname':         'edit',
+            'archive-thread':               'archive',
+            'leave-thread':                 'message-minus',
+            'favorite-channel':             'unfavorite'
         );
 
         @each $option, $icon in $icons {
@@ -48,6 +53,26 @@
 
                 &::before {
                     -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                }
+            }
+        }
+
+        // CHANNEL CONTEXT ICONS -> REPLACE DEFAULT ICONS
+
+        $icons: (
+            'add-to-favorites':             'favorite',
+            'create-favorites-category':    'create_new_folder'
+        );
+
+        @each $option, $icon in $icons {
+            &#favorites-channel-list-context-#{ $option },
+            &#favorite-guild-header-add-context-#{ $option } {
+                @extend %iconWithContainerBase;
+
+                #{ $menuPopoutIconContainer } {
+                    &::before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                    }
                 }
             }
         }

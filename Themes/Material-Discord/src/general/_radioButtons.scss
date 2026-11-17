@@ -22,8 +22,12 @@
 }
 
 #{ $radioGroupOption } {
+	display: flex;
+    flex-wrap: wrap;
     padding-block: var(--space-12);
 	padding-inline: 44px var(--space-12);
+	align-items: center;
+    gap: var(--space-4);
     border-radius: calc(var(--card-radius-big) / 1.65) !important;
 	transition: var(--default-time) var(--default-animation) background-color, var(--default-time) var(--default-animation) color;
 
@@ -39,14 +43,34 @@
 			-webkit-mask-image: url('#{ $iconBaseUrl }/radio_button_checked.svg');
         }
     }
-}
 
-#{ $radioGroupOption } {
 	> #{ $radioIndicator } {
 		inset-block: 0;
 		inset-inline-start: var(--space-12);
 		margin: auto 0;
 	}
+
+	#{ $bodyMdNormal } {
+        flex: 0 0 100%;
+    }
+
+	#{ $radioItemDescription } {
+        flex: 0 0 100%;
+        margin: 0;
+    }
+
+	&#{ $radioGroupWithLeadingIcon } {
+        #{ $radioItemIcon } {
+            position: relative;
+            inset-block-start: unset;
+            inset-inline-start: unset;
+            flex: 0 0 auto;
+        }
+
+        #{ $bodyMdNormal } {
+            flex: 1 1 auto;
+        }
+    }
 }
 
 #{ $radioIndicator } {

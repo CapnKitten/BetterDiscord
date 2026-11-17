@@ -71,8 +71,8 @@
 }
 
 #{ $searchScroller } {
-	padding-block: 16px 8px;
-	padding-inline: 8px;
+	padding-block: var(--space-16) var(--space-8);
+	padding-inline: var(--space-8);
 }
 
 #{ $searchResultChannelNameContainer } {
@@ -88,8 +88,12 @@
 	#{ $messageWrapper } {
 		margin-block: 0 !important;
 		margin-inline: 60px 8px !important;
-		padding: 12px !important;
-		border-radius: var(--message-radius);
+		padding: var(--space-12) !important;
+
+		&:not(#{ $messageGroupStart }) {
+			border-start-start-radius: var(--message-radius);
+			border-start-end-radius: var(--message-radius);
+		}
 
 		&::before,
 		&::after {

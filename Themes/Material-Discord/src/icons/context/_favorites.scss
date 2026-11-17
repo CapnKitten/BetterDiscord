@@ -1,0 +1,35 @@
+@use '../../classes' as *;
+@use '../../config' as *;
+@use '../../placeholders' as *;
+
+/*
+ *
+ *  FAVORITES ICONS
+ *
+ */
+
+#{ $menuPopout } {
+    #{ $menuPopoutItem } {
+
+        // FAVORITES ICONS -> REPLACE DEFAULT ICONS
+
+        $icons: (
+            'favorites-thread-settings': 'settings',
+            'hide-favorites': 'visibility_off',
+            'reset-favorites': 'delete',
+        );
+
+        @each $option, $icon in $icons {
+            &#favorite-server-context-#{ $option } {
+                @extend %iconWithLeftContainerBase;
+                @extend %iconReverseDirection;
+
+                #{ $menuPopoutIconContainerLeft } {
+                    &::before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                    }
+                }
+            }
+        }
+    }
+}

@@ -48,5 +48,24 @@
                 }
             }
         }
+
+        // FORUM CONTEXT ICONS -> REPLACE DEFAULT ICONS
+
+        $icons: (
+            'favorite-channel': 'favorite'
+        );
+
+        @each $option, $icon in $icons {
+            &#thread-context-#{ $option } {
+                @extend %iconWithLeftContainerBase;
+                @extend %iconReverseDirection;
+
+                #{ $menuPopoutIconContainerLeft } {
+                    &::before {
+                        -webkit-mask-image: url('#{ $iconBaseUrl }/#{ $icon }.svg');
+                    }
+                }
+            }
+        }
     }
 }

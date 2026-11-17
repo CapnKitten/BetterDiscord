@@ -8,75 +8,45 @@
  */
 
 #{ $panels } {
-	width: calc(100% - 20px);
-	inset-inline-start: var(--space-12);
-	inset-block-end: var(--space-12);
-	margin: 0;
-	background-color: transparent !important;
-	border-radius: var(--sidebar-panel-radius-big);
-	border: none;
-	box-shadow: none;
-	transition: var(--default-time) var(--default-animation) left;
+    width: calc(100% - 20px);
+    inset-inline-start: var(--space-12);
+    inset-block-end: var(--space-12);
+    margin: 0;
+    background-color: transparent;
+    border-radius: var(--sidebar-panel-radius-big);
+    border: none;
 
     > div:not(:empty) {
-		+ div:empty {
-			+ div:empty {
-			   + #{ $accountPanel } {
-				   border-start-start-radius: var(--sidebar-panel-radius-small);
-				   border-start-end-radius: var(--sidebar-panel-radius-small);
-			   }
-		   }
-
-		   + div:not(:empty) {
- 	  			#{ $connectionPanel} {
- 	  				border-start-start-radius: var(--sidebar-panel-radius-small);
- 	  				border-start-end-radius: var(--sidebar-panel-radius-small);
- 	  			}
-			}
-		}
-
-        &:first-of-type {
+        &,
+        #{ $connectionPanel },
+        &#{ $questPanelMask } > div {
             border-start-start-radius: var(--sidebar-panel-radius-big);
             border-start-end-radius: var(--sidebar-panel-radius-big);
-
-            #{ $connectionPanel } {
-                border-start-start-radius: inherit;
-                border-start-end-radius: inherit;
-            }
-        }
-
-        &:last-of-type {
-            border-end-start-radius: var(--sidebar-panel-radius-big);
-            border-end-end-radius: var(--sidebar-panel-radius-big);
         }
     }
 
-    > div:empty {
-		+ #{ $activityPanel } {
-			border-start-start-radius: var(--sidebar-panel-radius-big);
-			border-start-end-radius: var(--sidebar-panel-radius-big);
-		}
-		
-		+ #{ $connectionPanelWrapper } {
-			#{ $connectionPanel} {
-				border-start-start-radius: var(--sidebar-panel-radius-big);
-				border-start-end-radius: var(--sidebar-panel-radius-big);
-			}
-		}
-
-		+ div:empty {
-			+ #{ $accountPanel } {
-                border-start-start-radius: var(--sidebar-panel-radius-big);
-                border-start-end-radius: var(--sidebar-panel-radius-big);
-            }
-		}
-
-        &:first-of-type {
-            + #{ $accountPanel } {
-                border-start-start-radius: var(--sidebar-panel-radius-big);
-                border-start-end-radius: var(--sidebar-panel-radius-big);
-            }
+    > div:not(:empty) ~ div:not(:empty) {
+        &,
+        #{ $connectionPanel },
+        &#{ $questPanelMask } > div {
+            border-start-start-radius: var(--sidebar-panel-radius-small);
+            border-start-end-radius: var(--sidebar-panel-radius-small);
         }
+    }
+
+    > #{ $spotifyPanel }:not(:empty):has(+ #{ $questPanelMask }:not(:empty)) {
+        border-start-start-radius: var(--sidebar-panel-radius-small);
+        border-start-end-radius: var(--sidebar-panel-radius-small);
+
+        + #{ $questPanelMask } > div {
+            border-start-start-radius: var(--sidebar-panel-radius-big);
+            border-start-end-radius: var(--sidebar-panel-radius-big);
+        }
+    }
+
+    > #{ $accountPanel } {
+        border-end-start-radius: var(--sidebar-panel-radius-big);
+        border-end-end-radius: var(--sidebar-panel-radius-big);
     }
 }
 
